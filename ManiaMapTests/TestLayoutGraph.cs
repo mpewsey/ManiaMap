@@ -49,10 +49,10 @@ namespace ManiaMapTests
         }
 
         [TestMethod]
-        public void TestGetCycleNodes1()
+        public void TestGetCycles1()
         {
             var graph = GetTestGraph1();
-            var cycles = graph.GetCycleNodes();
+            var cycles = graph.GetCycles();
             
             var expected = new List<List<int>>
             {
@@ -78,10 +78,10 @@ namespace ManiaMapTests
         }
 
         [TestMethod]
-        public void TestGetCycleNodes2()
+        public void TestGetCycles2()
         {
             var graph = GetTestGraph2();
-            var cycles = graph.GetCycleNodes();
+            var cycles = graph.GetCycles();
 
             var expected = new List<List<int>>
             {
@@ -104,6 +104,65 @@ namespace ManiaMapTests
                 cycles[i].Sort();
                 expected[i].Sort();
                 CollectionAssert.AreEqual(expected[i], cycles[i]);
+            }
+        }
+
+        [TestMethod]
+        public void TestGetBranches1()
+        {
+            var graph = GetTestGraph1();
+            var branches = graph.GetBranches();
+
+            var expected = new List<List<int>>
+            {
+                new() { 9, 5 },
+                new() { 8, 7, 4 },
+                new() { 1, 2, 3 },
+                new() { 11, 10, 6 },
+            };
+
+            for (int i = 0; i < branches.Count; i++)
+            {
+                Debug.WriteLine($"Branch {i}: {string.Join(", ", branches[i])}");
+            }
+
+            branches.Sort((x, y) => x.Count.CompareTo(y.Count));
+            expected.Sort((x, y) => x.Count.CompareTo(y.Count));
+            Assert.AreEqual(expected.Count, branches.Count);
+
+            for (int i = 0; i < branches.Count; i++)
+            {
+                branches[i].Sort();
+                expected[i].Sort();
+                CollectionAssert.AreEqual(expected[i], branches[i]);
+            }
+        }
+
+        [TestMethod]
+        public void TestGetChains1()
+        {
+            var graph = GetTestGraph1();
+            var chains = graph.GetChains();
+
+            var expected = new List<List<int>>
+            {
+
+            };
+
+            for (int i = 0; i < chains.Count; i++)
+            {
+                Debug.WriteLine($"Chain {i}: {string.Join(", ", chains[i])}");
+            }
+
+            chains.Sort((x, y) => x.Count.CompareTo(y.Count));
+            expected.Sort((x, y) => x.Count.CompareTo(y.Count));
+            Assert.AreEqual(expected.Count, chains.Count);
+
+            for (int i = 0; i < chains.Count; i++)
+            {
+                chains[i].Sort();
+                expected[i].Sort();
+                CollectionAssert.AreEqual(expected[i], chains[i]);
             }
         }
     }

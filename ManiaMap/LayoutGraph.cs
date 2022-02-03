@@ -118,7 +118,87 @@ namespace ManiaMap
             return Neighbors[id];
         }
 
-        public List<List<int>> GetCycleNodes()
+        public List<List<LayoutEdge>> GetChains()
+        {
+            var cycles = GetCycles().OrderBy(x => x.Count).Select(GetChainFromCycleNodes).ToList();
+            var result = GetChainsFromCycles(cycles);
+            var branches = GetBranches().OrderBy(x => x.Count).Select(GetChainFromBranchNodes);
+            result.AddRange(branches);
+            return result;
+        }
+
+        public List<List<int>> GetBranches()
+        {
+            var cycles = GetCycles();
+            var marked = new HashSet<int>(Nodes.Count);
+            var parents = new Dictionary<int, int>(Nodes.Count);
+            var branches = new List<List<int>>();
+
+            foreach (var cycle in cycles)
+            {
+                foreach (var node in cycle)
+                {
+                    marked.Add(node);
+                }
+            }
+
+            foreach (var node in marked.ToList())
+            {
+                BranchSearch(node, -1, parents, marked, branches);
+            }
+
+            return branches;
+        }
+
+        private void BranchSearch(int node, int parent, Dictionary<int, int> parents, HashSet<int> marked, List<List<int>> branches)
+        {
+            if (parents.ContainsKey(node))
+            {
+                var branch = new List<int> { parent, node };
+                branches.Add(branch);
+                marked.Add(node);
+                var current = node;
+                var isMarked = false;
+
+                while (!isMarked)
+                {
+                    current = parents[current];
+                    branch.Add(current);
+                    isMarked = !marked.Add(current);
+                }
+
+                return;
+            }
+            
+            var neighbors = Neighbors[node];
+            parents[node] = parent;
+
+            if (neighbors.Count == 1)
+            {
+                var branch = new List<int> { node };
+                branches.Add(branch);
+                marked.Add(node);
+                var current = node;
+                var isMarked = false;
+
+                while (!isMarked)
+                {
+                    current = parents[current];
+                    branch.Add(current);
+                    isMarked = !marked.Add(current);
+                }
+
+                return;
+            }
+
+            foreach (var neighbor in neighbors)
+            {
+                if (!marked.Contains(neighbor))
+                    BranchSearch(neighbor, node, parents, marked, branches);
+            }
+        }
+
+        public List<List<int>> GetCycles()
         {
             var parents = new Dictionary<int, int>(Nodes.Count);
             var colors = new Dictionary<int, int>(Nodes.Count);
@@ -180,6 +260,54 @@ namespace ManiaMap
                     result.Add(list);
                     sets.Add(new(list));
                 }
+            }
+
+            return result;
+        }
+
+        private List<LayoutEdge> GetChainFromCycleNodes(List<int> nodes)
+        {
+            var chain = new List<LayoutEdge>(nodes.Count)
+            {
+                GetEdge(nodes[0], nodes[^1])
+            };
+
+            for (int i = 1; i < nodes.Count; i++)
+            {
+                chain.Add(GetEdge(nodes[i - 1], nodes[i]));
+            }
+
+            return chain;
+        }
+
+        private List<LayoutEdge> GetChainFromBranchNodes(List<int> nodes)
+        {
+            var chain = new List<LayoutEdge>(nodes.Count);
+
+            for (int i = 1; i < nodes.Count; i++)
+            {
+                chain.Add(GetEdge(nodes[i - 1], nodes[i]));
+            }
+
+            return chain;
+        }
+
+        private static List<List<LayoutEdge>> GetChainsFromCycles(List<List<LayoutEdge>> cycles)
+        {
+            var result = new List<List<LayoutEdge>>();
+
+            for (int i = 0; i < cycles.Count; i++)
+            {
+                for (int j = i + 1; j < cycles.Count; j++)
+                {
+                    foreach (var edge in cycles[i])
+                    {
+                        cycles[j].Remove(edge);
+                    }
+                }
+
+                if (cycles[i].Count > 0)
+                    result.Add(cycles[i]);
             }
 
             return result;
