@@ -123,14 +123,21 @@ namespace ManiaMap
             var parents = new Dictionary<int, int>(Nodes.Count);
             var colors = new Dictionary<int, int>(Nodes.Count);
             var cycles = new List<List<int>>();
-            CycleSearch(Nodes.Keys.Min(), -1, parents, colors, cycles);
-            return cycles;
+
+            foreach (var node in Nodes.Keys)
+            {
+                CycleSearch(node, -1, parents, colors, cycles);
+                parents.Clear();
+                colors.Clear();
+            }
+
+            return GetUniqueCollections(cycles);
         }
 
         private void CycleSearch(int node, int parent, Dictionary<int, int> parents, Dictionary<int, int> colors, List<List<int>> cycles)
         {
             colors.TryGetValue(node, out var color);
-            
+
             if (color == 2)
                 return;
 
@@ -159,6 +166,23 @@ namespace ManiaMap
             }
 
             colors[node] = 2;
+        }
+
+        private static List<List<T>> GetUniqueCollections<T>(List<List<T>> lists)
+        {
+            var sets = new List<HashSet<T>>();
+            var result = new List<List<T>>();
+
+            foreach (var list in lists)
+            {
+                if (!sets.Any(x => x.SetEquals(list)))
+                {
+                    result.Add(list);
+                    sets.Add(new(list));
+                }
+            }
+
+            return result;
         }
     }
 }
