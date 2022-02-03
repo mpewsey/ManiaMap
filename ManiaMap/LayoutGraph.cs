@@ -115,9 +115,7 @@ namespace ManiaMap
 
         public IEnumerable<int> GetNeighbors(int id)
         {
-            if (Neighbors.TryGetValue(id, out var neighbors))
-                return neighbors;
-            return Array.Empty<int>();
+            return Neighbors[id];
         }
 
         public List<List<int>> GetCycleNodes()
@@ -129,14 +127,14 @@ namespace ManiaMap
             CycleSearch(Nodes.Keys.Min(), -1, parents, colors, cycles, ref cycle);
             var result = new List<List<int>>();
 
-            foreach (var pair in cycles)
-            {
-                while (result.Count <= pair.Value)
+            foreach (var (node, chain) in cycles)
+            {   
+                while (result.Count <= chain)
                 {
                     result.Add(new());
                 }
 
-                result[pair.Value].Add(pair.Key);
+                result[chain].Add(node);
             }
 
             return result;
@@ -167,7 +165,7 @@ namespace ManiaMap
             parents[node] = parent;
             colors[node] = 1;
 
-            foreach (var neighbor in GetNeighbors(node))
+            foreach (var neighbor in Neighbors[node])
             {
                 if (neighbor != parents[node])
                     CycleSearch(neighbor, node, parents, colors, cycles, ref cycle);
