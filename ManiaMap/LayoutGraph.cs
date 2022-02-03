@@ -120,27 +120,14 @@ namespace ManiaMap
 
         public List<List<int>> GetCycleNodes()
         {
-            int cycle = 0;
             var parents = new Dictionary<int, int>(Nodes.Count);
             var colors = new Dictionary<int, int>(Nodes.Count);
-            var cycles = new Dictionary<int, int>(Nodes.Count);
-            CycleSearch(Nodes.Keys.Min(), -1, parents, colors, cycles, ref cycle);
-            var result = new List<List<int>>();
-
-            foreach (var (node, chain) in cycles)
-            {   
-                while (result.Count <= chain)
-                {
-                    result.Add(new());
-                }
-
-                result[chain].Add(node);
-            }
-
-            return result;
+            var cycles = new List<List<int>>();
+            CycleSearch(Nodes.Keys.Min(), -1, parents, colors, cycles);
+            return cycles;
         }
 
-        private void CycleSearch(int node, int parent, Dictionary<int, int> parents, Dictionary<int, int> colors, Dictionary<int, int> cycles, ref int cycle)
+        private void CycleSearch(int node, int parent, Dictionary<int, int> parents, Dictionary<int, int> colors, List<List<int>> cycles)
         {
             colors.TryGetValue(node, out var color);
             
@@ -150,15 +137,15 @@ namespace ManiaMap
             if (color == 1)
             {
                 var current = parent;
-                cycles[current] = cycle;
+                var cycle = new List<int> { current };
+                cycles.Add(cycle);
 
                 while (current != node)
                 {
                     current = parents[current];
-                    cycles[current] = cycle;
+                    cycle.Add(current);
                 }
 
-                cycle++;
                 return;
             }
 
@@ -168,7 +155,7 @@ namespace ManiaMap
             foreach (var neighbor in Neighbors[node])
             {
                 if (neighbor != parents[node])
-                    CycleSearch(neighbor, node, parents, colors, cycles, ref cycle);
+                    CycleSearch(neighbor, node, parents, colors, cycles);
             }
 
             colors[node] = 2;

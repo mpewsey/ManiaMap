@@ -29,7 +29,7 @@ namespace ManiaMapTests
 
             return graph;
         }
-        
+
         [TestMethod]
         public void TestGetCycleNodes()
         {
