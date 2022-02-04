@@ -61,7 +61,15 @@ namespace ManiaMapTests
         public void TestFindBranches1()
         {
             var graph = GetTestGraph1();
-            var branches = new GraphBranchDecomposer(graph).FindBranches();
+            var trunk = new List<int>();
+            var cycles = new GraphCycleDecomposer(graph).FindCycles();
+
+            foreach (var cycle in cycles)
+            {
+                trunk.AddRange(cycle);
+            }
+
+            var branches = new GraphBranchDecomposer(graph).FindBranches(trunk);
 
             var expected = new List<List<int>>
             {

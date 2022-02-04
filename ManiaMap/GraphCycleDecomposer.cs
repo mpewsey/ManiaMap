@@ -18,6 +18,10 @@ namespace ManiaMap
             Graph = graph;
         }
 
+        /// <summary>
+        /// Returns lists of all combinations of unique node cycles in the graph
+        /// using depth first search.
+        /// </summary>
         public List<List<int>> FindCycles()
         {
             Cycles.Clear();
@@ -33,6 +37,9 @@ namespace ManiaMap
             return GetUniqueCycles();
         }
 
+        /// <summary>
+        /// Performs depth first search to find cycles in the graph.
+        /// </summary>
         private void CycleSearch(int node, int parent)
         {
             Colors.TryGetValue(node, out var color);
@@ -73,6 +80,9 @@ namespace ManiaMap
             Colors[node] = 2;
         }
 
+        /// <summary>
+        /// Returns a new list with all unique cycles in the graph.
+        /// </summary>
         private List<List<int>> GetUniqueCycles()
         {
             var sets = new List<HashSet<int>>();

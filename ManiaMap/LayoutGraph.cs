@@ -17,6 +17,9 @@ namespace ManiaMap
             return $"LayoutGraph(Nodes.Count = {Nodes.Count}, Edges.Count = {Edges.Count})";
         }
 
+        /// <summary>
+        /// Adds a node to the graph and returns it.
+        /// </summary>
         public LayoutNode AddNode(int id)
         {
             if (!Nodes.TryGetValue(id, out var node))
@@ -33,6 +36,9 @@ namespace ManiaMap
             return node;
         }
 
+        /// <summary>
+        /// Adds an edge to the graph and returns it.
+        /// </summary>
         public LayoutEdge AddEdge(int fromNode, int toNode)
         {
             if (!TryGetEdge(fromNode, toNode, out var edge))
@@ -56,6 +62,9 @@ namespace ManiaMap
             return edge;
         }
 
+        /// <summary>
+        /// Removes a node from the graph.
+        /// </summary>
         public void RemoveNode(int id)
         {
             var neighbors = Neighbors[id];
@@ -73,6 +82,9 @@ namespace ManiaMap
             Nodes.Remove(id);
         }
 
+        /// <summary>
+        /// Removes an edge from the graph.
+        /// </summary>
         public void RemoveEdge(int node1, int node2)
         {
             Neighbors[node1].Remove(node2);
@@ -82,11 +94,17 @@ namespace ManiaMap
                 Edges.Remove(new(node2, node1));
         }
 
+        /// <summary>
+        /// Returns the node in the graph.
+        /// </summary>
         public LayoutNode GetNode(int id)
         {
             return Nodes[id];
         }
 
+        /// <summary>
+        /// Tries to get the edge in the graph.
+        /// </summary>
         public bool TryGetEdge(int node1, int node2, out LayoutEdge edge)
         {
             if (Edges.TryGetValue(new(node1, node2), out edge))
@@ -103,21 +121,33 @@ namespace ManiaMap
             return Edges[new(node1, node2)];
         }
 
+        /// <summary>
+        /// Returns an enumerable of all nodes in the graph.
+        /// </summary>
         public IEnumerable<LayoutNode> GetNodes()
         {
             return Nodes.Values;
         }
 
+        /// <summary>
+        /// Returns an enumerable of all edges in the graph.
+        /// </summary>
         public IEnumerable<LayoutEdge> GetEdges()
         {
             return Edges.Values;
         }
 
+        /// <summary>
+        /// Returns an enumerable of all neighbors for the specified node.
+        /// </summary>
         public IEnumerable<int> GetNeighbors(int id)
         {
             return Neighbors[id];
         }
 
+        /// <summary>
+        /// Returns an enumerable of all node ID's in the graph.
+        /// </summary>
         public IEnumerable<int> GetNodeIds()
         {
             return Nodes.Keys;
