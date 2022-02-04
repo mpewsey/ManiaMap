@@ -21,19 +21,25 @@ namespace ManiaMap
         /// <summary>
         /// Returns list of branches in the graph originating from the specified trunk nodes.
         /// </summary>
-        public List<List<int>> FindBranches(IEnumerable<int> trunk)
+        public List<List<int>> FindBranches()
         {
             Marked.Clear();
             Parents.Clear();
             Branches.Clear();
+            var cycles = new GraphCycleDecomposer(Graph).FindCycles();
 
             // Add trunk nodes to marked set.
-            foreach (var node in trunk)
+            foreach (var cycle in cycles)
             {
-                Marked.Add(node);
+                foreach (var node in cycle)
+                {
+                    Marked.Add(node);
+                }
             }
 
             // Search for branches beginning at each trunk node.
+            var trunk = Marked.ToArray();
+
             foreach (var node in trunk)
             {
                 BranchSearch(node, -1);
