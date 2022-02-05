@@ -6,43 +6,35 @@ using System.Threading.Tasks;
 
 namespace ManiaMap
 {
-    public class GraphCycleDecomposer
+    public static class GraphCycleDecomposer
     {
-        private LayoutGraph Graph { get; }
-        private Dictionary<int, int> Parents { get; } = new();
-        private Dictionary<int, int> Colors { get; } = new();
-        private List<List<int>> Cycles { get; } = new();
-
-        public GraphCycleDecomposer(LayoutGraph graph)
-        {
-            Graph = graph;
-        }
-
         /// <summary>
         /// Returns lists of all combinations of unique node cycles in the graph
         /// using depth first search.
         /// </summary>
-        public List<List<int>> FindCycles()
+        public static List<List<int>> FindCycles(LayoutGraph graph)
         {
-            Cycles.Clear();
+            var cycles = new List<List<int>>();
+            var parents = new Dictionary<int, int>(graph.NodeCount());
+            var colors = new Dictionary<int, int>(graph.NodeCount());
 
             // Run searches from every node to accumulate complete set of cycles.
-            foreach (var node in Graph.GetNodeIds())
+            foreach (var node in graph.GetNodeIds())
             {
-                Parents.Clear();
-                Colors.Clear();
-                CycleSearch(node, -1);
+                CycleSearch(graph, node, -1, parents, colors, cycles);
+                parents.Clear();
+                colors.Clear();
             }
 
-            return GetUniqueCycles();
+            return GetUniqueCycles(cycles);
         }
 
         /// <summary>
         /// Performs depth first search to find cycles in the graph.
         /// </summary>
-        private void CycleSearch(int node, int parent)
+        private static void CycleSearch(LayoutGraph graph, int node, int parent, Dictionary<int, int> parents, Dictionary<int, int> colors, List<List<int>> cycles)
         {
-            Colors.TryGetValue(node, out var color);
+            colors.TryGetValue(node, out var color);
 
             // Tree traversal from this node is already complete.
             if (color == 2)
@@ -54,12 +46,12 @@ namespace ManiaMap
             {
                 var current = parent;
                 var cycle = new List<int> { current };
-                Cycles.Add(cycle);
+                cycles.Add(cycle);
 
                 // Accumulate parents into cycle until origin node is encountered.
                 while (current != node)
                 {
-                    current = Parents[current];
+                    current = parents[current];
                     cycle.Add(current);
                 }
 
@@ -67,28 +59,28 @@ namespace ManiaMap
             }
 
             // Change color to indicate search is in progress for node.
-            Colors[node] = 1;
-            Parents[node] = parent;
+            colors[node] = 1;
+            parents[node] = parent;
             
-            foreach (var neighbor in Graph.GetNeighbors(node))
+            foreach (var neighbor in graph.GetNeighbors(node))
             {
-                if (neighbor != Parents[node])
-                    CycleSearch(neighbor, node);
+                if (neighbor != parents[node])
+                    CycleSearch(graph, neighbor, node, parents, colors, cycles);
             }
 
             // Change color to indicate search from node is complete.
-            Colors[node] = 2;
+            colors[node] = 2;
         }
 
         /// <summary>
         /// Returns a new list with all unique cycles in the graph.
         /// </summary>
-        private List<List<int>> GetUniqueCycles()
+        private static List<List<int>> GetUniqueCycles(List<List<int>> cycles)
         {
             var sets = new List<HashSet<int>>();
             var result = new List<List<int>>();
 
-            foreach (var cycle in Cycles)
+            foreach (var cycle in cycles)
             {
                 if (!sets.Any(x => x.SetEquals(cycle)))
                 {

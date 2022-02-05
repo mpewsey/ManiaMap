@@ -79,7 +79,7 @@ namespace ManiaMapTests
         public void TestFindCycles1()
         {
             var graph = GetTestGraph1();
-            var cycles = new GraphCycleDecomposer(graph).FindCycles();
+            var cycles = GraphCycleDecomposer.FindCycles(graph);
 
             var expected = new List<List<int>>
             {
@@ -94,7 +94,7 @@ namespace ManiaMapTests
         public void TestFindCycles2()
         {
             var graph = GetTestGraph2();
-            var cycles = new GraphCycleDecomposer(graph).FindCycles();
+            var cycles = GraphCycleDecomposer.FindCycles(graph);
 
             var expected = new List<List<int>>
             {

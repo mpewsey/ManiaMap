@@ -114,11 +114,31 @@ namespace ManiaMap
             return false;
         }
 
+        /// <summary>
+        /// Returns the edge with the specified nodes. The order of the input nodes
+        /// does not matter.
+        /// </summary>
         public LayoutEdge GetEdge(int node1, int node2)
         {
             if (Edges.TryGetValue(new(node2, node1), out var edge))
                 return edge;
             return Edges[new(node1, node2)];
+        }
+
+        /// <summary>
+        /// Returns the number of nodes in the graph.
+        /// </summary>
+        public int NodeCount()
+        {
+            return Nodes.Count;
+        }
+
+        /// <summary>
+        /// Returns the number of edges in the graph.
+        /// </summary>
+        public int EdgeCount()
+        {
+            return Edges.Count;
         }
 
         /// <summary>

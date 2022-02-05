@@ -57,7 +57,7 @@ namespace ManiaMapTests
         public void TestFindChains1()
         {
             var graph = GetTestGraph1();
-            var chains = new GraphChainDecomposer(graph).FindChains();
+            var chains = GraphChainDecomposer.FindChains(graph);
 
             var expected = new List<List<LayoutEdge>>
             {
