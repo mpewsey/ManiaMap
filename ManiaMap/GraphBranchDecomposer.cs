@@ -9,7 +9,7 @@ namespace ManiaMap
     public static class GraphBranchDecomposer
     {
         /// <summary>
-        /// Returns list of branches in the graph originating from the specified trunk nodes.
+        /// Returns a list of branches originating from the graph's cycles.
         /// </summary>
         public static List<List<int>> FindBranches(LayoutGraph graph)
         {

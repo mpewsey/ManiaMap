@@ -13,28 +13,32 @@ namespace ManiaMap
         /// </summary>
         public static List<List<LayoutEdge>> FindChains(LayoutGraph graph)
         {
-            var chains = GetCycleChains(graph);
-            RemoveDuplicateEdges(chains);
-            chains = SplitBrokenChains(chains);
+            var chains = new List<List<LayoutEdge>>();
+            AddCycleChains(graph, chains);
             AddBranchChains(graph, chains);
+            RemoveDuplicateEdges(chains);
+            SplitBrokenChains(chains);
             return FormSequentialChains(chains);
         }
 
-        private static List<List<LayoutEdge>> GetCycleChains(LayoutGraph graph)
+        /// <summary>
+        /// Returns a list of chains for all cycles in the graph.
+        /// </summary>
+        private static void AddCycleChains(LayoutGraph graph, List<List<LayoutEdge>> chains)
         {
             var cycles = GraphCycleDecomposer.FindCycles(graph);
             cycles.Sort((x, y) => x.Count.CompareTo(y.Count));
-            var chains = new List<List<LayoutEdge>>(cycles.Count);
 
             foreach (var cycle in cycles)
             {
                 cycle.Add(cycle[0]);
                 chains.Add(GetChainEdges(graph, cycle));
             }
-
-            return chains;
         }
 
+        /// <summary>
+        /// Adds chains for all branches of the graph to the input list.
+        /// </summary>
         private static void AddBranchChains(LayoutGraph graph, List<List<LayoutEdge>> chains)
         {
             var branches = GraphBranchDecomposer.FindBranches(graph);
@@ -45,26 +49,32 @@ namespace ManiaMap
             }
         }
 
-        private static List<List<LayoutEdge>> SplitBrokenChains(List<List<LayoutEdge>> chains)
+        /// <summary>
+        /// Splits any non sequential chains into separate chains and returns a new list.
+        /// </summary>
+        private static void SplitBrokenChains(List<List<LayoutEdge>> chains)
         {
-            var result = new List<List<LayoutEdge>>(chains.Count);
-
-            foreach (var chain in chains)
+            for (int i = 0; i < chains.Count; i++)
             {
-                if (ChainIsSequential(chain))
+                var chain = chains[i];
+
+                for (int j = 1; j < chain.Count; j++)
                 {
-                    result.Add(chain);
-                    continue;
+                    var x = chain[j - 1];
+                    var y = chain[j];
+
+                    if (x.FromNode != y.FromNode && x.FromNode != y.ToNode && x.ToNode != y.FromNode && x.ToNode != y.ToNode)
+                    {
+                        chains[i] = chain.GetRange(0, j);
+                        chains.Insert(i + 1, chain.GetRange(j, chain.Count - j));
+                        break;
+                    }
                 }
-
-                throw new NotImplementedException();
             }
-
-            return result;
         }
 
         /// <summary>
-        /// Returns a list of sequential chains.
+        /// Returns a new list of sequential chains.
         /// </summary>
         private static List<List<LayoutEdge>> FormSequentialChains(List<List<LayoutEdge>> chains)
         {
@@ -72,43 +82,68 @@ namespace ManiaMap
             var result = new List<List<LayoutEdge>>(chains.Count);
             var pool = new LinkedList<List<LayoutEdge>>(chains);
 
-            while (pool.First != null)
+            if (pool.First != null)
             {
-                if (marked.Count == 0)
+                var chain = pool.First.Value;
+                MarkNodes(chain, marked);
+                result.Add(chain);
+                pool.RemoveFirst();
+            }
+
+            for (int i = 1; i < chains.Count; i++)
+            {
+                var chain = FindNextChain(pool, marked);
+                MarkNodes(chain, marked);
+                result.Add(chain);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Returns the next chain in the sequence.
+        /// </summary>
+        private static List<LayoutEdge> FindNextChain(LinkedList<List<LayoutEdge>> pool, HashSet<int> marked)
+        {
+            for (var node = pool.First; node != null; node = node.Next)
+            {
+                var chain = node.Value;
+
+                // Check if first edge forms sequence.
+                var first = chain[0];
+                
+                if (marked.Contains(first.FromNode) || marked.Contains(first.ToNode))
                 {
-                    var chain = pool.First.Value;
-                    pool.RemoveFirst();
-                    result.Add(chain);
-                    MarkNodes(chain, marked);
-                    continue;
+                    pool.Remove(node);
+                    return chain;
                 }
 
-                for (var node = pool.First; node != null; node = node.Next)
+                // Check if last edge forms sequence.
+                var last = chain[^1];
+
+                if (marked.Contains(last.FromNode) || marked.Contains(last.ToNode))
                 {
-                    var chain = node.Value;
-                    var first = chain[0];
-                    var last = chain[^1];
+                    pool.Remove(node);
+                    chain.Reverse();
+                    return chain;
+                }
 
-                    if (marked.Contains(first.FromNode) || marked.Contains(first.ToNode))
+                // If the chain is a cycle, shift the elements of the chain to make a possible sequence.
+                if (ChainIsCycle(chain))
+                {
+                    var index = chain.FindIndex(x => marked.Contains(x.FromNode) || marked.Contains(x.ToNode));
+
+                    if (index >= 0)
                     {
                         pool.Remove(node);
-                        result.Add(chain);
-                        MarkNodes(chain, marked);
-                        break;
-                    }
-
-                    if (marked.Contains(last.FromNode) || marked.Contains(last.ToNode))
-                    {
-                        pool.Remove(node);
-                        chain.Reverse();
-                        result.Add(chain);
-                        MarkNodes(chain, marked);
-                        break;
+                        chain.AddRange(chain.GetRange(0, index));
+                        chain.RemoveRange(0, index);
+                        return chain;
                     }
                 }
             }
 
-            return result;
+            throw new Exception("Failed to find next chain in sequence.");
         }
 
         /// <summary>
@@ -139,24 +174,6 @@ namespace ManiaMap
         }
 
         /// <summary>
-        /// Returns true if the chain is sequential.
-        /// </summary>
-        private static bool ChainIsSequential(List<LayoutEdge> chain)
-        {
-            for (int i = 1; i < chain.Count; i++)
-            {
-                var x = chain[i - 1];
-                var y = chain[i];
-
-                if (x.FromNode != y.FromNode && x.FromNode != y.ToNode
-                    && x.ToNode != y.FromNode && x.ToNode != y.ToNode)
-                    return false;
-            }
-
-            return true;
-        }
-
-        /// <summary>
         /// Removes any duplicate edges from the list of chains. The first
         /// occurence of an edge is retained.
         /// </summary>
@@ -176,6 +193,21 @@ namespace ManiaMap
             }
 
             chains.RemoveAll(x => x.Count == 0);
+        }
+
+        /// <summary>
+        /// Returns true if the chain is a cycle.
+        /// </summary>
+        private static bool ChainIsCycle(List<LayoutEdge> chain)
+        {
+            if (chain.Count > 2)
+            {
+                var x = chain[0];
+                var y = chain[^1];
+                return x.FromNode == y.FromNode || x.FromNode == y.ToNode || x.ToNode == y.FromNode || x.ToNode == y.ToNode;
+            }
+
+            return false;
         }
     }
 }
