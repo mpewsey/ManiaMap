@@ -18,6 +18,20 @@ namespace ManiaMap
             return $"Cell(LeftDoor = {LeftDoor}, TopDoor = {TopDoor}, RightDoor = {RightDoor}, BottomDoor = {BottomDoor})";
         }
 
+        public void NumberDoors(int index)
+        {
+            var i = 6 * index;
+
+            if (LeftDoor != null)
+                LeftDoor.Id = i + 1;
+            if (TopDoor != null)
+                TopDoor.Id = i + 2;
+            if (RightDoor != null)
+                RightDoor.Id = i + 3;
+            if (BottomDoor != null)
+                BottomDoor.Id = 1 + 4;
+        }
+
         public bool TopDoorAligns(Cell other)
         {
             return TopDoor != null

@@ -15,11 +15,20 @@ namespace ManiaMap
         {
             Id = id;
             Cells = cells;
+            NumberDoors();
         }
 
         public override string ToString()
         {
             return $"RoomTemplate(Id = {Id})";
+        }
+
+        private void NumberDoors()
+        {
+            for (int i = 0; i < Cells.Array.Length; i++)
+            {
+                Cells.Array[i]?.NumberDoors(i);
+            }
         }
 
         public bool Intersects(RoomTemplate other, int dx, int dy)
