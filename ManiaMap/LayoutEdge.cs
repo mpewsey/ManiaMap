@@ -10,11 +10,13 @@ namespace ManiaMap
     {
         public int FromNode { get; }
         public int ToNode { get; }
+        public EdgeDirection Direction { get; set; }
 
-        public LayoutEdge(int fromNode, int toNode)
+        public LayoutEdge(int fromNode, int toNode, EdgeDirection direction = EdgeDirection.Both)
         {
             FromNode = fromNode;
             ToNode = toNode;
+            Direction = direction;
         }
 
         public override string ToString()
