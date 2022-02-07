@@ -30,7 +30,7 @@ namespace ManiaMap
         /// </summary>
         public List<List<int>> FindBranches()
         {
-            var cycles = new GraphCycleDecomposer(Graph).FindCycles();
+            var cycles = Graph.FindCycles();
             Marked.Clear();
             Parents.Clear();
             Branches.Clear();

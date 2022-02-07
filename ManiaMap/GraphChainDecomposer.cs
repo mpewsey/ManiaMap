@@ -45,7 +45,7 @@ namespace ManiaMap
         /// </summary>
         private void AddCycleChains()
         {
-            var cycles = new GraphCycleDecomposer(Graph).FindCycles();
+            var cycles = Graph.FindCycles();
             cycles.Sort((x, y) => x.Count.CompareTo(y.Count));
 
             foreach (var cycle in cycles)
@@ -60,7 +60,7 @@ namespace ManiaMap
         /// </summary>
         private void AddBranchChains()
         {
-            var branches = new GraphBranchDecomposer(Graph).FindBranches();
+            var branches = Graph.FindBranches();
 
             foreach (var branch in branches)
             {
