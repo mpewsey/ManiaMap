@@ -49,5 +49,10 @@ namespace ManiaMap
                 }
             }
         }
+
+        public Configuration[] GetConfigurations()
+        {
+            return Configurations.ToArray();
+        }
     }
 }

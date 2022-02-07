@@ -9,6 +9,7 @@ namespace ManiaMap
     public class LayoutNode
     {
         public int Id { get; }
+        public List<string> TemplateGroups { get; } = new();
 
         public LayoutNode(int id)
         {

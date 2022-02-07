@@ -21,5 +21,10 @@ namespace ManiaMap
         {
             return $"DoorPair(FromDoor = {FromDoor}, ToDoor = {ToDoor})";
         }
+
+        public EdgeDirection EdgeDirection()
+        {
+            return Door.GetEdgeDirection(FromDoor.Type, ToDoor.Type);
+        }
     }
 }

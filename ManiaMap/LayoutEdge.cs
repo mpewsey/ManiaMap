@@ -21,7 +21,7 @@ namespace ManiaMap
 
         public override string ToString()
         {
-            return $"LayoutEdge(FromNode = {FromNode}, ToNode = {ToNode})";
+            return $"LayoutEdge(FromNode = {FromNode}, ToNode = {ToNode}, Direction = {Direction})";
         }
     }
 }
