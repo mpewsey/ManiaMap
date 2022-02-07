@@ -8,7 +8,7 @@ namespace ManiaMapTests
     [TestClass]
     public class TestRoomTemplate
     {
-        private static RoomTemplate GetRoomTemplate1(int id)
+        private static RoomTemplate GetBoxRoom(int id)
         {
             var o = new Cell();
             var l = new Cell { LeftDoor = new(DoorType.TwoWay) };
@@ -26,7 +26,7 @@ namespace ManiaMapTests
             return new(id, cells);
         }
 
-        private static RoomTemplate GetRoomTemplate2(int id)
+        private static RoomTemplate GetPlusRoom(int id)
         {
             Cell x = null;
             var o = new Cell();
@@ -48,24 +48,24 @@ namespace ManiaMapTests
         [TestMethod]
         public void TestDoesNotIntersect()
         {
-            var from = GetRoomTemplate2(1);
-            var to = GetRoomTemplate2(2);
+            var from = GetPlusRoom(1);
+            var to = GetPlusRoom(2);
             Assert.IsFalse(from.Intersects(to, 2, 2));
         }
 
         [TestMethod]
         public void TestIntersects()
         {
-            var from = GetRoomTemplate2(1);
-            var to = GetRoomTemplate2(2);
+            var from = GetPlusRoom(1);
+            var to = GetPlusRoom(2);
             Assert.IsTrue(from.Intersects(to, 0, 0));
         }
 
         [TestMethod]
         public void TestNoDoorsAlign()
         {
-            var from = GetRoomTemplate1(1);
-            var to = GetRoomTemplate1(2);
+            var from = GetBoxRoom(1);
+            var to = GetBoxRoom(2);
             var doors = from.AlignedDoors(to, 0, 0);
             var expected = new List<DoorPair>();
             CollectionAssert.AreEqual(expected, doors);
@@ -74,8 +74,8 @@ namespace ManiaMapTests
         [TestMethod]
         public void TestRightDoorAligns()
         {
-            var from = GetRoomTemplate1(1);
-            var to = GetRoomTemplate1(2);
+            var from = GetBoxRoom(1);
+            var to = GetBoxRoom(2);
             var doors = from.AlignedDoors(to, 0, 3);
 
             var expected = new List<DoorPair>
@@ -89,8 +89,8 @@ namespace ManiaMapTests
         [TestMethod]
         public void TestLeftDoorAligns()
         {
-            var from = GetRoomTemplate1(1);
-            var to = GetRoomTemplate1(2);
+            var from = GetBoxRoom(1);
+            var to = GetBoxRoom(2);
             var doors = from.AlignedDoors(to, 0, -3);
 
             var expected = new List<DoorPair>
@@ -104,8 +104,8 @@ namespace ManiaMapTests
         [TestMethod]
         public void TestTopDoorAligns()
         {
-            var from = GetRoomTemplate1(1);
-            var to = GetRoomTemplate1(2);
+            var from = GetBoxRoom(1);
+            var to = GetBoxRoom(2);
             var doors = from.AlignedDoors(to, -3, 0);
 
             var expected = new List<DoorPair>
@@ -119,8 +119,8 @@ namespace ManiaMapTests
         [TestMethod]
         public void TestBottomDoorAligns()
         {
-            var from = GetRoomTemplate1(1);
-            var to = GetRoomTemplate1(2);
+            var from = GetBoxRoom(1);
+            var to = GetBoxRoom(2);
             var doors = from.AlignedDoors(to, 3, 0);
 
             var expected = new List<DoorPair>

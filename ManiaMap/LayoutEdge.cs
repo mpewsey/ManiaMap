@@ -23,5 +23,24 @@ namespace ManiaMap
         {
             return $"LayoutEdge(FromNode = {FromNode}, ToNode = {ToNode}, Direction = {Direction})";
         }
+
+        public string ToShortString()
+        {
+            switch (Direction)
+            {
+                case EdgeDirection.Both:
+                    return $"({FromNode} <=> {ToNode})";
+                case EdgeDirection.ForwardFlexible:
+                    return $"({FromNode} => {ToNode})";
+                case EdgeDirection.ForwardFixed:
+                    return $"({FromNode} -> {ToNode})";
+                case EdgeDirection.ReverseFlexible:
+                    return $"({FromNode} <= {ToNode})";
+                case EdgeDirection.ReverseFixed:
+                    return $"({FromNode} <- {ToNode})";
+                default:
+                    throw new Exception($"Unhandled Edge Direction: {Direction}.");
+            }
+        }
     }
 }

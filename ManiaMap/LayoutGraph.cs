@@ -8,13 +8,19 @@ namespace ManiaMap
 {
     public class LayoutGraph
     {
+        public int Id { get; }
         private Dictionary<int, LayoutNode> Nodes { get; } = new();
         private Dictionary<EdgeIndexes, LayoutEdge> Edges { get; } = new();
         private Dictionary<int, List<int>> Neighbors { get; } = new();
 
+        public LayoutGraph(int id)
+        {
+            Id = id;
+        }
+
         public override string ToString()
         {
-            return $"LayoutGraph(Nodes.Count = {Nodes.Count}, Edges.Count = {Edges.Count})";
+            return $"LayoutGraph(Id = {Id}, Nodes.Count = {Nodes.Count}, Edges.Count = {Edges.Count})";
         }
 
         /// <summary>
@@ -171,6 +177,21 @@ namespace ManiaMap
         public IEnumerable<int> GetNodeIds()
         {
             return Nodes.Keys;
+        }
+
+        public List<List<int>> FindCycles()
+        {
+            return new GraphCycleDecomposer(this).FindCycles();
+        }
+
+        public List<List<int>> FindBranches()
+        {
+            return new GraphBranchDecomposer(this).FindBranches();
+        }
+
+        public List<List<LayoutEdge>> FindChains(int maxBranchLength = -1)
+        {
+            return new GraphChainDecomposer(this, maxBranchLength).FindChains();
         }
     }
 }

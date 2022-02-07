@@ -1,16 +1,17 @@
 ﻿using ManiaMap;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Linq;
 
 namespace ManiaMapTests
 {
     [TestClass]
     public class TestGraphChainDecomposer
     {
-        private static LayoutGraph GetTestGraph1()
+        private static LayoutGraph GetGeekGraph()
         {
-            var graph = new LayoutGraph();
+            var graph = new LayoutGraph(1);
 
             graph.AddEdge(1, 2);
             graph.AddEdge(2, 3);
@@ -30,9 +31,9 @@ namespace ManiaMapTests
             return graph;
         }
 
-        private static LayoutGraph GetTestGraph2()
+        private static LayoutGraph GetLoopGraph()
         {
-            var graph = new LayoutGraph();
+            var graph = new LayoutGraph(1);
 
             graph.AddEdge(0, 1);
             graph.AddEdge(1, 2);
@@ -48,21 +49,27 @@ namespace ManiaMapTests
             return graph;
         }
 
-        private static void PrintChains(List<List<LayoutEdge>> chains)
+        [TestMethod]
+        public void TestFindChainsOfGeekGraph()
         {
-            for (int i = 0; i < chains.Count; i++)
+            var graph = GetGeekGraph();
+            var chains = graph.FindChains();
+
+            var expected = new List<List<LayoutEdge>>
             {
-                Debug.WriteLine($"Chain {i}: {string.Join(", ", chains[i])}");
-            }
-        }
+                new() { graph.GetEdge(11, 13), graph.GetEdge(11, 12), graph.GetEdge(12, 13) },
+                new() { graph.GetEdge(10, 11), graph.GetEdge(6, 10) },
+                new() { graph.GetEdge(4, 6), graph.GetEdge(5, 6), graph.GetEdge(3, 5), graph.GetEdge(3, 4) },
+                new() { graph.GetEdge(5, 9) },
+                new() { graph.GetEdge(4, 7), graph.GetEdge(7, 8) },
+                new() { graph.GetEdge(2, 3), graph.GetEdge(1, 2) },
 
-        private static void TestChainEquality(List<List<LayoutEdge>> expected, List<List<LayoutEdge>> chains)
-        {
-            Debug.WriteLine("\nExpected:");
-            PrintChains(expected);
-            Debug.WriteLine("\nResult:");
-            PrintChains(chains);
+            };
 
+            Console.WriteLine("Expected:");
+            expected.ForEach(x => Console.WriteLine(string.Join(", ", x.Select(x => x.ToShortString()))));
+            Console.WriteLine("\nResult:");
+            chains.ForEach(x => Console.WriteLine(string.Join(", ", x.Select(x => x.ToShortString()))));
             Assert.AreEqual(expected.Count, chains.Count);
 
             for (int i = 0; i < chains.Count; i++)
@@ -72,30 +79,10 @@ namespace ManiaMapTests
         }
 
         [TestMethod]
-        public void TestFindChains1()
+        public void TestFindChainsOfLoopGraph()
         {
-            var graph = GetTestGraph1();
-            var chains = GraphChainDecomposer.FindChains(graph);
-
-            var expected = new List<List<LayoutEdge>>
-            {
-                new() { graph.GetEdge(11, 13), graph.GetEdge(11, 12), graph.GetEdge(12, 13) },
-                new() { graph.GetEdge(10, 11), graph.GetEdge(6, 10) },
-                new() { graph.GetEdge(5, 6), graph.GetEdge(4, 6), graph.GetEdge(3, 4), graph.GetEdge(3, 5) },
-                new() { graph.GetEdge(5, 9) },
-                new() { graph.GetEdge(4, 7), graph.GetEdge(7, 8) },
-                new() { graph.GetEdge(2, 3), graph.GetEdge(1, 2) },
-
-            };
-
-            TestChainEquality(expected, chains);
-        }
-
-        [TestMethod]
-        public void TestFindChains2()
-        {
-            var graph = GetTestGraph2();
-            var chains = GraphChainDecomposer.FindChains(graph);
+            var graph = GetLoopGraph();
+            var chains = graph.FindChains();
 
             var expected = new List<List<LayoutEdge>>
             {
@@ -104,7 +91,16 @@ namespace ManiaMapTests
                 new() { graph.GetEdge(7, 3), graph.GetEdge(6, 7), graph.GetEdge(5, 6) },
             };
 
-            TestChainEquality(expected, chains);
+            Console.WriteLine("Expected:");
+            expected.ForEach(x => Console.WriteLine(string.Join(", ", x.Select(x => x.ToShortString()))));
+            Console.WriteLine("\nResult:");
+            chains.ForEach(x => Console.WriteLine(string.Join(", ", x.Select(x => x.ToShortString()))));
+            Assert.AreEqual(expected.Count, chains.Count);
+
+            for (int i = 0; i < chains.Count; i++)
+            {
+                CollectionAssert.AreEqual(expected[i], chains[i]);
+            }
         }
     }
 }

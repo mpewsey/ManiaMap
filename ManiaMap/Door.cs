@@ -141,5 +141,24 @@ namespace ManiaMap
                     throw new ArgumentException($"Unhandled Door Type: {to}.");
             }
         }
+
+        public static EdgeDirection ReverseEdgeDirection(EdgeDirection direction)
+        {
+            switch (direction)
+            {
+                case EdgeDirection.Both:
+                    return EdgeDirection.Both;
+                case EdgeDirection.ForwardFlexible:
+                    return EdgeDirection.ReverseFlexible;
+                case EdgeDirection.ForwardFixed:
+                    return EdgeDirection.ReverseFixed;
+                case EdgeDirection.ReverseFlexible:
+                    return EdgeDirection.ForwardFlexible;
+                case EdgeDirection.ReverseFixed:
+                    return EdgeDirection.ForwardFixed;
+                default:
+                    throw new ArgumentException($"Unhandled Edge Direction: {direction}.");
+            }
+        }
     }
 }
