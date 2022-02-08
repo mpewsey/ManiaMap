@@ -1,17 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ManiaMap
 {
+    [DataContract]
     public class Layout
     {
-        public int Seed { get; }
+        [DataMember(Order = 1)]
+        public int Seed { get; private set; }
+
+        [DataMember(Order = 2)]
+        public Dictionary<int, Room> Rooms { get; private set; } = new();
+
+        [DataMember(Order = 3)]
+        public List<DoorConnection> DoorConnections { get; private set; } = new();
+
         public int Rebases { get; private set; }
-        public Dictionary<int, Room> Rooms { get; } = new();
-        public List<DoorConnection> DoorConnections { get; } = new();
 
         public Layout(int seed)
         {

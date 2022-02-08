@@ -1,17 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ManiaMap
 {
+    [DataContract]
     public class DoorConnection
     {
-        public Room FromRoom { get; }
-        public Room ToRoom { get; }
-        public Door FromDoor { get; }
-        public Door ToDoor { get; }
+        [DataMember(Order = 1)]
+        public Room FromRoom { get; private set; }
+
+        [DataMember(Order = 2)]
+        public Room ToRoom { get; private set; }
+
+        [DataMember(Order = 3)]
+        public Door FromDoor { get; private set; }
+
+        [DataMember(Order = 4)]
+        public Door ToDoor { get; private set; }
 
         public DoorConnection(Room fromRoom, Room toRoom, Door fromDoor, Door toDoor)
         {

@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ManiaMap
 {
+    [DataContract(IsReference = true)]
     public class Door
     {
+        [DataMember(Order = 1)]
         public int Id { get; set; } = -1;
+
+        [DataMember(Order = 2)]
         public DoorType Type { get; set; }
 
         public Door(DoorType type)

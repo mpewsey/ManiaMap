@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ManiaMap
 {
+    [DataContract(IsReference = true)]
     public class RoomTemplate
     {
-        public int Id { get; }
-        public Array2D<Cell> Cells { get; }
+        [DataMember(Order = 1)]
+        public int Id { get; private set; }
+
+        [DataMember(Order = 2)]
+        public Array2D<Cell> Cells { get; private set; }
 
         public RoomTemplate(int id, Array2D<Cell> cells)
         {

@@ -1,16 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ManiaMap
 {
+    [DataContract]
     public class Array2D<T>
     {
-        public int Rows { get; }
-        public int Columns { get; }
-        public T[] Array { get; } = System.Array.Empty<T>();
+        [DataMember(Order = 1)]
+        public int Rows { get; private set; }
+
+        [DataMember(Order = 2)]
+        public int Columns { get; private set; }
+
+        [DataMember(Order = 3)]
+        public T[] Array { get; private set; } = System.Array.Empty<T>();
 
         public Array2D()
         {

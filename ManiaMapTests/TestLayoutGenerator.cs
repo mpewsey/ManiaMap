@@ -2,7 +2,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 
 namespace ManiaMapTests
 {
@@ -70,6 +72,33 @@ namespace ManiaMapTests
 
             Assert.AreEqual(graph.NodeCount(), layout.Rooms.Count);
             Assert.AreEqual(graph.EdgeCount(), layout.DoorConnections.Count);
+        }
+
+        [TestMethod]
+        public void TestSerialization()
+        {
+            var graph = GetCrossGraph();
+            var templateGroups = new TemplateGroups();
+            templateGroups.Add("Default", GetSquareTemplate());
+            var generator = new LayoutGenerator(1, graph, templateGroups);
+            var layout = generator.GenerateLayout();
+            Assert.IsNotNull(layout);
+
+            var directory = "Tests/LayoutGenerator";
+            Directory.CreateDirectory(directory);
+            var path = Path.Combine(directory, "Layout.xml");
+            var serializer = new DataContractSerializer(layout.GetType());
+
+            using (var stream = File.Create(path))
+            {
+                serializer.WriteObject(stream, layout);
+            }
+
+            using (var stream = File.OpenRead(path))
+            {
+                var copy = (Layout)serializer.ReadObject(stream);
+                Assert.AreEqual(layout.Seed, copy.Seed);
+            }
         }
     }
 }
