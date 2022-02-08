@@ -83,9 +83,7 @@ namespace ManiaMap.Tests
             var layout = generator.GenerateLayout();
             Assert.IsNotNull(layout);
 
-            var directory = "Tests/LayoutGenerator";
-            Directory.CreateDirectory(directory);
-            var path = Path.Combine(directory, "Layout.xml");
+            var path = "Layout.xml";
             var serializer = new DataContractSerializer(layout.GetType());
 
             using (var stream = File.Create(path))
