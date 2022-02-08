@@ -1,10 +1,9 @@
-﻿using ManiaMap;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ManiaMapTests
+namespace ManiaMap.Tests
 {
     [TestClass]
     public class TestGraphChainDecomposer

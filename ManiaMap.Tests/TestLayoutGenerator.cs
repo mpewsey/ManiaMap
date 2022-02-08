@@ -1,12 +1,11 @@
-﻿using ManiaMap;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 
-namespace ManiaMapTests
+namespace ManiaMap.Tests
 {
     [TestClass]
     public class TestLayoutGenerator

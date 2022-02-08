@@ -14,10 +14,10 @@ namespace ManiaMap
         public int Seed { get; private set; }
 
         [DataMember(Order = 2)]
-        public Dictionary<int, Room> Rooms { get; private set; } = new();
+        public Dictionary<int, Room> Rooms { get; private set; } = new Dictionary<int, Room>();
 
         [DataMember(Order = 3)]
-        public List<DoorConnection> DoorConnections { get; private set; } = new();
+        public List<DoorConnection> DoorConnections { get; private set; } = new List<DoorConnection>();
 
         public int Rebases { get; private set; }
 
@@ -29,8 +29,8 @@ namespace ManiaMap
         public Layout(Layout baseLayout)
         {
             Seed = baseLayout.Seed;
-            Rooms = new(baseLayout.Rooms);
-            DoorConnections = new(baseLayout.DoorConnections);
+            Rooms = new Dictionary<int, Room>(baseLayout.Rooms);
+            DoorConnections = new List<DoorConnection>(baseLayout.DoorConnections);
             baseLayout.Rebases++;
         }
 

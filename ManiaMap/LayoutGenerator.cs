@@ -36,7 +36,7 @@ namespace ManiaMap
             Chains = Graph.FindChains(MaxBranchLength);
             ConfigurationSpaces = TemplateGroups.GetConfigurationSpaces();
             var layouts = new Stack<Layout>();
-            layouts.Push(new(Seed));
+            layouts.Push(new Layout(Seed));
 
             while (layouts.Count > 0)
             {
@@ -131,7 +131,7 @@ namespace ManiaMap
 
             foreach (var template in templates)
             {
-                var space = ConfigurationSpaces[new(room.Template, template)];
+                var space = ConfigurationSpaces[new TemplatePair(room.Template, template)];
                 Shuffle(space.Configurations);
 
                 foreach (var config in space.Configurations)
@@ -165,7 +165,7 @@ namespace ManiaMap
             {
                 if (!layout.Intersects(template, 0, 0))
                 {
-                    layout.Rooms.Add(node.Id, new(node.Id, 0, 0, template));
+                    layout.Rooms.Add(node.Id, new Room(node.Id, 0, 0, template));
                     return true;
                 }
             }
@@ -188,7 +188,7 @@ namespace ManiaMap
             {
                 if (pair.EdgeDirection() == edge.Direction)
                 {
-                    layout.DoorConnections.Add(new(from, to, pair.FromDoor, pair.ToDoor));
+                    layout.DoorConnections.Add(new DoorConnection(from, to, pair.FromDoor, pair.ToDoor));
                     return true;
                 }
             }
