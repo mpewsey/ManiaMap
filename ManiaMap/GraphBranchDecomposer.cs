@@ -6,87 +6,132 @@ using System.Threading.Tasks;
 
 namespace ManiaMap
 {
-    public static class GraphBranchDecomposer
+    public class GraphBranchDecomposer
     {
+        private LayoutGraph Graph { get; }
+        private HashSet<int> Marked { get; }
+        private Dictionary<int, int> Parents { get; }
+        private List<List<int>> Branches { get; } = new();
+        
+        public GraphBranchDecomposer(LayoutGraph graph)
+        {
+            Graph = graph;
+            Marked = new(graph.NodeCount());
+            Parents = new(graph.NodeCount());
+        }
+
+        public override string ToString()
+        {
+            return $"GraphBranchDecomposer(Graph = {Graph})";
+        }
+
         /// <summary>
         /// Returns a list of branches originating from the graph's cycles.
         /// </summary>
-        public static List<List<int>> FindBranches(LayoutGraph graph)
+        public List<List<int>> FindBranches()
         {
-            var cycles = GraphCycleDecomposer.FindCycles(graph);
-            var marked = new HashSet<int>(graph.NodeCount());
-            var parents = new Dictionary<int, int>(graph.NodeCount());
-            var branches = new List<List<int>>();
+            Marked.Clear();
+            Parents.Clear();
+            Branches.Clear();
+            var cycles = Graph.FindCycles();
 
             // Add trunk nodes to marked set.
             foreach (var cycle in cycles)
             {
                 foreach (var node in cycle)
                 {
-                    marked.Add(node);
+                    Marked.Add(node);
                 }
             }
 
+            // Use the node with the max neighbors if cycles do not exist.
+            if (Marked.Count == 0)
+            {
+                Marked.Add(MaxNeighborNode());
+            }
+
             // Search for branches beginning at each trunk node.
-            var trunk = marked.ToArray();
+            var trunk = Marked.ToArray();
 
             foreach (var node in trunk)
             {
-                BranchSearch(graph, node, -1, parents, marked, branches);
+                BranchSearch(node, -1);
             }
 
-            return branches;
+            return new(Branches);
+        }
+
+        /// <summary>
+        /// Returns the node with the maximum number of neighbors.
+        /// </summary>
+        private int MaxNeighborNode()
+        {
+            int maxNode = -1;
+            int maxNeighbors = -1;
+            
+            foreach (var node in Graph.GetNodeIds())
+            {
+                var count = Graph.GetNeighbors(node).Count();
+
+                if (count > maxNeighbors)
+                {
+                    maxNode = node;
+                    maxNeighbors = count;
+                }
+            }
+
+            return maxNode;
         }
 
         /// <summary>
         /// Performs depth first search for graph branches.
         /// </summary>
-        private static void BranchSearch(LayoutGraph graph, int node, int parent, Dictionary<int, int> parents, HashSet<int> marked, List<List<int>> branches)
+        private void BranchSearch(int node, int parent)
         {
             // If the node already has a parent, then it has been traversed previously from another trunk node.
             // The node is a member of a connecting branch between two trunk nodes.
-            if (parents.ContainsKey(node))
+            if (Parents.ContainsKey(node))
             {
                 var branch = new List<int> { parent, node };
-                AddParentsToBranch(node, branch, parents, marked);
-                branches.Add(branch);
+                AddParentsToBranch(node, branch);
+                Branches.Add(branch);
                 return;
             }
 
-            var neighbors = graph.GetNeighbors(node);
-            parents[node] = parent;
+            var neighbors = Graph.GetNeighbors(node);
+            Parents[node] = parent;
 
             // If the node is a deadend node, accumulate the parents into a branch.
             if (neighbors.Count() == 1)
             {
                 var branch = new List<int> { node };
-                AddParentsToBranch(node, branch, parents, marked);
-                branches.Add(branch);
+                AddParentsToBranch(node, branch);
+                Branches.Add(branch);
                 return;
             }
 
             foreach (var neighbor in neighbors)
             {
-                if (!marked.Contains(neighbor))
-                    BranchSearch(graph, neighbor, node, parents, marked, branches);
+                if (!Marked.Contains(neighbor))
+                    BranchSearch(neighbor, node);
             }
         }
 
         /// <summary>
         /// Accumulates the parents of the node into the branch.
         /// </summary>
-        private static void AddParentsToBranch(int node, List<int> branch, Dictionary<int, int> parents, HashSet<int> marked)
+        private void AddParentsToBranch(int node, List<int> branch)
         {
             var current = node;
             var isMarked = false;
-            marked.Add(node);
+            Marked.Add(node);
 
             // Accumulate parents into the branch until a marked node is encountered.
             while (!isMarked)
             {
-                current = parents[current];
+                current = Parents[current];
                 branch.Add(current);
-                isMarked = !marked.Add(current);
+                isMarked = !Marked.Add(current);
             }
         }
     }

@@ -1,16 +1,16 @@
 ﻿using ManiaMap;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace ManiaMapTests
 {
     [TestClass]
     public class TestGraphBranchDecomposer
     {
-        private static LayoutGraph GetTestGraph1()
+        private static LayoutGraph GetGeekGraph()
         {
-            var graph = new LayoutGraph();
+            var graph = new LayoutGraph(1);
 
             graph.AddEdge(1, 2);
             graph.AddEdge(2, 3);
@@ -30,20 +30,24 @@ namespace ManiaMapTests
             return graph;
         }
 
-        private static void PrintBranches(List<List<int>> branches)
+        [TestMethod]
+        public void TestFindBranchesOfGeekGraph()
         {
-            for (int i = 0; i < branches.Count; i++)
-            {
-                Debug.WriteLine($"Branch {i}: {string.Join(", ", branches[i])}");
-            }
-        }
+            var graph = GetGeekGraph();
+            var branches = graph.FindBranches();
 
-        private static void TestBranchEquality(List<List<int>> expected, List<List<int>> branches)
-        {
-            Debug.WriteLine("\nExpected:");
-            PrintBranches(expected);
-            Debug.WriteLine("\nResult:");
-            PrintBranches(branches);
+            var expected = new List<List<int>>
+            {
+                new() { 9, 5 },
+                new() { 8, 7, 4 },
+                new() { 1, 2, 3 },
+                new() { 11, 10, 6 },
+            };
+
+            Console.WriteLine("Expected:");
+            expected.ForEach(x => Console.WriteLine(string.Join(", ", x)));
+            Console.WriteLine("\nResult:");
+            branches.ForEach(x => Console.WriteLine(string.Join(", ", x)));
 
             branches.Sort((x, y) => x.Count.CompareTo(y.Count));
             expected.Sort((x, y) => x.Count.CompareTo(y.Count));
@@ -55,23 +59,6 @@ namespace ManiaMapTests
                 expected[i].Sort();
                 CollectionAssert.AreEqual(expected[i], branches[i]);
             }
-        }
-
-        [TestMethod]
-        public void TestFindBranches1()
-        {
-            var graph = GetTestGraph1();
-            var branches = GraphBranchDecomposer.FindBranches(graph);
-
-            var expected = new List<List<int>>
-            {
-                new() { 9, 5 },
-                new() { 8, 7, 4 },
-                new() { 1, 2, 3 },
-                new() { 11, 10, 6 },
-            };
-
-            TestBranchEquality(expected, branches);
         }
     }
 }

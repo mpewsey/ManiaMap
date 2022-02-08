@@ -6,182 +6,77 @@ using System.Threading.Tasks;
 
 namespace ManiaMap
 {
-    public static class GraphChainDecomposer
+    public class GraphChainDecomposer
     {
+        private LayoutGraph Graph { get; }
+        private int MaxBranchLength { get; }
+        private HashSet<int> Marked { get; }
+        private LinkedList<List<LayoutEdge>> Pool { get; } = new();
+        private List<List<LayoutEdge>> Chains { get; } = new();
+        
+        public GraphChainDecomposer(LayoutGraph graph, int maxBranchLength = -1)
+        {
+            Graph = graph;
+            MaxBranchLength = maxBranchLength;
+            Marked = new(graph.NodeCount());
+        }
+
+        public override string ToString()
+        {
+            return $"GraphChainDecomposer(Graph = {Graph}, MaxBranchLength = {MaxBranchLength})";
+        }
+
         /// <summary>
         /// Returns a new list of chains for the graph.
         /// </summary>
-        public static List<List<LayoutEdge>> FindChains(LayoutGraph graph)
+        public List<List<LayoutEdge>> FindChains()
         {
-            var chains = new List<List<LayoutEdge>>();
-            AddCycleChains(graph, chains);
-            AddBranchChains(graph, chains);
-            RemoveDuplicateEdges(chains);
-            SplitBrokenChains(chains);
-            return FormSequentialChains(chains);
+            Chains.Clear();
+            AddCycleChains();
+            AddBranchChains();
+            RemoveDuplicateEdges();
+            SplitBrokenChains();
+            SplitLongChains();
+            return FormSequentialChains();
         }
 
         /// <summary>
         /// Returns a list of chains for all cycles in the graph.
         /// </summary>
-        private static void AddCycleChains(LayoutGraph graph, List<List<LayoutEdge>> chains)
+        private void AddCycleChains()
         {
-            var cycles = GraphCycleDecomposer.FindCycles(graph);
+            var cycles = Graph.FindCycles();
             cycles.Sort((x, y) => x.Count.CompareTo(y.Count));
 
             foreach (var cycle in cycles)
             {
                 cycle.Add(cycle[0]);
-                chains.Add(GetChainEdges(graph, cycle));
+                Chains.Add(GetChainEdges(cycle));
             }
         }
 
         /// <summary>
         /// Adds chains for all branches of the graph to the input list.
         /// </summary>
-        private static void AddBranchChains(LayoutGraph graph, List<List<LayoutEdge>> chains)
+        private void AddBranchChains()
         {
-            var branches = GraphBranchDecomposer.FindBranches(graph);
+            var branches = Graph.FindBranches();
 
             foreach (var branch in branches)
             {
-                chains.Add(GetChainEdges(graph, branch));
+                Chains.Add(GetChainEdges(branch));
             }
-        }
-
-        /// <summary>
-        /// Splits any non sequential chains into separate chains and returns a new list.
-        /// </summary>
-        private static void SplitBrokenChains(List<List<LayoutEdge>> chains)
-        {
-            for (int i = 0; i < chains.Count; i++)
-            {
-                var chain = chains[i];
-
-                for (int j = 1; j < chain.Count; j++)
-                {
-                    var x = chain[j - 1];
-                    var y = chain[j];
-
-                    if (x.FromNode != y.FromNode && x.FromNode != y.ToNode && x.ToNode != y.FromNode && x.ToNode != y.ToNode)
-                    {
-                        chains[i] = chain.GetRange(0, j);
-                        chains.Insert(i + 1, chain.GetRange(j, chain.Count - j));
-                        break;
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Returns a new list of sequential chains.
-        /// </summary>
-        private static List<List<LayoutEdge>> FormSequentialChains(List<List<LayoutEdge>> chains)
-        {
-            var marked = new HashSet<int>();
-            var result = new List<List<LayoutEdge>>(chains.Count);
-            var pool = new LinkedList<List<LayoutEdge>>(chains);
-
-            if (pool.First != null)
-            {
-                var chain = pool.First.Value;
-                MarkNodes(chain, marked);
-                result.Add(chain);
-                pool.RemoveFirst();
-            }
-
-            for (int i = 1; i < chains.Count; i++)
-            {
-                var chain = FindNextChain(pool, marked);
-                MarkNodes(chain, marked);
-                result.Add(chain);
-            }
-
-            return result;
-        }
-
-        /// <summary>
-        /// Returns the next chain in the sequence.
-        /// </summary>
-        private static List<LayoutEdge> FindNextChain(LinkedList<List<LayoutEdge>> pool, HashSet<int> marked)
-        {
-            for (var node = pool.First; node != null; node = node.Next)
-            {
-                var chain = node.Value;
-
-                // Check if first edge forms sequence.
-                var first = chain[0];
-                
-                if (marked.Contains(first.FromNode) || marked.Contains(first.ToNode))
-                {
-                    pool.Remove(node);
-                    return chain;
-                }
-
-                // Check if last edge forms sequence.
-                var last = chain[^1];
-
-                if (marked.Contains(last.FromNode) || marked.Contains(last.ToNode))
-                {
-                    pool.Remove(node);
-                    chain.Reverse();
-                    return chain;
-                }
-
-                // If the chain is a cycle, shift the elements of the chain to make a possible sequence.
-                if (ChainIsCycle(chain))
-                {
-                    var index = chain.FindIndex(x => marked.Contains(x.FromNode) || marked.Contains(x.ToNode));
-
-                    if (index >= 0)
-                    {
-                        pool.Remove(node);
-                        chain.AddRange(chain.GetRange(0, index));
-                        chain.RemoveRange(0, index);
-                        return chain;
-                    }
-                }
-            }
-
-            throw new Exception("Failed to find next chain in sequence.");
-        }
-
-        /// <summary>
-        /// Adds the nodes in the chain to the marked set.
-        /// </summary>
-        private static void MarkNodes(List<LayoutEdge> chain, HashSet<int> marked)
-        {
-            foreach (var edge in chain)
-            {
-                marked.Add(edge.FromNode);
-                marked.Add(edge.ToNode);
-            }
-        }
-
-        /// <summary>
-        /// Returns a new list of edges based on a list of nodes.
-        /// </summary>
-        private static List<LayoutEdge> GetChainEdges(LayoutGraph graph, List<int> nodes)
-        {
-            var chain = new List<LayoutEdge>(nodes.Count);
-
-            for (int i = nodes.Count - 1; i >= 1; i--)
-            {
-                chain.Add(graph.GetEdge(nodes[i - 1], nodes[i]));
-            }
-
-            return chain;
         }
 
         /// <summary>
         /// Removes any duplicate edges from the list of chains. The first
         /// occurence of an edge is retained.
         /// </summary>
-        private static void RemoveDuplicateEdges(List<List<LayoutEdge>> chains)
+        private void RemoveDuplicateEdges()
         {
-            var marked = new HashSet<LayoutEdge>();
+            var marked = new HashSet<LayoutEdge>(Graph.EdgeCount());
 
-            foreach (var chain in chains)
+            foreach (var chain in Chains)
             {
                 for (int i = chain.Count - 1; i >= 0; i--)
                 {
@@ -192,7 +87,160 @@ namespace ManiaMap
                 }
             }
 
-            chains.RemoveAll(x => x.Count == 0);
+            Chains.RemoveAll(x => x.Count == 0);
+        }
+
+        /// <summary>
+        /// Splits any non sequential chains into separate chains and returns a new list.
+        /// </summary>
+        private void SplitBrokenChains()
+        {
+            for (int i = 0; i < Chains.Count; i++)
+            {
+                var chain = Chains[i];
+
+                for (int j = 1; j < chain.Count; j++)
+                {
+                    var x = chain[j - 1];
+                    var y = chain[j];
+
+                    if (x.FromNode != y.FromNode && x.FromNode != y.ToNode
+                        && x.ToNode != y.FromNode && x.ToNode != y.ToNode)
+                    {
+                        Chains[i] = chain.GetRange(0, j);
+                        Chains.Insert(i + 1, chain.GetRange(j, chain.Count - j));
+                        break;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Splits non cycle chains which exceed the specified max length. If the max
+        /// length is negative or zero, no action will be taken.
+        /// </summary>
+        private void SplitLongChains()
+        {
+            if (MaxBranchLength > 0)
+            {
+                for (int i = 0; i < Chains.Count; i++)
+                {
+                    var chain = Chains[i];
+
+                    if (!ChainIsCycle(chain) && chain.Count > MaxBranchLength)
+                    {
+                        Chains[i] = chain.GetRange(0, MaxBranchLength);
+                        Chains.Insert(i + 1, chain.GetRange(MaxBranchLength, chain.Count - MaxBranchLength));
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Returns a new list of sequential chains.
+        /// </summary>
+        private List<List<LayoutEdge>> FormSequentialChains()
+        {
+            Pool.Clear();
+            Marked.Clear();
+            var result = new List<List<LayoutEdge>>(Chains.Count);
+
+            foreach (var chain in Chains)
+            {
+                Pool.AddLast(chain);
+            }
+
+            if (Pool.First != null)
+            {
+                var chain = Pool.First.Value;
+                MarkNodes(chain);
+                result.Add(chain);
+                Pool.RemoveFirst();
+            }
+
+            for (int i = 1; i < Chains.Count; i++)
+            {
+                var chain = FindNextChain();
+                MarkNodes(chain);
+                result.Add(chain);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Returns the next chain in the sequence.
+        /// </summary>
+        private List<LayoutEdge> FindNextChain()
+        {
+            for (var node = Pool.First; node != null; node = node.Next)
+            {
+                var chain = node.Value;
+
+                // If the chain is a cycle, shift the elements of the chain to make a possible sequence.
+                if (ChainIsCycle(chain))
+                {
+                    var index = chain.FindIndex(x => Marked.Contains(x.FromNode) || Marked.Contains(x.ToNode));
+
+                    if (index >= 0)
+                    {
+                        Pool.Remove(node);
+                        chain.AddRange(chain.GetRange(0, index));
+                        chain.RemoveRange(0, index);
+                        return chain;
+                    }
+
+                    continue;
+                }
+
+                // Check if first edge forms sequence.
+                var first = chain[0];
+                
+                if (Marked.Contains(first.FromNode) || Marked.Contains(first.ToNode))
+                {
+                    Pool.Remove(node);
+                    return chain;
+                }
+
+                // Check if last edge forms sequence.
+                var last = chain[^1];
+
+                if (Marked.Contains(last.FromNode) || Marked.Contains(last.ToNode))
+                {
+                    Pool.Remove(node);
+                    chain.Reverse();
+                    return chain;
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Adds the nodes in the chain to the marked set.
+        /// </summary>
+        private void MarkNodes(List<LayoutEdge> chain)
+        {
+            foreach (var edge in chain)
+            {
+                Marked.Add(edge.FromNode);
+                Marked.Add(edge.ToNode);
+            }
+        }
+
+        /// <summary>
+        /// Returns a new list of edges based on a list of nodes.
+        /// </summary>
+        private List<LayoutEdge> GetChainEdges(List<int> nodes)
+        {
+            var chain = new List<LayoutEdge>(nodes.Count);
+
+            for (int i = nodes.Count - 1; i >= 1; i--)
+            {
+                chain.Add(Graph.GetEdge(nodes[i - 1], nodes[i]));
+            }
+
+            return chain;
         }
 
         /// <summary>
@@ -204,7 +252,9 @@ namespace ManiaMap
             {
                 var x = chain[0];
                 var y = chain[^1];
-                return x.FromNode == y.FromNode || x.FromNode == y.ToNode || x.ToNode == y.FromNode || x.ToNode == y.ToNode;
+
+                return x.FromNode == y.FromNode || x.FromNode == y.ToNode
+                    || x.ToNode == y.FromNode || x.ToNode == y.ToNode;
             }
 
             return false;

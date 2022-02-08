@@ -17,7 +17,12 @@ namespace ManiaMap
             ToIndex = to;
         }
 
-        public override bool Equals(object? obj)
+        public override string ToString()
+        {
+            return $"EdgeIndexes(FromIndex = {FromIndex}, ToIndex = {ToIndex})";
+        }
+
+        public override bool Equals(object obj)
         {
             return obj is EdgeIndexes indexes && Equals(indexes);
         }
