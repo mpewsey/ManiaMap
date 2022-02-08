@@ -177,7 +177,7 @@ namespace ManiaMap
                 // If the chain is a cycle, shift the elements of the chain to make a possible sequence.
                 if (ChainIsCycle(chain))
                 {
-                    var index = chain.FindIndex(x => Marked.Contains(x.FromNode) || Marked.Contains(x.ToNode));
+                    var index = chain.FindIndex(AnyNodeMarked);
 
                     if (index >= 0)
                     {
@@ -191,18 +191,14 @@ namespace ManiaMap
                 }
 
                 // Check if first edge forms sequence.
-                var first = chain[0];
-                
-                if (Marked.Contains(first.FromNode) || Marked.Contains(first.ToNode))
+                if (AnyNodeMarked(chain[0]))
                 {
                     Pool.Remove(node);
                     return chain;
                 }
 
                 // Check if last edge forms sequence.
-                var last = chain[chain.Count - 1];
-
-                if (Marked.Contains(last.FromNode) || Marked.Contains(last.ToNode))
+                if (AnyNodeMarked(chain[chain.Count - 1]))
                 {
                     Pool.Remove(node);
                     chain.Reverse();
@@ -211,6 +207,15 @@ namespace ManiaMap
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// Returns true if any node in the edge is marked.
+        /// </summary>
+        private bool AnyNodeMarked(LayoutEdge edge)
+        {
+            return Marked.Contains(edge.FromNode)
+                || Marked.Contains(edge.ToNode);
         }
 
         /// <summary>
