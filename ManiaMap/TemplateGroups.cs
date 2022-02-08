@@ -11,6 +11,20 @@ namespace ManiaMap
         public Dictionary<string, List<RoomTemplate>> Groups { get; } = new();
 
         /// <summary>
+        /// Adds the template to the group.
+        /// </summary>
+        public void Add(string group, RoomTemplate template)
+        {
+            if (Groups.TryGetValue(group, out var templates))
+            {
+                templates = new();
+                Groups.Add(group, templates);
+            }
+
+            templates.Add(template);
+        }
+
+        /// <summary>
         /// Returns an enumerable of all templates.
         /// </summary>
         public IEnumerable<RoomTemplate> AllTemplates()
