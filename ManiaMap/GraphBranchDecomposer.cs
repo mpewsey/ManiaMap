@@ -9,15 +9,14 @@ namespace ManiaMap
     public class GraphBranchDecomposer
     {
         private LayoutGraph Graph { get; }
-        private HashSet<int> Marked { get; }
+        private HashSet<int> Marked { get; } = new HashSet<int>();
         private Dictionary<int, int> Parents { get; }
-        private List<List<int>> Branches { get; } = new();
+        private List<List<int>> Branches { get; } = new List<List<int>>();
         
         public GraphBranchDecomposer(LayoutGraph graph)
         {
             Graph = graph;
-            Marked = new(graph.NodeCount());
-            Parents = new(graph.NodeCount());
+            Parents = new Dictionary<int, int>(graph.NodeCount());
         }
 
         public override string ToString()
@@ -58,7 +57,7 @@ namespace ManiaMap
                 BranchSearch(node, -1);
             }
 
-            return new(Branches);
+            return new List<List<int>>(Branches);
         }
 
         /// <summary>

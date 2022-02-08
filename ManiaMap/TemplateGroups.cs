@@ -8,7 +8,7 @@ namespace ManiaMap
 {
     public class TemplateGroups
     {
-        public Dictionary<string, List<RoomTemplate>> Groups { get; } = new();
+        public Dictionary<string, List<RoomTemplate>> Groups { get; } = new Dictionary<string, List<RoomTemplate>>();
 
         /// <summary>
         /// Adds the template to the group.
@@ -17,7 +17,7 @@ namespace ManiaMap
         {
             if (!Groups.TryGetValue(group, out var templates))
             {
-                templates = new();
+                templates = new List<RoomTemplate>();
                 Groups.Add(group, templates);
             }
 
@@ -64,7 +64,7 @@ namespace ManiaMap
             {
                 foreach (var to in AllTemplates())
                 {
-                    spaces[new(from, to)] = new(from, to);
+                    spaces[new TemplatePair(from, to)] = new ConfigurationSpace(from, to);
                 }
             }
 

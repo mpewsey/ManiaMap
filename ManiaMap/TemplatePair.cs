@@ -30,7 +30,10 @@ namespace ManiaMap
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(FromTemplate, ToTemplate);
+            int hashCode = -2144273727;
+            hashCode = hashCode * -1521134295 + EqualityComparer<RoomTemplate>.Default.GetHashCode(FromTemplate);
+            hashCode = hashCode * -1521134295 + EqualityComparer<RoomTemplate>.Default.GetHashCode(ToTemplate);
+            return hashCode;
         }
 
         public static bool operator ==(TemplatePair left, TemplatePair right)

@@ -97,13 +97,13 @@ namespace ManiaMap
                             var right = other.Cells.GetOrDefault(x, y + 1);
 
                             if (cell.LeftDoorAligns(left))
-                                result.Add(new(cell.LeftDoor, left.RightDoor));
+                                result.Add(new DoorPair(cell.LeftDoor, left.RightDoor));
                             if (cell.TopDoorAligns(top))
-                                result.Add(new(cell.TopDoor, top.BottomDoor));
+                                result.Add(new DoorPair(cell.TopDoor, top.BottomDoor));
                             if (cell.RightDoorAligns(right))
-                                result.Add(new(cell.RightDoor, right.LeftDoor));
+                                result.Add(new DoorPair(cell.RightDoor, right.LeftDoor));
                             if (cell.BottomDoorAligns(bottom))
-                                result.Add(new(cell.BottomDoor, bottom.TopDoor));
+                                result.Add(new DoorPair(cell.BottomDoor, bottom.TopDoor));
                         }
                     }
                 }

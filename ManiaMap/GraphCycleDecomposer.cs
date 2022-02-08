@@ -11,13 +11,13 @@ namespace ManiaMap
         private LayoutGraph Graph { get; }
         private Dictionary<int, int> Parents { get; }
         private Dictionary<int, int> Colors { get; }
-        private List<List<int>> Cycles { get; } = new();
+        private List<List<int>> Cycles { get; } = new List<List<int>>();
 
         public GraphCycleDecomposer(LayoutGraph graph)
         {
             Graph = graph;
-            Parents = new(Graph.NodeCount());
-            Colors = new(Graph.NodeCount());
+            Parents = new Dictionary<int, int>(Graph.NodeCount());
+            Colors = new Dictionary<int, int>(Graph.NodeCount());
         }
 
         public override string ToString()
@@ -100,7 +100,7 @@ namespace ManiaMap
                 if (!sets.Any(x => x.SetEquals(cycle)))
                 {
                     result.Add(cycle);
-                    sets.Add(new(cycle));
+                    sets.Add(new HashSet<int>(cycle));
                 }
             }
 

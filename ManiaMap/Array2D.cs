@@ -62,7 +62,7 @@ namespace ManiaMap
             }
         }
 
-        public static implicit operator Array2D<T>(T[,] array) => new(array);
+        public static implicit operator Array2D<T>(T[,] array) => new Array2D<T>(array);
 
         public override string ToString()
         {

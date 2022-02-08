@@ -10,7 +10,7 @@ namespace ManiaMap
     {
         public RoomTemplate FromTemplate { get; }
         public RoomTemplate ToTemplate { get; }
-        public List<Configuration> Configurations { get; } = new();
+        public List<Configuration> Configurations { get; } = new List<Configuration>();
 
         public ConfigurationSpace(RoomTemplate from, RoomTemplate to)
         {
@@ -51,7 +51,7 @@ namespace ManiaMap
 
                 foreach (var pair in doorPairs)
                 {
-                    Configurations.Add(new(dx, dy, pair.FromDoor, pair.ToDoor));
+                    Configurations.Add(new Configuration(dx, dy, pair.FromDoor, pair.ToDoor));
                 }
             }
         }

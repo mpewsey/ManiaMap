@@ -9,9 +9,9 @@ namespace ManiaMap
     public class LayoutGraph
     {
         public int Id { get; }
-        private Dictionary<int, LayoutNode> Nodes { get; } = new();
-        private Dictionary<EdgeIndexes, LayoutEdge> Edges { get; } = new();
-        private Dictionary<int, List<int>> Neighbors { get; } = new();
+        private Dictionary<int, LayoutNode> Nodes { get; } = new Dictionary<int, LayoutNode>();
+        private Dictionary<EdgeIndexes, LayoutEdge> Edges { get; } = new Dictionary<EdgeIndexes, LayoutEdge>();
+        private Dictionary<int, List<int>> Neighbors { get; } = new Dictionary<int, List<int>>();
 
         public LayoutGraph(int id)
         {
@@ -36,7 +36,7 @@ namespace ManiaMap
 
             if (!Neighbors.ContainsKey(id))
             {
-                Neighbors.Add(id, new());
+                Neighbors.Add(id, new List<int>());
             }
 
             return node;
@@ -50,7 +50,7 @@ namespace ManiaMap
             if (!TryGetEdge(fromNode, toNode, out var edge))
             {
                 edge = new LayoutEdge(fromNode, toNode);
-                Edges.Add(new(fromNode, toNode), edge);
+                Edges.Add(new EdgeIndexes(fromNode, toNode), edge);
             }
 
             AddNode(fromNode);
@@ -80,8 +80,8 @@ namespace ManiaMap
                 var neighbor = neighbors[i];
                 Neighbors[neighbor].Remove(id);
 
-                if (!Edges.Remove(new(id, neighbor)))
-                    Edges.Remove(new(neighbor, id));
+                if (!Edges.Remove(new EdgeIndexes(id, neighbor)))
+                    Edges.Remove(new EdgeIndexes(neighbor, id));
             }
 
             Neighbors.Remove(id);
@@ -96,8 +96,8 @@ namespace ManiaMap
             Neighbors[node1].Remove(node2);
             Neighbors[node2].Remove(node1);
 
-            if (!Edges.Remove(new(node1, node2)))
-                Edges.Remove(new(node2, node1));
+            if (!Edges.Remove(new EdgeIndexes(node1, node2)))
+                Edges.Remove(new EdgeIndexes(node2, node1));
         }
 
         /// <summary>
@@ -113,9 +113,9 @@ namespace ManiaMap
         /// </summary>
         public bool TryGetEdge(int node1, int node2, out LayoutEdge edge)
         {
-            if (Edges.TryGetValue(new(node1, node2), out edge))
+            if (Edges.TryGetValue(new EdgeIndexes(node1, node2), out edge))
                 return true;
-            if (Edges.TryGetValue(new(node2, node1), out edge))
+            if (Edges.TryGetValue(new EdgeIndexes(node2, node1), out edge))
                 return true;
             return false;
         }
@@ -126,9 +126,9 @@ namespace ManiaMap
         /// </summary>
         public LayoutEdge GetEdge(int node1, int node2)
         {
-            if (Edges.TryGetValue(new(node2, node1), out var edge))
+            if (Edges.TryGetValue(new EdgeIndexes(node2, node1), out var edge))
                 return edge;
-            return Edges[new(node1, node2)];
+            return Edges[new EdgeIndexes(node1, node2)];
         }
 
         /// <summary>

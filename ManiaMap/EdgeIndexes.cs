@@ -35,7 +35,10 @@ namespace ManiaMap
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(FromIndex, ToIndex);
+            int hashCode = -1140728013;
+            hashCode = hashCode * -1521134295 + FromIndex.GetHashCode();
+            hashCode = hashCode * -1521134295 + ToIndex.GetHashCode();
+            return hashCode;
         }
 
         public static bool operator ==(EdgeIndexes left, EdgeIndexes right)

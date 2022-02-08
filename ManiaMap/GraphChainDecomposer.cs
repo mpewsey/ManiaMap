@@ -10,15 +10,14 @@ namespace ManiaMap
     {
         private LayoutGraph Graph { get; }
         private int MaxBranchLength { get; }
-        private HashSet<int> Marked { get; }
-        private LinkedList<List<LayoutEdge>> Pool { get; } = new();
-        private List<List<LayoutEdge>> Chains { get; } = new();
+        private HashSet<int> Marked { get; } = new HashSet<int>();
+        private LinkedList<List<LayoutEdge>> Pool { get; } = new LinkedList<List<LayoutEdge>>();
+        private List<List<LayoutEdge>> Chains { get; } = new List<List<LayoutEdge>>();
         
         public GraphChainDecomposer(LayoutGraph graph, int maxBranchLength = -1)
         {
             Graph = graph;
             MaxBranchLength = maxBranchLength;
-            Marked = new(graph.NodeCount());
         }
 
         public override string ToString()
@@ -74,7 +73,7 @@ namespace ManiaMap
         /// </summary>
         private void RemoveDuplicateEdges()
         {
-            var marked = new HashSet<LayoutEdge>(Graph.EdgeCount());
+            var marked = new HashSet<LayoutEdge>();
 
             foreach (var chain in Chains)
             {
@@ -203,7 +202,7 @@ namespace ManiaMap
                 }
 
                 // Check if last edge forms sequence.
-                var last = chain[^1];
+                var last = chain[chain.Count - 1];
 
                 if (Marked.Contains(last.FromNode) || Marked.Contains(last.ToNode))
                 {
@@ -251,7 +250,7 @@ namespace ManiaMap
             if (chain.Count > 2)
             {
                 var x = chain[0];
-                var y = chain[^1];
+                var y = chain[chain.Count - 1];
 
                 return x.FromNode == y.FromNode || x.FromNode == y.ToNode
                     || x.ToNode == y.FromNode || x.ToNode == y.ToNode;
