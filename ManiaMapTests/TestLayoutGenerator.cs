@@ -1,6 +1,8 @@
 ﻿using ManiaMap;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ManiaMapTests
 {
@@ -58,6 +60,16 @@ namespace ManiaMapTests
             var generator = new LayoutGenerator(0, graph, templateGroups);
             var layout = generator.GenerateLayout();
             Assert.IsNotNull(layout);
+
+            Console.WriteLine("Rooms:");
+            var rooms = layout.Rooms.Values.ToList();
+            rooms.ForEach(x => Console.WriteLine(x));
+
+            Console.WriteLine("\nDoor Connections:");
+            layout.DoorConnections.ForEach(x => Console.WriteLine(x));
+
+            Assert.AreEqual(graph.NodeCount(), layout.Rooms.Count);
+            Assert.AreEqual(graph.EdgeCount(), layout.DoorConnections.Count);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace ManiaMap
         /// </summary>
         public void Add(string group, RoomTemplate template)
         {
-            if (Groups.TryGetValue(group, out var templates))
+            if (!Groups.TryGetValue(group, out var templates))
             {
                 templates = new();
                 Groups.Add(group, templates);

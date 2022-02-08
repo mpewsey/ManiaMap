@@ -20,5 +20,10 @@ namespace ManiaMap
             FromDoor = fromDoor;
             ToDoor = toDoor;
         }
+
+        public override string ToString()
+        {
+            return $"DoorConnection(FromRoom = {FromRoom}, ToRoom = {ToRoom}, FromDoor = {FromDoor}, ToDoor = {ToDoor})";
+        }
     }
 }
