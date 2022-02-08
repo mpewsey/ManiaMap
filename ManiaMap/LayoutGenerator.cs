@@ -17,7 +17,7 @@ namespace ManiaMap
         private List<List<LayoutEdge>> Chains { get; set; }
         private Random Random { get; set; }
 
-        public LayoutGenerator(int seed, LayoutGraph graph, TemplateGroups templateGroups, int maxRebases = 10000, int maxBranchLength = 3)
+        public LayoutGenerator(int seed, LayoutGraph graph, TemplateGroups templateGroups, int maxRebases = 1000, int maxBranchLength = 3)
         {
             Seed = seed;
             MaxRebases = maxRebases;
