@@ -10,6 +10,9 @@ namespace ManiaMap
     {
         public Dictionary<string, List<RoomTemplate>> Groups { get; } = new();
 
+        /// <summary>
+        /// Returns an enumerable of all templates.
+        /// </summary>
         public IEnumerable<RoomTemplate> AllTemplates()
         {
             foreach (var group in Groups.Values)
@@ -21,6 +24,9 @@ namespace ManiaMap
             }
         }
 
+        /// <summary>
+        /// Returns a new list of room templates for the specified groups.
+        /// </summary>
         public List<RoomTemplate> GetTemplates(List<string> groups)
         {
             var templates = new List<RoomTemplate>();
@@ -33,6 +39,9 @@ namespace ManiaMap
             return templates;
         }
 
+        /// <summary>
+        /// Returns a new dictionary of configuration spaces for all templates.
+        /// </summary>
         public Dictionary<TemplatePair, ConfigurationSpace> GetConfigurationSpaces()
         {
             var spaces = new Dictionary<TemplatePair, ConfigurationSpace>();

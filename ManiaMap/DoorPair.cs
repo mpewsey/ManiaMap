@@ -22,6 +22,9 @@ namespace ManiaMap
             return $"DoorPair(FromDoor = {FromDoor}, ToDoor = {ToDoor})";
         }
 
+        /// <summary>
+        /// Returns the edge direction for the door pair.
+        /// </summary>
         public EdgeDirection EdgeDirection()
         {
             return Door.GetEdgeDirection(FromDoor.Type, ToDoor.Type);

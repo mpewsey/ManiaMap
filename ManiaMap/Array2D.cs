@@ -62,11 +62,17 @@ namespace ManiaMap
             return $"Array2D<{typeof(T)}>(Rows = {Rows}, Columns = {Columns})";
         }
 
+        /// <summary>
+        /// Returns true if the index exists.
+        /// </summary>
         public bool IndexExists(int row, int column)
         {
             return (uint)row < Rows && (uint)column < Columns;
         }
 
+        /// <summary>
+        /// Returns the flat array index corresponding to the specified 2D index.
+        /// </summary>
         private int Index(int row, int column)
         {
             return row * Columns + column;
@@ -88,6 +94,10 @@ namespace ManiaMap
             return result;
         }
 
+        /// <summary>
+        /// Returns the value at the specified index if it exists. If not,
+        /// returns the fallback value.
+        /// </summary>
         public T GetOrDefault(int row, int column, T fallback = default)
         {
             if (IndexExists(row, column))

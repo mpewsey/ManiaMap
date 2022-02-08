@@ -24,6 +24,9 @@ namespace ManiaMap
             return $"LayoutEdge(FromNode = {FromNode}, ToNode = {ToNode}, Direction = {Direction})";
         }
 
+        /// <summary>
+        /// Returns the short string for the edge.
+        /// </summary>
         public string ToShortString()
         {
             switch (Direction)

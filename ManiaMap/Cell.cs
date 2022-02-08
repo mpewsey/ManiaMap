@@ -18,6 +18,9 @@ namespace ManiaMap
             return $"Cell(LeftDoor = {LeftDoor}, TopDoor = {TopDoor}, RightDoor = {RightDoor}, BottomDoor = {BottomDoor})";
         }
 
+        /// <summary>
+        /// Numbers the doors of the cell based on the specified cell index.
+        /// </summary>
         public void NumberDoors(int index)
         {
             var i = 6 * index;
@@ -32,6 +35,9 @@ namespace ManiaMap
                 BottomDoor.Id = 1 + 4;
         }
 
+        /// <summary>
+        /// Returns true if the top door aligns with the bottom door of the specified cell.
+        /// </summary>
         public bool TopDoorAligns(Cell other)
         {
             return TopDoor != null
@@ -39,6 +45,9 @@ namespace ManiaMap
                 && Door.DoorTypesAligns(TopDoor.Type, other.BottomDoor.Type);
         }
 
+        /// <summary>
+        /// Returns true if the bottom door aligns with the top door of the specified cell.
+        /// </summary>
         public bool BottomDoorAligns(Cell other)
         {
             return BottomDoor != null
@@ -46,6 +55,9 @@ namespace ManiaMap
                 && Door.DoorTypesAligns(BottomDoor.Type, other.TopDoor.Type);
         }
 
+        /// <summary>
+        /// Returns true if the left door aligns with the right door of the specified cell.
+        /// </summary>
         public bool LeftDoorAligns(Cell other)
         {
             return LeftDoor != null
@@ -53,6 +65,9 @@ namespace ManiaMap
                 && Door.DoorTypesAligns(LeftDoor.Type, other.RightDoor.Type);
         }
 
+        /// <summary>
+        /// Returns true if the right door aligns with the left door of the specified cell.
+        /// </summary>
         public bool RightDoorAligns(Cell other)
         {
             return RightDoor != null

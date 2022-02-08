@@ -23,6 +23,9 @@ namespace ManiaMap
             return $"RoomTemplate(Id = {Id})";
         }
 
+        /// <summary>
+        /// Numbers the doors in the template.
+        /// </summary>
         private void NumberDoors()
         {
             for (int i = 0; i < Cells.Array.Length; i++)
@@ -31,6 +34,9 @@ namespace ManiaMap
             }
         }
 
+        /// <summary>
+        /// Returns true if the room templates another template at the specified offset.
+        /// </summary>
         public bool Intersects(RoomTemplate other, int dx, int dy)
         {
             var jStart = Math.Max(0, dy);
@@ -56,6 +62,9 @@ namespace ManiaMap
             return false;
         }
 
+        /// <summary>
+        /// Returns a list of doors aligning with a template at the specified offset.
+        /// </summary>
         public List<DoorPair> AlignedDoors(RoomTemplate other, int dx, int dy)
         {
             var result = new List<DoorPair>();

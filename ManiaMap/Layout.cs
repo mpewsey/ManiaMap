@@ -9,24 +9,18 @@ namespace ManiaMap
     public class Layout
     {
         public int Seed { get; }
-        public int MaxRebases { get; }
-        public int MaxBranchLength { get; }
         public int Rebases { get; private set; }
         public Dictionary<int, Room> Rooms { get; } = new();
         public List<DoorConnection> DoorConnections { get; } = new();
 
-        public Layout(int seed, int maxRebases, int maxBranchLength)
+        public Layout(int seed)
         {
             Seed = seed;
-            MaxRebases = maxRebases;
-            MaxBranchLength = maxBranchLength;
         }
 
         public Layout(Layout baseLayout)
         {
             Seed = baseLayout.Seed;
-            MaxRebases = baseLayout.Seed;
-            MaxBranchLength = baseLayout.MaxBranchLength;
             Rooms = new(baseLayout.Rooms);
             DoorConnections = new(baseLayout.DoorConnections);
             baseLayout.Rebases++;

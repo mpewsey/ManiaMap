@@ -24,6 +24,9 @@ namespace ManiaMap
             return $"ConfigurationSpace(FromTemplate = {FromTemplate}, ToTemplate = {ToTemplate}, Configurations.Count = {Configurations.Count})";
         }
 
+        /// <summary>
+        /// Finds all room configurations that var valid between the room templates.
+        /// </summary>
         private void FindConfigurations()
         {
             Configurations.Clear();
@@ -37,6 +40,9 @@ namespace ManiaMap
             }
         }
 
+        /// <summary>
+        /// Adds all configurations that are valid for the specified template offset.
+        /// </summary>
         private void FindIndexConfigurations(int dx, int dy)
         {
             if (!FromTemplate.Intersects(ToTemplate, dx, dy))

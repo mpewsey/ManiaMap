@@ -21,6 +21,9 @@ namespace ManiaMap
             return $"Door(Id = {Id}, Type = {Type})";
         }
 
+        /// <summary>
+        /// Returns true if the door types are compatible.
+        /// </summary>
         public static bool DoorTypesAligns(DoorType from, DoorType to)
         {
             switch (from)
@@ -38,6 +41,9 @@ namespace ManiaMap
             }
         }
 
+        /// <summary>
+        /// Returns the edge direction corresponding to the door type combination.
+        /// </summary>
         public static EdgeDirection GetEdgeDirection(DoorType from, DoorType to)
         {
             switch (from)
@@ -142,6 +148,9 @@ namespace ManiaMap
             }
         }
 
+        /// <summary>
+        /// Returns the reverse of the specified direction.
+        /// </summary>
         public static EdgeDirection ReverseEdgeDirection(EdgeDirection direction)
         {
             switch (direction)

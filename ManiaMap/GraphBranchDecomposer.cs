@@ -30,10 +30,10 @@ namespace ManiaMap
         /// </summary>
         public List<List<int>> FindBranches()
         {
-            var cycles = Graph.FindCycles();
             Marked.Clear();
             Parents.Clear();
             Branches.Clear();
+            var cycles = Graph.FindCycles();
 
             // Add trunk nodes to marked set.
             foreach (var cycle in cycles)

@@ -26,6 +26,9 @@ namespace ManiaMap
             TemplateGroups = templateGroups;
         }
 
+        /// <summary>
+        /// Generates a new layout.
+        /// </summary>
         public Layout GenerateLayout()
         {
             int chain = 0;
@@ -33,7 +36,7 @@ namespace ManiaMap
             Chains = Graph.FindChains(MaxBranchLength);
             ConfigurationSpaces = TemplateGroups.GetConfigurationSpaces();
             var layouts = new Stack<Layout>();
-            layouts.Push(new(Seed, MaxRebases, MaxBranchLength));
+            layouts.Push(new(Seed));
 
             while (layouts.Count > 0)
             {
@@ -44,6 +47,8 @@ namespace ManiaMap
                     return baseLayout;
                 }
 
+                // If layout has been used as base more than the maximum allowable,
+                // remove the layout and backtrack.
                 if (baseLayout.Rebases >= MaxRebases)
                 {
                     layouts.Pop();
@@ -51,6 +56,7 @@ namespace ManiaMap
                     continue;
                 }
 
+                // Create a new layout and try to add the next chain.
                 var layout = new Layout(baseLayout);
 
                 if (AddChain(layout, chain))
@@ -63,6 +69,10 @@ namespace ManiaMap
             return null;
         }
 
+        /// <summary>
+        /// Attempts to add the specified chain index to the layout.
+        /// Returns true if successful.
+        /// </summary>
         private bool AddChain(Layout layout, int index)
         {
             var chain = Chains[index];
@@ -78,6 +88,10 @@ namespace ManiaMap
             return true;
         }
 
+        /// <summary>
+        /// Attempts to add the specified edge to the layout.
+        /// Returns true if successful.
+        /// </summary>
         private bool AddEdge(Layout layout, LayoutEdge edge)
         {
             var fromExists = layout.Rooms.TryGetValue(edge.FromNode, out var fromRoom);
@@ -106,6 +120,10 @@ namespace ManiaMap
             return AddDoorConnection(layout, edge);
         }
 
+        /// <summary>
+        /// Attempts to add the room to the layout.
+        /// Returns true if successful.
+        /// </summary>
         private bool AddRoom(Layout layout, Room room, LayoutNode node, EdgeDirection direction)
         {
             var templates = TemplateGroups.GetTemplates(node.TemplateGroups);
@@ -135,6 +153,9 @@ namespace ManiaMap
             return false;
         }
 
+        /// <summary>
+        /// Attempts to add the first room to the layout.
+        /// </summary>
         private bool AddFirstRoom(Layout layout, LayoutNode node)
         {
             var templates = TemplateGroups.GetTemplates(node.TemplateGroups);
@@ -152,6 +173,10 @@ namespace ManiaMap
             return false;
         }
 
+        /// <summary>
+        /// Attempts to add the door connection to the layout.
+        /// Returns true if successful.
+        /// </summary>
         private bool AddDoorConnection(Layout layout, LayoutEdge edge)
         {
             var from = layout.Rooms[edge.FromNode];
@@ -171,6 +196,9 @@ namespace ManiaMap
             return false;
         }
 
+        /// <summary>
+        /// Shuffles the specified list in place.
+        /// </summary>
         private void Shuffle<T>(List<T> list)
         {
             for (int i = 0; i < list.Count; i++)

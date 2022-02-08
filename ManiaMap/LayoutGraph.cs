@@ -179,16 +179,25 @@ namespace ManiaMap
             return Nodes.Keys;
         }
 
+        /// <summary>
+        /// Returns a list of cycles in the graph.
+        /// </summary>
         public List<List<int>> FindCycles()
         {
             return new GraphCycleDecomposer(this).FindCycles();
         }
 
+        /// <summary>
+        /// Returns a list of branches in the graph.
+        /// </summary>
         public List<List<int>> FindBranches()
         {
             return new GraphBranchDecomposer(this).FindBranches();
         }
 
+        /// <summary>
+        /// Returns a list of chains in the graph.
+        /// </summary>
         public List<List<LayoutEdge>> FindChains(int maxBranchLength = -1)
         {
             return new GraphChainDecomposer(this, maxBranchLength).FindChains();
