@@ -1,16 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ManiaMap
 {
+    [DataContract]
     public class Cell
     {
+        [DataMember(Order = 1)]
         public Door TopDoor { get; set; }
+
+        [DataMember(Order = 2)]
         public Door BottomDoor { get; set; }
+
+        [DataMember(Order = 3)]
         public Door LeftDoor { get; set; }
+
+        [DataMember(Order = 4)]
         public Door RightDoor { get; set; }
 
         public override string ToString()
