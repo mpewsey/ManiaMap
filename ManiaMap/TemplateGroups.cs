@@ -8,6 +8,11 @@ namespace ManiaMap
     {
         public Dictionary<string, List<RoomTemplate>> Groups { get; } = new Dictionary<string, List<RoomTemplate>>();
 
+        public override string ToString()
+        {
+            return $"TemplateGroups(Groups.Count = {Groups.Count})";
+        }
+
         /// <summary>
         /// Adds the template to the group.
         /// </summary>
@@ -20,6 +25,20 @@ namespace ManiaMap
             }
 
             templates.Add(template);
+        }
+
+        /// <summary>
+        /// Adds the templates to the group.
+        /// </summary>
+        public void Add(string group, IEnumerable<RoomTemplate> templates)
+        {
+            if (!Groups.TryGetValue(group, out var list))
+            {
+                list = new List<RoomTemplate>();
+                Groups.Add(group, list);
+            }
+
+            list.AddRange(templates);
         }
 
         /// <summary>
