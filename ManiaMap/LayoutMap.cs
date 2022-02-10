@@ -90,6 +90,18 @@ namespace ManiaMap
             var backgroundBrush = new SolidBrush(BackgroundColor);
             graphic.FillRectangle(backgroundBrush, 0, 0, width, height);
 
+            // Draw grid if tile exists
+            if (Tiles.TryGetValue("Grid", out Bitmap gridTile))
+            {
+                for (int x = 0; x < width; x += TileWidth)
+                {
+                    for (int y = 0; y < height; y += TileHeight)
+                    {
+                        graphic.DrawImage(gridTile, x, y);
+                    }
+                }
+            }
+
             // Draw map tiles
             var cellBrush = new SolidBrush(CellBackgroundColor);
 
