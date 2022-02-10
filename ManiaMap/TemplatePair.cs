@@ -15,6 +15,11 @@ namespace ManiaMap
             ToTemplate = to;
         }
 
+        public override string ToString()
+        {
+            return $"TemplatePair(FromTemplate = {FromTemplate}, ToTemplate = {ToTemplate})";
+        }
+
         public override bool Equals(object obj)
         {
             return obj is TemplatePair pair && Equals(pair);
