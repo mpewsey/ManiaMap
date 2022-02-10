@@ -24,6 +24,11 @@ namespace ManiaMap
             TemplateGroups = templateGroups;
         }
 
+        public override string ToString()
+        {
+            return $"LayoutGenerator(Seed = {Seed})";
+        }
+
         /// <summary>
         /// Generates a new layout.
         /// </summary>
