@@ -38,6 +38,7 @@ namespace ManiaMap
                 { "TopWall", LoadTile(path + "TopWall.png") },
                 { "LeftWall", LoadTile(path + "LeftWall.png") },
                 { "RightWall", LoadTile(path + "RightWall.png") },
+                { "Grid", LoadTile(path + "Grid.png") },
             };
         }
     }
