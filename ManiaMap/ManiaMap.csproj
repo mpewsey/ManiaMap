@@ -2,6 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Matt Pewsey</Authors>
+    <Company>Matt Pewsey</Company>
+    <Copyright>Copyright © 2022</Copyright>
+    <Description>Graph-based procedural generation of metroidvania style maps</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/mpewsey/ManiaMap</RepositoryUrl>
+    <PackageTags>procedural-generation;roguelike;metroidvania</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,6 +33,13 @@
     <EmbeddedResource Include="MapTiles\Default\RightWall.png" />
     <EmbeddedResource Include="MapTiles\Default\TopDoor.png" />
     <EmbeddedResource Include="MapTiles\Default\TopWall.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
