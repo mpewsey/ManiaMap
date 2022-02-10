@@ -9,6 +9,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/mpewsey/ManiaMap</RepositoryUrl>
     <PackageTags>procedural-generation;roguelike;metroidvania</PackageTags>
+    <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
