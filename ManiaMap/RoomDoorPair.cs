@@ -15,6 +15,11 @@ namespace ManiaMap
             Door = door;
         }
 
+        public override string ToString()
+        {
+            return $"RoomDoorPair(Room = {Room}, Door = {Door})";
+        }
+
         public override bool Equals(object obj)
         {
             return obj is RoomDoorPair pair && Equals(pair);
