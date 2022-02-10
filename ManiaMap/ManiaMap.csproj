@@ -1,7 +1,33 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="MapTiles\Default\BottomDoor.png" />
+    <None Remove="MapTiles\Default\BottomWall.png" />
+    <None Remove="MapTiles\Default\LeftDoor.png" />
+    <None Remove="MapTiles\Default\LeftWall.png" />
+    <None Remove="MapTiles\Default\RightDoor.png" />
+    <None Remove="MapTiles\Default\RightWall.png" />
+    <None Remove="MapTiles\Default\TopDoor.png" />
+    <None Remove="MapTiles\Default\TopWall.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="MapTiles\Default\BottomDoor.png" />
+    <EmbeddedResource Include="MapTiles\Default\BottomWall.png" />
+    <EmbeddedResource Include="MapTiles\Default\LeftDoor.png" />
+    <EmbeddedResource Include="MapTiles\Default\LeftWall.png" />
+    <EmbeddedResource Include="MapTiles\Default\RightDoor.png" />
+    <EmbeddedResource Include="MapTiles\Default\RightWall.png" />
+    <EmbeddedResource Include="MapTiles\Default\TopDoor.png" />
+    <EmbeddedResource Include="MapTiles\Default\TopWall.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+  </ItemGroup>
 
 </Project>
