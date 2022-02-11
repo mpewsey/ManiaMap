@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace ManiaMap.Tests
+namespace MPewsey.ManiaMap.Tests
 {
     [TestClass]
     public class TestRoomTemplate

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 
-namespace ManiaMap
+namespace MPewsey.ManiaMap
 {
     [DataContract]
     public class Cell

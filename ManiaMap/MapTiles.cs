@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Reflection;
 using System.Text;
 
-namespace ManiaMap
+namespace MPewsey.ManiaMap
 {
     public static class MapTiles
     {

@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Text;
 
-namespace ManiaMap
+namespace MPewsey.ManiaMap
 {
     public class LayoutMap
     {

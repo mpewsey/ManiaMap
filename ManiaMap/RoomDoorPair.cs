@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ManiaMap
+namespace MPewsey.ManiaMap
 {
     public struct RoomDoorPair : IEquatable<RoomDoorPair>
     {
