@@ -184,14 +184,16 @@ namespace ManiaMap
         {
             var from = layout.Rooms[edge.FromNode];
             var to = layout.Rooms[edge.ToNode];
-            var doorPairs = from.Template.AlignedDoors(to.Template, to.X - from.X, to.Y - from.Y);
-            Shuffle(doorPairs);
+            var dx = to.X - from.X;
+            var dy = to.Y - from.Y;
+            var space = ConfigurationSpaces[new TemplatePair(from.Template, to.Template)];
+            Shuffle(space.Configurations);
 
-            foreach (var pair in doorPairs)
+            foreach (var config in space.Configurations)
             {
-                if (pair.EdgeDirection() == edge.Direction)
+                if (config.X == dx && config.Y == dy && config.EdgeDirection == edge.Direction)
                 {
-                    layout.DoorConnections.Add(new DoorConnection(from, to, pair.FromDoor, pair.ToDoor));
+                    layout.DoorConnections.Add(new DoorConnection(from, to, config.FromDoor, config.ToDoor));
                     return true;
                 }
             }
