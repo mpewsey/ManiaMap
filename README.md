@@ -2,6 +2,10 @@
 
 [![Tests](https://github.com/mpewsey/ManiaMap/actions/workflows/tests.yml/badge.svg?event=push)](https://github.com/mpewsey/ManiaMap/actions/workflows/tests.yml)
 
+## Purpose
+
+This package allows for the creation of procedurally generated metroidvania style maps, such as that shown below, from user defined level layout graphs and room templates.
+
 ![Map](https://user-images.githubusercontent.com/23442063/153345310-25def719-c5a7-43c5-95ca-9e2e09493e54.png)
 
 ## Usage
