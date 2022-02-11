@@ -53,7 +53,7 @@ namespace ManiaMap.Tests
         }
 
         [TestMethod]
-        public void TestGenerateLayout()
+        public void TestGenerateSimpleLayout()
         {
             var graph = GetCrossGraph();
             var templateGroups = new TemplateGroups();
