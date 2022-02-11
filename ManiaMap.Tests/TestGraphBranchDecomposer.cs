@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ManiaMap.Tests
+namespace MPewsey.ManiaMap.Tests
 {
     [TestClass]
     public class TestGraphBranchDecomposer

@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 
-namespace ManiaMap.Tests
+namespace MPewsey.ManiaMap.Tests
 {
     [TestClass]
     public class TestLayoutGenerator

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ManiaMap
+namespace MPewsey.ManiaMap
 {
     public class TemplateGroups
     {
