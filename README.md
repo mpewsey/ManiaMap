@@ -80,7 +80,7 @@ templateGroups.Add("Default", roomTemplate);
 
 ### Step 4: Run the Layout Generator
 
-Finally, to generate a room layout, pick a random seed and pass your layout graph and room template groups to the `LayoutGenerator`. A map of the layout can also be rendered using either the default (Super Metroid inspired) tiles or your own custom map tiles.
+Finally, to generate a room layout, pick a random seed and pass your layout graph and room template groups to the `LayoutGenerator`. A map of the layout can also be rendered using either the default tiles (shown in the layout below) or your own custom map tiles
 
 ```LayoutGenerator.cs
 var generator = new LayoutGenerator(seed: 0, graph, templateGroups);
@@ -90,6 +90,8 @@ var layout = generator.GenerateLayout();
 var map = new LayoutMap(layout);
 map.SavePng("Map.png");
 ```
+
+![Map](https://user-images.githubusercontent.com/23442063/153345310-25def719-c5a7-43c5-95ca-9e2e09493e54.png)
 
 ## References
 
