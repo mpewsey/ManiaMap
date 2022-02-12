@@ -27,6 +27,81 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns a new room template rotated 90 degrees clockwise.
+        /// </summary>
+        public RoomTemplate Rotated90(int id)
+        {
+            var cells = Cells.Rotated90();
+
+            for (int i = 0; i < cells.Array.Length; i++)
+            {
+                cells.Array[i] = cells.Array[i]?.Rotated90();
+            }
+
+            return new RoomTemplate(id, cells);
+        }
+
+        /// <summary>
+        /// Returns a new room template rotated 180 degrees.
+        /// </summary>
+        public RoomTemplate Rotated180(int id)
+        {
+            var cells = Cells.Rotated180();
+
+            for (int i = 0; i < cells.Array.Length; i++)
+            {
+                cells.Array[i] = cells.Array[i]?.Rotated180();
+            }
+
+            return new RoomTemplate(id, cells);
+        }
+
+        /// <summary>
+        /// Returns a new room template rotated 270 degrees clockwise.
+        /// </summary>
+        public RoomTemplate Rotated270(int id)
+        {
+            var cells = Cells.Rotated180();
+
+            for (int i = 0; i < cells.Array.Length; i++)
+            {
+                cells.Array[i] = cells.Array[i]?.Rotated270();
+            }
+
+            return new RoomTemplate(id, cells);
+        }
+
+        /// <summary>
+        /// Returns a new room template mirrored vertically, i.e. about the horizontal axis.
+        /// </summary>
+        public RoomTemplate MirroredVertically(int id)
+        {
+            var cells = Cells.MirroredVertically();
+
+            for (int i = 0; i < cells.Array.Length; i++)
+            {
+                cells.Array[i] = cells.Array[i]?.MirroredVertically();
+            }
+
+            return new RoomTemplate(id, cells);
+        }
+
+        /// <summary>
+        /// Returns a new room template mirrored horizontally, i.e. about the vertical axis.
+        /// </summary>
+        public RoomTemplate MirroredHorizontally(int id)
+        {
+            var cells = Cells.MirroredVertically();
+
+            for (int i = 0; i < cells.Array.Length; i++)
+            {
+                cells.Array[i] = cells.Array[i]?.MirroredHorizontally();
+            }
+
+            return new RoomTemplate(id, cells);
+        }
+
+        /// <summary>
         /// Numbers the doors in the template.
         /// </summary>
         private void NumberDoors()

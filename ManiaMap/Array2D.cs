@@ -67,6 +67,24 @@ namespace MPewsey.ManiaMap
             return $"Array2D<{typeof(T)}>(Rows = {Rows}, Columns = {Columns})";
         }
 
+        public string ToArrayString()
+        {
+            var line = new string[Columns];
+            var lines = new string[Rows];
+            
+            for (int i = 0; i < Rows; i++)
+            {
+                for (int j = 0; j < Columns; j++)
+                {
+                    line[j] = this[i, j]?.ToString();
+                }
+
+                lines[i] = $"[ {string.Join(", ", line)} ]";
+            }
+
+            return $"[{string.Join("\n ", lines)}]";
+        }
+
         /// <summary>
         /// Returns true if the index exists.
         /// </summary>
@@ -108,6 +126,102 @@ namespace MPewsey.ManiaMap
             if (IndexExists(row, column))
                 return Array[Index(row, column)];
             return fallback;
+        }
+
+        /// <summary>
+        /// Returns a new array rotated clockwise 90 degrees.
+        /// </summary>
+        public Array2D<T> Rotated90()
+        {
+            var rotation = new Array2D<T>(Columns, Rows);
+
+            for (int i = 0; i < Rows; i++)
+            {
+                for (int j = 0; j < Columns; j++)
+                {
+                    var k = rotation.Columns - 1 - i;
+                    rotation[j, k] = this[i, j];
+                }
+            }
+
+            return rotation;
+        }
+
+        /// <summary>
+        /// Returns a new array rotated 180 degrees.
+        /// </summary>
+        public Array2D<T> Rotated180()
+        {
+            var rotation = new Array2D<T>(Rows, Columns);
+
+            for (int i = 0; i < Rows; i++)
+            {
+                for (int j = 0; j < Columns; j++)
+                {
+                    var k = rotation.Rows - 1 - i;
+                    var l = rotation.Columns - 1 - j;
+                    rotation[k, l] = this[i, j];
+                }
+            }
+
+            return rotation;
+        }
+
+        /// <summary>
+        /// Returns a new array rotated clockwise 270 degrees.
+        /// </summary>
+        public Array2D<T> Rotated270()
+        {
+            var rotation = new Array2D<T>(Columns, Rows);
+
+            for (int i = 0; i < Rows; i++)
+            {
+                for (int j = 0; j < Columns; j++)
+                {
+                    var k = rotation.Rows - 1 - j;
+                    rotation[k, i] = this[i, j];
+                }
+            }
+
+            return rotation;
+        }
+
+        /// <summary>
+        /// Returns a new array mirrored horizontally, i.e. about the vertical axis.
+        /// </summary>
+        public Array2D<T> MirroredHorizontally()
+        {
+            var mirror = new Array2D<T>(Rows, Columns);
+
+            for (int i = 0; i < Rows; i++)
+            {
+                for (int j = 0; j < Columns; j++)
+                {
+                    var k = mirror.Columns - 1 - j;
+                    mirror[i, k] = this[i, j];
+                }
+            }
+
+            return mirror;
+        }
+
+        /// <summary>
+        /// Returns a new array mirrored vertically, i.e. about the horizontal axis.
+        /// </summary>
+        public Array2D<T> MirroredVertically()
+        {
+            var mirror = new Array2D<T>(Rows, Columns);
+
+            for (int i = 0; i < Rows; i++)
+            {
+                for (int j = 0; j < Columns; j++)
+                {
+                    var k = mirror.Rows - 1 - i;
+                    mirror[k, j] = this[i, j];
+                }
+            }
+
+            return mirror;
         }
     }
 }

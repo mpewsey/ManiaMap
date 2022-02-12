@@ -81,5 +81,100 @@ namespace MPewsey.ManiaMap
                 && other?.LeftDoor != null
                 && Door.DoorTypesAligns(RightDoor.Type, other.LeftDoor.Type);
         }
+
+        /// <summary>
+        /// Returns a new cell rotated clockwise 90 degrees.
+        /// </summary>
+        public Cell Rotated90()
+        {
+            var rotation = new Cell();
+
+            if (TopDoor != null)
+                rotation.RightDoor = new Door(TopDoor.Type);
+            if (RightDoor != null)
+                rotation.BottomDoor = new Door(RightDoor.Type);
+            if (BottomDoor != null)
+                rotation.LeftDoor = new Door(BottomDoor.Type);
+            if (LeftDoor != null)
+                rotation.TopDoor = new Door(LeftDoor.Type);
+
+            return rotation;
+        }
+
+        /// <summary>
+        /// Returns a new cell rotated 180 degrees.
+        /// </summary>
+        public Cell Rotated180()
+        {
+            var rotation = new Cell();
+
+            if (TopDoor != null)
+                rotation.BottomDoor = new Door(TopDoor.Type);
+            if (BottomDoor != null)
+                rotation.TopDoor = new Door(BottomDoor.Type);
+            if (LeftDoor != null)
+                rotation.RightDoor = new Door(LeftDoor.Type);
+            if (RightDoor != null)
+                rotation.LeftDoor = new Door(RightDoor.Type);
+
+            return rotation;
+        }
+
+        /// <summary>
+        /// Returns a new cell rotated clockwise 270 degrees.
+        /// </summary>
+        public Cell Rotated270()
+        {
+            var rotation = new Cell();
+
+            if (TopDoor != null)
+                rotation.LeftDoor = new Door(TopDoor.Type);
+            if (RightDoor != null)
+                rotation.TopDoor = new Door(RightDoor.Type);
+            if (BottomDoor != null)
+                rotation.RightDoor = new Door(BottomDoor.Type);
+            if (LeftDoor != null)
+                rotation.BottomDoor = new Door(LeftDoor.Type);
+
+            return rotation;
+        }
+
+        /// <summary>
+        /// Returns a new cell mirrored vertically, i.e. about the horizontal axis.
+        /// </summary>
+        public Cell MirroredVertically()
+        {
+            var mirror = new Cell();
+
+            if (TopDoor != null)
+                mirror.BottomDoor = new Door(TopDoor.Type);
+            if (BottomDoor != null)
+                mirror.TopDoor = new Door(BottomDoor.Type);
+            if (LeftDoor != null)
+                mirror.LeftDoor = new Door(LeftDoor.Type);
+            if (RightDoor != null)
+                mirror.RightDoor = new Door(RightDoor.Type);
+
+            return mirror;
+        }
+
+        /// <summary>
+        /// Returns a new cell mirrored horizontally, i.e. about the vertical axis.
+        /// </summary>s
+        public Cell MirroredHorizontally()
+        {
+            var mirror = new Cell();
+
+            if (TopDoor != null)
+                mirror.TopDoor = new Door(TopDoor.Type);
+            if (BottomDoor != null)
+                mirror.BottomDoor = new Door(BottomDoor.Type);
+            if (LeftDoor != null)
+                mirror.RightDoor = new Door(LeftDoor.Type);
+            if (RightDoor != null)
+                mirror.LeftDoor = new Door(RightDoor.Type);
+
+            return mirror;
+        }
     }
 }
