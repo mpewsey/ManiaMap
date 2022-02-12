@@ -19,7 +19,7 @@ The layout generator uses an input graph as the basis for generating layouts. Th
 * Do room connections have any constraints, such as one-way doors?
 * Which room templates can be used at a location?
 
-The below example creates several nodes (room locations) and connects them by various edges (door connections):
+The below example creates several nodes (room locations) and connects them by various edges (door connections) in accordance with the shown graph.
 
 ```LayoutGraph.cs
 var graph = new LayoutGraph(id: 1);
@@ -39,6 +39,8 @@ graph.AddEdge(0, 3);
 graph.AddEdge(0, 4);
 graph.AddEdge(0, 5);
 ```
+
+![Example Layout Graph](https://user-images.githubusercontent.com/23442063/153694050-f653f3df-8170-4a2e-bd05-8f35083ccfef.png)
 
 ### Step 2: Create Room Templates
 
