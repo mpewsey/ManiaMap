@@ -6,8 +6,8 @@ namespace MPewsey.ManiaMap
 {
     public class LayoutEdge
     {
-        public int FromNode { get; }
-        public int ToNode { get; }
+        public int FromNode { get; private set; }
+        public int ToNode { get; private set; }
         public EdgeDirection Direction { get; set; }
 
         public LayoutEdge(int fromNode, int toNode, EdgeDirection direction = EdgeDirection.Both)
@@ -42,6 +42,15 @@ namespace MPewsey.ManiaMap
                 default:
                     throw new Exception($"Unhandled Edge Direction: {Direction}.");
             }
+        }
+
+        /// <summary>
+        /// Reverses the nodes and direction of the edge.
+        /// </summary>
+        public void Reverse()
+        {
+            Direction = Door.ReverseEdgeDirection(Direction);
+            (FromNode, ToNode) = (ToNode, FromNode);
         }
     }
 }

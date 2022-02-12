@@ -34,6 +34,7 @@ namespace MPewsey.ManiaMap
             RemoveDuplicateEdges();
             SplitBrokenChains();
             SplitLongChains();
+            OrderEdgeNodes();
             return FormSequentialChains();
         }
 
@@ -49,6 +50,36 @@ namespace MPewsey.ManiaMap
             {
                 cycle.Add(cycle[0]);
                 Chains.Add(GetChainEdges(cycle));
+            }
+        }
+
+        /// <summary>
+        /// Reverses the edges in the chains as necessary to make the nodes
+        /// in the chain sequential.
+        /// </summary>
+        private void OrderEdgeNodes()
+        {
+            foreach (var chain in Chains)
+            {
+                for (int i = 1; i < chain.Count; i++)
+                {
+                    var back = chain[i - 1];
+                    var forward = chain[i];
+
+                    if (back.FromNode == forward.ToNode)
+                    {
+                        back.Reverse();
+                        forward.Reverse();
+                    }
+                    else if (back.FromNode == forward.FromNode)
+                    {
+                        back.Reverse();
+                    }
+                    else if (back.ToNode == forward.ToNode)
+                    {
+                        forward.Reverse();
+                    }
+                }
             }
         }
 
@@ -202,6 +233,7 @@ namespace MPewsey.ManiaMap
                 {
                     Pool.Remove(node);
                     chain.Reverse();
+                    chain.ForEach(x => x.Reverse());
                     return chain;
                 }
             }
