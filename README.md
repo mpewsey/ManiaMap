@@ -24,20 +24,18 @@ The below example creates several nodes (room locations) and connects them by va
 ```LayoutGraph.cs
 var graph = new LayoutGraph(id: 1);
 
-// Create some nodes and assign the "Default" template group to them
-graph.AddNode(0).TemplateGroups.Add("Default");
-graph.AddNode(1).TemplateGroups.Add("Default");
-graph.AddNode(2).TemplateGroups.Add("Default");
-graph.AddNode(3).TemplateGroups.Add("Default");
-graph.AddNode(4).TemplateGroups.Add("Default");
-graph.AddNode(5).TemplateGroups.Add("Default");
-
-// Define edges between nodes
+// Define edges between nodes. Nodes not already in graph will automatically be created.
 graph.AddEdge(0, 1);
 graph.AddEdge(1, 2);
 graph.AddEdge(0, 3);
 graph.AddEdge(0, 4);
 graph.AddEdge(0, 5);
+
+// Add "Default" template group to nodes.
+foreach (var node in graph.GetNodes())
+{
+    node.TemplateGroups.Add("Default");
+}
 ```
 
 ![Example Layout Graph](https://user-images.githubusercontent.com/23442063/153694050-f653f3df-8170-4a2e-bd05-8f35083ccfef.png)

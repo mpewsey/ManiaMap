@@ -32,16 +32,27 @@ namespace MPewsey.ManiaMap.Tests
             return new(1, cells);
         }
 
+        private static RoomTemplate GetLTemplate()
+        {
+            Cell x = null;
+            var o = new Cell();
+            var a = new Cell { LeftDoor = new(DoorType.TwoWay), TopDoor = new(DoorType.TwoWay), RightDoor = new(DoorType.TwoWay) };
+            var b = new Cell { BottomDoor = new(DoorType.TwoWay), RightDoor = new(DoorType.TwoWay), TopDoor = new(DoorType.TwoWay) };
+
+            var cells = new Cell[,]
+            {
+                { a, x, x },
+                { o, x, x },
+                { o, x, x },
+                { o, o, b },
+            };
+
+            return new(2, cells);
+        }
+
         private static LayoutGraph GetCrossGraph()
         {
             var graph = new LayoutGraph(1);
-
-            graph.AddNode(0).TemplateGroups.Add("Default");
-            graph.AddNode(1).TemplateGroups.Add("Default");
-            graph.AddNode(2).TemplateGroups.Add("Default");
-            graph.AddNode(3).TemplateGroups.Add("Default");
-            graph.AddNode(4).TemplateGroups.Add("Default");
-            graph.AddNode(5).TemplateGroups.Add("Default");
 
             graph.AddEdge(0, 1);
             graph.AddEdge(1, 2);
@@ -49,16 +60,39 @@ namespace MPewsey.ManiaMap.Tests
             graph.AddEdge(0, 4);
             graph.AddEdge(0, 5);
 
+            foreach (var node in graph.GetNodes())
+            {
+                node.TemplateGroups.Add("Default");
+            }
+
+            return graph;
+        }
+
+        private static LayoutGraph GetLoopGraph()
+        {
+            var graph = new LayoutGraph(1);
+
+            graph.AddEdge(0, 1);
+            graph.AddEdge(1, 2);
+            graph.AddEdge(2, 3);
+            graph.AddEdge(3, 4);
+            graph.AddEdge(4, 0);
+
+            foreach (var node in graph.GetNodes())
+            {
+                node.TemplateGroups.Add("Default");
+            }
+
             return graph;
         }
 
         [TestMethod]
-        public void TestGenerateSimpleLayout()
+        public void TestGenerateCrossLayout()
         {
             var graph = GetCrossGraph();
             var templateGroups = new TemplateGroups();
             templateGroups.Add("Default", GetSquareTemplate());
-            var generator = new LayoutGenerator(0, graph, templateGroups);
+            var generator = new LayoutGenerator(1, graph, templateGroups);
             var layout = generator.GenerateLayout();
             Assert.IsNotNull(layout);
 
@@ -71,6 +105,35 @@ namespace MPewsey.ManiaMap.Tests
 
             Assert.AreEqual(graph.NodeCount(), layout.Rooms.Count);
             Assert.AreEqual(graph.EdgeCount(), layout.DoorConnections.Count);
+
+            var map = new LayoutMap(layout);
+            map.SavePng("CrossMap.png");
+        }
+
+        [TestMethod]
+        public void TestGenerateLoopLayout()
+        {
+            var graph = GetLoopGraph();
+            var template = GetLTemplate();
+            var templates = template.AllVariations();
+            var templateGroups = new TemplateGroups();
+            templateGroups.Add("Default", templates);
+            var generator = new LayoutGenerator(1, graph, templateGroups);
+            var layout = generator.GenerateLayout();
+            Assert.IsNotNull(layout);
+
+            Console.WriteLine("Rooms:");
+            var rooms = layout.Rooms.Values.ToList();
+            rooms.ForEach(x => Console.WriteLine(x));
+
+            Console.WriteLine("\nDoor Connections:");
+            layout.DoorConnections.ForEach(x => Console.WriteLine(x));
+
+            Assert.AreEqual(graph.NodeCount(), layout.Rooms.Count);
+            Assert.AreEqual(graph.EdgeCount(), layout.DoorConnections.Count);
+
+            var map = new LayoutMap(layout);
+            map.SavePng("LoopMap.png");
         }
 
         [TestMethod]

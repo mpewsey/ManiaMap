@@ -12,6 +12,9 @@ namespace MPewsey.ManiaMap
         public int Id { get; private set; }
 
         [DataMember(Order = 2)]
+        public int VariationId { get; private set; }
+
+        [DataMember(Order = 2)]
         public Array2D<Cell> Cells { get; private set; }
 
         public RoomTemplate(int id, Array2D<Cell> cells)
@@ -21,9 +24,122 @@ namespace MPewsey.ManiaMap
             NumberDoors();
         }
 
+        public RoomTemplate(int id, int variationId, Array2D<Cell> cells)
+        {
+            Id = id;
+            VariationId = variationId;
+            Cells = cells;
+            NumberDoors();
+        }
+
         public override string ToString()
         {
-            return $"RoomTemplate(Id = {Id})";
+            return $"RoomTemplate(Id = {Id}, VariationId = {VariationId})";
+        }
+
+        /// <summary>
+        /// Returns an array of this template plus all mirrored and rotated variations.
+        /// </summary>
+        public RoomTemplate[] AllVariations()
+        {
+            if (VariationId != 0)
+                throw new Exception($"Template is already a variation.");
+            
+            var horzMirror = MirroredHorizontally(1);
+            var vertMirror = MirroredVertically(5);
+            var fullMirror = horzMirror.MirroredVertically(9);
+
+            return new RoomTemplate[]
+            {
+                this,
+                horzMirror,
+                horzMirror.Rotated90(2),
+                horzMirror.Rotated180(3),
+                horzMirror.Rotated270(4),
+                vertMirror,
+                vertMirror.Rotated90(6),
+                vertMirror.Rotated180(7),
+                vertMirror.Rotated270(8),
+                fullMirror,
+                fullMirror.Rotated90(10),
+                fullMirror.Rotated180(11),
+                fullMirror.Rotated270(12),
+            };
+        }
+
+        /// <summary>
+        /// Returns a new room template rotated 90 degrees clockwise.
+        /// </summary>
+        public RoomTemplate Rotated90(int variationId)
+        {
+            var cells = Cells.Rotated90();
+
+            for (int i = 0; i < cells.Array.Length; i++)
+            {
+                cells.Array[i] = cells.Array[i]?.Rotated90();
+            }
+
+            return new RoomTemplate(Id, variationId, cells);
+        }
+
+        /// <summary>
+        /// Returns a new room template rotated 180 degrees.
+        /// </summary>
+        public RoomTemplate Rotated180(int variationId)
+        {
+            var cells = Cells.Rotated180();
+
+            for (int i = 0; i < cells.Array.Length; i++)
+            {
+                cells.Array[i] = cells.Array[i]?.Rotated180();
+            }
+
+            return new RoomTemplate(Id, variationId, cells);
+        }
+
+        /// <summary>
+        /// Returns a new room template rotated 270 degrees clockwise.
+        /// </summary>
+        public RoomTemplate Rotated270(int variationId)
+        {
+            var cells = Cells.Rotated180();
+
+            for (int i = 0; i < cells.Array.Length; i++)
+            {
+                cells.Array[i] = cells.Array[i]?.Rotated270();
+            }
+
+            return new RoomTemplate(Id, variationId, cells);
+        }
+
+        /// <summary>
+        /// Returns a new room template mirrored vertically, i.e. about the horizontal axis.
+        /// </summary>
+        public RoomTemplate MirroredVertically(int variationId)
+        {
+            var cells = Cells.MirroredVertically();
+
+            for (int i = 0; i < cells.Array.Length; i++)
+            {
+                cells.Array[i] = cells.Array[i]?.MirroredVertically();
+            }
+
+            return new RoomTemplate(Id, variationId, cells);
+        }
+
+        /// <summary>
+        /// Returns a new room template mirrored horizontally, i.e. about the vertical axis.
+        /// </summary>
+        public RoomTemplate MirroredHorizontally(int variationId)
+        {
+            var cells = Cells.MirroredVertically();
+
+            for (int i = 0; i < cells.Array.Length; i++)
+            {
+                cells.Array[i] = cells.Array[i]?.MirroredHorizontally();
+            }
+
+            return new RoomTemplate(Id, variationId, cells);
         }
 
         /// <summary>
