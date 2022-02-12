@@ -92,7 +92,7 @@ namespace MPewsey.ManiaMap.Tests
             var graph = GetCrossGraph();
             var templateGroups = new TemplateGroups();
             templateGroups.Add("Default", GetSquareTemplate());
-            var generator = new LayoutGenerator(0, graph, templateGroups);
+            var generator = new LayoutGenerator(1, graph, templateGroups);
             var layout = generator.GenerateLayout();
             Assert.IsNotNull(layout);
 
@@ -105,6 +105,9 @@ namespace MPewsey.ManiaMap.Tests
 
             Assert.AreEqual(graph.NodeCount(), layout.Rooms.Count);
             Assert.AreEqual(graph.EdgeCount(), layout.DoorConnections.Count);
+
+            var map = new LayoutMap(layout);
+            map.SavePng("CrossMap.png");
         }
 
         [TestMethod]
@@ -112,35 +115,25 @@ namespace MPewsey.ManiaMap.Tests
         {
             var graph = GetLoopGraph();
             var template = GetLTemplate();
-            var horzMirror = template.MirroredHorizontally(template.Id + 1);
-            var vertMirror = template.MirroredVertically(template.Id + 2);
-            var mirror = horzMirror.MirroredVertically(template.Id + 3);
-
-            var templates = new RoomTemplate[]
-            {
-                template,
-                horzMirror,
-                vertMirror,
-                mirror,
-                template.Rotated90(template.Id + 4),
-                template.Rotated180(template.Id + 5),
-                template.Rotated270(template.Id + 6),
-                horzMirror.Rotated90(template.Id + 7),
-                horzMirror.Rotated180(template.Id + 8),
-                horzMirror.Rotated270(template.Id + 9),
-                vertMirror.Rotated90(template.Id + 10),
-                vertMirror.Rotated180(template.Id + 11),
-                vertMirror.Rotated270(template.Id + 12),
-                mirror.Rotated90(template.Id + 13),
-                mirror.Rotated180(template.Id + 14),
-                mirror.Rotated270(template.Id + 15),
-            };
-
+            var templates = template.AllVariations();
             var templateGroups = new TemplateGroups();
             templateGroups.Add("Default", templates);
-            var generator = new LayoutGenerator(0, graph, templateGroups);
+            var generator = new LayoutGenerator(1, graph, templateGroups);
             var layout = generator.GenerateLayout();
             Assert.IsNotNull(layout);
+
+            Console.WriteLine("Rooms:");
+            var rooms = layout.Rooms.Values.ToList();
+            rooms.ForEach(x => Console.WriteLine(x));
+
+            Console.WriteLine("\nDoor Connections:");
+            layout.DoorConnections.ForEach(x => Console.WriteLine(x));
+
+            Assert.AreEqual(graph.NodeCount(), layout.Rooms.Count);
+            Assert.AreEqual(graph.EdgeCount(), layout.DoorConnections.Count);
+
+            var map = new LayoutMap(layout);
+            map.SavePng("LoopMap.png");
         }
 
         [TestMethod]

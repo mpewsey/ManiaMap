@@ -43,7 +43,7 @@ namespace MPewsey.ManiaMap
             foreach (var room in Layout.Rooms.Values)
             {
                 minX = Math.Min(minX, room.X);
-                minY = Math.Min(maxY, room.Y);
+                minY = Math.Min(minY, room.Y);
                 maxX = Math.Max(maxX, room.X + room.Template.Cells.Rows);
                 maxY = Math.Max(maxY, room.Y + room.Template.Cells.Columns);
             }
