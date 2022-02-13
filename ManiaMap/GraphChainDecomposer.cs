@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 
 namespace MPewsey.ManiaMap
 {
@@ -11,7 +9,7 @@ namespace MPewsey.ManiaMap
         private HashSet<int> Marked { get; } = new HashSet<int>();
         private LinkedList<List<LayoutEdge>> Pool { get; } = new LinkedList<List<LayoutEdge>>();
         private List<List<LayoutEdge>> Chains { get; } = new List<List<LayoutEdge>>();
-        
+
         public GraphChainDecomposer(LayoutGraph graph, int maxBranchLength = -1)
         {
             Graph = graph;

@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace MPewsey.ManiaMap.Tests
@@ -147,7 +146,7 @@ namespace MPewsey.ManiaMap.Tests
         public void TestSavePng()
         {
             var layout = GetManiaMapLayout();
-            
+
             Console.WriteLine("Rooms:");
             var rooms = layout.Rooms.Values.ToList();
             rooms.ForEach(x => Console.WriteLine(x));

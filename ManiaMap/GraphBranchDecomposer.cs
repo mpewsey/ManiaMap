@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace MPewsey.ManiaMap
@@ -10,7 +9,7 @@ namespace MPewsey.ManiaMap
         private HashSet<int> Marked { get; } = new HashSet<int>();
         private Dictionary<int, int> Parents { get; }
         private List<List<int>> Branches { get; } = new List<List<int>>();
-        
+
         public GraphBranchDecomposer(LayoutGraph graph)
         {
             Graph = graph;
@@ -65,7 +64,7 @@ namespace MPewsey.ManiaMap
         {
             int maxNode = -1;
             int maxNeighbors = -1;
-            
+
             foreach (var node in Graph.GetNodeIds())
             {
                 var count = Graph.GetNeighbors(node).Count();

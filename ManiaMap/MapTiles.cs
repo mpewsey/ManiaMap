@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Reflection;
-using System.Text;
 
 namespace MPewsey.ManiaMap
 {
@@ -27,7 +25,7 @@ namespace MPewsey.ManiaMap
         public static Dictionary<string, Bitmap> GetDefaultTiles()
         {
             const string path = "ManiaMap.MapTiles.Default.";
-            
+
             return new Dictionary<string, Bitmap>
             {
                 { "BottomDoor", LoadTile(path + "BottomDoor.png") },

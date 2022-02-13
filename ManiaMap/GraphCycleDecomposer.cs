@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace MPewsey.ManiaMap
@@ -74,7 +73,7 @@ namespace MPewsey.ManiaMap
             // Change color to indicate search is in progress for node.
             Colors[node] = 1;
             Parents[node] = parent;
-            
+
             foreach (var neighbor in Graph.GetNeighbors(node))
             {
                 if (neighbor != Parents[node])

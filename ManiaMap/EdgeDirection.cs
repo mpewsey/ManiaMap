@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace MPewsey.ManiaMap
+﻿namespace MPewsey.ManiaMap
 {
     public enum EdgeDirection
     {

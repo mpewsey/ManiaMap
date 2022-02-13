@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 
@@ -29,7 +27,7 @@ namespace MPewsey.ManiaMap
                 throw new Exception($"Rows cannot be negative: {rows}.");
             if (columns < 0)
                 throw new Exception($"Columns cannot be negative: {columns}.");
-            
+
             if (rows > 0 && columns > 0)
             {
                 Rows = rows;
@@ -80,7 +78,7 @@ namespace MPewsey.ManiaMap
             for (int i = 0; i < Rows; i++)
             {
                 builder.Append('[');
-                
+
                 for (int j = 0; j < Columns; j++)
                 {
                     builder.Append(this[i, j]);
@@ -122,7 +120,7 @@ namespace MPewsey.ManiaMap
         {
             var result = new T[array.Length];
             int k = 0;
-            
+
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)

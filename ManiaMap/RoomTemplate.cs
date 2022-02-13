@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -44,7 +43,7 @@ namespace MPewsey.ManiaMap
         {
             if (VariationId != 0)
                 throw new Exception($"Template is already a variation.");
-            
+
             var horzMirror = MirroredHorizontally(1);
             var vertMirror = MirroredVertically(5);
             var fullMirror = horzMirror.MirroredVertically(9);
@@ -200,7 +199,7 @@ namespace MPewsey.ManiaMap
                     for (int j = jStart; j < jStop; j++)
                     {
                         var cell = Cells[i, j];
-                        
+
                         if (cell != null)
                         {
                             var x = i - dx;

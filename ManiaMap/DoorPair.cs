@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace MPewsey.ManiaMap
+﻿namespace MPewsey.ManiaMap
 {
     public struct DoorPair
     {
         public Door FromDoor { get; }
         public Door ToDoor { get; }
-        
+
         public DoorPair(Door from, Door to)
         {
             FromDoor = from;

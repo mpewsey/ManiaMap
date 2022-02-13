@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Text;
 
 namespace MPewsey.ManiaMap
 {
@@ -16,7 +15,7 @@ namespace MPewsey.ManiaMap
         private Color CellBackgroundColor { get; } = Color.MidnightBlue;
         private Dictionary<string, Bitmap> Tiles { get; }
         private HashSet<RoomDoorPair> RoomDoors { get; } = new HashSet<RoomDoorPair>();
-        
+
         public LayoutMap(Layout layout, int tileWidth = 16, int tileHeight = 16,
             int padding = 1, Dictionary<string, Bitmap> tiles = null)
         {
@@ -110,7 +109,7 @@ namespace MPewsey.ManiaMap
                 var cells = room.Template.Cells;
                 var x0 = (room.Y - bounds.X + Padding) * TileWidth;
                 var y0 = (room.X - bounds.Y + Padding) * TileHeight;
-                
+
                 for (int i = 0; i < cells.Rows; i++)
                 {
                     for (int j = 0; j < cells.Columns; j++)
@@ -121,7 +120,7 @@ namespace MPewsey.ManiaMap
                         {
                             var x = TileWidth * j + x0;
                             var y = TileHeight * i + y0;
-                            
+
                             var top = cells.GetOrDefault(i - 1, j);
                             var bottom = cells.GetOrDefault(i + 1, j);
                             var left = cells.GetOrDefault(i, j - 1);
