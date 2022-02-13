@@ -200,5 +200,23 @@ namespace MPewsey.ManiaMap
         {
             return new GraphChainDecomposer(this, maxBranchLength).FindChains();
         }
+
+        /// <summary>
+        /// Adds random edges to the graph.
+        /// </summary>
+        public void AddRandomEdges(int startNode, int endNode, int count, Random random = null)
+        {
+            if (random == null)
+                random = new Random();
+
+            for (int i = 0; i < count; i++)
+            {
+                var from = random.Next(startNode, endNode + 1);
+                var to = random.Next(startNode, endNode + 1);
+
+                if (from != to)
+                    AddEdge(from, to);
+            }
+        }
     }
 }
