@@ -73,7 +73,8 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public string ToArrayString()
         {
-            var builder = new StringBuilder();
+            var size = 2 * 4 * Array.Length + 4 * Rows;
+            var builder = new StringBuilder(size);
             builder.Append('[');
 
             for (int i = 0; i < Rows; i++)
