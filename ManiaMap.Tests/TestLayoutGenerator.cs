@@ -78,11 +78,6 @@ namespace MPewsey.ManiaMap.Tests
             graph.AddEdge(3, 4);
             graph.AddEdge(4, 0);
 
-            graph.AddEdge(0, 5);
-            graph.AddEdge(5, 6);
-            graph.AddEdge(6, 7);
-            graph.AddEdge(7, 3);
-
             foreach (var node in graph.GetNodes())
             {
                 node.TemplateGroups.Add("Default");

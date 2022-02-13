@@ -208,7 +208,7 @@ namespace MPewsey.ManiaMap
         {
             for (int i = 0; i < list.Count; i++)
             {
-                var j = Random.Next(i, list.Count - 1);
+                var j = Random.Next(i, list.Count);
                 (list[i], list[j]) = (list[j], list[i]);
             }
         }
