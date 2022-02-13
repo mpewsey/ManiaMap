@@ -38,13 +38,14 @@ namespace MPewsey.ManiaMap.Tests
             var o = new Cell();
             var a = new Cell { LeftDoor = new(DoorType.TwoWay), TopDoor = new(DoorType.TwoWay), RightDoor = new(DoorType.TwoWay) };
             var b = new Cell { BottomDoor = new(DoorType.TwoWay), RightDoor = new(DoorType.TwoWay), TopDoor = new(DoorType.TwoWay) };
+            var c = new Cell { BottomDoor = new(DoorType.TwoWay), LeftDoor = new(DoorType.TwoWay) };
 
             var cells = new Cell[,]
             {
                 { a, x, x },
                 { o, x, x },
                 { o, x, x },
-                { o, o, b },
+                { c, o, b },
             };
 
             return new(2, cells);
@@ -77,6 +78,11 @@ namespace MPewsey.ManiaMap.Tests
             graph.AddEdge(2, 3);
             graph.AddEdge(3, 4);
             graph.AddEdge(4, 0);
+
+            graph.AddEdge(0, 5);
+            graph.AddEdge(5, 6);
+            graph.AddEdge(6, 7);
+            graph.AddEdge(7, 3);
 
             foreach (var node in graph.GetNodes())
             {
