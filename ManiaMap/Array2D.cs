@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Text;
 
 namespace MPewsey.ManiaMap
 {
@@ -67,22 +68,34 @@ namespace MPewsey.ManiaMap
             return $"Array2D<{typeof(T)}>(Rows = {Rows}, Columns = {Columns})";
         }
 
+        /// <summary>
+        /// Returns a string of all array elements.
+        /// </summary>
         public string ToArrayString()
         {
-            var line = new string[Columns];
-            var lines = new string[Rows];
-            
+            var builder = new StringBuilder();
+            builder.Append('[');
+
             for (int i = 0; i < Rows; i++)
             {
+                builder.Append('[');
+                
                 for (int j = 0; j < Columns; j++)
                 {
-                    line[j] = this[i, j]?.ToString();
+                    builder.Append(this[i, j]);
+
+                    if (j < Columns - 1)
+                        builder.Append(", ");
                 }
 
-                lines[i] = $"[ {string.Join(", ", line)} ]";
+                builder.Append(']');
+
+                if (i < Rows - 1)
+                    builder.Append("\n ");
             }
 
-            return $"[{string.Join("\n ", lines)}]";
+            builder.Append(']');
+            return builder.ToString();
         }
 
         /// <summary>
@@ -101,6 +114,9 @@ namespace MPewsey.ManiaMap
             return row * Columns + column;
         }
 
+        /// <summary>
+        /// Returns a new flattened array from a 2 dimensional array.
+        /// </summary>
         private static T[] FlattenArray(T[,] array)
         {
             var result = new T[array.Length];
