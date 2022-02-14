@@ -15,7 +15,7 @@ namespace MPewsey.ManiaMap
         private Random Random { get; set; }
 
         public LayoutGenerator(int seed, LayoutGraph graph, TemplateGroups templateGroups,
-            int maxRebases = 1000, int maxBranchLength = 3)
+            int maxRebases = 1000, int maxBranchLength = -1)
         {
             Seed = seed;
             MaxRebases = maxRebases;
@@ -62,7 +62,7 @@ namespace MPewsey.ManiaMap
                 // Create a new layout and try to add the next chain.
                 var layout = new Layout(baseLayout);
 
-                if (AddChain(layout, chain))
+                if (AddChain(layout, Chains[chain]))
                 {
                     layouts.Push(layout);
                     chain++;
@@ -76,27 +76,26 @@ namespace MPewsey.ManiaMap
         /// Attempts to add the specified chain index to the layout.
         /// Returns true if successful.
         /// </summary>
-        private bool AddChain(Layout layout, int index)
+        private bool AddChain(Layout layout, List<LayoutEdge> chain)
         {
-            var chain = Chains[index];
-
             for (int i = 0; i < chain.Count; i++)
             {
-                if (CanInsertRoom(layout, chain, i))
+                var backEdge = chain[i];
+                var aheadEdge = i < chain.Count - 1 ? chain[i + 1] : null;
+
+                if (CanInsertRoom(layout, backEdge, aheadEdge))
                 {
-                    var backEdge = chain[i];
-                    var aheadEdge = chain[i + 1];
                     var backRoom = layout.Rooms[backEdge.FromNode];
                     var aheadRoom = layout.Rooms[aheadEdge.ToNode];
                     var node = Graph.GetNode(backEdge.ToNode);
                     i++;
 
-                    if (!InsertRoom(layout, backRoom, aheadRoom, node, backEdge.Direction, aheadEdge.Direction))
+                    if (!InsertRoom(layout, node, backRoom, aheadRoom, backEdge.Direction, aheadEdge.Direction))
                     {
                         return false;
                     }
                 }
-                else if (!AddEdge(layout, chain[i]))
+                else if (!AddEdge(layout, backEdge))
                 {
                     return false;
                 }
@@ -108,24 +107,13 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns true if a room can be inserted between two rooms.
         /// </summary>
-        private bool CanInsertRoom(Layout layout, List<LayoutEdge> chain, int index)
+        private static bool CanInsertRoom(Layout layout, LayoutEdge backEdge, LayoutEdge aheadEdge)
         {
-            if (index >= chain.Count - 1)
-                return false;
-
-            var backEdge = chain[index];
-            var aheadEdge = chain[index + 1];
-
-            if (backEdge.ToNode != aheadEdge.FromNode)
-                return false;
-            if (!layout.Rooms.ContainsKey(backEdge.FromNode))
-                return false;
-            if (!layout.Rooms.ContainsKey(aheadEdge.ToNode))
-                return false;
-            if (layout.Rooms.ContainsKey(backEdge.ToNode))
-                return false;
-
-            return true;
+            return aheadEdge != null
+                && backEdge.ToNode == aheadEdge.FromNode
+                && layout.Rooms.ContainsKey(backEdge.FromNode)
+                && layout.Rooms.ContainsKey(aheadEdge.ToNode)
+                && !layout.Rooms.ContainsKey(backEdge.ToNode);
         }
 
         /// <summary>
@@ -141,20 +129,21 @@ namespace MPewsey.ManiaMap
             {
                 var fromNode = Graph.GetNode(edge.FromNode);
                 var toNode = Graph.GetNode(edge.ToNode);
-                return AddFirstRoom(layout, fromNode) && AddRoom(layout, layout.Rooms[edge.FromNode], toNode, edge.Direction);
+                return AddFirstRoom(layout, fromNode)
+                    && AddRoom(layout, toNode, layout.Rooms[edge.FromNode], edge.Direction);
             }
 
             if (!fromExists)
             {
                 var node = Graph.GetNode(edge.FromNode);
                 var direction = Door.ReverseEdgeDirection(edge.Direction);
-                return AddRoom(layout, toRoom, node, direction);
+                return AddRoom(layout, node, toRoom, direction);
             }
 
             if (!toExists)
             {
                 var node = Graph.GetNode(edge.ToNode);
-                return AddRoom(layout, fromRoom, node, edge.Direction);
+                return AddRoom(layout, node, fromRoom, edge.Direction);
             }
 
             return AddDoorConnection(layout, fromRoom, toRoom, edge.Direction);
@@ -164,7 +153,7 @@ namespace MPewsey.ManiaMap
         /// Attempts to insert a new room to the layout between the specified rooms.
         /// Returns true if successful.
         /// </summary>
-        private bool InsertRoom(Layout layout, Room backRoom, Room aheadRoom, LayoutNode node, EdgeDirection backDirection, EdgeDirection aheadDirection)
+        private bool InsertRoom(Layout layout, LayoutNode node, Room backRoom, Room aheadRoom, EdgeDirection backDirection, EdgeDirection aheadDirection)
         {
             var templates = TemplateGroups.GetTemplates(node.TemplateGroups);
             Shuffle(templates);
@@ -182,7 +171,7 @@ namespace MPewsey.ManiaMap
 
                     if (config.EdgeDirection == backDirection && !layout.Intersects(template, x, y))
                     {
-                        var newRoom = new Room(node.Id, x, y, template);
+                        var newRoom = new Room(node, x, y, template);
 
                         if (AddDoorConnection(layout, newRoom, aheadRoom, aheadDirection))
                         {
@@ -202,7 +191,7 @@ namespace MPewsey.ManiaMap
         /// Attempts to add a new room to the layout attached to the specified room.
         /// Returns true if successful.
         /// </summary>
-        private bool AddRoom(Layout layout, Room room, LayoutNode node, EdgeDirection direction)
+        private bool AddRoom(Layout layout, LayoutNode node, Room room, EdgeDirection direction)
         {
             var templates = TemplateGroups.GetTemplates(node.TemplateGroups);
             Shuffle(templates);
@@ -220,7 +209,7 @@ namespace MPewsey.ManiaMap
 
                     if (config.EdgeDirection == direction && !layout.Intersects(template, x, y))
                     {
-                        var newRoom = new Room(node.Id, x, y, template);
+                        var newRoom = new Room(node, x, y, template);
                         var connection = new DoorConnection(room, newRoom, config.FromDoor, config.ToDoor);
                         layout.Rooms.Add(node.Id, newRoom);
                         layout.DoorConnections.Add(connection);
@@ -244,7 +233,7 @@ namespace MPewsey.ManiaMap
             {
                 if (!layout.Intersects(template, 0, 0))
                 {
-                    layout.Rooms.Add(node.Id, new Room(node.Id, 0, 0, template));
+                    layout.Rooms.Add(node.Id, new Room(node, 0, 0, template));
                     return true;
                 }
             }

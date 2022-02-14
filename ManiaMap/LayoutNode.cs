@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
 
 namespace MPewsey.ManiaMap
 {
@@ -6,6 +7,7 @@ namespace MPewsey.ManiaMap
     {
         public int Id { get; }
         public List<string> TemplateGroups { get; } = new List<string>();
+        public Color Color { get; set; } = Color.MidnightBlue;
 
         public LayoutNode(int id)
         {

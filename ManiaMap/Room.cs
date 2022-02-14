@@ -19,11 +19,21 @@ namespace MPewsey.ManiaMap
         public RoomTemplate Template { get; private set; }
 
         [DataMember(Order = 5)]
-        public Color Color { get; set; } = Color.MidnightBlue;
+        public Color Color { get; set; }
 
-        public Room(int id, int x, int y, RoomTemplate template)
+        public Room(int id, int x, int y, RoomTemplate template, Color? color = null)
         {
             Id = id;
+            X = x;
+            Y = y;
+            Template = template;
+            Color = color ?? Color.MidnightBlue;
+        }
+
+        public Room(LayoutNode node, int x, int y, RoomTemplate template)
+        {
+            Id = node.Id;
+            Color = node.Color;
             X = x;
             Y = y;
             Template = template;
