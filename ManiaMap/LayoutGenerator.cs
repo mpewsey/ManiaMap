@@ -5,16 +5,17 @@ namespace MPewsey.ManiaMap
 {
     public class LayoutGenerator
     {
-        private int Seed { get; }
-        private int MaxRebases { get; }
-        private int MaxBranchLength { get; }
-        private LayoutGraph Graph { get; }
-        private TemplateGroups TemplateGroups { get; }
+        public int Seed { get; set; }
+        public int MaxRebases { get; set; }
+        public int MaxBranchLength { get; set; }
+        public LayoutGraph Graph { get; set; }
+        public TemplateGroups TemplateGroups { get; set; }
         private Dictionary<TemplatePair, ConfigurationSpace> ConfigurationSpaces { get; set; }
         private List<List<LayoutEdge>> Chains { get; set; }
         private Random Random { get; set; }
 
-        public LayoutGenerator(int seed, LayoutGraph graph, TemplateGroups templateGroups, int maxRebases = 1000, int maxBranchLength = 3)
+        public LayoutGenerator(int seed, LayoutGraph graph, TemplateGroups templateGroups,
+            int maxRebases = 1000, int maxBranchLength = 3)
         {
             Seed = seed;
             MaxRebases = maxRebases;

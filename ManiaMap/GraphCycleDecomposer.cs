@@ -5,7 +5,7 @@ namespace MPewsey.ManiaMap
 {
     public class GraphCycleDecomposer
     {
-        private LayoutGraph Graph { get; }
+        public LayoutGraph Graph { get; set; }
         private Dictionary<int, int> Parents { get; }
         private Dictionary<int, int> Colors { get; }
         private List<List<int>> Cycles { get; } = new List<List<int>>();

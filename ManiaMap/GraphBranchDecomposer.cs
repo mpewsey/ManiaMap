@@ -5,7 +5,7 @@ namespace MPewsey.ManiaMap
 {
     public class GraphBranchDecomposer
     {
-        private LayoutGraph Graph { get; }
+        public LayoutGraph Graph { get; set; }
         private HashSet<int> Marked { get; } = new HashSet<int>();
         private Dictionary<int, int> Parents { get; }
         private List<List<int>> Branches { get; } = new List<List<int>>();

@@ -7,13 +7,13 @@ namespace MPewsey.ManiaMap
 {
     public class LayoutMap
     {
-        private Layout Layout { get; }
-        private int TileWidth { get; }
-        private int TileHeight { get; }
-        private int Padding { get; }
-        private Color BackgroundColor { get; } = Color.Black;
-        private Color CellBackgroundColor { get; } = Color.MidnightBlue;
-        private Dictionary<string, Bitmap> Tiles { get; }
+        public Layout Layout { get; set; }
+        public int TileWidth { get; set; }
+        public int TileHeight { get; set; }
+        public int Padding { get; set; }
+        public Color BackgroundColor { get; set; } = Color.Black;
+        public Color CellBackgroundColor { get; set; } = Color.MidnightBlue;
+        public Dictionary<string, Bitmap> Tiles { get; set; }
         private HashSet<RoomDoorPair> RoomDoors { get; } = new HashSet<RoomDoorPair>();
 
         public LayoutMap(Layout layout, int tileWidth = 16, int tileHeight = 16,

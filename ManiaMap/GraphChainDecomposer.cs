@@ -4,8 +4,8 @@ namespace MPewsey.ManiaMap
 {
     public class GraphChainDecomposer
     {
-        private LayoutGraph Graph { get; }
-        private int MaxBranchLength { get; }
+        public LayoutGraph Graph { get; set; }
+        public int MaxBranchLength { get; set; }
         private HashSet<int> Marked { get; } = new HashSet<int>();
         private LinkedList<List<LayoutEdge>> Pool { get; } = new LinkedList<List<LayoutEdge>>();
         private List<List<LayoutEdge>> Chains { get; } = new List<List<LayoutEdge>>();
