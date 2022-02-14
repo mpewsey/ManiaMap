@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	<Authors>Matt Pewsey</Authors>
+	<Company>Matt Pewsey</Company>
+	<Copyright>Copyright © 2022</Copyright>
+	<Description>Graph-based procedural generation of metroidvania style maps</Description>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<RepositoryUrl>https://github.com/mpewsey/ManiaMap</RepositoryUrl>
+	<PackageTags>procedural-generation;roguelike;metroidvania</PackageTags>
+	<PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+	<VersionPrefix>0.0.1</VersionPrefix>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="MapTiles\Default\BottomDoor.png" />
+    <None Remove="MapTiles\Default\BottomWall.png" />
+    <None Remove="MapTiles\Default\Grid.png" />
+    <None Remove="MapTiles\Default\LeftDoor.png" />
+    <None Remove="MapTiles\Default\LeftWall.png" />
+    <None Remove="MapTiles\Default\RightDoor.png" />
+    <None Remove="MapTiles\Default\RightWall.png" />
+    <None Remove="MapTiles\Default\TopDoor.png" />
+    <None Remove="MapTiles\Default\TopWall.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="MapTiles\Default\BottomDoor.png" />
+    <EmbeddedResource Include="MapTiles\Default\BottomWall.png" />
+    <EmbeddedResource Include="MapTiles\Default\Grid.png" />
+    <EmbeddedResource Include="MapTiles\Default\LeftDoor.png" />
+    <EmbeddedResource Include="MapTiles\Default\LeftWall.png" />
+    <EmbeddedResource Include="MapTiles\Default\RightDoor.png" />
+    <EmbeddedResource Include="MapTiles\Default\RightWall.png" />
+    <EmbeddedResource Include="MapTiles\Default\TopDoor.png" />
+    <EmbeddedResource Include="MapTiles\Default\TopWall.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SixLabors.ImageSharp" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ManiaMap\ManiaMap.csproj" />
+  </ItemGroup>
+
+</Project>

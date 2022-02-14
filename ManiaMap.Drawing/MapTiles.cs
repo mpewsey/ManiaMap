@@ -1,32 +1,32 @@
-﻿using System.Collections.Generic;
-using System.Drawing;
+﻿using SixLabors.ImageSharp;
+using System.Collections.Generic;
 using System.Reflection;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Drawing
 {
     public static class MapTiles
     {
         /// <summary>
         /// Loads the map tile from resources at the specified path.
         /// </summary>
-        private static Bitmap LoadTile(string path)
+        private static Image LoadTile(string path)
         {
             var assembly = Assembly.GetExecutingAssembly();
 
             using (var stream = assembly.GetManifestResourceStream(path))
             {
-                return new Bitmap(stream);
+                return Image.Load(stream);
             }
         }
 
         /// <summary>
         /// Returns a dictionary of default map tiles.
         /// </summary>
-        public static Dictionary<string, Bitmap> GetDefaultTiles()
+        public static Dictionary<string, Image> GetDefaultTiles()
         {
-            const string path = "ManiaMap.MapTiles.Default.";
+            const string path = "ManiaMap.Drawing.MapTiles.Default.";
 
-            return new Dictionary<string, Bitmap>
+            return new Dictionary<string, Image>
             {
                 { "BottomDoor", LoadTile(path + "BottomDoor.png") },
                 { "TopDoor", LoadTile(path + "TopDoor.png") },

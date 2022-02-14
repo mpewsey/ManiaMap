@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Drawing
 {
     public struct Padding : IEquatable<Padding>
     {

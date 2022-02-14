@@ -110,9 +110,6 @@ namespace MPewsey.ManiaMap.Tests
 
             Assert.AreEqual(graph.NodeCount(), layout.Rooms.Count);
             Assert.AreEqual(graph.EdgeCount(), layout.DoorConnections.Count);
-
-            var map = new LayoutMap(layout);
-            map.SavePng("CrossMap.png");
         }
 
         [TestMethod]
@@ -136,9 +133,6 @@ namespace MPewsey.ManiaMap.Tests
 
             Assert.AreEqual(graph.NodeCount(), layout.Rooms.Count);
             Assert.AreEqual(graph.EdgeCount(), layout.DoorConnections.Count);
-
-            var map = new LayoutMap(layout);
-            map.SavePng("LoopMap.png");
         }
 
         [TestMethod]
