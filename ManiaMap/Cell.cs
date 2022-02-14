@@ -6,16 +6,16 @@ namespace MPewsey.ManiaMap
     public class Cell
     {
         [DataMember(Order = 1)]
-        public Door TopDoor { get; set; }
-
-        [DataMember(Order = 2)]
-        public Door BottomDoor { get; set; }
-
-        [DataMember(Order = 3)]
         public Door LeftDoor { get; set; }
 
-        [DataMember(Order = 4)]
+        [DataMember(Order = 2)]
+        public Door TopDoor { get; set; }
+
+        [DataMember(Order = 3)]
         public Door RightDoor { get; set; }
+
+        [DataMember(Order = 4)]
+        public Door BottomDoor { get; set; }
 
         public override string ToString()
         {
@@ -36,7 +36,7 @@ namespace MPewsey.ManiaMap
             if (RightDoor != null)
                 RightDoor.Id = i + 3;
             if (BottomDoor != null)
-                BottomDoor.Id = 1 + 4;
+                BottomDoor.Id = i + 4;
         }
 
         /// <summary>
