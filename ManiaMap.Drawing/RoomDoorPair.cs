@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Drawing
 {
     public struct RoomDoorPair : IEquatable<RoomDoorPair>
     {

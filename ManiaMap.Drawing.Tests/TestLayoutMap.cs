@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 
-namespace MPewsey.ManiaMap.Tests
+namespace MPewsey.ManiaMap.Drawing.Tests
 {
     [TestClass]
     public class TestLayoutMap
@@ -143,7 +143,7 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
-        public void TestSavePng()
+        public void TestSaveImage()
         {
             var layout = GetManiaMapLayout();
 
@@ -155,7 +155,7 @@ namespace MPewsey.ManiaMap.Tests
             layout.DoorConnections.ForEach(x => Console.WriteLine(x));
 
             var map = new LayoutMap(layout, padding: new Padding(4));
-            map.SavePng("ManiaMap.png");
+            map.SaveImage("ManiaMap.png");
         }
     }
 }

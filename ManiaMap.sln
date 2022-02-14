@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManiaMap", "ManiaMap\ManiaMap.csproj", "{855F5FF7-89C5-465E-BB5D-90ECED394AAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManiaMap", "ManiaMap\ManiaMap.csproj", "{855F5FF7-89C5-465E-BB5D-90ECED394AAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManiaMap.Tests", "ManiaMap.Tests\ManiaMap.Tests.csproj", "{2A686DDB-71CE-4376-9BCD-277D98F6D2E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManiaMap.Tests", "ManiaMap.Tests\ManiaMap.Tests.csproj", "{2A686DDB-71CE-4376-9BCD-277D98F6D2E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManiaMap.Drawing", "ManiaMap.Drawing\ManiaMap.Drawing.csproj", "{230FEBAC-BFFA-4B01-BFC1-51E64AE782FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManiaMap.Drawing.Tests", "ManiaMap.Drawing.Tests\ManiaMap.Drawing.Tests.csproj", "{90DBFDD5-B520-42D6-A17F-E496E660EABA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{2A686DDB-71CE-4376-9BCD-277D98F6D2E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A686DDB-71CE-4376-9BCD-277D98F6D2E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A686DDB-71CE-4376-9BCD-277D98F6D2E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{230FEBAC-BFFA-4B01-BFC1-51E64AE782FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{230FEBAC-BFFA-4B01-BFC1-51E64AE782FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{230FEBAC-BFFA-4B01-BFC1-51E64AE782FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{230FEBAC-BFFA-4B01-BFC1-51E64AE782FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90DBFDD5-B520-42D6-A17F-E496E660EABA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90DBFDD5-B520-42D6-A17F-E496E660EABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90DBFDD5-B520-42D6-A17F-E496E660EABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90DBFDD5-B520-42D6-A17F-E496E660EABA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
