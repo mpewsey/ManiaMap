@@ -86,7 +86,7 @@ var layout = generator.GenerateLayout();
 
 // Render map and save it to file
 var map = new LayoutMap(layout);
-map.SavePng("Map.png");
+map.SaveImage("Map.png");
 ```
 
 ![Map](https://user-images.githubusercontent.com/23442063/153345310-25def719-c5a7-43c5-95ca-9e2e09493e54.png)
