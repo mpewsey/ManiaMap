@@ -8,22 +8,25 @@ namespace MPewsey.ManiaMap
     public class LayoutMap
     {
         public Layout Layout { get; set; }
-        public int TileWidth { get; set; }
-        public int TileHeight { get; set; }
-        public int Padding { get; set; }
-        public Color BackgroundColor { get; set; } = Color.Black;
-        public Color CellBackgroundColor { get; set; } = Color.MidnightBlue;
+        public Point TileSize { get; set; }
+        public Padding Padding { get; set; }
+        public Color BackgroundColor { get; set; }
         public Dictionary<string, Bitmap> Tiles { get; set; }
         private HashSet<RoomDoorPair> RoomDoors { get; } = new HashSet<RoomDoorPair>();
 
-        public LayoutMap(Layout layout, int tileWidth = 16, int tileHeight = 16,
-            int padding = 1, Dictionary<string, Bitmap> tiles = null)
+        public LayoutMap(Layout layout, Point? tileSize = null, Padding? padding = null,
+            Dictionary<string, Bitmap> tiles = null, Color? backgroundColor = null)
         {
             Layout = layout;
-            TileWidth = tileWidth;
-            TileHeight = tileHeight;
-            Padding = padding;
+            TileSize = tileSize ?? new Point(16, 16);
+            Padding = padding ?? new Padding(1);
+            BackgroundColor = backgroundColor ?? Color.Black;
             Tiles = tiles ?? MapTiles.GetDefaultTiles();
+        }
+
+        public override string ToString()
+        {
+            return $"LayoutMap(Layout = {Layout})";
         }
 
         /// <summary>
@@ -80,8 +83,8 @@ namespace MPewsey.ManiaMap
         {
             MarkRoomDoors();
             var bounds = LayoutBounds();
-            var width = TileWidth * (2 * Padding + bounds.Width);
-            var height = TileHeight * (2 * Padding + bounds.Height);
+            var width = TileSize.X * (Padding.Left + Padding.Right + bounds.Width);
+            var height = TileSize.Y * (Padding.Top + Padding.Bottom + bounds.Height);
             var map = new Bitmap(width, height);
             var graphic = Graphics.FromImage(map);
 
@@ -92,9 +95,9 @@ namespace MPewsey.ManiaMap
             // Draw grid if tile exists
             if (Tiles.TryGetValue("Grid", out Bitmap gridTile))
             {
-                for (int x = 0; x < width; x += TileWidth)
+                for (int x = 0; x < width; x += TileSize.X)
                 {
-                    for (int y = 0; y < height; y += TileHeight)
+                    for (int y = 0; y < height; y += TileSize.Y)
                     {
                         graphic.DrawImage(gridTile, x, y);
                     }
@@ -102,13 +105,12 @@ namespace MPewsey.ManiaMap
             }
 
             // Draw map tiles
-            var cellBrush = new SolidBrush(CellBackgroundColor);
-
             foreach (var room in Layout.Rooms.Values)
             {
                 var cells = room.Template.Cells;
-                var x0 = (room.Y - bounds.X + Padding) * TileWidth;
-                var y0 = (room.X - bounds.Y + Padding) * TileHeight;
+                var x0 = (room.Y - bounds.X + Padding.Left) * TileSize.X;
+                var y0 = (room.X - bounds.Y + Padding.Top) * TileSize.Y;
+                var cellBrush = new SolidBrush(room.Color);
 
                 for (int i = 0; i < cells.Rows; i++)
                 {
@@ -118,8 +120,8 @@ namespace MPewsey.ManiaMap
 
                         if (cell != null)
                         {
-                            var x = TileWidth * j + x0;
-                            var y = TileHeight * i + y0;
+                            var x = TileSize.X * j + x0;
+                            var y = TileSize.Y * i + y0;
 
                             var top = cells.GetOrDefault(i - 1, j);
                             var bottom = cells.GetOrDefault(i + 1, j);
@@ -132,7 +134,7 @@ namespace MPewsey.ManiaMap
                             var rightTile = GetTile(room, cell.RightDoor, right, "RightDoor", "RightWall");
 
                             // Add cell background fill
-                            graphic.FillRectangle(cellBrush, x, y, TileWidth, TileHeight);
+                            graphic.FillRectangle(cellBrush, x, y, TileSize.X, TileSize.Y);
 
                             // Superimpose applicable map tiles
                             if (topTile != null)

@@ -154,7 +154,7 @@ namespace MPewsey.ManiaMap.Tests
             Console.WriteLine("\nDoors:");
             layout.DoorConnections.ForEach(x => Console.WriteLine(x));
 
-            var map = new LayoutMap(layout, padding: 4);
+            var map = new LayoutMap(layout, padding: new Padding(4));
             map.SavePng("ManiaMap.png");
         }
     }

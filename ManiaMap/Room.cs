@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Drawing;
+using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
@@ -16,6 +17,9 @@ namespace MPewsey.ManiaMap
 
         [DataMember(Order = 4)]
         public RoomTemplate Template { get; private set; }
+
+        [DataMember(Order = 5)]
+        public Color Color { get; set; } = Color.MidnightBlue;
 
         public Room(int id, int x, int y, RoomTemplate template)
         {
