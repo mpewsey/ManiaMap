@@ -36,6 +36,8 @@ namespace MPewsey.ManiaMap.Drawing
                 { "NorthWall", LoadTile(path + "NorthWall.png") },
                 { "WestWall", LoadTile(path + "WestWall.png") },
                 { "EastWall", LoadTile(path + "EastWall.png") },
+                { "TopDoor", LoadTile(path + "TopDoor.png") },
+                { "BottomDoor", LoadTile(path + "BottomDoor.png") },
                 { "Grid", LoadTile(path + "Grid.png") },
             };
         }

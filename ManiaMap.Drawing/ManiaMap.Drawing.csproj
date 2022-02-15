@@ -14,6 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="MapTiles\Default\BottomDoor.png" />
     <None Remove="MapTiles\Default\EastDoor.png" />
     <None Remove="MapTiles\Default\EastWall.png" />
     <None Remove="MapTiles\Default\Grid.png" />
@@ -21,11 +22,14 @@
     <None Remove="MapTiles\Default\NorthWall.png" />
     <None Remove="MapTiles\Default\SouthDoor.png" />
     <None Remove="MapTiles\Default\SouthWall.png" />
+    <None Remove="MapTiles\Default\TopDoor.png" />
     <None Remove="MapTiles\Default\WestDoor.png" />
     <None Remove="MapTiles\Default\WestWall.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="MapTiles\Default\BottomDoor.png" />
+    <EmbeddedResource Include="MapTiles\Default\TopDoor.png" />
     <EmbeddedResource Include="MapTiles\Default\SouthDoor.png" />
     <EmbeddedResource Include="MapTiles\Default\SouthWall.png" />
     <EmbeddedResource Include="MapTiles\Default\Grid.png" />

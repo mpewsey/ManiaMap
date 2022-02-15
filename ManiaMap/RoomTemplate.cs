@@ -11,9 +11,6 @@ namespace MPewsey.ManiaMap
         public int Id { get; private set; }
 
         [DataMember(Order = 2)]
-        public int VariationId { get; private set; }
-
-        [DataMember(Order = 2)]
         public Array2D<Cell> Cells { get; private set; }
 
         public RoomTemplate(int id, Array2D<Cell> cells)
@@ -23,17 +20,9 @@ namespace MPewsey.ManiaMap
             SetDoorProperties();
         }
 
-        public RoomTemplate(int id, int variationId, Array2D<Cell> cells)
-        {
-            Id = id;
-            VariationId = variationId;
-            Cells = cells;
-            SetDoorProperties();
-        }
-
         public override string ToString()
         {
-            return $"RoomTemplate(Id = {Id}, VariationId = {VariationId})";
+            return $"RoomTemplate(Id = {Id})";
         }
 
         /// <summary>
@@ -41,35 +30,32 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public RoomTemplate[] AllVariations()
         {
-            if (VariationId != 0)
-                throw new Exception($"Template is already a variation.");
-
-            var horzMirror = MirroredHorizontally(1);
-            var vertMirror = MirroredVertically(5);
-            var fullMirror = horzMirror.MirroredVertically(9);
+            var horzMirror = MirroredHorizontally();
+            var vertMirror = MirroredVertically();
+            var fullMirror = horzMirror.MirroredVertically();
 
             return new RoomTemplate[]
             {
                 this,
                 horzMirror,
-                horzMirror.Rotated90(2),
-                horzMirror.Rotated180(3),
-                horzMirror.Rotated270(4),
+                horzMirror.Rotated90(),
+                horzMirror.Rotated180(),
+                horzMirror.Rotated270(),
                 vertMirror,
-                vertMirror.Rotated90(6),
-                vertMirror.Rotated180(7),
-                vertMirror.Rotated270(8),
+                vertMirror.Rotated90(),
+                vertMirror.Rotated180(),
+                vertMirror.Rotated270(),
                 fullMirror,
-                fullMirror.Rotated90(10),
-                fullMirror.Rotated180(11),
-                fullMirror.Rotated270(12),
+                fullMirror.Rotated90(),
+                fullMirror.Rotated180(),
+                fullMirror.Rotated270(),
             };
         }
 
         /// <summary>
         /// Returns a new room template rotated 90 degrees clockwise.
         /// </summary>
-        public RoomTemplate Rotated90(int variationId)
+        public RoomTemplate Rotated90()
         {
             var cells = Cells.Rotated90();
 
@@ -78,13 +64,13 @@ namespace MPewsey.ManiaMap
                 cells.Array[i] = cells.Array[i]?.Rotated90();
             }
 
-            return new RoomTemplate(Id, variationId, cells);
+            return new RoomTemplate(Id, cells);
         }
 
         /// <summary>
         /// Returns a new room template rotated 180 degrees.
         /// </summary>
-        public RoomTemplate Rotated180(int variationId)
+        public RoomTemplate Rotated180()
         {
             var cells = Cells.Rotated180();
 
@@ -93,13 +79,13 @@ namespace MPewsey.ManiaMap
                 cells.Array[i] = cells.Array[i]?.Rotated180();
             }
 
-            return new RoomTemplate(Id, variationId, cells);
+            return new RoomTemplate(Id, cells);
         }
 
         /// <summary>
         /// Returns a new room template rotated 270 degrees clockwise.
         /// </summary>
-        public RoomTemplate Rotated270(int variationId)
+        public RoomTemplate Rotated270()
         {
             var cells = Cells.Rotated180();
 
@@ -108,13 +94,13 @@ namespace MPewsey.ManiaMap
                 cells.Array[i] = cells.Array[i]?.Rotated270();
             }
 
-            return new RoomTemplate(Id, variationId, cells);
+            return new RoomTemplate(Id, cells);
         }
 
         /// <summary>
         /// Returns a new room template mirrored vertically, i.e. about the horizontal axis.
         /// </summary>
-        public RoomTemplate MirroredVertically(int variationId)
+        public RoomTemplate MirroredVertically()
         {
             var cells = Cells.MirroredVertically();
 
@@ -123,13 +109,13 @@ namespace MPewsey.ManiaMap
                 cells.Array[i] = cells.Array[i]?.MirroredVertically();
             }
 
-            return new RoomTemplate(Id, variationId, cells);
+            return new RoomTemplate(Id, cells);
         }
 
         /// <summary>
         /// Returns a new room template mirrored horizontally, i.e. about the vertical axis.
         /// </summary>
-        public RoomTemplate MirroredHorizontally(int variationId)
+        public RoomTemplate MirroredHorizontally()
         {
             var cells = Cells.MirroredVertically();
 
@@ -138,7 +124,7 @@ namespace MPewsey.ManiaMap
                 cells.Array[i] = cells.Array[i]?.MirroredHorizontally();
             }
 
-            return new RoomTemplate(Id, variationId, cells);
+            return new RoomTemplate(Id, cells);
         }
 
         /// <summary>
@@ -207,19 +193,24 @@ namespace MPewsey.ManiaMap
                         {
                             var x = i - dx;
                             var y = j - dy;
-                            var top = other.Cells.GetOrDefault(x - 1, y);
-                            var bottom = other.Cells.GetOrDefault(x + 1, y);
-                            var left = other.Cells.GetOrDefault(x, y - 1);
-                            var right = other.Cells.GetOrDefault(x, y + 1);
+                            var vert = other.Cells.GetOrDefault(x, y);
+                            var north = other.Cells.GetOrDefault(x - 1, y);
+                            var south = other.Cells.GetOrDefault(x + 1, y);
+                            var west = other.Cells.GetOrDefault(x, y - 1);
+                            var east = other.Cells.GetOrDefault(x, y + 1);
 
-                            if (cell.WestDoorAligns(left))
-                                result.Add(new DoorPair(cell.WestDoor, left.EastDoor));
-                            if (cell.NorthDoorAligns(top))
-                                result.Add(new DoorPair(cell.NorthDoor, top.SouthDoor));
-                            if (cell.EastDoorAligns(right))
-                                result.Add(new DoorPair(cell.EastDoor, right.WestDoor));
-                            if (cell.SouthDoorAligns(bottom))
-                                result.Add(new DoorPair(cell.SouthDoor, bottom.NorthDoor));
+                            if (cell.TopDoorAligns(vert))
+                                result.Add(new DoorPair(cell.TopDoor, vert.BottomDoor));
+                            if (cell.BottomDoorAligns(vert))
+                                result.Add(new DoorPair(cell.BottomDoor, vert.TopDoor));
+                            if (cell.WestDoorAligns(west))
+                                result.Add(new DoorPair(cell.WestDoor, west.EastDoor));
+                            if (cell.NorthDoorAligns(north))
+                                result.Add(new DoorPair(cell.NorthDoor, north.SouthDoor));
+                            if (cell.EastDoorAligns(east))
+                                result.Add(new DoorPair(cell.EastDoor, east.WestDoor));
+                            if (cell.SouthDoorAligns(south))
+                                result.Add(new DoorPair(cell.SouthDoor, south.NorthDoor));
                         }
                     }
                 }

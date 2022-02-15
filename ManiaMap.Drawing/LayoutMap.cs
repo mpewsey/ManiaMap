@@ -127,28 +127,34 @@ namespace MPewsey.ManiaMap.Drawing
                                 var y = TileSize.Y * i + y0;
                                 var point = new Point(x, y);
 
-                                var top = cells.GetOrDefault(i - 1, j);
-                                var bottom = cells.GetOrDefault(i + 1, j);
-                                var left = cells.GetOrDefault(i, j - 1);
-                                var right = cells.GetOrDefault(i, j + 1);
+                                var north = cells.GetOrDefault(i - 1, j);
+                                var south = cells.GetOrDefault(i + 1, j);
+                                var west = cells.GetOrDefault(i, j - 1);
+                                var east = cells.GetOrDefault(i, j + 1);
 
-                                var topTile = GetTile(room, cell.NorthDoor, top, "NorthDoor", "NorthWall");
-                                var bottomTile = GetTile(room, cell.SouthDoor, bottom, "SouthDoor", "SouthWall");
-                                var leftTile = GetTile(room, cell.WestDoor, left, "WestDoor", "WestWall");
-                                var rightTile = GetTile(room, cell.EastDoor, right, "EastDoor", "EastWall");
+                                var topTile = GetTile(room, cell.TopDoor, "TopDoor");
+                                var bottomTile = GetTile(room, cell.BottomDoor, "BottomDoor");
+                                var northTile = GetTile(room, cell.NorthDoor, north, "NorthDoor", "NorthWall");
+                                var southTile = GetTile(room, cell.SouthDoor, south, "SouthDoor", "SouthWall");
+                                var westTile = GetTile(room, cell.WestDoor, west, "WestDoor", "WestWall");
+                                var eastTile = GetTile(room, cell.EastDoor, east, "EastDoor", "EastWall");
 
                                 // Add cell background fill
                                 image.DrawImage(cellTile, point, 1);
 
                                 // Superimpose applicable map tiles
+                                if (northTile != null)
+                                    image.DrawImage(northTile, point, 1);
+                                if (southTile != null)
+                                    image.DrawImage(southTile, point, 1);
+                                if (westTile != null)
+                                    image.DrawImage(westTile, point, 1);
+                                if (eastTile != null)
+                                    image.DrawImage(eastTile, point, 1);
                                 if (topTile != null)
                                     image.DrawImage(topTile, point, 1);
                                 if (bottomTile != null)
                                     image.DrawImage(bottomTile, point, 1);
-                                if (leftTile != null)
-                                    image.DrawImage(leftTile, point, 1);
-                                if (rightTile != null)
-                                    image.DrawImage(rightTile, point, 1);
                             }
                         }
                     }
@@ -164,6 +170,17 @@ namespace MPewsey.ManiaMap.Drawing
         private static Color ConvertColor(System.Drawing.Color color)
         {
             return Color.FromRgba(color.R, color.G, color.B, color.A);
+        }
+
+        /// <summary>
+        /// Returns the map tile corresponding to the door location.
+        /// Returns null if the door does not exist.
+        /// </summary>
+        private Image GetTile(Room room, Door door, string doorName)
+        {
+            if (door != null && RoomDoors.Contains(new RoomDoorPair(room, door)))
+                return Tiles[doorName];
+            return null;
         }
 
         /// <summary>
