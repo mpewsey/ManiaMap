@@ -47,7 +47,8 @@ namespace MPewsey.ManiaMap
 
                 foreach (var pair in doorPairs)
                 {
-                    Configurations.Add(new Configuration(dx, dy, pair.FromDoor, pair.ToDoor));
+                    var config = new Configuration(dx, dy, pair.FromDoor, pair.ToDoor);
+                    Configurations.Add(config);
                 }
             }
         }
