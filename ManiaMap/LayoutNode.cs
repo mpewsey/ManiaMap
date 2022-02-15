@@ -6,6 +6,7 @@ namespace MPewsey.ManiaMap
     public class LayoutNode
     {
         public int Id { get; }
+        public int Z { get; set; }
         public List<string> TemplateGroups { get; } = new List<string>();
         public Color Color { get; set; } = Color.MidnightBlue;
 

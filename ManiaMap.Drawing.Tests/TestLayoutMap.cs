@@ -110,14 +110,14 @@ namespace MPewsey.ManiaMap.Drawing.Tests
             var p = GetPTemplate();
 
             var layout = new Layout(0);
-            var m1 = new Room(0, 0, 0, m);
-            var a1 = new Room(1, 0, 5, a);
-            var n1 = new Room(2, 0, 8, n);
-            var i1 = new Room(3, 0, 11, i);
-            var a2 = new Room(4, 0, 14, a);
-            var m2 = new Room(5, 0, 17, m);
-            var a3 = new Room(6, 0, 22, a);
-            var p1 = new Room(7, 0, 25, p);
+            var m1 = new Room(0, 0, 0, 0, m);
+            var a1 = new Room(1, 0, 5, 0, a);
+            var n1 = new Room(2, 0, 8, 0, n);
+            var i1 = new Room(3, 0, 11, 0, i);
+            var a2 = new Room(4, 0, 14, 0, a);
+            var m2 = new Room(5, 0, 17, 0, m);
+            var a3 = new Room(6, 0, 22, 0, a);
+            var p1 = new Room(7, 0, 25, 0, p);
 
             layout.Rooms[m1.Id] = m1;
             layout.Rooms[a1.Id] = a1;

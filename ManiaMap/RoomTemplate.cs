@@ -142,6 +142,34 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns true if the template intersects the specified range.
+        /// </summary>
+        public bool Intersects(int xMin, int xMax, int yMin, int yMax)
+        {
+            var jStart = Math.Max(xMin, 0);
+            var jStop = Math.Min(xMax + 1, Cells.Rows);
+
+            if (jStart < jStop)
+            {
+                var iStart = Math.Max(yMin, 0);
+                var iStop = Math.Min(yMax + 1, Cells.Columns);
+
+                for (int i = iStart; i < iStop; i++)
+                {
+                    for (int j = jStart; j < jStop; j++)
+                    {
+                        if (Cells[i, j] != null)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
         /// Returns true if the room templates another template at the specified offset.
         /// </summary>
         public bool Intersects(RoomTemplate other, int dx, int dy)

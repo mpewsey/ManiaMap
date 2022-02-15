@@ -21,5 +21,21 @@
         {
             return $"Configuration(X = {X}, Y = {Y}, FromDoor = {FromDoor}, ToDoor = {ToDoor})";
         }
+
+        /// <summary>
+        /// Returns true if the parameters match the configuration.
+        /// </summary>
+        public bool Matches(EdgeDirection direction)
+        {
+            return EdgeDirection == direction;
+        }
+
+        /// <summary>
+        /// Returns true if the parameters match the configuration.
+        /// </summary>
+        public bool Matches(int x, int y, EdgeDirection direction)
+        {
+            return X == x && Y == y && EdgeDirection == direction;
+        }
     }
 }
