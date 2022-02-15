@@ -48,14 +48,14 @@ An example 3x3 square room template is shown below:
 
 ```RoomTemplate.cs
 var o = new Cell();
-var a = new Cell { WestDoor = new(DoorType.TwoWay), NorthDoor = new(DoorType.TwoWay) };
-var b = new Cell { NorthDoor = new(DoorType.TwoWay) };
-var c = new Cell { NorthDoor = new(DoorType.TwoWay), EastDoor = new(DoorType.TwoWay) };
-var d = new Cell { WestDoor = new(DoorType.TwoWay) };
-var e = new Cell { EastDoor = new(DoorType.TwoWay) };
-var f = new Cell { WestDoor = new(DoorType.TwoWay), SouthDoor = new(DoorType.TwoWay) };
-var g = new Cell { SouthDoor = new(DoorType.TwoWay) };
-var h = new Cell { SouthDoor = new(DoorType.TwoWay), EastDoor = new(DoorType.TwoWay) };
+var a = new Cell { WestDoor = new Door(DoorType.TwoWay), NorthDoor = new Door(DoorType.TwoWay) };
+var b = new Cell { NorthDoor = new Door(DoorType.TwoWay) };
+var c = new Cell { NorthDoor = new Door(DoorType.TwoWay), EastDoor = new Door(DoorType.TwoWay) };
+var d = new Cell { WestDoor = new Door(DoorType.TwoWay) };
+var e = new Cell { EastDoor = new Door(DoorType.TwoWay) };
+var f = new Cell { WestDoor = new Door(DoorType.TwoWay), SouthDoor = new Door(DoorType.TwoWay) };
+var g = new Cell { SouthDoor = new Door(DoorType.TwoWay) };
+var h = new Cell { SouthDoor = new Door(DoorType.TwoWay), EastDoor = new Door(DoorType.TwoWay) };
 
 var cells = new Cell[,]
 {
