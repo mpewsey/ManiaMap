@@ -71,16 +71,16 @@ namespace MPewsey.ManiaMap.Drawing
         /// <summary>
         /// Renders a map of the layout and saves it to the designated file path.
         /// </summary>
-        public void SaveImage(string path)
+        public void SaveImage(string path, int z = 0)
         {
-            var map = CreateImage();
+            var map = CreateImage(z);
             map.Save(path);
         }
 
         /// <summary>
         /// Returns a rendered map of the layout.
         /// </summary>
-        public Image CreateImage()
+        public Image CreateImage(int z = 0)
         {
             MarkRoomDoors();
             var bounds = LayoutBounds();
@@ -110,6 +110,9 @@ namespace MPewsey.ManiaMap.Drawing
 
                 foreach (var room in Layout.Rooms.Values)
                 {
+                    if (room.Z != z)
+                        continue;
+                    
                     var cells = room.Template.Cells;
                     var x0 = (room.Y - bounds.X + Padding.Left) * TileSize.X;
                     var y0 = (room.X - bounds.Y + Padding.Top) * TileSize.Y;
