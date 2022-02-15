@@ -15,9 +15,6 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 3)]
         public List<DoorConnection> DoorConnections { get; private set; } = new List<DoorConnection>();
 
-        [DataMember(Order = 4)]
-        public List<Shaft> Shafts { get; private set; } = new List<Shaft>();
-
         public int Rebases { get; private set; }
 
         public Layout(int seed)
@@ -30,7 +27,6 @@ namespace MPewsey.ManiaMap
             Seed = baseLayout.Seed;
             Rooms = new Dictionary<int, Room>(baseLayout.Rooms);
             DoorConnections = new List<DoorConnection>(baseLayout.DoorConnections);
-            Shafts = new List<Shaft>(baseLayout.Shafts);
             baseLayout.Rebases++;
         }
 
@@ -60,9 +56,11 @@ namespace MPewsey.ManiaMap
                 }
             }
 
-            foreach (var shaft in Shafts)
+            foreach (var connection in DoorConnections)
             {
-                if (shaft.Intersects(xMin, xMax, yMin, yMax, zMin, zMax))
+                var shaft = connection.Shaft;
+                
+                if (shaft != null && shaft.Intersects(xMin, xMax, yMin, yMax, zMin, zMax))
                 {
                     return true;
                 }
@@ -90,9 +88,11 @@ namespace MPewsey.ManiaMap
                 }
             }
 
-            foreach (var shaft in Shafts)
+            foreach (var connection in DoorConnections)
             {
-                if (shaft.Intersects(x, y, z))
+                var shaft = connection.Shaft;
+                
+                if (shaft != null && shaft.Intersects(x, y, z))
                 {
                     return true;
                 }

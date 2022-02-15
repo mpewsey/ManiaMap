@@ -25,7 +25,13 @@ namespace MPewsey.ManiaMap
 
         public override string ToString()
         {
-            return $"Cell(WestDoor = {WestDoor}, NorthDoor = {NorthDoor}, EastDoor = {EastDoor}, SouthDoor = {SouthDoor}, TopDoor = {TopDoor}, BottomDoor = {BottomDoor})";
+            var west = WestDoor == null ? "None" : WestDoor.ToString();
+            var east = EastDoor == null ? "None" : EastDoor.ToString();
+            var south = SouthDoor == null ? "None" : SouthDoor.ToString();
+            var north = NorthDoor == null ? "None" : NorthDoor.ToString();
+            var top = TopDoor == null ? "None" : TopDoor.ToString();
+            var bottom = BottomDoor == null ? "None" : BottomDoor.ToString();
+            return $"Cell(WestDoor = {west}, NorthDoor = {north}, EastDoor = {east}, SouthDoor = {south}, TopDoor = {top}, BottomDoor = {bottom})";
         }
 
         /// <summary>

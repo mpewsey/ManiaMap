@@ -17,17 +17,22 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 4)]
         public Door ToDoor { get; private set; }
 
-        public DoorConnection(Room fromRoom, Room toRoom, Door fromDoor, Door toDoor)
+        [DataMember(Order = 5)]
+        public Shaft Shaft { get; private set; }
+
+        public DoorConnection(Room fromRoom, Room toRoom, Door fromDoor, Door toDoor, Shaft shaft = null)
         {
             FromRoom = fromRoom;
             ToRoom = toRoom;
             FromDoor = fromDoor;
             ToDoor = toDoor;
+            Shaft = shaft;
         }
 
         public override string ToString()
         {
-            return $"DoorConnection(FromRoom = {FromRoom}, ToRoom = {ToRoom}, FromDoor = {FromDoor}, ToDoor = {ToDoor})";
+            var shaft = Shaft == null ? "None" : Shaft.ToString();
+            return $"DoorConnection(FromRoom = {FromRoom}, ToRoom = {ToRoom}, FromDoor = {FromDoor}, ToDoor = {ToDoor}, Shaft = {shaft})";
         }
     }
 }
