@@ -39,13 +39,24 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns true if the point intersects the shaft.
+        /// Returns true if the tempalte intersects the shaft.
         /// </summary>
-        public bool Intersects(int x, int y, int z)
+        public bool Intersects(RoomTemplate template, int x, int y, int z)
         {
-            return x >= XMin && x <= XMax
-                && y >= YMin && y <= YMax
-                && z >= ZMin && z <= ZMax;
+            if (z >= ZMin && z <= ZMax)
+            {
+                var x1 = XMin - x;
+                var x2 = XMax - x;
+                var y1 = YMin - y;
+                var y2 = YMax - y;
+
+                if (template.Intersects(x1, x2, y1, y2))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         /// <summary>

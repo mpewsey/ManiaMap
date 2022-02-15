@@ -59,7 +59,7 @@ namespace MPewsey.ManiaMap
             foreach (var connection in DoorConnections)
             {
                 var shaft = connection.Shaft;
-                
+
                 if (shaft != null && shaft.Intersects(xMin, xMax, yMin, yMax, zMin, zMax))
                 {
                     return true;
@@ -91,8 +91,8 @@ namespace MPewsey.ManiaMap
             foreach (var connection in DoorConnections)
             {
                 var shaft = connection.Shaft;
-                
-                if (shaft != null && shaft.Intersects(x, y, z))
+
+                if (shaft != null && shaft.Intersects(template, x, y, z))
                 {
                     return true;
                 }

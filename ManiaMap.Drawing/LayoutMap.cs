@@ -112,7 +112,7 @@ namespace MPewsey.ManiaMap.Drawing
                 {
                     if (room.Z != z)
                         continue;
-                    
+
                     var cells = room.Template.Cells;
                     var x0 = (room.Y - bounds.X + Padding.Left) * TileSize.X;
                     var y0 = (room.X - bounds.Y + Padding.Top) * TileSize.Y;

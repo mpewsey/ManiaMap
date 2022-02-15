@@ -8,10 +8,10 @@
         public Door ToDoor { get; }
         public EdgeDirection EdgeDirection { get; }
 
-        public Configuration(int dx, int dy, Door from, Door to)
+        public Configuration(int x, int y, Door from, Door to)
         {
-            X = dx;
-            Y = dy;
+            X = x;
+            Y = y;
             FromDoor = from;
             ToDoor = to;
             EdgeDirection = Door.GetEdgeDirection(from.Type, to.Type);
