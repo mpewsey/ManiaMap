@@ -20,7 +20,7 @@ namespace MPewsey.ManiaMap
         {
             Id = id;
             Cells = cells;
-            NumberDoors();
+            SetDoorPositions();
         }
 
         public RoomTemplate(int id, int variationId, Array2D<Cell> cells)
@@ -28,7 +28,7 @@ namespace MPewsey.ManiaMap
             Id = id;
             VariationId = variationId;
             Cells = cells;
-            NumberDoors();
+            SetDoorPositions();
         }
 
         public override string ToString()
@@ -142,13 +142,16 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Numbers the doors in the template.
+        /// Sets the door position properties for all doors in the template.
         /// </summary>
-        private void NumberDoors()
+        private void SetDoorPositions()
         {
-            for (int i = 0; i < Cells.Array.Length; i++)
+            for (int i = 0; i < Cells.Rows; i++)
             {
-                Cells.Array[i]?.NumberDoors(i);
+                for (int j = 0; j < Cells.Columns; j++)
+                {
+                    Cells[i, j]?.SetDoorPositions(i, j);
+                }
             }
         }
 

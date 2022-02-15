@@ -7,9 +7,15 @@ namespace MPewsey.ManiaMap
     public class Door
     {
         [DataMember(Order = 1)]
-        public int Id { get; set; } = -1;
+        public int X { get; set; }
 
         [DataMember(Order = 2)]
+        public int Y { get; set; }
+
+        [DataMember(Order = 3)]
+        public DoorDirection Direction { get; set; }
+
+        [DataMember(Order = 4)]
         public DoorType Type { get; set; }
 
         public Door(DoorType type)
@@ -19,7 +25,7 @@ namespace MPewsey.ManiaMap
 
         public override string ToString()
         {
-            return $"Door(Id = {Id}, Type = {Type})";
+            return $"Door(X = {X}, Y = {Y}, Direction = {Direction}, Type = {Type})";
         }
 
         /// <summary>

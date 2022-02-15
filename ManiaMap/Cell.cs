@@ -17,26 +17,61 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 4)]
         public Door SouthDoor { get; set; }
 
+        [DataMember(Order = 5)]
+        public Door TopDoor { get; set; }
+
+        [DataMember(Order = 6)]
+        public Door BottomDoor { get; set; }
+
         public override string ToString()
         {
-            return $"Cell(WestDoor = {WestDoor}, NorthDoor = {NorthDoor}, EastDoor = {EastDoor}, SouthDoor = {SouthDoor})";
+            return $"Cell(WestDoor = {WestDoor}, NorthDoor = {NorthDoor}, EastDoor = {EastDoor}, SouthDoor = {SouthDoor}, TopDoor = {TopDoor}, BottomDoor = {BottomDoor})";
         }
 
         /// <summary>
-        /// Numbers the doors of the cell based on the specified cell index.
+        /// Sets the position properties of the doors assigned to the cells.
         /// </summary>
-        public void NumberDoors(int index)
+        public void SetDoorPositions(int x, int y)
         {
-            var i = 6 * index;
+            SetDoorPosition(WestDoor, x, y, DoorDirection.West);
+            SetDoorPosition(EastDoor, x, y, DoorDirection.East);
+            SetDoorPosition(NorthDoor, x, y, DoorDirection.North);
+            SetDoorPosition(SouthDoor, x, y, DoorDirection.South);
+            SetDoorPosition(TopDoor, x, y, DoorDirection.Top);
+            SetDoorPosition(BottomDoor, x, y, DoorDirection.Bottom);
+        }
 
-            if (WestDoor != null)
-                WestDoor.Id = i + 1;
-            if (NorthDoor != null)
-                NorthDoor.Id = i + 2;
-            if (EastDoor != null)
-                EastDoor.Id = i + 3;
-            if (SouthDoor != null)
-                SouthDoor.Id = i + 4;
+        /// <summary>
+        /// Sets the position of the door if it is not null.
+        /// </summary>
+        private static void SetDoorPosition(Door door, int x, int y, DoorDirection direction)
+        {
+            if (door != null)
+            {
+                door.X = x;
+                door.Y = y;
+                door.Direction = direction;
+            }
+        }
+
+        /// <summary>
+        /// Returns true if the top door aligns with the bottom door of the specified cell.
+        /// </summary>
+        public bool TopDoorAligns(Cell other)
+        {
+            return TopDoor != null
+                && other?.BottomDoor != null
+                && Door.DoorTypesAligns(TopDoor.Type, other.BottomDoor.Type);
+        }
+
+        /// <summary>
+        /// Returns true if the bottom door aligns with the top door of the specified cell.
+        /// </summary>
+        public bool BottomDoorAligns(Cell other)
+        {
+            return BottomDoor != null
+                && other?.TopDoor != null
+                && Door.DoorTypesAligns(BottomDoor.Type, other.TopDoor.Type);
         }
 
         /// <summary>
