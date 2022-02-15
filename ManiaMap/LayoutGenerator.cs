@@ -87,10 +87,12 @@ namespace MPewsey.ManiaMap
                 {
                     var backRoom = layout.Rooms[backEdge.FromNode];
                     var aheadRoom = layout.Rooms[aheadEdge.ToNode];
+                    var backDirection = backEdge.Direction;
+                    var aheadDirection = aheadEdge.Direction;
                     var node = Graph.GetNode(backEdge.ToNode);
                     i++;
 
-                    if (!InsertRoom(layout, node, backRoom, aheadRoom, backEdge.Direction, aheadEdge.Direction))
+                    if (!InsertRoom(layout, node, backRoom, aheadRoom, backDirection, aheadDirection))
                     {
                         return false;
                     }
@@ -170,18 +172,18 @@ namespace MPewsey.ManiaMap
                     var x = config.X + backRoom.X;
                     var y = config.Y + backRoom.Y;
 
-                    if (config.Matches(backDirection) && !layout.Intersects(template, x, y, node.Z))
-                    {
-                        var newRoom = new Room(node, x, y, template);
+                    if (!config.Matches(backDirection) || layout.Intersects(template, x, y, node.Z))
+                        continue;
 
-                        if (AddDoorConnection(layout, newRoom, aheadRoom, aheadDirection))
-                        {
-                            var connection = new DoorConnection(backRoom, newRoom, config.FromDoor, config.ToDoor);
-                            layout.Rooms.Add(node.Id, newRoom);
-                            layout.DoorConnections.Add(connection);
-                            return true;
-                        }
-                    }
+                    var newRoom = new Room(node, x, y, template);
+
+                    if (!AddDoorConnection(layout, newRoom, aheadRoom, aheadDirection))
+                        continue;
+
+                    var connection = new DoorConnection(backRoom, newRoom, config.FromDoor, config.ToDoor);
+                    layout.Rooms.Add(node.Id, newRoom);
+                    layout.DoorConnections.Add(connection);
+                    return true;
                 }
             }
 
@@ -208,14 +210,18 @@ namespace MPewsey.ManiaMap
                     var x = config.X + room.X;
                     var y = config.Y + room.Y;
 
-                    if (config.Matches(direction) && !layout.Intersects(template, x, y, node.Z))
-                    {
-                        var newRoom = new Room(node, x, y, template);
-                        var connection = new DoorConnection(room, newRoom, config.FromDoor, config.ToDoor);
-                        layout.Rooms.Add(node.Id, newRoom);
-                        layout.DoorConnections.Add(connection);
-                        return true;
-                    }
+                    if (!config.Matches(direction) || layout.Intersects(template, x, y, node.Z))
+                        continue;
+
+                    var newRoom = new Room(node, x, y, template);
+
+                    if (!AddShaft(layout, room, newRoom, config.FromDoor))
+                        continue;
+
+                    var connection = new DoorConnection(room, newRoom, config.FromDoor, config.ToDoor);
+                    layout.Rooms.Add(node.Id, newRoom);
+                    layout.DoorConnections.Add(connection);
+                    return true;
                 }
             }
 
@@ -232,14 +238,12 @@ namespace MPewsey.ManiaMap
 
             foreach (var template in templates)
             {
-                if (!layout.Intersects(template, 0, 0, node.Z))
-                {
-                    var newRoom = new Room(node, 0, 0, template);
-                    layout.Rooms.Add(node.Id, newRoom);
-                    return true;
-                }
+                if (layout.Intersects(template, 0, 0, node.Z))
+                    return false;
 
-                return false;
+                var newRoom = new Room(node, 0, 0, template);
+                layout.Rooms.Add(node.Id, newRoom);
+                return true;
             }
 
             return false;
@@ -259,15 +263,44 @@ namespace MPewsey.ManiaMap
 
             foreach (var config in configurations)
             {
-                if (config.Matches(dx, dy, direction))
-                {
-                    var connection = new DoorConnection(from, to, config.FromDoor, config.ToDoor);
-                    layout.DoorConnections.Add(connection);
-                    return true;
-                }
+                if (!config.Matches(dx, dy, direction))
+                    continue;
+
+                if (!AddShaft(layout, from, to, config.FromDoor))
+                    continue;
+
+                var connection = new DoorConnection(from, to, config.FromDoor, config.ToDoor);
+                layout.DoorConnections.Add(connection);
+                return true;
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Attempts to add a shaft to the layout if necessary.
+        /// Returns true if successful.
+        /// </summary>
+        private bool AddShaft(Layout layout, Room from, Room to, Door fromDoor)
+        {
+            if (from.Z < to.Z && fromDoor.Direction != DoorDirection.Top)
+                return false;
+            if (from.Z > to.Z && fromDoor.Direction != DoorDirection.Bottom)
+                return false;
+            if (Math.Abs(from.Z - to.Z) <= 1)
+                return true;
+
+            var x = fromDoor.X + from.X;
+            var y = fromDoor.Y + from.Y;
+            var zMin = Math.Min(from.Z, to.Z) + 1;
+            var zMax = Math.Max(from.Z, to.Z) - 1;
+
+            if (layout.Intersects(x, x, y, y, zMin, zMax))
+                return false;
+
+            var shaft = new Shaft(x, x, y, y, zMin, zMax);
+            layout.Shafts.Add(shaft);
+            return true;
         }
 
         /// <summary>
