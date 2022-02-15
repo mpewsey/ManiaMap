@@ -166,8 +166,8 @@ namespace MPewsey.ManiaMap
 
                 foreach (var config in configurations)
                 {
-                    var x = config.DX + backRoom.X;
-                    var y = config.DY + backRoom.Y;
+                    var x = config.X + backRoom.X;
+                    var y = config.Y + backRoom.Y;
 
                     if (config.EdgeDirection == backDirection && !layout.Intersects(template, x, y))
                     {
@@ -204,8 +204,8 @@ namespace MPewsey.ManiaMap
 
                 foreach (var config in configurations)
                 {
-                    var x = config.DX + room.X;
-                    var y = config.DY + room.Y;
+                    var x = config.X + room.X;
+                    var y = config.Y + room.Y;
 
                     if (config.EdgeDirection == direction && !layout.Intersects(template, x, y))
                     {
@@ -255,7 +255,7 @@ namespace MPewsey.ManiaMap
 
             foreach (var config in configurations)
             {
-                if (config.DX == dx && config.DY == dy && config.EdgeDirection == direction)
+                if (config.X == dx && config.Y == dy && config.EdgeDirection == direction)
                 {
                     layout.DoorConnections.Add(new DoorConnection(from, to, config.FromDoor, config.ToDoor));
                     return true;
