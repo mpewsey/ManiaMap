@@ -171,8 +171,9 @@ namespace MPewsey.ManiaMap
                 {
                     var x = config.X + backRoom.X;
                     var y = config.Y + backRoom.Y;
+                    var z = node.Z - backRoom.Z;
 
-                    if (!config.Matches(backDirection) || layout.Intersects(template, x, y, node.Z))
+                    if (!config.Matches(z, backDirection) || layout.Intersects(template, x, y, node.Z))
                         continue;
 
                     var newRoom = new Room(node, x, y, template);
@@ -180,7 +181,7 @@ namespace MPewsey.ManiaMap
                     if (!AddDoorConnection(layout, newRoom, aheadRoom, aheadDirection))
                         continue;
 
-                    if (!AddShaftConnection(layout, backRoom, newRoom, config.FromDoor, config.ToDoor))
+                    if (!AddConnection(layout, backRoom, newRoom, config.FromDoor, config.ToDoor))
                     {
                         layout.DoorConnections.RemoveAt(layout.DoorConnections.Count - 1);
                         continue;
@@ -213,13 +214,14 @@ namespace MPewsey.ManiaMap
                 {
                     var x = config.X + room.X;
                     var y = config.Y + room.Y;
+                    var z = node.Z - room.Z;
 
-                    if (!config.Matches(direction) || layout.Intersects(template, x, y, node.Z))
+                    if (!config.Matches(z, direction) || layout.Intersects(template, x, y, node.Z))
                         continue;
 
                     var newRoom = new Room(node, x, y, template);
 
-                    if (AddShaftConnection(layout, room, newRoom, config.FromDoor, config.ToDoor))
+                    if (AddConnection(layout, room, newRoom, config.FromDoor, config.ToDoor))
                     {
                         layout.Rooms.Add(node.Id, newRoom);
                         return true;
@@ -265,10 +267,12 @@ namespace MPewsey.ManiaMap
 
             foreach (var config in configurations)
             {
-                if (!config.Matches(dx, dy, direction))
+                var dz = to.Z - from.Z;
+                
+                if (!config.Matches(dx, dy, dz, direction))
                     continue;
 
-                if (AddShaftConnection(layout, from, to, config.FromDoor, config.ToDoor))
+                if (AddConnection(layout, from, to, config.FromDoor, config.ToDoor))
                     return true;
             }
 
@@ -279,14 +283,8 @@ namespace MPewsey.ManiaMap
         /// Attempts to add a shaft to the layout if necessary.
         /// Returns true if successful.
         /// </summary>
-        private bool AddShaftConnection(Layout layout, Room from, Room to, Door fromDoor, Door toDoor)
+        private bool AddConnection(Layout layout, Room from, Room to, Door fromDoor, Door toDoor)
         {
-            if (from.Z < to.Z && fromDoor.Direction != DoorDirection.Top)
-                return false;
-
-            if (from.Z > to.Z && fromDoor.Direction != DoorDirection.Bottom)
-                return false;
-
             if (Math.Abs(from.Z - to.Z) <= 1)
             {
                 var connection = new DoorConnection(from, to, fromDoor, toDoor);
