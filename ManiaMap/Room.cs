@@ -46,7 +46,7 @@ namespace MPewsey.ManiaMap
 
         public override string ToString()
         {
-            return $"Room(Id = {Id}, X = {X}, Y = {Y}, Template = {Template})";
+            return $"Room(Id = {Id}, X = {X}, Y = {Y}, Z = {Z}, Template = {Template})";
         }
     }
 }
