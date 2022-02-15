@@ -7,13 +7,13 @@ namespace MPewsey.ManiaMap
     public class Door
     {
         [DataMember(Order = 1)]
-        public int X { get; set; }
+        public int X { get; private set; }
 
         [DataMember(Order = 2)]
-        public int Y { get; set; }
+        public int Y { get; private set; }
 
         [DataMember(Order = 3)]
-        public DoorDirection Direction { get; set; }
+        public DoorDirection Direction { get; private set; }
 
         [DataMember(Order = 4)]
         public DoorType Type { get; set; }
