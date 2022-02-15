@@ -39,7 +39,7 @@ namespace MPewsey.ManiaMap.Tests
                 (3, 0, from.Cells[2, 1].SouthDoor, to.Cells[0, 1].NorthDoor),
             };
 
-            var result = space.Configurations.Select(x => (x.X, x.Y, x.FromDoor, x.ToDoor)).ToArray();
+            var result = space.Configurations.Select(x => (x.DX, x.DY, x.FromDoor, x.ToDoor)).ToArray();
             CollectionAssert.AreEqual(expected, result);
         }
     }

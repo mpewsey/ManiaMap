@@ -35,11 +35,11 @@ namespace MPewsey.ManiaMap
             return $"Layout(Seed = {Seed})";
         }
 
-        public bool Intersects(RoomTemplate template, int dx, int dy)
+        public bool Intersects(RoomTemplate template, int x, int y)
         {
             foreach (var room in Rooms.Values)
             {
-                if (template.Intersects(room.Template, room.X - dx, room.Y - dy))
+                if (template.Intersects(room.Template, room.X - x, room.Y - y))
                 {
                     return true;
                 }
