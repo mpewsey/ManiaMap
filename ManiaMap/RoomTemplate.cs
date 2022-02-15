@@ -198,6 +198,89 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns the aligned doors if the templates are stacked.
+        /// </summary>
+        public List<DoorPair> StackAlignedDoors(RoomTemplate other, int dx, int dy)
+        {
+            var result = new List<DoorPair>();
+            var jStart = Math.Max(0, dy - 1);
+            var jStop = Math.Min(Cells.Columns, other.Cells.Columns + dy + 1);
+
+            if (jStart < jStop)
+            {
+                var iStart = Math.Max(0, dx - 1);
+                var iStop = Math.Min(Cells.Rows, other.Cells.Rows + dx + 1);
+
+                for (int i = iStart; i < iStop; i++)
+                {
+                    for (int j = jStart; j < jStop; j++)
+                    {
+                        var cell = Cells[i, j];
+
+                        if (cell != null)
+                        {
+                            var x = i - dx;
+                            var y = j - dy;
+                            var vert = other.Cells.GetOrDefault(x, y);
+
+                            if (cell.TopDoorAligns(vert))
+                                result.Add(new DoorPair(cell.TopDoor, vert.BottomDoor));
+                            if (cell.BottomDoorAligns(vert))
+                                result.Add(new DoorPair(cell.BottomDoor, vert.TopDoor));
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Returns the aligned doors on the same layer.
+        /// </summary>
+        public List<DoorPair> LayerAlignedDoors(RoomTemplate other, int dx, int dy)
+        {
+            var result = new List<DoorPair>();
+            var jStart = Math.Max(0, dy - 1);
+            var jStop = Math.Min(Cells.Columns, other.Cells.Columns + dy + 1);
+
+            if (jStart < jStop)
+            {
+                var iStart = Math.Max(0, dx - 1);
+                var iStop = Math.Min(Cells.Rows, other.Cells.Rows + dx + 1);
+
+                for (int i = iStart; i < iStop; i++)
+                {
+                    for (int j = jStart; j < jStop; j++)
+                    {
+                        var cell = Cells[i, j];
+
+                        if (cell != null)
+                        {
+                            var x = i - dx;
+                            var y = j - dy;
+                            var north = other.Cells.GetOrDefault(x - 1, y);
+                            var south = other.Cells.GetOrDefault(x + 1, y);
+                            var west = other.Cells.GetOrDefault(x, y - 1);
+                            var east = other.Cells.GetOrDefault(x, y + 1);
+
+                            if (cell.WestDoorAligns(west))
+                                result.Add(new DoorPair(cell.WestDoor, west.EastDoor));
+                            if (cell.NorthDoorAligns(north))
+                                result.Add(new DoorPair(cell.NorthDoor, north.SouthDoor));
+                            if (cell.EastDoorAligns(east))
+                                result.Add(new DoorPair(cell.EastDoor, east.WestDoor));
+                            if (cell.SouthDoorAligns(south))
+                                result.Add(new DoorPair(cell.SouthDoor, south.NorthDoor));
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// Returns a list of doors aligning with a template at the specified offset.
         /// </summary>
         public List<DoorPair> AlignedDoors(RoomTemplate other, int dx, int dy)
