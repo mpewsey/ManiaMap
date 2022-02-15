@@ -29,6 +29,24 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns a new door with the same door type.
+        /// </summary>
+        public Door CopyType()
+        {
+            return new Door(Type);
+        }
+
+        /// <summary>
+        /// Sets the properties of the door.
+        /// </summary>
+        public void SetProperties(int x, int y, DoorDirection direction)
+        {
+            X = x;
+            Y = y;
+            Direction = direction;
+        }
+
+        /// <summary>
         /// Returns true if the door types are compatible.
         /// </summary>
         public static bool DoorTypesAligns(DoorType from, DoorType to)

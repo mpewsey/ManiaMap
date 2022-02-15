@@ -31,27 +31,14 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Sets the position properties of the doors assigned to the cells.
         /// </summary>
-        public void SetDoorPositions(int x, int y)
+        public void SetDoorProperties(int x, int y)
         {
-            SetDoorPosition(WestDoor, x, y, DoorDirection.West);
-            SetDoorPosition(EastDoor, x, y, DoorDirection.East);
-            SetDoorPosition(NorthDoor, x, y, DoorDirection.North);
-            SetDoorPosition(SouthDoor, x, y, DoorDirection.South);
-            SetDoorPosition(TopDoor, x, y, DoorDirection.Top);
-            SetDoorPosition(BottomDoor, x, y, DoorDirection.Bottom);
-        }
-
-        /// <summary>
-        /// Sets the position of the door if it is not null.
-        /// </summary>
-        private static void SetDoorPosition(Door door, int x, int y, DoorDirection direction)
-        {
-            if (door != null)
-            {
-                door.X = x;
-                door.Y = y;
-                door.Direction = direction;
-            }
+            WestDoor?.SetProperties(x, y, DoorDirection.West);
+            EastDoor?.SetProperties(x, y, DoorDirection.East);
+            NorthDoor?.SetProperties(x, y, DoorDirection.North);
+            SouthDoor?.SetProperties(x, y, DoorDirection.South);
+            TopDoor?.SetProperties(x, y, DoorDirection.Top);
+            BottomDoor?.SetProperties(x, y, DoorDirection.Bottom);
         }
 
         /// <summary>
@@ -119,18 +106,15 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public Cell Rotated90()
         {
-            var rotation = new Cell();
-
-            if (NorthDoor != null)
-                rotation.EastDoor = new Door(NorthDoor.Type);
-            if (EastDoor != null)
-                rotation.SouthDoor = new Door(EastDoor.Type);
-            if (SouthDoor != null)
-                rotation.WestDoor = new Door(SouthDoor.Type);
-            if (WestDoor != null)
-                rotation.NorthDoor = new Door(WestDoor.Type);
-
-            return rotation;
+            return new Cell
+            {
+                EastDoor = NorthDoor?.CopyType(),
+                SouthDoor = EastDoor?.CopyType(),
+                WestDoor = SouthDoor?.CopyType(),
+                NorthDoor = WestDoor?.CopyType(),
+                TopDoor = TopDoor?.CopyType(),
+                BottomDoor = BottomDoor?.CopyType(),
+            };
         }
 
         /// <summary>
@@ -138,18 +122,15 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public Cell Rotated180()
         {
-            var rotation = new Cell();
-
-            if (NorthDoor != null)
-                rotation.SouthDoor = new Door(NorthDoor.Type);
-            if (SouthDoor != null)
-                rotation.NorthDoor = new Door(SouthDoor.Type);
-            if (WestDoor != null)
-                rotation.EastDoor = new Door(WestDoor.Type);
-            if (EastDoor != null)
-                rotation.WestDoor = new Door(EastDoor.Type);
-
-            return rotation;
+            return new Cell
+            {
+                SouthDoor = NorthDoor?.CopyType(),
+                NorthDoor = SouthDoor?.CopyType(),
+                EastDoor = WestDoor?.CopyType(),
+                WestDoor = EastDoor?.CopyType(),
+                TopDoor = TopDoor?.CopyType(),
+                BottomDoor = BottomDoor?.CopyType(),
+            };
         }
 
         /// <summary>
@@ -157,18 +138,15 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public Cell Rotated270()
         {
-            var rotation = new Cell();
-
-            if (NorthDoor != null)
-                rotation.WestDoor = new Door(NorthDoor.Type);
-            if (EastDoor != null)
-                rotation.NorthDoor = new Door(EastDoor.Type);
-            if (SouthDoor != null)
-                rotation.EastDoor = new Door(SouthDoor.Type);
-            if (WestDoor != null)
-                rotation.SouthDoor = new Door(WestDoor.Type);
-
-            return rotation;
+            return new Cell
+            {
+                WestDoor = NorthDoor?.CopyType(),
+                NorthDoor = EastDoor?.CopyType(),
+                EastDoor = SouthDoor?.CopyType(),
+                SouthDoor = WestDoor?.CopyType(),
+                TopDoor = TopDoor?.CopyType(),
+                BottomDoor = BottomDoor?.CopyType(),
+            };
         }
 
         /// <summary>
@@ -176,18 +154,15 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public Cell MirroredVertically()
         {
-            var mirror = new Cell();
-
-            if (NorthDoor != null)
-                mirror.SouthDoor = new Door(NorthDoor.Type);
-            if (SouthDoor != null)
-                mirror.NorthDoor = new Door(SouthDoor.Type);
-            if (WestDoor != null)
-                mirror.WestDoor = new Door(WestDoor.Type);
-            if (EastDoor != null)
-                mirror.EastDoor = new Door(EastDoor.Type);
-
-            return mirror;
+            return new Cell
+            {
+                SouthDoor = NorthDoor?.CopyType(),
+                NorthDoor = SouthDoor?.CopyType(),
+                WestDoor = WestDoor?.CopyType(),
+                EastDoor = EastDoor?.CopyType(),
+                TopDoor = TopDoor?.CopyType(),
+                BottomDoor = BottomDoor?.CopyType(),
+            };
         }
 
         /// <summary>
@@ -195,18 +170,15 @@ namespace MPewsey.ManiaMap
         /// </summary>s
         public Cell MirroredHorizontally()
         {
-            var mirror = new Cell();
-
-            if (NorthDoor != null)
-                mirror.NorthDoor = new Door(NorthDoor.Type);
-            if (SouthDoor != null)
-                mirror.SouthDoor = new Door(SouthDoor.Type);
-            if (WestDoor != null)
-                mirror.EastDoor = new Door(WestDoor.Type);
-            if (EastDoor != null)
-                mirror.WestDoor = new Door(EastDoor.Type);
-
-            return mirror;
+            return new Cell
+            {
+                NorthDoor = NorthDoor?.CopyType(),
+                SouthDoor = SouthDoor?.CopyType(),
+                WestDoor = EastDoor?.CopyType(),
+                EastDoor = WestDoor?.CopyType(),
+                TopDoor = TopDoor?.CopyType(),
+                BottomDoor = BottomDoor?.CopyType(),
+            };
         }
     }
 }
