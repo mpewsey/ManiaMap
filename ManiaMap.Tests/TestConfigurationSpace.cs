@@ -9,10 +9,10 @@ namespace MPewsey.ManiaMap.Tests
         private static RoomTemplate GetRoomTemplate1(int id)
         {
             var o = new Cell();
-            var l = new Cell { LeftDoor = new(DoorType.TwoWay) };
-            var t = new Cell { TopDoor = new(DoorType.TwoWay) };
-            var r = new Cell { RightDoor = new(DoorType.TwoWay) };
-            var b = new Cell { BottomDoor = new(DoorType.TwoWay) };
+            var l = new Cell { WestDoor = new(DoorType.TwoWay) };
+            var t = new Cell { NorthDoor = new(DoorType.TwoWay) };
+            var r = new Cell { EastDoor = new(DoorType.TwoWay) };
+            var b = new Cell { SouthDoor = new(DoorType.TwoWay) };
 
             var cells = new Cell[,]
             {
@@ -33,10 +33,10 @@ namespace MPewsey.ManiaMap.Tests
 
             var expected = new (int, int, Door, Door)[]
             {
-                (-3, 0, from.Cells[0, 1].TopDoor, to.Cells[2, 1].BottomDoor),
-                (0, -3, from.Cells[1, 0].LeftDoor, to.Cells[1, 2].RightDoor),
-                (0, 3, from.Cells[1, 2].RightDoor, to.Cells[1, 0].LeftDoor),
-                (3, 0, from.Cells[2, 1].BottomDoor, to.Cells[0, 1].TopDoor),
+                (-3, 0, from.Cells[0, 1].NorthDoor, to.Cells[2, 1].SouthDoor),
+                (0, -3, from.Cells[1, 0].WestDoor, to.Cells[1, 2].EastDoor),
+                (0, 3, from.Cells[1, 2].EastDoor, to.Cells[1, 0].WestDoor),
+                (3, 0, from.Cells[2, 1].SouthDoor, to.Cells[0, 1].NorthDoor),
             };
 
             var result = space.Configurations.Select(x => (x.X, x.Y, x.FromDoor, x.ToDoor)).ToArray();

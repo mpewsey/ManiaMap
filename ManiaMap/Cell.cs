@@ -6,20 +6,20 @@ namespace MPewsey.ManiaMap
     public class Cell
     {
         [DataMember(Order = 1)]
-        public Door LeftDoor { get; set; }
+        public Door WestDoor { get; set; }
 
         [DataMember(Order = 2)]
-        public Door TopDoor { get; set; }
+        public Door NorthDoor { get; set; }
 
         [DataMember(Order = 3)]
-        public Door RightDoor { get; set; }
+        public Door EastDoor { get; set; }
 
         [DataMember(Order = 4)]
-        public Door BottomDoor { get; set; }
+        public Door SouthDoor { get; set; }
 
         public override string ToString()
         {
-            return $"Cell(LeftDoor = {LeftDoor}, TopDoor = {TopDoor}, RightDoor = {RightDoor}, BottomDoor = {BottomDoor})";
+            return $"Cell(WestDoor = {WestDoor}, NorthDoor = {NorthDoor}, EastDoor = {EastDoor}, SouthDoor = {SouthDoor})";
         }
 
         /// <summary>
@@ -29,54 +29,54 @@ namespace MPewsey.ManiaMap
         {
             var i = 6 * index;
 
-            if (LeftDoor != null)
-                LeftDoor.Id = i + 1;
-            if (TopDoor != null)
-                TopDoor.Id = i + 2;
-            if (RightDoor != null)
-                RightDoor.Id = i + 3;
-            if (BottomDoor != null)
-                BottomDoor.Id = i + 4;
+            if (WestDoor != null)
+                WestDoor.Id = i + 1;
+            if (NorthDoor != null)
+                NorthDoor.Id = i + 2;
+            if (EastDoor != null)
+                EastDoor.Id = i + 3;
+            if (SouthDoor != null)
+                SouthDoor.Id = i + 4;
         }
 
         /// <summary>
-        /// Returns true if the top door aligns with the bottom door of the specified cell.
+        /// Returns true if the north door aligns with the south door of the specified cell.
         /// </summary>
-        public bool TopDoorAligns(Cell other)
+        public bool NorthDoorAligns(Cell other)
         {
-            return TopDoor != null
-                && other?.BottomDoor != null
-                && Door.DoorTypesAligns(TopDoor.Type, other.BottomDoor.Type);
+            return NorthDoor != null
+                && other?.SouthDoor != null
+                && Door.DoorTypesAligns(NorthDoor.Type, other.SouthDoor.Type);
         }
 
         /// <summary>
-        /// Returns true if the bottom door aligns with the top door of the specified cell.
+        /// Returns true if the south door aligns with the north door of the specified cell.
         /// </summary>
-        public bool BottomDoorAligns(Cell other)
+        public bool SouthDoorAligns(Cell other)
         {
-            return BottomDoor != null
-                && other?.TopDoor != null
-                && Door.DoorTypesAligns(BottomDoor.Type, other.TopDoor.Type);
+            return SouthDoor != null
+                && other?.NorthDoor != null
+                && Door.DoorTypesAligns(SouthDoor.Type, other.NorthDoor.Type);
         }
 
         /// <summary>
-        /// Returns true if the left door aligns with the right door of the specified cell.
+        /// Returns true if the west door aligns with the east door of the specified cell.
         /// </summary>
-        public bool LeftDoorAligns(Cell other)
+        public bool WestDoorAligns(Cell other)
         {
-            return LeftDoor != null
-                && other?.RightDoor != null
-                && Door.DoorTypesAligns(LeftDoor.Type, other.RightDoor.Type);
+            return WestDoor != null
+                && other?.EastDoor != null
+                && Door.DoorTypesAligns(WestDoor.Type, other.EastDoor.Type);
         }
 
         /// <summary>
-        /// Returns true if the right door aligns with the left door of the specified cell.
+        /// Returns true if the east door aligns with the west door of the specified cell.
         /// </summary>
-        public bool RightDoorAligns(Cell other)
+        public bool EastDoorAligns(Cell other)
         {
-            return RightDoor != null
-                && other?.LeftDoor != null
-                && Door.DoorTypesAligns(RightDoor.Type, other.LeftDoor.Type);
+            return EastDoor != null
+                && other?.WestDoor != null
+                && Door.DoorTypesAligns(EastDoor.Type, other.WestDoor.Type);
         }
 
         /// <summary>
@@ -86,14 +86,14 @@ namespace MPewsey.ManiaMap
         {
             var rotation = new Cell();
 
-            if (TopDoor != null)
-                rotation.RightDoor = new Door(TopDoor.Type);
-            if (RightDoor != null)
-                rotation.BottomDoor = new Door(RightDoor.Type);
-            if (BottomDoor != null)
-                rotation.LeftDoor = new Door(BottomDoor.Type);
-            if (LeftDoor != null)
-                rotation.TopDoor = new Door(LeftDoor.Type);
+            if (NorthDoor != null)
+                rotation.EastDoor = new Door(NorthDoor.Type);
+            if (EastDoor != null)
+                rotation.SouthDoor = new Door(EastDoor.Type);
+            if (SouthDoor != null)
+                rotation.WestDoor = new Door(SouthDoor.Type);
+            if (WestDoor != null)
+                rotation.NorthDoor = new Door(WestDoor.Type);
 
             return rotation;
         }
@@ -105,14 +105,14 @@ namespace MPewsey.ManiaMap
         {
             var rotation = new Cell();
 
-            if (TopDoor != null)
-                rotation.BottomDoor = new Door(TopDoor.Type);
-            if (BottomDoor != null)
-                rotation.TopDoor = new Door(BottomDoor.Type);
-            if (LeftDoor != null)
-                rotation.RightDoor = new Door(LeftDoor.Type);
-            if (RightDoor != null)
-                rotation.LeftDoor = new Door(RightDoor.Type);
+            if (NorthDoor != null)
+                rotation.SouthDoor = new Door(NorthDoor.Type);
+            if (SouthDoor != null)
+                rotation.NorthDoor = new Door(SouthDoor.Type);
+            if (WestDoor != null)
+                rotation.EastDoor = new Door(WestDoor.Type);
+            if (EastDoor != null)
+                rotation.WestDoor = new Door(EastDoor.Type);
 
             return rotation;
         }
@@ -124,14 +124,14 @@ namespace MPewsey.ManiaMap
         {
             var rotation = new Cell();
 
-            if (TopDoor != null)
-                rotation.LeftDoor = new Door(TopDoor.Type);
-            if (RightDoor != null)
-                rotation.TopDoor = new Door(RightDoor.Type);
-            if (BottomDoor != null)
-                rotation.RightDoor = new Door(BottomDoor.Type);
-            if (LeftDoor != null)
-                rotation.BottomDoor = new Door(LeftDoor.Type);
+            if (NorthDoor != null)
+                rotation.WestDoor = new Door(NorthDoor.Type);
+            if (EastDoor != null)
+                rotation.NorthDoor = new Door(EastDoor.Type);
+            if (SouthDoor != null)
+                rotation.EastDoor = new Door(SouthDoor.Type);
+            if (WestDoor != null)
+                rotation.SouthDoor = new Door(WestDoor.Type);
 
             return rotation;
         }
@@ -143,14 +143,14 @@ namespace MPewsey.ManiaMap
         {
             var mirror = new Cell();
 
-            if (TopDoor != null)
-                mirror.BottomDoor = new Door(TopDoor.Type);
-            if (BottomDoor != null)
-                mirror.TopDoor = new Door(BottomDoor.Type);
-            if (LeftDoor != null)
-                mirror.LeftDoor = new Door(LeftDoor.Type);
-            if (RightDoor != null)
-                mirror.RightDoor = new Door(RightDoor.Type);
+            if (NorthDoor != null)
+                mirror.SouthDoor = new Door(NorthDoor.Type);
+            if (SouthDoor != null)
+                mirror.NorthDoor = new Door(SouthDoor.Type);
+            if (WestDoor != null)
+                mirror.WestDoor = new Door(WestDoor.Type);
+            if (EastDoor != null)
+                mirror.EastDoor = new Door(EastDoor.Type);
 
             return mirror;
         }
@@ -162,14 +162,14 @@ namespace MPewsey.ManiaMap
         {
             var mirror = new Cell();
 
-            if (TopDoor != null)
-                mirror.TopDoor = new Door(TopDoor.Type);
-            if (BottomDoor != null)
-                mirror.BottomDoor = new Door(BottomDoor.Type);
-            if (LeftDoor != null)
-                mirror.RightDoor = new Door(LeftDoor.Type);
-            if (RightDoor != null)
-                mirror.LeftDoor = new Door(RightDoor.Type);
+            if (NorthDoor != null)
+                mirror.NorthDoor = new Door(NorthDoor.Type);
+            if (SouthDoor != null)
+                mirror.SouthDoor = new Door(SouthDoor.Type);
+            if (WestDoor != null)
+                mirror.EastDoor = new Door(WestDoor.Type);
+            if (EastDoor != null)
+                mirror.WestDoor = new Door(EastDoor.Type);
 
             return mirror;
         }

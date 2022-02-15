@@ -132,10 +132,10 @@ namespace MPewsey.ManiaMap.Drawing
                                 var left = cells.GetOrDefault(i, j - 1);
                                 var right = cells.GetOrDefault(i, j + 1);
 
-                                var topTile = GetTile(room, cell.TopDoor, top, "TopDoor", "TopWall");
-                                var bottomTile = GetTile(room, cell.BottomDoor, bottom, "BottomDoor", "BottomWall");
-                                var leftTile = GetTile(room, cell.LeftDoor, left, "LeftDoor", "LeftWall");
-                                var rightTile = GetTile(room, cell.RightDoor, right, "RightDoor", "RightWall");
+                                var topTile = GetTile(room, cell.NorthDoor, top, "NorthDoor", "NorthWall");
+                                var bottomTile = GetTile(room, cell.SouthDoor, bottom, "SouthDoor", "SouthWall");
+                                var leftTile = GetTile(room, cell.WestDoor, left, "WestDoor", "WestWall");
+                                var rightTile = GetTile(room, cell.EastDoor, right, "EastDoor", "EastWall");
 
                                 // Add cell background fill
                                 image.DrawImage(cellTile, point, 1);

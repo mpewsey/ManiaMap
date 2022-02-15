@@ -28,14 +28,14 @@ namespace MPewsey.ManiaMap.Drawing
 
             return new Dictionary<string, Image>
             {
-                { "BottomDoor", LoadTile(path + "BottomDoor.png") },
-                { "TopDoor", LoadTile(path + "TopDoor.png") },
-                { "LeftDoor", LoadTile(path + "LeftDoor.png") },
-                { "RightDoor", LoadTile(path + "RightDoor.png") },
-                { "BottomWall", LoadTile(path + "BottomWall.png") },
-                { "TopWall", LoadTile(path + "TopWall.png") },
-                { "LeftWall", LoadTile(path + "LeftWall.png") },
-                { "RightWall", LoadTile(path + "RightWall.png") },
+                { "SouthDoor", LoadTile(path + "SouthDoor.png") },
+                { "NorthDoor", LoadTile(path + "NorthDoor.png") },
+                { "WestDoor", LoadTile(path + "WestDoor.png") },
+                { "EastDoor", LoadTile(path + "EastDoor.png") },
+                { "SouthWall", LoadTile(path + "SouthWall.png") },
+                { "NorthWall", LoadTile(path + "NorthWall.png") },
+                { "WestWall", LoadTile(path + "WestWall.png") },
+                { "EastWall", LoadTile(path + "EastWall.png") },
                 { "Grid", LoadTile(path + "Grid.png") },
             };
         }

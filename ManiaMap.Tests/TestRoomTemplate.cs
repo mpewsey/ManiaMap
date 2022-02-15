@@ -9,10 +9,10 @@ namespace MPewsey.ManiaMap.Tests
         private static RoomTemplate GetBoxRoom(int id)
         {
             var o = new Cell();
-            var l = new Cell { LeftDoor = new(DoorType.TwoWay) };
-            var t = new Cell { TopDoor = new(DoorType.TwoWay) };
-            var r = new Cell { RightDoor = new(DoorType.TwoWay) };
-            var b = new Cell { BottomDoor = new(DoorType.TwoWay) };
+            var l = new Cell { WestDoor = new(DoorType.TwoWay) };
+            var t = new Cell { NorthDoor = new(DoorType.TwoWay) };
+            var r = new Cell { EastDoor = new(DoorType.TwoWay) };
+            var b = new Cell { SouthDoor = new(DoorType.TwoWay) };
 
             var cells = new Cell[,]
             {
@@ -28,10 +28,10 @@ namespace MPewsey.ManiaMap.Tests
         {
             Cell x = null;
             var o = new Cell();
-            var l = new Cell { LeftDoor = new(DoorType.TwoWay) };
-            var t = new Cell { TopDoor = new(DoorType.TwoWay) };
-            var r = new Cell { RightDoor = new(DoorType.TwoWay) };
-            var b = new Cell { BottomDoor = new(DoorType.TwoWay) };
+            var l = new Cell { WestDoor = new(DoorType.TwoWay) };
+            var t = new Cell { NorthDoor = new(DoorType.TwoWay) };
+            var r = new Cell { EastDoor = new(DoorType.TwoWay) };
+            var b = new Cell { SouthDoor = new(DoorType.TwoWay) };
 
             var cells = new Cell[,]
             {
@@ -78,7 +78,7 @@ namespace MPewsey.ManiaMap.Tests
 
             var expected = new List<DoorPair>
             {
-                new(from.Cells[1, 2].RightDoor, to.Cells[1, 0].LeftDoor),
+                new(from.Cells[1, 2].EastDoor, to.Cells[1, 0].WestDoor),
             };
 
             CollectionAssert.AreEqual(expected, doors);
@@ -93,7 +93,7 @@ namespace MPewsey.ManiaMap.Tests
 
             var expected = new List<DoorPair>
             {
-                new(from.Cells[1, 0].LeftDoor, to.Cells[1, 2].RightDoor),
+                new(from.Cells[1, 0].WestDoor, to.Cells[1, 2].EastDoor),
             };
 
             CollectionAssert.AreEqual(expected, doors);
@@ -108,7 +108,7 @@ namespace MPewsey.ManiaMap.Tests
 
             var expected = new List<DoorPair>
             {
-                new(from.Cells[0, 1].TopDoor, to.Cells[2, 1].BottomDoor),
+                new(from.Cells[0, 1].NorthDoor, to.Cells[2, 1].SouthDoor),
             };
 
             CollectionAssert.AreEqual(expected, doors);
@@ -123,7 +123,7 @@ namespace MPewsey.ManiaMap.Tests
 
             var expected = new List<DoorPair>
             {
-                new(from.Cells[2, 1].BottomDoor, to.Cells[0, 1].TopDoor),
+                new(from.Cells[2, 1].SouthDoor, to.Cells[0, 1].NorthDoor),
             };
 
             CollectionAssert.AreEqual(expected, doors);

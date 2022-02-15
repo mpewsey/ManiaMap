@@ -11,8 +11,8 @@ namespace MPewsey.ManiaMap.Drawing.Tests
         {
             Cell x = null;
             var o = new Cell();
-            var a = new Cell { RightDoor = new(DoorType.TwoWay) };
-            var b = new Cell { LeftDoor = new(DoorType.TwoWay) };
+            var a = new Cell { EastDoor = new(DoorType.TwoWay) };
+            var b = new Cell { WestDoor = new(DoorType.TwoWay) };
 
             var cells = new Cell[,]
             {
@@ -30,8 +30,8 @@ namespace MPewsey.ManiaMap.Drawing.Tests
         {
             Cell x = null;
             var o = new Cell();
-            var a = new Cell { RightDoor = new(DoorType.TwoWay) };
-            var b = new Cell { LeftDoor = new(DoorType.TwoWay) };
+            var a = new Cell { EastDoor = new(DoorType.TwoWay) };
+            var b = new Cell { WestDoor = new(DoorType.TwoWay) };
 
             var cells = new Cell[,]
             {
@@ -49,8 +49,8 @@ namespace MPewsey.ManiaMap.Drawing.Tests
         {
             Cell x = null;
             var o = new Cell();
-            var a = new Cell { RightDoor = new(DoorType.TwoWay) };
-            var b = new Cell { LeftDoor = new(DoorType.TwoWay) };
+            var a = new Cell { EastDoor = new(DoorType.TwoWay) };
+            var b = new Cell { WestDoor = new(DoorType.TwoWay) };
 
             var cells = new Cell[,]
             {
@@ -68,8 +68,8 @@ namespace MPewsey.ManiaMap.Drawing.Tests
         {
             Cell x = null;
             var o = new Cell();
-            var a = new Cell { RightDoor = new(DoorType.TwoWay) };
-            var b = new Cell { LeftDoor = new(DoorType.TwoWay) };
+            var a = new Cell { EastDoor = new(DoorType.TwoWay) };
+            var b = new Cell { WestDoor = new(DoorType.TwoWay) };
 
             var cells = new Cell[,]
             {
@@ -87,7 +87,7 @@ namespace MPewsey.ManiaMap.Drawing.Tests
         {
             Cell x = null;
             var o = new Cell();
-            var a = new Cell { LeftDoor = new(DoorType.TwoWay) };
+            var a = new Cell { WestDoor = new(DoorType.TwoWay) };
 
             var cells = new Cell[,]
             {
@@ -130,13 +130,13 @@ namespace MPewsey.ManiaMap.Drawing.Tests
 
             layout.DoorConnections.AddRange(new DoorConnection[]
             {
-                new(m1, a1, m1.Template.Cells[4, 4].RightDoor, a1.Template.Cells[4, 0].LeftDoor),
-                new(a1, n1, a1.Template.Cells[4, 2].RightDoor, n1.Template.Cells[4, 0].LeftDoor),
-                new(n1, i1, n1.Template.Cells[4, 2].RightDoor, i1.Template.Cells[4, 0].LeftDoor),
-                new(i1, a2, i1.Template.Cells[4, 2].RightDoor, a1.Template.Cells[4, 0].LeftDoor),
-                new(a2, m2, a2.Template.Cells[4, 2].RightDoor, m2.Template.Cells[4, 0].LeftDoor),
-                new(m2, a3, m2.Template.Cells[4, 4].RightDoor, a3.Template.Cells[4, 0].LeftDoor),
-                new(a3, p1, a3.Template.Cells[4, 2].RightDoor, p1.Template.Cells[4, 0].LeftDoor),
+                new(m1, a1, m1.Template.Cells[4, 4].EastDoor, a1.Template.Cells[4, 0].WestDoor),
+                new(a1, n1, a1.Template.Cells[4, 2].EastDoor, n1.Template.Cells[4, 0].WestDoor),
+                new(n1, i1, n1.Template.Cells[4, 2].EastDoor, i1.Template.Cells[4, 0].WestDoor),
+                new(i1, a2, i1.Template.Cells[4, 2].EastDoor, a1.Template.Cells[4, 0].WestDoor),
+                new(a2, m2, a2.Template.Cells[4, 2].EastDoor, m2.Template.Cells[4, 0].WestDoor),
+                new(m2, a3, m2.Template.Cells[4, 4].EastDoor, a3.Template.Cells[4, 0].WestDoor),
+                new(a3, p1, a3.Template.Cells[4, 2].EastDoor, p1.Template.Cells[4, 0].WestDoor),
             });
 
             return layout;

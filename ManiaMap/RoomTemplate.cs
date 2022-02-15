@@ -209,14 +209,14 @@ namespace MPewsey.ManiaMap
                             var left = other.Cells.GetOrDefault(x, y - 1);
                             var right = other.Cells.GetOrDefault(x, y + 1);
 
-                            if (cell.LeftDoorAligns(left))
-                                result.Add(new DoorPair(cell.LeftDoor, left.RightDoor));
-                            if (cell.TopDoorAligns(top))
-                                result.Add(new DoorPair(cell.TopDoor, top.BottomDoor));
-                            if (cell.RightDoorAligns(right))
-                                result.Add(new DoorPair(cell.RightDoor, right.LeftDoor));
-                            if (cell.BottomDoorAligns(bottom))
-                                result.Add(new DoorPair(cell.BottomDoor, bottom.TopDoor));
+                            if (cell.WestDoorAligns(left))
+                                result.Add(new DoorPair(cell.WestDoor, left.EastDoor));
+                            if (cell.NorthDoorAligns(top))
+                                result.Add(new DoorPair(cell.NorthDoor, top.SouthDoor));
+                            if (cell.EastDoorAligns(right))
+                                result.Add(new DoorPair(cell.EastDoor, right.WestDoor));
+                            if (cell.SouthDoorAligns(bottom))
+                                result.Add(new DoorPair(cell.SouthDoor, bottom.NorthDoor));
                         }
                     }
                 }

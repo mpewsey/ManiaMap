@@ -12,14 +12,14 @@ namespace MPewsey.ManiaMap.Tests
         private static RoomTemplate GetSquareTemplate()
         {
             var o = new Cell();
-            var a = new Cell { LeftDoor = new(DoorType.TwoWay), TopDoor = new(DoorType.TwoWay) };
-            var b = new Cell { TopDoor = new(DoorType.TwoWay) };
-            var c = new Cell { TopDoor = new(DoorType.TwoWay), RightDoor = new(DoorType.TwoWay) };
-            var d = new Cell { LeftDoor = new(DoorType.TwoWay) };
-            var e = new Cell { RightDoor = new(DoorType.TwoWay) };
-            var f = new Cell { LeftDoor = new(DoorType.TwoWay), BottomDoor = new(DoorType.TwoWay) };
-            var g = new Cell { BottomDoor = new(DoorType.TwoWay) };
-            var h = new Cell { BottomDoor = new(DoorType.TwoWay), RightDoor = new(DoorType.TwoWay) };
+            var a = new Cell { WestDoor = new(DoorType.TwoWay), NorthDoor = new(DoorType.TwoWay) };
+            var b = new Cell { NorthDoor = new(DoorType.TwoWay) };
+            var c = new Cell { NorthDoor = new(DoorType.TwoWay), EastDoor = new(DoorType.TwoWay) };
+            var d = new Cell { WestDoor = new(DoorType.TwoWay) };
+            var e = new Cell { EastDoor = new(DoorType.TwoWay) };
+            var f = new Cell { WestDoor = new(DoorType.TwoWay), SouthDoor = new(DoorType.TwoWay) };
+            var g = new Cell { SouthDoor = new(DoorType.TwoWay) };
+            var h = new Cell { SouthDoor = new(DoorType.TwoWay), EastDoor = new(DoorType.TwoWay) };
 
             var cells = new Cell[,]
             {
@@ -35,9 +35,9 @@ namespace MPewsey.ManiaMap.Tests
         {
             Cell x = null;
             var o = new Cell();
-            var a = new Cell { LeftDoor = new(DoorType.TwoWay), TopDoor = new(DoorType.TwoWay), RightDoor = new(DoorType.TwoWay) };
-            var b = new Cell { BottomDoor = new(DoorType.TwoWay), RightDoor = new(DoorType.TwoWay), TopDoor = new(DoorType.TwoWay) };
-            var c = new Cell { BottomDoor = new(DoorType.TwoWay), LeftDoor = new(DoorType.TwoWay) };
+            var a = new Cell { WestDoor = new(DoorType.TwoWay), NorthDoor = new(DoorType.TwoWay), EastDoor = new(DoorType.TwoWay) };
+            var b = new Cell { SouthDoor = new(DoorType.TwoWay), EastDoor = new(DoorType.TwoWay), NorthDoor = new(DoorType.TwoWay) };
+            var c = new Cell { SouthDoor = new(DoorType.TwoWay), WestDoor = new(DoorType.TwoWay) };
 
             var cells = new Cell[,]
             {
