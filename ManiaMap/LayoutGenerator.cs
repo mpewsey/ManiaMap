@@ -261,14 +261,13 @@ namespace MPewsey.ManiaMap
         {
             var dx = to.X - from.X;
             var dy = to.Y - from.Y;
+            var dz = to.Z - from.Z;
             var space = ConfigurationSpaces[new TemplatePair(from.Template, to.Template)];
             var configurations = new List<Configuration>(space.Configurations);
             Shuffle(configurations);
 
             foreach (var config in configurations)
             {
-                var dz = to.Z - from.Z;
-
                 if (!config.Matches(dx, dy, dz, direction))
                     continue;
 
