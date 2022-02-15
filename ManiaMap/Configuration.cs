@@ -32,7 +32,7 @@
                 return FromDoor.Direction == DoorDirection.Top
                     && ToDoor.Direction == DoorDirection.Bottom;
             }
-            
+
             if (z < 0)
             {
                 return FromDoor.Direction == DoorDirection.Bottom
