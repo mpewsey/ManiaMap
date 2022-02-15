@@ -268,7 +268,7 @@ namespace MPewsey.ManiaMap
             foreach (var config in configurations)
             {
                 var dz = to.Z - from.Z;
-                
+
                 if (!config.Matches(dx, dy, dz, direction))
                     continue;
 
