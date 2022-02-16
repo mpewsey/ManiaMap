@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -46,15 +47,18 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns an array of this template plus all mirrored and rotated variations.
         /// </summary>
-        public RoomTemplate[] AllVariations()
+        public List<RoomTemplate> AllVariations()
         {
             var horzMirror = MirroredHorizontally();
             var vertMirror = MirroredVertically();
             var fullMirror = horzMirror.MirroredVertically();
 
-            return new RoomTemplate[]
+            return new List<RoomTemplate>()
             {
                 this,
+                Rotated90(),
+                Rotated180(),
+                Rotated270(),
                 horzMirror,
                 horzMirror.Rotated90(),
                 horzMirror.Rotated180(),
@@ -68,6 +72,63 @@ namespace MPewsey.ManiaMap
                 fullMirror.Rotated180(),
                 fullMirror.Rotated270(),
             };
+        }
+
+        /// <summary>
+        /// Returns a new list of this template plus all unique variations.
+        /// </summary>
+        public List<RoomTemplate> UniqueVariations()
+        {
+            var templates = AllVariations();
+            var result = new List<RoomTemplate>(templates.Count);
+
+            foreach (var template in templates)
+            {
+                if (!result.Any(x => x.CellsMatch(template)))
+                {
+                    result.Add(template);
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Returns true if all cells in this template match the cells of another template.
+        /// </summary>
+        public bool CellsMatch(RoomTemplate other)
+        {
+            if (Cells.Rows != other.Cells.Rows || Cells.Columns != other.Cells.Columns)
+                return false;
+
+            for (int i = 0; i < Cells.Rows; i++)
+            {
+                for (int j = 0; j < Cells.Columns; j++)
+                {
+                    var x = Cells[i, j];
+                    var y = other.Cells[i, j];
+
+                    if (x != y)
+                    {
+                        if (x == null || y == null)
+                            return false;
+                        if ((x.TopDoor == null) != (y.TopDoor == null))
+                            return false;
+                        if ((x.BottomDoor == null) != (y.BottomDoor == null))
+                            return false;
+                        if ((x.NorthDoor == null) != (y.NorthDoor == null))
+                            return false;
+                        if ((x.SouthDoor == null) != (y.SouthDoor == null))
+                            return false;
+                        if ((x.WestDoor == null) != (y.WestDoor == null))
+                            return false;
+                        if ((x.EastDoor == null) != (y.EastDoor == null))
+                            return false;
+                    }
+                }
+            }
+
+            return true;
         }
 
         /// <summary>

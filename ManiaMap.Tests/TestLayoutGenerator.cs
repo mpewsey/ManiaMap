@@ -37,7 +37,7 @@ namespace MPewsey.ManiaMap.Tests
 
             var templateGroups = new TemplateGroups();
             var template = Samples.TemplateLibrary.LTemplate();
-            templateGroups.Add("Default", template.AllVariations());
+            templateGroups.Add("Default", template.UniqueVariations());
 
             var generator = new LayoutGenerator(123456, graph, templateGroups);
             var layout = generator.GenerateLayout();
