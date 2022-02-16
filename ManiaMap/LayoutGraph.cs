@@ -5,18 +5,20 @@ namespace MPewsey.ManiaMap
     public class LayoutGraph
     {
         public int Id { get; }
+        public string Name { get; set; }
         private Dictionary<int, LayoutNode> Nodes { get; } = new Dictionary<int, LayoutNode>();
         private Dictionary<EdgeIndexes, LayoutEdge> Edges { get; } = new Dictionary<EdgeIndexes, LayoutEdge>();
         private Dictionary<int, List<int>> Neighbors { get; } = new Dictionary<int, List<int>>();
 
-        public LayoutGraph(int id)
+        public LayoutGraph(int id, string name)
         {
             Id = id;
+            Name = name;
         }
 
         public override string ToString()
         {
-            return $"LayoutGraph(Id = {Id}, Nodes.Count = {Nodes.Count}, Edges.Count = {Edges.Count})";
+            return $"LayoutGraph(Id = {Id}, Name = {Name})";
         }
 
         /// <summary>

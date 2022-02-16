@@ -62,7 +62,10 @@ namespace MPewsey.ManiaMap
 
             foreach (var group in groups)
             {
-                templates.AddRange(Groups[group]);
+                if (Groups.TryGetValue(group, out var list))
+                {
+                    templates.AddRange(list);
+                }
             }
 
             return templates;
