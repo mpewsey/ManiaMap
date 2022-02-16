@@ -7,32 +7,10 @@ namespace MPewsey.ManiaMap.Tests
     [TestClass]
     public class TestGraphBranchDecomposer
     {
-        private static LayoutGraph GetGeekGraph()
-        {
-            var graph = new LayoutGraph(1);
-
-            graph.AddEdge(1, 2);
-            graph.AddEdge(2, 3);
-            graph.AddEdge(3, 4);
-            graph.AddEdge(4, 6);
-            graph.AddEdge(4, 7);
-            graph.AddEdge(5, 6);
-            graph.AddEdge(3, 5);
-            graph.AddEdge(7, 8);
-            graph.AddEdge(6, 10);
-            graph.AddEdge(5, 9);
-            graph.AddEdge(10, 11);
-            graph.AddEdge(11, 12);
-            graph.AddEdge(11, 13);
-            graph.AddEdge(12, 13);
-
-            return graph;
-        }
-
         [TestMethod]
         public void TestFindBranchesOfGeekGraph()
         {
-            var graph = GetGeekGraph();
+            var graph = Samples.GraphLibrary.GeekGraph();
             var branches = graph.FindBranches();
 
             var expected = new List<List<int>>
@@ -45,6 +23,7 @@ namespace MPewsey.ManiaMap.Tests
 
             Console.WriteLine("Expected:");
             expected.ForEach(x => Console.WriteLine(string.Join(", ", x)));
+
             Console.WriteLine("\nResult:");
             branches.ForEach(x => Console.WriteLine(string.Join(", ", x)));
 

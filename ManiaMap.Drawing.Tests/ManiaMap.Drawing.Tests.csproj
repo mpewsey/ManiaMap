@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ManiaMap.Drawing\ManiaMap.Drawing.csproj" />
+    <ProjectReference Include="..\ManiaMap.Samples\ManiaMap.Samples.csproj" />
     <ProjectReference Include="..\ManiaMap\ManiaMap.csproj" />
   </ItemGroup>
 

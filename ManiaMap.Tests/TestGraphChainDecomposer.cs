@@ -8,50 +8,10 @@ namespace MPewsey.ManiaMap.Tests
     [TestClass]
     public class TestGraphChainDecomposer
     {
-        private static LayoutGraph GetGeekGraph()
-        {
-            var graph = new LayoutGraph(1);
-
-            graph.AddEdge(1, 2);
-            graph.AddEdge(2, 3);
-            graph.AddEdge(3, 4);
-            graph.AddEdge(4, 6);
-            graph.AddEdge(4, 7);
-            graph.AddEdge(5, 6);
-            graph.AddEdge(3, 5);
-            graph.AddEdge(7, 8);
-            graph.AddEdge(6, 10);
-            graph.AddEdge(5, 9);
-            graph.AddEdge(10, 11);
-            graph.AddEdge(11, 12);
-            graph.AddEdge(11, 13);
-            graph.AddEdge(12, 13);
-
-            return graph;
-        }
-
-        private static LayoutGraph GetLoopGraph()
-        {
-            var graph = new LayoutGraph(1);
-
-            graph.AddEdge(0, 1);
-            graph.AddEdge(1, 2);
-            graph.AddEdge(2, 3);
-            graph.AddEdge(3, 4);
-            graph.AddEdge(4, 0);
-
-            graph.AddEdge(0, 5);
-            graph.AddEdge(5, 6);
-            graph.AddEdge(6, 7);
-            graph.AddEdge(7, 3);
-
-            return graph;
-        }
-
         [TestMethod]
         public void TestFindChainsOfGeekGraph()
         {
-            var graph = GetGeekGraph();
+            var graph = Samples.GraphLibrary.GeekGraph();
             var chains = graph.FindChains();
 
             var expected = new List<List<LayoutEdge>>
@@ -67,8 +27,10 @@ namespace MPewsey.ManiaMap.Tests
 
             Console.WriteLine("Expected:");
             expected.ForEach(x => Console.WriteLine(string.Join(", ", x.Select(x => x.ToShortString()))));
+
             Console.WriteLine("\nResult:");
             chains.ForEach(x => Console.WriteLine(string.Join(", ", x.Select(x => x.ToShortString()))));
+
             Assert.AreEqual(expected.Count, chains.Count);
 
             for (int i = 0; i < chains.Count; i++)
@@ -80,7 +42,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestFindChainsOfLoopGraph()
         {
-            var graph = GetLoopGraph();
+            var graph = Samples.GraphLibrary.LoopGraph();
             var chains = graph.FindChains();
 
             var expected = new List<List<LayoutEdge>>
@@ -92,8 +54,10 @@ namespace MPewsey.ManiaMap.Tests
 
             Console.WriteLine("Expected:");
             expected.ForEach(x => Console.WriteLine(string.Join(", ", x.Select(x => x.ToShortString()))));
+
             Console.WriteLine("\nResult:");
             chains.ForEach(x => Console.WriteLine(string.Join(", ", x.Select(x => x.ToShortString()))));
+
             Assert.AreEqual(expected.Count, chains.Count);
 
             for (int i = 0; i < chains.Count; i++)

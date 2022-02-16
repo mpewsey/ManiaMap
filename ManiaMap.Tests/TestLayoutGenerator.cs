@@ -1,199 +1,47 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.IO;
 using System.Linq;
-using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap.Tests
 {
     [TestClass]
     public class TestLayoutGenerator
     {
-        private static RoomTemplate GetSquareTemplate()
+        [TestMethod]
+        public void TestHyperSquareLayout()
         {
-            var o = new Cell();
+            var graph = Samples.GraphLibrary.CrossLayoutGraph();
 
-            var a = new Cell
-            {
-                WestDoor = new(DoorType.TwoWay),
-                NorthDoor = new(DoorType.TwoWay),
-                TopDoor = new(DoorType.TwoWay),
-                BottomDoor = new(DoorType.TwoWay),
-            };
+            var templateGroups = new TemplateGroups();
+            templateGroups.Add("Default", Samples.TemplateLibrary.HyperSquareTemplate());
 
-            var b = new Cell
-            {
-                NorthDoor = new(DoorType.TwoWay),
-                TopDoor = new(DoorType.TwoWay),
-                BottomDoor = new(DoorType.TwoWay),
-            };
+            var generator = new LayoutGenerator(12345, graph, templateGroups);
+            var layout = generator.GenerateLayout();
 
-            var c = new Cell
-            {
-                NorthDoor = new(DoorType.TwoWay),
-                EastDoor = new(DoorType.TwoWay),
-                TopDoor = new(DoorType.TwoWay),
-                BottomDoor = new(DoorType.TwoWay),
-            };
+            Assert.IsNotNull(layout);
 
-            var d = new Cell
-            {
-                WestDoor = new(DoorType.TwoWay),
-                TopDoor = new(DoorType.TwoWay),
-                BottomDoor = new(DoorType.TwoWay),
-            };
+            Console.WriteLine("Rooms:");
+            Console.WriteLine(string.Join("\n", layout.Rooms.Values));
 
-            var e = new Cell
-            {
-                EastDoor = new(DoorType.TwoWay),
-                TopDoor = new(DoorType.TwoWay),
-                BottomDoor = new(DoorType.TwoWay),
-            };
+            Console.WriteLine("\nDoor Connections:");
+            Console.WriteLine(string.Join("\n", layout.DoorConnections));
 
-            var f = new Cell
-            {
-                WestDoor = new(DoorType.TwoWay),
-                SouthDoor = new(DoorType.TwoWay),
-                TopDoor = new(DoorType.TwoWay),
-                BottomDoor = new(DoorType.TwoWay),
-            };
-
-            var g = new Cell
-            {
-                SouthDoor = new(DoorType.TwoWay),
-                TopDoor = new(DoorType.TwoWay),
-                BottomDoor = new(DoorType.TwoWay),
-            };
-
-            var h = new Cell
-            {
-                SouthDoor = new(DoorType.TwoWay),
-                EastDoor = new(DoorType.TwoWay),
-                TopDoor = new(DoorType.TwoWay),
-                BottomDoor = new(DoorType.TwoWay),
-            };
-
-            var cells = new Cell[,]
-            {
-                { a, b, c },
-                { d, o, e },
-                { f, g, h },
-            };
-
-            return new(1, cells);
-        }
-
-        private static RoomTemplate GetLTemplate()
-        {
-            Cell x = null;
-            var o = new Cell();
-
-            var a = new Cell
-            {
-                WestDoor = new(DoorType.TwoWay),
-                NorthDoor = new(DoorType.TwoWay),
-                EastDoor = new(DoorType.TwoWay),
-                TopDoor = new(DoorType.TwoWay),
-                BottomDoor = new(DoorType.TwoWay),
-            };
-
-            var b = new Cell
-            {
-                SouthDoor = new(DoorType.TwoWay),
-                EastDoor = new(DoorType.TwoWay),
-                NorthDoor = new(DoorType.TwoWay),
-                TopDoor = new(DoorType.TwoWay),
-                BottomDoor = new(DoorType.TwoWay),
-            };
-
-            var c = new Cell
-            {
-                SouthDoor = new(DoorType.TwoWay),
-                WestDoor = new(DoorType.TwoWay),
-                TopDoor = new(DoorType.TwoWay),
-                BottomDoor = new(DoorType.TwoWay),
-            };
-
-            var cells = new Cell[,]
-            {
-                { a, x, x },
-                { o, x, x },
-                { o, x, x },
-                { c, o, b },
-            };
-
-            return new(2, cells);
-        }
-
-        private static LayoutGraph GetStackedGraph()
-        {
-            var graph = new LayoutGraph(1);
-
-            graph.AddEdge(0, 1);
-            graph.AddEdge(1, 2);
-            graph.AddEdge(0, 3);
-            graph.AddEdge(0, 4);
-            graph.AddEdge(0, 5);
-
-            graph.GetNode(1).Z = 2;
-
-            foreach (var node in graph.GetNodes())
-            {
-                node.TemplateGroups.Add("Default");
-            }
-
-            return graph;
-        }
-
-        private static LayoutGraph GetCrossGraph()
-        {
-            var graph = new LayoutGraph(1);
-
-            graph.AddEdge(0, 1);
-            graph.AddEdge(1, 2);
-            graph.AddEdge(0, 3);
-            graph.AddEdge(0, 4);
-            graph.AddEdge(0, 5);
-
-            foreach (var node in graph.GetNodes())
-            {
-                node.TemplateGroups.Add("Default");
-            }
-
-            return graph;
-        }
-
-        private static LayoutGraph GetLoopGraph()
-        {
-            var graph = new LayoutGraph(1);
-
-            graph.AddEdge(0, 1);
-            graph.AddEdge(1, 2);
-            graph.AddEdge(2, 3);
-            graph.AddEdge(3, 4);
-            graph.AddEdge(4, 0);
-
-            graph.AddEdge(0, 5);
-            graph.AddEdge(5, 6);
-            graph.AddEdge(6, 7);
-            graph.AddEdge(7, 3);
-
-            foreach (var node in graph.GetNodes())
-            {
-                node.TemplateGroups.Add("Default");
-            }
-
-            return graph;
+            Assert.AreEqual(graph.NodeCount(), layout.Rooms.Count);
+            Assert.AreEqual(graph.EdgeCount(), layout.DoorConnections.Count);
         }
 
         [TestMethod]
-        public void TestGenerateStackedLayout()
+        public void TestLLoopLayout()
         {
-            var graph = GetStackedGraph();
+            var graph = Samples.GraphLibrary.LoopGraph();
+
             var templateGroups = new TemplateGroups();
-            templateGroups.Add("Default", GetSquareTemplate());
-            var generator = new LayoutGenerator(1, graph, templateGroups);
+            var template = Samples.TemplateLibrary.LTemplate();
+            templateGroups.Add("Default", template.AllVariations());
+
+            var generator = new LayoutGenerator(123456, graph, templateGroups);
             var layout = generator.GenerateLayout();
+
             Assert.IsNotNull(layout);
 
             Console.WriteLine("Rooms:");
@@ -205,75 +53,6 @@ namespace MPewsey.ManiaMap.Tests
 
             Assert.AreEqual(graph.NodeCount(), layout.Rooms.Count);
             Assert.AreEqual(graph.EdgeCount(), layout.DoorConnections.Count);
-        }
-
-        [TestMethod]
-        public void TestGenerateCrossLayout()
-        {
-            var graph = GetCrossGraph();
-            var templateGroups = new TemplateGroups();
-            templateGroups.Add("Default", GetSquareTemplate());
-            var generator = new LayoutGenerator(1, graph, templateGroups);
-            var layout = generator.GenerateLayout();
-            Assert.IsNotNull(layout);
-
-            Console.WriteLine("Rooms:");
-            var rooms = layout.Rooms.Values.ToList();
-            rooms.ForEach(x => Console.WriteLine(x));
-
-            Console.WriteLine("\nDoor Connections:");
-            layout.DoorConnections.ForEach(x => Console.WriteLine(x));
-
-            Assert.AreEqual(graph.NodeCount(), layout.Rooms.Count);
-            Assert.AreEqual(graph.EdgeCount(), layout.DoorConnections.Count);
-        }
-
-        [TestMethod]
-        public void TestGenerateLoopLayout()
-        {
-            var graph = GetLoopGraph();
-            var template = GetLTemplate();
-            var templates = template.AllVariations();
-            var templateGroups = new TemplateGroups();
-            templateGroups.Add("Default", templates);
-            var generator = new LayoutGenerator(1, graph, templateGroups);
-            var layout = generator.GenerateLayout();
-            Assert.IsNotNull(layout);
-
-            Console.WriteLine("Rooms:");
-            var rooms = layout.Rooms.Values.ToList();
-            rooms.ForEach(x => Console.WriteLine(x));
-
-            Console.WriteLine("\nDoor Connections:");
-            layout.DoorConnections.ForEach(x => Console.WriteLine(x));
-
-            Assert.AreEqual(graph.NodeCount(), layout.Rooms.Count);
-            Assert.AreEqual(graph.EdgeCount(), layout.DoorConnections.Count);
-        }
-
-        [TestMethod]
-        public void TestSerialization()
-        {
-            var graph = GetCrossGraph();
-            var templateGroups = new TemplateGroups();
-            templateGroups.Add("Default", GetSquareTemplate());
-            var generator = new LayoutGenerator(1, graph, templateGroups);
-            var layout = generator.GenerateLayout();
-            Assert.IsNotNull(layout);
-
-            var path = "Layout.xml";
-            var serializer = new DataContractSerializer(layout.GetType());
-
-            using (var stream = File.Create(path))
-            {
-                serializer.WriteObject(stream, layout);
-            }
-
-            using (var stream = File.OpenRead(path))
-            {
-                var copy = (Layout)serializer.ReadObject(stream);
-                Assert.AreEqual(layout.Seed, copy.Seed);
-            }
         }
     }
 }

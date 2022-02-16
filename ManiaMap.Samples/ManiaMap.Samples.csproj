@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	<Authors>Matt Pewsey</Authors>
+	<Company>Matt Pewsey</Company>
+	<Copyright>Copyright © 2022</Copyright>
+	<Description>Graph-based procedural generation of metroidvania style maps</Description>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<RepositoryUrl>https://github.com/mpewsey/ManiaMap</RepositoryUrl>
+	<PackageTags>procedural-generation;roguelike;metroidvania</PackageTags>
+	<PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+	<VersionPrefix>0.0.1</VersionPrefix>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ManiaMap\ManiaMap.csproj" />
+  </ItemGroup>
+
+</Project>

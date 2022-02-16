@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ManiaMap.Samples\ManiaMap.Samples.csproj" />
     <ProjectReference Include="..\ManiaMap\ManiaMap.csproj" />
   </ItemGroup>
 

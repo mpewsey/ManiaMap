@@ -11,18 +11,36 @@ namespace MPewsey.ManiaMap
         public int Id { get; private set; }
 
         [DataMember(Order = 2)]
+        public string Name { get; set; } = string.Empty;
+
+        [DataMember(Order = 3)]
         public Array2D<Cell> Cells { get; private set; }
 
-        public RoomTemplate(int id, Array2D<Cell> cells)
+        public RoomTemplate(int id, string name, Array2D<Cell> cells)
         {
             Id = id;
+            Name = name;
             Cells = cells;
             SetDoorProperties();
         }
 
         public override string ToString()
         {
-            return $"RoomTemplate(Id = {Id})";
+            return $"RoomTemplate(Id = {Id}, Name = {Name})";
+        }
+
+        /// <summary>
+        /// Sets the door position properties for all doors in the template.
+        /// </summary>
+        private void SetDoorProperties()
+        {
+            for (int i = 0; i < Cells.Rows; i++)
+            {
+                for (int j = 0; j < Cells.Columns; j++)
+                {
+                    Cells[i, j]?.SetDoorProperties(i, j);
+                }
+            }
         }
 
         /// <summary>
@@ -64,7 +82,7 @@ namespace MPewsey.ManiaMap
                 cells.Array[i] = cells.Array[i]?.Rotated90();
             }
 
-            return new RoomTemplate(Id, cells);
+            return new RoomTemplate(Id, Name + "_Rotated90", cells);
         }
 
         /// <summary>
@@ -79,7 +97,7 @@ namespace MPewsey.ManiaMap
                 cells.Array[i] = cells.Array[i]?.Rotated180();
             }
 
-            return new RoomTemplate(Id, cells);
+            return new RoomTemplate(Id, Name + "_Rotated180", cells);
         }
 
         /// <summary>
@@ -94,7 +112,7 @@ namespace MPewsey.ManiaMap
                 cells.Array[i] = cells.Array[i]?.Rotated270();
             }
 
-            return new RoomTemplate(Id, cells);
+            return new RoomTemplate(Id, Name + "_Rotated270", cells);
         }
 
         /// <summary>
@@ -109,7 +127,7 @@ namespace MPewsey.ManiaMap
                 cells.Array[i] = cells.Array[i]?.MirroredVertically();
             }
 
-            return new RoomTemplate(Id, cells);
+            return new RoomTemplate(Id, Name + "_MirroredVertically", cells);
         }
 
         /// <summary>
@@ -124,21 +142,7 @@ namespace MPewsey.ManiaMap
                 cells.Array[i] = cells.Array[i]?.MirroredHorizontally();
             }
 
-            return new RoomTemplate(Id, cells);
-        }
-
-        /// <summary>
-        /// Sets the door position properties for all doors in the template.
-        /// </summary>
-        private void SetDoorProperties()
-        {
-            for (int i = 0; i < Cells.Rows; i++)
-            {
-                for (int j = 0; j < Cells.Columns; j++)
-                {
-                    Cells[i, j]?.SetDoorProperties(i, j);
-                }
-            }
+            return new RoomTemplate(Id, Name + "_MirroredHorizontally", cells);
         }
 
         /// <summary>
