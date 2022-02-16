@@ -22,7 +22,7 @@ The layout generator uses an input graph as the basis for generating layouts. Th
 The below example creates several nodes (room locations) and connects them by various edges (door connections) in accordance with the shown graph.
 
 ```LayoutGraph.cs
-var graph = new LayoutGraph(id: 1);
+var graph = new LayoutGraph(id: 1, name: "ExampleGraph");
 
 // Define edges between nodes. Nodes not already in graph will automatically be created.
 graph.AddEdge(0, 1);
@@ -64,7 +64,7 @@ var cells = new Cell[,]
     { f, g, h },
 };
 
-var roomTemplate = new RoomTemplate(id: 1, cells);
+var roomTemplate = new RoomTemplate(id: 1, name: "Square", cells);
 ```
 
 ### Step 3: Assign Room Templates to Template Groups
@@ -81,7 +81,7 @@ templateGroups.Add("Default", roomTemplate);
 Finally, to generate a room layout, pick a random seed and pass your layout graph and room template groups to the `LayoutGenerator`. A map of the layout can also be rendered using either the default tiles (shown in the layout below) or your own custom map tiles.
 
 ```LayoutGenerator.cs
-var generator = new LayoutGenerator(seed: 0, graph, templateGroups);
+var generator = new LayoutGenerator(seed: 12345, graph, templateGroups);
 var layout = generator.GenerateLayout();
 
 // Render map and save it to file
