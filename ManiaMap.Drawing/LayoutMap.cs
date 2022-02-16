@@ -3,6 +3,7 @@ using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MPewsey.ManiaMap.Drawing
 {
@@ -13,14 +14,17 @@ namespace MPewsey.ManiaMap.Drawing
         public Padding Padding { get; set; }
         public Color BackgroundColor { get; set; }
         public Dictionary<string, Image> Tiles { get; set; }
+        public float LowerLayerOpacity { get; set; }
         private HashSet<RoomDoorPair> RoomDoors { get; } = new HashSet<RoomDoorPair>();
 
         public LayoutMap(Layout layout, Point? tileSize = null, Padding? padding = null,
-            Dictionary<string, Image> tiles = null, Color? backgroundColor = null)
+            Dictionary<string, Image> tiles = null, Color? backgroundColor = null,
+            float lowerLayerOpacity = 0)
         {
             Layout = layout;
             TileSize = tileSize ?? new Point(16, 16);
             Padding = padding ?? new Padding(1);
+            LowerLayerOpacity = lowerLayerOpacity;
             BackgroundColor = backgroundColor ?? Color.Black;
             Tiles = tiles ?? MapTiles.GetDefaultTiles();
         }
@@ -108,11 +112,12 @@ namespace MPewsey.ManiaMap.Drawing
                 // Draw map tiles
                 var cellTile = new Image<Rgba32>(TileSize.X, TileSize.Y);
 
-                foreach (var room in Layout.Rooms.Values)
+                foreach (var room in Layout.Rooms.Values.OrderBy(x => x.Z))
                 {
-                    if (room.Z != z)
-                        continue;
+                    if (room.Z > z)
+                        break;
 
+                    var opacity = (float)Math.Pow(LowerLayerOpacity, z - room.Z);
                     var cells = room.Template.Cells;
                     var x0 = (room.Y - bounds.X + Padding.Left) * TileSize.X;
                     var y0 = (room.X - bounds.Y + Padding.Top) * TileSize.Y;
@@ -143,21 +148,21 @@ namespace MPewsey.ManiaMap.Drawing
                                 var eastTile = GetTile(room, cell.EastDoor, east, "EastDoor", "EastWall");
 
                                 // Add cell background fill
-                                image.DrawImage(cellTile, point, 1);
+                                image.DrawImage(cellTile, point, opacity);
 
                                 // Superimpose applicable map tiles
                                 if (northTile != null)
-                                    image.DrawImage(northTile, point, 1);
+                                    image.DrawImage(northTile, point, opacity);
                                 if (southTile != null)
-                                    image.DrawImage(southTile, point, 1);
+                                    image.DrawImage(southTile, point, opacity);
                                 if (westTile != null)
-                                    image.DrawImage(westTile, point, 1);
+                                    image.DrawImage(westTile, point, opacity);
                                 if (eastTile != null)
-                                    image.DrawImage(eastTile, point, 1);
+                                    image.DrawImage(eastTile, point, opacity);
                                 if (topTile != null)
-                                    image.DrawImage(topTile, point, 1);
+                                    image.DrawImage(topTile, point, opacity);
                                 if (bottomTile != null)
-                                    image.DrawImage(bottomTile, point, 1);
+                                    image.DrawImage(bottomTile, point, opacity);
                             }
                         }
                     }

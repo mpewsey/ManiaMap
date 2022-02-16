@@ -125,6 +125,26 @@ namespace MPewsey.ManiaMap.Tests
             return new(2, cells);
         }
 
+        private static LayoutGraph GetStackedGraph()
+        {
+            var graph = new LayoutGraph(1);
+
+            graph.AddEdge(0, 1);
+            graph.AddEdge(1, 2);
+            graph.AddEdge(0, 3);
+            graph.AddEdge(0, 4);
+            graph.AddEdge(0, 5);
+
+            graph.GetNode(1).Z = 2;
+
+            foreach (var node in graph.GetNodes())
+            {
+                node.TemplateGroups.Add("Default");
+            }
+
+            return graph;
+        }
+
         private static LayoutGraph GetCrossGraph()
         {
             var graph = new LayoutGraph(1);
@@ -164,6 +184,27 @@ namespace MPewsey.ManiaMap.Tests
             }
 
             return graph;
+        }
+
+        [TestMethod]
+        public void TestGenerateStackedLayout()
+        {
+            var graph = GetStackedGraph();
+            var templateGroups = new TemplateGroups();
+            templateGroups.Add("Default", GetSquareTemplate());
+            var generator = new LayoutGenerator(1, graph, templateGroups);
+            var layout = generator.GenerateLayout();
+            Assert.IsNotNull(layout);
+
+            Console.WriteLine("Rooms:");
+            var rooms = layout.Rooms.Values.ToList();
+            rooms.ForEach(x => Console.WriteLine(x));
+
+            Console.WriteLine("\nDoor Connections:");
+            layout.DoorConnections.ForEach(x => Console.WriteLine(x));
+
+            Assert.AreEqual(graph.NodeCount(), layout.Rooms.Count);
+            Assert.AreEqual(graph.EdgeCount(), layout.DoorConnections.Count);
         }
 
         [TestMethod]

@@ -7,6 +7,100 @@ namespace MPewsey.ManiaMap.Drawing.Tests
     [TestClass]
     public class TestLayoutMap
     {
+        private static LayoutGraph GetStackedGraph()
+        {
+            var graph = new LayoutGraph(1);
+
+            graph.AddEdge(0, 1);
+            graph.AddEdge(1, 2);
+            graph.AddEdge(0, 3);
+            graph.AddEdge(0, 4);
+            graph.AddEdge(0, 5);
+
+            graph.GetNode(1).Z = 2;
+
+            foreach (var node in graph.GetNodes())
+            {
+                node.TemplateGroups.Add("Default");
+            }
+
+            return graph;
+        }
+
+        private static RoomTemplate GetSquareTemplate()
+        {
+            var o = new Cell();
+
+            var a = new Cell
+            {
+                WestDoor = new(DoorType.TwoWay),
+                NorthDoor = new(DoorType.TwoWay),
+                TopDoor = new(DoorType.TwoWay),
+                BottomDoor = new(DoorType.TwoWay),
+            };
+
+            var b = new Cell
+            {
+                NorthDoor = new(DoorType.TwoWay),
+                TopDoor = new(DoorType.TwoWay),
+                BottomDoor = new(DoorType.TwoWay),
+            };
+
+            var c = new Cell
+            {
+                NorthDoor = new(DoorType.TwoWay),
+                EastDoor = new(DoorType.TwoWay),
+                TopDoor = new(DoorType.TwoWay),
+                BottomDoor = new(DoorType.TwoWay),
+            };
+
+            var d = new Cell
+            {
+                WestDoor = new(DoorType.TwoWay),
+                TopDoor = new(DoorType.TwoWay),
+                BottomDoor = new(DoorType.TwoWay),
+            };
+
+            var e = new Cell
+            {
+                EastDoor = new(DoorType.TwoWay),
+                TopDoor = new(DoorType.TwoWay),
+                BottomDoor = new(DoorType.TwoWay),
+            };
+
+            var f = new Cell
+            {
+                WestDoor = new(DoorType.TwoWay),
+                SouthDoor = new(DoorType.TwoWay),
+                TopDoor = new(DoorType.TwoWay),
+                BottomDoor = new(DoorType.TwoWay),
+            };
+
+            var g = new Cell
+            {
+                SouthDoor = new(DoorType.TwoWay),
+                TopDoor = new(DoorType.TwoWay),
+                BottomDoor = new(DoorType.TwoWay),
+            };
+
+            var h = new Cell
+            {
+                SouthDoor = new(DoorType.TwoWay),
+                EastDoor = new(DoorType.TwoWay),
+                TopDoor = new(DoorType.TwoWay),
+                BottomDoor = new(DoorType.TwoWay),
+            };
+
+            var cells = new Cell[,]
+            {
+                { a, b, c },
+                { d, o, e },
+                { f, g, h },
+            };
+
+            return new(1, cells);
+        }
+
         private static RoomTemplate GetMTemplate()
         {
             Cell x = null;
@@ -156,6 +250,20 @@ namespace MPewsey.ManiaMap.Drawing.Tests
 
             var map = new LayoutMap(layout, padding: new Padding(4));
             map.SaveImage("ManiaMap.png");
+        }
+
+        [TestMethod]
+        public void TestSaveStackedImage()
+        {
+            var graph = GetStackedGraph();
+            var templateGroups = new TemplateGroups();
+            templateGroups.Add("Default", GetSquareTemplate());
+            var generator = new LayoutGenerator(1, graph, templateGroups);
+            var layout = generator.GenerateLayout();
+            Assert.IsNotNull(layout);
+
+            var map = new LayoutMap(layout, lowerLayerOpacity: 0.5f);
+            map.SaveImage("StackedLayout.png", 2);
         }
     }
 }
