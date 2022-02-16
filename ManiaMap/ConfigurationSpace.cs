@@ -41,9 +41,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         private void FindIndexConfigurations(int dx, int dy)
         {
-            var doorPairs = FromTemplate.Intersects(ToTemplate, dx, dy)
-                ? FromTemplate.StackAlignedDoors(ToTemplate, dx, dy)
-                : FromTemplate.LayerAlignedDoors(ToTemplate, dx, dy);
+            var doorPairs = FromTemplate.AlignedDoors(ToTemplate, dx, dy);
 
             foreach (var pair in doorPairs)
             {
