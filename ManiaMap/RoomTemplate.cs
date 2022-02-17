@@ -80,7 +80,7 @@ namespace MPewsey.ManiaMap
         public List<RoomTemplate> UniqueVariations()
         {
             var templates = AllVariations();
-            var result = new List<RoomTemplate>(templates.Count);
+            var result = new List<RoomTemplate>();
 
             foreach (var template in templates)
             {
