@@ -4,6 +4,7 @@ namespace MPewsey.ManiaMap
 {
     public class LayoutEdge
     {
+        public string Name { get; set; } = string.Empty;
         public int FromNode { get; private set; }
         public int ToNode { get; private set; }
         public EdgeDirection Direction { get; set; }
@@ -17,7 +18,7 @@ namespace MPewsey.ManiaMap
 
         public override string ToString()
         {
-            return $"LayoutEdge(FromNode = {FromNode}, ToNode = {ToNode}, Direction = {Direction})";
+            return $"LayoutEdge(Name = {Name}, FromNode = {FromNode}, ToNode = {ToNode}, Direction = {Direction})";
         }
 
         /// <summary>

@@ -6,6 +6,9 @@ namespace MPewsey.ManiaMap
     [DataContract]
     public class Layout
     {
+        [DataMember(Order = 0)]
+        public string Name { get; set; } = string.Empty;
+        
         [DataMember(Order = 1)]
         public int Seed { get; private set; }
 
@@ -17,13 +20,15 @@ namespace MPewsey.ManiaMap
 
         public int Rebases { get; private set; }
 
-        public Layout(int seed)
+        public Layout(string name, int seed)
         {
+            Name = name;
             Seed = seed;
         }
 
         public Layout(Layout baseLayout)
         {
+            Name = baseLayout.Name;
             Seed = baseLayout.Seed;
             Rooms = new Dictionary<int, Room>(baseLayout.Rooms);
             DoorConnections = new List<DoorConnection>(baseLayout.DoorConnections);
@@ -32,7 +37,7 @@ namespace MPewsey.ManiaMap
 
         public override string ToString()
         {
-            return $"Layout(Seed = {Seed})";
+            return $"Layout(Name = {Name}, Seed = {Seed})";
         }
 
         /// <summary>

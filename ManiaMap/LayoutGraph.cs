@@ -5,7 +5,7 @@ namespace MPewsey.ManiaMap
     public class LayoutGraph
     {
         public int Id { get; }
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         private Dictionary<int, LayoutNode> Nodes { get; } = new Dictionary<int, LayoutNode>();
         private Dictionary<EdgeIndexes, LayoutEdge> Edges { get; } = new Dictionary<EdgeIndexes, LayoutEdge>();
         private Dictionary<int, List<int>> Neighbors { get; } = new Dictionary<int, List<int>>();

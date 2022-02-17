@@ -39,7 +39,7 @@ namespace MPewsey.ManiaMap
             Chains = Graph.FindChains(MaxBranchLength);
             ConfigurationSpaces = TemplateGroups.GetConfigurationSpaces();
             var layouts = new Stack<Layout>();
-            layouts.Push(new Layout(Seed));
+            layouts.Push(new Layout(Graph.Name, Seed));
 
             while (layouts.Count > 0)
             {
