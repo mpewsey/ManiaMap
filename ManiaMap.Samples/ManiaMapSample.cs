@@ -6,7 +6,7 @@
         {
             Cell x = null;
             var o = new Cell();
-            var a = new Cell { EastDoor = new Door(DoorType.TwoWay) };
+            var a = new Cell { EastDoor = new Door() };
 
             var cells = new Cell[,]
             {
@@ -24,8 +24,8 @@
         {
             Cell x = null;
             var o = new Cell();
-            var a = new Cell { EastDoor = new Door(DoorType.TwoWay) };
-            var b = new Cell { WestDoor = new Door(DoorType.TwoWay) };
+            var a = new Cell { EastDoor = new Door() };
+            var b = new Cell { WestDoor = new Door() };
 
             var cells = new Cell[,]
             {
@@ -43,8 +43,8 @@
         {
             Cell x = null;
             var o = new Cell();
-            var a = new Cell { EastDoor = new Door(DoorType.TwoWay) };
-            var b = new Cell { WestDoor = new Door(DoorType.TwoWay) };
+            var a = new Cell { EastDoor = new Door() };
+            var b = new Cell { WestDoor = new Door() };
 
             var cells = new Cell[,]
             {
@@ -62,8 +62,8 @@
         {
             Cell x = null;
             var o = new Cell();
-            var a = new Cell { EastDoor = new Door(DoorType.TwoWay) };
-            var b = new Cell { WestDoor = new Door(DoorType.TwoWay) };
+            var a = new Cell { EastDoor = new Door() };
+            var b = new Cell { WestDoor = new Door() };
 
             var cells = new Cell[,]
             {
@@ -81,8 +81,8 @@
         {
             Cell x = null;
             var o = new Cell();
-            var a = new Cell { EastDoor = new Door(DoorType.TwoWay) };
-            var b = new Cell { WestDoor = new Door(DoorType.TwoWay) };
+            var a = new Cell { EastDoor = new Door() };
+            var b = new Cell { WestDoor = new Door() };
 
             var cells = new Cell[,]
             {
@@ -100,7 +100,7 @@
         {
             Cell x = null;
             var o = new Cell();
-            var a = new Cell { WestDoor = new Door(DoorType.TwoWay) };
+            var a = new Cell { WestDoor = new Door() };
 
             var cells = new Cell[,]
             {

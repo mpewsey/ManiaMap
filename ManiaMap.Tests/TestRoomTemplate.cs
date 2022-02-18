@@ -10,24 +10,24 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestDoesNotIntersect()
         {
-            var from = Samples.TemplateLibrary.PlusTemplate();
-            var to = Samples.TemplateLibrary.PlusTemplate();
+            var from = Samples.TemplateLibrary.Miscellaneous.PlusTemplate();
+            var to = Samples.TemplateLibrary.Miscellaneous.PlusTemplate();
             Assert.IsFalse(from.Intersects(to, 2, 2));
         }
 
         [TestMethod]
         public void TestIntersects()
         {
-            var from = Samples.TemplateLibrary.PlusTemplate();
-            var to = Samples.TemplateLibrary.PlusTemplate();
+            var from = Samples.TemplateLibrary.Miscellaneous.PlusTemplate();
+            var to = Samples.TemplateLibrary.Miscellaneous.PlusTemplate();
             Assert.IsTrue(from.Intersects(to, 0, 0));
         }
 
         [TestMethod]
         public void TestNoDoorsAlign()
         {
-            var from = Samples.TemplateLibrary.SquareTemplate();
-            var to = Samples.TemplateLibrary.SquareTemplate();
+            var from = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
+            var to = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
             var doors = from.AlignedDoors(to, 0, 0);
             var expected = new List<DoorPair>();
             CollectionAssert.AreEqual(expected, doors);
@@ -36,8 +36,8 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestRightDoorAligns()
         {
-            var from = Samples.TemplateLibrary.SquareTemplate();
-            var to = Samples.TemplateLibrary.SquareTemplate();
+            var from = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
+            var to = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
             var doors = from.AlignedDoors(to, 0, 3);
 
             var expected = new List<DoorPair>
@@ -57,8 +57,8 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestLeftDoorAligns()
         {
-            var from = Samples.TemplateLibrary.SquareTemplate();
-            var to = Samples.TemplateLibrary.SquareTemplate();
+            var from = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
+            var to = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
             var doors = from.AlignedDoors(to, 0, -3);
 
             var expected = new List<DoorPair>
@@ -78,8 +78,8 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestTopDoorAligns()
         {
-            var from = Samples.TemplateLibrary.SquareTemplate();
-            var to = Samples.TemplateLibrary.SquareTemplate();
+            var from = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
+            var to = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
             var doors = from.AlignedDoors(to, -3, 0);
 
             var expected = new List<DoorPair>
@@ -99,8 +99,8 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestBottomDoorAligns()
         {
-            var from = Samples.TemplateLibrary.SquareTemplate();
-            var to = Samples.TemplateLibrary.SquareTemplate();
+            var from = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
+            var to = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
             var doors = from.AlignedDoors(to, 3, 0);
 
             var expected = new List<DoorPair>

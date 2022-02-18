@@ -18,7 +18,7 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 4)]
         public DoorType Type { get; set; }
 
-        public Door(DoorType type)
+        public Door(DoorType type = DoorType.TwoWay)
         {
             Type = type;
         }

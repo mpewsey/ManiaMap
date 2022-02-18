@@ -10,8 +10,8 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestFindConfigurations()
         {
-            var from = Samples.TemplateLibrary.PlusTemplate();
-            var to = Samples.TemplateLibrary.PlusTemplate();
+            var from = Samples.TemplateLibrary.Miscellaneous.PlusTemplate();
+            var to = Samples.TemplateLibrary.Miscellaneous.PlusTemplate();
             var space = new ConfigurationSpace(from, to);
             var result = space.Configurations.Select(x => (x.X, x.Y, x.FromDoor, x.ToDoor)).ToArray();
 

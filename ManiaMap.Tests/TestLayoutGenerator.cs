@@ -13,7 +13,7 @@ namespace MPewsey.ManiaMap.Tests
             var graph = Samples.GraphLibrary.CrossLayoutGraph();
 
             var templateGroups = new TemplateGroups();
-            templateGroups.Add("Default", Samples.TemplateLibrary.HyperSquareTemplate());
+            templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
 
             var generator = new LayoutGenerator(12345, graph, templateGroups);
             var layout = generator.GenerateLayout();
@@ -36,7 +36,7 @@ namespace MPewsey.ManiaMap.Tests
             var graph = Samples.GraphLibrary.LoopGraph();
 
             var templateGroups = new TemplateGroups();
-            var template = Samples.TemplateLibrary.LTemplate();
+            var template = Samples.TemplateLibrary.Miscellaneous.LTemplate();
             templateGroups.Add("Default", template.UniqueVariations());
 
             var generator = new LayoutGenerator(123456, graph, templateGroups);
