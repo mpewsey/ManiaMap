@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace MPewsey.ManiaMap.Samples
+﻿namespace MPewsey.ManiaMap.Samples
 {
     public static class GraphLibrary
     {
@@ -67,45 +65,6 @@ namespace MPewsey.ManiaMap.Samples
             foreach (var node in graph.GetNodes())
             {
                 node.TemplateGroups.Add("Default");
-            }
-
-            return graph;
-        }
-
-        public static LayoutGraph FourGiantsGraph()
-        {
-            var graph = new LayoutGraph(4, "FourGiantsLayoutGraph");
-
-            graph.AddNode(1).SetName("City_SClockTown").AddTemplateGroups("CityLargeRoom");
-            graph.AddNode(2).SetName("City_NClockTown").AddTemplateGroups("CityMediumRoom");
-            graph.AddNode(3).SetName("City_WClockTown").AddTemplateGroups("CityMediumRoom");
-            graph.AddNode(4).SetName("City_EClockTown").AddTemplateGroups("CityMediumRoom");
-            graph.AddNode(5).SetName("City_LaundryPool").AddTemplateGroups("CitySmallRoom");
-            graph.AddNode(6).SetName("City_ClockTower").AddTemplateGroups("CityBossRoom");
-
-            graph.AddNode(7).SetName("Field_WField").AddTemplateGroups("FieldLargeRoom");
-            graph.AddNode(8).SetName("Field_EField").AddTemplateGroups("FieldLargeRoom");
-            graph.AddNode(9).SetName("Field_SField").AddTemplateGroups("FieldLargeRoom");
-            graph.AddNode(10).SetName("Field_NField").AddTemplateGroups("FieldLargeRoom");
-            graph.AddNode(11).SetName("Field_NWField").AddTemplateGroups("FieldMediumRoom");
-            graph.AddNode(12).SetName("Field_NEField").AddTemplateGroups("FieldMediumRoom");
-            graph.AddNode(13).SetName("Field_SWField").AddTemplateGroups("FieldMediumRoom");
-            graph.AddNode(14).SetName("Field_SEField").AddTemplateGroups("FieldMediumRoom");
-
-            foreach (var node in graph.GetNodes())
-            {
-                if (node.Name.StartsWith("City"))
-                    node.Color = Color.DarkGray;
-                else if (node.Name.StartsWith("Field"))
-                    node.Color = Color.DarkOliveGreen;
-                else if (node.Name.StartsWith("Swamp"))
-                    node.Color = Color.ForestGreen;
-                else if (node.Name.StartsWith("Mountain"))
-                    node.Color = Color.LightBlue;
-                else if (node.Name.StartsWith("Bay"))
-                    node.Color = Color.SandyBrown;
-                else if (node.Name.StartsWith("Canyon"))
-                    node.Color = Color.MediumPurple;
             }
 
             return graph;

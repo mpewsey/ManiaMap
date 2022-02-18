@@ -8,7 +8,7 @@ namespace MPewsey.ManiaMap
     {
         [DataMember(Order = 0)]
         public string Name { get; set; } = string.Empty;
-        
+
         [DataMember(Order = 1)]
         public int Seed { get; private set; }
 

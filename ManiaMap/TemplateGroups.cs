@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MPewsey.ManiaMap
 {
@@ -40,6 +41,17 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Adds the templates to the group.
+        /// </summary>
+        public void Add(string group, params IEnumerable<RoomTemplate>[] templates)
+        {
+            foreach (var collection in templates)
+            {
+                Add(group, collection);
+            }
+        }
+
+        /// <summary>
         /// Returns an enumerable of all templates.
         /// </summary>
         public IEnumerable<RoomTemplate> AllTemplates()
@@ -67,6 +79,9 @@ namespace MPewsey.ManiaMap
                     templates.AddRange(list);
                 }
             }
+
+            if (templates.Count == 0)
+                throw new Exception($"No templates exists in groups: {string.Join(", ", groups)}.");
 
             return templates;
         }
