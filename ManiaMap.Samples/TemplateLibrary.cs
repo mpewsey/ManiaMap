@@ -227,5 +227,65 @@
                 return new RoomTemplate(202, "LargePyramid", cells);
             }
         }
+
+        public static class SquareNotch
+        {
+            public static RoomTemplate Small()
+            {
+                Cell x = null;
+                var o = new Cell();
+                var a = new Cell { NorthDoor = new Door(), WestDoor = new Door(), EastDoor = new Door() };
+                var b = new Cell { SouthDoor = new Door(), WestDoor = new Door(), EastDoor = new Door() };
+
+                var cells = new Cell[,]
+                {
+                    { x, a },
+                    { o, o },
+                    { o, o },
+                    { b, x },
+                };
+
+                return new RoomTemplate(300, "SmallSquareNotch", cells);
+            }
+
+            public static RoomTemplate Medium()
+            {
+                Cell x = null;
+                var o = new Cell();
+                var a = new Cell { NorthDoor = new Door(), WestDoor = new Door(), EastDoor = new Door() };
+                var b = new Cell { SouthDoor = new Door(), WestDoor = new Door(), EastDoor = new Door() };
+
+                var cells = new Cell[,]
+                {
+                    { x, a, x },
+                    { o, o, o },
+                    { o, o, o },
+                    { o, o, o },
+                    { x, b, x },
+                };
+
+                return new RoomTemplate(301, "MediumSquareNotch", cells);
+            }
+
+            public static RoomTemplate Large()
+            {
+                Cell x = null;
+                var o = new Cell();
+                var a = new Cell { NorthDoor = new Door(), WestDoor = new Door(), EastDoor = new Door() };
+                var b = new Cell { SouthDoor = new Door(), WestDoor = new Door(), EastDoor = new Door() };
+
+                var cells = new Cell[,]
+                {
+                    { x, x, a, x },
+                    { o, o, o, o },
+                    { o, o, o, o },
+                    { o, o, o, o },
+                    { o, o, o, o },
+                    { x, b, x, x },
+                };
+
+                return new RoomTemplate(302, "LargeSquareNotch", cells);
+            }
+        }
     }
 }

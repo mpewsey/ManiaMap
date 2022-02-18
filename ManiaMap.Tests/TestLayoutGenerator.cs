@@ -10,7 +10,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestHyperSquareLayout()
         {
-            var graph = Samples.GraphLibrary.CrossLayoutGraph();
+            var graph = Samples.GraphLibrary.CrossGraph();
 
             var templateGroups = new TemplateGroups();
             templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());

@@ -2,7 +2,7 @@
 {
     public static class GraphLibrary
     {
-        public static LayoutGraph CrossLayoutGraph()
+        public static LayoutGraph CrossGraph()
         {
             var graph = new LayoutGraph(1, "CrossLayoutGraph");
 
