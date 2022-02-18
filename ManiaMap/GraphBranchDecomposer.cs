@@ -98,7 +98,7 @@ namespace MPewsey.ManiaMap
             Parents[node] = parent;
 
             // If the node is a deadend node, accumulate the parents into a branch.
-            if (neighbors.Count() == 1)
+            if (neighbors.Count() == 1 && !Marked.Contains(node))
             {
                 var branch = new List<int> { node };
                 AddParentsToBranch(node, branch);
