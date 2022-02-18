@@ -56,7 +56,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a new list of room templates for the specified groups.
         /// </summary>
-        public List<RoomTemplate> GetTemplates(List<string> groups)
+        public List<RoomTemplate> GetTemplates(IEnumerable<string> groups)
         {
             var templates = new List<RoomTemplate>();
 
