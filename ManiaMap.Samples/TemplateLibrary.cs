@@ -122,14 +122,14 @@
             public static RoomTemplate Small()
             {
                 Cell x = null;
-                Cell o = new Cell();
                 var a = new Cell { NorthDoor = new Door(), WestDoor = new Door(), EastDoor = new Door() };
                 var b = new Cell { NorthDoor = new Door(), EastDoor = new Door(), SouthDoor = new Door() };
+                var c = new Cell { WestDoor = new Door(), SouthDoor = new Door() };
 
                 var cells = new Cell[,]
                 {
                     { a, x },
-                    { o, b },
+                    { c, b },
                 };
 
                 return new RoomTemplate(100, "SmallRightTriangle", cells);
@@ -138,15 +138,18 @@
             public static RoomTemplate Medium()
             {
                 Cell x = null;
-                Cell o = new Cell();
                 var a = new Cell { NorthDoor = new Door(), WestDoor = new Door(), EastDoor = new Door() };
                 var b = new Cell { NorthDoor = new Door(), EastDoor = new Door(), SouthDoor = new Door() };
+                var c = new Cell { WestDoor = new Door(), SouthDoor = new Door() };
+                var d = new Cell { WestDoor = new Door() };
+                var e = new Cell { NorthDoor = new Door(), EastDoor = new Door() };
+                var f = new Cell { SouthDoor = new Door() };
 
                 var cells = new Cell[,]
                 {
                     { a, x, x },
-                    { o, o, x },
-                    { o, o, b },
+                    { d, e, x },
+                    { c, f, b },
                 };
 
                 return new RoomTemplate(101, "MediumRightTriangle", cells);
@@ -158,13 +161,20 @@
                 Cell o = new Cell();
                 var a = new Cell { NorthDoor = new Door(), WestDoor = new Door(), EastDoor = new Door() };
                 var b = new Cell { NorthDoor = new Door(), EastDoor = new Door(), SouthDoor = new Door() };
+                var c = new Cell { WestDoor = new Door(), SouthDoor = new Door() };
+                var d = new Cell { WestDoor = new Door() };
+                var e = new Cell { WestDoor = new Door() };
+                var f = new Cell { SouthDoor = new Door() };
+                var g = new Cell { SouthDoor = new Door() };
+                var h = new Cell { NorthDoor = new Door(), EastDoor = new Door() };
+                var i = new Cell { NorthDoor = new Door(), EastDoor = new Door() };
 
                 var cells = new Cell[,]
                 {
                     { a, x, x, x },
-                    { o, o, x, x },
-                    { o, o, o, x },
-                    { o, o, o, b },
+                    { d, h, x, x },
+                    { e, o, i, x },
+                    { c, f, g, b },
                 };
 
                 return new RoomTemplate(102, "LargeRightTriangle", cells);
@@ -180,11 +190,12 @@
                 var a = new Cell { NorthDoor = new Door(), WestDoor = new Door(), EastDoor = new Door() };
                 var b = new Cell { WestDoor = new Door(), NorthDoor = new Door(), SouthDoor = new Door() };
                 var c = new Cell { EastDoor = new Door(), NorthDoor = new Door(), SouthDoor = new Door() };
+                var d = new Cell { SouthDoor = new Door() };
 
                 var cells = new Cell[,]
                 {
                     { x, a, x },
-                    { b, o, c },
+                    { b, d, c },
                 };
 
                 return new RoomTemplate(200, "SmallPyramid", cells);
@@ -198,12 +209,16 @@
                 var b = new Cell { WestDoor = new Door(), NorthDoor = new Door(), SouthDoor = new Door() };
                 var c = new Cell { EastDoor = new Door(), NorthDoor = new Door(), SouthDoor = new Door() };
                 var d = new Cell { SouthDoor = new Door() };
+                var e = new Cell { SouthDoor = new Door() };
+                var f = new Cell { SouthDoor = new Door() };
+                var g = new Cell { NorthDoor = new Door(), WestDoor = new Door() };
+                var h = new Cell { NorthDoor = new Door(), EastDoor = new Door() };
 
                 var cells = new Cell[,]
                 {
                     { x, x, a, x, x },
-                    { x, o, o, o, x },
-                    { b, o, d, o, c },
+                    { x, g, o, h, x },
+                    { b, e, d, f, c },
                 };
 
                 return new RoomTemplate(201, "MediumPyramid", cells);
@@ -217,13 +232,21 @@
                 var b = new Cell { WestDoor = new Door(), NorthDoor = new Door(), SouthDoor = new Door() };
                 var c = new Cell { EastDoor = new Door(), NorthDoor = new Door(), SouthDoor = new Door() };
                 var d = new Cell { SouthDoor = new Door() };
+                var e = new Cell { SouthDoor = new Door() };
+                var f = new Cell { SouthDoor = new Door() };
+                var g = new Cell { SouthDoor = new Door() };
+                var h = new Cell { SouthDoor = new Door() };
+                var i = new Cell { NorthDoor = new Door(), WestDoor = new Door() };
+                var j = new Cell { NorthDoor = new Door(), WestDoor = new Door() };
+                var k = new Cell { NorthDoor = new Door(), EastDoor = new Door() };
+                var l = new Cell { NorthDoor = new Door(), EastDoor = new Door() };
 
                 var cells = new Cell[,]
                 {
                     { x, x, x, a, x, x, x },
-                    { x, x, o, o, o, x, x },
-                    { x, o, o, o, o, o, x },
-                    { b, o, o, d, o, o, c },
+                    { x, x, j, o, k, x, x },
+                    { x, i, o, o, o, l, x },
+                    { b, e, f, d, g, h, c },
                 };
 
                 return new RoomTemplate(202, "LargePyramid", cells);
@@ -411,7 +434,75 @@
                     { c, o, o, b },
                 };
 
-                return new RoomTemplate(501, "MediumAngle", cells);
+                return new RoomTemplate(502, "MediumAngle", cells);
+            }
+        }
+
+        public static class Squares
+        {
+            public static RoomTemplate Small()
+            {
+                var a = new Cell { NorthDoor = new Door(), WestDoor = new Door() };
+                var b = new Cell { NorthDoor = new Door(), EastDoor = new Door() };
+                var c = new Cell { SouthDoor = new Door(), WestDoor = new Door() };
+                var d = new Cell { SouthDoor = new Door(), EastDoor = new Door() };
+
+                var cells = new Cell[,]
+                {
+                    { a, b },
+                    { c, d },
+                };
+
+                return new RoomTemplate(600, "SmallSquare", cells);
+            }
+            
+            public static RoomTemplate Medium()
+            {
+                var o = new Cell();
+                var a = new Cell { NorthDoor = new Door(), WestDoor = new Door() };
+                var b = new Cell { NorthDoor = new Door() };
+                var c = new Cell { NorthDoor = new Door(), EastDoor = new Door() };
+                var d = new Cell { WestDoor = new Door() };
+                var e = new Cell { EastDoor = new Door() };
+                var f = new Cell { SouthDoor = new Door(), WestDoor = new Door() };
+                var g = new Cell { SouthDoor = new Door() };
+                var h = new Cell { SouthDoor = new Door(), EastDoor = new Door() };
+
+                var cells = new Cell[,]
+                {
+                    { a, b, c },
+                    { d, o, e },
+                    { f, g, h },
+                };
+
+                return new RoomTemplate(601, "MediumSquare", cells);
+            }
+
+            public static RoomTemplate Large()
+            {
+                var o = new Cell();
+                var a = new Cell { NorthDoor = new Door(), WestDoor = new Door() };
+                var b = new Cell { NorthDoor = new Door() };
+                var c = new Cell { NorthDoor = new Door() };
+                var d = new Cell { NorthDoor = new Door(), EastDoor = new Door() };
+                var e = new Cell { WestDoor = new Door() };
+                var f = new Cell { EastDoor = new Door() };
+                var g = new Cell { WestDoor = new Door() };
+                var h = new Cell { EastDoor = new Door() };
+                var i = new Cell { WestDoor = new Door(), SouthDoor = new Door() };
+                var j = new Cell { SouthDoor = new Door() };
+                var k = new Cell { SouthDoor = new Door() };
+                var l = new Cell { SouthDoor = new Door(), EastDoor = new Door() };
+
+                var cells = new Cell[,]
+                {
+                    { a, b, c, d },
+                    { e, o, o, f },
+                    { g, o, o, h },
+                    { i, j, k, l },
+                };
+
+                return new RoomTemplate(602, "LargeSquare", cells);
             }
         }
     }

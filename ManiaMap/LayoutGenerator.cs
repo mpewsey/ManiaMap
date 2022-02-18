@@ -15,7 +15,7 @@ namespace MPewsey.ManiaMap
         private Random Random { get; set; }
 
         public LayoutGenerator(int seed, LayoutGraph graph, TemplateGroups templateGroups,
-            int maxRebases = 1000, int maxBranchLength = -1)
+            int maxRebases = 100, int maxBranchLength = -1)
         {
             Seed = seed;
             MaxRebases = maxRebases;

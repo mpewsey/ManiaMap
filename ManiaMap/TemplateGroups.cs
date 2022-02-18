@@ -29,6 +29,17 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Adds the templates to the group.
         /// </summary>
+        public void Add(string group, params RoomTemplate[] templates)
+        {
+            foreach (var template in templates)
+            {
+                Add(group, template);
+            }
+        }
+
+        /// <summary>
+        /// Adds the templates to the group.
+        /// </summary>
         public void Add(string group, IEnumerable<RoomTemplate> templates)
         {
             if (!Groups.TryGetValue(group, out var list))

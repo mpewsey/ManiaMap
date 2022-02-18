@@ -6,8 +6,11 @@ namespace MPewsey.ManiaMap
     [DataContract(IsReference = true)]
     public class Room
     {
-        [DataMember(Order = 1)]
+        [DataMember(Order = 0)]
         public int Id { get; private set; }
+
+        [DataMember(Order = 1)]
+        public string Name { get; set; } = string.Empty;
 
         [DataMember(Order = 2)]
         public int X { get; private set; }
@@ -37,16 +40,17 @@ namespace MPewsey.ManiaMap
         public Room(LayoutNode node, int x, int y, RoomTemplate template)
         {
             Id = node.Id;
-            Z = node.Z;
-            Color = node.Color;
+            Name = node.Name;
             X = x;
             Y = y;
+            Z = node.Z;
+            Color = node.Color;
             Template = template;
         }
 
         public override string ToString()
         {
-            return $"Room(Id = {Id}, X = {X}, Y = {Y}, Z = {Z}, Template = {Template})";
+            return $"Room(Id = {Id}, Name = {Name}, X = {X}, Y = {Y}, Z = {Z}, Template = {Template})";
         }
     }
 }
