@@ -455,7 +455,7 @@
 
                 return new RoomTemplate(600, "SmallSquare", cells);
             }
-            
+
             public static RoomTemplate Medium()
             {
                 var o = new Cell();
