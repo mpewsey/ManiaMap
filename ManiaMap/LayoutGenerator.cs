@@ -300,7 +300,7 @@ namespace MPewsey.ManiaMap
             if (layout.Intersects(x, x, y, y, zMin, zMax))
                 return false;
 
-            var shaft = new Shaft(x, x, y, y, zMin, zMax);
+            var shaft = new Box(x, x, y, y, zMin, zMax);
             var shaftConnection = new DoorConnection(from, to, fromDoor, toDoor, shaft);
             layout.DoorConnections.Add(shaftConnection);
             return true;

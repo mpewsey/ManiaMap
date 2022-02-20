@@ -3,13 +3,13 @@
 namespace MPewsey.ManiaMap.Tests
 {
     [TestClass]
-    public class TestShaft
+    public class TestBox
     {
         [TestMethod]
         public void TestTemplateDoesNotIntersect()
         {
             var ring = Samples.TemplateLibrary.Miscellaneous.RingTemplate();
-            var shaft = new Shaft(8, 8, 10, 10, -10, 10);
+            var shaft = new Box(8, 8, 10, 10, -10, 10);
             Assert.IsFalse(shaft.Intersects(ring, 7, 9, 0));
         }
 
@@ -17,7 +17,7 @@ namespace MPewsey.ManiaMap.Tests
         public void TestTemplateIntersects()
         {
             var square = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
-            var shaft = new Shaft(8, 8, 10, 10, -10, 10);
+            var shaft = new Box(8, 8, 10, 10, -10, 10);
             Assert.IsTrue(shaft.Intersects(square, 8, 10, 0));
         }
     }

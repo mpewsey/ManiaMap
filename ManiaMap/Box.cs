@@ -3,7 +3,7 @@
 namespace MPewsey.ManiaMap
 {
     [DataContract]
-    public class Shaft
+    public class Box
     {
         [DataMember(Order = 1)]
         public int XMin { get; private set; }
@@ -23,7 +23,7 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 6)]
         public int ZMax { get; private set; }
 
-        public Shaft(int xMin, int xMax, int yMin, int yMax, int zMin, int zMax)
+        public Box(int xMin, int xMax, int yMin, int yMax, int zMin, int zMax)
         {
             XMin = xMin;
             XMax = xMax;

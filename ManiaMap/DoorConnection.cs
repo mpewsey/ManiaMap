@@ -18,9 +18,9 @@ namespace MPewsey.ManiaMap
         public Door ToDoor { get; private set; }
 
         [DataMember(Order = 5)]
-        public Shaft Shaft { get; private set; }
+        public Box Shaft { get; private set; }
 
-        public DoorConnection(Room fromRoom, Room toRoom, Door fromDoor, Door toDoor, Shaft shaft = null)
+        public DoorConnection(Room fromRoom, Room toRoom, Door fromDoor, Door toDoor, Box shaft = null)
         {
             FromRoom = fromRoom;
             ToRoom = toRoom;
