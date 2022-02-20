@@ -26,10 +26,10 @@ namespace MPewsey.ManiaMap.Tests
             };
 
             Console.WriteLine("Expected:");
-            expected.ForEach(x => Console.WriteLine(string.Join(", ", x.Select(x => x.ToShortString()))));
+            expected.ForEach(x => Console.WriteLine(string.Join(", ", x.Select(x => x.ToSymbolString()))));
 
             Console.WriteLine("\nResult:");
-            chains.ForEach(x => Console.WriteLine(string.Join(", ", x.Select(x => x.ToShortString()))));
+            chains.ForEach(x => Console.WriteLine(string.Join(", ", x.Select(x => x.ToSymbolString()))));
 
             Assert.AreEqual(expected.Count, chains.Count);
 
@@ -53,10 +53,10 @@ namespace MPewsey.ManiaMap.Tests
             };
 
             Console.WriteLine("Expected:");
-            expected.ForEach(x => Console.WriteLine(string.Join(", ", x.Select(x => x.ToShortString()))));
+            expected.ForEach(x => Console.WriteLine(string.Join(", ", x.Select(x => x.ToSymbolString()))));
 
             Console.WriteLine("\nResult:");
-            chains.ForEach(x => Console.WriteLine(string.Join(", ", x.Select(x => x.ToShortString()))));
+            chains.ForEach(x => Console.WriteLine(string.Join(", ", x.Select(x => x.ToSymbolString()))));
 
             Assert.AreEqual(expected.Count, chains.Count);
 

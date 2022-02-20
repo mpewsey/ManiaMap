@@ -22,9 +22,9 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns the short string for the edge.
+        /// Returns the symbol string for the edge.
         /// </summary>
-        public string ToShortString()
+        public string ToSymbolString()
         {
             switch (Direction)
             {
