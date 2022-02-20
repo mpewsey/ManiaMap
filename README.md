@@ -34,7 +34,7 @@ graph.AddEdge(0, 5);
 // Add "Default" template group to nodes.
 foreach (var node in graph.GetNodes())
 {
-    node.TemplateGroups.Add("Default");
+    node.AddTemplateGroups("Default");
 }
 ```
 

@@ -14,7 +14,7 @@
 
             foreach (var node in graph.GetNodes())
             {
-                node.TemplateGroups.Add("Default");
+                node.AddTemplateGroups("Default");
             }
 
             return graph;
@@ -37,7 +37,7 @@
 
             foreach (var node in graph.GetNodes())
             {
-                node.TemplateGroups.Add("Default");
+                node.AddTemplateGroups("Default");
             }
 
             return graph;
@@ -64,7 +64,7 @@
 
             foreach (var node in graph.GetNodes())
             {
-                node.TemplateGroups.Add("Default");
+                node.AddTemplateGroups("Default");
             }
 
             return graph;
