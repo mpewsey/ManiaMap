@@ -130,8 +130,7 @@ namespace MPewsey.ManiaMap
                     var x = chain[j - 1];
                     var y = chain[j];
 
-                    if (x.FromNode != y.FromNode && x.FromNode != y.ToNode
-                        && x.ToNode != y.FromNode && x.ToNode != y.ToNode)
+                    if (!x.SharesNode(y))
                     {
                         Chains[i] = chain.GetRange(0, j);
                         Chains.Insert(i + 1, chain.GetRange(j, chain.Count - j));
@@ -284,9 +283,7 @@ namespace MPewsey.ManiaMap
             {
                 var x = chain[0];
                 var y = chain[chain.Count - 1];
-
-                return x.FromNode == y.FromNode || x.FromNode == y.ToNode
-                    || x.ToNode == y.FromNode || x.ToNode == y.ToNode;
+                return x.SharesNode(y);
             }
 
             return false;

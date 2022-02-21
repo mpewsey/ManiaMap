@@ -51,5 +51,16 @@ namespace MPewsey.ManiaMap
             Direction = Door.ReverseEdgeDirection(Direction);
             (FromNode, ToNode) = (ToNode, FromNode);
         }
+
+        /// <summary>
+        /// Returns true if the edges shares a node with the specified edge.
+        /// </summary>
+        public bool SharesNode(LayoutEdge other)
+        {
+            return FromNode == other.FromNode
+                || FromNode == other.ToNode
+                || ToNode == other.FromNode
+                || ToNode == other.ToNode;
+        }
     }
 }
