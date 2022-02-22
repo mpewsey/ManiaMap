@@ -42,7 +42,7 @@ namespace MPewsey.ManiaMap
         {
             return !IsEmpty
                 && !other.IsEmpty
-                && Door.DoorTypesAligns(TopDoor.Type, other.BottomDoor.Type);
+                && TopDoor.Aligns(other.BottomDoor);
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace MPewsey.ManiaMap
         {
             return !IsEmpty
                 && !other.IsEmpty
-                && Door.DoorTypesAligns(BottomDoor.Type, other.TopDoor.Type);
+                && BottomDoor.Aligns(other.TopDoor);
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace MPewsey.ManiaMap
         {
             return !IsEmpty
                 && !other.IsEmpty
-                && Door.DoorTypesAligns(NorthDoor.Type, other.SouthDoor.Type);
+                && NorthDoor.Aligns(other.SouthDoor);
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace MPewsey.ManiaMap
         {
             return !IsEmpty
                 && !other.IsEmpty
-                && Door.DoorTypesAligns(SouthDoor.Type, other.NorthDoor.Type);
+                && SouthDoor.Aligns(other.NorthDoor);
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace MPewsey.ManiaMap
         {
             return !IsEmpty
                 && !other.IsEmpty
-                && Door.DoorTypesAligns(WestDoor.Type, other.EastDoor.Type);
+                && WestDoor.Aligns(other.EastDoor);
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace MPewsey.ManiaMap
         {
             return !IsEmpty
                 && !other.IsEmpty
-                && Door.DoorTypesAligns(EastDoor.Type, other.WestDoor.Type);
+                && EastDoor.Aligns(other.WestDoor);
         }
 
         /// <summary>

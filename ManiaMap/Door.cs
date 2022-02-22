@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace MPewsey.ManiaMap
 {
@@ -9,7 +7,11 @@ namespace MPewsey.ManiaMap
     public struct Door : IEquatable<Door>
     {
         public static Door TwoWay { get => new Door { Type = DoorType.TwoWay }; }
-        
+        public static Door TwoWayExit { get => new Door { Type = DoorType.TwoWayExit }; }
+        public static Door TwoWayEntrance { get => new Door { Type = DoorType.TwoWayEntrance }; }
+        public static Door OneWayExit { get => new Door { Type = DoorType.OneWayExit }; }
+        public static Door OneWayEntrance { get => new Door { Type = DoorType.OneWayEntrance }; }
+
         [DataMember(Order = 1)]
         public DoorType Type { get; set; }
 
@@ -22,9 +24,26 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Sets the door code and returns the door.
+        /// </summary>
+        public Door SetCode(byte code)
+        {
+            Code = code;
+            return this;
+        }
+
+        /// <summary>
+        /// Returns true if the door code and type aligns with the other door.
+        /// </summary>
+        public bool Aligns(Door other)
+        {
+            return Code == other.Code && DoorTypesAligns(Type, other.Type);
+        }
+
+        /// <summary>
         /// Returns true if the door types are compatible.
         /// </summary>
-        public static bool DoorTypesAligns(DoorType from, DoorType to)
+        private static bool DoorTypesAligns(DoorType from, DoorType to)
         {
             if (to == DoorType.None)
                 return false;
