@@ -164,7 +164,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns an enumerable of all neighbors for the specified node.
         /// </summary>
-        public IEnumerable<int> GetNeighbors(int id)
+        public IReadOnlyList<int> GetNeighbors(int id)
         {
             return Neighbors[id];
         }

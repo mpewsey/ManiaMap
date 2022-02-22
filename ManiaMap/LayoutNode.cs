@@ -8,7 +8,7 @@ namespace MPewsey.ManiaMap
         public int Id { get; }
         public string Name { get; set; } = string.Empty;
         public int Z { get; set; }
-        public HashSet<string> TemplateGroups { get; } = new HashSet<string>();
+        public List<string> TemplateGroups { get; } = new List<string>();
         public Color Color { get; set; } = Color.MidnightBlue;
 
         public LayoutNode(int id)
@@ -53,7 +53,11 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public LayoutNode AddTemplateGroups(string group)
         {
-            TemplateGroups.Add(group);
+            if (!TemplateGroups.Contains(group))
+            {
+                TemplateGroups.Add(group);
+            }
+
             return this;
         }
 
@@ -64,7 +68,7 @@ namespace MPewsey.ManiaMap
         {
             foreach (var group in groups)
             {
-                TemplateGroups.Add(group);
+                AddTemplateGroups(group);
             }
 
             return this;
