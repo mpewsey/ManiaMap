@@ -92,7 +92,7 @@ namespace MPewsey.ManiaMap
             }
 
             if (templates.Count == 0)
-                throw new Exception($"No templates exists in groups: {string.Join(", ", groups)}.");
+                throw new Exception($"No templates exist in groups: {string.Join(", ", groups)}.");
 
             return templates;
         }
