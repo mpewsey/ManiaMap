@@ -22,18 +22,22 @@ namespace MPewsey.ManiaMap
         public int Z { get; private set; }
 
         [DataMember(Order = 5)]
-        public RoomTemplate Template { get; private set; }
+        public int Seed { get; set; }
 
         [DataMember(Order = 6)]
         public Color Color { get; set; }
 
-        public Room(LayoutNode node, int x, int y, RoomTemplate template)
+        [DataMember(Order = 7)]
+        public RoomTemplate Template { get; private set; }
+
+        public Room(LayoutNode node, int x, int y, int seed, RoomTemplate template)
         {
             Id = node.Id;
             Name = node.Name;
             X = x;
             Y = y;
             Z = node.Z;
+            Seed = seed;
             Color = node.Color;
             Template = template;
         }

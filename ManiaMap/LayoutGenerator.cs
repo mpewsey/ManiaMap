@@ -176,7 +176,7 @@ namespace MPewsey.ManiaMap
                     if (!config.Matches(z, backDirection) || layout.Intersects(template, x, y, node.Z))
                         continue;
 
-                    var newRoom = new Room(node, x, y, template);
+                    var newRoom = new Room(node, x, y, Random.Next(), template);
 
                     if (!AddRoomConnection(layout, newRoom, aheadRoom, aheadDirection))
                         continue;
@@ -220,7 +220,7 @@ namespace MPewsey.ManiaMap
                     if (!config.Matches(z, direction) || layout.Intersects(template, x, y, node.Z))
                         continue;
 
-                    var newRoom = new Room(node, x, y, template);
+                    var newRoom = new Room(node, x, y, Random.Next(), template);
 
                     if (AddDoorConnection(layout, room, newRoom, config.FromDoor, config.ToDoor))
                     {
@@ -246,7 +246,7 @@ namespace MPewsey.ManiaMap
                 if (layout.Intersects(template, 0, 0, node.Z))
                     return false;
 
-                var newRoom = new Room(node, 0, 0, template);
+                var newRoom = new Room(node, 0, 0, Random.Next(), template);
                 layout.Rooms.Add(node.Id, newRoom);
                 return true;
             }
