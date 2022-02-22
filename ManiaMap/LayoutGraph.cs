@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace MPewsey.ManiaMap
 {
@@ -150,7 +151,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public IEnumerable<LayoutNode> GetNodes()
         {
-            return Nodes.Values;
+            return Nodes.Values.OrderBy(x => x.Id);
         }
 
         /// <summary>
@@ -158,7 +159,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public IEnumerable<LayoutEdge> GetEdges()
         {
-            return Edges.Values;
+            return Edges.Values.OrderBy(x => ((long)x.FromNode << 32) | (long)x.ToNode);
         }
 
         /// <summary>
@@ -174,7 +175,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public IEnumerable<int> GetNodeIds()
         {
-            return Nodes.Keys;
+            return Nodes.Keys.OrderBy(x => x);
         }
 
         /// <summary>

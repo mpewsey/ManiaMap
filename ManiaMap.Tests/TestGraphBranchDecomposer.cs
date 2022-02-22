@@ -16,8 +16,8 @@ namespace MPewsey.ManiaMap.Tests
             var expected = new List<List<int>>
             {
                 new() { 9, 5 },
-                new() { 8, 7, 4 },
                 new() { 1, 2, 3 },
+                new() { 8, 7, 4 },
                 new() { 11, 10, 6 },
             };
 
