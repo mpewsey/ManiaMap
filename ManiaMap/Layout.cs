@@ -132,5 +132,33 @@ namespace MPewsey.ManiaMap
 
             return false;
         }
+
+        /// <summary>
+        /// Returns a new dictionary of room doors by room ID.
+        /// </summary>
+        public Dictionary<int, List<Door>> RoomDoors()
+        {
+            var dict = new Dictionary<int, List<Door>>(Rooms.Count);
+
+            foreach (var connection in DoorConnections)
+            {
+                if (!dict.TryGetValue(connection.FromRoom, out var fromDoors))
+                {
+                    fromDoors = new List<Door>();
+                    dict.Add(connection.FromRoom, fromDoors);
+                }
+
+                if (!dict.TryGetValue(connection.ToRoom, out var toDoors))
+                {
+                    toDoors = new List<Door>();
+                    dict.Add(connection.ToRoom, toDoors);
+                }
+
+                fromDoors.Add(connection.FromDoor);
+                toDoors.Add(connection.ToDoor);
+            }
+
+            return dict;
+        }
     }
 }

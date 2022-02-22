@@ -15,7 +15,7 @@ namespace MPewsey.ManiaMap.Drawing
         public Color BackgroundColor { get; set; }
         public Dictionary<string, Image> Tiles { get; set; }
         public float LowerLayerOpacity { get; set; }
-        private Dictionary<int, List<Door>> RoomDoors { get; } = new Dictionary<int, List<Door>>();
+        private Dictionary<int, List<Door>> RoomDoors { get; set; }
 
         public LayoutMap(Layout layout, Point? tileSize = null, Padding? padding = null,
             Dictionary<string, Image> tiles = null, Color? backgroundColor = null,
@@ -68,32 +68,6 @@ namespace MPewsey.ManiaMap.Drawing
         }
 
         /// <summary>
-        /// Creates the room doors dictionary.
-        /// </summary>
-        private void CreateRoomDoors()
-        {
-            RoomDoors.Clear();
-
-            foreach (var connection in Layout.DoorConnections)
-            {
-                if (!RoomDoors.TryGetValue(connection.FromRoom, out var fromDoors))
-                {
-                    fromDoors = new List<Door>();
-                    RoomDoors.Add(connection.FromRoom, fromDoors);
-                }
-
-                if (!RoomDoors.TryGetValue(connection.ToRoom, out var toDoors))
-                {
-                    toDoors = new List<Door>();
-                    RoomDoors.Add(connection.ToRoom, toDoors);
-                }
-
-                fromDoors.Add(connection.FromDoor);
-                toDoors.Add(connection.ToDoor);
-            }
-        }
-
-        /// <summary>
         /// Returns true if the door exists for the room.
         /// </summary>
         private bool DoorExists(int room, int x, int y, DoorDirection direction)
@@ -117,7 +91,7 @@ namespace MPewsey.ManiaMap.Drawing
         /// </summary>
         public Image CreateImage(int z = 0)
         {
-            CreateRoomDoors();
+            RoomDoors = Layout.RoomDoors();
             var bounds = LayoutBounds();
             var width = TileSize.X * (Padding.Left + Padding.Right + bounds.Width);
             var height = TileSize.Y * (Padding.Top + Padding.Bottom + bounds.Height);
