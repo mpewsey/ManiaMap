@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
-    [DataContract(IsReference = true)]
+    [DataContract]
     public class Door
     {
         [DataMember(Order = 1)]
@@ -18,22 +18,17 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 4)]
         public DoorType Type { get; set; }
 
-        public Door(DoorType type = DoorType.TwoWay)
+        public Door(int x, int y, DoorDirection direction, DoorType type)
         {
+            X = x;
+            Y = y;
+            Direction = direction;
             Type = type;
         }
 
         public override string ToString()
         {
             return $"Door(X = {X}, Y = {Y}, Direction = {Direction}, Type = {Type})";
-        }
-
-        /// <summary>
-        /// Returns a new door with the same door type.
-        /// </summary>
-        public Door CopyType()
-        {
-            return new Door(Type);
         }
 
         /// <summary>
@@ -45,22 +40,17 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Sets the properties of the door.
-        /// </summary>
-        public void SetProperties(int x, int y, DoorDirection direction)
-        {
-            X = x;
-            Y = y;
-            Direction = direction;
-        }
-
-        /// <summary>
         /// Returns true if the door types are compatible.
         /// </summary>
         public static bool DoorTypesAligns(DoorType from, DoorType to)
         {
+            if (to == DoorType.None)
+                return false;
+
             switch (from)
             {
+                case DoorType.None:
+                    return false;
                 case DoorType.TwoWay:
                     return true;
                 case DoorType.TwoWayExit:

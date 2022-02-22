@@ -35,7 +35,7 @@ namespace MPewsey.ManiaMap
 
         public override string ToString()
         {
-            return $"Shaft(XMin = {XMin}, XMax = {XMax}, YMin = {YMin}, YMax = {YMax}, ZMin = {ZMin}, ZMax = {ZMax})";
+            return $"Box(XMin = {XMin}, XMax = {XMax}, YMin = {YMin}, YMax = {YMax}, ZMin = {ZMin}, ZMax = {ZMax})";
         }
 
         /// <summary>
