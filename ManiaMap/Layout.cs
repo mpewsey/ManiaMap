@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -38,6 +39,32 @@ namespace MPewsey.ManiaMap
         public override string ToString()
         {
             return $"Layout(Name = {Name}, Seed = {Seed})";
+        }
+
+        /// <summary>
+        /// Saves the layout to the file path.
+        /// </summary>
+        public void Save(string path)
+        {
+            var serializer = new DataContractSerializer(GetType());
+
+            using (var stream = File.Create(path))
+            {
+                serializer.WriteObject(stream, this);
+            }
+        }
+
+        /// <summary>
+        /// Loads the layout from the file path.
+        /// </summary>
+        public static Layout Load(string path)
+        {
+            var serializer = new DataContractSerializer(typeof(Layout));
+
+            using (var stream = File.OpenRead(path))
+            {
+                return (Layout)serializer.ReadObject(stream);
+            }
         }
 
         /// <summary>
