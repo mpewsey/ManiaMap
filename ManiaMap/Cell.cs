@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -12,22 +13,22 @@ namespace MPewsey.ManiaMap
         public bool IsEmpty { get; set; }
 
         [DataMember(Order = 1)]
-        public DoorType WestDoor { get; set; }
+        public Door WestDoor { get; set; }
 
         [DataMember(Order = 2)]
-        public DoorType NorthDoor { get; set; }
+        public Door NorthDoor { get; set; }
 
         [DataMember(Order = 3)]
-        public DoorType EastDoor { get; set; }
+        public Door EastDoor { get; set; }
 
         [DataMember(Order = 4)]
-        public DoorType SouthDoor { get; set; }
+        public Door SouthDoor { get; set; }
 
         [DataMember(Order = 5)]
-        public DoorType TopDoor { get; set; }
+        public Door TopDoor { get; set; }
 
         [DataMember(Order = 6)]
-        public DoorType BottomDoor { get; set; }
+        public Door BottomDoor { get; set; }
 
         public override string ToString()
         {
@@ -39,7 +40,9 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public bool TopDoorAligns(Cell other)
         {
-            return !IsEmpty && !other.IsEmpty && Door.DoorTypesAligns(TopDoor, other.BottomDoor);
+            return !IsEmpty
+                && !other.IsEmpty
+                && Door.DoorTypesAligns(TopDoor.Type, other.BottomDoor.Type);
         }
 
         /// <summary>
@@ -47,7 +50,9 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public bool BottomDoorAligns(Cell other)
         {
-            return !IsEmpty && !other.IsEmpty && Door.DoorTypesAligns(BottomDoor, other.TopDoor);
+            return !IsEmpty
+                && !other.IsEmpty
+                && Door.DoorTypesAligns(BottomDoor.Type, other.TopDoor.Type);
         }
 
         /// <summary>
@@ -55,7 +60,9 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public bool NorthDoorAligns(Cell other)
         {
-            return !IsEmpty && !other.IsEmpty && Door.DoorTypesAligns(NorthDoor, other.SouthDoor);
+            return !IsEmpty
+                && !other.IsEmpty
+                && Door.DoorTypesAligns(NorthDoor.Type, other.SouthDoor.Type);
         }
 
         /// <summary>
@@ -63,7 +70,9 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public bool SouthDoorAligns(Cell other)
         {
-            return !IsEmpty && !other.IsEmpty && Door.DoorTypesAligns(SouthDoor, other.NorthDoor);
+            return !IsEmpty
+                && !other.IsEmpty
+                && Door.DoorTypesAligns(SouthDoor.Type, other.NorthDoor.Type);
         }
 
         /// <summary>
@@ -71,7 +80,9 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public bool WestDoorAligns(Cell other)
         {
-            return !IsEmpty && !other.IsEmpty && Door.DoorTypesAligns(WestDoor, other.EastDoor);
+            return !IsEmpty
+                && !other.IsEmpty
+                && Door.DoorTypesAligns(WestDoor.Type, other.EastDoor.Type);
         }
 
         /// <summary>
@@ -79,7 +90,9 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public bool EastDoorAligns(Cell other)
         {
-            return !IsEmpty && !other.IsEmpty && Door.DoorTypesAligns(EastDoor, other.WestDoor);
+            return !IsEmpty
+                && !other.IsEmpty
+                && Door.DoorTypesAligns(EastDoor.Type, other.WestDoor.Type);
         }
 
         /// <summary>
@@ -175,12 +188,12 @@ namespace MPewsey.ManiaMap
         public bool Equals(Cell other)
         {
             return IsEmpty == other.IsEmpty &&
-                   WestDoor == other.WestDoor &&
-                   NorthDoor == other.NorthDoor &&
-                   EastDoor == other.EastDoor &&
-                   SouthDoor == other.SouthDoor &&
-                   TopDoor == other.TopDoor &&
-                   BottomDoor == other.BottomDoor;
+                   EqualityComparer<Door>.Default.Equals(WestDoor, other.WestDoor) &&
+                   EqualityComparer<Door>.Default.Equals(NorthDoor, other.NorthDoor) &&
+                   EqualityComparer<Door>.Default.Equals(EastDoor, other.EastDoor) &&
+                   EqualityComparer<Door>.Default.Equals(SouthDoor, other.SouthDoor) &&
+                   EqualityComparer<Door>.Default.Equals(TopDoor, other.TopDoor) &&
+                   EqualityComparer<Door>.Default.Equals(BottomDoor, other.BottomDoor);
         }
 
         public override int GetHashCode()

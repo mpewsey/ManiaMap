@@ -263,15 +263,15 @@ namespace MPewsey.ManiaMap
 
                                 if (cell.TopDoorAligns(vert))
                                 {
-                                    var door1 = new Door(i, j, DoorDirection.Top, cell.TopDoor);
-                                    var door2 = new Door(x, y, DoorDirection.Bottom, vert.BottomDoor);
+                                    var door1 = new DoorPosition(i, j, DoorDirection.Top, cell.TopDoor);
+                                    var door2 = new DoorPosition(x, y, DoorDirection.Bottom, vert.BottomDoor);
                                     result.Add(new DoorPair(door1, door2));
                                 }
 
                                 if (cell.BottomDoorAligns(vert))
                                 {
-                                    var door1 = new Door(i, j, DoorDirection.Bottom, cell.BottomDoor);
-                                    var door2 = new Door(x, y, DoorDirection.Top, vert.TopDoor);
+                                    var door1 = new DoorPosition(i, j, DoorDirection.Bottom, cell.BottomDoor);
+                                    var door2 = new DoorPosition(x, y, DoorDirection.Top, vert.TopDoor);
                                     result.Add(new DoorPair(door1, door2));
                                 }
                             }
@@ -284,29 +284,29 @@ namespace MPewsey.ManiaMap
 
                                 if (cell.WestDoorAligns(west))
                                 {
-                                    var door1 = new Door(i, j, DoorDirection.West, cell.WestDoor);
-                                    var door2 = new Door(x, y - 1, DoorDirection.East, west.EastDoor);
+                                    var door1 = new DoorPosition(i, j, DoorDirection.West, cell.WestDoor);
+                                    var door2 = new DoorPosition(x, y - 1, DoorDirection.East, west.EastDoor);
                                     result.Add(new DoorPair(door1, door2));
                                 }
 
                                 if (cell.NorthDoorAligns(north))
                                 {
-                                    var door1 = new Door(i, j, DoorDirection.North, cell.NorthDoor);
-                                    var door2 = new Door(x - 1, y, DoorDirection.South, north.SouthDoor);
+                                    var door1 = new DoorPosition(i, j, DoorDirection.North, cell.NorthDoor);
+                                    var door2 = new DoorPosition(x - 1, y, DoorDirection.South, north.SouthDoor);
                                     result.Add(new DoorPair(door1, door2));
                                 }
 
                                 if (cell.EastDoorAligns(east))
                                 {
-                                    var door1 = new Door(i, j, DoorDirection.East, cell.EastDoor);
-                                    var door2 = new Door(x, y + 1, DoorDirection.West, east.WestDoor);
+                                    var door1 = new DoorPosition(i, j, DoorDirection.East, cell.EastDoor);
+                                    var door2 = new DoorPosition(x, y + 1, DoorDirection.West, east.WestDoor);
                                     result.Add(new DoorPair(door1, door2));
                                 }
 
                                 if (cell.SouthDoorAligns(south))
                                 {
-                                    var door1 = new Door(i, j, DoorDirection.South, cell.SouthDoor);
-                                    var door2 = new Door(x + 1, y, DoorDirection.North, south.NorthDoor);
+                                    var door1 = new DoorPosition(i, j, DoorDirection.South, cell.SouthDoor);
+                                    var door2 = new DoorPosition(x + 1, y, DoorDirection.North, south.NorthDoor);
                                     result.Add(new DoorPair(door1, door2));
                                 }
                             }

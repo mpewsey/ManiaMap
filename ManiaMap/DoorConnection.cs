@@ -12,15 +12,15 @@ namespace MPewsey.ManiaMap
         public int ToRoom { get; private set; }
 
         [DataMember(Order = 3)]
-        public Door FromDoor { get; private set; }
+        public DoorPosition FromDoor { get; private set; }
 
         [DataMember(Order = 4)]
-        public Door ToDoor { get; private set; }
+        public DoorPosition ToDoor { get; private set; }
 
         [DataMember(Order = 5)]
         public Box Shaft { get; private set; }
 
-        public DoorConnection(int fromRoom, int toRoom, Door fromDoor, Door toDoor, Box shaft = null)
+        public DoorConnection(int fromRoom, int toRoom, DoorPosition fromDoor, DoorPosition toDoor, Box shaft = null)
         {
             FromRoom = fromRoom;
             ToRoom = toRoom;

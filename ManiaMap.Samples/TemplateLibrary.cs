@@ -7,10 +7,10 @@
             public static RoomTemplate SquareTemplate()
             {
                 var o = new Cell();
-                var l = new Cell { WestDoor = DoorType.TwoWay };
-                var t = new Cell { NorthDoor = DoorType.TwoWay };
-                var r = new Cell { EastDoor = DoorType.TwoWay };
-                var b = new Cell { SouthDoor = DoorType.TwoWay };
+                var l = new Cell { WestDoor = Door.TwoWay };
+                var t = new Cell { NorthDoor = Door.TwoWay };
+                var r = new Cell { EastDoor = Door.TwoWay };
+                var b = new Cell { SouthDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {
@@ -26,10 +26,10 @@
             {
                 var x = Cell.Empty;
                 var o = new Cell();
-                var l = new Cell { WestDoor = DoorType.TwoWay };
-                var t = new Cell { NorthDoor = DoorType.TwoWay };
-                var r = new Cell { EastDoor = DoorType.TwoWay };
-                var b = new Cell { SouthDoor = DoorType.TwoWay };
+                var l = new Cell { WestDoor = Door.TwoWay };
+                var t = new Cell { NorthDoor = Door.TwoWay };
+                var r = new Cell { EastDoor = Door.TwoWay };
+                var b = new Cell { SouthDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {
@@ -44,11 +44,11 @@
             public static RoomTemplate PlusTemplate()
             {
                 var x = Cell.Empty;
-                var a = new Cell { TopDoor = DoorType.TwoWay, BottomDoor = DoorType.TwoWay };
-                var l = new Cell { WestDoor = DoorType.TwoWay };
-                var t = new Cell { NorthDoor = DoorType.TwoWay };
-                var r = new Cell { EastDoor = DoorType.TwoWay };
-                var b = new Cell { SouthDoor = DoorType.TwoWay };
+                var a = new Cell { TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
+                var l = new Cell { WestDoor = Door.TwoWay };
+                var t = new Cell { NorthDoor = Door.TwoWay };
+                var r = new Cell { EastDoor = Door.TwoWay };
+                var b = new Cell { SouthDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {
@@ -62,15 +62,15 @@
 
             public static RoomTemplate HyperSquareTemplate()
             {
-                var o = new Cell { TopDoor = DoorType.TwoWay, BottomDoor = DoorType.TwoWay };
-                var a = new Cell { WestDoor = DoorType.TwoWay, NorthDoor = DoorType.TwoWay, TopDoor = DoorType.TwoWay, BottomDoor = DoorType.TwoWay };
-                var b = new Cell { NorthDoor = DoorType.TwoWay, TopDoor = DoorType.TwoWay, BottomDoor = DoorType.TwoWay };
-                var c = new Cell { NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay, TopDoor = DoorType.TwoWay, BottomDoor = DoorType.TwoWay };
-                var d = new Cell { WestDoor = DoorType.TwoWay, TopDoor = DoorType.TwoWay, BottomDoor = DoorType.TwoWay };
-                var e = new Cell { EastDoor = DoorType.TwoWay, TopDoor = DoorType.TwoWay, BottomDoor = DoorType.TwoWay };
-                var f = new Cell { WestDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay, TopDoor = DoorType.TwoWay, BottomDoor = DoorType.TwoWay };
-                var g = new Cell { SouthDoor = DoorType.TwoWay, TopDoor = DoorType.TwoWay, BottomDoor = DoorType.TwoWay };
-                var h = new Cell { SouthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay, TopDoor = DoorType.TwoWay, BottomDoor = DoorType.TwoWay };
+                var o = new Cell { TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
+                var a = new Cell { WestDoor = Door.TwoWay, NorthDoor = Door.TwoWay, TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
+                var b = new Cell { NorthDoor = Door.TwoWay, TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
+                var c = new Cell { NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay, TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
+                var d = new Cell { WestDoor = Door.TwoWay, TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
+                var e = new Cell { EastDoor = Door.TwoWay, TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
+                var f = new Cell { WestDoor = Door.TwoWay, SouthDoor = Door.TwoWay, TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
+                var g = new Cell { SouthDoor = Door.TwoWay, TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
+                var h = new Cell { SouthDoor = Door.TwoWay, EastDoor = Door.TwoWay, TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {
@@ -86,9 +86,9 @@
             {
                 var x = Cell.Empty;
                 var o = new Cell();
-                var a = new Cell { WestDoor = DoorType.TwoWay, NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay, TopDoor = DoorType.TwoWay, BottomDoor = DoorType.TwoWay };
-                var b = new Cell { SouthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay, NorthDoor = DoorType.TwoWay, TopDoor = DoorType.TwoWay, BottomDoor = DoorType.TwoWay };
-                var c = new Cell { SouthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay, TopDoor = DoorType.TwoWay, BottomDoor = DoorType.TwoWay };
+                var a = new Cell { WestDoor = Door.TwoWay, NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay, TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
+                var b = new Cell { SouthDoor = Door.TwoWay, EastDoor = Door.TwoWay, NorthDoor = Door.TwoWay, TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
+                var c = new Cell { SouthDoor = Door.TwoWay, WestDoor = Door.TwoWay, TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {
@@ -107,9 +107,9 @@
             public static RoomTemplate Small()
             {
                 var x = Cell.Empty;
-                var a = new Cell { NorthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
-                var b = new Cell { NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay };
-                var c = new Cell { WestDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay };
+                var a = new Cell { NorthDoor = Door.TwoWay, WestDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+                var b = new Cell { NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
+                var c = new Cell { WestDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {
@@ -123,12 +123,12 @@
             public static RoomTemplate Medium()
             {
                 var x = Cell.Empty;
-                var a = new Cell { NorthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
-                var b = new Cell { NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay };
-                var c = new Cell { WestDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay };
-                var d = new Cell { WestDoor = DoorType.TwoWay };
-                var e = new Cell { NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
-                var f = new Cell { SouthDoor = DoorType.TwoWay };
+                var a = new Cell { NorthDoor = Door.TwoWay, WestDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+                var b = new Cell { NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
+                var c = new Cell { WestDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
+                var d = new Cell { WestDoor = Door.TwoWay };
+                var e = new Cell { NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+                var f = new Cell { SouthDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {
@@ -144,15 +144,15 @@
             {
                 var x = Cell.Empty;
                 var o = new Cell();
-                var a = new Cell { NorthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
-                var b = new Cell { NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay };
-                var c = new Cell { WestDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay };
-                var d = new Cell { WestDoor = DoorType.TwoWay };
-                var e = new Cell { WestDoor = DoorType.TwoWay };
-                var f = new Cell { SouthDoor = DoorType.TwoWay };
-                var g = new Cell { SouthDoor = DoorType.TwoWay };
-                var h = new Cell { NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
-                var i = new Cell { NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
+                var a = new Cell { NorthDoor = Door.TwoWay, WestDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+                var b = new Cell { NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
+                var c = new Cell { WestDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
+                var d = new Cell { WestDoor = Door.TwoWay };
+                var e = new Cell { WestDoor = Door.TwoWay };
+                var f = new Cell { SouthDoor = Door.TwoWay };
+                var g = new Cell { SouthDoor = Door.TwoWay };
+                var h = new Cell { NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+                var i = new Cell { NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {
@@ -171,10 +171,10 @@
             public static RoomTemplate Small()
             {
                 var x = Cell.Empty;
-                var a = new Cell { NorthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
-                var b = new Cell { WestDoor = DoorType.TwoWay, NorthDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay };
-                var c = new Cell { EastDoor = DoorType.TwoWay, NorthDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay };
-                var d = new Cell { SouthDoor = DoorType.TwoWay };
+                var a = new Cell { NorthDoor = Door.TwoWay, WestDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+                var b = new Cell { WestDoor = Door.TwoWay, NorthDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
+                var c = new Cell { EastDoor = Door.TwoWay, NorthDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
+                var d = new Cell { SouthDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {
@@ -189,14 +189,14 @@
             {
                 var x = Cell.Empty;
                 var o = new Cell();
-                var a = new Cell { NorthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
-                var b = new Cell { WestDoor = DoorType.TwoWay, NorthDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay };
-                var c = new Cell { EastDoor = DoorType.TwoWay, NorthDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay };
-                var d = new Cell { SouthDoor = DoorType.TwoWay };
-                var e = new Cell { SouthDoor = DoorType.TwoWay };
-                var f = new Cell { SouthDoor = DoorType.TwoWay };
-                var g = new Cell { NorthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay };
-                var h = new Cell { NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
+                var a = new Cell { NorthDoor = Door.TwoWay, WestDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+                var b = new Cell { WestDoor = Door.TwoWay, NorthDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
+                var c = new Cell { EastDoor = Door.TwoWay, NorthDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
+                var d = new Cell { SouthDoor = Door.TwoWay };
+                var e = new Cell { SouthDoor = Door.TwoWay };
+                var f = new Cell { SouthDoor = Door.TwoWay };
+                var g = new Cell { NorthDoor = Door.TwoWay, WestDoor = Door.TwoWay };
+                var h = new Cell { NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {
@@ -212,18 +212,18 @@
             {
                 var x = Cell.Empty;
                 var o = new Cell();
-                var a = new Cell { NorthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
-                var b = new Cell { WestDoor = DoorType.TwoWay, NorthDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay };
-                var c = new Cell { EastDoor = DoorType.TwoWay, NorthDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay };
-                var d = new Cell { SouthDoor = DoorType.TwoWay };
-                var e = new Cell { SouthDoor = DoorType.TwoWay };
-                var f = new Cell { SouthDoor = DoorType.TwoWay };
-                var g = new Cell { SouthDoor = DoorType.TwoWay };
-                var h = new Cell { SouthDoor = DoorType.TwoWay };
-                var i = new Cell { NorthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay };
-                var j = new Cell { NorthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay };
-                var k = new Cell { NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
-                var l = new Cell { NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
+                var a = new Cell { NorthDoor = Door.TwoWay, WestDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+                var b = new Cell { WestDoor = Door.TwoWay, NorthDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
+                var c = new Cell { EastDoor = Door.TwoWay, NorthDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
+                var d = new Cell { SouthDoor = Door.TwoWay };
+                var e = new Cell { SouthDoor = Door.TwoWay };
+                var f = new Cell { SouthDoor = Door.TwoWay };
+                var g = new Cell { SouthDoor = Door.TwoWay };
+                var h = new Cell { SouthDoor = Door.TwoWay };
+                var i = new Cell { NorthDoor = Door.TwoWay, WestDoor = Door.TwoWay };
+                var j = new Cell { NorthDoor = Door.TwoWay, WestDoor = Door.TwoWay };
+                var k = new Cell { NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+                var l = new Cell { NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {
@@ -243,8 +243,8 @@
             {
                 var x = Cell.Empty;
                 var o = new Cell();
-                var a = new Cell { NorthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
-                var b = new Cell { SouthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
+                var a = new Cell { NorthDoor = Door.TwoWay, WestDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+                var b = new Cell { SouthDoor = Door.TwoWay, WestDoor = Door.TwoWay, EastDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {
@@ -261,8 +261,8 @@
             {
                 var x = Cell.Empty;
                 var o = new Cell();
-                var a = new Cell { NorthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
-                var b = new Cell { SouthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
+                var a = new Cell { NorthDoor = Door.TwoWay, WestDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+                var b = new Cell { SouthDoor = Door.TwoWay, WestDoor = Door.TwoWay, EastDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {
@@ -280,8 +280,8 @@
             {
                 var x = Cell.Empty;
                 var o = new Cell();
-                var a = new Cell { NorthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
-                var b = new Cell { SouthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
+                var a = new Cell { NorthDoor = Door.TwoWay, WestDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+                var b = new Cell { SouthDoor = Door.TwoWay, WestDoor = Door.TwoWay, EastDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {
@@ -303,10 +303,10 @@
             {
                 var x = Cell.Empty;
                 var o = new Cell();
-                var a = new Cell { WestDoor = DoorType.TwoWay, NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
-                var b = new Cell { WestDoor = DoorType.TwoWay, NorthDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay };
-                var c = new Cell { NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay };
-                var d = new Cell { SouthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
+                var a = new Cell { WestDoor = Door.TwoWay, NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+                var b = new Cell { WestDoor = Door.TwoWay, NorthDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
+                var c = new Cell { NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
+                var d = new Cell { SouthDoor = Door.TwoWay, WestDoor = Door.TwoWay, EastDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {
@@ -322,10 +322,10 @@
             {
                 var x = Cell.Empty;
                 var o = new Cell();
-                var a = new Cell { WestDoor = DoorType.TwoWay, NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
-                var b = new Cell { WestDoor = DoorType.TwoWay, NorthDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay };
-                var c = new Cell { NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay };
-                var d = new Cell { SouthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
+                var a = new Cell { WestDoor = Door.TwoWay, NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+                var b = new Cell { WestDoor = Door.TwoWay, NorthDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
+                var c = new Cell { NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
+                var d = new Cell { SouthDoor = Door.TwoWay, WestDoor = Door.TwoWay, EastDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {
@@ -343,10 +343,10 @@
             {
                 var x = Cell.Empty;
                 var o = new Cell();
-                var a = new Cell { WestDoor = DoorType.TwoWay, NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
-                var b = new Cell { WestDoor = DoorType.TwoWay, NorthDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay };
-                var c = new Cell { NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay };
-                var d = new Cell { SouthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
+                var a = new Cell { WestDoor = Door.TwoWay, NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+                var b = new Cell { WestDoor = Door.TwoWay, NorthDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
+                var c = new Cell { NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
+                var d = new Cell { SouthDoor = Door.TwoWay, WestDoor = Door.TwoWay, EastDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {
@@ -369,8 +369,8 @@
             {
                 var x = Cell.Empty;
                 var o = new Cell();
-                var a = new Cell { WestDoor = DoorType.TwoWay, NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
-                var b = new Cell { SouthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay, NorthDoor = DoorType.TwoWay };
+                var a = new Cell { WestDoor = Door.TwoWay, NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+                var b = new Cell { SouthDoor = Door.TwoWay, EastDoor = Door.TwoWay, NorthDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {
@@ -386,9 +386,9 @@
             {
                 var x = Cell.Empty;
                 var o = new Cell();
-                var a = new Cell { WestDoor = DoorType.TwoWay, NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
-                var b = new Cell { SouthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay, NorthDoor = DoorType.TwoWay };
-                var c = new Cell { WestDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay };
+                var a = new Cell { WestDoor = Door.TwoWay, NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+                var b = new Cell { SouthDoor = Door.TwoWay, EastDoor = Door.TwoWay, NorthDoor = Door.TwoWay };
+                var c = new Cell { WestDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {
@@ -405,9 +405,9 @@
             {
                 var x = Cell.Empty;
                 var o = new Cell();
-                var a = new Cell { WestDoor = DoorType.TwoWay, NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
-                var b = new Cell { SouthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay, NorthDoor = DoorType.TwoWay };
-                var c = new Cell { WestDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay };
+                var a = new Cell { WestDoor = Door.TwoWay, NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+                var b = new Cell { SouthDoor = Door.TwoWay, EastDoor = Door.TwoWay, NorthDoor = Door.TwoWay };
+                var c = new Cell { WestDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {
@@ -426,10 +426,10 @@
         {
             public static RoomTemplate Small()
             {
-                var a = new Cell { NorthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay };
-                var b = new Cell { NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
-                var c = new Cell { SouthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay };
-                var d = new Cell { SouthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
+                var a = new Cell { NorthDoor = Door.TwoWay, WestDoor = Door.TwoWay };
+                var b = new Cell { NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+                var c = new Cell { SouthDoor = Door.TwoWay, WestDoor = Door.TwoWay };
+                var d = new Cell { SouthDoor = Door.TwoWay, EastDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {
@@ -443,14 +443,14 @@
             public static RoomTemplate Medium()
             {
                 var o = new Cell();
-                var a = new Cell { NorthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay };
-                var b = new Cell { NorthDoor = DoorType.TwoWay };
-                var c = new Cell { NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
-                var d = new Cell { WestDoor = DoorType.TwoWay };
-                var e = new Cell { EastDoor = DoorType.TwoWay };
-                var f = new Cell { SouthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay };
-                var g = new Cell { SouthDoor = DoorType.TwoWay };
-                var h = new Cell { SouthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
+                var a = new Cell { NorthDoor = Door.TwoWay, WestDoor = Door.TwoWay };
+                var b = new Cell { NorthDoor = Door.TwoWay };
+                var c = new Cell { NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+                var d = new Cell { WestDoor = Door.TwoWay };
+                var e = new Cell { EastDoor = Door.TwoWay };
+                var f = new Cell { SouthDoor = Door.TwoWay, WestDoor = Door.TwoWay };
+                var g = new Cell { SouthDoor = Door.TwoWay };
+                var h = new Cell { SouthDoor = Door.TwoWay, EastDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {
@@ -465,18 +465,18 @@
             public static RoomTemplate Large()
             {
                 var o = new Cell();
-                var a = new Cell { NorthDoor = DoorType.TwoWay, WestDoor = DoorType.TwoWay };
-                var b = new Cell { NorthDoor = DoorType.TwoWay };
-                var c = new Cell { NorthDoor = DoorType.TwoWay };
-                var d = new Cell { NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
-                var e = new Cell { WestDoor = DoorType.TwoWay };
-                var f = new Cell { EastDoor = DoorType.TwoWay };
-                var g = new Cell { WestDoor = DoorType.TwoWay };
-                var h = new Cell { EastDoor = DoorType.TwoWay };
-                var i = new Cell { WestDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay };
-                var j = new Cell { SouthDoor = DoorType.TwoWay };
-                var k = new Cell { SouthDoor = DoorType.TwoWay };
-                var l = new Cell { SouthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
+                var a = new Cell { NorthDoor = Door.TwoWay, WestDoor = Door.TwoWay };
+                var b = new Cell { NorthDoor = Door.TwoWay };
+                var c = new Cell { NorthDoor = Door.TwoWay };
+                var d = new Cell { NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+                var e = new Cell { WestDoor = Door.TwoWay };
+                var f = new Cell { EastDoor = Door.TwoWay };
+                var g = new Cell { WestDoor = Door.TwoWay };
+                var h = new Cell { EastDoor = Door.TwoWay };
+                var i = new Cell { WestDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
+                var j = new Cell { SouthDoor = Door.TwoWay };
+                var k = new Cell { SouthDoor = Door.TwoWay };
+                var l = new Cell { SouthDoor = Door.TwoWay, EastDoor = Door.TwoWay };
 
                 var cells = new Cell[,]
                 {

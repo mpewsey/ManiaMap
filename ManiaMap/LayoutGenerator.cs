@@ -283,7 +283,7 @@ namespace MPewsey.ManiaMap
         /// Attemps to add a door connection to the layout.
         /// Returns true if successful.
         /// </summary>
-        private bool AddDoorConnection(Layout layout, Room from, Room to, Door fromDoor, Door toDoor)
+        private bool AddDoorConnection(Layout layout, Room from, Room to, DoorPosition fromDoor, DoorPosition toDoor)
         {
             if (Math.Abs(from.Z - to.Z) <= 1)
             {

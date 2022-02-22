@@ -15,7 +15,7 @@ namespace MPewsey.ManiaMap.Drawing
         public Color BackgroundColor { get; set; }
         public Dictionary<string, Image> Tiles { get; set; }
         public float LowerLayerOpacity { get; set; }
-        private Dictionary<int, List<Door>> RoomDoors { get; set; }
+        private Dictionary<int, List<DoorPosition>> RoomDoors { get; set; }
 
         public LayoutMap(Layout layout, Point? tileSize = null, Padding? padding = null,
             Dictionary<string, Image> tiles = null, Color? backgroundColor = null,
@@ -145,12 +145,12 @@ namespace MPewsey.ManiaMap.Drawing
                                 var west = cells.GetOrDefault(i, j - 1, Cell.Empty);
                                 var east = cells.GetOrDefault(i, j + 1, Cell.Empty);
 
-                                var topTile = GetTile(room.Id, i, j, DoorDirection.Top, cell.TopDoor, "TopDoor");
-                                var bottomTile = GetTile(room.Id, i, j, DoorDirection.Bottom, cell.BottomDoor, "BottomDoor");
-                                var northTile = GetTile(room.Id, i - 1, j, DoorDirection.North, cell.NorthDoor, north, "NorthDoor", "NorthWall");
-                                var southTile = GetTile(room.Id, i + 1, j, DoorDirection.South, cell.SouthDoor, south, "SouthDoor", "SouthWall");
-                                var westTile = GetTile(room.Id, i, j - 1, DoorDirection.West, cell.WestDoor, west, "WestDoor", "WestWall");
-                                var eastTile = GetTile(room.Id, i, j + 1, DoorDirection.East, cell.EastDoor, east, "EastDoor", "EastWall");
+                                var topTile = GetTile(room.Id, i, j, DoorDirection.Top, cell.TopDoor.Type, "TopDoor");
+                                var bottomTile = GetTile(room.Id, i, j, DoorDirection.Bottom, cell.BottomDoor.Type, "BottomDoor");
+                                var northTile = GetTile(room.Id, i - 1, j, DoorDirection.North, cell.NorthDoor.Type, north, "NorthDoor", "NorthWall");
+                                var southTile = GetTile(room.Id, i + 1, j, DoorDirection.South, cell.SouthDoor.Type, south, "SouthDoor", "SouthWall");
+                                var westTile = GetTile(room.Id, i, j - 1, DoorDirection.West, cell.WestDoor.Type, west, "WestDoor", "WestWall");
+                                var eastTile = GetTile(room.Id, i, j + 1, DoorDirection.East, cell.EastDoor.Type, east, "EastDoor", "EastWall");
 
                                 // Add cell background fill
                                 image.DrawImage(cellTile, point, opacity);

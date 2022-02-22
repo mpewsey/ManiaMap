@@ -1,42 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text;
 
 namespace MPewsey.ManiaMap
 {
     [DataContract]
-    public class Door
+    public struct Door : IEquatable<Door>
     {
+        public static Door TwoWay { get => new Door { Type = DoorType.TwoWay }; }
+        
         [DataMember(Order = 1)]
-        public int X { get; private set; }
-
-        [DataMember(Order = 2)]
-        public int Y { get; private set; }
-
-        [DataMember(Order = 3)]
-        public DoorDirection Direction { get; private set; }
-
-        [DataMember(Order = 4)]
         public DoorType Type { get; set; }
 
-        public Door(int x, int y, DoorDirection direction, DoorType type)
-        {
-            X = x;
-            Y = y;
-            Direction = direction;
-            Type = type;
-        }
+        [DataMember(Order = 2)]
+        public byte Code { get; set; }
 
         public override string ToString()
         {
-            return $"Door(X = {X}, Y = {Y}, Direction = {Direction}, Type = {Type})";
-        }
-
-        /// <summary>
-        /// Returns true if the door matches the specified properties.
-        /// </summary>
-        public bool Matches(int x, int y, DoorDirection direction)
-        {
-            return X == x && Y == y && Direction == direction;
+            return $"Door(Type = {Type}, Code = {Code})";
         }
 
         /// <summary>
@@ -191,6 +173,35 @@ namespace MPewsey.ManiaMap
                 default:
                     throw new ArgumentException($"Unhandled Edge Direction: {direction}.");
             }
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Door door && Equals(door);
+        }
+
+        public bool Equals(Door other)
+        {
+            return Type == other.Type &&
+                   Code == other.Code;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = -209630327;
+            hashCode = hashCode * -1521134295 + Type.GetHashCode();
+            hashCode = hashCode * -1521134295 + Code.GetHashCode();
+            return hashCode;
+        }
+
+        public static bool operator ==(Door left, Door right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(Door left, Door right)
+        {
+            return !(left == right);
         }
     }
 }
