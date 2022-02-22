@@ -15,7 +15,7 @@ namespace MPewsey.ManiaMap.Drawing
         public Color BackgroundColor { get; set; }
         public Dictionary<string, Image> Tiles { get; set; }
         public float LowerLayerOpacity { get; set; }
-        private HashSet<RoomDoorPair> RoomDoors { get; } = new HashSet<RoomDoorPair>();
+        private Dictionary<int, List<Door>> RoomDoors { get; } = new Dictionary<int, List<Door>>();
 
         public LayoutMap(Layout layout, Point? tileSize = null, Padding? padding = null,
             Dictionary<string, Image> tiles = null, Color? backgroundColor = null,
@@ -59,20 +59,6 @@ namespace MPewsey.ManiaMap.Drawing
         }
 
         /// <summary>
-        /// Adds the room door pairs for the layout to the room door set.
-        /// </summary>
-        private void MarkRoomDoors()
-        {
-            RoomDoors.Clear();
-
-            foreach (var connection in Layout.DoorConnections)
-            {
-                RoomDoors.Add(new RoomDoorPair(connection.FromRoom, connection.FromDoor));
-                RoomDoors.Add(new RoomDoorPair(connection.ToRoom, connection.ToDoor));
-            }
-        }
-
-        /// <summary>
         /// Renders a map of the layout and saves it to the designated file path.
         /// </summary>
         public void SaveImage(string path, int z = 0)
@@ -82,11 +68,56 @@ namespace MPewsey.ManiaMap.Drawing
         }
 
         /// <summary>
+        /// Creates the room doors dictionary.
+        /// </summary>
+        private void CreateRoomDoors()
+        {
+            RoomDoors.Clear();
+
+            foreach (var connection in Layout.DoorConnections)
+            {
+                if (!RoomDoors.TryGetValue(connection.FromRoom, out var fromDoors))
+                {
+                    fromDoors = new List<Door>();
+                    RoomDoors.Add(connection.FromRoom, fromDoors);
+                }
+
+                if (!RoomDoors.TryGetValue(connection.ToRoom, out var toDoors))
+                {
+                    toDoors = new List<Door>();
+                    RoomDoors.Add(connection.ToRoom, toDoors);
+                }
+
+                fromDoors.Add(connection.FromDoor);
+                toDoors.Add(connection.ToDoor);
+            }
+        }
+
+        /// <summary>
+        /// Returns true if the door exists for the room.
+        /// </summary>
+        private bool DoorExists(int room, int x, int y, DoorDirection direction)
+        {
+            if (RoomDoors.TryGetValue(room, out var doors))
+            {
+                foreach (var door in doors)
+                {
+                    if (door.Matches(x, y, direction))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
         /// Returns a rendered map of the layout.
         /// </summary>
         public Image CreateImage(int z = 0)
         {
-            MarkRoomDoors();
+            CreateRoomDoors();
             var bounds = LayoutBounds();
             var width = TileSize.X * (Padding.Left + Padding.Right + bounds.Width);
             var height = TileSize.Y * (Padding.Top + Padding.Bottom + bounds.Height);
@@ -129,23 +160,23 @@ namespace MPewsey.ManiaMap.Drawing
                         {
                             var cell = cells[i, j];
 
-                            if (cell != null)
+                            if (!cell.IsEmpty)
                             {
                                 var x = TileSize.X * j + x0;
                                 var y = TileSize.Y * i + y0;
                                 var point = new Point(x, y);
 
-                                var north = cells.GetOrDefault(i - 1, j);
-                                var south = cells.GetOrDefault(i + 1, j);
-                                var west = cells.GetOrDefault(i, j - 1);
-                                var east = cells.GetOrDefault(i, j + 1);
+                                var north = cells.GetOrDefault(i - 1, j, Cell.Empty);
+                                var south = cells.GetOrDefault(i + 1, j, Cell.Empty);
+                                var west = cells.GetOrDefault(i, j - 1, Cell.Empty);
+                                var east = cells.GetOrDefault(i, j + 1, Cell.Empty);
 
-                                var topTile = GetTile(room, cell.TopDoor, "TopDoor");
-                                var bottomTile = GetTile(room, cell.BottomDoor, "BottomDoor");
-                                var northTile = GetTile(room, cell.NorthDoor, north, "NorthDoor", "NorthWall");
-                                var southTile = GetTile(room, cell.SouthDoor, south, "SouthDoor", "SouthWall");
-                                var westTile = GetTile(room, cell.WestDoor, west, "WestDoor", "WestWall");
-                                var eastTile = GetTile(room, cell.EastDoor, east, "EastDoor", "EastWall");
+                                var topTile = GetTile(room.Id, i, j, DoorDirection.Top, cell.TopDoor, "TopDoor");
+                                var bottomTile = GetTile(room.Id, i, j, DoorDirection.Bottom, cell.BottomDoor, "BottomDoor");
+                                var northTile = GetTile(room.Id, i - 1, j, DoorDirection.North, cell.NorthDoor, north, "NorthDoor", "NorthWall");
+                                var southTile = GetTile(room.Id, i + 1, j, DoorDirection.South, cell.SouthDoor, south, "SouthDoor", "SouthWall");
+                                var westTile = GetTile(room.Id, i, j - 1, DoorDirection.West, cell.WestDoor, west, "WestDoor", "WestWall");
+                                var eastTile = GetTile(room.Id, i, j + 1, DoorDirection.East, cell.EastDoor, east, "EastDoor", "EastWall");
 
                                 // Add cell background fill
                                 image.DrawImage(cellTile, point, opacity);
@@ -184,9 +215,10 @@ namespace MPewsey.ManiaMap.Drawing
         /// Returns the map tile corresponding to the door location.
         /// Returns null if the door does not exist.
         /// </summary>
-        private Image GetTile(Room room, Door door, string doorName)
+        private Image GetTile(int room, int x, int y, DoorDirection direction,
+            DoorType doorType, string doorName)
         {
-            if (door != null && RoomDoors.Contains(new RoomDoorPair(room, door)))
+            if (doorType != DoorType.None && DoorExists(room, x, y, direction))
                 return Tiles[doorName];
             return null;
         }
@@ -195,11 +227,12 @@ namespace MPewsey.ManiaMap.Drawing
         /// Returns the map tile corresponding to the wall or door location.
         /// Returns null if the tile has neither a wall or door.
         /// </summary>
-        private Image GetTile(Room room, Door door, Cell neighbor, string doorName, string wallName)
+        private Image GetTile(int room, int x, int y, DoorDirection direction,
+            DoorType doorType, Cell neighbor, string doorName, string wallName)
         {
-            if (door != null && RoomDoors.Contains(new RoomDoorPair(room, door)))
+            if (doorType != DoorType.None && DoorExists(room, x, y, direction))
                 return Tiles[doorName];
-            if (neighbor == null)
+            if (neighbor.IsEmpty)
                 return Tiles[wallName];
             return null;
         }

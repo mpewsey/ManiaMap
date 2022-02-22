@@ -1,7 +1,8 @@
 ﻿namespace MPewsey.ManiaMap
 {
-    public enum DoorType
+    public enum DoorType : byte
     {
+        None,
         TwoWay,
         TwoWayExit,
         TwoWayEntrance,

@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MPewsey.ManiaMap.Tests
 {
@@ -38,11 +39,11 @@ namespace MPewsey.ManiaMap.Tests
         {
             var from = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
             var to = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
-            var doors = from.AlignedDoors(to, 0, 3);
+            var doors = from.AlignedDoors(to, 0, 3).Select(x => (x.FromDoor.X, x.FromDoor.Y, x.ToDoor.X, x.ToDoor.Y)).ToArray();
 
-            var expected = new List<DoorPair>
+            var expected = new (int, int, int, int)[]
             {
-                new(from.Cells[1, 2].EastDoor, to.Cells[1, 0].WestDoor),
+                (1, 2, 1, 0),
             };
 
             Console.WriteLine("Expected:");
@@ -59,11 +60,11 @@ namespace MPewsey.ManiaMap.Tests
         {
             var from = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
             var to = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
-            var doors = from.AlignedDoors(to, 0, -3);
+            var doors = from.AlignedDoors(to, 0, -3).Select(x => (x.FromDoor.X, x.FromDoor.Y, x.ToDoor.X, x.ToDoor.Y)).ToArray();
 
-            var expected = new List<DoorPair>
+            var expected = new (int, int, int, int)[]
             {
-                new(from.Cells[1, 0].WestDoor, to.Cells[1, 2].EastDoor),
+                (1, 0, 1, 2),
             };
 
             Console.WriteLine("Expected:");
@@ -80,11 +81,11 @@ namespace MPewsey.ManiaMap.Tests
         {
             var from = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
             var to = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
-            var doors = from.AlignedDoors(to, -3, 0);
+            var doors = from.AlignedDoors(to, -3, 0).Select(x => (x.FromDoor.X, x.FromDoor.Y, x.ToDoor.X, x.ToDoor.Y)).ToArray();
 
-            var expected = new List<DoorPair>
+            var expected = new (int, int, int, int)[]
             {
-                new(from.Cells[0, 1].NorthDoor, to.Cells[2, 1].SouthDoor),
+                (0, 1, 2, 1),
             };
 
             Console.WriteLine("Expected:");
@@ -101,11 +102,11 @@ namespace MPewsey.ManiaMap.Tests
         {
             var from = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
             var to = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
-            var doors = from.AlignedDoors(to, 3, 0);
+            var doors = from.AlignedDoors(to, 3, 0).Select(x => (x.FromDoor.X, x.FromDoor.Y, x.ToDoor.X, x.ToDoor.Y)).ToArray();
 
-            var expected = new List<DoorPair>
+            var expected = new (int, int, int, int)[]
             {
-                new(from.Cells[2, 1].SouthDoor, to.Cells[0, 1].NorthDoor),
+                (2, 1, 0, 1),
             };
 
             Console.WriteLine("Expected:");

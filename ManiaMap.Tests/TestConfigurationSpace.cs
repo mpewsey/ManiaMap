@@ -13,16 +13,16 @@ namespace MPewsey.ManiaMap.Tests
             var from = Samples.TemplateLibrary.Miscellaneous.PlusTemplate();
             var to = Samples.TemplateLibrary.Miscellaneous.PlusTemplate();
             var space = new ConfigurationSpace(from, to);
-            var result = space.Configurations.Select(x => (x.X, x.Y, x.FromDoor, x.ToDoor)).ToArray();
+            var result = space.Configurations.Select(x => (x.X, x.Y, x.FromDoor.X, x.FromDoor.Y, x.ToDoor.X, x.ToDoor.Y)).ToArray();
 
-            var expected = new (int, int, Door, Door)[]
+            var expected = new (int, int, int, int, int, int)[]
             {
-                (-3, 0, from.Cells[0, 1].NorthDoor, to.Cells[2, 1].SouthDoor),
-                (0, -3, from.Cells[1, 0].WestDoor, to.Cells[1, 2].EastDoor),
-                (0, 0, from.Cells[1, 1].TopDoor, to.Cells[1, 1].BottomDoor),
-                (0, 0, from.Cells[1, 1].BottomDoor, to.Cells[1, 1].TopDoor),
-                (0, 3, from.Cells[1, 2].EastDoor, to.Cells[1, 0].WestDoor),
-                (3, 0, from.Cells[2, 1].SouthDoor, to.Cells[0, 1].NorthDoor),
+                (-3, 0, 0, 1, 2, 1),
+                (0, -3, 1, 0, 1, 2),
+                (0, 0, 1, 1, 1, 1),
+                (0, 0, 1, 1, 1, 1),
+                (0, 3, 1, 2, 1, 0),
+                (3, 0, 2, 1, 0, 1),
             };
 
             Console.WriteLine("Expected:");
