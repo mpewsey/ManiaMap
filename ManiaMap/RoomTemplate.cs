@@ -33,7 +33,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Sets the door position properties for all doors in the template.
         /// </summary>
-        private void SetDoorProperties()
+        public void SetDoorProperties()
         {
             for (int i = 0; i < Cells.Rows; i++)
             {

@@ -102,6 +102,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public Dictionary<TemplatePair, ConfigurationSpace> GetConfigurationSpaces()
         {
+            SetDoorProperties();
             var spaces = new Dictionary<TemplatePair, ConfigurationSpace>();
 
             foreach (var from in AllTemplates())
@@ -118,6 +119,17 @@ namespace MPewsey.ManiaMap
             }
 
             return spaces;
+        }
+
+        /// <summary>
+        /// Sets the properties for all template doors.
+        /// </summary>
+        private void SetDoorProperties()
+        {
+            foreach (var template in AllTemplates())
+            {
+                template.SetDoorProperties();
+            }
         }
     }
 }
