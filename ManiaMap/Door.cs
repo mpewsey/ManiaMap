@@ -37,6 +37,14 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns true if the door matches the specified properties.
+        /// </summary>
+        public bool Matches(int x, int y, DoorDirection direction)
+        {
+            return X == x && Y == y && Direction == direction;
+        }
+
+        /// <summary>
         /// Sets the properties of the door.
         /// </summary>
         public void SetProperties(int x, int y, DoorDirection direction)
