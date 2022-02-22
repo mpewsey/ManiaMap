@@ -4,45 +4,46 @@ using System.Runtime.Serialization;
 namespace MPewsey.ManiaMap
 {
     [DataContract]
-    public class Door
+    public struct Door : IEquatable<Door>
     {
+        public static Door TwoWay { get => new Door { Type = DoorType.TwoWay }; }
+        public static Door TwoWayExit { get => new Door { Type = DoorType.TwoWayExit }; }
+        public static Door TwoWayEntrance { get => new Door { Type = DoorType.TwoWayEntrance }; }
+        public static Door OneWayExit { get => new Door { Type = DoorType.OneWayExit }; }
+        public static Door OneWayEntrance { get => new Door { Type = DoorType.OneWayEntrance }; }
+
         [DataMember(Order = 1)]
-        public int X { get; private set; }
-
-        [DataMember(Order = 2)]
-        public int Y { get; private set; }
-
-        [DataMember(Order = 3)]
-        public DoorDirection Direction { get; private set; }
-
-        [DataMember(Order = 4)]
         public DoorType Type { get; set; }
 
-        public Door(int x, int y, DoorDirection direction, DoorType type)
-        {
-            X = x;
-            Y = y;
-            Direction = direction;
-            Type = type;
-        }
+        [DataMember(Order = 2)]
+        public byte Code { get; set; }
 
         public override string ToString()
         {
-            return $"Door(X = {X}, Y = {Y}, Direction = {Direction}, Type = {Type})";
+            return $"Door(Type = {Type}, Code = {Code})";
         }
 
         /// <summary>
-        /// Returns true if the door matches the specified properties.
+        /// Sets the door code and returns the door.
         /// </summary>
-        public bool Matches(int x, int y, DoorDirection direction)
+        public Door SetCode(byte code)
         {
-            return X == x && Y == y && Direction == direction;
+            Code = code;
+            return this;
+        }
+
+        /// <summary>
+        /// Returns true if the door code and type aligns with the other door.
+        /// </summary>
+        public bool Aligns(Door other)
+        {
+            return Code == other.Code && DoorTypesAligns(Type, other.Type);
         }
 
         /// <summary>
         /// Returns true if the door types are compatible.
         /// </summary>
-        public static bool DoorTypesAligns(DoorType from, DoorType to)
+        private static bool DoorTypesAligns(DoorType from, DoorType to)
         {
             if (to == DoorType.None)
                 return false;
@@ -191,6 +192,35 @@ namespace MPewsey.ManiaMap
                 default:
                     throw new ArgumentException($"Unhandled Edge Direction: {direction}.");
             }
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Door door && Equals(door);
+        }
+
+        public bool Equals(Door other)
+        {
+            return Type == other.Type &&
+                   Code == other.Code;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = -209630327;
+            hashCode = hashCode * -1521134295 + Type.GetHashCode();
+            hashCode = hashCode * -1521134295 + Code.GetHashCode();
+            return hashCode;
+        }
+
+        public static bool operator ==(Door left, Door right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(Door left, Door right)
+        {
+            return !(left == right);
         }
     }
 }

@@ -4,17 +4,17 @@
     {
         public int X { get; }
         public int Y { get; }
-        public Door FromDoor { get; }
-        public Door ToDoor { get; }
+        public DoorPosition FromDoor { get; }
+        public DoorPosition ToDoor { get; }
         public EdgeDirection EdgeDirection { get; }
 
-        public Configuration(int x, int y, Door from, Door to)
+        public Configuration(int x, int y, DoorPosition from, DoorPosition to)
         {
             X = x;
             Y = y;
             FromDoor = from;
             ToDoor = to;
-            EdgeDirection = Door.GetEdgeDirection(from.Type, to.Type);
+            EdgeDirection = Door.GetEdgeDirection(from.Door.Type, to.Door.Type);
         }
 
         public override string ToString()
@@ -45,17 +45,25 @@
         /// <summary>
         /// Returns true if the parameters match the configuration.
         /// </summary>
-        public bool Matches(int z, EdgeDirection direction)
+        public bool Matches(int z, int doorCode, EdgeDirection direction)
         {
-            return EdgeDirection == direction && Matches(z);
+            return EdgeDirection == direction
+                && FromDoor.Door.Code == doorCode
+                && ToDoor.Door.Code == doorCode
+                && Matches(z);
         }
 
         /// <summary>
         /// Returns true if the parameters match the configuration.
         /// </summary>
-        public bool Matches(int x, int y, int z, EdgeDirection direction)
+        public bool Matches(int x, int y, int z, int doorCode, EdgeDirection direction)
         {
-            return X == x && Y == y && EdgeDirection == direction && Matches(z);
+            return X == x
+                && Y == y
+                && EdgeDirection == direction
+                && FromDoor.Door.Code == doorCode
+                && ToDoor.Door.Code == doorCode
+                && Matches(z);
         }
     }
 }

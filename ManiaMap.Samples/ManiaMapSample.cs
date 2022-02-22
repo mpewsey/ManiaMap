@@ -6,7 +6,7 @@
         {
             var x = Cell.Empty;
             var o = new Cell();
-            var a = new Cell { EastDoor = DoorType.TwoWay };
+            var a = new Cell { EastDoor = Door.TwoWay };
 
             var cells = new Cell[,]
             {
@@ -24,8 +24,8 @@
         {
             var x = Cell.Empty;
             var o = new Cell();
-            var a = new Cell { EastDoor = DoorType.TwoWay };
-            var b = new Cell { WestDoor = DoorType.TwoWay };
+            var a = new Cell { EastDoor = Door.TwoWay };
+            var b = new Cell { WestDoor = Door.TwoWay };
 
             var cells = new Cell[,]
             {
@@ -43,8 +43,8 @@
         {
             var x = Cell.Empty;
             var o = new Cell();
-            var a = new Cell { EastDoor = DoorType.TwoWay };
-            var b = new Cell { WestDoor = DoorType.TwoWay };
+            var a = new Cell { EastDoor = Door.TwoWay };
+            var b = new Cell { WestDoor = Door.TwoWay };
 
             var cells = new Cell[,]
             {
@@ -62,8 +62,8 @@
         {
             var x = Cell.Empty;
             var o = new Cell();
-            var a = new Cell { EastDoor = DoorType.TwoWay };
-            var b = new Cell { WestDoor = DoorType.TwoWay };
+            var a = new Cell { EastDoor = Door.TwoWay };
+            var b = new Cell { WestDoor = Door.TwoWay };
 
             var cells = new Cell[,]
             {
@@ -81,8 +81,8 @@
         {
             var x = Cell.Empty;
             var o = new Cell();
-            var a = new Cell { EastDoor = DoorType.TwoWay };
-            var b = new Cell { WestDoor = DoorType.TwoWay };
+            var a = new Cell { EastDoor = Door.TwoWay };
+            var b = new Cell { WestDoor = Door.TwoWay };
 
             var cells = new Cell[,]
             {
@@ -100,7 +100,7 @@
         {
             var x = Cell.Empty;
             var o = new Cell();
-            var a = new Cell { WestDoor = DoorType.TwoWay };
+            var a = new Cell { WestDoor = Door.TwoWay };
 
             var cells = new Cell[,]
             {

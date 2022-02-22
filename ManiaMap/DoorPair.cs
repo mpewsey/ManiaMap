@@ -5,10 +5,10 @@ namespace MPewsey.ManiaMap
 {
     public struct DoorPair : IEquatable<DoorPair>
     {
-        public Door FromDoor { get; }
-        public Door ToDoor { get; }
+        public DoorPosition FromDoor { get; }
+        public DoorPosition ToDoor { get; }
 
-        public DoorPair(Door from, Door to)
+        public DoorPair(DoorPosition from, DoorPosition to)
         {
             FromDoor = from;
             ToDoor = to;
@@ -26,15 +26,15 @@ namespace MPewsey.ManiaMap
 
         public bool Equals(DoorPair other)
         {
-            return EqualityComparer<Door>.Default.Equals(FromDoor, other.FromDoor) &&
-                   EqualityComparer<Door>.Default.Equals(ToDoor, other.ToDoor);
+            return EqualityComparer<DoorPosition>.Default.Equals(FromDoor, other.FromDoor) &&
+                   EqualityComparer<DoorPosition>.Default.Equals(ToDoor, other.ToDoor);
         }
 
         public override int GetHashCode()
         {
             int hashCode = -1667591795;
-            hashCode = hashCode * -1521134295 + EqualityComparer<Door>.Default.GetHashCode(FromDoor);
-            hashCode = hashCode * -1521134295 + EqualityComparer<Door>.Default.GetHashCode(ToDoor);
+            hashCode = hashCode * -1521134295 + EqualityComparer<DoorPosition>.Default.GetHashCode(FromDoor);
+            hashCode = hashCode * -1521134295 + EqualityComparer<DoorPosition>.Default.GetHashCode(ToDoor);
             return hashCode;
         }
 

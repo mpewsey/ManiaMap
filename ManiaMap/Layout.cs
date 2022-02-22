@@ -136,21 +136,21 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a new dictionary of room doors by room ID.
         /// </summary>
-        public Dictionary<int, List<Door>> RoomDoors()
+        public Dictionary<int, List<DoorPosition>> RoomDoors()
         {
-            var dict = new Dictionary<int, List<Door>>(Rooms.Count);
+            var dict = new Dictionary<int, List<DoorPosition>>(Rooms.Count);
 
             foreach (var connection in DoorConnections)
             {
                 if (!dict.TryGetValue(connection.FromRoom, out var fromDoors))
                 {
-                    fromDoors = new List<Door>();
+                    fromDoors = new List<DoorPosition>();
                     dict.Add(connection.FromRoom, fromDoors);
                 }
 
                 if (!dict.TryGetValue(connection.ToRoom, out var toDoors))
                 {
-                    toDoors = new List<Door>();
+                    toDoors = new List<DoorPosition>();
                     dict.Add(connection.ToRoom, toDoors);
                 }
 

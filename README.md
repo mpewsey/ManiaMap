@@ -48,14 +48,14 @@ An example 3x3 square room template is shown below:
 
 ```RoomTemplate.cs
 var o = new Cell();
-var a = new Cell { WestDoor = DoorType.TwoWay, NorthDoor = DoorType.TwoWay };
-var b = new Cell { NorthDoor = DoorType.TwoWay };
-var c = new Cell { NorthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
-var d = new Cell { WestDoor = DoorType.TwoWay };
-var e = new Cell { EastDoor = DoorType.TwoWay };
-var f = new Cell { WestDoor = DoorType.TwoWay, SouthDoor = DoorType.TwoWay };
-var g = new Cell { SouthDoor = DoorType.TwoWay };
-var h = new Cell { SouthDoor = DoorType.TwoWay, EastDoor = DoorType.TwoWay };
+var a = new Cell { WestDoor = Door.TwoWay, NorthDoor = Door.TwoWay };
+var b = new Cell { NorthDoor = Door.TwoWay };
+var c = new Cell { NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+var d = new Cell { WestDoor = Door.TwoWay };
+var e = new Cell { EastDoor = Door.TwoWay };
+var f = new Cell { WestDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
+var g = new Cell { SouthDoor = Door.TwoWay };
+var h = new Cell { SouthDoor = Door.TwoWay, EastDoor = Door.TwoWay };
 
 var cells = new Cell[,]
 {
