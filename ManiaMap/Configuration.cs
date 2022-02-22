@@ -45,17 +45,25 @@
         /// <summary>
         /// Returns true if the parameters match the configuration.
         /// </summary>
-        public bool Matches(int z, EdgeDirection direction)
+        public bool Matches(int z, int doorCode, EdgeDirection direction)
         {
-            return EdgeDirection == direction && Matches(z);
+            return EdgeDirection == direction
+                && FromDoor.Door.Code == doorCode
+                && ToDoor.Door.Code == doorCode
+                && Matches(z);
         }
 
         /// <summary>
         /// Returns true if the parameters match the configuration.
         /// </summary>
-        public bool Matches(int x, int y, int z, EdgeDirection direction)
+        public bool Matches(int x, int y, int z, int doorCode, EdgeDirection direction)
         {
-            return X == x && Y == y && EdgeDirection == direction && Matches(z);
+            return X == x
+                && Y == y
+                && EdgeDirection == direction
+                && FromDoor.Door.Code == doorCode
+                && ToDoor.Door.Code == doorCode
+                && Matches(z);
         }
     }
 }
