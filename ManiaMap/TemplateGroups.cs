@@ -108,7 +108,12 @@ namespace MPewsey.ManiaMap
             {
                 foreach (var to in AllTemplates())
                 {
-                    spaces[new TemplatePair(from, to)] = new ConfigurationSpace(from, to);
+                    var pair = new TemplatePair(from, to);
+
+                    if (!spaces.ContainsKey(pair))
+                    {
+                        spaces.Add(pair, new ConfigurationSpace(from, to));
+                    }
                 }
             }
 
