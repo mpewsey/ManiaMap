@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace MPewsey.ManiaMap
 {
     [DataContract]
-    public struct Door : IEquatable<Door>
+    public class Door
     {
         public static Door TwoWay { get => new Door { Type = DoorType.TwoWay }; }
         public static Door TwoWayExit { get => new Door { Type = DoorType.TwoWayExit }; }
@@ -16,11 +16,19 @@ namespace MPewsey.ManiaMap
         public DoorType Type { get; set; }
 
         [DataMember(Order = 2)]
-        public byte Code { get; set; }
+        public int Code { get; set; }
 
         public override string ToString()
         {
             return $"Door(Type = {Type}, Code = {Code})";
+        }
+
+        /// <summary>
+        /// Returns a copy of the door.
+        /// </summary>
+        public Door Copy()
+        {
+            return new Door { Type = Type, Code = Code };
         }
 
         /// <summary>
@@ -30,6 +38,14 @@ namespace MPewsey.ManiaMap
         {
             Code = code;
             return this;
+        }
+
+        /// <summary>
+        /// Returns true if the values of the two doors match.
+        /// </summary>
+        public bool Matches(Door other)
+        {
+            return Code == other.Code && Type == other.Type;
         }
 
         /// <summary>
@@ -192,35 +208,6 @@ namespace MPewsey.ManiaMap
                 default:
                     throw new ArgumentException($"Unhandled Edge Direction: {direction}.");
             }
-        }
-
-        public override bool Equals(object obj)
-        {
-            return obj is Door door && Equals(door);
-        }
-
-        public bool Equals(Door other)
-        {
-            return Type == other.Type &&
-                   Code == other.Code;
-        }
-
-        public override int GetHashCode()
-        {
-            int hashCode = -209630327;
-            hashCode = hashCode * -1521134295 + Type.GetHashCode();
-            hashCode = hashCode * -1521134295 + Code.GetHashCode();
-            return hashCode;
-        }
-
-        public static bool operator ==(Door left, Door right)
-        {
-            return left.Equals(right);
-        }
-
-        public static bool operator !=(Door left, Door right)
-        {
-            return !(left == right);
         }
     }
 }

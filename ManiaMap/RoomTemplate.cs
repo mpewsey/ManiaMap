@@ -90,10 +90,14 @@ namespace MPewsey.ManiaMap
             {
                 for (int j = 0; j < Cells.Columns; j++)
                 {
-                    if (Cells[i, j] != other.Cells[i, j])
-                    {
+                    var x = Cells[i, j];
+                    var y = other.Cells[i, j];
+
+                    if ((x == null) != (y == null))
                         return false;
-                    }
+
+                    if (x != null && y != null && !x.Matches(y))
+                        return false;
                 }
             }
 
@@ -109,7 +113,7 @@ namespace MPewsey.ManiaMap
 
             for (int i = 0; i < cells.Array.Length; i++)
             {
-                cells.Array[i] = cells.Array[i].Rotated90();
+                cells.Array[i] = cells.Array[i]?.Rotated90();
             }
 
             return new RoomTemplate(Id, Name + "_Rotated90", cells);
@@ -124,7 +128,7 @@ namespace MPewsey.ManiaMap
 
             for (int i = 0; i < cells.Array.Length; i++)
             {
-                cells.Array[i] = cells.Array[i].Rotated180();
+                cells.Array[i] = cells.Array[i]?.Rotated180();
             }
 
             return new RoomTemplate(Id, Name + "_Rotated180", cells);
@@ -139,7 +143,7 @@ namespace MPewsey.ManiaMap
 
             for (int i = 0; i < cells.Array.Length; i++)
             {
-                cells.Array[i] = cells.Array[i].Rotated270();
+                cells.Array[i] = cells.Array[i]?.Rotated270();
             }
 
             return new RoomTemplate(Id, Name + "_Rotated270", cells);
@@ -154,7 +158,7 @@ namespace MPewsey.ManiaMap
 
             for (int i = 0; i < cells.Array.Length; i++)
             {
-                cells.Array[i] = cells.Array[i].MirroredVertically();
+                cells.Array[i] = cells.Array[i]?.MirroredVertically();
             }
 
             return new RoomTemplate(Id, Name + "_MirroredVertically", cells);
@@ -169,7 +173,7 @@ namespace MPewsey.ManiaMap
 
             for (int i = 0; i < cells.Array.Length; i++)
             {
-                cells.Array[i] = cells.Array[i].MirroredHorizontally();
+                cells.Array[i] = cells.Array[i]?.MirroredHorizontally();
             }
 
             return new RoomTemplate(Id, Name + "_MirroredHorizontally", cells);
@@ -192,7 +196,7 @@ namespace MPewsey.ManiaMap
                 {
                     for (int j = jStart; j < jStop; j++)
                     {
-                        if (!Cells[i, j].IsEmpty)
+                        if (Cells[i, j] != null)
                         {
                             return true;
                         }
@@ -220,7 +224,7 @@ namespace MPewsey.ManiaMap
                 {
                     for (int j = jStart; j < jStop; j++)
                     {
-                        if (!Cells[i, j].IsEmpty && !other.Cells[i - dx, j - dy].IsEmpty)
+                        if (Cells[i, j] != null && other.Cells[i - dx, j - dy] != null)
                         {
                             return true;
                         }
@@ -252,14 +256,14 @@ namespace MPewsey.ManiaMap
                     {
                         var cell = Cells[i, j];
 
-                        if (!cell.IsEmpty)
+                        if (cell != null)
                         {
                             var x = i - dx;
                             var y = j - dy;
 
                             if (intersects)
                             {
-                                var vert = other.Cells.GetOrDefault(x, y, Cell.Empty);
+                                var vert = other.Cells.GetOrDefault(x, y);
 
                                 if (cell.TopDoorAligns(vert))
                                 {
@@ -277,10 +281,10 @@ namespace MPewsey.ManiaMap
                             }
                             else
                             {
-                                var north = other.Cells.GetOrDefault(x - 1, y, Cell.Empty);
-                                var south = other.Cells.GetOrDefault(x + 1, y, Cell.Empty);
-                                var west = other.Cells.GetOrDefault(x, y - 1, Cell.Empty);
-                                var east = other.Cells.GetOrDefault(x, y + 1, Cell.Empty);
+                                var north = other.Cells.GetOrDefault(x - 1, y);
+                                var south = other.Cells.GetOrDefault(x + 1, y);
+                                var west = other.Cells.GetOrDefault(x, y - 1);
+                                var east = other.Cells.GetOrDefault(x, y + 1);
 
                                 if (cell.WestDoorAligns(west))
                                 {

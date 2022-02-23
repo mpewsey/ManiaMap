@@ -5,12 +5,9 @@ using System.Runtime.Serialization;
 namespace MPewsey.ManiaMap
 {
     [DataContract]
-    public struct Cell : IEquatable<Cell>
+    public class Cell
     {
-        public static Cell Empty { get => new Cell { IsEmpty = true }; }
-
-        [DataMember(Order = 0)]
-        public bool IsEmpty { get; set; }
+        public static Cell Empty { get => null; }
 
         [DataMember(Order = 1)]
         public Door WestDoor { get; set; }
@@ -32,7 +29,13 @@ namespace MPewsey.ManiaMap
 
         public override string ToString()
         {
-            return $"Cell(IsEmpty = {IsEmpty}, WestDoor = {WestDoor}, NorthDoor = {NorthDoor}, EastDoor = {EastDoor}, SouthDoor = {SouthDoor}, TopDoor = {TopDoor}, BottomDoor = {BottomDoor})";
+            var west = WestDoor == null ? "None" : WestDoor.ToString();
+            var north = NorthDoor == null ? "None" : NorthDoor.ToString();
+            var south = SouthDoor == null ? "None" : SouthDoor.ToString();
+            var east = EastDoor == null ? "None" : EastDoor.ToString();
+            var top = TopDoor == null ? "None" : TopDoor.ToString();
+            var bottom = BottomDoor == null ? "None" : BottomDoor.ToString();
+            return $"Cell(WestDoor = {west}, NorthDoor = {north}, EastDoor = {east}, SouthDoor = {south}, TopDoor = {top}, BottomDoor = {bottom})";
         }
 
         /// <summary>
@@ -40,8 +43,8 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public bool TopDoorAligns(Cell other)
         {
-            return !IsEmpty
-                && !other.IsEmpty
+            return TopDoor != null
+                && other?.BottomDoor != null
                 && TopDoor.Aligns(other.BottomDoor);
         }
 
@@ -50,8 +53,8 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public bool BottomDoorAligns(Cell other)
         {
-            return !IsEmpty
-                && !other.IsEmpty
+            return BottomDoor != null
+                && other?.TopDoor != null
                 && BottomDoor.Aligns(other.TopDoor);
         }
 
@@ -60,8 +63,8 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public bool NorthDoorAligns(Cell other)
         {
-            return !IsEmpty
-                && !other.IsEmpty
+            return NorthDoor != null
+                && other?.SouthDoor != null
                 && NorthDoor.Aligns(other.SouthDoor);
         }
 
@@ -70,8 +73,8 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public bool SouthDoorAligns(Cell other)
         {
-            return !IsEmpty
-                && !other.IsEmpty
+            return SouthDoor != null
+                && other?.NorthDoor != null
                 && SouthDoor.Aligns(other.NorthDoor);
         }
 
@@ -80,8 +83,8 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public bool WestDoorAligns(Cell other)
         {
-            return !IsEmpty
-                && !other.IsEmpty
+            return WestDoor != null
+                && other?.EastDoor != null
                 && WestDoor.Aligns(other.EastDoor);
         }
 
@@ -90,8 +93,8 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public bool EastDoorAligns(Cell other)
         {
-            return !IsEmpty
-                && !other.IsEmpty
+            return EastDoor != null
+                && other?.WestDoor != null
                 && EastDoor.Aligns(other.WestDoor);
         }
 
@@ -102,13 +105,12 @@ namespace MPewsey.ManiaMap
         {
             return new Cell
             {
-                IsEmpty = IsEmpty,
-                EastDoor = NorthDoor,
-                SouthDoor = EastDoor,
-                WestDoor = SouthDoor,
-                NorthDoor = WestDoor,
-                TopDoor = TopDoor,
-                BottomDoor = BottomDoor,
+                EastDoor = NorthDoor?.Copy(),
+                SouthDoor = EastDoor?.Copy(),
+                WestDoor = SouthDoor?.Copy(),
+                NorthDoor = WestDoor?.Copy(),
+                TopDoor = TopDoor?.Copy(),
+                BottomDoor = BottomDoor?.Copy(),
             };
         }
 
@@ -119,13 +121,12 @@ namespace MPewsey.ManiaMap
         {
             return new Cell
             {
-                IsEmpty = IsEmpty,
-                SouthDoor = NorthDoor,
-                NorthDoor = SouthDoor,
-                EastDoor = WestDoor,
-                WestDoor = EastDoor,
-                TopDoor = TopDoor,
-                BottomDoor = BottomDoor,
+                SouthDoor = NorthDoor?.Copy(),
+                NorthDoor = SouthDoor?.Copy(),
+                EastDoor = WestDoor?.Copy(),
+                WestDoor = EastDoor?.Copy(),
+                TopDoor = TopDoor?.Copy(),
+                BottomDoor = BottomDoor?.Copy(),
             };
         }
 
@@ -136,13 +137,12 @@ namespace MPewsey.ManiaMap
         {
             return new Cell
             {
-                IsEmpty = IsEmpty,
-                WestDoor = NorthDoor,
-                NorthDoor = EastDoor,
-                EastDoor = SouthDoor,
-                SouthDoor = WestDoor,
-                TopDoor = TopDoor,
-                BottomDoor = BottomDoor,
+                WestDoor = NorthDoor?.Copy(),
+                NorthDoor = EastDoor?.Copy(),
+                EastDoor = SouthDoor?.Copy(),
+                SouthDoor = WestDoor?.Copy(),
+                TopDoor = TopDoor?.Copy(),
+                BottomDoor = BottomDoor?.Copy(),
             };
         }
 
@@ -153,13 +153,12 @@ namespace MPewsey.ManiaMap
         {
             return new Cell
             {
-                IsEmpty = IsEmpty,
-                SouthDoor = NorthDoor,
-                NorthDoor = SouthDoor,
-                WestDoor = WestDoor,
-                EastDoor = EastDoor,
-                TopDoor = TopDoor,
-                BottomDoor = BottomDoor,
+                SouthDoor = NorthDoor?.Copy(),
+                NorthDoor = SouthDoor?.Copy(),
+                WestDoor = WestDoor?.Copy(),
+                EastDoor = EastDoor?.Copy(),
+                TopDoor = TopDoor?.Copy(),
+                BottomDoor = BottomDoor?.Copy(),
             };
         }
 
@@ -170,53 +169,47 @@ namespace MPewsey.ManiaMap
         {
             return new Cell
             {
-                IsEmpty = IsEmpty,
-                NorthDoor = NorthDoor,
-                SouthDoor = SouthDoor,
-                WestDoor = EastDoor,
-                EastDoor = WestDoor,
-                TopDoor = TopDoor,
-                BottomDoor = BottomDoor,
+                NorthDoor = NorthDoor?.Copy(),
+                SouthDoor = SouthDoor?.Copy(),
+                WestDoor = EastDoor?.Copy(),
+                EastDoor = WestDoor?.Copy(),
+                TopDoor = TopDoor?.Copy(),
+                BottomDoor = BottomDoor?.Copy(),
             };
         }
 
-        public override bool Equals(object obj)
+        /// <summary>
+        /// Returns true if the values of the two cells match.
+        /// </summary>
+        public bool Matches(Cell other)
         {
-            return obj is Cell cell && Equals(cell);
-        }
+            if ((TopDoor == null) != (other.TopDoor == null))
+                return false;
+            if ((BottomDoor == null) != (other.BottomDoor == null))
+                return false;
+            if ((NorthDoor == null) != (other.NorthDoor == null))
+                return false;
+            if ((SouthDoor == null) != (other.SouthDoor == null))
+                return false;
+            if ((EastDoor == null) != (other.EastDoor == null))
+                return false;
+            if ((WestDoor == null) != (other.WestDoor == null))
+                return false;
+            
+            if (TopDoor != null && other.TopDoor != null && !TopDoor.Matches(other.TopDoor))
+                return false;
+            if (BottomDoor != null && other.BottomDoor != null && !BottomDoor.Matches(other.BottomDoor))
+                return false;
+            if (NorthDoor != null && other.NorthDoor != null && !NorthDoor.Matches(other.NorthDoor))
+                return false;
+            if (SouthDoor != null && other.SouthDoor != null && !SouthDoor.Matches(other.SouthDoor))
+                return false;
+            if (EastDoor != null && other.EastDoor != null && !EastDoor.Matches(other.EastDoor))
+                return false;
+            if (WestDoor != null && other.WestDoor != null && !WestDoor.Matches(other.WestDoor))
+                return false;
 
-        public bool Equals(Cell other)
-        {
-            return IsEmpty == other.IsEmpty &&
-                   EqualityComparer<Door>.Default.Equals(WestDoor, other.WestDoor) &&
-                   EqualityComparer<Door>.Default.Equals(NorthDoor, other.NorthDoor) &&
-                   EqualityComparer<Door>.Default.Equals(EastDoor, other.EastDoor) &&
-                   EqualityComparer<Door>.Default.Equals(SouthDoor, other.SouthDoor) &&
-                   EqualityComparer<Door>.Default.Equals(TopDoor, other.TopDoor) &&
-                   EqualityComparer<Door>.Default.Equals(BottomDoor, other.BottomDoor);
-        }
-
-        public override int GetHashCode()
-        {
-            int hashCode = -561712672;
-            hashCode = hashCode * -1521134295 + IsEmpty.GetHashCode();
-            hashCode = hashCode * -1521134295 + WestDoor.GetHashCode();
-            hashCode = hashCode * -1521134295 + NorthDoor.GetHashCode();
-            hashCode = hashCode * -1521134295 + EastDoor.GetHashCode();
-            hashCode = hashCode * -1521134295 + SouthDoor.GetHashCode();
-            hashCode = hashCode * -1521134295 + TopDoor.GetHashCode();
-            hashCode = hashCode * -1521134295 + BottomDoor.GetHashCode();
-            return hashCode;
-        }
-
-        public static bool operator ==(Cell left, Cell right)
-        {
-            return left.Equals(right);
-        }
-
-        public static bool operator !=(Cell left, Cell right)
-        {
-            return !(left == right);
+            return true;
         }
     }
 }

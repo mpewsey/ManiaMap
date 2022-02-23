@@ -134,23 +134,23 @@ namespace MPewsey.ManiaMap.Drawing
                         {
                             var cell = cells[i, j];
 
-                            if (!cell.IsEmpty)
+                            if (cell != null)
                             {
                                 var x = TileSize.X * j + x0;
                                 var y = TileSize.Y * i + y0;
                                 var point = new Point(x, y);
 
-                                var north = cells.GetOrDefault(i - 1, j, Cell.Empty);
-                                var south = cells.GetOrDefault(i + 1, j, Cell.Empty);
-                                var west = cells.GetOrDefault(i, j - 1, Cell.Empty);
-                                var east = cells.GetOrDefault(i, j + 1, Cell.Empty);
+                                var north = cells.GetOrDefault(i - 1, j);
+                                var south = cells.GetOrDefault(i + 1, j);
+                                var west = cells.GetOrDefault(i, j - 1);
+                                var east = cells.GetOrDefault(i, j + 1);
 
-                                var topTile = GetTile(room.Id, i, j, DoorDirection.Top, cell.TopDoor.Type, "TopDoor");
-                                var bottomTile = GetTile(room.Id, i, j, DoorDirection.Bottom, cell.BottomDoor.Type, "BottomDoor");
-                                var northTile = GetTile(room.Id, i - 1, j, DoorDirection.North, cell.NorthDoor.Type, north, "NorthDoor", "NorthWall");
-                                var southTile = GetTile(room.Id, i + 1, j, DoorDirection.South, cell.SouthDoor.Type, south, "SouthDoor", "SouthWall");
-                                var westTile = GetTile(room.Id, i, j - 1, DoorDirection.West, cell.WestDoor.Type, west, "WestDoor", "WestWall");
-                                var eastTile = GetTile(room.Id, i, j + 1, DoorDirection.East, cell.EastDoor.Type, east, "EastDoor", "EastWall");
+                                var topTile = GetTile(room.Id, i, j, DoorDirection.Top, cell.TopDoor, "TopDoor");
+                                var bottomTile = GetTile(room.Id, i, j, DoorDirection.Bottom, cell.BottomDoor, "BottomDoor");
+                                var northTile = GetTile(room.Id, i - 1, j, DoorDirection.North, cell.NorthDoor, north, "NorthDoor", "NorthWall");
+                                var southTile = GetTile(room.Id, i + 1, j, DoorDirection.South, cell.SouthDoor, south, "SouthDoor", "SouthWall");
+                                var westTile = GetTile(room.Id, i, j - 1, DoorDirection.West, cell.WestDoor, west, "WestDoor", "WestWall");
+                                var eastTile = GetTile(room.Id, i, j + 1, DoorDirection.East, cell.EastDoor, east, "EastDoor", "EastWall");
 
                                 // Add cell background fill
                                 image.DrawImage(cellTile, point, opacity);
@@ -190,9 +190,9 @@ namespace MPewsey.ManiaMap.Drawing
         /// Returns null if the door does not exist.
         /// </summary>
         private Image GetTile(int room, int x, int y, DoorDirection direction,
-            DoorType doorType, string doorName)
+            Door door, string doorName)
         {
-            if (doorType != DoorType.None && DoorExists(room, x, y, direction))
+            if (door != null && door.Type != DoorType.None && DoorExists(room, x, y, direction))
                 return Tiles[doorName];
             return null;
         }
@@ -202,11 +202,11 @@ namespace MPewsey.ManiaMap.Drawing
         /// Returns null if the tile has neither a wall or door.
         /// </summary>
         private Image GetTile(int room, int x, int y, DoorDirection direction,
-            DoorType doorType, Cell neighbor, string doorName, string wallName)
+            Door door, Cell neighbor, string doorName, string wallName)
         {
-            if (doorType != DoorType.None && DoorExists(room, x, y, direction))
+            if (door != null && door.Type != DoorType.None && DoorExists(room, x, y, direction))
                 return Tiles[doorName];
-            if (neighbor.IsEmpty)
+            if (neighbor == null)
                 return Tiles[wallName];
             return null;
         }
