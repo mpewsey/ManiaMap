@@ -160,5 +160,41 @@ namespace MPewsey.ManiaMap
 
             return dict;
         }
+
+        /// <summary>
+        /// Returns a new dictionary of neighbor rooms in the layout.
+        /// </summary>
+        public Dictionary<int, List<int>> RoomAdjacencies()
+        {
+            var dict = new Dictionary<int, List<int>>(Rooms.Count);
+
+            foreach (var connection in DoorConnections)
+            {
+                if (!dict.TryGetValue(connection.FromRoom, out var fromNeighbors))
+                {
+                    fromNeighbors = new List<int>();
+                    dict.Add(connection.FromRoom, fromNeighbors);
+                }
+
+                if (!dict.TryGetValue(connection.ToRoom, out var toNeighbors))
+                {
+                    toNeighbors = new List<int>();
+                    dict.Add(connection.ToRoom, toNeighbors);
+                }
+
+                fromNeighbors.Add(connection.ToRoom);
+                toNeighbors.Add(connection.FromRoom);
+            }
+
+            return dict;
+        }
+
+        /// <summary>
+        /// Returns the neighbors of the room up to the specified max depth.
+        /// </summary>
+        public List<int> FindNeighbors(int room, int maxDepth)
+        {
+            return new LayoutNeighborSearch(this, maxDepth).FindNeighbors(room);
+        }
     }
 }
