@@ -8,7 +8,7 @@ namespace MPewsey.ManiaMap.Tests
     public class TestLayoutGenerator
     {
         [TestMethod]
-        public void TestHyperSquareLayout()
+        public void TestHyperSquareCrossLayout()
         {
             var graph = Samples.GraphLibrary.CrossGraph();
 
@@ -50,6 +50,29 @@ namespace MPewsey.ManiaMap.Tests
 
             Console.WriteLine("\nDoor Connections:");
             layout.DoorConnections.ForEach(x => Console.WriteLine(x));
+
+            Assert.AreEqual(graph.NodeCount, layout.Rooms.Count);
+            Assert.AreEqual(graph.EdgeCount, layout.DoorConnections.Count);
+        }
+
+        [TestMethod]
+        public void TestHyperSquareGeekLayout()
+        {
+            var graph = Samples.GraphLibrary.GeekGraph();
+
+            var templateGroups = new TemplateGroups();
+            templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
+
+            var generator = new LayoutGenerator(123456, graph, templateGroups);
+            var layout = generator.GenerateLayout();
+
+            Assert.IsNotNull(layout);
+
+            Console.WriteLine("Rooms:");
+            Console.WriteLine(string.Join("\n", layout.Rooms.Values));
+
+            Console.WriteLine("\nDoor Connections:");
+            Console.WriteLine(string.Join("\n", layout.DoorConnections));
 
             Assert.AreEqual(graph.NodeCount, layout.Rooms.Count);
             Assert.AreEqual(graph.EdgeCount, layout.DoorConnections.Count);
