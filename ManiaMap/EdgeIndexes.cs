@@ -2,7 +2,7 @@
 
 namespace MPewsey.ManiaMap
 {
-    public struct EdgeIndexes : IEquatable<EdgeIndexes>
+    public struct EdgeIndexes : IEquatable<EdgeIndexes>, IComparable<EdgeIndexes>
     {
         public int FromIndex { get; }
         public int ToIndex { get; }
@@ -35,6 +35,16 @@ namespace MPewsey.ManiaMap
             hashCode = hashCode * -1521134295 + FromIndex.GetHashCode();
             hashCode = hashCode * -1521134295 + ToIndex.GetHashCode();
             return hashCode;
+        }
+
+        public int CompareTo(EdgeIndexes other)
+        {
+            var comparison = FromIndex.CompareTo(other.FromIndex);
+
+            if (comparison != 0)
+                return comparison;
+
+            return ToIndex.CompareTo(other.ToIndex);
         }
 
         public static bool operator ==(EdgeIndexes left, EdgeIndexes right)

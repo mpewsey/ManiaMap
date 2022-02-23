@@ -14,7 +14,7 @@ namespace MPewsey.ManiaMap
         public GraphBranchDecomposer(LayoutGraph graph)
         {
             Graph = graph;
-            Parents = new Dictionary<int, int>(graph.NodeCount());
+            Parents = new Dictionary<int, int>(graph.NodeCount);
         }
 
         public override string ToString()
@@ -67,13 +67,13 @@ namespace MPewsey.ManiaMap
             int maxNode = -1;
             int maxNeighbors = -1;
 
-            foreach (var node in Graph.GetNodeIds())
+            foreach (var node in Graph.GetNodes())
             {
-                var count = Graph.GetNeighbors(node).Count();
+                var count = Graph.GetNeighbors(node.Id).Count();
 
                 if (count > maxNeighbors)
                 {
-                    maxNode = node;
+                    maxNode = node.Id;
                     maxNeighbors = count;
                 }
             }

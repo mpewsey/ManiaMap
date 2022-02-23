@@ -13,8 +13,8 @@ namespace MPewsey.ManiaMap
         public GraphCycleDecomposer(LayoutGraph graph)
         {
             Graph = graph;
-            Parents = new Dictionary<int, int>(Graph.NodeCount());
-            Colors = new Dictionary<int, int>(Graph.NodeCount());
+            Parents = new Dictionary<int, int>(Graph.NodeCount);
+            Colors = new Dictionary<int, int>(Graph.NodeCount);
         }
 
         public override string ToString()
@@ -31,11 +31,11 @@ namespace MPewsey.ManiaMap
             Cycles.Clear();
 
             // Run searches from every node to accumulate complete set of cycles.
-            foreach (var node in Graph.GetNodeIds())
+            foreach (var node in Graph.GetNodes())
             {
                 Parents.Clear();
                 Colors.Clear();
-                CycleSearch(node, -1);
+                CycleSearch(node.Id, -1);
             }
 
             return GetUniqueCycles();

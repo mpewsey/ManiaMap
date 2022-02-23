@@ -11,6 +11,9 @@ namespace MPewsey.ManiaMap
         private Dictionary<EdgeIndexes, LayoutEdge> Edges { get; } = new Dictionary<EdgeIndexes, LayoutEdge>();
         private Dictionary<int, List<int>> Neighbors { get; } = new Dictionary<int, List<int>>();
 
+        public int NodeCount { get => Nodes.Count; }
+        public int EdgeCount { get => Edges.Count; }
+
         public LayoutGraph(int id, string name)
         {
             Id = id;
@@ -131,22 +134,6 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns the number of nodes in the graph.
-        /// </summary>
-        public int NodeCount()
-        {
-            return Nodes.Count;
-        }
-
-        /// <summary>
-        /// Returns the number of edges in the graph.
-        /// </summary>
-        public int EdgeCount()
-        {
-            return Edges.Count;
-        }
-
-        /// <summary>
         /// Returns an enumerable of all nodes in the graph.
         /// </summary>
         public IEnumerable<LayoutNode> GetNodes()
@@ -159,7 +146,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public IEnumerable<LayoutEdge> GetEdges()
         {
-            return Edges.Values.OrderBy(x => ((long)x.FromNode << 32) | (long)x.ToNode);
+            return Edges.Values.OrderBy(x => new EdgeIndexes(x.FromNode, x.ToNode));
         }
 
         /// <summary>
@@ -168,14 +155,6 @@ namespace MPewsey.ManiaMap
         public IReadOnlyList<int> GetNeighbors(int id)
         {
             return Neighbors[id];
-        }
-
-        /// <summary>
-        /// Returns an enumerable of all node ID's in the graph.
-        /// </summary>
-        public IEnumerable<int> GetNodeIds()
-        {
-            return Nodes.Keys.OrderBy(x => x);
         }
 
         /// <summary>
