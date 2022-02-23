@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
@@ -195,7 +193,7 @@ namespace MPewsey.ManiaMap
                 return false;
             if ((WestDoor == null) != (other.WestDoor == null))
                 return false;
-            
+
             if (TopDoor != null && other.TopDoor != null && !TopDoor.Matches(other.TopDoor))
                 return false;
             if (BottomDoor != null && other.BottomDoor != null && !BottomDoor.Matches(other.BottomDoor))
