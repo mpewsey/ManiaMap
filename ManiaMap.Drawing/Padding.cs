@@ -25,6 +25,11 @@ namespace MPewsey.ManiaMap.Drawing
             Bottom = bottom;
         }
 
+        public override string ToString()
+        {
+            return $"Padding(Left = {Left}, Top = {Top}, Right = {Right}, Bottom = {Bottom})";
+        }
+
         public override bool Equals(object obj)
         {
             return obj is Padding padding && Equals(padding);
