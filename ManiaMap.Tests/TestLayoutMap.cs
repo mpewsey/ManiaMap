@@ -22,5 +22,13 @@ namespace MPewsey.ManiaMap.Drawing.Tests
             var map = new LayoutMap(layout, padding: new Padding(4));
             map.SaveImage("ManiaMap.png");
         }
+
+        [TestMethod]
+        public void TestToString()
+        {
+            var layout = Samples.ManiaMapSample.ManiaMapLayout();
+            var map = new LayoutMap(layout);
+            Assert.IsTrue(map.ToString().StartsWith("LayoutMap("));
+        }
     }
 }
