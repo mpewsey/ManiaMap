@@ -66,7 +66,7 @@ namespace MPewsey.ManiaMap
         {
             return xMin <= XMax && xMax >= XMin
                 && yMin <= YMax && yMax >= YMin
-                && zMin <= ZMax && zMax >= XMin;
+                && zMin <= ZMax && zMax >= ZMin;
         }
     }
 }
