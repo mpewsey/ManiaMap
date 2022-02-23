@@ -33,9 +33,7 @@ namespace MPewsey.ManiaMap.Tests
 
             for (int i = 0; i < branches.Count; i++)
             {
-                branches[i].Sort();
-                expected[i].Sort();
-                CollectionAssert.AreEqual(expected[i], branches[i]);
+                CollectionAssert.AreEquivalent(expected[i], branches[i]);
             }
         }
     }
