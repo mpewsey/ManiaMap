@@ -34,7 +34,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Sets the door code and returns the door.
         /// </summary>
-        public Door SetCode(byte code)
+        public Door SetCode(int code)
         {
             Code = code;
             return this;
