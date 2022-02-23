@@ -31,9 +31,7 @@ namespace MPewsey.ManiaMap.Tests
 
             for (int i = 0; i < cycles.Count; i++)
             {
-                cycles[i].Sort();
-                expected[i].Sort();
-                CollectionAssert.AreEqual(expected[i], cycles[i]);
+                CollectionAssert.AreEquivalent(expected[i], cycles[i]);
             }
         }
 
@@ -62,9 +60,7 @@ namespace MPewsey.ManiaMap.Tests
 
             for (int i = 0; i < cycles.Count; i++)
             {
-                cycles[i].Sort();
-                expected[i].Sort();
-                CollectionAssert.AreEqual(expected[i], cycles[i]);
+                CollectionAssert.AreEquivalent(expected[i], cycles[i]);
             }
         }
     }
