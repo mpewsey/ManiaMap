@@ -7,6 +7,47 @@ namespace MPewsey.ManiaMap.Tests
     public class TestArray2D
     {
         [TestMethod]
+        public void TestEmptyInitializer()
+        {
+            var array = new Array2D<int>();
+            Assert.AreEqual(0, array.Rows);
+            Assert.AreEqual(0, array.Columns);
+            Assert.AreEqual(0, array.Array.Length);
+        }
+
+        [TestMethod]
+        public void TestToString()
+        {
+            var result = new Array2D<int>(1, 2).ToString();
+            var expected = $"Array2D<{typeof(int)}>(Rows = 1, Columns = 2)";
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void TestInitializeNegativeRow()
+        {
+            Assert.ThrowsException<Exception>(() => new Array2D<int>(-1, 1));
+        }
+
+        [TestMethod]
+        public void TestInitializeNegativeColumn()
+        {
+            Assert.ThrowsException<Exception>(() => new Array2D<int>(1, -1));
+        }
+
+        [TestMethod]
+        public void TestGetOutOfBoundsIndex()
+        {
+            Assert.ThrowsException<IndexOutOfRangeException>(() => new Array2D<int>()[-1, -1]);
+        }
+
+        [TestMethod]
+        public void TestSetOutOfBoundsIndex()
+        {
+            Assert.ThrowsException<IndexOutOfRangeException>(() => new Array2D<int>()[-1, -1] = 1);
+        }
+
+        [TestMethod]
         public void TestRotate90()
         {
             Array2D<int> array = new int[,]
