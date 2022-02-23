@@ -36,5 +36,13 @@ namespace MPewsey.ManiaMap.Drawing.Tests
             var expected = "Padding(Left = 1, Top = 2, Right = 3, Bottom = 4)";
             Assert.AreEqual(expected, result);
         }
+
+        [TestMethod]
+        public void TestGetHashCode()
+        {
+            var x = new Padding(1, 2, 3, 4);
+            var y = new Padding(1, 2, 3, 4);
+            Assert.AreEqual(x.GetHashCode(), y.GetHashCode());
+        }
     }
 }
