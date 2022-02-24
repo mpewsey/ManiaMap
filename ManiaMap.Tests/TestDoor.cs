@@ -40,6 +40,12 @@ namespace MPewsey.ManiaMap.Tests
                 (DoorType.OneWayEntrance, DoorType.OneWayExit, true),
             };
 
+            for (int i = types.Count - 1; i >= 0; i--)
+            {
+                var (x, y, z) = types[i];
+                types.Add((y, x, z));
+            }
+
             var expected = types.Select(x => x.Item3).ToList();
             var results = types.Select(x => Door.DoorTypesAlign(x.Item1, x.Item2)).ToList();
             CollectionAssert.AreEquivalent(expected, results);
