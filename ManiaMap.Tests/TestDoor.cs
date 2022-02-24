@@ -8,6 +8,44 @@ namespace MPewsey.ManiaMap.Tests
     public class TestDoor
     {
         [TestMethod]
+        public void TestSetCode()
+        {
+            var door = Door.TwoWay.SetCode(100);
+            Assert.AreEqual(100, door.Code);
+        }
+
+        [TestMethod]
+        public void TestStaticInitializers()
+        {
+            Assert.AreEqual(DoorType.TwoWay, Door.TwoWay.Type);
+            Assert.AreEqual(DoorType.OneWayExit, Door.OneWayExit.Type);
+            Assert.AreEqual(DoorType.OneWayEntrance, Door.OneWayEntrance.Type);
+            Assert.AreEqual(DoorType.TwoWayExit, Door.TwoWayExit.Type);
+            Assert.AreEqual(DoorType.TwoWayEntrance, Door.TwoWayEntrance.Type);
+        }
+
+        [TestMethod]
+        public void TestDoorTypeAligns()
+        {
+            var types = new List<(DoorType, DoorType, bool)>()
+            {
+                (DoorType.TwoWay, DoorType.TwoWay, true),
+                (DoorType.TwoWay, DoorType.TwoWayExit, true),
+                (DoorType.TwoWay, DoorType.OneWayExit, true),
+                (DoorType.TwoWay, DoorType.OneWayEntrance, true),
+                (DoorType.TwoWay, DoorType.TwoWayEntrance, true),
+                (DoorType.None, DoorType.TwoWay, false),
+                (DoorType.TwoWay, DoorType.None, false),
+                (DoorType.OneWayExit, DoorType.OneWayEntrance, true),
+                (DoorType.OneWayEntrance, DoorType.OneWayExit, true),
+            };
+
+            var expected = types.Select(x => x.Item3).ToList();
+            var results = types.Select(x => Door.DoorTypesAlign(x.Item1, x.Item2)).ToList();
+            CollectionAssert.AreEquivalent(expected, results);
+        }
+        
+        [TestMethod]
         public void TestGetEdgeDirection()
         {
             var directions = new List<(DoorType, DoorType, EdgeDirection)>()
@@ -20,6 +58,7 @@ namespace MPewsey.ManiaMap.Tests
                 (DoorType.TwoWayExit, DoorType.TwoWayEntrance, EdgeDirection.ForwardFlexible),
                 (DoorType.TwoWayExit, DoorType.OneWayEntrance, EdgeDirection.ForwardFixed),
                 (DoorType.OneWayExit, DoorType.OneWayEntrance, EdgeDirection.ForwardFixed),
+                (DoorType.TwoWayEntrance, DoorType.OneWayExit, EdgeDirection.ReverseFixed),
             };
 
             for (int i = directions.Count - 1; i >= 0; i--)
