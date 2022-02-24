@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
@@ -6,6 +7,7 @@ namespace MPewsey.ManiaMap
     public class Cell
     {
         public static Cell Empty { get => null; }
+        public static Cell New { get => new Cell(); }
 
         [DataMember(Order = 1)]
         public Door WestDoor { get; set; }
@@ -34,6 +36,48 @@ namespace MPewsey.ManiaMap
             var top = TopDoor == null ? "None" : TopDoor.ToString();
             var bottom = BottomDoor == null ? "None" : BottomDoor.ToString();
             return $"Cell(WestDoor = {west}, NorthDoor = {north}, EastDoor = {east}, SouthDoor = {south}, TopDoor = {top}, BottomDoor = {bottom})";
+        }
+
+        /// <summary>
+        /// Sets the doors of the cell based on specified direction characters.
+        /// Returns the cell.
+        /// </summary>
+        public Cell SetDoors(string directions, Door door)
+        {
+            foreach (var direction in directions)
+            {
+                switch (direction)
+                {
+                    case 'N':
+                    case 'n':
+                        NorthDoor = door?.Copy();
+                        break;
+                    case 'S':
+                    case 's':
+                        SouthDoor = door?.Copy();
+                        break;
+                    case 'W':
+                    case 'w':
+                        WestDoor = door?.Copy();
+                        break;
+                    case 'E':
+                    case 'e':
+                        EastDoor = door?.Copy();
+                        break;
+                    case 'B':
+                    case 'b':
+                        BottomDoor = door?.Copy();
+                        break;
+                    case 'T':
+                    case 't':
+                        TopDoor = door?.Copy();
+                        break;
+                    default:
+                        throw new Exception($"Unhandled character: {direction}.");
+                }
+            }
+
+            return this;
         }
 
         /// <summary>

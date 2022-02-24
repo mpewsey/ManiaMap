@@ -5,8 +5,8 @@
         public static RoomTemplate LetterM1Template()
         {
             var x = Cell.Empty;
-            var o = new Cell();
-            var a = new Cell { EastDoor = Door.TwoWay };
+            var o = Cell.New;
+            var a = Cell.New.SetDoors("E", Door.TwoWay);
 
             var cells = new Cell[,]
             {
@@ -23,9 +23,9 @@
         public static RoomTemplate LetterM2Template()
         {
             var x = Cell.Empty;
-            var o = new Cell();
-            var a = new Cell { EastDoor = Door.TwoWay };
-            var b = new Cell { WestDoor = Door.TwoWay };
+            var o = Cell.New;
+            var a = Cell.New.SetDoors("E", Door.TwoWay);
+            var b = Cell.New.SetDoors("W", Door.TwoWay);
 
             var cells = new Cell[,]
             {
@@ -42,9 +42,9 @@
         public static RoomTemplate LetterATemplate()
         {
             var x = Cell.Empty;
-            var o = new Cell();
-            var a = new Cell { EastDoor = Door.TwoWay };
-            var b = new Cell { WestDoor = Door.TwoWay };
+            var o = Cell.New;
+            var a = Cell.New.SetDoors("E", Door.TwoWay);
+            var b = Cell.New.SetDoors("W", Door.TwoWay);
 
             var cells = new Cell[,]
             {
@@ -61,9 +61,9 @@
         public static RoomTemplate LetterNTemplate()
         {
             var x = Cell.Empty;
-            var o = new Cell();
-            var a = new Cell { EastDoor = Door.TwoWay };
-            var b = new Cell { WestDoor = Door.TwoWay };
+            var o = Cell.New;
+            var a = Cell.New.SetDoors("E", Door.TwoWay);
+            var b = Cell.New.SetDoors("W", Door.TwoWay);
 
             var cells = new Cell[,]
             {
@@ -80,9 +80,9 @@
         public static RoomTemplate LetterITemplate()
         {
             var x = Cell.Empty;
-            var o = new Cell();
-            var a = new Cell { EastDoor = Door.TwoWay };
-            var b = new Cell { WestDoor = Door.TwoWay };
+            var o = Cell.New;
+            var a = Cell.New.SetDoors("E", Door.TwoWay);
+            var b = Cell.New.SetDoors("W", Door.TwoWay);
 
             var cells = new Cell[,]
             {
@@ -99,8 +99,8 @@
         public static RoomTemplate LetterPTemplate()
         {
             var x = Cell.Empty;
-            var o = new Cell();
-            var a = new Cell { WestDoor = Door.TwoWay };
+            var o = Cell.New;
+            var a = Cell.New.SetDoors("W", Door.TwoWay);
 
             var cells = new Cell[,]
             {

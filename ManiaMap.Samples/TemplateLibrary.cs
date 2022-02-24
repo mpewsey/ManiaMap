@@ -6,11 +6,11 @@
         {
             public static RoomTemplate SquareTemplate()
             {
-                var o = new Cell();
-                var l = new Cell { WestDoor = Door.TwoWay };
-                var t = new Cell { NorthDoor = Door.TwoWay };
-                var r = new Cell { EastDoor = Door.TwoWay };
-                var b = new Cell { SouthDoor = Door.TwoWay };
+                var o = Cell.New;
+                var l = Cell.New.SetDoors("W", Door.TwoWay);
+                var t = Cell.New.SetDoors("N", Door.TwoWay);
+                var r = Cell.New.SetDoors("E", Door.TwoWay);
+                var b = Cell.New.SetDoors("S", Door.TwoWay);
 
                 var cells = new Cell[,]
                 {
@@ -25,11 +25,11 @@
             public static RoomTemplate RingTemplate()
             {
                 var x = Cell.Empty;
-                var o = new Cell();
-                var l = new Cell { WestDoor = Door.TwoWay };
-                var t = new Cell { NorthDoor = Door.TwoWay };
-                var r = new Cell { EastDoor = Door.TwoWay };
-                var b = new Cell { SouthDoor = Door.TwoWay };
+                var o = Cell.New;
+                var l = Cell.New.SetDoors("W", Door.TwoWay);
+                var t = Cell.New.SetDoors("N", Door.TwoWay);
+                var r = Cell.New.SetDoors("E", Door.TwoWay);
+                var b = Cell.New.SetDoors("S", Door.TwoWay);
 
                 var cells = new Cell[,]
                 {
@@ -44,11 +44,11 @@
             public static RoomTemplate PlusTemplate()
             {
                 var x = Cell.Empty;
-                var a = new Cell { TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
-                var l = new Cell { WestDoor = Door.TwoWay };
-                var t = new Cell { NorthDoor = Door.TwoWay };
-                var r = new Cell { EastDoor = Door.TwoWay };
-                var b = new Cell { SouthDoor = Door.TwoWay };
+                var a = Cell.New.SetDoors("TB", Door.TwoWay);
+                var l = Cell.New.SetDoors("W", Door.TwoWay);
+                var t = Cell.New.SetDoors("N", Door.TwoWay);
+                var r = Cell.New.SetDoors("E", Door.TwoWay);
+                var b = Cell.New.SetDoors("S", Door.TwoWay);
 
                 var cells = new Cell[,]
                 {
@@ -62,15 +62,15 @@
 
             public static RoomTemplate HyperSquareTemplate()
             {
-                var o = new Cell { TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
-                var a = new Cell { WestDoor = Door.TwoWay, NorthDoor = Door.TwoWay, TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
-                var b = new Cell { NorthDoor = Door.TwoWay, TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
-                var c = new Cell { NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay, TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
-                var d = new Cell { WestDoor = Door.TwoWay, TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
-                var e = new Cell { EastDoor = Door.TwoWay, TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
-                var f = new Cell { WestDoor = Door.TwoWay, SouthDoor = Door.TwoWay, TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
-                var g = new Cell { SouthDoor = Door.TwoWay, TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
-                var h = new Cell { SouthDoor = Door.TwoWay, EastDoor = Door.TwoWay, TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
+                var o = Cell.New.SetDoors("TB", Door.TwoWay);
+                var a = Cell.New.SetDoors("WNTB", Door.TwoWay);
+                var b = Cell.New.SetDoors("NTB", Door.TwoWay);
+                var c = Cell.New.SetDoors("NETB", Door.TwoWay);
+                var d = Cell.New.SetDoors("WTB", Door.TwoWay);
+                var e = Cell.New.SetDoors("ETB", Door.TwoWay);
+                var f = Cell.New.SetDoors("WSTB", Door.TwoWay);
+                var g = Cell.New.SetDoors("STB", Door.TwoWay);
+                var h = Cell.New.SetDoors("SETB", Door.TwoWay);
 
                 var cells = new Cell[,]
                 {
@@ -85,10 +85,10 @@
             public static RoomTemplate LTemplate()
             {
                 var x = Cell.Empty;
-                var o = new Cell();
-                var a = new Cell { WestDoor = Door.TwoWay, NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay, TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
-                var b = new Cell { SouthDoor = Door.TwoWay, EastDoor = Door.TwoWay, NorthDoor = Door.TwoWay, TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
-                var c = new Cell { SouthDoor = Door.TwoWay, WestDoor = Door.TwoWay, TopDoor = Door.TwoWay, BottomDoor = Door.TwoWay };
+                var o = Cell.New;
+                var a = Cell.New.SetDoors("WNETB", Door.TwoWay);
+                var b = Cell.New.SetDoors("SENTB", Door.TwoWay);
+                var c = Cell.New.SetDoors("SWTB", Door.TwoWay);
 
                 var cells = new Cell[,]
                 {

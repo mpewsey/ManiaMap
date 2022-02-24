@@ -48,15 +48,15 @@ Room templates consist of a 2D array of cells. Each cell includes the possible d
 An example 3x3 square room template is shown below:
 
 ```RoomTemplate.cs
-var o = new Cell();
-var a = new Cell { WestDoor = Door.TwoWay, NorthDoor = Door.TwoWay };
-var b = new Cell { NorthDoor = Door.TwoWay };
-var c = new Cell { NorthDoor = Door.TwoWay, EastDoor = Door.TwoWay };
-var d = new Cell { WestDoor = Door.TwoWay };
-var e = new Cell { EastDoor = Door.TwoWay };
-var f = new Cell { WestDoor = Door.TwoWay, SouthDoor = Door.TwoWay };
-var g = new Cell { SouthDoor = Door.TwoWay };
-var h = new Cell { SouthDoor = Door.TwoWay, EastDoor = Door.TwoWay };
+var o = Cell.New;
+var a = Cell.New.SetDoors("WN", Door.TwoWay);
+var b = Cell.New.SetDoors("N", Door.TwoWay);
+var c = Cell.New.SetDoors("NE", Door.TwoWay);
+var d = Cell.New.SetDoors("W", Door.TwoWay);
+var e = Cell.New.SetDoors("E", Door.TwoWay);
+var f = Cell.New.SetDoors("WS", Door.TwoWay);
+var g = Cell.New.SetDoors("S", Door.TwoWay);
+var h = Cell.New.SetDoors("SE", Door.TwoWay);
 
 var cells = new Cell[,]
 {
