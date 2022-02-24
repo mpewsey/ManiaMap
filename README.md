@@ -3,7 +3,7 @@
 [![Tests](https://github.com/mpewsey/ManiaMap/actions/workflows/tests.yml/badge.svg?event=push)](https://github.com/mpewsey/ManiaMap/actions/workflows/tests.yml)
 [![codecov](https://codecov.io/gh/mpewsey/ManiaMap/branch/main/graph/badge.svg?token=Q1LDU83FAQ)](https://codecov.io/gh/mpewsey/ManiaMap)
 
-## Purpose
+## About
 
 This package allows for the creation of procedurally generated metroidvania style layouts from user-defined level layout graphs and room templates. The algorithm is based on [[2]](#2) but does not include a simulated annealing evolver. 
 
