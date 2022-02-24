@@ -53,13 +53,13 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public bool Aligns(Door other)
         {
-            return Code == other.Code && DoorTypesAligns(Type, other.Type);
+            return Code == other.Code && DoorTypesAlign(Type, other.Type);
         }
 
         /// <summary>
         /// Returns true if the door types are compatible.
         /// </summary>
-        private static bool DoorTypesAligns(DoorType from, DoorType to)
+        public static bool DoorTypesAlign(DoorType from, DoorType to)
         {
             if (to == DoorType.None)
                 return false;
