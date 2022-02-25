@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace MPewsey.ManiaMap.Tests
 {
@@ -40,6 +41,22 @@ namespace MPewsey.ManiaMap.Tests
         {
             var edge = new LayoutEdge(1, 2).SetDirection(EdgeDirection.ForwardFlexible);
             Assert.AreEqual(EdgeDirection.ForwardFlexible, edge.Direction);
+        }
+
+        [TestMethod]
+        public void TestAddTemplateGroup()
+        {
+            var edge = new LayoutEdge(1, 2).AddTemplateGroups("Default");
+            var expected = new List<string>() { "Default" };
+            CollectionAssert.AreEquivalent(expected, edge.TemplateGroups);
+        }
+
+        [TestMethod]
+        public void TestAddTemplateGroups()
+        {
+            var edge = new LayoutEdge(1, 2).AddTemplateGroups("Default", "Default", "MoreTemplates");
+            var expected = new List<string>() { "Default", "MoreTemplates" };
+            CollectionAssert.AreEquivalent(expected, edge.TemplateGroups);
         }
     }
 }

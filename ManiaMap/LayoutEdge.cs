@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -20,6 +21,9 @@ namespace MPewsey.ManiaMap
 
         [DataMember(Order = 5)]
         public int DoorCode { get; set; }
+
+        [DataMember(Order = 6)]
+        public List<string> TemplateGroups { get; private set; } = new List<string>();
 
         public LayoutEdge(int fromNode, int toNode)
         {
@@ -90,6 +94,32 @@ namespace MPewsey.ManiaMap
                 || FromNode == other.ToNode
                 || ToNode == other.FromNode
                 || ToNode == other.ToNode;
+        }
+
+        /// <summary>
+        /// Adds template groups to the edge and returns the edge.
+        /// </summary>
+        public LayoutEdge AddTemplateGroups(string group)
+        {
+            if (!TemplateGroups.Contains(group))
+            {
+                TemplateGroups.Add(group);
+            }
+
+            return this;
+        }
+
+        /// <summary>
+        /// Adds template groups to the edge and returns the edge.
+        /// </summary>
+        public LayoutEdge AddTemplateGroups(params string[] groups)
+        {
+            foreach (var group in groups)
+            {
+                AddTemplateGroups(group);
+            }
+
+            return this;
         }
     }
 }
