@@ -54,5 +54,15 @@ namespace MPewsey.ManiaMap.Tests
             graph.RemoveEdge(2, 1);
             Assert.AreEqual(0, graph.EdgeCount);
         }
+
+        [TestMethod]
+        public void TestSaveAndLoad()
+        {
+            var path = "LayoutGraph.xml";
+            var graph = Samples.GraphLibrary.GeekGraph();
+            graph.Save(path);
+            var copy = LayoutGraph.Load(path);
+            Assert.AreEqual(graph.Id, copy.Id);
+        }
     }
 }

@@ -1,20 +1,30 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
+    [DataContract]
     public class LayoutEdge
     {
+        [DataMember(Order = 1)]
         public string Name { get; set; } = string.Empty;
+
+        [DataMember(Order = 2)]
         public int FromNode { get; private set; }
+
+        [DataMember(Order = 3)]
         public int ToNode { get; private set; }
+
+        [DataMember(Order = 4)]
         public EdgeDirection Direction { get; set; }
+
+        [DataMember(Order = 5)]
         public int DoorCode { get; set; }
 
-        public LayoutEdge(int fromNode, int toNode, EdgeDirection direction = EdgeDirection.Both)
+        public LayoutEdge(int fromNode, int toNode)
         {
             FromNode = fromNode;
             ToNode = toNode;
-            Direction = direction;
         }
 
         public override string ToString()
@@ -42,6 +52,24 @@ namespace MPewsey.ManiaMap
                 default:
                     throw new Exception($"Unhandled Edge Direction: {Direction}.");
             }
+        }
+
+        /// <summary>
+        /// Sets the direction of the edge and returns the edge.
+        /// </summary>
+        public LayoutEdge SetDirection(EdgeDirection direction)
+        {
+            Direction = direction;
+            return this;
+        }
+
+        /// <summary>
+        /// Sets the door code of the edge and returns the edge.
+        /// </summary>
+        public LayoutEdge SetDoorCode(int doorCode)
+        {
+            DoorCode = doorCode;
+            return this;
         }
 
         /// <summary>

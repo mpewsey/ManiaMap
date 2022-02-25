@@ -1,15 +1,27 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
+    [DataContract]
     public class LayoutGraph
     {
-        public int Id { get; }
+        [DataMember(Order = 1)]
+        public int Id { get; private set; }
+
+        [DataMember(Order = 2)]
         public string Name { get; set; } = string.Empty;
-        private Dictionary<int, LayoutNode> Nodes { get; } = new Dictionary<int, LayoutNode>();
-        private Dictionary<EdgeIndexes, LayoutEdge> Edges { get; } = new Dictionary<EdgeIndexes, LayoutEdge>();
-        private Dictionary<int, List<int>> Neighbors { get; } = new Dictionary<int, List<int>>();
+
+        [DataMember(Order = 3)]
+        private Dictionary<int, LayoutNode> Nodes { get; set; } = new Dictionary<int, LayoutNode>();
+
+        [DataMember(Order = 4)]
+        private Dictionary<EdgeIndexes, LayoutEdge> Edges { get; set; } = new Dictionary<EdgeIndexes, LayoutEdge>();
+        
+        [DataMember(Order = 5)]
+        private Dictionary<int, List<int>> Neighbors { get; set; } = new Dictionary<int, List<int>>();
 
         public int NodeCount { get => Nodes.Count; }
         public int EdgeCount { get => Edges.Count; }
@@ -23,6 +35,26 @@ namespace MPewsey.ManiaMap
         public override string ToString()
         {
             return $"LayoutGraph(Id = {Id}, Name = {Name})";
+        }
+
+        public void Save(string path)
+        {
+            var serializer = new DataContractSerializer(GetType());
+
+            using (var stream = File.Create(path))
+            {
+                serializer.WriteObject(stream, this);
+            }
+        }
+
+        public static LayoutGraph Load(string path)
+        {
+            var serializer = new DataContractSerializer(typeof(LayoutGraph));
+
+            using (var stream = File.OpenRead(path))
+            {
+                return (LayoutGraph)serializer.ReadObject(stream);
+            }
         }
 
         /// <summary>

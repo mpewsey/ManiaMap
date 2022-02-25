@@ -1,14 +1,25 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
+    [DataContract]
     public class LayoutNode
     {
-        public int Id { get; }
+        [DataMember(Order = 1)]
+        public int Id { get; set; }
+
+        [DataMember(Order = 2)]
         public string Name { get; set; } = string.Empty;
+
+        [DataMember(Order = 3)]
         public int Z { get; set; }
-        public List<string> TemplateGroups { get; } = new List<string>();
+
+        [DataMember(Order = 4)]
+        public List<string> TemplateGroups { get; private set; } = new List<string>();
+
+        [DataMember(Order = 5)]
         public Color Color { get; set; } = Color.MidnightBlue;
 
         public LayoutNode(int id)

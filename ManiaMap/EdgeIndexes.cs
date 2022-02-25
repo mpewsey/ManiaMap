@@ -1,11 +1,16 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
+    [DataContract]
     public struct EdgeIndexes : IEquatable<EdgeIndexes>, IComparable<EdgeIndexes>
     {
-        public int FromIndex { get; }
-        public int ToIndex { get; }
+        [DataMember(Order = 1)]
+        public int FromIndex { get; set; }
+
+        [DataMember(Order = 2)]
+        public int ToIndex { get; set; }
 
         public EdgeIndexes(int from, int to)
         {
