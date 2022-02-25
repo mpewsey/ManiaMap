@@ -15,7 +15,7 @@ namespace MPewsey.ManiaMap.Drawing
         public Color BackgroundColor { get; set; }
         public Dictionary<string, Image> Tiles { get; set; }
         public float LowerLayerOpacity { get; set; }
-        private Dictionary<int, List<DoorPosition>> RoomDoors { get; set; }
+        private Dictionary<RoomId, List<DoorPosition>> RoomDoors { get; set; }
 
         public LayoutMap(Layout layout, Point? tileSize = null, Padding? padding = null,
             Dictionary<string, Image> tiles = null, Color? backgroundColor = null,
@@ -70,9 +70,9 @@ namespace MPewsey.ManiaMap.Drawing
         /// <summary>
         /// Returns true if the door exists for the room.
         /// </summary>
-        private bool DoorExists(int room, int x, int y, DoorDirection direction)
+        private bool DoorExists(Room room, int x, int y, DoorDirection direction)
         {
-            if (RoomDoors.TryGetValue(room, out var doors))
+            if (RoomDoors.TryGetValue(room.Id, out var doors))
             {
                 foreach (var door in doors)
                 {
@@ -145,12 +145,12 @@ namespace MPewsey.ManiaMap.Drawing
                                 var west = cells.GetOrDefault(i, j - 1);
                                 var east = cells.GetOrDefault(i, j + 1);
 
-                                var topTile = GetTile(room.Id, i, j, DoorDirection.Top, cell.TopDoor, "TopDoor");
-                                var bottomTile = GetTile(room.Id, i, j, DoorDirection.Bottom, cell.BottomDoor, "BottomDoor");
-                                var northTile = GetTile(room.Id, i, j, DoorDirection.North, cell.NorthDoor, north, "NorthDoor", "NorthWall");
-                                var southTile = GetTile(room.Id, i, j, DoorDirection.South, cell.SouthDoor, south, "SouthDoor", "SouthWall");
-                                var westTile = GetTile(room.Id, i, j, DoorDirection.West, cell.WestDoor, west, "WestDoor", "WestWall");
-                                var eastTile = GetTile(room.Id, i, j, DoorDirection.East, cell.EastDoor, east, "EastDoor", "EastWall");
+                                var topTile = GetTile(room, i, j, DoorDirection.Top, cell.TopDoor, "TopDoor");
+                                var bottomTile = GetTile(room, i, j, DoorDirection.Bottom, cell.BottomDoor, "BottomDoor");
+                                var northTile = GetTile(room, i, j, DoorDirection.North, cell.NorthDoor, north, "NorthDoor", "NorthWall");
+                                var southTile = GetTile(room, i, j, DoorDirection.South, cell.SouthDoor, south, "SouthDoor", "SouthWall");
+                                var westTile = GetTile(room, i, j, DoorDirection.West, cell.WestDoor, west, "WestDoor", "WestWall");
+                                var eastTile = GetTile(room, i, j, DoorDirection.East, cell.EastDoor, east, "EastDoor", "EastWall");
 
                                 // Add cell background fill
                                 image.DrawImage(cellTile, point, opacity);
@@ -189,7 +189,7 @@ namespace MPewsey.ManiaMap.Drawing
         /// Returns the map tile corresponding to the door location.
         /// Returns null if the door does not exist.
         /// </summary>
-        private Image GetTile(int room, int x, int y, DoorDirection direction,
+        private Image GetTile(Room room, int x, int y, DoorDirection direction,
             Door door, string doorName)
         {
             if (door != null && door.Type != DoorType.None && DoorExists(room, x, y, direction))
@@ -201,7 +201,7 @@ namespace MPewsey.ManiaMap.Drawing
         /// Returns the map tile corresponding to the wall or door location.
         /// Returns null if the tile has neither a wall or door.
         /// </summary>
-        private Image GetTile(int room, int x, int y, DoorDirection direction,
+        private Image GetTile(Room room, int x, int y, DoorDirection direction,
             Door door, Cell neighbor, string doorName, string wallName)
         {
             if (door != null && door.Type != DoorType.None && DoorExists(room, x, y, direction))

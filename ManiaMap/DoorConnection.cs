@@ -6,10 +6,10 @@ namespace MPewsey.ManiaMap
     public class DoorConnection
     {
         [DataMember(Order = 1)]
-        public int FromRoom { get; private set; }
+        public RoomId FromRoom { get; private set; }
 
         [DataMember(Order = 2)]
-        public int ToRoom { get; private set; }
+        public RoomId ToRoom { get; private set; }
 
         [DataMember(Order = 3)]
         public DoorPosition FromDoor { get; private set; }
@@ -20,10 +20,10 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 5)]
         public Box Shaft { get; private set; }
 
-        public DoorConnection(int fromRoom, int toRoom, DoorPosition fromDoor, DoorPosition toDoor, Box shaft = null)
+        public DoorConnection(Room fromRoom, Room toRoom, DoorPosition fromDoor, DoorPosition toDoor, Box shaft = null)
         {
-            FromRoom = fromRoom;
-            ToRoom = toRoom;
+            FromRoom = fromRoom.Id;
+            ToRoom = toRoom.Id;
             FromDoor = fromDoor;
             ToDoor = toDoor;
             Shaft = shaft;

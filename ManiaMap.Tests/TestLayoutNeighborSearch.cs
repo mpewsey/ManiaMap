@@ -18,7 +18,7 @@ namespace MPewsey.ManiaMap.Tests
             var layout = generator.GenerateLayout();
 
             var result = layout.FindNeighbors(5, 2);
-            var expected = new List<int>() { 5, 3, 2, 4, 6, 9, 10 };
+            var expected = new List<RoomId>() { 5, 3, 2, 4, 6, 9, 10 };
             CollectionAssert.AreEquivalent(expected, result);
         }
     }

@@ -286,7 +286,7 @@ namespace MPewsey.ManiaMap
         {
             if (Math.Abs(from.Z - to.Z) <= 1)
             {
-                var connection = new DoorConnection(from.Id, to.Id, fromDoor, toDoor);
+                var connection = new DoorConnection(from, to, fromDoor, toDoor);
                 layout.DoorConnections.Add(connection);
                 return true;
             }
@@ -300,7 +300,7 @@ namespace MPewsey.ManiaMap
                 return false;
 
             var shaft = new Box(x, x, y, y, zMin, zMax);
-            var shaftConnection = new DoorConnection(from.Id, to.Id, fromDoor, toDoor, shaft);
+            var shaftConnection = new DoorConnection(from, to, fromDoor, toDoor, shaft);
             layout.DoorConnections.Add(shaftConnection);
             return true;
         }

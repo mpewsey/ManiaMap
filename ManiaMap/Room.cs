@@ -7,7 +7,7 @@ namespace MPewsey.ManiaMap
     public class Room
     {
         [DataMember(Order = 0)]
-        public int Id { get; private set; }
+        public RoomId Id { get; private set; }
 
         [DataMember(Order = 1)]
         public string Name { get; set; } = string.Empty;

@@ -7,8 +7,8 @@ namespace MPewsey.ManiaMap
     {
         public Layout Layout { get; set; }
         public int MaxDepth { get; set; }
-        private Dictionary<int, List<int>> Neighbors { get; set; }
-        private HashSet<int> Marked { get; } = new HashSet<int>();
+        private Dictionary<RoomId, List<RoomId>> Neighbors { get; set; }
+        private HashSet<RoomId> Marked { get; } = new HashSet<RoomId>();
 
         public LayoutNeighborSearch(Layout layout, int maxDepth)
         {
@@ -19,7 +19,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns an array of neighbors of the room up to the max depth.
         /// </summary>
-        public List<int> FindNeighbors(int room)
+        public List<RoomId> FindNeighbors(int room)
         {
             Marked.Clear();
             Neighbors = Layout.RoomAdjacencies();
@@ -30,7 +30,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Recursively searches for neighbors of the room.
         /// </summary>
-        private void SearchNeighbors(int room, int depth)
+        private void SearchNeighbors(RoomId room, int depth)
         {
             if (depth <= MaxDepth && Marked.Add(room))
             {
