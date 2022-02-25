@@ -19,7 +19,7 @@ namespace MPewsey.ManiaMap
 
         [DataMember(Order = 4)]
         private Dictionary<EdgeIndexes, LayoutEdge> Edges { get; set; } = new Dictionary<EdgeIndexes, LayoutEdge>();
-        
+
         [DataMember(Order = 5)]
         private Dictionary<int, List<int>> Neighbors { get; set; } = new Dictionary<int, List<int>>();
 

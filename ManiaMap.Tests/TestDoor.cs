@@ -50,7 +50,7 @@ namespace MPewsey.ManiaMap.Tests
             var results = types.Select(x => Door.DoorTypesAlign(x.Item1, x.Item2)).ToList();
             CollectionAssert.AreEquivalent(expected, results);
         }
-        
+
         [TestMethod]
         public void TestGetEdgeDirection()
         {
