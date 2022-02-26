@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace MPewsey.ManiaMap.Tests
 {
@@ -57,6 +58,13 @@ namespace MPewsey.ManiaMap.Tests
             var edge = new LayoutEdge(1, 2).AddTemplateGroups("Default", "Default", "MoreTemplates");
             var expected = new List<string>() { "Default", "MoreTemplates" };
             CollectionAssert.AreEquivalent(expected, edge.TemplateGroups);
+        }
+
+        [TestMethod]
+        public void TestSetColor()
+        {
+            var edge = new LayoutEdge(1, 2).SetColor(Color.Red);
+            Assert.AreEqual(Color.Red, edge.Color);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -23,6 +24,9 @@ namespace MPewsey.ManiaMap
         public int DoorCode { get; set; }
 
         [DataMember(Order = 6)]
+        public Color Color { get; set; } = Color.MidnightBlue;
+
+        [DataMember(Order = 7)]
         public List<string> TemplateGroups { get; private set; } = new List<string>();
 
         public LayoutEdge(int fromNode, int toNode)
@@ -56,6 +60,15 @@ namespace MPewsey.ManiaMap
                 default:
                     throw new Exception($"Unhandled Edge Direction: {Direction}.");
             }
+        }
+
+        /// <summary>
+        /// Sets the color of the edge and returns the edge.
+        /// </summary>
+        public LayoutEdge SetColor(Color color)
+        {
+            Color = color;
+            return this;
         }
 
         /// <summary>
