@@ -86,6 +86,9 @@ namespace MPewsey.ManiaMap
             return templates;
         }
 
+        /// <summary>
+        /// Attempts to add the chain to the layout. Returns true if successful.
+        /// </summary>
         private bool AddChain(List<LayoutEdge> chain)
         {
             for (int i = 0; i < chain.Count; i++)
@@ -108,6 +111,9 @@ namespace MPewsey.ManiaMap
             return true;
         }
 
+        /// <summary>
+        /// Returns true if the middle node for the edges can be inserted between existing rooms.
+        /// </summary>
         private bool CanInsertRoom(LayoutEdge backEdge, LayoutEdge aheadEdge)
         {
             return aheadEdge != null
@@ -117,6 +123,9 @@ namespace MPewsey.ManiaMap
                 && !Layout.Rooms.ContainsKey(new Uid(backEdge.ToNode));
         }
 
+        /// <summary>
+        /// Attempts to add the rooms for the edge to the layout. Returns true if successful.
+        /// </summary>
         private bool AddRooms(LayoutEdge edge)
         {
             var fromRoomExists = Layout.Rooms.ContainsKey(new Uid(edge.FromNode));
@@ -134,10 +143,14 @@ namespace MPewsey.ManiaMap
             throw new Exception("Chains are not properly ordered.");
         }
 
+        /// <summary>
+        /// Attempts to add the nodes from node to the layout. Returns true if successful.
+        /// </summary>
         private bool AddFirstRoom(LayoutEdge edge)
         {
             var node = Graph.GetNode(edge.FromNode);
 
+            // Get the first template and add it to the layout.
             foreach (var template in GetTemplates(node))
             {
                 var room = new Room(node, 0, 0, Random.Next(), template);
@@ -148,6 +161,9 @@ namespace MPewsey.ManiaMap
             return false;
         }
 
+        /// <summary>
+        /// Attempts to add a new room for the to node of the edge. Returns true if successful.
+        /// </summary>
         private bool AddToRoom(LayoutEdge edge)
         {
             var fromRoom = Layout.Rooms[new Uid(edge.FromNode)];
@@ -184,6 +200,9 @@ namespace MPewsey.ManiaMap
             return false;
         }
 
+        /// <summary>
+        /// Attemps to insert a new room between two rooms. Returns true if successful.
+        /// </summary>
         private bool InsertRoom(LayoutEdge backEdge, LayoutEdge aheadEdge)
         {
             var backRoom = Layout.Rooms[new Uid(backEdge.FromNode)];
@@ -240,6 +259,10 @@ namespace MPewsey.ManiaMap
             return false;
         }
 
+        /// <summary>
+        /// Attemps to add the door connection for the edge and configuration.
+        /// Returns true if successful.
+        /// </summary>
         private bool AddDoorConnection(LayoutEdge edge, Configuration config)
         {
             var fromRoom = Layout.Rooms[new Uid(edge.FromNode)];
