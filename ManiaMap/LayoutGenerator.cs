@@ -71,6 +71,9 @@ namespace MPewsey.ManiaMap
             return null;
         }
 
+        /// <summary>
+        /// Returns a new shuffled list of configurations for the room templates.
+        /// </summary>
         private List<Configuration> GetConfigurations(RoomTemplate x, RoomTemplate y)
         {
             var space = ConfigurationSpaces[new TemplatePair(x, y)];
@@ -79,9 +82,12 @@ namespace MPewsey.ManiaMap
             return result;
         }
 
-        private List<RoomTemplate> GetTemplates(LayoutNode node)
+        /// <summary>
+        /// Returns a new shuffled list of room templates for the groups.
+        /// </summary>
+        private List<RoomTemplate> GetTemplates(List<string> groups)
         {
-            var templates = TemplateGroups.GetTemplates(node.TemplateGroups);
+            var templates = TemplateGroups.GetTemplates(groups);
             Shuffle(templates);
             return templates;
         }
@@ -151,7 +157,7 @@ namespace MPewsey.ManiaMap
             var node = Graph.GetNode(edge.FromNode);
 
             // Get the first template and add it to the layout.
-            foreach (var template in GetTemplates(node))
+            foreach (var template in GetTemplates(node.TemplateGroups))
             {
                 var room = new Room(node, 0, 0, Random.Next(), template);
                 Layout.Rooms.Add(room.Id, room);
@@ -170,7 +176,7 @@ namespace MPewsey.ManiaMap
             var node = Graph.GetNode(edge.ToNode);
             var z = node.Z - fromRoom.Z;
 
-            foreach (var template in GetTemplates(node))
+            foreach (var template in GetTemplates(node.TemplateGroups))
             {
                 foreach (var config in GetConfigurations(fromRoom.Template, template))
                 {
@@ -211,7 +217,7 @@ namespace MPewsey.ManiaMap
             var z1 = node.Z - backRoom.Z;
             var z2 = aheadRoom.Z - node.Z;
 
-            foreach (var template in GetTemplates(node))
+            foreach (var template in GetTemplates(node.TemplateGroups))
             {
                 foreach (var config1 in GetConfigurations(backRoom.Template, template))
                 {
