@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 namespace MPewsey.ManiaMap
 {
     [DataContract]
-    public class LayoutEdge
+    public class LayoutEdge : IRoomSource
     {
         [DataMember(Order = 1)]
         public string Name { get; set; } = string.Empty;
@@ -24,9 +24,12 @@ namespace MPewsey.ManiaMap
         public int DoorCode { get; set; }
 
         [DataMember(Order = 6)]
-        public Color Color { get; set; } = Color.MidnightBlue;
+        public int Z { get; set; }
 
         [DataMember(Order = 7)]
+        public Color Color { get; set; } = Color.MidnightBlue;
+
+        [DataMember(Order = 8)]
         public List<string> TemplateGroups { get; private set; } = new List<string>();
 
         public Uid RoomId { get => new Uid(FromNode, ToNode, 1); }
@@ -62,6 +65,15 @@ namespace MPewsey.ManiaMap
                 default:
                     throw new Exception($"Unhandled Edge Direction: {Direction}.");
             }
+        }
+
+        /// <summary>
+        /// Sets the Z value of the edge and returns the edge.
+        /// </summary>
+        public LayoutEdge SetZ(int z)
+        {
+            Z = z;
+            return this;
         }
 
         /// <summary>

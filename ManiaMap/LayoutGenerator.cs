@@ -104,7 +104,7 @@ namespace MPewsey.ManiaMap
 
                 if (CanInsertRoom(backEdge, aheadEdge))
                 {
-                    if (!InsertRoom(backEdge, aheadEdge))
+                    if (!InsertRooms(backEdge, aheadEdge))
                         return false;
                     i++;
                 }
@@ -130,21 +130,37 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Attemps to insert the rooms for the edges into the layout. Returns true if successful.
+        /// </summary>
+        private bool InsertRooms(LayoutEdge backEdge, LayoutEdge aheadEdge)
+        {
+            var source = Graph.GetNode(backEdge.ToNode);
+            var backNodeId = new Uid(backEdge.FromNode);
+            var aheadNodeId = new Uid(aheadEdge.ToNode);
+
+            return InsertRoom(source,
+                backNodeId, backEdge.DoorCode, backEdge.Direction,
+                aheadNodeId, aheadEdge.DoorCode, aheadEdge.Direction);
+        }
+
+        /// <summary>
         /// Attempts to add the rooms for the edge to the layout. Returns true if successful.
         /// </summary>
         private bool AddRooms(LayoutEdge edge)
         {
-            var fromRoomExists = Layout.Rooms.ContainsKey(new Uid(edge.FromNode));
-            var toRoomExists = Layout.Rooms.ContainsKey(new Uid(edge.ToNode));
+            var fromNode = Graph.GetNode(edge.FromNode);
+            var toNode = Graph.GetNode(edge.ToNode);
+            var fromRoomExists = Layout.Rooms.ContainsKey(fromNode.RoomId);
+            var toRoomExists = Layout.Rooms.ContainsKey(toNode.RoomId);
 
             if (!fromRoomExists && !toRoomExists)
-                return AddFirstRoom(edge) && AddToRoom(edge);
+                return AddFirstRoom(fromNode) && AddRoom(toNode, fromNode.RoomId, edge.DoorCode, edge.Direction);
 
             if (!fromRoomExists)
-                throw new Exception("Chain is not properly ordered.");
+                throw new Exception("Chains are not properly ordered.");
 
             if (!toRoomExists)
-                return AddToRoom(edge);
+                return AddRoom(toNode, fromNode.RoomId, edge.DoorCode, edge.Direction);
 
             throw new Exception("Chains are not properly ordered.");
         }
@@ -152,14 +168,12 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Attempts to add the nodes from node to the layout. Returns true if successful.
         /// </summary>
-        private bool AddFirstRoom(LayoutEdge edge)
+        private bool AddFirstRoom(IRoomSource source)
         {
-            var node = Graph.GetNode(edge.FromNode);
-
             // Get the first template and add it to the layout.
-            foreach (var template in GetTemplates(node.TemplateGroups))
+            foreach (var template in GetTemplates(source.TemplateGroups))
             {
-                var room = new Room(node, 0, 0, Random.Next(), template);
+                var room = new Room(source, 0, 0, Random.Next(), template);
                 Layout.Rooms.Add(room.Id, room);
                 return true;
             }
@@ -170,13 +184,13 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Attempts to add a new room for the to node of the edge. Returns true if successful.
         /// </summary>
-        private bool AddToRoom(LayoutEdge edge)
+        private bool AddRoom(IRoomSource source,
+            Uid fromRoomId, int code, EdgeDirection direction)
         {
-            var fromRoom = Layout.Rooms[new Uid(edge.FromNode)];
-            var node = Graph.GetNode(edge.ToNode);
-            var z = node.Z - fromRoom.Z;
+            var fromRoom = Layout.Rooms[fromRoomId];
+            var z = source.Z - fromRoom.Z;
 
-            foreach (var template in GetTemplates(node.TemplateGroups))
+            foreach (var template in GetTemplates(source.TemplateGroups))
             {
                 foreach (var config in GetConfigurations(fromRoom.Template, template))
                 {
@@ -184,15 +198,17 @@ namespace MPewsey.ManiaMap
                     var y = config.Y + fromRoom.Y;
 
                     // Check if the configuration can be added to the layout. If not, try the next one.
-                    if (!config.Matches(z, edge) || Layout.Intersects(template, x, y, node.Z))
+                    if (!config.Matches(z, code, direction))
+                        continue;
+                    if (Layout.Intersects(template, x, y, source.Z))
                         continue;
 
                     // Add the room to the layout.
-                    var room = new Room(node, x, y, Random.Next(), template);
+                    var room = new Room(source, x, y, Random.Next(), template);
                     Layout.Rooms.Add(room.Id, room);
 
                     // Try to create a door connection between the rooms.
-                    if (!AddDoorConnection(edge, config))
+                    if (!AddDoorConnection(fromRoomId, source.RoomId, config))
                     {
                         // Remove the room added previously.
                         Layout.Rooms.Remove(room.Id);
@@ -209,15 +225,16 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Attemps to insert a new room between two rooms. Returns true if successful.
         /// </summary>
-        private bool InsertRoom(LayoutEdge backEdge, LayoutEdge aheadEdge)
+        private bool InsertRoom(IRoomSource source,
+            Uid backRoomId, int backCode, EdgeDirection backDirection,
+            Uid aheadRoomId, int aheadCode, EdgeDirection aheadDirection)
         {
-            var backRoom = Layout.Rooms[new Uid(backEdge.FromNode)];
-            var aheadRoom = Layout.Rooms[new Uid(aheadEdge.ToNode)];
-            var node = Graph.GetNode(backEdge.ToNode);
-            var z1 = node.Z - backRoom.Z;
-            var z2 = aheadRoom.Z - node.Z;
+            var backRoom = Layout.Rooms[backRoomId];
+            var aheadRoom = Layout.Rooms[aheadRoomId];
+            var z1 = source.Z - backRoom.Z;
+            var z2 = aheadRoom.Z - source.Z;
 
-            foreach (var template in GetTemplates(node.TemplateGroups))
+            foreach (var template in GetTemplates(source.TemplateGroups))
             {
                 foreach (var config1 in GetConfigurations(backRoom.Template, template))
                 {
@@ -225,7 +242,9 @@ namespace MPewsey.ManiaMap
                     var y1 = config1.Y + backRoom.Y;
 
                     // Check if the configuration can be added to the layout. If not, try the next one.
-                    if (!config1.Matches(z1, backEdge) || Layout.Intersects(template, x1, y1, node.Z))
+                    if (!config1.Matches(z1, backCode, backDirection))
+                        continue;
+                    if (Layout.Intersects(template, x1, y1, source.Z))
                         continue;
 
                     foreach (var config2 in GetConfigurations(template, aheadRoom.Template))
@@ -234,14 +253,14 @@ namespace MPewsey.ManiaMap
                         var y2 = aheadRoom.Y - y1;
 
                         // Check if the configuration can be added to the layout. If not, try the next one.
-                        if (!config2.Matches(x2, y2, z2, aheadEdge))
+                        if (!config2.Matches(x2, y2, z2, aheadCode, aheadDirection))
                             continue;
 
-                        var room = new Room(node, x1, y1, Random.Next(), template);
+                        var room = new Room(source, x1, y1, Random.Next(), template);
                         Layout.Rooms.Add(room.Id, room);
 
                         // Try to create a door connection between the rooms.
-                        if (!AddDoorConnection(backEdge, config1))
+                        if (!AddDoorConnection(backRoomId, source.RoomId, config1))
                         {
                             // Remove the room added previously.
                             Layout.Rooms.Remove(room.Id);
@@ -249,7 +268,7 @@ namespace MPewsey.ManiaMap
                         }
 
                         // Try to create a door connection between the rooms.
-                        if (!AddDoorConnection(aheadEdge, config2))
+                        if (!AddDoorConnection(source.RoomId, aheadRoomId, config2))
                         {
                             // Remove the room and door connection added previously.
                             Layout.Rooms.Remove(room.Id);
@@ -269,10 +288,10 @@ namespace MPewsey.ManiaMap
         /// Attemps to add the door connection for the edge and configuration.
         /// Returns true if successful.
         /// </summary>
-        private bool AddDoorConnection(LayoutEdge edge, Configuration config)
+        private bool AddDoorConnection(Uid fromRoomId, Uid toRoomId, Configuration config)
         {
-            var fromRoom = Layout.Rooms[new Uid(edge.FromNode)];
-            var toRoom = Layout.Rooms[new Uid(edge.ToNode)];
+            var fromRoom = Layout.Rooms[fromRoomId];
+            var toRoom = Layout.Rooms[toRoomId];
             var fromDoor = config.FromDoor;
             var toDoor = config.ToDoor;
 
