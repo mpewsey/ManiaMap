@@ -27,9 +27,6 @@ namespace MPewsey.ManiaMap
         public int Z { get; set; }
 
         [DataMember(Order = 7)]
-        public float RoomChance { get; set; }
-
-        [DataMember(Order = 7)]
         public Color Color { get; set; } = Color.MidnightBlue;
 
         [DataMember(Order = 8)]
@@ -68,15 +65,6 @@ namespace MPewsey.ManiaMap
                 default:
                     throw new Exception($"Unhandled Edge Direction: {Direction}.");
             }
-        }
-
-        /// <summary>
-        /// Sets the room chance of the edge and returns the edge.
-        /// </summary>
-        public LayoutEdge SetRoomChance(float chance)
-        {
-            RoomChance = chance;
-            return this;
         }
 
         /// <summary>
