@@ -66,5 +66,12 @@ namespace MPewsey.ManiaMap.Tests
             var edge = new LayoutEdge(1, 2).SetColor(Color.Red);
             Assert.AreEqual(Color.Red, edge.Color);
         }
+
+        [TestMethod]
+        public void TestSetRoomChance()
+        {
+            var edge = new LayoutEdge(1, 2).SetRoomChance(0.5f);
+            Assert.AreEqual(0.5f, edge.RoomChance);
+        }
     }
 }
