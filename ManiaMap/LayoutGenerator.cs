@@ -153,11 +153,11 @@ namespace MPewsey.ManiaMap
             var fromRoomExists = Layout.Rooms.ContainsKey(fromNode.RoomId);
             var toRoomExists = Layout.Rooms.ContainsKey(toNode.RoomId);
 
-            if ((toRoomExists && !fromRoomExists) || (toRoomExists && fromRoomExists))
+            if (toRoomExists)
                 throw new Exception("Chains are not properly ordered.");
 
             // If both rooms do not exist, add the first room. If that fails, abort.
-            if (!fromRoomExists && !toRoomExists && !AddFirstRoom(fromNode))
+            if (!fromRoomExists && !AddFirstRoom(fromNode))
                 return false;
 
             // Try to add the room for the to node.
