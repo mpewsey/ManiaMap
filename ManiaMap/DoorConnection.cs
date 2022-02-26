@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
@@ -6,10 +7,10 @@ namespace MPewsey.ManiaMap
     public class DoorConnection
     {
         [DataMember(Order = 1)]
-        public RoomId FromRoom { get; private set; }
+        public Uid FromRoom { get; private set; }
 
         [DataMember(Order = 2)]
-        public RoomId ToRoom { get; private set; }
+        public Uid ToRoom { get; private set; }
 
         [DataMember(Order = 3)]
         public DoorPosition FromDoor { get; private set; }

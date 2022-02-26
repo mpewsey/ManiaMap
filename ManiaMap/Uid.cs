@@ -1,47 +1,54 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text;
 
 namespace MPewsey.ManiaMap
 {
     [DataContract]
-    public struct RoomId : IEquatable<RoomId>
+    public struct Uid : IEquatable<Uid>
     {
         [DataMember(Order = 1)]
-        public int Value1 { get; set; }
+        public int Value1 { get; private set; }
 
         [DataMember(Order = 2)]
-        public int Value2 { get; set; }
+        public int Value2 { get; private set; }
 
         [DataMember(Order = 3)]
-        public bool Value3 { get; set; }
+        public int Value3 { get; private set; }
 
-        public RoomId(int value)
+        public Uid(int value1)
         {
-            Value1 = value;
+            Value1 = value1;
             Value2 = 0;
-            Value3 = false;
+            Value3 = 0;
         }
 
-        public RoomId(int value1, int value2)
+        public Uid(int value1, int value2)
         {
             Value1 = value1;
             Value2 = value2;
-            Value3 = true;
+            Value3 = 0;
         }
 
-        public static implicit operator RoomId(int value) => new RoomId(value);
+        public Uid(int value1, int value2, int value3)
+        {
+            Value1 = value1;
+            Value2 = value2;
+            Value3 = value3;
+        }
 
         public override string ToString()
         {
-            return $"RoomId(Value1 = {Value1}, Value2 = {Value2}, Value3 = {Value3})";
+            return $"Uid({Value1}, {Value2}, {Value3})";
         }
 
         public override bool Equals(object obj)
         {
-            return obj is RoomId id && Equals(id);
+            return obj is Uid uid && Equals(uid);
         }
 
-        public bool Equals(RoomId other)
+        public bool Equals(Uid other)
         {
             return Value1 == other.Value1 &&
                    Value2 == other.Value2 &&
@@ -57,12 +64,12 @@ namespace MPewsey.ManiaMap
             return hashCode;
         }
 
-        public static bool operator ==(RoomId left, RoomId right)
+        public static bool operator ==(Uid left, Uid right)
         {
             return left.Equals(right);
         }
 
-        public static bool operator !=(RoomId left, RoomId right)
+        public static bool operator !=(Uid left, Uid right)
         {
             return !(left == right);
         }

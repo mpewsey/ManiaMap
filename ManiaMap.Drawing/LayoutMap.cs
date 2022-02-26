@@ -15,7 +15,7 @@ namespace MPewsey.ManiaMap.Drawing
         public Color BackgroundColor { get; set; }
         public Dictionary<string, Image> Tiles { get; set; }
         public float LowerLayerOpacity { get; set; }
-        private Dictionary<RoomId, List<DoorPosition>> RoomDoors { get; set; }
+        private Dictionary<Uid, List<DoorPosition>> RoomDoors { get; set; }
 
         public LayoutMap(Layout layout, Point? tileSize = null, Padding? padding = null,
             Dictionary<string, Image> tiles = null, Color? backgroundColor = null,

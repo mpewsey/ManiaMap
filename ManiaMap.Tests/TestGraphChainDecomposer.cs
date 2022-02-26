@@ -18,7 +18,7 @@ namespace MPewsey.ManiaMap.Tests
             {
                 new() { graph.GetEdge(11, 13), graph.GetEdge(11, 12), graph.GetEdge(12, 13) },
                 new() { graph.GetEdge(10, 11), graph.GetEdge(6, 10) },
-                new() { graph.GetEdge(4, 6), graph.GetEdge(5, 6), graph.GetEdge(3, 5), graph.GetEdge(3, 4) },
+                new() { graph.GetEdge(5, 6), graph.GetEdge(3, 5), graph.GetEdge(3, 4), graph.GetEdge(4, 6) },
                 new() { graph.GetEdge(2, 3), graph.GetEdge(1, 2) },
                 new() { graph.GetEdge(4, 7), graph.GetEdge(7, 8) },
                 new() { graph.GetEdge(5, 9) },

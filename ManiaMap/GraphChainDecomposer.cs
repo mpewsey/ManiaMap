@@ -205,7 +205,7 @@ namespace MPewsey.ManiaMap
                 // If the chain is a cycle, shift the elements of the chain to make a possible sequence.
                 if (ChainIsCycle(chain))
                 {
-                    var index = chain.FindIndex(AnyNodeMarked);
+                    var index = chain.FindIndex(x => Marked.Contains(x.FromNode));
 
                     if (index >= 0)
                     {
@@ -219,14 +219,14 @@ namespace MPewsey.ManiaMap
                 }
 
                 // Check if first edge forms sequence.
-                if (AnyNodeMarked(chain[0]))
+                if (Marked.Contains(chain[0].FromNode))
                 {
                     Pool.Remove(node);
                     return chain;
                 }
 
                 // Check if last edge forms sequence.
-                if (AnyNodeMarked(chain[chain.Count - 1]))
+                if (Marked.Contains(chain[chain.Count - 1].ToNode))
                 {
                     Pool.Remove(node);
                     chain.Reverse();
@@ -236,15 +236,6 @@ namespace MPewsey.ManiaMap
             }
 
             return null;
-        }
-
-        /// <summary>
-        /// Returns true if any node in the edge is marked.
-        /// </summary>
-        private bool AnyNodeMarked(LayoutEdge edge)
-        {
-            return Marked.Contains(edge.FromNode)
-                || Marked.Contains(edge.ToNode);
         }
 
         /// <summary>
