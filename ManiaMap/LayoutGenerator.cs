@@ -153,7 +153,7 @@ namespace MPewsey.ManiaMap
             var fromRoom = Layout.Rooms[new Uid(edge.FromNode)];
             var node = Graph.GetNode(edge.ToNode);
             var z = node.Z - fromRoom.Z;
-            
+
             foreach (var template in GetTemplates(node))
             {
                 foreach (var config in GetConfigurations(fromRoom.Template, template))
@@ -246,7 +246,7 @@ namespace MPewsey.ManiaMap
             var toRoom = Layout.Rooms[new Uid(edge.ToNode)];
             var fromDoor = config.FromDoor;
             var toDoor = config.ToDoor;
-            
+
             if (Math.Abs(fromRoom.Z - toRoom.Z) <= 1)
             {
                 // Rooms do not require shaft connection. Simply add the door connection.
