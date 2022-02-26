@@ -29,6 +29,8 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 7)]
         public List<string> TemplateGroups { get; private set; } = new List<string>();
 
+        public Uid RoomId { get => new Uid(FromNode, ToNode, 1); }
+
         public LayoutEdge(int fromNode, int toNode)
         {
             FromNode = fromNode;

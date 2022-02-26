@@ -22,6 +22,8 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 5)]
         public Color Color { get; set; } = Color.MidnightBlue;
 
+        public Uid RoomId { get => new Uid(Id); }
+
         public LayoutNode(int id)
         {
             Id = id;
