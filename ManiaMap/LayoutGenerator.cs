@@ -190,7 +190,7 @@ namespace MPewsey.ManiaMap
                     {
                         // Remove the room added previously.
                         Layout.Rooms.Remove(room.Id);
-                        return false;
+                        continue;
                     }
 
                     return true;
