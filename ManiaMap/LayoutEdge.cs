@@ -27,9 +27,12 @@ namespace MPewsey.ManiaMap
         public int Z { get; set; }
 
         [DataMember(Order = 7)]
-        public Color Color { get; set; } = Color.MidnightBlue;
+        public float RoomChance { get; set; }
 
         [DataMember(Order = 8)]
+        public Color Color { get; set; } = Color.MidnightBlue;
+
+        [DataMember(Order = 9)]
         public List<string> TemplateGroups { get; private set; } = new List<string>();
 
         public Uid RoomId { get => new Uid(FromNode, ToNode, 1); }
@@ -43,6 +46,14 @@ namespace MPewsey.ManiaMap
         public override string ToString()
         {
             return $"LayoutEdge(Name = {Name}, FromNode = {FromNode}, ToNode = {ToNode}, Direction = {Direction}, DoorCode = {DoorCode})";
+        }
+
+        /// <summary>
+        /// Returns true if the room chance is satisfied.
+        /// </summary>
+        public bool RoomChanceSatisfied(double value)
+        {
+            return RoomChance >= 1 || (RoomChance > 0 && value <= RoomChance);
         }
 
         /// <summary>
@@ -65,6 +76,15 @@ namespace MPewsey.ManiaMap
                 default:
                     throw new Exception($"Unhandled Edge Direction: {Direction}.");
             }
+        }
+
+        /// <summary>
+        /// Sets the room chance for the edge and returns the edge.
+        /// </summary>
+        public LayoutEdge SetRoomChance(float chance)
+        {
+            RoomChance = chance;
+            return this;
         }
 
         /// <summary>
@@ -108,7 +128,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public void Reverse()
         {
-            Direction = Door.ReverseEdgeDirection(Direction);
+            Direction = ReverseEdgeDirection(Direction);
             (FromNode, ToNode) = (ToNode, FromNode);
         }
 
@@ -147,6 +167,28 @@ namespace MPewsey.ManiaMap
             }
 
             return this;
+        }
+
+        /// <summary>
+        /// Returns the reverse of the specified direction.
+        /// </summary>
+        public static EdgeDirection ReverseEdgeDirection(EdgeDirection direction)
+        {
+            switch (direction)
+            {
+                case EdgeDirection.Both:
+                    return EdgeDirection.Both;
+                case EdgeDirection.ForwardFlexible:
+                    return EdgeDirection.ReverseFlexible;
+                case EdgeDirection.ForwardFixed:
+                    return EdgeDirection.ReverseFixed;
+                case EdgeDirection.ReverseFlexible:
+                    return EdgeDirection.ForwardFlexible;
+                case EdgeDirection.ReverseFixed:
+                    return EdgeDirection.ForwardFixed;
+                default:
+                    throw new ArgumentException($"Unhandled Edge Direction: {direction}.");
+            }
         }
     }
 }

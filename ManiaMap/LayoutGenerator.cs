@@ -135,12 +135,22 @@ namespace MPewsey.ManiaMap
         private bool InsertRooms(LayoutEdge backEdge, LayoutEdge aheadEdge)
         {
             var source = Graph.GetNode(backEdge.ToNode);
-            var backNodeId = new Uid(backEdge.FromNode);
-            var aheadNodeId = new Uid(aheadEdge.ToNode);
+            var backNode = Graph.GetNode(backEdge.FromNode);
+            var aheadNode = Graph.GetNode(aheadEdge.ToNode);
+
+            // Try to add edge nodes.
+            var addBackEdgeRoom = backEdge.RoomChanceSatisfied(Random.NextDouble());
+            var addAheadEdgeRoom = aheadEdge.RoomChanceSatisfied(Random.NextDouble());
+            var addedBackEdgeRoom = addBackEdgeRoom && AddRoom(backEdge, backNode.RoomId, backEdge.DoorCode, backEdge.Direction);
+            var addedAheadEdgeRoom = addAheadEdgeRoom && AddRoom(aheadEdge, aheadNode.RoomId, aheadEdge.DoorCode, LayoutEdge.ReverseEdgeDirection(aheadEdge.Direction));
+
+            // Try to insert the node room.
+            var backRoomId = addedBackEdgeRoom ? backEdge.RoomId : backNode.RoomId;
+            var aheadRoomId = addedAheadEdgeRoom ? aheadEdge.RoomId : aheadNode.RoomId;
 
             return InsertRoom(source,
-                backNodeId, backEdge.DoorCode, backEdge.Direction,
-                aheadNodeId, aheadEdge.DoorCode, aheadEdge.Direction);
+                backRoomId, backEdge.DoorCode, backEdge.Direction,
+                aheadRoomId, aheadEdge.DoorCode, aheadEdge.Direction);
         }
 
         /// <summary>
@@ -152,6 +162,7 @@ namespace MPewsey.ManiaMap
             var toNode = Graph.GetNode(edge.ToNode);
             var fromRoomExists = Layout.Rooms.ContainsKey(fromNode.RoomId);
             var toRoomExists = Layout.Rooms.ContainsKey(toNode.RoomId);
+            var addEdgeRoom = edge.RoomChanceSatisfied(Random.NextDouble());
 
             if (toRoomExists)
                 throw new Exception("Chains are not properly ordered.");
@@ -160,8 +171,12 @@ namespace MPewsey.ManiaMap
             if (!fromRoomExists && !AddFirstRoom(fromNode))
                 return false;
 
-            // Try to add the room for the to node.
-            return AddRoom(toNode, fromNode.RoomId, edge.DoorCode, edge.Direction);
+            // Try to add a room for the edge.
+            var addedEdgeRoom = addEdgeRoom && AddRoom(edge, fromNode.RoomId, edge.DoorCode, edge.Direction);
+
+            // Try to add a room for the to node.
+            var fromRoomId = addedEdgeRoom ? edge.RoomId : fromNode.RoomId;
+            return AddRoom(toNode, fromRoomId, edge.DoorCode, edge.Direction);
         }
 
         /// <summary>

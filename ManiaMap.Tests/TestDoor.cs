@@ -70,7 +70,7 @@ namespace MPewsey.ManiaMap.Tests
             for (int i = directions.Count - 1; i >= 0; i--)
             {
                 var (x, y, z) = directions[i];
-                directions.Add((y, x, Door.ReverseEdgeDirection(z)));
+                directions.Add((y, x, LayoutEdge.ReverseEdgeDirection(z)));
             }
 
             var results = directions.Select(x => Door.GetEdgeDirection(x.Item1, x.Item2)).ToList();
