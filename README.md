@@ -65,7 +65,7 @@ var templateGroups = new TemplateGroups();
 templateGroups.Add("Default", roomTemplate);
 ```
 
-### Step 1: Create a Layout Graph 
+### Step 3: Create a Layout Graph 
 
 To provide a designed feel to generated layouts, the generator uses a room layout graph as the basis for generating layouts. The layout graph consists of nodes, representing rooms, and edges, representing door connections between rooms. Ultimately, the layout graph contains information to help guide the features of a room layout. Each graph element can be assigned one or more room template groups (created in Step 2) from which room teplates can be drawn for that location. Z (layer) values can also be assigned to elements to create a multi-level room layout. In addition, properties such as names and colors can be assigned that will be passed on to the generated rooms, allowing for their use elsewhere in a game or other application.
 
