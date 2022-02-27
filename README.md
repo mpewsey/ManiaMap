@@ -18,6 +18,10 @@ This package allows for the creation of procedurally generated metroidvania styl
 * Supports .NET Standard 2.0.
 * Works with Windows, Mac, and Linux.
 
+## Installation
+
+The modules of this package are distributed as DLL files. The latest files can be downloaded from [Releases](https://github.com/mpewsey/ManiaMap/releases/latest).
+
 ## Dependencies
 
 The package modules have the below dependencies. External dependencies can be acquired through NuGet.
