@@ -96,85 +96,104 @@ namespace MPewsey.ManiaMap.Drawing
             var width = TileSize.X * (Padding.Left + Padding.Right + bounds.Width);
             var height = TileSize.Y * (Padding.Top + Padding.Bottom + bounds.Height);
             var map = new Image<Rgba32>(width, height);
-
-            map.Mutate(image =>
-            {
-                // Add background fill
-                image.BackgroundColor(BackgroundColor);
-
-                // Draw grid if tile exists
-                if (Tiles.TryGetValue("Grid", out Image gridTile))
-                {
-                    for (int x = 0; x < width; x += TileSize.X)
-                    {
-                        for (int y = 0; y < height; y += TileSize.Y)
-                        {
-                            image.DrawImage(gridTile, new Point(x, y), 1);
-                        }
-                    }
-                }
-
-                // Draw map tiles
-                var cellTile = new Image<Rgba32>(TileSize.X, TileSize.Y);
-
-                foreach (var room in Layout.Rooms.Values.OrderBy(x => x.Z))
-                {
-                    if (room.Z > z)
-                        break;
-
-                    var opacity = (float)Math.Pow(LowerLayerOpacity, z - room.Z);
-                    var cells = room.Template.Cells;
-                    var x0 = (room.Y - bounds.X + Padding.Left) * TileSize.X;
-                    var y0 = (room.X - bounds.Y + Padding.Top) * TileSize.Y;
-                    cellTile.Mutate(x => x.BackgroundColor(ConvertColor(room.Color)));
-
-                    for (int i = 0; i < cells.Rows; i++)
-                    {
-                        for (int j = 0; j < cells.Columns; j++)
-                        {
-                            var cell = cells[i, j];
-
-                            if (cell != null)
-                            {
-                                var x = TileSize.X * j + x0;
-                                var y = TileSize.Y * i + y0;
-                                var point = new Point(x, y);
-
-                                var north = cells.GetOrDefault(i - 1, j);
-                                var south = cells.GetOrDefault(i + 1, j);
-                                var west = cells.GetOrDefault(i, j - 1);
-                                var east = cells.GetOrDefault(i, j + 1);
-
-                                var topTile = GetTile(room, i, j, DoorDirection.Top, cell.TopDoor, "TopDoor");
-                                var bottomTile = GetTile(room, i, j, DoorDirection.Bottom, cell.BottomDoor, "BottomDoor");
-                                var northTile = GetTile(room, i, j, DoorDirection.North, cell.NorthDoor, north, "NorthDoor", "NorthWall");
-                                var southTile = GetTile(room, i, j, DoorDirection.South, cell.SouthDoor, south, "SouthDoor", "SouthWall");
-                                var westTile = GetTile(room, i, j, DoorDirection.West, cell.WestDoor, west, "WestDoor", "WestWall");
-                                var eastTile = GetTile(room, i, j, DoorDirection.East, cell.EastDoor, east, "EastDoor", "EastWall");
-
-                                // Add cell background fill
-                                image.DrawImage(cellTile, point, opacity);
-
-                                // Superimpose applicable map tiles
-                                if (northTile != null)
-                                    image.DrawImage(northTile, point, opacity);
-                                if (southTile != null)
-                                    image.DrawImage(southTile, point, opacity);
-                                if (westTile != null)
-                                    image.DrawImage(westTile, point, opacity);
-                                if (eastTile != null)
-                                    image.DrawImage(eastTile, point, opacity);
-                                if (topTile != null)
-                                    image.DrawImage(topTile, point, opacity);
-                                if (bottomTile != null)
-                                    image.DrawImage(bottomTile, point, opacity);
-                            }
-                        }
-                    }
-                }
-            });
-
+            map.Mutate(x => DrawMap(x, z, bounds));
             return map;
+        }
+
+        /// <summary>
+        /// Draws the layout map onto the image context.
+        /// </summary>
+        private void DrawMap(IImageProcessingContext image, int z, Rectangle bounds)
+        {
+            image.BackgroundColor(BackgroundColor);
+            DrawGrid(image);
+            DrawMapTiles(image, z, bounds);
+        }
+
+        /// <summary>
+        /// Draws the grid tiles onto the image context.
+        /// </summary>
+        private void DrawGrid(IImageProcessingContext image)
+        {
+            if (Tiles.TryGetValue("Grid", out Image gridTile))
+            {
+                var (width, height) = image.GetCurrentSize();
+
+                for (int x = 0; x < width; x += TileSize.X)
+                {
+                    for (int y = 0; y < height; y += TileSize.Y)
+                    {
+                        image.DrawImage(gridTile, new Point(x, y), 1);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Draws the room map tiles onto the image context.
+        /// </summary>
+        private void DrawMapTiles(IImageProcessingContext image, int z, Rectangle bounds)
+        {
+            var cellTile = new Image<Rgba32>(TileSize.X, TileSize.Y);
+
+            foreach (var room in Layout.Rooms.Values.OrderBy(x => x.Z))
+            {
+                if (room.Z > z)
+                    return;
+
+                var opacity = (float)Math.Pow(LowerLayerOpacity, z - room.Z);
+                var cells = room.Template.Cells;
+                var x0 = (room.Y - bounds.X + Padding.Left) * TileSize.X;
+                var y0 = (room.X - bounds.Y + Padding.Top) * TileSize.Y;
+                cellTile.Mutate(x => x.BackgroundColor(ConvertColor(room.Color)));
+
+                for (int i = 0; i < cells.Rows; i++)
+                {
+                    for (int j = 0; j < cells.Columns; j++)
+                    {
+                        var cell = cells[i, j];
+
+                        if (cell == null)
+                            continue;
+
+                        // Calculate draw position
+                        var x = TileSize.X * j + x0;
+                        var y = TileSize.Y * i + y0;
+                        var point = new Point(x, y);
+
+                        // Get adjacent cells
+                        var north = cells.GetOrDefault(i - 1, j);
+                        var south = cells.GetOrDefault(i + 1, j);
+                        var west = cells.GetOrDefault(i, j - 1);
+                        var east = cells.GetOrDefault(i, j + 1);
+
+                        // Get the wall or door tiles
+                        var topTile = GetTile(room, i, j, DoorDirection.Top, cell.TopDoor, "TopDoor");
+                        var bottomTile = GetTile(room, i, j, DoorDirection.Bottom, cell.BottomDoor, "BottomDoor");
+                        var northTile = GetTile(room, i, j, DoorDirection.North, cell.NorthDoor, north, "NorthDoor", "NorthWall");
+                        var southTile = GetTile(room, i, j, DoorDirection.South, cell.SouthDoor, south, "SouthDoor", "SouthWall");
+                        var westTile = GetTile(room, i, j, DoorDirection.West, cell.WestDoor, west, "WestDoor", "WestWall");
+                        var eastTile = GetTile(room, i, j, DoorDirection.East, cell.EastDoor, east, "EastDoor", "EastWall");
+
+                        // Add cell background fill
+                        image.DrawImage(cellTile, point, opacity);
+
+                        // Superimpose applicable map tiles
+                        if (northTile != null)
+                            image.DrawImage(northTile, point, opacity);
+                        if (southTile != null)
+                            image.DrawImage(southTile, point, opacity);
+                        if (westTile != null)
+                            image.DrawImage(westTile, point, opacity);
+                        if (eastTile != null)
+                            image.DrawImage(eastTile, point, opacity);
+                        if (topTile != null)
+                            image.DrawImage(topTile, point, opacity);
+                        if (bottomTile != null)
+                            image.DrawImage(bottomTile, point, opacity);
+                    }
+                }
+            }
         }
 
         /// <summary>
