@@ -138,7 +138,7 @@ namespace MPewsey.ManiaMap
             var backNode = Graph.GetNode(backEdge.FromNode);
             var aheadNode = Graph.GetNode(aheadEdge.ToNode);
 
-            // Try to add edge nodes.
+            // Try to add back edge room.
             var addBackEdgeRoom = backEdge.RoomChanceSatisfied(Random.NextDouble());
             var addAheadEdgeRoom = aheadEdge.RoomChanceSatisfied(Random.NextDouble());
             var addedBackEdgeRoom = addBackEdgeRoom && AddRoom(backEdge, backNode.RoomId, backEdge.DoorCode, backEdge.Direction);
@@ -146,14 +146,17 @@ namespace MPewsey.ManiaMap
 
             if (addAheadEdgeRoom)
             {
+                // Try to add the node room. If fails, abort.
                 if (!AddRoom(midNode, backRoomId, backEdge.DoorCode, backEdge.Direction))
                     return false;
 
+                // Try to add the ahead edge room.
                 return InsertRoom(aheadEdge,
                     midNode.RoomId, aheadEdge.DoorCode, aheadEdge.Direction,
                     aheadNode.RoomId, aheadEdge.DoorCode, aheadEdge.Direction);
             }
 
+            // Try to add the node room.
             return InsertRoom(midNode,
                 backRoomId, backEdge.DoorCode, backEdge.Direction,
                 aheadNode.RoomId, aheadEdge.DoorCode, aheadEdge.Direction);
