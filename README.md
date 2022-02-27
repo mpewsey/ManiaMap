@@ -15,6 +15,17 @@ This package allows for the creation of procedurally generated metroidvania styl
 * Graph-based procedural generation.
 * Specification of room connection constraints by defining door directions and matching door codes.
 * Rendering of generated layouts to image files using built-in or custom map tiles.
+* Supports .NET Standard 2.0.
+* Works with Windows, Mac, and Linux.
+
+## Dependencies
+
+The package modules have the below dependencies. External dependencies can be acquired through NuGet.
+
+| Module             | Description                         | Dependencies                       |
+|--------------------|-------------------------------------|------------------------------------|
+| `ManiaMap`         | Contains core generator components. | None                               |
+| `ManiaMap.Drawing` | Contains map drawing components.    | `ManiaMap`, `SixLabors.ImageSharp` |
 
 ## Usage
 
