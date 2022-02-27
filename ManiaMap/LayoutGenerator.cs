@@ -124,8 +124,8 @@ namespace MPewsey.ManiaMap
         {
             return aheadEdge != null
                 && backEdge.ToNode == aheadEdge.FromNode
-                && Layout.Rooms.ContainsKey(new Uid(backEdge.FromNode))
                 && Layout.Rooms.ContainsKey(new Uid(aheadEdge.ToNode))
+                && Layout.Rooms.ContainsKey(new Uid(backEdge.FromNode))
                 && !Layout.Rooms.ContainsKey(new Uid(backEdge.ToNode));
         }
 
