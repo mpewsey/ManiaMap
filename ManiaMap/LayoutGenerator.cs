@@ -134,7 +134,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         private bool InsertRooms(LayoutEdge backEdge, LayoutEdge aheadEdge)
         {
-            var source = Graph.GetNode(backEdge.ToNode);
+            var midNode = Graph.GetNode(backEdge.ToNode);
             var backNode = Graph.GetNode(backEdge.FromNode);
             var aheadNode = Graph.GetNode(aheadEdge.ToNode);
 
@@ -148,7 +148,7 @@ namespace MPewsey.ManiaMap
             var backRoomId = addedBackEdgeRoom ? backEdge.RoomId : backNode.RoomId;
             var aheadRoomId = addedAheadEdgeRoom ? aheadEdge.RoomId : aheadNode.RoomId;
 
-            return InsertRoom(source,
+            return InsertRoom(midNode,
                 backRoomId, backEdge.DoorCode, backEdge.Direction,
                 aheadRoomId, aheadEdge.DoorCode, aheadEdge.Direction);
         }
