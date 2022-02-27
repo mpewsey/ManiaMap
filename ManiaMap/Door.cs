@@ -41,6 +41,20 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns true if the two doors have matching values.
+        /// </summary>
+        public static bool Matches(Door x, Door y)
+        {
+            if (x == y)
+                return true;
+
+            if (x == null || y == null)
+                return false;
+
+            return x.Matches(y);
+        }
+
+        /// <summary>
         /// Returns true if the values of the two doors match.
         /// </summary>
         public bool Matches(Door other)

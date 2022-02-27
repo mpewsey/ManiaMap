@@ -225,33 +225,12 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public bool Matches(Cell other)
         {
-            if ((TopDoor == null) != (other.TopDoor == null))
-                return false;
-            if ((BottomDoor == null) != (other.BottomDoor == null))
-                return false;
-            if ((NorthDoor == null) != (other.NorthDoor == null))
-                return false;
-            if ((SouthDoor == null) != (other.SouthDoor == null))
-                return false;
-            if ((EastDoor == null) != (other.EastDoor == null))
-                return false;
-            if ((WestDoor == null) != (other.WestDoor == null))
-                return false;
-
-            if (TopDoor != null && other.TopDoor != null && !TopDoor.Matches(other.TopDoor))
-                return false;
-            if (BottomDoor != null && other.BottomDoor != null && !BottomDoor.Matches(other.BottomDoor))
-                return false;
-            if (NorthDoor != null && other.NorthDoor != null && !NorthDoor.Matches(other.NorthDoor))
-                return false;
-            if (SouthDoor != null && other.SouthDoor != null && !SouthDoor.Matches(other.SouthDoor))
-                return false;
-            if (EastDoor != null && other.EastDoor != null && !EastDoor.Matches(other.EastDoor))
-                return false;
-            if (WestDoor != null && other.WestDoor != null && !WestDoor.Matches(other.WestDoor))
-                return false;
-
-            return true;
+            return Door.Matches(TopDoor, other.TopDoor)
+                && Door.Matches(BottomDoor, other.BottomDoor)
+                && Door.Matches(NorthDoor, other.NorthDoor)
+                && Door.Matches(SouthDoor, other.SouthDoor)
+                && Door.Matches(EastDoor, other.EastDoor)
+                && Door.Matches(WestDoor, other.WestDoor);
         }
     }
 }
