@@ -5,47 +5,24 @@
 
 ## About
 
-This package allows for the creation of procedurally generated metroidvania style layouts from user-defined level layout graphs and room templates. The algorithm is based on [[2]](#2) but does not include a simulated annealing evolver. 
+This package allows for the creation of procedurally generated metroidvania style layouts from user-defined level layout graphs and room templates. The resuling layouts can be used in games, such as those of the rouge-like genre, or to render maps, such as that shown below. The generation algorithm is based on [[2]](#2) but does not include a simulated annealing evolver. 
 
 ![Map](https://user-images.githubusercontent.com/23442063/153345310-25def719-c5a7-43c5-95ca-9e2e09493e54.png)
 
+## Features
+
+* Single and multi-layer 2D room layout generation.
+* Graph-based procedural generation.
+* Specification of room connection constraints by defining door directions and matching door codes.
+* Rendering of generated layouts to image files using built-in or custom map tiles.
+
 ## Usage
 
-### Step 1: Create a Layout Graph 
+### Step 1: Create Room Templates
 
-The layout generator uses an input graph as the basis for generating layouts. The graph provides input such as:
+The generator creates rooms by pulling from user-defined room templates. Room templates consist of a 2D array of cells, that may be empty (a null value) or filled. Each cell includes the possible door connections (north, south, east, west, top, and/or bottom) that can be made from that cell to other rooms. Furthermore, each door includes a door code, which requires a match in another template for a connection to be made, as well as a traversal type, such the door being one-way or two-way.
 
-* How many rooms are there?
-* How are rooms connected?
-* Do room connections have any constraints, such as one-way doors?
-* Which room templates can be used at each location?
-
-The below example creates several nodes (room locations) and connects them by various edges (door connections) in accordance with the shown graph.
-
-```LayoutGraph.cs
-var graph = new LayoutGraph(id: 1, name: "ExampleGraph");
-
-// Define edges between nodes. Nodes not already in graph will automatically be created.
-graph.AddEdge(0, 1);
-graph.AddEdge(1, 2);
-graph.AddEdge(0, 3);
-graph.AddEdge(0, 4);
-graph.AddEdge(0, 5);
-
-// Add "Default" template group to nodes.
-foreach (var node in graph.GetNodes())
-{
-    node.AddTemplateGroups("Default");
-}
-```
-
-![Example Layout Graph](https://user-images.githubusercontent.com/23442063/153694050-f653f3df-8170-4a2e-bd05-8f35083ccfef.png)
-
-### Step 2: Create Room Templates
-
-Room templates consist of a 2D array of cells. Each cell includes the possible door connections that can be made from that cell to other rooms. Null (or unassigned) values for doors indicate one does not exist at that location. Likewise, null values in the cell array indicate that the room does not exist at that location.
-
-An example 3x3 square room template is shown below:
+Depending on how much variety you want to be included in your layout, one or more templates are required by the generator. The following code provides an example for the creation of a simple 3x3 square room template. In it, a series of cells are created and have doors set to them via directional characters ("N" = North, "S" = South, etc.). The cells are then assigned to a 2D array to create the geometry of the layout. Finally, these cells are passed to the `RoomTemplate` initializer, along with a unique ID, to create the room template.
 
 ```RoomTemplate.cs
 var o = Cell.New;
@@ -68,18 +45,43 @@ var cells = new Cell[,]
 var roomTemplate = new RoomTemplate(id: 1, name: "Square", cells);
 ```
 
-### Step 3: Assign Room Templates to Template Groups
+### Step 2: Assign Room Templates to Template Groups
 
-Once some room templates have been defined, they must be added to one or more room template groups for lookup based on group(s) assigned to the layout graph nodes. This is done by simply adding them to a `TemplateGroups` object:
+Once some room template have been defined, they must be added to one or more room template groups, which can be referenced by name later. This is accomplished by simply adding them to a `TemplateGroups` object:
 
 ```TemplateGroups.cs
 var templateGroups = new TemplateGroups();
 templateGroups.Add("Default", roomTemplate);
 ```
 
+### Step 1: Create a Layout Graph 
+
+To provide a designed feel to generated layouts, the generator uses a room layout graph as the basis for generating layouts. The layout graph consists of nodes, representing rooms, and edges, representing door connections between rooms. Ultimately, the layout graph contains information to help guide the features of a room layout. Each graph element can be assigned one or more room template groups (created in Step 2) from which room teplates can be drawn for that location. Z (layer) values can also be assigned to elements to create a multi-level room layout. In addition, properties such as names and colors can be assigned that will be passed on to the generated rooms, allowing for their use elsewhere in a game or other application.
+
+In the below example, the graph shown in the image is created by adding edges to a graph. In the process, the nodes, representing rooms, are automatically created. Afterwards, the code loops over all of the created nodes and assigns a "Default" template group to them, from which room templates will be drawn by the generator.
+
+```LayoutGraph.cs
+var graph = new LayoutGraph(id: 1, name: "ExampleGraph");
+
+// Define edges between nodes. Nodes not already in graph will automatically be created.
+graph.AddEdge(0, 1);
+graph.AddEdge(1, 2);
+graph.AddEdge(0, 3);
+graph.AddEdge(0, 4);
+graph.AddEdge(0, 5);
+
+// Add "Default" template group to nodes.
+foreach (var node in graph.GetNodes())
+{
+    node.AddTemplateGroups("Default");
+}
+```
+
+![Example Layout Graph](https://user-images.githubusercontent.com/23442063/153694050-f653f3df-8170-4a2e-bd05-8f35083ccfef.png)
+
 ### Step 4: Run the Layout Generator
 
-Finally, to generate a room layout, pick a random seed and pass your layout graph and room template groups to the `LayoutGenerator`. A map of the layout can also be rendered using either the default tiles (shown in the layout below) or your own custom map tiles.
+To create repeatable layouts, a random seed is used by the layout generator. To generate a room layout, simply select a seed and pass your layout graph and room template groups to the `LayoutGenerator`, as shown below. In the example, a map of the layout is also rendered and saved using the `LayoutMap` class. For this instance, the default built-in tiles are used. However, custom tiles can also be specified by the user.
 
 ```LayoutGenerator.cs
 var generator = new LayoutGenerator(seed: 12345, graph, templateGroups);
