@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace MPewsey.ManiaMap
 {
     [DataContract]
-    public class LayoutNode
+    public class LayoutNode : IRoomSource
     {
         [DataMember(Order = 1)]
         public int Id { get; set; }
@@ -21,6 +21,8 @@ namespace MPewsey.ManiaMap
 
         [DataMember(Order = 5)]
         public Color Color { get; set; } = Color.MidnightBlue;
+
+        public Uid RoomId { get => new Uid(Id); }
 
         public LayoutNode(int id)
         {

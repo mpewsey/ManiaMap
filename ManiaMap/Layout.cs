@@ -14,7 +14,7 @@ namespace MPewsey.ManiaMap
         public int Seed { get; private set; }
 
         [DataMember(Order = 2)]
-        public Dictionary<int, Room> Rooms { get; private set; } = new Dictionary<int, Room>();
+        public Dictionary<Uid, Room> Rooms { get; private set; } = new Dictionary<Uid, Room>();
 
         [DataMember(Order = 3)]
         public List<DoorConnection> DoorConnections { get; private set; } = new List<DoorConnection>();
@@ -31,7 +31,7 @@ namespace MPewsey.ManiaMap
         {
             Name = baseLayout.Name;
             Seed = baseLayout.Seed;
-            Rooms = new Dictionary<int, Room>(baseLayout.Rooms);
+            Rooms = new Dictionary<Uid, Room>(baseLayout.Rooms);
             DoorConnections = new List<DoorConnection>(baseLayout.DoorConnections);
             baseLayout.Rebases++;
         }
@@ -136,9 +136,9 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a new dictionary of room doors by room ID.
         /// </summary>
-        public Dictionary<int, List<DoorPosition>> RoomDoors()
+        public Dictionary<Uid, List<DoorPosition>> RoomDoors()
         {
-            var dict = new Dictionary<int, List<DoorPosition>>(Rooms.Count);
+            var dict = new Dictionary<Uid, List<DoorPosition>>(Rooms.Count);
 
             foreach (var connection in DoorConnections)
             {
@@ -164,21 +164,21 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a new dictionary of neighbor rooms in the layout.
         /// </summary>
-        public Dictionary<int, List<int>> RoomAdjacencies()
+        public Dictionary<Uid, List<Uid>> RoomAdjacencies()
         {
-            var dict = new Dictionary<int, List<int>>(Rooms.Count);
+            var dict = new Dictionary<Uid, List<Uid>>(Rooms.Count);
 
             foreach (var connection in DoorConnections)
             {
                 if (!dict.TryGetValue(connection.FromRoom, out var fromNeighbors))
                 {
-                    fromNeighbors = new List<int>();
+                    fromNeighbors = new List<Uid>();
                     dict.Add(connection.FromRoom, fromNeighbors);
                 }
 
                 if (!dict.TryGetValue(connection.ToRoom, out var toNeighbors))
                 {
-                    toNeighbors = new List<int>();
+                    toNeighbors = new List<Uid>();
                     dict.Add(connection.ToRoom, toNeighbors);
                 }
 
@@ -192,7 +192,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns the neighbors of the room up to the specified max depth.
         /// </summary>
-        public List<int> FindNeighbors(int room, int maxDepth)
+        public List<Uid> FindNeighbors(Uid room, int maxDepth)
         {
             return new LayoutNeighborSearch(this, maxDepth).FindNeighbors(room);
         }

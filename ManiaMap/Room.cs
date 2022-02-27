@@ -7,7 +7,7 @@ namespace MPewsey.ManiaMap
     public class Room
     {
         [DataMember(Order = 0)]
-        public int Id { get; private set; }
+        public Uid Id { get; private set; }
 
         [DataMember(Order = 1)]
         public string Name { get; set; } = string.Empty;
@@ -30,15 +30,15 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 7)]
         public RoomTemplate Template { get; private set; }
 
-        public Room(LayoutNode node, int x, int y, int seed, RoomTemplate template)
+        public Room(IRoomSource source, int x, int y, int seed, RoomTemplate template)
         {
-            Id = node.Id;
-            Name = node.Name;
+            Id = source.RoomId;
+            Name = source.Name;
             X = x;
             Y = y;
-            Z = node.Z;
+            Z = source.Z;
             Seed = seed;
-            Color = node.Color;
+            Color = source.Color;
             Template = template;
         }
 

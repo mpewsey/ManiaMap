@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
     [DataContract]
-    public class LayoutEdge
+    public class LayoutEdge : IRoomSource
     {
         [DataMember(Order = 1)]
         public string Name { get; set; } = string.Empty;
@@ -23,7 +24,18 @@ namespace MPewsey.ManiaMap
         public int DoorCode { get; set; }
 
         [DataMember(Order = 6)]
+        public int Z { get; set; }
+
+        [DataMember(Order = 7)]
+        public float RoomChance { get; set; }
+
+        [DataMember(Order = 8)]
+        public Color Color { get; set; } = Color.MidnightBlue;
+
+        [DataMember(Order = 9)]
         public List<string> TemplateGroups { get; private set; } = new List<string>();
+
+        public Uid RoomId { get => new Uid(FromNode, ToNode, 1); }
 
         public LayoutEdge(int fromNode, int toNode)
         {
@@ -34,6 +46,14 @@ namespace MPewsey.ManiaMap
         public override string ToString()
         {
             return $"LayoutEdge(Name = {Name}, FromNode = {FromNode}, ToNode = {ToNode}, Direction = {Direction}, DoorCode = {DoorCode})";
+        }
+
+        /// <summary>
+        /// Returns true if the room chance is satisfied.
+        /// </summary>
+        public bool RoomChanceSatisfied(double value)
+        {
+            return RoomChance >= 1 || (RoomChance > 0 && value <= RoomChance);
         }
 
         /// <summary>
@@ -59,6 +79,33 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Sets the room chance for the edge and returns the edge.
+        /// </summary>
+        public LayoutEdge SetRoomChance(float chance)
+        {
+            RoomChance = chance;
+            return this;
+        }
+
+        /// <summary>
+        /// Sets the Z value of the edge and returns the edge.
+        /// </summary>
+        public LayoutEdge SetZ(int z)
+        {
+            Z = z;
+            return this;
+        }
+
+        /// <summary>
+        /// Sets the color of the edge and returns the edge.
+        /// </summary>
+        public LayoutEdge SetColor(Color color)
+        {
+            Color = color;
+            return this;
+        }
+
+        /// <summary>
         /// Sets the direction of the edge and returns the edge.
         /// </summary>
         public LayoutEdge SetDirection(EdgeDirection direction)
@@ -81,7 +128,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public void Reverse()
         {
-            Direction = Door.ReverseEdgeDirection(Direction);
+            Direction = ReverseEdgeDirection(Direction);
             (FromNode, ToNode) = (ToNode, FromNode);
         }
 
@@ -120,6 +167,28 @@ namespace MPewsey.ManiaMap
             }
 
             return this;
+        }
+
+        /// <summary>
+        /// Returns the reverse of the specified direction.
+        /// </summary>
+        public static EdgeDirection ReverseEdgeDirection(EdgeDirection direction)
+        {
+            switch (direction)
+            {
+                case EdgeDirection.Both:
+                    return EdgeDirection.Both;
+                case EdgeDirection.ForwardFlexible:
+                    return EdgeDirection.ReverseFlexible;
+                case EdgeDirection.ForwardFixed:
+                    return EdgeDirection.ReverseFixed;
+                case EdgeDirection.ReverseFlexible:
+                    return EdgeDirection.ForwardFlexible;
+                case EdgeDirection.ReverseFixed:
+                    return EdgeDirection.ForwardFixed;
+                default:
+                    throw new ArgumentException($"Unhandled Edge Direction: {direction}.");
+            }
         }
     }
 }

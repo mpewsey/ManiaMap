@@ -11,8 +11,8 @@ namespace MPewsey.ManiaMap
         public LayoutGraph Graph { get; set; }
         public TemplateGroups TemplateGroups { get; set; }
         private Dictionary<TemplatePair, ConfigurationSpace> ConfigurationSpaces { get; set; }
-        private List<List<LayoutEdge>> Chains { get; set; }
         private Random Random { get; set; }
+        private Layout Layout { get; set; }
 
         public LayoutGenerator(int seed, LayoutGraph graph, TemplateGroups templateGroups,
             int maxRebases = 100, int maxBranchLength = -1)
@@ -36,23 +36,22 @@ namespace MPewsey.ManiaMap
         {
             int chain = 0;
             Random = new Random(Seed);
-            Chains = Graph.FindChains(MaxBranchLength);
             ConfigurationSpaces = TemplateGroups.GetConfigurationSpaces();
+            var chains = Graph.FindChains(MaxBranchLength);
             var layouts = new Stack<Layout>();
             layouts.Push(new Layout(Graph.Name, Seed));
 
             while (layouts.Count > 0)
             {
-                var baseLayout = layouts.Peek();
+                Layout = layouts.Peek();
 
-                if (chain >= Chains.Count)
-                {
-                    return baseLayout;
-                }
+                // If all chains have been added, return the layout.
+                if (chain >= chains.Count)
+                    return Layout;
 
-                // If layout has been used as base more than the maximum allowable,
+                // If layout has been used as a base more than the maximum allowable count,
                 // remove the layout and backtrack.
-                if (baseLayout.Rebases >= MaxRebases)
+                if (Layout.Rebases >= MaxRebases)
                 {
                     layouts.Pop();
                     chain--;
@@ -60,11 +59,11 @@ namespace MPewsey.ManiaMap
                 }
 
                 // Create a new layout and try to add the next chain.
-                var layout = new Layout(baseLayout);
+                Layout = new Layout(Layout);
 
-                if (AddChain(layout, Chains[chain]))
+                if (AddChain(chains[chain]))
                 {
-                    layouts.Push(layout);
+                    layouts.Push(Layout);
                     chain++;
                 }
             }
@@ -73,30 +72,43 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Attempts to add the specified chain index to the layout.
-        /// Returns true if successful.
+        /// Returns a new shuffled list of configurations for the room templates.
         /// </summary>
-        private bool AddChain(Layout layout, List<LayoutEdge> chain)
+        private List<Configuration> GetConfigurations(RoomTemplate x, RoomTemplate y)
+        {
+            var space = ConfigurationSpaces[new TemplatePair(x, y)];
+            var result = new List<Configuration>(space.Configurations);
+            Shuffle(result);
+            return result;
+        }
+
+        /// <summary>
+        /// Returns a new shuffled list of room templates for the groups.
+        /// </summary>
+        private List<RoomTemplate> GetTemplates(List<string> groups)
+        {
+            var templates = TemplateGroups.GetTemplates(groups);
+            Shuffle(templates);
+            return templates;
+        }
+
+        /// <summary>
+        /// Attempts to add the chain to the layout. Returns true if successful.
+        /// </summary>
+        private bool AddChain(List<LayoutEdge> chain)
         {
             for (int i = 0; i < chain.Count; i++)
             {
                 var backEdge = chain[i];
-                var aheadEdge = i < chain.Count - 1 ? chain[i + 1] : null;
+                var aheadEdge = i + 1 < chain.Count ? chain[i + 1] : null;
 
-                if (CanInsertRoom(layout, backEdge, aheadEdge))
+                if (CanInsertRoom(backEdge, aheadEdge))
                 {
-                    var backRoom = layout.Rooms[backEdge.FromNode];
-                    var aheadRoom = layout.Rooms[aheadEdge.ToNode];
-                    var node = Graph.GetNode(backEdge.ToNode);
-                    i++;
-
-                    if (!InsertRoom(layout, node, backRoom, aheadRoom, backEdge.DoorCode,
-                        aheadEdge.DoorCode, backEdge.Direction, aheadEdge.Direction))
-                    {
+                    if (!InsertRooms(backEdge, aheadEdge))
                         return false;
-                    }
+                    i++;
                 }
-                else if (!AddEdge(layout, backEdge))
+                else if (!AddRooms(backEdge))
                 {
                     return false;
                 }
@@ -106,88 +118,117 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns true if a room can be inserted between two rooms.
+        /// Returns true if the middle node for the edges can be inserted between existing rooms.
         /// </summary>
-        private static bool CanInsertRoom(Layout layout, LayoutEdge backEdge, LayoutEdge aheadEdge)
+        private bool CanInsertRoom(LayoutEdge backEdge, LayoutEdge aheadEdge)
         {
             return aheadEdge != null
                 && backEdge.ToNode == aheadEdge.FromNode
-                && layout.Rooms.ContainsKey(backEdge.FromNode)
-                && layout.Rooms.ContainsKey(aheadEdge.ToNode)
-                && !layout.Rooms.ContainsKey(backEdge.ToNode);
+                && Layout.Rooms.ContainsKey(new Uid(backEdge.FromNode))
+                && Layout.Rooms.ContainsKey(new Uid(aheadEdge.ToNode))
+                && !Layout.Rooms.ContainsKey(new Uid(backEdge.ToNode));
         }
 
         /// <summary>
-        /// Attempts to add the specified edge to the layout.
-        /// Returns true if successful.
+        /// Attemps to insert the rooms for the edges into the layout. Returns true if successful.
         /// </summary>
-        private bool AddEdge(Layout layout, LayoutEdge edge)
+        private bool InsertRooms(LayoutEdge backEdge, LayoutEdge aheadEdge)
         {
-            var fromExists = layout.Rooms.TryGetValue(edge.FromNode, out var fromRoom);
-            var toExists = layout.Rooms.TryGetValue(edge.ToNode, out var toRoom);
+            var midNode = Graph.GetNode(backEdge.ToNode);
+            var backNode = Graph.GetNode(backEdge.FromNode);
+            var aheadNode = Graph.GetNode(aheadEdge.ToNode);
 
-            if (!fromExists && !toExists)
-            {
-                var fromNode = Graph.GetNode(edge.FromNode);
-                var toNode = Graph.GetNode(edge.ToNode);
-                return AddFirstRoom(layout, fromNode)
-                    && AddRoom(layout, toNode, layout.Rooms[edge.FromNode], edge.DoorCode, edge.Direction);
-            }
+            // Try to add edge nodes.
+            var addBackEdgeRoom = backEdge.RoomChanceSatisfied(Random.NextDouble());
+            var addAheadEdgeRoom = aheadEdge.RoomChanceSatisfied(Random.NextDouble());
+            var addedBackEdgeRoom = addBackEdgeRoom && AddRoom(backEdge, backNode.RoomId, backEdge.DoorCode, backEdge.Direction);
+            var addedAheadEdgeRoom = addAheadEdgeRoom && AddRoom(aheadEdge, aheadNode.RoomId, aheadEdge.DoorCode, LayoutEdge.ReverseEdgeDirection(aheadEdge.Direction));
 
-            if (!fromExists)
-            {
-                var node = Graph.GetNode(edge.FromNode);
-                var direction = Door.ReverseEdgeDirection(edge.Direction);
-                return AddRoom(layout, node, toRoom, edge.DoorCode, direction);
-            }
+            // Try to insert the node room.
+            var backRoomId = addedBackEdgeRoom ? backEdge.RoomId : backNode.RoomId;
+            var aheadRoomId = addedAheadEdgeRoom ? aheadEdge.RoomId : aheadNode.RoomId;
 
-            if (!toExists)
-            {
-                var node = Graph.GetNode(edge.ToNode);
-                return AddRoom(layout, node, fromRoom, edge.DoorCode, edge.Direction);
-            }
-
-            return AddRoomConnection(layout, fromRoom, toRoom, edge.DoorCode, edge.Direction);
+            return InsertRoom(midNode,
+                backRoomId, backEdge.DoorCode, backEdge.Direction,
+                aheadRoomId, aheadEdge.DoorCode, aheadEdge.Direction);
         }
 
         /// <summary>
-        /// Attempts to insert a new room to the layout between the specified rooms.
-        /// Returns true if successful.
+        /// Attempts to add the rooms for the edge to the layout. Returns true if successful.
         /// </summary>
-        private bool InsertRoom(Layout layout, LayoutNode node, Room backRoom, Room aheadRoom,
-            int backDoorCode, int aheadDoorCode, EdgeDirection backDirection, EdgeDirection aheadDirection)
+        private bool AddRooms(LayoutEdge edge)
         {
-            var templates = TemplateGroups.GetTemplates(node.TemplateGroups);
-            Shuffle(templates);
+            var fromNode = Graph.GetNode(edge.FromNode);
+            var toNode = Graph.GetNode(edge.ToNode);
+            var fromRoomExists = Layout.Rooms.ContainsKey(fromNode.RoomId);
+            var toRoomExists = Layout.Rooms.ContainsKey(toNode.RoomId);
+            var addEdgeRoom = edge.RoomChanceSatisfied(Random.NextDouble());
 
-            foreach (var template in templates)
+            if (toRoomExists)
+                throw new Exception("Chains are not properly ordered.");
+
+            // If both rooms do not exist, add the first room. If that fails, abort.
+            if (!fromRoomExists && !AddFirstRoom(fromNode))
+                return false;
+
+            // Try to add a room for the edge.
+            var addedEdgeRoom = addEdgeRoom && AddRoom(edge, fromNode.RoomId, edge.DoorCode, edge.Direction);
+
+            // Try to add a room for the to node.
+            var fromRoomId = addedEdgeRoom ? edge.RoomId : fromNode.RoomId;
+            return AddRoom(toNode, fromRoomId, edge.DoorCode, edge.Direction);
+        }
+
+        /// <summary>
+        /// Attempts to add the nodes from node to the layout. Returns true if successful.
+        /// </summary>
+        private bool AddFirstRoom(IRoomSource source)
+        {
+            // Get the first template and add it to the layout.
+            foreach (var template in GetTemplates(source.TemplateGroups))
             {
-                var space = ConfigurationSpaces[new TemplatePair(backRoom.Template, template)];
-                var configurations = new List<Configuration>(space.Configurations);
-                Shuffle(configurations);
+                var room = new Room(source, 0, 0, Random.Next(), template);
+                Layout.Rooms.Add(room.Id, room);
+                return true;
+            }
 
-                foreach (var config in configurations)
+            return false;
+        }
+
+        /// <summary>
+        /// Attempts to add a new room for the to node of the edge. Returns true if successful.
+        /// </summary>
+        private bool AddRoom(IRoomSource source,
+            Uid fromRoomId, int code, EdgeDirection direction)
+        {
+            var fromRoom = Layout.Rooms[fromRoomId];
+            var z = source.Z - fromRoom.Z;
+
+            foreach (var template in GetTemplates(source.TemplateGroups))
+            {
+                foreach (var config in GetConfigurations(fromRoom.Template, template))
                 {
-                    var x = config.X + backRoom.X;
-                    var y = config.Y + backRoom.Y;
-                    var z = node.Z - backRoom.Z;
+                    var x = config.X + fromRoom.X;
+                    var y = config.Y + fromRoom.Y;
 
-                    if (!config.Matches(z, backDoorCode, backDirection) || layout.Intersects(template, x, y, node.Z))
+                    // Check if the configuration can be added to the layout. If not, try the next one.
+                    if (!config.Matches(z, code, direction))
+                        continue;
+                    if (Layout.Intersects(template, x, y, source.Z))
                         continue;
 
-                    var newRoom = new Room(node, x, y, Random.Next(), template);
+                    // Add the room to the layout.
+                    var room = new Room(source, x, y, Random.Next(), template);
+                    Layout.Rooms.Add(room.Id, room);
 
-                    if (!AddRoomConnection(layout, newRoom, aheadRoom, aheadDoorCode, aheadDirection))
-                        continue;
-
-                    if (!AddDoorConnection(layout, backRoom, newRoom, config.FromDoor, config.ToDoor))
+                    // Try to create a door connection between the rooms.
+                    if (!AddDoorConnection(fromRoomId, source.RoomId, config))
                     {
-                        // Remove the door connection added previously
-                        layout.DoorConnections.RemoveAt(layout.DoorConnections.Count - 1);
+                        // Remove the room added previously.
+                        Layout.Rooms.Remove(room.Id);
                         continue;
                     }
 
-                    layout.Rooms.Add(node.Id, newRoom);
                     return true;
                 }
             }
@@ -196,34 +237,59 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Attempts to add a new room to the layout attached to the specified room.
-        /// Returns true if successful.
+        /// Attemps to insert a new room between two rooms. Returns true if successful.
         /// </summary>
-        private bool AddRoom(Layout layout, LayoutNode node, Room room, int doorCode, EdgeDirection direction)
+        private bool InsertRoom(IRoomSource source,
+            Uid backRoomId, int backCode, EdgeDirection backDirection,
+            Uid aheadRoomId, int aheadCode, EdgeDirection aheadDirection)
         {
-            var templates = TemplateGroups.GetTemplates(node.TemplateGroups);
-            Shuffle(templates);
+            var backRoom = Layout.Rooms[backRoomId];
+            var aheadRoom = Layout.Rooms[aheadRoomId];
+            var z1 = source.Z - backRoom.Z;
+            var z2 = aheadRoom.Z - source.Z;
 
-            foreach (var template in templates)
+            foreach (var template in GetTemplates(source.TemplateGroups))
             {
-                var space = ConfigurationSpaces[new TemplatePair(room.Template, template)];
-                var configurations = new List<Configuration>(space.Configurations);
-                Shuffle(configurations);
-
-                foreach (var config in configurations)
+                foreach (var config1 in GetConfigurations(backRoom.Template, template))
                 {
-                    var x = config.X + room.X;
-                    var y = config.Y + room.Y;
-                    var z = node.Z - room.Z;
+                    var x1 = config1.X + backRoom.X;
+                    var y1 = config1.Y + backRoom.Y;
 
-                    if (!config.Matches(z, doorCode, direction) || layout.Intersects(template, x, y, node.Z))
+                    // Check if the configuration can be added to the layout. If not, try the next one.
+                    if (!config1.Matches(z1, backCode, backDirection))
+                        continue;
+                    if (Layout.Intersects(template, x1, y1, source.Z))
                         continue;
 
-                    var newRoom = new Room(node, x, y, Random.Next(), template);
-
-                    if (AddDoorConnection(layout, room, newRoom, config.FromDoor, config.ToDoor))
+                    foreach (var config2 in GetConfigurations(template, aheadRoom.Template))
                     {
-                        layout.Rooms.Add(node.Id, newRoom);
+                        var x2 = aheadRoom.X - x1;
+                        var y2 = aheadRoom.Y - y1;
+
+                        // Check if the configuration can be added to the layout. If not, try the next one.
+                        if (!config2.Matches(x2, y2, z2, aheadCode, aheadDirection))
+                            continue;
+
+                        var room = new Room(source, x1, y1, Random.Next(), template);
+                        Layout.Rooms.Add(room.Id, room);
+
+                        // Try to create a door connection between the rooms.
+                        if (!AddDoorConnection(backRoomId, source.RoomId, config1))
+                        {
+                            // Remove the room added previously.
+                            Layout.Rooms.Remove(room.Id);
+                            continue;
+                        }
+
+                        // Try to create a door connection between the rooms.
+                        if (!AddDoorConnection(source.RoomId, aheadRoomId, config2))
+                        {
+                            // Remove the room and door connection added previously.
+                            Layout.Rooms.Remove(room.Id);
+                            Layout.DoorConnections.RemoveAt(Layout.DoorConnections.Count - 1);
+                            continue;
+                        }
+
                         return true;
                     }
                 }
@@ -233,75 +299,39 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Attempts to add the first room to the layout.
+        /// Attemps to add the door connection for the edge and configuration.
+        /// Returns true if successful.
         /// </summary>
-        private bool AddFirstRoom(Layout layout, LayoutNode node)
+        private bool AddDoorConnection(Uid fromRoomId, Uid toRoomId, Configuration config)
         {
-            var templates = TemplateGroups.GetTemplates(node.TemplateGroups);
-            Shuffle(templates);
+            var fromRoom = Layout.Rooms[fromRoomId];
+            var toRoom = Layout.Rooms[toRoomId];
+            var fromDoor = config.FromDoor;
+            var toDoor = config.ToDoor;
 
-            foreach (var template in templates)
+            if (Math.Abs(fromRoom.Z - toRoom.Z) <= 1)
             {
-                if (layout.Intersects(template, 0, 0, node.Z))
+                // Rooms do not require shaft connection. Simply add the door connection.
+                var connection = new DoorConnection(fromRoom, toRoom, fromDoor, toDoor);
+                Layout.DoorConnections.Add(connection);
+            }
+            else
+            {
+                // Shaft is required.
+                var x = fromDoor.X + fromRoom.X;
+                var y = fromDoor.Y + fromRoom.Y;
+                var zMin = Math.Min(fromRoom.Z, toRoom.Z) + 1;
+                var zMax = Math.Max(fromRoom.Z, toRoom.Z) - 1;
+
+                // If shaft intersects the layout, abort adding the door connection.
+                if (Layout.Intersects(x, x, y, y, zMin, zMax))
                     return false;
 
-                var newRoom = new Room(node, 0, 0, Random.Next(), template);
-                layout.Rooms.Add(node.Id, newRoom);
-                return true;
+                var shaft = new Box(x, x, y, y, zMin, zMax);
+                var connection = new DoorConnection(fromRoom, toRoom, fromDoor, toDoor, shaft);
+                Layout.DoorConnections.Add(connection);
             }
 
-            return false;
-        }
-
-        /// <summary>
-        /// Attempts to add the door connection to the layout.
-        /// Returns true if successful.
-        /// </summary>
-        private bool AddRoomConnection(Layout layout, Room from, Room to, int doorCode, EdgeDirection direction)
-        {
-            var dx = to.X - from.X;
-            var dy = to.Y - from.Y;
-            var dz = to.Z - from.Z;
-            var space = ConfigurationSpaces[new TemplatePair(from.Template, to.Template)];
-            var configurations = new List<Configuration>(space.Configurations);
-            Shuffle(configurations);
-
-            foreach (var config in configurations)
-            {
-                if (!config.Matches(dx, dy, dz, doorCode, direction))
-                    continue;
-
-                if (AddDoorConnection(layout, from, to, config.FromDoor, config.ToDoor))
-                    return true;
-            }
-
-            return false;
-        }
-
-        /// <summary>
-        /// Attemps to add a door connection to the layout.
-        /// Returns true if successful.
-        /// </summary>
-        private bool AddDoorConnection(Layout layout, Room from, Room to, DoorPosition fromDoor, DoorPosition toDoor)
-        {
-            if (Math.Abs(from.Z - to.Z) <= 1)
-            {
-                var connection = new DoorConnection(from.Id, to.Id, fromDoor, toDoor);
-                layout.DoorConnections.Add(connection);
-                return true;
-            }
-
-            var x = fromDoor.X + from.X;
-            var y = fromDoor.Y + from.Y;
-            var zMin = Math.Min(from.Z, to.Z) + 1;
-            var zMax = Math.Max(from.Z, to.Z) - 1;
-
-            if (layout.Intersects(x, x, y, y, zMin, zMax))
-                return false;
-
-            var shaft = new Box(x, x, y, y, zMin, zMax);
-            var shaftConnection = new DoorConnection(from.Id, to.Id, fromDoor, toDoor, shaft);
-            layout.DoorConnections.Add(shaftConnection);
             return true;
         }
 
