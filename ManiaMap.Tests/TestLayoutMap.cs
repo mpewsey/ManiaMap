@@ -7,7 +7,7 @@ namespace MPewsey.ManiaMap.Drawing.Tests
     public class TestLayoutMap
     {
         [TestMethod]
-        public void TestSaveImage()
+        public void TestSaveManiaMapImage()
         {
             var layout = Samples.ManiaMapSample.ManiaMapLayout();
 
@@ -21,6 +21,41 @@ namespace MPewsey.ManiaMap.Drawing.Tests
 
             var map = new LayoutMap(layout, padding: new Padding(4));
             map.SaveImage("ManiaMap.png");
+        }
+
+        [TestMethod]
+        public void TestSaveHyperSquareStackedLoopLayoutImage()
+        {
+            var graph = Samples.GraphLibrary.StackedLoopGraph();
+
+            var templateGroups = new TemplateGroups();
+            templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
+
+            var generator = new LayoutGenerator(12345, graph, templateGroups);
+            var layout = generator.GenerateLayout();
+
+            Assert.IsNotNull(layout);
+
+            var map = new LayoutMap(layout);
+            map.SaveImage("HyperSquareMap.png");
+        }
+
+        [TestMethod]
+        public void TestSaveLLoopLayoutImage()
+        {
+            var graph = Samples.GraphLibrary.LoopGraph();
+
+            var templateGroups = new TemplateGroups();
+            var template = Samples.TemplateLibrary.Miscellaneous.LTemplate();
+            templateGroups.Add("Default", template.UniqueVariations());
+
+            var generator = new LayoutGenerator(12345, graph, templateGroups);
+            var layout = generator.GenerateLayout();
+
+            Assert.IsNotNull(layout);
+
+            var map = new LayoutMap(layout);
+            map.SaveImage("LLoopMap.png");
         }
 
         [TestMethod]
