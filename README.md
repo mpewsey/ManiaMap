@@ -20,7 +20,7 @@ This package allows for the creation of procedurally generated metroidvania styl
 
 ## Installation
 
-The modules of this package are distributed as DLL files. The latest files can be downloaded from [Releases](https://github.com/mpewsey/ManiaMap/releases/latest).
+The modules of this package are distributed as DLL files. The latest files can be downloaded from [Releases](https://github.com/mpewsey/ManiaMap/releases/latest). Simply reference these files in your project and import from the `MPewsey.ManiaMap` namespace.
 
 ## Dependencies
 
