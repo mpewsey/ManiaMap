@@ -31,6 +31,29 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
+        public void TestHyperSquareStackedLoopLayout()
+        {
+            var graph = Samples.GraphLibrary.StackedLoopGraph();
+
+            var templateGroups = new TemplateGroups();
+            templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
+
+            var generator = new LayoutGenerator(12345, graph, templateGroups);
+            var layout = generator.GenerateLayout();
+
+            Assert.IsNotNull(layout);
+
+            Console.WriteLine("Rooms:");
+            Console.WriteLine(string.Join("\n", layout.Rooms.Values));
+
+            Console.WriteLine("\nDoor Connections:");
+            Console.WriteLine(string.Join("\n", layout.DoorConnections));
+
+            Assert.AreEqual(graph.NodeCount, layout.Rooms.Count);
+            Assert.AreEqual(graph.EdgeCount, layout.DoorConnections.Count);
+        }
+
+        [TestMethod]
         public void TestLLoopLayout()
         {
             var graph = Samples.GraphLibrary.LoopGraph();

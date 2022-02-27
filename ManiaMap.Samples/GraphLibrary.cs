@@ -69,5 +69,33 @@
 
             return graph;
         }
+
+        public static LayoutGraph StackedLoopGraph()
+        {
+            var graph = new LayoutGraph(4, "StackedLoopLayoutGraph");
+
+            graph.AddNode(0).SetZ(2);
+            graph.AddNode(1).SetZ(2);
+            graph.AddNode(2).SetZ(2);
+            graph.AddNode(3).SetZ(-1);
+
+            graph.AddEdge(0, 1);
+            graph.AddEdge(1, 2);
+            graph.AddEdge(2, 3);
+            graph.AddEdge(3, 4);
+            graph.AddEdge(4, 0);
+
+            graph.AddEdge(0, 5);
+            graph.AddEdge(5, 6);
+            graph.AddEdge(6, 7);
+            graph.AddEdge(7, 3);
+
+            foreach (var node in graph.GetNodes())
+            {
+                node.AddTemplateGroups("Default");
+            }
+
+            return graph;
+        }
     }
 }
