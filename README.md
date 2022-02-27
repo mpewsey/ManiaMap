@@ -5,7 +5,7 @@
 
 ## About
 
-This package allows for the creation of procedurally generated metroidvania style layouts from user-defined level layout graphs and room templates. The resuling layouts can be used in games, such as those of the rouge-like genre, or to render maps, such as that shown below. The generation algorithm is based on [[2]](#2) but does not include a simulated annealing evolver. 
+This package allows for the creation of procedurally generated metroidvania style layouts from user-defined level layout graphs and room templates. The resulting layouts can be used in games, such as those of the rouge-like genre, or to render maps, such as that shown below. The generation algorithm is based on [[2]](#2) but does not include a simulated annealing evolver.
 
 ![Map](https://user-images.githubusercontent.com/23442063/153345310-25def719-c5a7-43c5-95ca-9e2e09493e54.png)
 
@@ -69,9 +69,9 @@ var templateGroups = new TemplateGroups();
 templateGroups.Add("Default", roomTemplate);
 ```
 
-### Step 3: Create a Layout Graph 
+### Step 3: Create a Layout Graph
 
-To provide a designed feel to generated layouts, the generator uses a room layout graph as the basis for generating layouts. The layout graph consists of nodes, representing rooms, and edges, representing door connections between rooms. Ultimately, the layout graph contains information to help guide the features of a room layout. Each graph element can be assigned one or more room template groups (created in Step 2) from which room teplates can be drawn for that location. Z (layer) values can also be assigned to elements to create a multi-level room layout. In addition, properties such as names and colors can be assigned that will be passed on to the generated rooms, allowing for their use elsewhere in a game or other application.
+To provide a designed feel to generated layouts, the generator uses a room layout graph as the basis for generating layouts. The layout graph consists of nodes, representing rooms, and edges, representing door connections between rooms. Ultimately, the layout graph contains information to help guide the features of a room layout. Each graph element can be assigned one or more room template groups (created in Step 2) from which room templates can be drawn for that location. Z (layer) values can also be assigned to elements to create a multi-level room layout. In addition, properties such as names and colors can be assigned that will be passed on to the generated rooms, allowing for their use elsewhere in a game or other application.
 
 In the below example, the graph shown in the image is created by adding edges to a graph. In the process, the nodes, representing rooms, are automatically created. Afterwards, the code loops over all of the created nodes and assigns a "Default" template group to them, from which room templates will be drawn by the generator.
 
@@ -112,5 +112,5 @@ map.SaveImage("Map.png");
 ## References
 
 * <a id="1">[1]</a> GeeksforGeeks. (2021, July 2). Print all the cycles in an undirected graph. Retrieved February 8, 2022, from https://www.geeksforgeeks.org/print-all-the-cycles-in-an-undirected-graph/
- 
+
 * <a id="2">[2]</a> Nepožitek, Ondřej. (2019, January 13). Dungeon Generator (Part 2) – Implementation. Retrieved February 8, 2022, from https://ondra.nepozitek.cz/blog/238/dungeon-generator-part-2-implementation/
