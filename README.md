@@ -26,10 +26,11 @@ The modules of this package are distributed as DLL files. The latest files can b
 
 The package modules have the below dependencies. External dependencies can be acquired through NuGet.
 
-| Module             | Description                         | Dependencies                       |
-|--------------------|-------------------------------------|------------------------------------|
-| `ManiaMap`         | Contains core generator components. | None                               |
-| `ManiaMap.Drawing` | Contains map drawing components.    | `ManiaMap`, `SixLabors.ImageSharp` |
+| Module             | Description                           | Dependencies                       |
+|--------------------|---------------------------------------|------------------------------------|
+| `ManiaMap`         | Contains core generator components.   | None                               |
+| `ManiaMap.Drawing` | Contains map drawing components.      | `ManiaMap`, `SixLabors.ImageSharp` |
+| `ManiaMap.Samples` | Contains sample graphs and templates. | `ManiaMap`                         |
 
 ## Usage
 
