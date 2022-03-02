@@ -14,19 +14,19 @@ namespace MPewsey.ManiaMap.Drawing
         public Padding Padding { get; set; }
         public Color BackgroundColor { get; set; }
         public Dictionary<string, Image> Tiles { get; set; }
-        public float LowerLayerOpacity { get; set; }
+        public LayoutState LayoutState { get; set; }
         private Dictionary<Uid, List<DoorPosition>> RoomDoors { get; set; }
 
-        public LayoutMap(Layout layout, Point? tileSize = null, Padding? padding = null,
-            Dictionary<string, Image> tiles = null, Color? backgroundColor = null,
-            float lowerLayerOpacity = 0)
+        public LayoutMap(Layout layout, LayoutState layoutState = null,
+            Point ? tileSize = null, Padding? padding = null,
+            Dictionary<string, Image> tiles = null, Color? backgroundColor = null)
         {
             Layout = layout;
             TileSize = tileSize ?? new Point(16, 16);
             Padding = padding ?? new Padding(1);
-            LowerLayerOpacity = lowerLayerOpacity;
             BackgroundColor = backgroundColor ?? Color.Black;
             Tiles = tiles ?? MapTiles.GetDefaultTiles();
+            LayoutState = layoutState;
         }
 
         public override string ToString()
@@ -138,10 +138,10 @@ namespace MPewsey.ManiaMap.Drawing
 
             foreach (var room in Layout.Rooms.Values.OrderBy(x => x.Z))
             {
-                if (room.Z > z)
-                    return;
+                if (room.Z != z)
+                    continue;
 
-                var opacity = (float)Math.Pow(LowerLayerOpacity, z - room.Z);
+                var roomState = LayoutState?.RoomStates[room.Id];
                 var cells = room.Template.Cells;
                 var x0 = (room.Y - bounds.X + Padding.Left) * TileSize.X;
                 var y0 = (room.X - bounds.Y + Padding.Top) * TileSize.Y;
@@ -153,7 +153,12 @@ namespace MPewsey.ManiaMap.Drawing
                     {
                         var cell = cells[i, j];
 
+                        // If cell it empty, go to next cell.
                         if (cell == null)
+                            continue;
+
+                        // If room state is defined and is not visible, go to next cell.
+                        if (roomState != null && !roomState.Visibility.GetOrDefault(i, j))
                             continue;
 
                         // Calculate draw position
@@ -176,21 +181,21 @@ namespace MPewsey.ManiaMap.Drawing
                         var eastTile = GetTile(room, i, j, DoorDirection.East, cell.EastDoor, east, "EastDoor", "EastWall");
 
                         // Add cell background fill
-                        image.DrawImage(cellTile, point, opacity);
+                        image.DrawImage(cellTile, point, 1);
 
                         // Superimpose applicable map tiles
                         if (northTile != null)
-                            image.DrawImage(northTile, point, opacity);
+                            image.DrawImage(northTile, point, 1);
                         if (southTile != null)
-                            image.DrawImage(southTile, point, opacity);
+                            image.DrawImage(southTile, point, 1);
                         if (westTile != null)
-                            image.DrawImage(westTile, point, opacity);
+                            image.DrawImage(westTile, point, 1);
                         if (eastTile != null)
-                            image.DrawImage(eastTile, point, opacity);
+                            image.DrawImage(eastTile, point, 1);
                         if (topTile != null)
-                            image.DrawImage(topTile, point, opacity);
+                            image.DrawImage(topTile, point, 1);
                         if (bottomTile != null)
-                            image.DrawImage(bottomTile, point, opacity);
+                            image.DrawImage(bottomTile, point, 1);
                     }
                 }
             }

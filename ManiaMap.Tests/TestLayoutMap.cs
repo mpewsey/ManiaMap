@@ -32,7 +32,7 @@ namespace MPewsey.ManiaMap.Drawing.Tests
             templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
 
             var generator = new LayoutGenerator(12345, graph, templateGroups);
-            var layout = generator.GenerateLayout();
+            var layout = generator.GenerateLayout(1);
 
             Assert.IsNotNull(layout);
 
@@ -50,7 +50,7 @@ namespace MPewsey.ManiaMap.Drawing.Tests
             templateGroups.Add("Default", template.UniqueVariations());
 
             var generator = new LayoutGenerator(12345, graph, templateGroups);
-            var layout = generator.GenerateLayout();
+            var layout = generator.GenerateLayout(1);
 
             Assert.IsNotNull(layout);
 
@@ -64,6 +64,35 @@ namespace MPewsey.ManiaMap.Drawing.Tests
             var layout = Samples.ManiaMapSample.ManiaMapLayout();
             var map = new LayoutMap(layout);
             Assert.IsTrue(map.ToString().StartsWith("LayoutMap("));
+        }
+
+        [TestMethod]
+        public void TestSaveFilteredLLoopLayoutImage()
+        {
+            var graph = Samples.GraphLibrary.LoopGraph();
+
+            var templateGroups = new TemplateGroups();
+            var template = Samples.TemplateLibrary.Miscellaneous.LTemplate();
+            templateGroups.Add("Default", template.UniqueVariations());
+
+            var generator = new LayoutGenerator(12345, graph, templateGroups);
+            var layout = generator.GenerateLayout(1);
+
+            Assert.IsNotNull(layout);
+
+            var layoutState = new LayoutState(layout);
+            var random = new Random(12345);
+
+            foreach (var roomState in layoutState.RoomStates.Values)
+            {
+                for (int i = 0; i < roomState.Visibility.Array.Length; i++)
+                {
+                    roomState.Visibility.Array[i] = random.NextDouble() > 0.5;
+                }
+            }
+
+            var map = new LayoutMap(layout, layoutState);
+            map.SaveImage("FilteredLLoopMap.png");
         }
     }
 }

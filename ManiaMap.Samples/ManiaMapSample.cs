@@ -155,7 +155,7 @@
             var graph = ManiaMapLayoutGraph();
             var templateGroups = LetterTemplateGroups();
             var generator = new LayoutGenerator(12345, graph, templateGroups);
-            return generator.GenerateLayout();
+            return generator.GenerateLayout(1);
         }
     }
 }

@@ -10,7 +10,7 @@
     <RepositoryUrl>https://github.com/mpewsey/ManiaMap</RepositoryUrl>
     <PackageTags>procedural-generation;roguelike;metroidvania</PackageTags>
     <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
-	<VersionPrefix>1.0.0</VersionPrefix>
+	<VersionPrefix>1.1.0</VersionPrefix>
   </PropertyGroup>
 
   <ItemGroup>

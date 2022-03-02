@@ -32,14 +32,14 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Generates a new layout.
         /// </summary>
-        public Layout GenerateLayout()
+        public Layout GenerateLayout(int id)
         {
             int chain = 0;
             Random = new Random(Seed);
             ConfigurationSpaces = TemplateGroups.GetConfigurationSpaces();
             var chains = Graph.FindChains(MaxBranchLength);
             var layouts = new Stack<Layout>();
-            layouts.Push(new Layout(Graph.Name, Seed));
+            layouts.Push(new Layout(id, Graph.Name, Seed));
 
             while (layouts.Count > 0)
             {
