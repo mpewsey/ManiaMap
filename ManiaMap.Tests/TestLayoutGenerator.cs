@@ -16,7 +16,7 @@ namespace MPewsey.ManiaMap.Tests
             templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
 
             var generator = new LayoutGenerator(12345, graph, templateGroups);
-            var layout = generator.GenerateLayout();
+            var layout = generator.GenerateLayout(1);
 
             Assert.IsNotNull(layout);
 
@@ -39,7 +39,7 @@ namespace MPewsey.ManiaMap.Tests
             templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
 
             var generator = new LayoutGenerator(12345, graph, templateGroups);
-            var layout = generator.GenerateLayout();
+            var layout = generator.GenerateLayout(1);
 
             Assert.IsNotNull(layout);
 
@@ -63,7 +63,7 @@ namespace MPewsey.ManiaMap.Tests
             templateGroups.Add("Default", template.UniqueVariations());
 
             var generator = new LayoutGenerator(12345, graph, templateGroups);
-            var layout = generator.GenerateLayout();
+            var layout = generator.GenerateLayout(1);
 
             Assert.IsNotNull(layout);
 
@@ -87,7 +87,7 @@ namespace MPewsey.ManiaMap.Tests
             templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
 
             var generator = new LayoutGenerator(123456, graph, templateGroups);
-            var layout = generator.GenerateLayout();
+            var layout = generator.GenerateLayout(1);
 
             Assert.IsNotNull(layout);
 

@@ -8,27 +8,32 @@ namespace MPewsey.ManiaMap
     public class Layout
     {
         [DataMember(Order = 0)]
+        public int Id { get; private set; }
+        
+        [DataMember(Order = 1)]
         public string Name { get; set; } = string.Empty;
 
-        [DataMember(Order = 1)]
+        [DataMember(Order = 2)]
         public int Seed { get; private set; }
 
-        [DataMember(Order = 2)]
+        [DataMember(Order = 3)]
         public Dictionary<Uid, Room> Rooms { get; private set; } = new Dictionary<Uid, Room>();
 
-        [DataMember(Order = 3)]
+        [DataMember(Order = 4)]
         public List<DoorConnection> DoorConnections { get; private set; } = new List<DoorConnection>();
 
         public int Rebases { get; private set; }
 
-        public Layout(string name, int seed)
+        public Layout(int id, string name, int seed)
         {
+            Id = id;
             Name = name;
             Seed = seed;
         }
 
         public Layout(Layout baseLayout)
         {
+            Id = baseLayout.Id;
             Name = baseLayout.Name;
             Seed = baseLayout.Seed;
             Rooms = new Dictionary<Uid, Room>(baseLayout.Rooms);
