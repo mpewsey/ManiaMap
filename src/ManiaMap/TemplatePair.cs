@@ -3,9 +3,19 @@ using System.Collections.Generic;
 
 namespace MPewsey.ManiaMap
 {
+    /// <summary>
+    /// A structure containing a from and to room template.
+    /// </summary>
     public struct TemplatePair : IEquatable<TemplatePair>
     {
+        /// <summary>
+        /// The from room template.
+        /// </summary>
         public RoomTemplate FromTemplate { get; }
+
+        /// <summary>
+        /// The to room template.
+        /// </summary>
         public RoomTemplate ToTemplate { get; }
 
         public TemplatePair(RoomTemplate from, RoomTemplate to)

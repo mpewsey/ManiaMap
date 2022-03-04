@@ -26,13 +26,13 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestInitializeNegativeRow()
         {
-            Assert.ThrowsException<Exception>(() => new Array2D<int>(-1, 1));
+            Assert.ThrowsException<ArgumentException>(() => new Array2D<int>(-1, 1));
         }
 
         [TestMethod]
         public void TestInitializeNegativeColumn()
         {
-            Assert.ThrowsException<Exception>(() => new Array2D<int>(1, -1));
+            Assert.ThrowsException<ArgumentException>(() => new Array2D<int>(1, -1));
         }
 
         [TestMethod]

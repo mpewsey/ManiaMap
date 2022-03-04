@@ -4,29 +4,50 @@ using System.Text;
 
 namespace MPewsey.ManiaMap
 {
+    /// <summary>
+    /// A 2D array that can be serialized.
+    /// </summary>
     [DataContract]
     public class Array2D<T>
     {
+        /// <summary>
+        /// The number of rows in the array.
+        /// </summary>
         [DataMember(Order = 1)]
         public int Rows { get; private set; }
 
+        /// <summary>
+        /// The number of columns in the array.
+        /// </summary>
         [DataMember(Order = 2)]
         public int Columns { get; private set; }
 
+        /// <summary>
+        /// The underlying flat array.
+        /// </summary>
         [DataMember(Order = 3)]
         public T[] Array { get; private set; } = System.Array.Empty<T>();
 
+        /// <summary>
+        /// Initializes an empty array.
+        /// </summary>
         public Array2D()
         {
 
         }
 
+        /// <summary>
+        /// Initializes an array by size.
+        /// </summary>
+        /// <param name="rows">The number of rows in the array.</param>
+        /// <param name="columns">The number of columns in the array.</param>
+        /// <exception cref="ArgumentException">Raised if either the input rows or columns are negative.</exception>
         public Array2D(int rows, int columns)
         {
             if (rows < 0)
-                throw new Exception($"Rows cannot be negative: {rows}.");
+                throw new ArgumentException($"Rows cannot be negative: {rows}.");
             if (columns < 0)
-                throw new Exception($"Columns cannot be negative: {columns}.");
+                throw new ArgumentException($"Columns cannot be negative: {columns}.");
 
             if (rows > 0 && columns > 0)
             {
@@ -36,6 +57,10 @@ namespace MPewsey.ManiaMap
             }
         }
 
+        /// <summary>
+        /// Initializes an array from a built-in 2D array.
+        /// </summary>
+        /// <param name="array">The built-in 2D array.</param>
         public Array2D(T[,] array)
         {
             Rows = array.GetLength(0);
@@ -43,6 +68,12 @@ namespace MPewsey.ManiaMap
             Array = FlattenArray(array);
         }
 
+        /// <summary>
+        /// Accesses the array by 2D index.
+        /// </summary>
+        /// <param name="row">The row index.</param>
+        /// <param name="column">The column index.</param>
+        /// <exception cref="IndexOutOfRangeException">Raised if the index is out of range.</exception>
         public T this[int row, int column]
         {
             get
@@ -59,6 +90,10 @@ namespace MPewsey.ManiaMap
             }
         }
 
+        /// <summary>
+        /// Implicitly casts a built-in 2D array to an Array2D.
+        /// </summary>
+        /// <param name="array">The built-in 2D array.</param>
         public static implicit operator Array2D<T>(T[,] array) => new Array2D<T>(array);
 
         public override string ToString()
@@ -100,6 +135,8 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns true if the index exists.
         /// </summary>
+        /// <param name="row">The row index.</param>
+        /// <param name="column">The column index.</param>
         public bool IndexExists(int row, int column)
         {
             return (uint)row < Rows && (uint)column < Columns;
@@ -108,14 +145,17 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns the flat array index corresponding to the specified 2D index.
         /// </summary>
+        /// <param name="row">The row index.</param>
+        /// <param name="column">The column index.</param>
         private int Index(int row, int column)
         {
             return row * Columns + column;
         }
 
         /// <summary>
-        /// Returns a new flattened array from a 2 dimensional array.
+        /// Returns a new flattened array from a built-in 2D array.
         /// </summary>
+        /// <param name="array">The built-in 2D array.</param>
         private static T[] FlattenArray(T[,] array)
         {
             var result = new T[array.Length];
@@ -136,6 +176,9 @@ namespace MPewsey.ManiaMap
         /// Returns the value at the specified index if it exists. If not,
         /// returns the fallback value.
         /// </summary>
+        /// <param name="row">The row index.</param>
+        /// <param name="column">The column index.</param>
+        /// <param name="fallback">The fallback value.</param>
         public T GetOrDefault(int row, int column, T fallback = default)
         {
             if (IndexExists(row, column))

@@ -3,27 +3,55 @@ using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
+    /// <summary>
+    /// A room cell element with references to door connections for that cell.
+    /// </summary>
     [DataContract]
     public class Cell
     {
+        /// <summary>
+        /// Returns a new empty cell (null).
+        /// </summary>
         public static Cell Empty { get => null; }
+
+        /// <summary>
+        /// Returns a new cell with no doors set.
+        /// </summary>
         public static Cell New { get => new Cell(); }
 
+        /// <summary>
+        /// The west door. Set to null if no door exists.
+        /// </summary>
         [DataMember(Order = 1)]
         public Door WestDoor { get; set; }
 
+        /// <summary>
+        /// The north door. Set to null if no door exists.
+        /// </summary>
         [DataMember(Order = 2)]
         public Door NorthDoor { get; set; }
 
+        /// <summary>
+        /// The east door. Set to null if no door exists.
+        /// </summary>
         [DataMember(Order = 3)]
         public Door EastDoor { get; set; }
 
+        /// <summary>
+        /// The south door. Set to null if no door exists.
+        /// </summary>
         [DataMember(Order = 4)]
         public Door SouthDoor { get; set; }
 
+        /// <summary>
+        /// The top door. Set to null if no door exists.
+        /// </summary>
         [DataMember(Order = 5)]
         public Door TopDoor { get; set; }
 
+        /// <summary>
+        /// The bottom door. Set to null if no door exists.
+        /// </summary>
         [DataMember(Order = 6)]
         public Door BottomDoor { get; set; }
 
@@ -42,6 +70,18 @@ namespace MPewsey.ManiaMap
         /// Sets the doors of the cell based on specified direction characters.
         /// Returns the cell.
         /// </summary>
+        /// <param name="directions">
+        /// A string with the directional characters to assign. The characters may be any case.
+        /// 
+        /// * 'N' = North
+        /// * 'S' = South
+        /// * 'E' = East
+        /// * 'W' = West
+        /// * 'T' = Top
+        /// * 'B' = Bottom
+        /// </param>
+        /// <param name="door">The door to be copied and assigned to each location.</param>
+        /// <exception cref="Exception">Raised if a character in the `directions` string is invalid.</exception>
         public Cell SetDoors(string directions, Door door)
         {
             foreach (var direction in directions)
@@ -83,6 +123,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns true if the top door aligns with the bottom door of the specified cell.
         /// </summary>
+        /// <param name="other">The other cell.</param>
         public bool TopDoorAligns(Cell other)
         {
             return TopDoor != null
@@ -93,6 +134,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns true if the bottom door aligns with the top door of the specified cell.
         /// </summary>
+        /// <param name="other">The other cell.</param>
         public bool BottomDoorAligns(Cell other)
         {
             return BottomDoor != null
@@ -103,6 +145,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns true if the north door aligns with the south door of the specified cell.
         /// </summary>
+        /// <param name="other">The other cell.</param>
         public bool NorthDoorAligns(Cell other)
         {
             return NorthDoor != null
@@ -113,6 +156,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns true if the south door aligns with the north door of the specified cell.
         /// </summary>
+        /// <param name="other">The other cell.</param>
         public bool SouthDoorAligns(Cell other)
         {
             return SouthDoor != null
@@ -123,6 +167,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns true if the west door aligns with the east door of the specified cell.
         /// </summary>
+        /// <param name="other">The other cell.</param>
         public bool WestDoorAligns(Cell other)
         {
             return WestDoor != null
@@ -133,6 +178,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns true if the east door aligns with the west door of the specified cell.
         /// </summary>
+        /// <param name="other">The other cell.</param>
         public bool EastDoorAligns(Cell other)
         {
             return EastDoor != null
@@ -206,7 +252,7 @@ namespace MPewsey.ManiaMap
 
         /// <summary>
         /// Returns a new cell mirrored horizontally, i.e. about the vertical axis.
-        /// </summary>s
+        /// </summary>
         public Cell MirroredHorizontally()
         {
             return new Cell
@@ -223,6 +269,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns true if the values of the two cells match.
         /// </summary>
+        /// <param name="other">The other cell.</param>
         public bool Matches(Cell other)
         {
             return Door.Matches(TopDoor, other.TopDoor)

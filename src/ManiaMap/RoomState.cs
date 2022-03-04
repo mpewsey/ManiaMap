@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.Serialization;
-using System.Text;
+﻿using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
@@ -10,7 +7,7 @@ namespace MPewsey.ManiaMap
     {
         [DataMember(Order = 1)]
         public Uid Id { get; private set; }
-        
+
         [DataMember(Order = 2)]
         public Array2D<bool> Visibility { get; private set; }
 

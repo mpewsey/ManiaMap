@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace MPewsey.ManiaMap
 {
@@ -11,7 +9,7 @@ namespace MPewsey.ManiaMap
     {
         [DataMember(Order = 0)]
         public int Id { get; private set; }
-        
+
         [DataMember(Order = 1)]
         public Dictionary<Uid, RoomState> RoomStates { get; private set; } = new Dictionary<Uid, RoomState>();
 

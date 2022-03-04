@@ -18,7 +18,7 @@ namespace MPewsey.ManiaMap.Drawing
         private Dictionary<Uid, List<DoorPosition>> RoomDoors { get; set; }
 
         public LayoutMap(Layout layout, LayoutState layoutState = null,
-            Point ? tileSize = null, Padding? padding = null,
+            Point? tileSize = null, Padding? padding = null,
             Dictionary<string, Image> tiles = null, Color? backgroundColor = null)
         {
             Layout = layout;
