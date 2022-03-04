@@ -32,6 +32,10 @@ The package modules have the below dependencies. External dependencies can be ac
 | `ManiaMap.Drawing` | Contains map drawing components.      | `ManiaMap`, `SixLabors.ImageSharp` |
 | `ManiaMap.Samples` | Contains sample graphs and templates. | `ManiaMap`                         |
 
+## Documentation
+
+Online documentation is available at: https://mpewsey.github.io/ManiaMap.Docs/.
+
 ## Usage
 
 ### Step 1: Create Room Templates
