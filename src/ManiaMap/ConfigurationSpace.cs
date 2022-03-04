@@ -2,12 +2,31 @@
 
 namespace MPewsey.ManiaMap
 {
+    /// <summary>
+    /// A class referencing two room templates and a list of all valid configurations between them.
+    /// </summary>
     public class ConfigurationSpace
     {
+        /// <summary>
+        /// The from room template.
+        /// </summary>
         public RoomTemplate FromTemplate { get; }
+
+        /// <summary>
+        /// The to room template.
+        /// </summary>
         public RoomTemplate ToTemplate { get; }
+
+        /// <summary>
+        /// A list of all valid configurations between the room templates.
+        /// </summary>
         public List<Configuration> Configurations { get; } = new List<Configuration>();
 
+        /// <summary>
+        /// Initializes a configuration space from two room templates.
+        /// </summary>
+        /// <param name="from">The from template.</param>
+        /// <param name="to">The to template.</param>
         public ConfigurationSpace(RoomTemplate from, RoomTemplate to)
         {
             FromTemplate = from;
@@ -21,7 +40,7 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Finds all room configurations that var valid between the room templates.
+        /// Finds all room configurations that are valid between the room templates.
         /// </summary>
         private void FindConfigurations()
         {
@@ -31,22 +50,14 @@ namespace MPewsey.ManiaMap
             {
                 for (int j = -ToTemplate.Cells.Columns; j <= FromTemplate.Cells.Columns; j++)
                 {
-                    FindIndexConfigurations(i, j);
+                    var doorPairs = FromTemplate.AlignedDoors(ToTemplate, i, j);
+
+                    foreach (var pair in doorPairs)
+                    {
+                        var config = new Configuration(i, j, pair.FromDoor, pair.ToDoor);
+                        Configurations.Add(config);
+                    }
                 }
-            }
-        }
-
-        /// <summary>
-        /// Adds all configurations that are valid for the specified template offset.
-        /// </summary>
-        private void FindIndexConfigurations(int dx, int dy)
-        {
-            var doorPairs = FromTemplate.AlignedDoors(ToTemplate, dx, dy);
-
-            foreach (var pair in doorPairs)
-            {
-                var config = new Configuration(dx, dy, pair.FromDoor, pair.ToDoor);
-                Configurations.Add(config);
             }
         }
     }

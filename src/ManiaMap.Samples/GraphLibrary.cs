@@ -1,7 +1,13 @@
 ﻿namespace MPewsey.ManiaMap.Samples
 {
+    /// <summary>
+    /// Contains a collection of layout graphs.
+    /// </summary>
     public static class GraphLibrary
     {
+        /// <summary>
+        /// Returns a graph in the shape of a cross.
+        /// </summary>
         public static LayoutGraph CrossGraph()
         {
             var graph = new LayoutGraph(1, "CrossLayoutGraph");
@@ -20,6 +26,9 @@
             return graph;
         }
 
+        /// <summary>
+        /// Returns a graph with two loops that share segments.
+        /// </summary>
         public static LayoutGraph LoopGraph()
         {
             var graph = new LayoutGraph(2, "LoopLayoutGraph");
@@ -43,6 +52,9 @@
             return graph;
         }
 
+        /// <summary>
+        /// Returns the graph shown at https://www.geeksforgeeks.org/print-all-the-cycles-in-an-undirected-graph/.
+        /// </summary>
         public static LayoutGraph GeekGraph()
         {
             var graph = new LayoutGraph(3, "GeekLayoutGraph");
@@ -70,6 +82,9 @@
             return graph;
         }
 
+        /// <summary>
+        /// Returns a `LoopGraph` with some nodes set to different Z (layer) values.
+        /// </summary>
         public static LayoutGraph StackedLoopGraph()
         {
             var graph = new LayoutGraph(4, "StackedLoopLayoutGraph");

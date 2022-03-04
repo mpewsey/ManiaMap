@@ -3,18 +3,46 @@ using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
+    /// <summary>
+    /// Represents a possible door in a room template.
+    /// </summary>
     [DataContract]
     public class Door
     {
+        /// <summary>
+        /// Returns a new two-way door.
+        /// </summary>
         public static Door TwoWay { get => new Door { Type = DoorType.TwoWay }; }
+
+        /// <summary>
+        /// Returns a new two-way exit door.
+        /// </summary>
         public static Door TwoWayExit { get => new Door { Type = DoorType.TwoWayExit }; }
+
+        /// <summary>
+        /// Returns a new two-way entrance door.
+        /// </summary>
         public static Door TwoWayEntrance { get => new Door { Type = DoorType.TwoWayEntrance }; }
+
+        /// <summary>
+        /// Returns a new one-way exit door.
+        /// </summary>
         public static Door OneWayExit { get => new Door { Type = DoorType.OneWayExit }; }
+
+        /// <summary>
+        /// Returns a new one-way entrance door.
+        /// </summary>
         public static Door OneWayEntrance { get => new Door { Type = DoorType.OneWayEntrance }; }
 
+        /// <summary>
+        /// The door type.
+        /// </summary>
         [DataMember(Order = 1)]
         public DoorType Type { get; set; }
 
+        /// <summary>
+        /// The door code required for matching two doors.
+        /// </summary>
         [DataMember(Order = 2)]
         public int Code { get; set; }
 
@@ -73,6 +101,9 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns true if the door types are compatible.
         /// </summary>
+        /// <param name="from">The from door type.</param>
+        /// <param name="to">The to door type.</param>
+        /// <exception cref="ArgumentException">Raised if an unhandled door type is submitted.</exception>
         public static bool DoorTypesAlign(DoorType from, DoorType to)
         {
             if (to == DoorType.None)
@@ -98,6 +129,9 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns the edge direction corresponding to the door type combination.
         /// </summary>
+        /// <param name="from">The from door type.</param>
+        /// <param name="to">Tne to door type.</param>
+        /// <exception cref="ArgumentException">Raised is the door types are not compatible.</exception>
         public static EdgeDirection GetEdgeDirection(DoorType from, DoorType to)
         {
             switch (from)
