@@ -1,5 +1,8 @@
 ﻿namespace MPewsey.ManiaMap
 {
+    /// <summary>
+    /// The door direction.
+    /// </summary>
     public enum DoorDirection
     {
         None,
