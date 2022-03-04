@@ -31,7 +31,7 @@ namespace MPewsey.ManiaMap
 
         public override string ToString()
         {
-            var shaft = Shaft == null ? "None" : Shaft.ToString();
+            var shaft = Shaft?.ToString() ?? "None";
             return $"DoorConnection(FromRoom = {FromRoom}, ToRoom = {ToRoom}, FromDoor = {FromDoor}, ToDoor = {ToDoor}, Shaft = {shaft})";
         }
     }

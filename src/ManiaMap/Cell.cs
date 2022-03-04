@@ -57,12 +57,12 @@ namespace MPewsey.ManiaMap
 
         public override string ToString()
         {
-            var west = WestDoor == null ? "None" : WestDoor.ToString();
-            var north = NorthDoor == null ? "None" : NorthDoor.ToString();
-            var south = SouthDoor == null ? "None" : SouthDoor.ToString();
-            var east = EastDoor == null ? "None" : EastDoor.ToString();
-            var top = TopDoor == null ? "None" : TopDoor.ToString();
-            var bottom = BottomDoor == null ? "None" : BottomDoor.ToString();
+            var west = WestDoor?.ToString() ?? "None";
+            var north = NorthDoor?.ToString() ?? "None";
+            var south = SouthDoor?.ToString() ?? "None";
+            var east = EastDoor?.ToString() ?? "None";
+            var top = TopDoor?.ToString() ?? "None";
+            var bottom = BottomDoor?.ToString() ?? "None";
             return $"Cell(WestDoor = {west}, NorthDoor = {north}, EastDoor = {east}, SouthDoor = {south}, TopDoor = {top}, BottomDoor = {bottom})";
         }
 
