@@ -29,10 +29,10 @@ jobs:
           ${{ runner.os }}-nuget-
 
     - name: Restore dependencies
-      run: dotnet restore "/src"
+      run: dotnet restore ".\src"
     - name: Build
-      run: dotnet build "/src" --configuration Release --no-restore
+      run: dotnet build ".\src" --configuration Release --no-restore
     - name: Test
-      run: dotnet test "/src" --no-build --verbosity normal --collect:"XPlat Code Coverage"
+      run: dotnet test ".\src" --no-build --verbosity normal --collect:"XPlat Code Coverage"
     - name: Codecov
       uses: codecov/codecov-action@v2
