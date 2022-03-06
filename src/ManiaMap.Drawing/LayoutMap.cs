@@ -67,8 +67,8 @@ namespace MPewsey.ManiaMap.Drawing
         /// <param name="tiles">A dictionary of map tiles to use. If null, the default tiles will be used.</param>
         /// <param name="backgroundColor">The background color. If null, the default property value will be used.</param>
         public LayoutMap(Layout layout, LayoutState layoutState = null,
-            Point? tileSize = null, Padding? padding = null,
-            Dictionary<string, Image> tiles = null, Color? backgroundColor = null)
+            Padding? padding = null, Color? backgroundColor = null,
+            Point? tileSize = null, Dictionary<string, Image> tiles = null)
         {
             Layout = layout;
             LayoutState = layoutState;
