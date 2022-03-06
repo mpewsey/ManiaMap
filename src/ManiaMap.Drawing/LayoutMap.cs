@@ -1,8 +1,8 @@
 ﻿using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
-using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace MPewsey.ManiaMap.Drawing
 {
@@ -53,6 +53,11 @@ namespace MPewsey.ManiaMap.Drawing
         private Dictionary<Uid, List<DoorPosition>> RoomDoors { get; set; }
 
         /// <summary>
+        /// The bounds of the layout.
+        /// </summary>
+        private System.Drawing.Rectangle LayoutBounds { get; set; }
+
+        /// <summary>
         /// Initializes a layout map.
         /// </summary>
         /// <param name="layout">The layout.</param>
@@ -79,30 +84,6 @@ namespace MPewsey.ManiaMap.Drawing
         }
 
         /// <summary>
-        /// Returns the rectangular bounds for the layout.
-        /// </summary>
-        private Rectangle LayoutBounds()
-        {
-            if (Layout.Rooms.Count == 0)
-                return new Rectangle();
-
-            var minX = int.MaxValue;
-            var minY = int.MaxValue;
-            var maxX = int.MinValue;
-            var maxY = int.MinValue;
-
-            foreach (var room in Layout.Rooms.Values)
-            {
-                minX = Math.Min(minX, room.X);
-                minY = Math.Min(minY, room.Y);
-                maxX = Math.Max(maxX, room.X + room.Template.Cells.Rows);
-                maxY = Math.Max(maxY, room.Y + room.Template.Cells.Columns);
-            }
-
-            return new Rectangle(minY, minX, maxY - minY, maxX - minX);
-        }
-
-        /// <summary>
         /// Renders a map of the layout and saves it to the designated file path.
         /// </summary>
         /// <param name="path">The file path to which the image will be saved.</param>
@@ -111,6 +92,23 @@ namespace MPewsey.ManiaMap.Drawing
         {
             var map = CreateImage(z);
             map.Save(path);
+        }
+
+        /// <summary>
+        /// Renders map images of all layout layers and saves them to the designated file path.
+        /// The z (layer) values are added into the file paths before the file extension.
+        /// </summary>
+        /// <param name="path">The file path.</param>
+        public void SaveImages(string path)
+        {
+            var ext = Path.GetExtension(path);
+            var name = Path.ChangeExtension(path, null);
+            var maps = CreateImages();
+
+            foreach (var pair in maps)
+            {
+                pair.Value.Save($"{name}_Z={pair.Key}{ext}");
+            }
         }
 
         /// <summary>
@@ -142,13 +140,37 @@ namespace MPewsey.ManiaMap.Drawing
         /// <param name="z">The z (layer) value used to render the layout.</param>
         public Image CreateImage(int z = 0)
         {
+            LayoutBounds = Layout.Bounds();
             RoomDoors = Layout.RoomDoors();
-            var bounds = LayoutBounds();
-            var width = TileSize.X * (Padding.Left + Padding.Right + bounds.Width);
-            var height = TileSize.Y * (Padding.Top + Padding.Bottom + bounds.Height);
+            var width = TileSize.X * (Padding.Left + Padding.Right + LayoutBounds.Width);
+            var height = TileSize.Y * (Padding.Top + Padding.Bottom + LayoutBounds.Height);
             var map = new Image<Rgba32>(width, height);
-            map.Mutate(x => DrawMap(x, z, bounds));
+            map.Mutate(x => DrawMap(x, z));
             return map;
+        }
+
+        /// <summary>
+        /// Returns a dictionary of map layer images by z (layer) value.
+        /// </summary>
+        public Dictionary<int, Image> CreateImages()
+        {
+            LayoutBounds = Layout.Bounds();
+            RoomDoors = Layout.RoomDoors();
+            var width = TileSize.X * (Padding.Left + Padding.Right + LayoutBounds.Width);
+            var height = TileSize.Y * (Padding.Top + Padding.Bottom + LayoutBounds.Height);
+            var dict = new Dictionary<int, Image>();
+
+            foreach (var room in Layout.Rooms.Values)
+            {
+                if (!dict.ContainsKey(room.Z))
+                {
+                    var map = new Image<Rgba32>(width, height);
+                    map.Mutate(x => DrawMap(x, room.Z));
+                    dict.Add(room.Z, map);
+                }
+            }
+
+            return dict;
         }
 
         /// <summary>
@@ -156,12 +178,11 @@ namespace MPewsey.ManiaMap.Drawing
         /// </summary>
         /// <param name="image">The image context.</param>
         /// <param name="z">The z (layer) value used to render the layout.</param>
-        /// <param name="bounds">The layout bounds.</param>
-        private void DrawMap(IImageProcessingContext image, int z, Rectangle bounds)
+        private void DrawMap(IImageProcessingContext image, int z)
         {
             image.BackgroundColor(BackgroundColor);
             DrawGrid(image);
-            DrawMapTiles(image, z, bounds);
+            DrawMapTiles(image, z);
         }
 
         /// <summary>
@@ -189,8 +210,7 @@ namespace MPewsey.ManiaMap.Drawing
         /// </summary>
         /// <param name="image">The image context.</param>
         /// <param name="z">The z (layer) value used to render the layout.</param>
-        /// <param name="bounds">The bounds of the layout.</param>
-        private void DrawMapTiles(IImageProcessingContext image, int z, Rectangle bounds)
+        private void DrawMapTiles(IImageProcessingContext image, int z)
         {
             var cellTile = new Image<Rgba32>(TileSize.X, TileSize.Y);
 
@@ -202,8 +222,8 @@ namespace MPewsey.ManiaMap.Drawing
 
                 var roomState = LayoutState?.RoomStates[room.Id];
                 var cells = room.Template.Cells;
-                var x0 = (room.Y - bounds.X + Padding.Left) * TileSize.X;
-                var y0 = (room.X - bounds.Y + Padding.Top) * TileSize.Y;
+                var x0 = (room.Y - LayoutBounds.X + Padding.Left) * TileSize.X;
+                var y0 = (room.X - LayoutBounds.Y + Padding.Top) * TileSize.Y;
                 cellTile.Mutate(x => x.BackgroundColor(ConvertColor(room.Color)));
 
                 for (int i = 0; i < cells.Rows; i++)

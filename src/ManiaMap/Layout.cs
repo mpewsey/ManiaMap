@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Runtime.Serialization;
 
@@ -200,6 +202,30 @@ namespace MPewsey.ManiaMap
         public List<Uid> FindNeighbors(Uid room, int maxDepth)
         {
             return new LayoutNeighborSearch(this, maxDepth).FindNeighbors(room);
+        }
+
+        /// <summary>
+        /// Returns the rectangular bounds of the layout.
+        /// </summary>
+        public Rectangle Bounds()
+        {
+            if (Rooms.Count == 0)
+                return new Rectangle();
+
+            var minX = int.MaxValue;
+            var minY = int.MaxValue;
+            var maxX = int.MinValue;
+            var maxY = int.MinValue;
+
+            foreach (var room in Rooms.Values)
+            {
+                minX = Math.Min(minX, room.X);
+                minY = Math.Min(minY, room.Y);
+                maxX = Math.Max(maxX, room.X + room.Template.Cells.Rows);
+                maxY = Math.Max(maxY, room.Y + room.Template.Cells.Columns);
+            }
+
+            return new Rectangle(minY, minX, maxY - minY, maxX - minX);
         }
     }
 }

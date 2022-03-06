@@ -41,6 +41,23 @@ namespace MPewsey.ManiaMap.Drawing.Tests
         }
 
         [TestMethod]
+        public void TestSaveHyperSquareStackedLoopLayoutImages()
+        {
+            var graph = Samples.GraphLibrary.StackedLoopGraph();
+
+            var templateGroups = new TemplateGroups();
+            templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
+
+            var generator = new LayoutGenerator(12345, graph, templateGroups);
+            var layout = generator.GenerateLayout(1);
+
+            Assert.IsNotNull(layout);
+
+            var map = new LayoutMap(layout);
+            map.SaveImages("HyperSquareMap.png");
+        }
+
+        [TestMethod]
         public void TestSaveLLoopLayoutImage()
         {
             var graph = Samples.GraphLibrary.LoopGraph();
