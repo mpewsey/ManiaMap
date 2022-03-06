@@ -3,30 +3,74 @@ using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace MPewsey.ManiaMap.Drawing
 {
+    /// <summary>
+    /// A class for generating maps from a layout and layout state.
+    /// </summary>
     public class LayoutMap
     {
+        /// <summary>
+        /// The room layout.
+        /// </summary>
         public Layout Layout { get; set; }
-        public Point TileSize { get; set; }
-        public Padding Padding { get; set; }
-        public Color BackgroundColor { get; set; }
+
+        /// <summary>
+        /// The size of the map tiles used in (x, y) coordinates.
+        /// </summary>
+        public Point TileSize { get; set; } = new Point(16, 16);
+
+        /// <summary>
+        /// The padding to include around the layout when the map is drawn.
+        /// </summary>
+        public Padding Padding { get; set; } = new Padding(1);
+
+        /// <summary>
+        /// The map background color.
+        /// </summary>
+        public Color BackgroundColor { get; set; } = Color.Black;
+
+        /// <summary>
+        /// A dictionary of map tiles by name. The applicable tiles are superimposed at the cell location
+        /// when the map is drawn. The following names are used internally:
+        /// 
+        /// * "NorthDoor", "TopDoor", etc. - Tiles used when there is a door in that direction.
+        /// * "NorthWall", "TopWall", etc. - Tiles used when there is a wall in that direction.
+        /// * "Grid" (Optional) - If specified, used to fill the background before any tiles are drawn.
+        /// </summary>
         public Dictionary<string, Image> Tiles { get; set; }
+
+        /// <summary>
+        /// The layout state, used to determine which tiles are visible when drawing a map.
+        /// If this value is null, all tiles will be drawn.
+        /// </summary>
         public LayoutState LayoutState { get; set; }
+
+        /// <summary>
+        /// A dictionary of room door positions by room ID.
+        /// </summary>
         private Dictionary<Uid, List<DoorPosition>> RoomDoors { get; set; }
 
+        /// <summary>
+        /// Initializes a layout map.
+        /// </summary>
+        /// <param name="layout">The layout.</param>
+        /// <param name="layoutState">The layout state.</param>
+        /// <param name="tileSize">The tile size. If null, the default property value will be used.</param>
+        /// <param name="padding">The padding around the layout. If null, the default property value will be used.</param>
+        /// <param name="tiles">A dictionary of map tiles to use. If null, the default tiles will be used.</param>
+        /// <param name="backgroundColor">The background color. If null, the default property value will be used.</param>
         public LayoutMap(Layout layout, LayoutState layoutState = null,
             Point? tileSize = null, Padding? padding = null,
             Dictionary<string, Image> tiles = null, Color? backgroundColor = null)
         {
             Layout = layout;
-            TileSize = tileSize ?? new Point(16, 16);
-            Padding = padding ?? new Padding(1);
-            BackgroundColor = backgroundColor ?? Color.Black;
-            Tiles = tiles ?? MapTiles.GetDefaultTiles();
             LayoutState = layoutState;
+            TileSize = tileSize ?? TileSize;
+            Padding = padding ?? Padding;
+            BackgroundColor = backgroundColor ?? BackgroundColor;
+            Tiles = tiles ?? MapTiles.GetDefaultTiles();
         }
 
         public override string ToString()
@@ -61,6 +105,8 @@ namespace MPewsey.ManiaMap.Drawing
         /// <summary>
         /// Renders a map of the layout and saves it to the designated file path.
         /// </summary>
+        /// <param name="path">The file path to which the image will be saved.</param>
+        /// <param name="z">The z (layer) value used to render the layout.</param>
         public void SaveImage(string path, int z = 0)
         {
             var map = CreateImage(z);
@@ -70,6 +116,10 @@ namespace MPewsey.ManiaMap.Drawing
         /// <summary>
         /// Returns true if the door exists for the room.
         /// </summary>
+        /// <param name="room">The room.</param>
+        /// <param name="x">The local x value of the door.</param>
+        /// <param name="y">The local y value of the door.</param>
+        /// <param name="direction">The direction of the door.</param>
         private bool DoorExists(Room room, int x, int y, DoorDirection direction)
         {
             if (RoomDoors.TryGetValue(room.Id, out var doors))
@@ -89,6 +139,7 @@ namespace MPewsey.ManiaMap.Drawing
         /// <summary>
         /// Returns a rendered map of the layout.
         /// </summary>
+        /// <param name="z">The z (layer) value used to render the layout.</param>
         public Image CreateImage(int z = 0)
         {
             RoomDoors = Layout.RoomDoors();
@@ -103,6 +154,9 @@ namespace MPewsey.ManiaMap.Drawing
         /// <summary>
         /// Draws the layout map onto the image context.
         /// </summary>
+        /// <param name="image">The image context.</param>
+        /// <param name="z">The z (layer) value used to render the layout.</param>
+        /// <param name="bounds">The layout bounds.</param>
         private void DrawMap(IImageProcessingContext image, int z, Rectangle bounds)
         {
             image.BackgroundColor(BackgroundColor);
@@ -113,6 +167,7 @@ namespace MPewsey.ManiaMap.Drawing
         /// <summary>
         /// Draws the grid tiles onto the image context.
         /// </summary>
+        /// <param name="image">The image context.</param>
         private void DrawGrid(IImageProcessingContext image)
         {
             if (Tiles.TryGetValue("Grid", out Image gridTile))
@@ -132,12 +187,16 @@ namespace MPewsey.ManiaMap.Drawing
         /// <summary>
         /// Draws the room map tiles onto the image context.
         /// </summary>
+        /// <param name="image">The image context.</param>
+        /// <param name="z">The z (layer) value used to render the layout.</param>
+        /// <param name="bounds">The bounds of the layout.</param>
         private void DrawMapTiles(IImageProcessingContext image, int z, Rectangle bounds)
         {
             var cellTile = new Image<Rgba32>(TileSize.X, TileSize.Y);
 
-            foreach (var room in Layout.Rooms.Values.OrderBy(x => x.Z))
+            foreach (var room in Layout.Rooms.Values)
             {
+                // If room Z (layer) value is not equal, go to next room.
                 if (room.Z != z)
                     continue;
 
@@ -173,8 +232,8 @@ namespace MPewsey.ManiaMap.Drawing
                         var east = cells.GetOrDefault(i, j + 1);
 
                         // Get the wall or door tiles
-                        var topTile = GetTile(room, i, j, DoorDirection.Top, cell.TopDoor, "TopDoor");
-                        var bottomTile = GetTile(room, i, j, DoorDirection.Bottom, cell.BottomDoor, "BottomDoor");
+                        var topTile = GetTile(room, i, j, DoorDirection.Top, cell.TopDoor, null, "TopDoor", null);
+                        var bottomTile = GetTile(room, i, j, DoorDirection.Bottom, cell.BottomDoor, null, "BottomDoor", null);
                         var northTile = GetTile(room, i, j, DoorDirection.North, cell.NorthDoor, north, "NorthDoor", "NorthWall");
                         var southTile = GetTile(room, i, j, DoorDirection.South, cell.SouthDoor, south, "SouthDoor", "SouthWall");
                         var westTile = GetTile(room, i, j, DoorDirection.West, cell.WestDoor, west, "WestDoor", "WestWall");
@@ -202,35 +261,33 @@ namespace MPewsey.ManiaMap.Drawing
         }
 
         /// <summary>
-        /// Converts a System.Drawing color to an ImageSharp color.
+        /// Converts a `System.Drawing` color to an ImageSharp color.
         /// </summary>
+        /// <param name="color">The `System.Drawing` color.</param>
         private static Color ConvertColor(System.Drawing.Color color)
         {
             return Color.FromRgba(color.R, color.G, color.B, color.A);
         }
 
         /// <summary>
-        /// Returns the map tile corresponding to the door location.
-        /// Returns null if the door does not exist.
-        /// </summary>
-        private Image GetTile(Room room, int x, int y, DoorDirection direction,
-            Door door, string doorName)
-        {
-            if (door != null && door.Type != DoorType.None && DoorExists(room, x, y, direction))
-                return Tiles[doorName];
-            return null;
-        }
-
-        /// <summary>
         /// Returns the map tile corresponding to the wall or door location.
         /// Returns null if the tile has neither a wall or door.
         /// </summary>
+        /// <param name="room">The room.</param>
+        /// <param name="x">The local x coordinate.</param>
+        /// <param name="y">The local y coordinate.</param>
+        /// <param name="direction">The door direction.</param>
+        /// <param name="door">The door.</param>
+        /// <param name="neighbor">The neighbor cell in the door direction. The neighbor can be null.</param>
+        /// <param name="doorName">The door map tile name.</param>
+        /// <param name="wallName">The wall map tile name. If null, the wall tile will not be used.</param>
+        /// <returns></returns>
         private Image GetTile(Room room, int x, int y, DoorDirection direction,
             Door door, Cell neighbor, string doorName, string wallName)
         {
             if (door != null && door.Type != DoorType.None && DoorExists(room, x, y, direction))
                 return Tiles[doorName];
-            if (neighbor == null)
+            if (neighbor == null && wallName != null)
                 return Tiles[wallName];
             return null;
         }
