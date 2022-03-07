@@ -4,11 +4,15 @@ using System.Reflection;
 
 namespace MPewsey.ManiaMap.Drawing
 {
+    /// <summary>
+    /// This class contains methods for loading built-in map tiles.
+    /// </summary>
     public static class MapTiles
     {
         /// <summary>
         /// Loads the map tile from resources at the specified path.
         /// </summary>
+        /// <param name="path">The resource path.</param>
         private static Image LoadTile(string path)
         {
             var assembly = Assembly.GetExecutingAssembly();

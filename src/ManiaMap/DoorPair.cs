@@ -3,11 +3,26 @@ using System.Collections.Generic;
 
 namespace MPewsey.ManiaMap
 {
+    /// <summary>
+    /// A structure consisting of a pair of door positions.
+    /// </summary>
     public struct DoorPair : IEquatable<DoorPair>
     {
+        /// <summary>
+        /// The from door position.
+        /// </summary>
         public DoorPosition FromDoor { get; }
+
+        /// <summary>
+        /// The to door position.
+        /// </summary>
         public DoorPosition ToDoor { get; }
 
+        /// <summary>
+        /// Initializes from a pair of door positions.
+        /// </summary>
+        /// <param name="from">The from door position.</param>
+        /// <param name="to">The to door position.</param>
         public DoorPair(DoorPosition from, DoorPosition to)
         {
             FromDoor = from;
