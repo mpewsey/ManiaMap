@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// A structure consisting of a pair of door positions.
+    /// A structure consisting of a pair of `DoorPosition`.
     /// </summary>
     public struct DoorPair : IEquatable<DoorPair>
     {

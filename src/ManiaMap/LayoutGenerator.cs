@@ -3,17 +3,59 @@ using System.Collections.Generic;
 
 namespace MPewsey.ManiaMap
 {
+    /// <summary>
+    /// A class for generator room `Layout` based on various `RoomTemplate` and a `LayoutGraph`.
+    /// </summary>
     public class LayoutGenerator
     {
+        /// <summary>
+        /// The random seed.
+        /// </summary>
         public int Seed { get; set; }
+
+        /// <summary>
+        /// The maximum number of times that a sub layout can be used as a base before it is discarded.
+        /// </summary>
         public int MaxRebases { get; set; }
+
+        /// <summary>
+        /// The maximum branch chain length. Branch chains exceeding this length will be split. Negative and zero values will be ignored.
+        /// </summary>
         public int MaxBranchLength { get; set; }
+
+        /// <summary>
+        /// The layout graph.
+        /// </summary>
         public LayoutGraph Graph { get; set; }
+
+        /// <summary>
+        /// The template groups.
+        /// </summary>
         public TemplateGroups TemplateGroups { get; set; }
+
+        /// <summary>
+        /// A dictionary of configuration spaces by template pair.
+        /// </summary>
         private Dictionary<TemplatePair, ConfigurationSpace> ConfigurationSpaces { get; set; }
+
+        /// <summary>
+        /// The random number generator.
+        /// </summary>
         private Random Random { get; set; }
+
+        /// <summary>
+        /// The current layout.
+        /// </summary>
         private Layout Layout { get; set; }
 
+        /// <summary>
+        /// Initializes a layout generator.
+        /// </summary>
+        /// <param name="seed">The random seed.</param>
+        /// <param name="graph">The layout graph.</param>
+        /// <param name="templateGroups">The template groups.</param>
+        /// <param name="maxRebases">The maximum number of times that a sub layout can be used as a base before it is discarded.</param>
+        /// <param name="maxBranchLength">The maximum branch chain length. Branch chains exceeding this length will be split. Negative and zero values will be ignored.</param>
         public LayoutGenerator(int seed, LayoutGraph graph, TemplateGroups templateGroups,
             int maxRebases = 100, int maxBranchLength = -1)
         {
@@ -32,6 +74,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Generates a new layout.
         /// </summary>
+        /// <param name="id">The unique layout ID.</param>
         public Layout GenerateLayout(int id)
         {
             int chain = 0;
@@ -74,6 +117,8 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a new shuffled list of configurations for the room templates.
         /// </summary>
+        /// <param name="x">The from room template.</param>
+        /// <param name="y">The to room template.</param>
         private List<Configuration> GetConfigurations(RoomTemplate x, RoomTemplate y)
         {
             var space = ConfigurationSpaces[new TemplatePair(x, y)];
@@ -85,6 +130,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a new shuffled list of room templates for the groups.
         /// </summary>
+        /// <param name="groups">A list of template group names.</param>
         private List<RoomTemplate> GetTemplates(List<string> groups)
         {
             var templates = TemplateGroups.GetTemplates(groups);
@@ -95,6 +141,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Attempts to add the chain to the layout. Returns true if successful.
         /// </summary>
+        /// <param name="chain">A list of edges in the chain.</param>
         private bool AddChain(List<LayoutEdge> chain)
         {
             for (int i = 0; i < chain.Count; i++)
@@ -120,6 +167,8 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns true if the middle node for the edges can be inserted between existing rooms.
         /// </summary>
+        /// <param name="backEdge">The back edge.</param>
+        /// <param name="aheadEdge">The ahead edge.</param>
         private bool CanInsertRoom(LayoutEdge backEdge, LayoutEdge aheadEdge)
         {
             return aheadEdge != null
@@ -132,6 +181,8 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Attemps to insert the rooms for the edges into the layout. Returns true if successful.
         /// </summary>
+        /// <param name="backEdge">The back edge.</param>
+        /// <param name="aheadEdge">The ahead edge.</param>
         private bool InsertRooms(LayoutEdge backEdge, LayoutEdge aheadEdge)
         {
             var midNode = Graph.GetNode(backEdge.ToNode);
@@ -156,6 +207,8 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Attempts to add the rooms for the edge to the layout. Returns true if successful.
         /// </summary>
+        /// <param name="edge">The edge.</param>
+        /// <exception cref="Exception">Raised if the to node already exist, indicating the chains are not properly ordered.</exception>
         private bool AddRooms(LayoutEdge edge)
         {
             var fromNode = Graph.GetNode(edge.FromNode);
@@ -165,7 +218,7 @@ namespace MPewsey.ManiaMap
             var addEdgeRoom = edge.RoomChanceSatisfied(Random.NextDouble());
 
             if (toRoomExists)
-                throw new Exception("Chains are not properly ordered.");
+                throw new Exception("To Node Exists. Chains are not properly ordered.");
 
             // If both rooms do not exist, add the first room. If that fails, abort.
             if (!fromRoomExists && !AddFirstRoom(fromNode))
@@ -182,6 +235,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Attempts to add the nodes from node to the layout. Returns true if successful.
         /// </summary>
+        /// <param name="source">The room source.</param>
         private bool AddFirstRoom(IRoomSource source)
         {
             // Get the first template and add it to the layout.
@@ -198,6 +252,10 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Attempts to add a new room for the to node of the edge. Returns true if successful.
         /// </summary>
+        /// <param name="source">The to room source.</param>
+        /// <param name="fromRoomId">The from room ID.</param>
+        /// <param name="code">The door code.</param>
+        /// <param name="direction">The edge direction.</param>
         private bool AddRoom(IRoomSource source,
             Uid fromRoomId, int code, EdgeDirection direction)
         {
@@ -239,6 +297,13 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Attemps to insert a new room between two rooms. Returns true if successful.
         /// </summary>
+        /// <param name="source">The middle room source.</param>
+        /// <param name="backRoomId">The back room ID.</param>
+        /// <param name="backCode">The back door code.</param>
+        /// <param name="backDirection">The back edge direction.</param>
+        /// <param name="aheadRoomId">The ahead room ID.</param>
+        /// <param name="aheadCode">The ahead door code.</param>
+        /// <param name="aheadDirection">The ahead edge direction.</param>
         private bool InsertRoom(IRoomSource source,
             Uid backRoomId, int backCode, EdgeDirection backDirection,
             Uid aheadRoomId, int aheadCode, EdgeDirection aheadDirection)
@@ -302,6 +367,9 @@ namespace MPewsey.ManiaMap
         /// Attemps to add the door connection for the edge and configuration.
         /// Returns true if successful.
         /// </summary>
+        /// <param name="fromRoomId">The from room ID.</param>
+        /// <param name="toRoomId">The to room ID.</param>
+        /// <param name="config">The configuration.</param>
         private bool AddDoorConnection(Uid fromRoomId, Uid toRoomId, Configuration config)
         {
             var fromRoom = Layout.Rooms[fromRoomId];
@@ -338,6 +406,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Shuffles the specified list in place.
         /// </summary>
+        /// <param name="list">The list to shuffle.</param>
         private void Shuffle<T>(List<T> list)
         {
             for (int i = 0; i < list.Count; i++)

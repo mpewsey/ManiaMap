@@ -5,12 +5,19 @@
     /// </summary>
     public enum DoorDirection
     {
+        /// Door does not exist.
         None,
+        /// Door points north.
         North,
+        /// Door points south.
         South,
+        /// Door points east.
         East,
+        /// Door points west.
         West,
+        /// Door points up.
         Top,
+        /// Door points down.
         Bottom,
     }
 }

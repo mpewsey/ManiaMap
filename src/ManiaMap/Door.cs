@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// Represents a possible door in a room template.
+    /// Represents a possible door in a `RoomTemplate`.
     /// </summary>
     [DataContract]
     public class Door

@@ -1,7 +1,7 @@
 ﻿namespace MPewsey.ManiaMap.Samples
 {
     /// <summary>
-    /// Contains a collection of layout graphs.
+    /// Contains a collection of `LayoutGraph`.
     /// </summary>
     public static class GraphLibrary
     {

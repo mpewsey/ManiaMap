@@ -10,8 +10,8 @@ namespace MPewsey.ManiaMap.Tests
         {
             var path = "ManiaMapLayout.xml";
             var layout = Samples.ManiaMapSample.ManiaMapLayout();
-            layout.Save(path);
-            var copy = Layout.Load(path);
+            layout.SaveXml(path);
+            var copy = Layout.LoadXml(path);
             Assert.AreEqual(layout.Seed, copy.Seed);
         }
     }

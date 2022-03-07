@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// A room cell element with references to door connections for that cell.
+    /// A `RoomTemplate` cell element with references to door connections for that cell.
     /// </summary>
     [DataContract]
     public class Cell

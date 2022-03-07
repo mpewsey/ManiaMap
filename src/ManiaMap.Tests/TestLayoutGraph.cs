@@ -60,8 +60,8 @@ namespace MPewsey.ManiaMap.Tests
         {
             var path = "LayoutGraph.xml";
             var graph = Samples.GraphLibrary.GeekGraph();
-            graph.Save(path);
-            var copy = LayoutGraph.Load(path);
+            graph.SaveXml(path);
+            var copy = LayoutGraph.LoadXml(path);
             Assert.AreEqual(graph.Id, copy.Id);
         }
     }

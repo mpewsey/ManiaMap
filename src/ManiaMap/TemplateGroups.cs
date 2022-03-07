@@ -3,7 +3,7 @@
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// A class for creating groups of room templates.
+    /// A class for creating groups of `RoomTemplate`.
     /// </summary>
     public class TemplateGroups
     {

@@ -7,7 +7,7 @@ using System.IO;
 namespace MPewsey.ManiaMap.Drawing
 {
     /// <summary>
-    /// A class for generating maps from a layout and layout state.
+    /// A class for generating maps from a `Layout` and `LayoutState`.
     /// </summary>
     public class LayoutMap
     {

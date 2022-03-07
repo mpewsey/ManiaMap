@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// A structure containing a from and to room template.
+    /// A structure containing a from and to `RoomTemplate`.
     /// </summary>
     public struct TemplatePair : IEquatable<TemplatePair>
     {

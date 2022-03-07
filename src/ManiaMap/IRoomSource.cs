@@ -4,7 +4,7 @@ using System.Drawing;
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// An interface for objects that may be made into rooms.
+    /// An interface for objects that may be made into `Room`.
     /// </summary>
     public interface IRoomSource
     {

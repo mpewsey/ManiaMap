@@ -5,18 +5,37 @@ using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
+    /// <summary>
+    /// Contains information for the geometry and properties of a `Room` in a `Layout`.
+    /// </summary>
     [DataContract(IsReference = true)]
     public class RoomTemplate
     {
+        /// <summary>
+        /// The unique ID.
+        /// </summary>
         [DataMember(Order = 1)]
         public int Id { get; private set; }
 
+        /// <summary>
+        /// The template name.
+        /// </summary>
         [DataMember(Order = 2)]
         public string Name { get; set; } = string.Empty;
 
+        /// <summary>
+        /// An array of cells in the template. The shape and contents of this array define the geometry
+        /// and properties of the room.
+        /// </summary>
         [DataMember(Order = 3)]
         public Array2D<Cell> Cells { get; private set; }
 
+        /// <summary>
+        /// Initializes a room template.
+        /// </summary>
+        /// <param name="id">The unique ID.</param>
+        /// <param name="name">The template name.</param>
+        /// <param name="cells">An array of cells in the template.</param>
         public RoomTemplate(int id, string name, Array2D<Cell> cells)
         {
             Id = id;
@@ -81,6 +100,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns true if all cells in this template match the cells of another template.
         /// </summary>
+        /// <param name="other">The other room template.</param>
         public bool CellsMatch(RoomTemplate other)
         {
             if (Cells.Rows != other.Cells.Rows || Cells.Columns != other.Cells.Columns)
@@ -182,6 +202,10 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns true if the template intersects the specified range.
         /// </summary>
+        /// <param name="xMin">The minimum x value in the range.</param>
+        /// <param name="xMax">the maximum x value in the range.</param>
+        /// <param name="yMin">The minimum y value in the range.</param>
+        /// <param name="yMax">The maximum y value in the range.</param>
         public bool Intersects(int xMin, int xMax, int yMin, int yMax)
         {
             var jStart = Math.Max(xMin, 0);
@@ -210,6 +234,9 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns true if the room templates another template at the specified offset.
         /// </summary>
+        /// <param name="other">The other room template.</param>
+        /// <param name="dx">The x offset of the other template from this one.</param>
+        /// <param name="dy">the y offset of the other template from this one.</param>
         public bool Intersects(RoomTemplate other, int dx, int dy)
         {
             var jStart = Math.Max(0, dy);
@@ -238,6 +265,9 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a list of doors aligning with a template at the specified offset.
         /// </summary>
+        /// <param name="other">The other room template.</param>
+        /// <param name="dx">The x offset of the other template from this one.</param>
+        /// <param name="dy">the y offset of the other template from this one.</param>
         public List<DoorPair> AlignedDoors(RoomTemplate other, int dx, int dy)
         {
             var result = new List<DoorPair>();

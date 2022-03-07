@@ -5,27 +5,57 @@ using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
+    /// <summary>
+    /// Represents a graph consisting of `LayoutNode` and `LayoutEdge`.
+    /// </summary>
     [DataContract]
     public class LayoutGraph
     {
+        /// <summary>
+        /// The graph ID.
+        /// </summary>
         [DataMember(Order = 1)]
         public int Id { get; private set; }
 
+        /// <summary>
+        /// The graph name.
+        /// </summary>
         [DataMember(Order = 2)]
         public string Name { get; set; } = string.Empty;
 
+        /// <summary>
+        /// A dictionary of nodes by ID.
+        /// </summary>
         [DataMember(Order = 3)]
         private Dictionary<int, LayoutNode> Nodes { get; set; } = new Dictionary<int, LayoutNode>();
 
+        /// <summary>
+        /// A dictionary of nodes by from and to node ID's.
+        /// </summary>
         [DataMember(Order = 4)]
         private Dictionary<EdgeIndexes, LayoutEdge> Edges { get; set; } = new Dictionary<EdgeIndexes, LayoutEdge>();
 
+        /// <summary>
+        /// A dictionary of neighboring nodes by node ID.
+        /// </summary>
         [DataMember(Order = 5)]
         private Dictionary<int, List<int>> Neighbors { get; set; } = new Dictionary<int, List<int>>();
 
+        /// <summary>
+        /// The number of nodes in the graph.
+        /// </summary>
         public int NodeCount { get => Nodes.Count; }
+
+        /// <summary>
+        /// The number of edges in the graph.
+        /// </summary>
         public int EdgeCount { get => Edges.Count; }
 
+        /// <summary>
+        /// Initializes a graph.
+        /// </summary>
+        /// <param name="id">The unique ID.</param>
+        /// <param name="name">The graph name.</param>
         public LayoutGraph(int id, string name)
         {
             Id = id;
@@ -37,7 +67,11 @@ namespace MPewsey.ManiaMap
             return $"LayoutGraph(Id = {Id}, Name = {Name})";
         }
 
-        public void Save(string path)
+        /// <summary>
+        /// Saves the graph in XML format using the `DataContractSerializer`.
+        /// </summary>
+        /// <param name="path">The save file path.</param>
+        public void SaveXml(string path)
         {
             var serializer = new DataContractSerializer(GetType());
 
@@ -47,7 +81,11 @@ namespace MPewsey.ManiaMap
             }
         }
 
-        public static LayoutGraph Load(string path)
+        /// <summary>
+        /// Loads a graph from XML format using the `DataContractSerializer`.
+        /// </summary>
+        /// <param name="path">The file path.</param>
+        public static LayoutGraph LoadXml(string path)
         {
             var serializer = new DataContractSerializer(typeof(LayoutGraph));
 
@@ -58,8 +96,10 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Adds a node to the graph and returns it.
+        /// Adds a node to the graph and returns it. If the node already exists, returns
+        /// the existing node.
         /// </summary>
+        /// <param name="id">The node ID.</param>
         public LayoutNode AddNode(int id)
         {
             if (!Nodes.TryGetValue(id, out var node))
@@ -77,8 +117,12 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Adds an edge to the graph and returns it.
+        /// Adds an edge to the graph and returns it. If the edge already exists,
+        /// returns the existing edge. If the nodes referenced by the edge do not
+        /// already exist, new nodes are added to the graph.
         /// </summary>
+        /// <param name="fromNode">The from node ID.</param>
+        /// <param name="toNode">The to node ID.</param>
         public LayoutEdge AddEdge(int fromNode, int toNode)
         {
             if (!TryGetEdge(fromNode, toNode, out var edge))
@@ -105,6 +149,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Removes a node from the graph.
         /// </summary>
+        /// <param name="id">The node ID.</param>
         public void RemoveNode(int id)
         {
             var neighbors = Neighbors[id];
@@ -123,8 +168,11 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Removes an edge from the graph.
+        /// Removes an edge from the graph. The order of the specified node ID's
+        /// does not matter.
         /// </summary>
+        /// <param name="node1">The first node ID.</param>
+        /// <param name="node2">The second node ID.</param>
         public void RemoveEdge(int node1, int node2)
         {
             Neighbors[node1].Remove(node2);
@@ -137,14 +185,19 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns the node in the graph.
         /// </summary>
+        /// <param name="id">The node ID.</param>
         public LayoutNode GetNode(int id)
         {
             return Nodes[id];
         }
 
         /// <summary>
-        /// Tries to get the edge in the graph.
+        /// Tries to get the edge in the graph. Returns true if successful.
+        /// The order of the specified node ID's does not matter.
         /// </summary>
+        /// <param name="node1">The first node ID.</param>
+        /// <param name="node2">The second node ID.</param>
+        /// <param name="edge">The returned edge.</param>
         public bool TryGetEdge(int node1, int node2, out LayoutEdge edge)
         {
             if (Edges.TryGetValue(new EdgeIndexes(node1, node2), out edge))
@@ -158,6 +211,8 @@ namespace MPewsey.ManiaMap
         /// Returns the edge with the specified nodes. The order of the input nodes
         /// does not matter.
         /// </summary>
+        /// <param name="node1">The first node ID.</param>
+        /// <param name="node2">The second node ID.</param>
         public LayoutEdge GetEdge(int node1, int node2)
         {
             if (Edges.TryGetValue(new EdgeIndexes(node2, node1), out var edge))
@@ -166,7 +221,7 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns an enumerable of all nodes in the graph.
+        /// Returns an enumerable of all nodes in the graph. The nodes are sorted by ID.
         /// </summary>
         public IEnumerable<LayoutNode> GetNodes()
         {
@@ -184,6 +239,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns an enumerable of all neighbors for the specified node.
         /// </summary>
+        /// <param name="id">The node ID.</param>
         public IReadOnlyList<int> GetNeighbors(int id)
         {
             return Neighbors[id];
@@ -208,6 +264,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a list of chains in the graph.
         /// </summary>
+        /// <param name="maxBranchLength">The maximum branch chain length. Branch chains exceeding this length will be split. Negative and zero values will be ignored.</param>
         public List<List<LayoutEdge>> FindChains(int maxBranchLength = -1)
         {
             return new GraphChainDecomposer(this, maxBranchLength).FindChains();

@@ -4,11 +4,29 @@ using System.Linq;
 
 namespace MPewsey.ManiaMap
 {
+    /// <summary>
+    /// A class for decomposing the branches of a `LayoutGraph` into chains.
+    /// </summary>
     public class GraphBranchDecomposer
     {
+        /// <summary>
+        /// The layout graph.
+        /// </summary>
         public LayoutGraph Graph { get; set; }
+
+        /// <summary>
+        /// A set of marked IDs.
+        /// </summary>
         private HashSet<int> Marked { get; } = new HashSet<int>();
+
+        /// <summary>
+        /// A dictionary with node parent ID by node ID.
+        /// </summary>
         private Dictionary<int, int> Parents { get; }
+
+        /// <summary>
+        /// A list of branch chains.
+        /// </summary>
         private List<List<int>> Branches { get; } = new List<List<int>>();
 
         public GraphBranchDecomposer(LayoutGraph graph)
@@ -84,6 +102,8 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Performs depth first search for graph branches.
         /// </summary>
+        /// <param name="node">The node ID.</param>
+        /// <param name="parent">The node's parent ID.</param>
         private void BranchSearch(int node, int parent)
         {
             // If the node already has a parent, then it has been traversed previously from another trunk node.
@@ -118,6 +138,8 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Accumulates the parents of the node into the branch.
         /// </summary>
+        /// <param name="node">The node ID.</param>
+        /// <param name="branch">The branch to which nodes will be added.</param>
         private void AddParentsToBranch(int node, List<int> branch)
         {
             var current = node;
