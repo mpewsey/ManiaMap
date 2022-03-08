@@ -1,9 +1,18 @@
 ﻿namespace MPewsey.ManiaMap.Samples
 {
+    /// <summary>
+    /// Contains collections of `RoomTemplate`.
+    /// </summary>
     public static class TemplateLibrary
     {
+        /// <summary>
+        /// Contains a collection of miscellaneous `RoomTemplate`.
+        /// </summary>
         public static class Miscellaneous
         {
+            /// <summary>
+            /// Returns a square template with doors at each wall's midpoint.
+            /// </summary>
             public static RoomTemplate SquareTemplate()
             {
                 var o = Cell.New;
@@ -22,6 +31,9 @@
                 return new RoomTemplate(1, "Square", cells);
             }
 
+            /// <summary>
+            /// Returns a ring template with a hole in the center and doors at each wall's midpoint.
+            /// </summary>
             public static RoomTemplate RingTemplate()
             {
                 var x = Cell.Empty;
@@ -41,6 +53,10 @@
                 return new RoomTemplate(2, "Ring", cells);
             }
 
+            /// <summary>
+            /// Returns a template in the shape of a "+" with doors at each point.
+            /// </summary>
+            /// <returns></returns>
             public static RoomTemplate PlusTemplate()
             {
                 var x = Cell.Empty;
@@ -60,6 +76,9 @@
                 return new RoomTemplate(3, "Plus", cells);
             }
 
+            /// <summary>
+            /// Returns a square template with doors in all directions.
+            /// </summary>
             public static RoomTemplate HyperSquareTemplate()
             {
                 var o = Cell.New.SetDoors("TB", Door.TwoWay);
@@ -82,6 +101,9 @@
                 return new RoomTemplate(4, "HyperSquare", cells);
             }
 
+            /// <summary>
+            /// Returns an "L" template with doors at the ends and intersection of the "L".
+            /// </summary>
             public static RoomTemplate LTemplate()
             {
                 var x = Cell.Empty;

@@ -1,7 +1,13 @@
 ﻿namespace MPewsey.ManiaMap.Samples
 {
+    /// <summary>
+    /// Contains methods for the Mania Map sample.
+    /// </summary>
     public static class ManiaMapSample
     {
+        /// <summary>
+        /// Returns a template for the first letter M in Mania Map.
+        /// </summary>
         public static RoomTemplate LetterM1Template()
         {
             var x = Cell.Empty;
@@ -20,6 +26,9 @@
             return new RoomTemplate(1, "M", cells);
         }
 
+        /// <summary>
+        /// Returns a template for the second letter M in Mania Map.
+        /// </summary>
         public static RoomTemplate LetterM2Template()
         {
             var x = Cell.Empty;
@@ -39,6 +48,9 @@
             return new RoomTemplate(1, "M", cells);
         }
 
+        /// <summary>
+        /// Returns a template for the letter A in Mania Map.
+        /// </summary>
         public static RoomTemplate LetterATemplate()
         {
             var x = Cell.Empty;
@@ -58,6 +70,9 @@
             return new RoomTemplate(2, "A", cells);
         }
 
+        /// <summary>
+        /// Returns a template for the leter N in Mania Map.
+        /// </summary>
         public static RoomTemplate LetterNTemplate()
         {
             var x = Cell.Empty;
@@ -77,6 +92,9 @@
             return new RoomTemplate(3, "N", cells);
         }
 
+        /// <summary>
+        /// Returns a template for the letter I in Mania Map.
+        /// </summary>
         public static RoomTemplate LetterITemplate()
         {
             var x = Cell.Empty;
@@ -96,6 +114,9 @@
             return new RoomTemplate(4, "I", cells);
         }
 
+        /// <summary>
+        /// Returns a template for the letter P in Mania Map.
+        /// </summary>
         public static RoomTemplate LetterPTemplate()
         {
             var x = Cell.Empty;
@@ -114,6 +135,9 @@
             return new RoomTemplate(5, "P", cells);
         }
 
+        /// <summary>
+        /// Returns the template groups for the letters in Mania Map.
+        /// </summary>
         public static TemplateGroups LetterTemplateGroups()
         {
             var templateGroups = new TemplateGroups();
@@ -126,6 +150,9 @@
             return templateGroups;
         }
 
+        /// <summary>
+        /// Returns a layout graph for the Mania Map layout.
+        /// </summary>
         public static LayoutGraph ManiaMapLayoutGraph()
         {
             var graph = new LayoutGraph(1, "ManiaMap");
@@ -150,6 +177,9 @@
             return graph;
         }
 
+        /// <summary>
+        /// Generates the Mania Map layout and returns it.
+        /// </summary>
         public static Layout ManiaMapLayout()
         {
             var graph = ManiaMapLayoutGraph();

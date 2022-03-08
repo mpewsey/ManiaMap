@@ -3,13 +3,35 @@ using System.Linq;
 
 namespace MPewsey.ManiaMap
 {
+    /// <summary>
+    /// A class for finding cycles in a `LayoutGraph`.
+    /// </summary>
     public class GraphCycleDecomposer
     {
+        /// <summary>
+        /// The layout graph.
+        /// </summary>
         public LayoutGraph Graph { get; set; }
+
+        /// <summary>
+        /// A dictionary of parent node ID's by node ID.
+        /// </summary>
         private Dictionary<int, int> Parents { get; }
+
+        /// <summary>
+        /// A dictionary with the status code of the node by node ID.
+        /// </summary>
         private Dictionary<int, int> Colors { get; }
+
+        /// <summary>
+        /// A list of cycle chains.
+        /// </summary>
         private List<List<int>> Cycles { get; } = new List<List<int>>();
 
+        /// <summary>
+        /// Initializes the object.
+        /// </summary>
+        /// <param name="graph">The layout graph.</param>
         public GraphCycleDecomposer(LayoutGraph graph)
         {
             Graph = graph;
@@ -44,6 +66,8 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Performs depth first search to find cycles in the graph.
         /// </summary>
+        /// <param name="node">The node ID.</param>
+        /// <param name="parent">The node's parent ID.</param>
         private void CycleSearch(int node, int parent)
         {
             Colors.TryGetValue(node, out var color);

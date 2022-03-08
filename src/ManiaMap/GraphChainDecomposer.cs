@@ -2,14 +2,41 @@
 
 namespace MPewsey.ManiaMap
 {
+    /// <summary>
+    /// A class for finding chains of a `LayoutGraph`.
+    /// </summary>
     public class GraphChainDecomposer
     {
+        /// <summary>
+        /// The layout graph.
+        /// </summary>
         public LayoutGraph Graph { get; set; }
+
+        /// <summary>
+        /// The maximum branch chain length. Branch chains exceeding this length will be split. Negative and zero values will be ignored.
+        /// </summary>
         public int MaxBranchLength { get; set; }
+
+        /// <summary>
+        /// A set of all marked node ID's.
+        /// </summary>
         private HashSet<int> Marked { get; } = new HashSet<int>();
+
+        /// <summary>
+        /// A pool of chains for fast removal.
+        /// </summary>
         private LinkedList<List<LayoutEdge>> Pool { get; } = new LinkedList<List<LayoutEdge>>();
+
+        /// <summary>
+        /// A list of chains.
+        /// </summary>
         private List<List<LayoutEdge>> Chains { get; } = new List<List<LayoutEdge>>();
 
+        /// <summary>
+        /// Initializes an object.
+        /// </summary>
+        /// <param name="graph">The layout graph.</param>
+        /// <param name="maxBranchLength">The maximum branch chain length. Branch chains exceeding this length will be split. Negative and zero values will be ignored.</param>
         public GraphChainDecomposer(LayoutGraph graph, int maxBranchLength = -1)
         {
             Graph = graph;
@@ -241,6 +268,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Adds the nodes in the chain to the marked set.
         /// </summary>
+        /// <param name="chain">A list of chain edges.</param>
         private void MarkNodes(List<LayoutEdge> chain)
         {
             foreach (var edge in chain)
@@ -253,6 +281,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a new list of edges based on a list of nodes.
         /// </summary>
+        /// <param name="nodes">A list of node ID's.</param>
         private List<LayoutEdge> GetChainEdges(List<int> nodes)
         {
             var chain = new List<LayoutEdge>(nodes.Count);
@@ -268,16 +297,10 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns true if the chain is a cycle.
         /// </summary>
+        /// <param name="chain">A list of chain edges.</param>
         private static bool ChainIsCycle(List<LayoutEdge> chain)
         {
-            if (chain.Count > 2)
-            {
-                var x = chain[0];
-                var y = chain[chain.Count - 1];
-                return x.SharesNode(y);
-            }
-
-            return false;
+            return chain.Count > 2 && chain[0].SharesNode(chain[chain.Count - 1]);
         }
     }
 }
