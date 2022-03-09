@@ -409,7 +409,7 @@ namespace MPewsey.ManiaMap
         /// <param name="list">The list to shuffle.</param>
         private void Shuffle<T>(List<T> list)
         {
-            for (int i = 0; i < list.Count; i++)
+            for (int i = 0; i < list.Count - 1; i++)
             {
                 var j = Random.Next(i, list.Count);
                 (list[i], list[j]) = (list[j], list[i]);
