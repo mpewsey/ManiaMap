@@ -64,5 +64,12 @@ namespace MPewsey.ManiaMap.Tests
             var copy = LayoutGraph.LoadXml(path);
             Assert.AreEqual(graph.Id, copy.Id);
         }
+
+        [TestMethod]
+        public void TestToString()
+        {
+            var graph = Samples.GraphLibrary.GeekGraph();
+            Assert.IsTrue(graph.ToString().StartsWith("LayoutGraph("));
+        }
     }
 }

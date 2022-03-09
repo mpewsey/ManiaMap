@@ -33,5 +33,14 @@ namespace MPewsey.ManiaMap.Tests
 
             CollectionAssert.AreEqual(expected, result);
         }
+
+        [TestMethod]
+        public void TestToString()
+        {
+            var from = Samples.TemplateLibrary.Miscellaneous.PlusTemplate();
+            var to = Samples.TemplateLibrary.Miscellaneous.PlusTemplate();
+            var space = new ConfigurationSpace(from, to);
+            Assert.IsTrue(space.ToString().StartsWith("ConfigurationSpace("));
+        }
     }
 }

@@ -64,5 +64,46 @@ namespace MPewsey.ManiaMap.Tests
                 CollectionAssert.AreEqual(expected[i], chains[i]);
             }
         }
+
+        [TestMethod]
+        public void TestToString()
+        {
+            var graph = Samples.GraphLibrary.GeekGraph();
+            var decomposer = new GraphChainDecomposer(graph);
+            Assert.IsTrue(decomposer.ToString().StartsWith("GraphChainDecomposer("));
+        }
+
+        [TestMethod]
+        public void TestSplitLongChains()
+        {
+            var graph = Samples.GraphLibrary.GeekGraph();
+            var chains = graph.FindChains(1);
+
+            var expected = new List<List<LayoutEdge>>
+            {
+                new() { graph.GetEdge(11, 13), graph.GetEdge(11, 12), graph.GetEdge(12, 13) },
+                new() { graph.GetEdge(10, 11) },
+                new() { graph.GetEdge(6, 10) },
+                new() { graph.GetEdge(5, 6), graph.GetEdge(3, 5), graph.GetEdge(3, 4), graph.GetEdge(4, 6) },
+                new() { graph.GetEdge(2, 3) },
+                new() { graph.GetEdge(1, 2) },
+                new() { graph.GetEdge(4, 7) },
+                new() { graph.GetEdge(7, 8) },
+                new() { graph.GetEdge(5, 9) },
+            };
+
+            Console.WriteLine("Expected:");
+            expected.ForEach(x => Console.WriteLine(string.Join(", ", x.Select(x => x.ToSymbolString()))));
+
+            Console.WriteLine("\nResult:");
+            chains.ForEach(x => Console.WriteLine(string.Join(", ", x.Select(x => x.ToSymbolString()))));
+
+            Assert.AreEqual(expected.Count, chains.Count);
+
+            for (int i = 0; i < chains.Count; i++)
+            {
+                CollectionAssert.AreEqual(expected[i], chains[i]);
+            }
+        }
     }
 }

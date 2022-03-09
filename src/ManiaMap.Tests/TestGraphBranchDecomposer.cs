@@ -36,5 +36,13 @@ namespace MPewsey.ManiaMap.Tests
                 CollectionAssert.AreEquivalent(expected[i], branches[i]);
             }
         }
+
+        [TestMethod]
+        public void TestToString()
+        {
+            var graph = Samples.GraphLibrary.GeekGraph();
+            var decomposer = new GraphBranchDecomposer(graph);
+            Assert.IsTrue(decomposer.ToString().StartsWith("GraphBranchDecomposer("));
+        }
     }
 }

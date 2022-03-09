@@ -117,5 +117,13 @@ namespace MPewsey.ManiaMap.Tests
 
             CollectionAssert.AreEqual(expected, doors);
         }
+
+        [TestMethod]
+        public void TestCellsMatch()
+        {
+            var template1 = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
+            var template2 = template1.Rotated180().Rotated180();
+            Assert.IsTrue(template1.CellsMatch(template2));
+        }
     }
 }

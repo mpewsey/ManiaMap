@@ -118,5 +118,17 @@ namespace MPewsey.ManiaMap.Tests
             Assert.AreEqual(8, layout.Rooms.Count);
             Assert.AreEqual(7, layout.DoorConnections.Count);
         }
+
+        [TestMethod]
+        public void TestToString()
+        {
+            var graph = Samples.GraphLibrary.GeekGraph();
+
+            var templateGroups = new TemplateGroups();
+            templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
+
+            var generator = new LayoutGenerator(123456, graph, templateGroups);
+            Assert.IsTrue(generator.ToString().StartsWith("LayoutGenerator("));
+        }
     }
 }

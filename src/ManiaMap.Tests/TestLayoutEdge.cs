@@ -73,5 +73,19 @@ namespace MPewsey.ManiaMap.Tests
             var edge = new LayoutEdge(1, 2).SetRoomChance(0.5f);
             Assert.AreEqual(0.5f, edge.RoomChance);
         }
+
+        [TestMethod]
+        public void TestSetZ()
+        {
+            var edge = new LayoutEdge(1, 2).SetZ(1);
+            Assert.AreEqual(1, edge.Z);
+        }
+
+        [TestMethod]
+        public void TestSetName()
+        {
+            var edge = new LayoutEdge(1, 2).SetName("Edge1");
+            Assert.AreEqual("Edge1", edge.Name);
+        }
     }
 }
