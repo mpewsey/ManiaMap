@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
@@ -19,6 +20,12 @@ namespace MPewsey.ManiaMap
         /// </summary>
         [DataMember(Order = 2)]
         public Array2D<bool> Visibility { get; private set; }
+
+        /// <summary>
+        /// A set of flags that are set for a room.
+        /// </summary>
+        [DataMember(Order = 3)]
+        public HashSet<int> Flags { get; private set; } = new HashSet<int>();
 
         /// <summary>
         /// Initializes from a room.
