@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MPewsey.ManiaMap
 {
@@ -69,6 +70,15 @@ namespace MPewsey.ManiaMap
         public override string ToString()
         {
             return $"LayoutGenerator(Seed = {Seed})";
+        }
+
+        /// <summary>
+        /// Generates a new layout asynchronously.
+        /// </summary>
+        /// <param name="id">The unique layout ID.</param>
+        public Task<Layout> GenerateLayoutAsync(int id)
+        {
+            return Task.Run<Layout>(() => GenerateLayout(id));
         }
 
         /// <summary>
