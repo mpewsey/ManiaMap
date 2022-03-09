@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 
@@ -30,6 +31,34 @@ namespace MPewsey.ManiaMap
         {
             Id = layout.Id;
             RoomStates = layout.Rooms.Values.ToDictionary(x => x.Id, x => new RoomState(x));
+        }
+
+        /// <summary>
+        /// Saves the layout state for a file using the DataContractSerializer.
+        /// </summary>
+        /// <param name="path">The save file path.</param>
+        public void SaveXml(string path)
+        {
+            var serializer = new DataContractSerializer(GetType());
+
+            using (var stream = File.Create(path))
+            {
+                serializer.WriteObject(stream, this);
+            }
+        }
+
+        /// <summary>
+        /// Loads a layout state from a file using the DataContractSerializer.
+        /// </summary>
+        /// <param name="path">he file path.</param>
+        public static LayoutState LoadXml(string path)
+        {
+            var serializer = new DataContractSerializer(typeof(LayoutState));
+
+            using (var stream = File.OpenRead(path))
+            {
+                return (LayoutState)serializer.ReadObject(stream);
+            }
         }
     }
 }
