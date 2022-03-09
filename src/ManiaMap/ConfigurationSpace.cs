@@ -36,7 +36,7 @@ namespace MPewsey.ManiaMap
 
         public override string ToString()
         {
-            return $"ConfigurationSpace(FromTemplate = {FromTemplate}, ToTemplate = {ToTemplate}, Configurations.Count = {Configurations.Count})";
+            return $"ConfigurationSpace(FromTemplate = {FromTemplate}, ToTemplate = {ToTemplate})";
         }
 
         /// <summary>
