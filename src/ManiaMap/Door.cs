@@ -12,27 +12,27 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a new two-way door.
         /// </summary>
-        public static Door TwoWay { get => new Door { Type = DoorType.TwoWay }; }
+        public static Door TwoWay => new Door { Type = DoorType.TwoWay };
 
         /// <summary>
         /// Returns a new two-way exit door.
         /// </summary>
-        public static Door TwoWayExit { get => new Door { Type = DoorType.TwoWayExit }; }
+        public static Door TwoWayExit => new Door { Type = DoorType.TwoWayExit };
 
         /// <summary>
         /// Returns a new two-way entrance door.
         /// </summary>
-        public static Door TwoWayEntrance { get => new Door { Type = DoorType.TwoWayEntrance }; }
+        public static Door TwoWayEntrance => new Door { Type = DoorType.TwoWayEntrance };
 
         /// <summary>
         /// Returns a new one-way exit door.
         /// </summary>
-        public static Door OneWayExit { get => new Door { Type = DoorType.OneWayExit }; }
+        public static Door OneWayExit => new Door { Type = DoorType.OneWayExit };
 
         /// <summary>
         /// Returns a new one-way entrance door.
         /// </summary>
-        public static Door OneWayEntrance { get => new Door { Type = DoorType.OneWayEntrance }; }
+        public static Door OneWayEntrance => new Door { Type = DoorType.OneWayEntrance };
 
         /// <summary>
         /// The door type.
