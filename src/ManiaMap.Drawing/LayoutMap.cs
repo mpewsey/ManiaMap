@@ -162,11 +162,11 @@ namespace MPewsey.ManiaMap.Drawing
 
             foreach (var room in Layout.Rooms.Values)
             {
-                if (!dict.ContainsKey(room.Z))
+                if (!dict.ContainsKey(room.Position.Z))
                 {
                     var map = new Image<Rgba32>(width, height);
-                    map.Mutate(x => DrawMap(x, room.Z));
-                    dict.Add(room.Z, map);
+                    map.Mutate(x => DrawMap(x, room.Position.Z));
+                    dict.Add(room.Position.Z, map);
                 }
             }
 
@@ -217,13 +217,13 @@ namespace MPewsey.ManiaMap.Drawing
             foreach (var room in Layout.Rooms.Values)
             {
                 // If room Z (layer) value is not equal, go to next room.
-                if (room.Z != z)
+                if (room.Position.Z != z)
                     continue;
 
                 var roomState = LayoutState?.RoomStates[room.Id];
                 var cells = room.Template.Cells;
-                var x0 = (room.Y - LayoutBounds.X + Padding.Left) * TileSize.X;
-                var y0 = (room.X - LayoutBounds.Y + Padding.Top) * TileSize.Y;
+                var x0 = (room.Position.Y - LayoutBounds.X + Padding.Left) * TileSize.X;
+                var y0 = (room.Position.X - LayoutBounds.Y + Padding.Top) * TileSize.Y;
                 cellTile.Mutate(x => x.BackgroundColor(ConvertColor(room.Color)));
 
                 for (int i = 0; i < cells.Rows; i++)

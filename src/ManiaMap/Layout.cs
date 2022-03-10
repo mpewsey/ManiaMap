@@ -117,12 +117,12 @@ namespace MPewsey.ManiaMap
         {
             foreach (var room in Rooms.Values)
             {
-                if (room.Z >= zMin && room.Z <= zMax)
+                if (room.Position.Z >= zMin && room.Position.Z <= zMax)
                 {
-                    var x1 = xMin - room.X;
-                    var x2 = xMax - room.X;
-                    var y1 = yMin - room.Y;
-                    var y2 = yMax - room.Y;
+                    var x1 = xMin - room.Position.X;
+                    var x2 = xMax - room.Position.X;
+                    var y1 = yMin - room.Position.Y;
+                    var y2 = yMax - room.Position.Y;
 
                     if (room.Template.Intersects(x1, x2, y1, y2))
                     {
@@ -155,10 +155,10 @@ namespace MPewsey.ManiaMap
         {
             foreach (var room in Rooms.Values)
             {
-                if (room.Z == z)
+                if (room.Position.Z == z)
                 {
-                    var dx = room.X - x;
-                    var dy = room.Y - y;
+                    var dx = room.Position.X - x;
+                    var dy = room.Position.Y - y;
 
                     if (template.Intersects(room.Template, dx, dy))
                     {
@@ -262,10 +262,10 @@ namespace MPewsey.ManiaMap
 
             foreach (var room in Rooms.Values)
             {
-                minX = Math.Min(minX, room.X);
-                minY = Math.Min(minY, room.Y);
-                maxX = Math.Max(maxX, room.X + room.Template.Cells.Rows);
-                maxY = Math.Max(maxY, room.Y + room.Template.Cells.Columns);
+                minX = Math.Min(minX, room.Position.X);
+                minY = Math.Min(minY, room.Position.Y);
+                maxX = Math.Max(maxX, room.Position.X + room.Template.Cells.Rows);
+                maxY = Math.Max(maxY, room.Position.Y + room.Template.Cells.Columns);
             }
 
             return new Rectangle(minY, minX, maxY - minY, maxX - minX);

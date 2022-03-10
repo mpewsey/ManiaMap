@@ -251,7 +251,7 @@ namespace MPewsey.ManiaMap
             // Get the first template and add it to the layout.
             foreach (var template in GetTemplates(source.TemplateGroups))
             {
-                var room = new Room(source, 0, 0, Random.Next(), template);
+                var room = new Room(source, Vector2DInt.Zero, Random.Next(), template);
                 Layout.Rooms.Add(room.Id, room);
                 return true;
             }
@@ -270,14 +270,14 @@ namespace MPewsey.ManiaMap
             Uid fromRoomId, int code, EdgeDirection direction)
         {
             var fromRoom = Layout.Rooms[fromRoomId];
-            var z = source.Z - fromRoom.Z;
+            var z = source.Z - fromRoom.Position.Z;
 
             foreach (var template in GetTemplates(source.TemplateGroups))
             {
                 foreach (var config in GetConfigurations(fromRoom.Template, template))
                 {
-                    var x = config.Position.X + fromRoom.X;
-                    var y = config.Position.Y + fromRoom.Y;
+                    var x = config.Position.X + fromRoom.Position.X;
+                    var y = config.Position.Y + fromRoom.Position.Y;
 
                     // Check if the configuration can be added to the layout. If not, try the next one.
                     if (!config.Matches(z, code, direction))
@@ -286,7 +286,7 @@ namespace MPewsey.ManiaMap
                         continue;
 
                     // Add the room to the layout.
-                    var room = new Room(source, x, y, Random.Next(), template);
+                    var room = new Room(source, new Vector2DInt(x, y), Random.Next(), template);
                     Layout.Rooms.Add(room.Id, room);
 
                     // Try to create a door connection between the rooms.
@@ -320,15 +320,15 @@ namespace MPewsey.ManiaMap
         {
             var backRoom = Layout.Rooms[backRoomId];
             var aheadRoom = Layout.Rooms[aheadRoomId];
-            var z1 = source.Z - backRoom.Z;
-            var z2 = aheadRoom.Z - source.Z;
+            var z1 = source.Z - backRoom.Position.Z;
+            var z2 = aheadRoom.Position.Z - source.Z;
 
             foreach (var template in GetTemplates(source.TemplateGroups))
             {
                 foreach (var config1 in GetConfigurations(backRoom.Template, template))
                 {
-                    var x1 = config1.Position.X + backRoom.X;
-                    var y1 = config1.Position.Y + backRoom.Y;
+                    var x1 = config1.Position.X + backRoom.Position.X;
+                    var y1 = config1.Position.Y + backRoom.Position.Y;
 
                     // Check if the configuration can be added to the layout. If not, try the next one.
                     if (!config1.Matches(z1, backCode, backDirection))
@@ -338,14 +338,14 @@ namespace MPewsey.ManiaMap
 
                     foreach (var config2 in GetConfigurations(template, aheadRoom.Template))
                     {
-                        var x2 = aheadRoom.X - x1;
-                        var y2 = aheadRoom.Y - y1;
+                        var x2 = aheadRoom.Position.X - x1;
+                        var y2 = aheadRoom.Position.Y - y1;
 
                         // Check if the configuration can be added to the layout. If not, try the next one.
                         if (!config2.Matches(x2, y2, z2, aheadCode, aheadDirection))
                             continue;
 
-                        var room = new Room(source, x1, y1, Random.Next(), template);
+                        var room = new Room(source, new Vector2DInt(x1, y1), Random.Next(), template);
                         Layout.Rooms.Add(room.Id, room);
 
                         // Try to create a door connection between the rooms.
@@ -387,7 +387,7 @@ namespace MPewsey.ManiaMap
             var fromDoor = config.FromDoor;
             var toDoor = config.ToDoor;
 
-            if (Math.Abs(fromRoom.Z - toRoom.Z) <= 1)
+            if (Math.Abs(fromRoom.Position.Z - toRoom.Position.Z) <= 1)
             {
                 // Rooms do not require shaft connection. Simply add the door connection.
                 var connection = new DoorConnection(fromRoom, toRoom, fromDoor, toDoor);
@@ -396,10 +396,10 @@ namespace MPewsey.ManiaMap
             else
             {
                 // Shaft is required.
-                var x = fromDoor.X + fromRoom.X;
-                var y = fromDoor.Y + fromRoom.Y;
-                var zMin = Math.Min(fromRoom.Z, toRoom.Z) + 1;
-                var zMax = Math.Max(fromRoom.Z, toRoom.Z) - 1;
+                var x = fromDoor.X + fromRoom.Position.X;
+                var y = fromDoor.Y + fromRoom.Position.Y;
+                var zMin = Math.Min(fromRoom.Position.Z, toRoom.Position.Z) + 1;
+                var zMax = Math.Max(fromRoom.Position.Z, toRoom.Position.Z) - 1;
 
                 // If shaft intersects the layout, abort adding the door connection.
                 if (Layout.Intersects(x, x, y, y, zMin, zMax))
