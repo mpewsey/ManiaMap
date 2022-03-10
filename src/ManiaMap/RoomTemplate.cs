@@ -202,19 +202,17 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns true if the template intersects the specified range.
         /// </summary>
-        /// <param name="xMin">The minimum x value in the range.</param>
-        /// <param name="xMax">the maximum x value in the range.</param>
-        /// <param name="yMin">The minimum y value in the range.</param>
-        /// <param name="yMax">The maximum y value in the range.</param>
-        public bool Intersects(int xMin, int xMax, int yMin, int yMax)
+        /// <param name="min">The minimum values of the range.</param>
+        /// <param name="max">The maximum values of the range.</param>
+        public bool Intersects(Vector2DInt min, Vector2DInt max)
         {
-            var jStart = Math.Max(xMin, 0);
-            var jStop = Math.Min(xMax + 1, Cells.Rows);
+            var jStart = Math.Max(min.X, 0);
+            var jStop = Math.Min(max.X + 1, Cells.Rows);
 
             if (jStart < jStop)
             {
-                var iStart = Math.Max(yMin, 0);
-                var iStop = Math.Min(yMax + 1, Cells.Columns);
+                var iStart = Math.Max(min.Y, 0);
+                var iStop = Math.Min(max.Y + 1, Cells.Columns);
 
                 for (int i = iStart; i < iStop; i++)
                 {
@@ -232,26 +230,33 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// REMOVE THIS EVENTUALLY.
+        /// </summary>
+        public bool Intersects(int xMin, int xMax, int yMin, int yMax)
+        {
+            return Intersects(new Vector2DInt(xMin, yMin), new Vector2DInt(xMax, yMax));
+        }
+
+        /// <summary>
         /// Returns true if the room templates another template at the specified offset.
         /// </summary>
         /// <param name="other">The other room template.</param>
-        /// <param name="dx">The x offset of the other template from this one.</param>
-        /// <param name="dy">the y offset of the other template from this one.</param>
-        public bool Intersects(RoomTemplate other, int dx, int dy)
+        /// <param name="offset">The offset of the other template from this one.</param>
+        public bool Intersects(RoomTemplate other, Vector2DInt offset)
         {
-            var jStart = Math.Max(0, dy);
-            var jStop = Math.Min(Cells.Columns, other.Cells.Columns + dy);
+            var jStart = Math.Max(0, offset.Y);
+            var jStop = Math.Min(Cells.Columns, other.Cells.Columns + offset.Y);
 
             if (jStart < jStop)
             {
-                var iStart = Math.Max(0, dx);
-                var iStop = Math.Min(Cells.Rows, other.Cells.Rows + dx);
+                var iStart = Math.Max(0, offset.X);
+                var iStop = Math.Min(Cells.Rows, other.Cells.Rows + offset.X);
 
                 for (int i = iStart; i < iStop; i++)
                 {
                     for (int j = jStart; j < jStop; j++)
                     {
-                        if (Cells[i, j] != null && other.Cells[i - dx, j - dy] != null)
+                        if (Cells[i, j] != null && other.Cells[i - offset.X, j - offset.Y] != null)
                         {
                             return true;
                         }
@@ -263,23 +268,30 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// REMOVE THIS EVENTUALLY.
+        /// </summary>
+        public bool Intersects(RoomTemplate other, int dx, int dy)
+        {
+            return Intersects(other, new Vector2DInt(dx, dy));
+        }
+
+        /// <summary>
         /// Returns a list of doors aligning with a template at the specified offset.
         /// </summary>
         /// <param name="other">The other room template.</param>
-        /// <param name="dx">The x offset of the other template from this one.</param>
-        /// <param name="dy">the y offset of the other template from this one.</param>
-        public List<DoorPair> AlignedDoors(RoomTemplate other, int dx, int dy)
+        /// <param name="offset">The offset of the other template from this one.</param>
+        public List<DoorPair> AlignedDoors(RoomTemplate other, Vector2DInt offset)
         {
             var result = new List<DoorPair>();
-            var jStart = Math.Max(0, dy - 1);
-            var jStop = Math.Min(Cells.Columns, other.Cells.Columns + dy + 1);
+            var jStart = Math.Max(0, offset.Y - 1);
+            var jStop = Math.Min(Cells.Columns, other.Cells.Columns + offset.Y + 1);
 
             if (jStart >= jStop)
                 return result;
 
-            var iStart = Math.Max(0, dx - 1);
-            var iStop = Math.Min(Cells.Rows, other.Cells.Rows + dx + 1);
-            var intersects = Intersects(other, dx, dy);
+            var iStart = Math.Max(0, offset.X - 1);
+            var iStop = Math.Min(Cells.Rows, other.Cells.Rows + offset.X + 1);
+            var intersects = Intersects(other, offset);
 
             for (int i = iStart; i < iStop; i++)
             {
@@ -290,8 +302,8 @@ namespace MPewsey.ManiaMap
                     if (cell == null)
                         continue;
 
-                    var x = i - dx;
-                    var y = j - dy;
+                    var x = i - offset.X;
+                    var y = j - offset.Y;
 
                     if (intersects)
                     {
@@ -350,6 +362,14 @@ namespace MPewsey.ManiaMap
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// REMOVE THIS EVENTUALLY.
+        /// </summary>
+        public List<DoorPair> AlignedDoors(RoomTemplate other, int dx, int dy)
+        {
+            return AlignedDoors(other, new Vector2DInt(dx, dy));
         }
     }
 }
