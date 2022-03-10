@@ -19,7 +19,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         [DataMember(Order = 1)]
         public Vector3DInt Max { get; private set; }
-        
+
         public Box(Vector3DInt min, Vector3DInt max)
         {
             Min = min;
@@ -40,27 +40,13 @@ namespace MPewsey.ManiaMap
         {
             if (position.Z >= Min.Z && position.Z <= Max.Z)
             {
-                var x1 = Min.X - position.X;
-                var x2 = Max.X - position.X;
-                var y1 = Min.Y - position.Y;
-                var y2 = Max.Y - position.Y;
-
-                if (template.Intersects(x1, x2, y1, y2))
+                if (template.Intersects(Min - position, Max - position))
                 {
                     return true;
                 }
             }
 
             return false;
-        }
-
-        /// TODO
-        /// <summary>
-        /// REMOVE THIS EVENTUALLY.
-        /// </summary>
-        public bool Intersects(RoomTemplate template, int x, int y, int z)
-        {
-            return Intersects(template, new Vector3DInt(x, y, z));
         }
 
         /// <summary>
@@ -73,15 +59,6 @@ namespace MPewsey.ManiaMap
             return min.X <= Max.X && max.X >= Min.X
                 && min.Y <= Max.Y && max.Y >= Min.Y
                 && min.Z <= Max.Z && max.Z >= Min.Z;
-        }
-
-        /// TODO
-        /// <summary>
-        /// REMOVE THIS EVENTUALLY.
-        /// </summary>
-        public bool Intersects(int xMin, int xMax, int yMin, int yMax, int zMin, int zMax)
-        {
-            return Intersects(new Vector3DInt(xMin, yMin, zMin), new Vector3DInt(xMax, yMax, zMax));
         }
     }
 }

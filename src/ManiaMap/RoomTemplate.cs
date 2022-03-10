@@ -229,15 +229,6 @@ namespace MPewsey.ManiaMap
             return false;
         }
 
-        /// TODO
-        /// <summary>
-        /// REMOVE THIS EVENTUALLY.
-        /// </summary>
-        public bool Intersects(int xMin, int xMax, int yMin, int yMax)
-        {
-            return Intersects(new Vector2DInt(xMin, yMin), new Vector2DInt(xMax, yMax));
-        }
-
         /// <summary>
         /// Returns true if the room templates another template at the specified offset.
         /// </summary>
@@ -266,15 +257,6 @@ namespace MPewsey.ManiaMap
             }
 
             return false;
-        }
-
-        /// TODO
-        /// <summary>
-        /// REMOVE THIS EVENTUALLY.
-        /// </summary>
-        public bool Intersects(RoomTemplate other, int dx, int dy)
-        {
-            return Intersects(other, new Vector2DInt(dx, dy));
         }
 
         /// <summary>
@@ -364,15 +346,6 @@ namespace MPewsey.ManiaMap
             }
 
             return result;
-        }
-
-        /// TODO
-        /// <summary>
-        /// REMOVE THIS EVENTUALLY.
-        /// </summary>
-        public List<DoorPair> AlignedDoors(RoomTemplate other, int dx, int dy)
-        {
-            return AlignedDoors(other, new Vector2DInt(dx, dy));
         }
     }
 }

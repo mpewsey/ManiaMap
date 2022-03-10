@@ -49,8 +49,7 @@ namespace MPewsey.ManiaMap
         /// Initializes a room from a room source.
         /// </summary>
         /// <param name="source">The room source.</param>
-        /// <param name="x">The x position in the layout.</param>
-        /// <param name="y">The y position in the layout.</param>
+        /// <param name="position">The position in the layout.</param>
         /// <param name="seed">The random seed of the room that may be used for room specific generation.</param>
         /// <param name="template">The room template.</param>
         public Room(IRoomSource source, Vector2DInt position, int seed, RoomTemplate template)

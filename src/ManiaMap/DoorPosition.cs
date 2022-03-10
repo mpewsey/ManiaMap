@@ -54,14 +54,5 @@ namespace MPewsey.ManiaMap
         {
             return Position == position && Direction == direction;
         }
-
-        // TODO
-        /// <summary>
-        /// REMOVE THIS EVENTUALLY.
-        /// </summary>
-        public bool Matches(int x, int y, DoorDirection direction)
-        {
-            return Matches(new Vector2DInt(x, y), direction);
-        }
     }
 }

@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace MPewsey.ManiaMap
 {
@@ -15,7 +13,7 @@ namespace MPewsey.ManiaMap
         /// Returns a zero vector.
         /// </summary>
         public static Vector3DInt Zero => new Vector3DInt();
-        
+
         /// <summary>
         /// The x value.
         /// </summary>
@@ -46,6 +44,8 @@ namespace MPewsey.ManiaMap
             Y = y;
             Z = z;
         }
+
+        public static implicit operator Vector2DInt(Vector3DInt v) => new Vector2DInt(v.X, v.Y);
 
         public override string ToString()
         {

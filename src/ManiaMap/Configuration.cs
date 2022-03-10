@@ -82,16 +82,26 @@
         /// <summary>
         /// Returns true if the parameters match the configuration.
         /// </summary>
-        /// <param name="x">The x offset between the templates.</param>
-        /// <param name="y">The y offset between the templates.</param>
-        /// <param name="z">The z offset between the templates.</param>
+        /// <param name="position">The offset between the templates.</param>
+        /// <param name="z">The z offset.</param>
+        /// <param name="code">the door code.</param>
+        /// <param name="direction">The edge direction.</param>
+        public bool Matches(Vector2DInt position, int z, int code, EdgeDirection direction)
+        {
+            return Matches(new Vector3DInt(position.X, position.Y, z), code, direction);
+        }
+
+        /// <summary>
+        /// Returns true if the parameters match the configuration.
+        /// </summary>
+        /// <param name="position">The offset between the templates.</param>
         /// <param name="code">The door code.</param>
         /// <param name="direction">The edge direction.</param>
-        public bool Matches(int x, int y, int z, int code, EdgeDirection direction)
+        public bool Matches(Vector3DInt position, int code, EdgeDirection direction)
         {
-            return Position.X == x
-                && Position.Y == y
-                && Matches(z, code, direction);
+            return Position.X == position.X
+                && Position.Y == position.Y
+                && Matches(position.Z, code, direction);
         }
     }
 }

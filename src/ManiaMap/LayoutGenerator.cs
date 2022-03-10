@@ -276,17 +276,16 @@ namespace MPewsey.ManiaMap
             {
                 foreach (var config in GetConfigurations(fromRoom.Template, template))
                 {
-                    var x = config.Position.X + fromRoom.Position.X;
-                    var y = config.Position.Y + fromRoom.Position.Y;
+                    var position = config.Position + fromRoom.Position;
 
                     // Check if the configuration can be added to the layout. If not, try the next one.
                     if (!config.Matches(z, code, direction))
                         continue;
-                    if (Layout.Intersects(template, x, y, source.Z))
+                    if (Layout.Intersects(template, position, source.Z))
                         continue;
 
                     // Add the room to the layout.
-                    var room = new Room(source, new Vector2DInt(x, y), Random.Next(), template);
+                    var room = new Room(source, position, Random.Next(), template);
                     Layout.Rooms.Add(room.Id, room);
 
                     // Try to create a door connection between the rooms.
@@ -327,25 +326,23 @@ namespace MPewsey.ManiaMap
             {
                 foreach (var config1 in GetConfigurations(backRoom.Template, template))
                 {
-                    var x1 = config1.Position.X + backRoom.Position.X;
-                    var y1 = config1.Position.Y + backRoom.Position.Y;
+                    var position = config1.Position + backRoom.Position;
 
                     // Check if the configuration can be added to the layout. If not, try the next one.
                     if (!config1.Matches(z1, backCode, backDirection))
                         continue;
-                    if (Layout.Intersects(template, x1, y1, source.Z))
+                    if (Layout.Intersects(template, position, source.Z))
                         continue;
 
                     foreach (var config2 in GetConfigurations(template, aheadRoom.Template))
                     {
-                        var x2 = aheadRoom.Position.X - x1;
-                        var y2 = aheadRoom.Position.Y - y1;
+                        var offset = aheadRoom.Position - position;
 
                         // Check if the configuration can be added to the layout. If not, try the next one.
-                        if (!config2.Matches(x2, y2, z2, aheadCode, aheadDirection))
+                        if (!config2.Matches(offset, z2, aheadCode, aheadDirection))
                             continue;
 
-                        var room = new Room(source, new Vector2DInt(x1, y1), Random.Next(), template);
+                        var room = new Room(source, position, Random.Next(), template);
                         Layout.Rooms.Add(room.Id, room);
 
                         // Try to create a door connection between the rooms.
@@ -396,16 +393,17 @@ namespace MPewsey.ManiaMap
             else
             {
                 // Shaft is required.
-                var x = fromDoor.Position.X + fromRoom.Position.X;
-                var y = fromDoor.Position.Y + fromRoom.Position.Y;
+                var position = fromDoor.Position + fromRoom.Position;
                 var zMin = Math.Min(fromRoom.Position.Z, toRoom.Position.Z) + 1;
                 var zMax = Math.Max(fromRoom.Position.Z, toRoom.Position.Z) - 1;
+                var min = new Vector3DInt(position.X, position.Y, zMin);
+                var max = new Vector3DInt(position.X, position.Y, zMax);
 
                 // If shaft intersects the layout, abort adding the door connection.
-                if (Layout.Intersects(x, x, y, y, zMin, zMax))
+                if (Layout.Intersects(min, max))
                     return false;
 
-                var shaft = new Box(new Vector3DInt(x, y, zMin), new Vector3DInt(x, y, zMax));
+                var shaft = new Box(min, max);
                 var connection = new DoorConnection(fromRoom, toRoom, fromDoor, toDoor, shaft);
                 Layout.DoorConnections.Add(connection);
             }

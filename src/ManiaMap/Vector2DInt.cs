@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace MPewsey.ManiaMap
 {
@@ -15,7 +13,7 @@ namespace MPewsey.ManiaMap
         /// Returns a zero vector.
         /// </summary>
         public static Vector2DInt Zero => new Vector2DInt();
-        
+
         /// <summary>
         /// The X value.
         /// </summary>

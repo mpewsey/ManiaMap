@@ -13,7 +13,7 @@ namespace MPewsey.ManiaMap.Tests
         {
             var from = Samples.TemplateLibrary.Miscellaneous.PlusTemplate();
             var to = Samples.TemplateLibrary.Miscellaneous.PlusTemplate();
-            Assert.IsFalse(from.Intersects(to, 2, 2));
+            Assert.IsFalse(from.Intersects(to, new Vector2DInt(2, 2)));
         }
 
         [TestMethod]
@@ -21,7 +21,7 @@ namespace MPewsey.ManiaMap.Tests
         {
             var from = Samples.TemplateLibrary.Miscellaneous.PlusTemplate();
             var to = Samples.TemplateLibrary.Miscellaneous.PlusTemplate();
-            Assert.IsTrue(from.Intersects(to, 0, 0));
+            Assert.IsTrue(from.Intersects(to, new Vector2DInt(0, 0)));
         }
 
         [TestMethod]
@@ -29,7 +29,7 @@ namespace MPewsey.ManiaMap.Tests
         {
             var from = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
             var to = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
-            var doors = from.AlignedDoors(to, 0, 0);
+            var doors = from.AlignedDoors(to, new Vector2DInt(0, 0));
             var expected = new List<DoorPair>();
             CollectionAssert.AreEqual(expected, doors);
         }
@@ -39,7 +39,7 @@ namespace MPewsey.ManiaMap.Tests
         {
             var from = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
             var to = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
-            var doors = from.AlignedDoors(to, 0, 3).Select(x => (x.FromDoor.Position, x.ToDoor.Position)).ToArray();
+            var doors = from.AlignedDoors(to, new Vector2DInt(0, 3)).Select(x => (x.FromDoor.Position, x.ToDoor.Position)).ToArray();
 
             var expected = new (Vector2DInt, Vector2DInt)[]
             {
@@ -60,7 +60,7 @@ namespace MPewsey.ManiaMap.Tests
         {
             var from = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
             var to = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
-            var doors = from.AlignedDoors(to, 0, -3).Select(x => (x.FromDoor.Position, x.ToDoor.Position)).ToArray();
+            var doors = from.AlignedDoors(to, new Vector2DInt(0, -3)).Select(x => (x.FromDoor.Position, x.ToDoor.Position)).ToArray();
 
             var expected = new (Vector2DInt, Vector2DInt)[]
             {
@@ -81,7 +81,7 @@ namespace MPewsey.ManiaMap.Tests
         {
             var from = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
             var to = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
-            var doors = from.AlignedDoors(to, -3, 0).Select(x => (x.FromDoor.Position, x.ToDoor.Position)).ToArray();
+            var doors = from.AlignedDoors(to, new Vector2DInt(-3, 0)).Select(x => (x.FromDoor.Position, x.ToDoor.Position)).ToArray();
 
             var expected = new (Vector2DInt, Vector2DInt)[]
             {
@@ -102,7 +102,7 @@ namespace MPewsey.ManiaMap.Tests
         {
             var from = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
             var to = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
-            var doors = from.AlignedDoors(to, 3, 0).Select(x => (x.FromDoor.Position, x.ToDoor.Position)).ToArray();
+            var doors = from.AlignedDoors(to, new Vector2DInt(3, 0)).Select(x => (x.FromDoor.Position, x.ToDoor.Position)).ToArray();
 
             var expected = new (Vector2DInt, Vector2DInt)[]
             {
