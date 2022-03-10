@@ -276,8 +276,8 @@ namespace MPewsey.ManiaMap
             {
                 foreach (var config in GetConfigurations(fromRoom.Template, template))
                 {
-                    var x = config.X + fromRoom.X;
-                    var y = config.Y + fromRoom.Y;
+                    var x = config.Position.X + fromRoom.X;
+                    var y = config.Position.Y + fromRoom.Y;
 
                     // Check if the configuration can be added to the layout. If not, try the next one.
                     if (!config.Matches(z, code, direction))
@@ -327,8 +327,8 @@ namespace MPewsey.ManiaMap
             {
                 foreach (var config1 in GetConfigurations(backRoom.Template, template))
                 {
-                    var x1 = config1.X + backRoom.X;
-                    var y1 = config1.Y + backRoom.Y;
+                    var x1 = config1.Position.X + backRoom.X;
+                    var y1 = config1.Position.Y + backRoom.Y;
 
                     // Check if the configuration can be added to the layout. If not, try the next one.
                     if (!config1.Matches(z1, backCode, backDirection))

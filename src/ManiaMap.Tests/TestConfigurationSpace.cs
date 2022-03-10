@@ -13,7 +13,7 @@ namespace MPewsey.ManiaMap.Tests
             var from = Samples.TemplateLibrary.Miscellaneous.PlusTemplate();
             var to = Samples.TemplateLibrary.Miscellaneous.PlusTemplate();
             var space = new ConfigurationSpace(from, to);
-            var result = space.Configurations.Select(x => (x.X, x.Y, x.FromDoor.X, x.FromDoor.Y, x.ToDoor.X, x.ToDoor.Y)).ToArray();
+            var result = space.Configurations.Select(x => (x.Position.X, x.Position.Y, x.FromDoor.X, x.FromDoor.Y, x.ToDoor.X, x.ToDoor.Y)).ToArray();
 
             var expected = new (int, int, int, int, int, int)[]
             {
