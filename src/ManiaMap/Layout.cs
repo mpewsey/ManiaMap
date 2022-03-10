@@ -107,24 +107,15 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns true if the range intersects the layout.
         /// </summary>
-        /// <param name="xMin">The minimum x value in the range.</param>
-        /// <param name="xMax">The maximum x value in the range.</param>
-        /// <param name="yMin">The minimum y value in the range.</param>
-        /// <param name="yMax">The maximum y value in the range.</param>
-        /// <param name="zMin">The minimum z value in the range.</param>
-        /// <param name="zMax">The maximum z value in the range.</param>
-        public bool Intersects(int xMin, int xMax, int yMin, int yMax, int zMin, int zMax)
+        /// <param name="min">The minimum values of the range.</param>
+        /// <param name="max">The maximum values of the range.</param>
+        public bool Intersects(Vector3DInt min, Vector3DInt max)
         {
             foreach (var room in Rooms.Values)
             {
-                if (room.Z >= zMin && room.Z <= zMax)
+                if (room.Position.Z >= min.Z && room.Position.Z <= max.Z)
                 {
-                    var x1 = xMin - room.X;
-                    var x2 = xMax - room.X;
-                    var y1 = yMin - room.Y;
-                    var y2 = yMax - room.Y;
-
-                    if (room.Template.Intersects(x1, x2, y1, y2))
+                    if (room.Template.Intersects(min - room.Position, max - room.Position))
                     {
                         return true;
                     }
@@ -135,7 +126,7 @@ namespace MPewsey.ManiaMap
             {
                 var shaft = connection.Shaft;
 
-                if (shaft != null && shaft.Intersects(xMin, xMax, yMin, yMax, zMin, zMax))
+                if (shaft != null && shaft.Intersects(min, max))
                 {
                     return true;
                 }
@@ -148,19 +139,25 @@ namespace MPewsey.ManiaMap
         /// Returns true if the template intersects the layout.
         /// </summary>
         /// <param name="template">The room template.</param>
-        /// <param name="x">The x position of the room template.</param>
-        /// <param name="y">The y position of the room template.</param>
-        /// <param name="z">The z position of the room template.</param>
-        public bool Intersects(RoomTemplate template, int x, int y, int z)
+        /// <param name="position">The position of the room.</param>
+        /// <param name="z">The z position of the room.</param>
+        public bool Intersects(RoomTemplate template, Vector2DInt position, int z)
+        {
+            return Intersects(template, new Vector3DInt(position.X, position.Y, z));
+        }
+
+        /// <summary>
+        /// Returns true if the template intersects the layout.
+        /// </summary>
+        /// <param name="template">The room template.</param>
+        /// <param name="position">The position of the room.</param>
+        public bool Intersects(RoomTemplate template, Vector3DInt position)
         {
             foreach (var room in Rooms.Values)
             {
-                if (room.Z == z)
+                if (room.Position.Z == position.Z)
                 {
-                    var dx = room.X - x;
-                    var dy = room.Y - y;
-
-                    if (template.Intersects(room.Template, dx, dy))
+                    if (template.Intersects(room.Template, room.Position - position))
                     {
                         return true;
                     }
@@ -171,7 +168,7 @@ namespace MPewsey.ManiaMap
             {
                 var shaft = connection.Shaft;
 
-                if (shaft != null && shaft.Intersects(template, x, y, z))
+                if (shaft != null && shaft.Intersects(template, position))
                 {
                     return true;
                 }
@@ -262,10 +259,10 @@ namespace MPewsey.ManiaMap
 
             foreach (var room in Rooms.Values)
             {
-                minX = Math.Min(minX, room.X);
-                minY = Math.Min(minY, room.Y);
-                maxX = Math.Max(maxX, room.X + room.Template.Cells.Rows);
-                maxY = Math.Max(maxY, room.Y + room.Template.Cells.Columns);
+                minX = Math.Min(minX, room.Position.X);
+                minY = Math.Min(minY, room.Position.Y);
+                maxX = Math.Max(maxX, room.Position.X + room.Template.Cells.Rows);
+                maxY = Math.Max(maxY, room.Position.Y + room.Template.Cells.Columns);
             }
 
             return new Rectangle(minY, minX, maxY - minY, maxX - minX);

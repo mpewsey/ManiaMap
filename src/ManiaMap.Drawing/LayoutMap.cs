@@ -115,16 +115,15 @@ namespace MPewsey.ManiaMap.Drawing
         /// Returns true if the door exists for the room.
         /// </summary>
         /// <param name="room">The room.</param>
-        /// <param name="x">The local x value of the door.</param>
-        /// <param name="y">The local y value of the door.</param>
+        /// <param name="position">The local position of the door.</param>
         /// <param name="direction">The direction of the door.</param>
-        private bool DoorExists(Room room, int x, int y, DoorDirection direction)
+        private bool DoorExists(Room room, Vector2DInt position, DoorDirection direction)
         {
             if (RoomDoors.TryGetValue(room.Id, out var doors))
             {
                 foreach (var door in doors)
                 {
-                    if (door.Matches(x, y, direction))
+                    if (door.Matches(position, direction))
                     {
                         return true;
                     }
@@ -162,11 +161,11 @@ namespace MPewsey.ManiaMap.Drawing
 
             foreach (var room in Layout.Rooms.Values)
             {
-                if (!dict.ContainsKey(room.Z))
+                if (!dict.ContainsKey(room.Position.Z))
                 {
                     var map = new Image<Rgba32>(width, height);
-                    map.Mutate(x => DrawMap(x, room.Z));
-                    dict.Add(room.Z, map);
+                    map.Mutate(x => DrawMap(x, room.Position.Z));
+                    dict.Add(room.Position.Z, map);
                 }
             }
 
@@ -217,13 +216,13 @@ namespace MPewsey.ManiaMap.Drawing
             foreach (var room in Layout.Rooms.Values)
             {
                 // If room Z (layer) value is not equal, go to next room.
-                if (room.Z != z)
+                if (room.Position.Z != z)
                     continue;
 
                 var roomState = LayoutState?.RoomStates[room.Id];
                 var cells = room.Template.Cells;
-                var x0 = (room.Y - LayoutBounds.X + Padding.Left) * TileSize.X;
-                var y0 = (room.X - LayoutBounds.Y + Padding.Top) * TileSize.Y;
+                var x0 = (room.Position.Y - LayoutBounds.X + Padding.Left) * TileSize.X;
+                var y0 = (room.Position.X - LayoutBounds.Y + Padding.Top) * TileSize.Y;
                 cellTile.Mutate(x => x.BackgroundColor(ConvertColor(room.Color)));
 
                 for (int i = 0; i < cells.Rows; i++)
@@ -243,6 +242,7 @@ namespace MPewsey.ManiaMap.Drawing
                         // Calculate draw position
                         var x = TileSize.X * j + x0;
                         var y = TileSize.Y * i + y0;
+                        var position = new Vector2DInt(i, j);
                         var point = new Point(x, y);
 
                         // Get adjacent cells
@@ -252,12 +252,12 @@ namespace MPewsey.ManiaMap.Drawing
                         var east = cells.GetOrDefault(i, j + 1);
 
                         // Get the wall or door tiles
-                        var topTile = GetTile(room, i, j, DoorDirection.Top, cell.TopDoor, null, "TopDoor", null);
-                        var bottomTile = GetTile(room, i, j, DoorDirection.Bottom, cell.BottomDoor, null, "BottomDoor", null);
-                        var northTile = GetTile(room, i, j, DoorDirection.North, cell.NorthDoor, north, "NorthDoor", "NorthWall");
-                        var southTile = GetTile(room, i, j, DoorDirection.South, cell.SouthDoor, south, "SouthDoor", "SouthWall");
-                        var westTile = GetTile(room, i, j, DoorDirection.West, cell.WestDoor, west, "WestDoor", "WestWall");
-                        var eastTile = GetTile(room, i, j, DoorDirection.East, cell.EastDoor, east, "EastDoor", "EastWall");
+                        var topTile = GetTile(room, position, DoorDirection.Top, cell.TopDoor, null, "TopDoor", null);
+                        var bottomTile = GetTile(room, position, DoorDirection.Bottom, cell.BottomDoor, null, "BottomDoor", null);
+                        var northTile = GetTile(room, position, DoorDirection.North, cell.NorthDoor, north, "NorthDoor", "NorthWall");
+                        var southTile = GetTile(room, position, DoorDirection.South, cell.SouthDoor, south, "SouthDoor", "SouthWall");
+                        var westTile = GetTile(room, position, DoorDirection.West, cell.WestDoor, west, "WestDoor", "WestWall");
+                        var eastTile = GetTile(room, position, DoorDirection.East, cell.EastDoor, east, "EastDoor", "EastWall");
 
                         // Add cell background fill
                         image.DrawImage(cellTile, point, 1);
@@ -302,10 +302,10 @@ namespace MPewsey.ManiaMap.Drawing
         /// <param name="doorName">The door map tile name.</param>
         /// <param name="wallName">The wall map tile name. If null, the wall tile will not be used.</param>
         /// <returns></returns>
-        private Image GetTile(Room room, int x, int y, DoorDirection direction,
+        private Image GetTile(Room room, Vector2DInt position, DoorDirection direction,
             Door door, Cell neighbor, string doorName, string wallName)
         {
-            if (door != null && door.Type != DoorType.None && DoorExists(room, x, y, direction))
+            if (door != null && door.Type != DoorType.None && DoorExists(room, position, direction))
                 return Tiles[doorName];
             if (neighbor == null && wallName != null)
                 return Tiles[wallName];

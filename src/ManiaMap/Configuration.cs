@@ -6,14 +6,9 @@
     public class Configuration
     {
         /// <summary>
-        /// The x offset of the to template from the from template.
+        /// The to template position relative to the from template.
         /// </summary>
-        public int X { get; }
-
-        /// <summary>
-        /// The y offset of the to template from the from template.
-        /// </summary>
-        public int Y { get; }
+        public Vector2DInt Position { get; }
 
         /// <summary>
         /// The connected from door position.
@@ -33,14 +28,12 @@
         /// <summary>
         /// Initializes a configuration from offset and door positions.
         /// </summary>
-        /// <param name="x">The x offset.</param>
-        /// <param name="y">The y offset.</param>
+        /// <param name="position">The to template position relative to the from template.</param>
         /// <param name="from">The from door position.</param>
         /// <param name="to">The to door position.</param>
-        public Configuration(int x, int y, DoorPosition from, DoorPosition to)
+        public Configuration(Vector2DInt position, DoorPosition from, DoorPosition to)
         {
-            X = x;
-            Y = y;
+            Position = position;
             FromDoor = from;
             ToDoor = to;
             EdgeDirection = Door.GetEdgeDirection(from.Door.Type, to.Door.Type);
@@ -48,7 +41,7 @@
 
         public override string ToString()
         {
-            return $"Configuration(X = {X}, Y = {Y}, FromDoor = {FromDoor}, ToDoor = {ToDoor})";
+            return $"Configuration(Position = {Position}, FromDoor = {FromDoor}, ToDoor = {ToDoor})";
         }
 
         /// <summary>
@@ -89,19 +82,26 @@
         /// <summary>
         /// Returns true if the parameters match the configuration.
         /// </summary>
-        /// <param name="x">The x offset between the templates.</param>
-        /// <param name="y">The y offset between the templates.</param>
-        /// <param name="z">The z offset between the templates.</param>
+        /// <param name="position">The offset between the templates.</param>
+        /// <param name="z">The z offset.</param>
+        /// <param name="code">the door code.</param>
+        /// <param name="direction">The edge direction.</param>
+        public bool Matches(Vector2DInt position, int z, int code, EdgeDirection direction)
+        {
+            return Matches(new Vector3DInt(position.X, position.Y, z), code, direction);
+        }
+
+        /// <summary>
+        /// Returns true if the parameters match the configuration.
+        /// </summary>
+        /// <param name="position">The offset between the templates.</param>
         /// <param name="code">The door code.</param>
         /// <param name="direction">The edge direction.</param>
-        public bool Matches(int x, int y, int z, int code, EdgeDirection direction)
+        public bool Matches(Vector3DInt position, int code, EdgeDirection direction)
         {
-            return X == x
-                && Y == y
-                && EdgeDirection == direction
-                && FromDoor.Door.Code == code
-                && ToDoor.Door.Code == code
-                && Matches(z);
+            return Position.X == position.X
+                && Position.Y == position.Y
+                && Matches(position.Z, code, direction);
         }
     }
 }

@@ -22,22 +22,10 @@ namespace MPewsey.ManiaMap
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
-        /// The room x position in a layout.
+        /// The position of the room.
         /// </summary>
         [DataMember(Order = 2)]
-        public int X { get; private set; }
-
-        /// <summary>
-        /// The room y position in a layout.
-        /// </summary>
-        [DataMember(Order = 3)]
-        public int Y { get; private set; }
-
-        /// <summary>
-        /// The room z position in a layout.
-        /// </summary>
-        [DataMember(Order = 4)]
-        public int Z { get; private set; }
+        public Vector3DInt Position { get; set; }
 
         /// <summary>
         /// The random seed of the room that may be used for room specific generation.
@@ -61,17 +49,14 @@ namespace MPewsey.ManiaMap
         /// Initializes a room from a room source.
         /// </summary>
         /// <param name="source">The room source.</param>
-        /// <param name="x">The x position in the layout.</param>
-        /// <param name="y">The y position in the layout.</param>
+        /// <param name="position">The position in the layout.</param>
         /// <param name="seed">The random seed of the room that may be used for room specific generation.</param>
         /// <param name="template">The room template.</param>
-        public Room(IRoomSource source, int x, int y, int seed, RoomTemplate template)
+        public Room(IRoomSource source, Vector2DInt position, int seed, RoomTemplate template)
         {
             Id = source.RoomId;
             Name = source.Name;
-            X = x;
-            Y = y;
-            Z = source.Z;
+            Position = new Vector3DInt(position.X, position.Y, source.Z);
             Seed = seed;
             Color = source.Color;
             Template = template;
@@ -79,7 +64,7 @@ namespace MPewsey.ManiaMap
 
         public override string ToString()
         {
-            return $"Room(Id = {Id}, Name = {Name}, X = {X}, Y = {Y}, Z = {Z}, Template = {Template})";
+            return $"Room(Id = {Id}, Name = {Name}, Position = {Position}, Template = {Template})";
         }
     }
 }
