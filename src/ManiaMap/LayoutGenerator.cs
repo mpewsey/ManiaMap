@@ -396,8 +396,8 @@ namespace MPewsey.ManiaMap
             else
             {
                 // Shaft is required.
-                var x = fromDoor.X + fromRoom.Position.X;
-                var y = fromDoor.Y + fromRoom.Position.Y;
+                var x = fromDoor.Position.X + fromRoom.Position.X;
+                var y = fromDoor.Position.Y + fromRoom.Position.Y;
                 var zMin = Math.Min(fromRoom.Position.Z, toRoom.Position.Z) + 1;
                 var zMax = Math.Max(fromRoom.Position.Z, toRoom.Position.Z) - 1;
 

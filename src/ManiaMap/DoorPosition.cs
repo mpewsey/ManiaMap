@@ -9,16 +9,10 @@ namespace MPewsey.ManiaMap
     public class DoorPosition
     {
         /// <summary>
-        /// The local x coordinate.
+        /// The local door position.
         /// </summary>
         [DataMember(Order = 1)]
-        public int X { get; private set; }
-
-        /// <summary>
-        /// The local y coordinate.
-        /// </summary>
-        [DataMember(Order = 2)]
-        public int Y { get; private set; }
+        public Vector2DInt Position { get; private set; }
 
         /// <summary>
         /// The door direction.
@@ -35,32 +29,39 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Initializes an object.
         /// </summary>
-        /// <param name="x">The local x coordinate.</param>
-        /// <param name="y">The local y coordinate.</param>
+        /// <param name="position">The local position.</param>
         /// <param name="direction">The door direction.</param>
         /// <param name="door">The referenced door.</param>
-        public DoorPosition(int x, int y, DoorDirection direction, Door door)
+        public DoorPosition(Vector2DInt position, DoorDirection direction, Door door)
         {
-            X = x;
-            Y = y;
+            Position = position;
             Direction = direction;
             Door = door;
         }
 
         public override string ToString()
         {
-            return $"DoorPosition(X = {X}, Y = {Y}, Direction = {Direction}, Door = {Door})";
+            return $"DoorPosition(Position = {Position}, Direction = {Direction}, Door = {Door})";
         }
 
         /// <summary>
         /// Returns true if the door matches the specified properties.
         /// </summary>
-        /// <param name="x">The local x coordinate.</param>
-        /// <param name="y">The local y coordinate.</param>
+        /// <param name="position">The local door position.</param>
         /// <param name="direction">The door direction.</param>
+        /// <returns></returns>
+        public bool Matches(Vector2DInt position, DoorDirection direction)
+        {
+            return Position == position && Direction == direction;
+        }
+
+        // TODO
+        /// <summary>
+        /// REMOVE THIS EVENTUALLY.
+        /// </summary>
         public bool Matches(int x, int y, DoorDirection direction)
         {
-            return X == x && Y == y && Direction == direction;
+            return Matches(new Vector2DInt(x, y), direction);
         }
     }
 }

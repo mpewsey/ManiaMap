@@ -39,11 +39,11 @@ namespace MPewsey.ManiaMap.Tests
         {
             var from = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
             var to = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
-            var doors = from.AlignedDoors(to, 0, 3).Select(x => (x.FromDoor.X, x.FromDoor.Y, x.ToDoor.X, x.ToDoor.Y)).ToArray();
+            var doors = from.AlignedDoors(to, 0, 3).Select(x => (x.FromDoor.Position, x.ToDoor.Position)).ToArray();
 
-            var expected = new (int, int, int, int)[]
+            var expected = new (Vector2DInt, Vector2DInt)[]
             {
-                (1, 2, 1, 0),
+                (new Vector2DInt(1, 2), new Vector2DInt(1, 0)),
             };
 
             Console.WriteLine("Expected:");
@@ -60,11 +60,11 @@ namespace MPewsey.ManiaMap.Tests
         {
             var from = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
             var to = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
-            var doors = from.AlignedDoors(to, 0, -3).Select(x => (x.FromDoor.X, x.FromDoor.Y, x.ToDoor.X, x.ToDoor.Y)).ToArray();
+            var doors = from.AlignedDoors(to, 0, -3).Select(x => (x.FromDoor.Position, x.ToDoor.Position)).ToArray();
 
-            var expected = new (int, int, int, int)[]
+            var expected = new (Vector2DInt, Vector2DInt)[]
             {
-                (1, 0, 1, 2),
+                (new Vector2DInt(1, 0), new Vector2DInt(1, 2)),
             };
 
             Console.WriteLine("Expected:");
@@ -81,11 +81,11 @@ namespace MPewsey.ManiaMap.Tests
         {
             var from = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
             var to = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
-            var doors = from.AlignedDoors(to, -3, 0).Select(x => (x.FromDoor.X, x.FromDoor.Y, x.ToDoor.X, x.ToDoor.Y)).ToArray();
+            var doors = from.AlignedDoors(to, -3, 0).Select(x => (x.FromDoor.Position, x.ToDoor.Position)).ToArray();
 
-            var expected = new (int, int, int, int)[]
+            var expected = new (Vector2DInt, Vector2DInt)[]
             {
-                (0, 1, 2, 1),
+                (new Vector2DInt(0, 1), new Vector2DInt(2, 1)),
             };
 
             Console.WriteLine("Expected:");
@@ -102,11 +102,11 @@ namespace MPewsey.ManiaMap.Tests
         {
             var from = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
             var to = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
-            var doors = from.AlignedDoors(to, 3, 0).Select(x => (x.FromDoor.X, x.FromDoor.Y, x.ToDoor.X, x.ToDoor.Y)).ToArray();
+            var doors = from.AlignedDoors(to, 3, 0).Select(x => (x.FromDoor.Position, x.ToDoor.Position)).ToArray();
 
-            var expected = new (int, int, int, int)[]
+            var expected = new (Vector2DInt, Vector2DInt)[]
             {
-                (2, 1, 0, 1),
+                (new Vector2DInt(2, 1), new Vector2DInt(0, 1)),
             };
 
             Console.WriteLine("Expected:");

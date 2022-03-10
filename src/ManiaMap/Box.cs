@@ -54,6 +54,7 @@ namespace MPewsey.ManiaMap
             return false;
         }
 
+        /// TODO
         /// <summary>
         /// REMOVE THIS EVENTUALLY.
         /// </summary>
@@ -74,6 +75,7 @@ namespace MPewsey.ManiaMap
                 && min.Z <= Max.Z && max.Z >= Min.Z;
         }
 
+        /// TODO
         /// <summary>
         /// REMOVE THIS EVENTUALLY.
         /// </summary>

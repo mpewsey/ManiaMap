@@ -13,16 +13,16 @@ namespace MPewsey.ManiaMap.Tests
             var from = Samples.TemplateLibrary.Miscellaneous.PlusTemplate();
             var to = Samples.TemplateLibrary.Miscellaneous.PlusTemplate();
             var space = new ConfigurationSpace(from, to);
-            var result = space.Configurations.Select(x => (x.Position.X, x.Position.Y, x.FromDoor.X, x.FromDoor.Y, x.ToDoor.X, x.ToDoor.Y)).ToArray();
+            var result = space.Configurations.Select(x => (x.Position, x.FromDoor.Position, x.ToDoor.Position)).ToArray();
 
-            var expected = new (int, int, int, int, int, int)[]
+            var expected = new (Vector2DInt, Vector2DInt, Vector2DInt)[]
             {
-                (-3, 0, 0, 1, 2, 1),
-                (0, -3, 1, 0, 1, 2),
-                (0, 0, 1, 1, 1, 1),
-                (0, 0, 1, 1, 1, 1),
-                (0, 3, 1, 2, 1, 0),
-                (3, 0, 2, 1, 0, 1),
+                (new Vector2DInt(-3, 0), new Vector2DInt(0, 1), new Vector2DInt(2, 1)),
+                (new Vector2DInt(0, -3), new Vector2DInt(1, 0), new Vector2DInt(1, 2)),
+                (new Vector2DInt(0, 0), new Vector2DInt(1, 1), new Vector2DInt(1, 1)),
+                (new Vector2DInt(0, 0), new Vector2DInt(1, 1), new Vector2DInt(1, 1)),
+                (new Vector2DInt(0, 3), new Vector2DInt(1, 2), new Vector2DInt(1, 0)),
+                (new Vector2DInt(3, 0), new Vector2DInt(2, 1), new Vector2DInt(0, 1)),
             };
 
             Console.WriteLine("Expected:");
