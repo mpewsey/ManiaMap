@@ -405,7 +405,7 @@ namespace MPewsey.ManiaMap
                 if (Layout.Intersects(x, x, y, y, zMin, zMax))
                     return false;
 
-                var shaft = new Box(x, x, y, y, zMin, zMax);
+                var shaft = new Box(new Vector3DInt(x, y, zMin), new Vector3DInt(x, y, zMax));
                 var connection = new DoorConnection(fromRoom, toRoom, fromDoor, toDoor, shaft);
                 Layout.DoorConnections.Add(connection);
             }
