@@ -65,9 +65,7 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 9)]
         public List<string> TemplateGroups { get; private set; } = new List<string>();
 
-        /// <summary>
-        /// The room ID.
-        /// </summary>
+        /// <inheritdoc>
         public Uid RoomId { get => new Uid(FromNode, ToNode, 1); }
 
         /// <summary>
