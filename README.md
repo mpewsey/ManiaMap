@@ -111,7 +111,8 @@ var layout = generator.GenerateLayout();
 var map = new LayoutMap(layout);
 map.SaveImage("Map.png");
 ```
-![Map](https://user-images.githubusercontent.com/23442063/158001688-270c5c11-b165-4d7a-9c0d-51e5b17a59c4.png)
+
+![Map](https://user-images.githubusercontent.com/23442063/153345310-25def719-c5a7-43c5-95ca-9e2e09493e54.png)
 
 ## References
 
