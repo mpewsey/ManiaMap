@@ -129,18 +129,20 @@ namespace MPewsey.ManiaMap.Drawing.Tests
                 rect2x3.UniqueVariations(),
                 rect2x4.UniqueVariations());
 
+            var square1x1 = Samples.TemplateLibrary.Squares.Square1x1Template();
             var rect1x2 = Samples.TemplateLibrary.Rectangles.Rectangle1x2Template();
             var rect1x3 = Samples.TemplateLibrary.Rectangles.Rectangle1x3Template();
             var rect1x4 = Samples.TemplateLibrary.Rectangles.Rectangle1x4Template();
             var angle3x4 = Samples.TemplateLibrary.Angles.Angle3x4();
 
             templateGroups.Add("Paths",
+                square1x1.UniqueVariations(),
                 rect1x2.UniqueVariations(),
                 rect1x3.UniqueVariations(),
                 rect1x4.UniqueVariations(),
                 angle3x4.UniqueVariations());
 
-            var generator = new LayoutGenerator(123456, graph, templateGroups, 50);
+            var generator = new LayoutGenerator(12345, graph, templateGroups);
             var layout = generator.GenerateLayout(1);
 
             Assert.IsNotNull(layout);
