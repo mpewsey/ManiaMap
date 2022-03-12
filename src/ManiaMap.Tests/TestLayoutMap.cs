@@ -111,5 +111,42 @@ namespace MPewsey.ManiaMap.Drawing.Tests
             var map = new LayoutMap(layout, layoutState);
             map.SaveImage("FilteredLLoopMap.png");
         }
+
+        [TestMethod]
+        public void TestSaveBigLayoutImage()
+        {
+            var graph = Samples.GraphLibrary.BigGraph();
+            var templateGroups = new TemplateGroups();
+
+            var square2x2 = Samples.TemplateLibrary.Squares.Square2x2Template();
+            var square3x3 = Samples.TemplateLibrary.Squares.Square3x3Template();
+            var rect2x3 = Samples.TemplateLibrary.Rectangles.Rectangle2x3Template();
+            var rect2x4 = Samples.TemplateLibrary.Rectangles.Rectangle2x4Template();
+
+            templateGroups.Add("Rooms",
+                square2x2.UniqueVariations(),
+                square3x3.UniqueVariations(),
+                rect2x3.UniqueVariations(),
+                rect2x4.UniqueVariations());
+
+            var rect1x2 = Samples.TemplateLibrary.Rectangles.Rectangle1x2Template();
+            var rect1x3 = Samples.TemplateLibrary.Rectangles.Rectangle1x3Template();
+            var rect1x4 = Samples.TemplateLibrary.Rectangles.Rectangle1x4Template();
+            var angle3x4 = Samples.TemplateLibrary.Angles.Angle3x4();
+
+            templateGroups.Add("Paths",
+                rect1x2.UniqueVariations(),
+                rect1x3.UniqueVariations(),
+                rect1x4.UniqueVariations(),
+                angle3x4.UniqueVariations());
+
+            var generator = new LayoutGenerator(123456, graph, templateGroups, 50);
+            var layout = generator.GenerateLayout(1);
+
+            Assert.IsNotNull(layout);
+
+            var map = new LayoutMap(layout);
+            map.SaveImage("BigLayoutMap.png");
+        }
     }
 }

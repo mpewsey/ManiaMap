@@ -200,11 +200,8 @@ namespace MPewsey.ManiaMap
         /// <param name="edge">The returned edge.</param>
         public bool TryGetEdge(int node1, int node2, out LayoutEdge edge)
         {
-            if (Edges.TryGetValue(new EdgeIndexes(node1, node2), out edge))
-                return true;
-            if (Edges.TryGetValue(new EdgeIndexes(node2, node1), out edge))
-                return true;
-            return false;
+            return Edges.TryGetValue(new EdgeIndexes(node1, node2), out edge)
+                || Edges.TryGetValue(new EdgeIndexes(node2, node1), out edge);
         }
 
         /// <summary>
@@ -233,7 +230,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public IEnumerable<LayoutEdge> GetEdges()
         {
-            return Edges.Values.OrderBy(x => new EdgeIndexes(x.FromNode, x.ToNode));
+            return Edges.Values;
         }
 
         /// <summary>

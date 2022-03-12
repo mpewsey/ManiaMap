@@ -211,8 +211,6 @@ namespace MPewsey.ManiaMap.Drawing
         /// <param name="z">The z (layer) value used to render the layout.</param>
         private void DrawMapTiles(IImageProcessingContext image, int z)
         {
-            var cellTile = new Image<Rgba32>(TileSize.X, TileSize.Y);
-
             foreach (var room in Layout.Rooms.Values)
             {
                 // If room Z (layer) value is not equal, go to next room.
@@ -223,6 +221,7 @@ namespace MPewsey.ManiaMap.Drawing
                 var cells = room.Template.Cells;
                 var x0 = (room.Position.Y - LayoutBounds.X + Padding.Left) * TileSize.X;
                 var y0 = (room.Position.X - LayoutBounds.Y + Padding.Top) * TileSize.Y;
+                var cellTile = new Image<Rgba32>(TileSize.X, TileSize.Y);
                 cellTile.Mutate(x => x.BackgroundColor(ConvertColor(room.Color)));
 
                 for (int i = 0; i < cells.Rows; i++)

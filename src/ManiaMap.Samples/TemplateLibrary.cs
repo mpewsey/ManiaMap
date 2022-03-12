@@ -123,5 +123,159 @@
                 return new RoomTemplate(5, "LTemplate", cells);
             }
         }
+
+        public static class Squares
+        {
+            public static RoomTemplate Square1x1Template()
+            {
+                var a = Cell.New.SetDoors("NWSE", Door.TwoWay);
+
+                var cells = new Cell[,]
+                {
+                    { a },
+                };
+
+                return new RoomTemplate(100, "Square1x1", cells);
+            }
+
+            public static RoomTemplate Square2x2Template()
+            {
+                var a = Cell.New.SetDoors("NW", Door.TwoWay);
+                var b = Cell.New.SetDoors("NE", Door.TwoWay);
+                var c = Cell.New.SetDoors("SW", Door.TwoWay);
+                var d = Cell.New.SetDoors("SE", Door.TwoWay);
+
+                var cells = new Cell[,]
+                {
+                    { a, b },
+                    { c, d },
+                };
+
+                return new RoomTemplate(101, "Square2x2", cells);
+            }
+
+            public static RoomTemplate Square3x3Template()
+            {
+                var o = Cell.New;
+                var a = Cell.New.SetDoors("NW", Door.TwoWay);
+                var b = Cell.New.SetDoors("N", Door.TwoWay);
+                var c = Cell.New.SetDoors("NE", Door.TwoWay);
+                var d = Cell.New.SetDoors("W", Door.TwoWay);
+                var e = Cell.New.SetDoors("E", Door.TwoWay);
+                var f = Cell.New.SetDoors("SW", Door.TwoWay);
+                var g = Cell.New.SetDoors("S", Door.TwoWay);
+                var h = Cell.New.SetDoors("SE", Door.TwoWay);
+
+                var cells = new Cell[,]
+                {
+                    { a, b, c },
+                    { d, o, e },
+                    { f, g, h },
+                };
+
+                return new RoomTemplate(102, "Square3x3", cells);
+            }
+        }
+
+        public static class Rectangles
+        {
+            public static RoomTemplate Rectangle1x2Template()
+            {
+                var a = Cell.New.SetDoors("NWS", Door.TwoWay);
+                var b = Cell.New.SetDoors("NES", Door.TwoWay);
+
+                var cells = new Cell[,]
+                {
+                    { a, b },
+                };
+
+                return new RoomTemplate(200, "Rectangle1x2", cells);
+            }
+
+            public static RoomTemplate Rectangle1x3Template()
+            {
+                var o = Cell.New;
+                var a = Cell.New.SetDoors("NWS", Door.TwoWay);
+                var b = Cell.New.SetDoors("NES", Door.TwoWay);
+
+                var cells = new Cell[,]
+                {
+                    { a, o, b },
+                };
+
+                return new RoomTemplate(201, "Rectangle1x3", cells);
+            }
+
+            public static RoomTemplate Rectangle1x4Template()
+            {
+                var o = Cell.New;
+                var a = Cell.New.SetDoors("NWS", Door.TwoWay);
+                var b = Cell.New.SetDoors("NES", Door.TwoWay);
+
+                var cells = new Cell[,]
+                {
+                    { a, o, o, b },
+                };
+
+                return new RoomTemplate(202, "Rectangle1x4", cells);
+            }
+
+            public static RoomTemplate Rectangle2x3Template()
+            {
+                var a = Cell.New.SetDoors("NW", Door.TwoWay);
+                var b = Cell.New.SetDoors("N", Door.TwoWay);
+                var c = Cell.New.SetDoors("NE", Door.TwoWay);
+                var d = Cell.New.SetDoors("SW", Door.TwoWay);
+                var e = Cell.New.SetDoors("S", Door.TwoWay);
+                var f = Cell.New.SetDoors("SE", Door.TwoWay);
+
+                var cells = new Cell[,]
+                {
+                    { a, b, c },
+                    { d, e, f },
+                };
+
+                return new RoomTemplate(203, "Rectangle2x3", cells);
+            }
+
+            public static RoomTemplate Rectangle2x4Template()
+            {
+                var a = Cell.New.SetDoors("NW", Door.TwoWay);
+                var b = Cell.New.SetDoors("N", Door.TwoWay);
+                var c = Cell.New.SetDoors("NE", Door.TwoWay);
+                var d = Cell.New.SetDoors("SW", Door.TwoWay);
+                var e = Cell.New.SetDoors("S", Door.TwoWay);
+                var f = Cell.New.SetDoors("SE", Door.TwoWay);
+
+                var cells = new Cell[,]
+                {
+                    { a, b, b, c },
+                    { d, e, e, f },
+                };
+
+                return new RoomTemplate(204, "Rectangle2x4", cells);
+            }
+        }
+
+        public static class Angles
+        {
+            public static RoomTemplate Angle3x4()
+            {
+                var x = Cell.Empty;
+                var o = Cell.New;
+                var a = Cell.New.SetDoors("NW", Door.TwoWay);
+                var b = Cell.New.SetDoors("NES", Door.TwoWay);
+                var c = Cell.New.SetDoors("WSE", Door.TwoWay);
+
+                var cells = new Cell[,]
+                {
+                    { a, o, o, b },
+                    { o, x, x, x },
+                    { c, x, x, x },
+                };
+
+                return new RoomTemplate(300, "Angle3x4", cells);
+            }
+        }
     }
 }

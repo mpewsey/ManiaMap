@@ -1,4 +1,7 @@
-﻿namespace MPewsey.ManiaMap.Samples
+﻿using System;
+using System.Drawing;
+
+namespace MPewsey.ManiaMap.Samples
 {
     /// <summary>
     /// Contains a collection of `LayoutGraph`.
@@ -108,6 +111,80 @@
             foreach (var node in graph.GetNodes())
             {
                 node.AddTemplateGroups("Default");
+            }
+
+            return graph;
+        }
+
+        public static LayoutGraph BigGraph()
+        {
+            var graph = new LayoutGraph(5, "BigLayoutGraph");
+
+            graph.AddEdge(1, 2);
+            graph.AddEdge(2, 3);
+            graph.AddEdge(3, 4);
+            graph.AddEdge(4, 5);
+            graph.AddEdge(5, 9);
+            graph.AddEdge(4, 6);
+            graph.AddEdge(6, 7);
+            graph.AddEdge(7, 8);
+            graph.AddEdge(9, 10);
+            graph.AddEdge(1, 10);
+            graph.AddEdge(3, 34);
+            graph.AddEdge(9, 30);
+            graph.AddEdge(10, 11);
+            graph.AddEdge(11, 12);
+            graph.AddEdge(12, 13);
+            graph.AddEdge(13, 14);
+            graph.AddEdge(13, 15);
+            graph.AddEdge(13, 16);
+            graph.AddEdge(12, 17);
+            graph.AddEdge(17, 18);
+            graph.AddEdge(18, 19);
+            graph.AddEdge(19, 20);
+            graph.AddEdge(20, 21);
+            graph.AddEdge(21, 24);
+            graph.AddEdge(24, 25);
+            graph.AddEdge(25, 26);
+            graph.AddEdge(21, 22);
+            graph.AddEdge(22, 23);
+            graph.AddEdge(23, 29);
+            graph.AddEdge(30, 31);
+            graph.AddEdge(31, 32);
+            graph.AddEdge(32, 33);
+            graph.AddEdge(33, 34);
+            graph.AddEdge(31, 28);
+            graph.AddEdge(27, 28);
+            graph.AddEdge(28, 29);
+
+            foreach (var node in graph.GetNodes())
+            {
+                node.AddTemplateGroups("Rooms");
+
+                if (node.Id <= 10)
+                    node.Color = Color.Blue;
+                else if (node.Id <= 18)
+                    node.Color = Color.Green;
+                else if (node.Id <= 26)
+                    node.Color = Color.Purple;
+                else if (node.Id <= 34)
+                    node.Color = Color.Red;
+            }
+
+            foreach (var edge in graph.GetEdges())
+            {
+                edge.RoomChance = 0.5f;
+                edge.AddTemplateGroups("Paths");
+                var id = Math.Min(edge.FromNode, edge.ToNode);
+
+                if (id <= 10)
+                    edge.Color = Color.Blue;
+                else if (id <= 18)
+                    edge.Color = Color.Green;
+                else if (id <= 26)
+                    edge.Color = Color.Purple;
+                else if (id <= 34)
+                    edge.Color = Color.Red;
             }
 
             return graph;
