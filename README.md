@@ -7,7 +7,7 @@
 
 This package allows for the creation of procedurally generated metroidvania style layouts from user-defined level layout graphs and room templates. The resulting layouts can be used in games, such as those of the rouge-like genre, or to render maps, such as that shown below. The generation algorithm is based on [[2]](#2) but does not include a simulated annealing evolver.
 
-![Map](https://user-images.githubusercontent.com/23442063/153345310-25def719-c5a7-43c5-95ca-9e2e09493e54.png)
+![BigMap](https://user-images.githubusercontent.com/23442063/158000813-cb275419-8f9c-4a6f-880e-d67ef71fef05.png)
 
 ## Features
 
