@@ -5,9 +5,9 @@
 
 ## About
 
-This package allows for the creation of procedurally generated metroidvania style layouts from user-defined level layout graphs and room templates. The resulting layouts can be used in games, such as those of the rouge-like genre, or to render maps, such as that shown below. The generation algorithm is based on [[2]](#2) but does not include a simulated annealing evolver.
+This package allows for the creation of procedurally generated metroidvania style layouts from user-defined level layout graphs and room templates. The resulting layouts can be used in games, such as those of the rouge-like genre, or to render maps, such as that shown below.
 
-![Map](https://user-images.githubusercontent.com/23442063/153345310-25def719-c5a7-43c5-95ca-9e2e09493e54.png)
+![BigMap](https://user-images.githubusercontent.com/23442063/158001876-cb3962a8-9826-44e9-bb19-a5779e3f99d6.png)
 
 ## Features
 
@@ -20,17 +20,17 @@ This package allows for the creation of procedurally generated metroidvania styl
 
 ## Installation
 
-The modules of this package are distributed as DLL files. The latest files can be downloaded from [Releases](https://github.com/mpewsey/ManiaMap/releases/latest). Simply reference these files in your project and import from the `MPewsey.ManiaMap` namespace.
+The modules of this package are distributed as DLL files. The latest files can be downloaded from [Releases](https://github.com/mpewsey/ManiaMap/releases/latest). Simply reference these files in your project and import from the namespace.
 
 ## Dependencies
 
 The package modules have the below dependencies. External dependencies can be acquired through NuGet.
 
-| Module             | Description                           | Dependencies                       |
-|--------------------|---------------------------------------|------------------------------------|
-| `ManiaMap`         | Contains core generator components.   | None                               |
-| `ManiaMap.Drawing` | Contains map drawing components.      | `ManiaMap`, `SixLabors.ImageSharp` |
-| `ManiaMap.Samples` | Contains sample graphs and templates. | `ManiaMap`                         |
+| Module                     | Description                           | Dependencies                               |
+|----------------------------|---------------------------------------|--------------------------------------------|
+| `MPewsey.ManiaMap`         | Contains core generator components.   | None                                       |
+| `MPewsey.ManiaMap.Drawing` | Contains map drawing components.      | `MPewsey.ManiaMap`, `SixLabors.ImageSharp` |
+| `MPewsey.ManiaMap.Samples` | Contains sample graphs and templates. | `MPewsey.ManiaMap`                         |
 
 ## Usage
 
@@ -109,9 +109,3 @@ map.SaveImage("Map.png");
 ```
 
 ![Map](https://user-images.githubusercontent.com/23442063/153345310-25def719-c5a7-43c5-95ca-9e2e09493e54.png)
-
-## References
-
-* <a id="1">[1]</a> GeeksforGeeks. (2021, July 2). Print all the cycles in an undirected graph. Retrieved February 8, 2022, from https://www.geeksforgeeks.org/print-all-the-cycles-in-an-undirected-graph/
-
-* <a id="2">[2]</a> Nepožitek, Ondřej. (2019, January 13). Dungeon Generator (Part 2) – Implementation. Retrieved February 8, 2022, from https://ondra.nepozitek.cz/blog/238/dungeon-generator-part-2-implementation/
