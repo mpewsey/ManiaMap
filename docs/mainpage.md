@@ -40,7 +40,7 @@ The generator creates rooms by pulling from user-defined room templates. Room te
 
 Depending on how much variety you want to be included in your layout, one or more templates are required by the generator. The following code provides an example for the creation of a simple 3x3 square room template. In it, a series of cells are created and have doors set to them via directional characters ("N" = North, "S" = South, etc.). The cells are then assigned to a 2D array to create the geometry of the layout. Finally, these cells are passed to the `RoomTemplate` initializer, along with a unique ID, to create the room template.
 
-```RoomTemplate.cs
+```
 var o = Cell.New;
 var a = Cell.New.SetDoors("WN", Door.TwoWay);
 var b = Cell.New.SetDoors("N", Door.TwoWay);
@@ -65,7 +65,7 @@ var roomTemplate = new RoomTemplate(id: 1, name: "Square", cells);
 
 Once some room template have been defined, they must be added to one or more room template groups, which can be referenced by name later. This is accomplished by simply adding them to a `TemplateGroups` object:
 
-```TemplateGroups.cs
+```
 var templateGroups = new TemplateGroups();
 templateGroups.Add("Default", roomTemplate);
 ```
@@ -76,7 +76,7 @@ To provide a designed feel to generated layouts, the generator uses a room layou
 
 In the below example, the graph shown in the image is created by adding edges to a graph. In the process, the nodes, representing rooms, are automatically created. Afterwards, the code loops over all of the created nodes and assigns a "Default" template group to them, from which room templates will be drawn by the generator.
 
-```LayoutGraph.cs
+```
 var graph = new LayoutGraph(id: 1, name: "ExampleGraph");
 
 // Define edges between nodes. Nodes not already in graph will automatically be created.
@@ -99,7 +99,7 @@ foreach (var node in graph.GetNodes())
 
 To create repeatable layouts, a random seed is used by the layout generator. To generate a room layout, simply select a seed and pass your layout graph and room template groups to the `LayoutGenerator`, as shown below. In the example, a map of the layout is also rendered and saved using the `LayoutMap` class. For this instance, the default built-in tiles are used. However, custom tiles can also be specified by the user.
 
-```LayoutGenerator.cs
+```
 var generator = new LayoutGenerator(seed: 12345, graph, templateGroups);
 var layout = generator.GenerateLayout();
 
