@@ -124,8 +124,14 @@
             }
         }
 
+        /// <summary>
+        /// Contains a collection of square `RoomTemplate`.
+        /// </summary>
         public static class Squares
         {
+            /// <summary>
+            /// Returns a 1x1 square template with doors in all planar directions.
+            /// </summary>
             public static RoomTemplate Square1x1Template()
             {
                 var a = Cell.New.SetDoors("NWSE", Door.TwoWay);
@@ -138,6 +144,9 @@
                 return new RoomTemplate(100, "Square1x1", cells);
             }
 
+            /// <summary>
+            /// Returns a 2x2 square template with doors in all planar directions.
+            /// </summary>
             public static RoomTemplate Square2x2Template()
             {
                 var a = Cell.New.SetDoors("NW", Door.TwoWay);
@@ -154,6 +163,9 @@
                 return new RoomTemplate(101, "Square2x2", cells);
             }
 
+            /// <summary>
+            /// Returns a 3x3 square template with doors in all planar directions.
+            /// </summary>
             public static RoomTemplate Square3x3Template()
             {
                 var o = Cell.New;
@@ -177,8 +189,14 @@
             }
         }
 
+        /// <summary>
+        /// Contains a collection of rectangular `RoomTemplate`.
+        /// </summary>
         public static class Rectangles
         {
+            /// <summary>
+            /// Returns a 1x2 rectangular template with doors in all planar directions.
+            /// </summary>
             public static RoomTemplate Rectangle1x2Template()
             {
                 var a = Cell.New.SetDoors("NWS", Door.TwoWay);
@@ -192,6 +210,9 @@
                 return new RoomTemplate(200, "Rectangle1x2", cells);
             }
 
+            /// <summary>
+            /// Returns a 1x3 rectangular template with doors in all planar directions.
+            /// </summary>
             public static RoomTemplate Rectangle1x3Template()
             {
                 var o = Cell.New;
@@ -206,6 +227,9 @@
                 return new RoomTemplate(201, "Rectangle1x3", cells);
             }
 
+            /// <summary>
+            /// Returns a 1x4 rectangular template with doors in all planar directions.
+            /// </summary>
             public static RoomTemplate Rectangle1x4Template()
             {
                 var o = Cell.New;
@@ -220,6 +244,9 @@
                 return new RoomTemplate(202, "Rectangle1x4", cells);
             }
 
+            /// <summary>
+            /// Returns a 2x3 rectangular template with doors in all planar directions.
+            /// </summary>
             public static RoomTemplate Rectangle2x3Template()
             {
                 var a = Cell.New.SetDoors("NW", Door.TwoWay);
@@ -238,6 +265,9 @@
                 return new RoomTemplate(203, "Rectangle2x3", cells);
             }
 
+            /// <summary>
+            /// Returns a 2x4 rectangular template with doors in all planar directions.
+            /// </summary>
             public static RoomTemplate Rectangle2x4Template()
             {
                 var a = Cell.New.SetDoors("NW", Door.TwoWay);
@@ -257,8 +287,15 @@
             }
         }
 
+        /// <summary>
+        /// Contains a collection of angle `RoomTemplate`.
+        /// </summary>
         public static class Angles
         {
+            /// <summary>
+            /// Returns a 3x4 angle template with doors at the tips and corner in all planar
+            /// directions.
+            /// </summary>
             public static RoomTemplate Angle3x4()
             {
                 var x = Cell.Empty;
