@@ -6,6 +6,12 @@ namespace MPewsey.ManiaMap
 {
     /// <summary>
     /// A class for generator room `Layout` based on various `RoomTemplate` and a `LayoutGraph`.
+    /// 
+    /// The algorithm is based on [[1]](#1) but does not include a simulated annealing evolver.
+    /// 
+    /// References
+    /// ----------
+    /// * <a id="1">[1]</a> Nepožitek, Ondřej. (2019, January 13). Dungeon Generator (Part 2) – Implementation. Retrieved February 8, 2022, from https://ondra.nepozitek.cz/blog/238/dungeon-generator-part-2-implementation/
     /// </summary>
     public class LayoutGenerator
     {

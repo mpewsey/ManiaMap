@@ -4,7 +4,12 @@ using System.Linq;
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// A class for finding cycles in a `LayoutGraph`.
+    /// A class for finding cycles in a `LayoutGraph`. The algorithm is based on [[1]](#1).
+    /// 
+    /// References
+    /// ----------
+    /// 
+    /// * <a id="1">[1]</a> GeeksforGeeks. (2021, July 2). Print all the cycles in an undirected graph. Retrieved February 8, 2022, from https://www.geeksforgeeks.org/print-all-the-cycles-in-an-undirected-graph/
     /// </summary>
     public class GraphCycleDecomposer
     {
