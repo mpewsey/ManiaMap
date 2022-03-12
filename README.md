@@ -5,7 +5,7 @@
 
 ## About
 
-This package allows for the creation of procedurally generated metroidvania style layouts from user-defined level layout graphs and room templates. The resulting layouts can be used in games, such as those of the rouge-like genre, or to render maps, such as that shown below. The generation algorithm is based on [[2]](#2) but does not include a simulated annealing evolver.
+This package allows for the creation of procedurally generated metroidvania style layouts from user-defined level layout graphs and room templates. The resulting layouts can be used in games, such as those of the rouge-like genre, or to render maps, such as that shown below. The layout generation algorithm is based on [[2]](#2) but does not include a simulated annealing evolver.
 
 ![BigMap](https://user-images.githubusercontent.com/23442063/158001876-cb3962a8-9826-44e9-bb19-a5779e3f99d6.png)
 
@@ -20,17 +20,17 @@ This package allows for the creation of procedurally generated metroidvania styl
 
 ## Installation
 
-The modules of this package are distributed as DLL files. The latest files can be downloaded from [Releases](https://github.com/mpewsey/ManiaMap/releases/latest). Simply reference these files in your project and import from the `MPewsey.ManiaMap` namespace.
+The modules of this package are distributed as DLL files. The latest files can be downloaded from [Releases](https://github.com/mpewsey/ManiaMap/releases/latest). Simply reference these files in your project and import from the namespace.
 
 ## Dependencies
 
 The package modules have the below dependencies. External dependencies can be acquired through NuGet.
 
-| Module             | Description                           | Dependencies                       |
-|--------------------|---------------------------------------|------------------------------------|
-| `ManiaMap`         | Contains core generator components.   | None                               |
-| `ManiaMap.Drawing` | Contains map drawing components.      | `ManiaMap`, `SixLabors.ImageSharp` |
-| `ManiaMap.Samples` | Contains sample graphs and templates. | `ManiaMap`                         |
+| Module                     | Description                           | Dependencies                               |
+|----------------------------|---------------------------------------|--------------------------------------------|
+| `MPewsey.ManiaMap`         | Contains core generator components.   | None                                       |
+| `MPewsey.ManiaMap.Drawing` | Contains map drawing components.      | `MPewsey.ManiaMap`, `SixLabors.ImageSharp` |
+| `MPewsey.ManiaMap.Samples` | Contains sample graphs and templates. | `MPewsey.ManiaMap`                         |
 
 ## Documentation
 
