@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManiaMap.Tests", "ManiaMap.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManiaMap.Drawing", "ManiaMap.Drawing\ManiaMap.Drawing.csproj", "{230FEBAC-BFFA-4B01-BFC1-51E64AE782FC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManiaMap.Samples", "ManiaMap.Samples\ManiaMap.Samples.csproj", "{74AA529F-C521-4A44-AC9D-8EDB87F6DAB5}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{230FEBAC-BFFA-4B01-BFC1-51E64AE782FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{230FEBAC-BFFA-4B01-BFC1-51E64AE782FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{230FEBAC-BFFA-4B01-BFC1-51E64AE782FC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{74AA529F-C521-4A44-AC9D-8EDB87F6DAB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{74AA529F-C521-4A44-AC9D-8EDB87F6DAB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{74AA529F-C521-4A44-AC9D-8EDB87F6DAB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{74AA529F-C521-4A44-AC9D-8EDB87F6DAB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
