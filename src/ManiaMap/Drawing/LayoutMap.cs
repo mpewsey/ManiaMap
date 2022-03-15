@@ -293,8 +293,7 @@ namespace MPewsey.ManiaMap.Drawing
         /// Returns null if the tile has neither a wall or door.
         /// </summary>
         /// <param name="room">The room.</param>
-        /// <param name="x">The local x coordinate.</param>
-        /// <param name="y">The local y coordinate.</param>
+        /// <param name="position">The local coordinate.</param>
         /// <param name="direction">The door direction.</param>
         /// <param name="door">The door.</param>
         /// <param name="neighbor">The neighbor cell in the door direction. The neighbor can be null.</param>
