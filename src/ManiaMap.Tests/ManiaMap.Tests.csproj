@@ -5,6 +5,12 @@
     <Nullable>disable</Nullable>
 
     <IsPackable>false</IsPackable>
+
+    <Configurations>Debug;Release;Unity</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unity|AnyCPU'">
+    <Optimize>True</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,8 +20,13 @@
     <PackageReference Include="coverlet.collector" Version="3.1.0" />
   </ItemGroup>
 
+	<ItemGroup Condition="'$(Configuration)|$(Platform)'=='Unity|AnyCPU'">
+		<Compile Remove="Drawing\**" />
+		<EmbeddedResource Remove="Drawing\**" />
+		<None Remove="Drawing\**" />
+	</ItemGroup>
+	
   <ItemGroup>
-    <ProjectReference Include="..\ManiaMap.Drawing\ManiaMap.Drawing.csproj" />
     <ProjectReference Include="..\ManiaMap\ManiaMap.csproj" />
   </ItemGroup>
 
