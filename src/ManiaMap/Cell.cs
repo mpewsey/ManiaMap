@@ -55,6 +55,9 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 6)]
         public Door BottomDoor { get; set; }
 
+        [DataMember(Order = 7)]
+        public string CollectableGroup { get; set; }
+
         public override string ToString()
         {
             var west = WestDoor?.ToString() ?? "None";
@@ -117,6 +120,16 @@ namespace MPewsey.ManiaMap
                 }
             }
 
+            return this;
+        }
+
+        /// <summary>
+        /// Sets the collectable group and returns the cell.
+        /// </summary>
+        /// <param name="value">The collectable group name.</param>
+        public Cell SetCollectableGroup(string value)
+        {
+            CollectableGroup = value;
             return this;
         }
 

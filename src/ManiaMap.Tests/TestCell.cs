@@ -41,5 +41,12 @@ namespace MPewsey.ManiaMap.Tests
             Assert.IsNotNull(cell.EastDoor);
             Assert.ThrowsException<Exception>(() => Cell.New.SetDoors("x", Door.TwoWay));
         }
+
+        [TestMethod]
+        public void TestSetCollectableGroup()
+        {
+            var cell = Cell.New.SetCollectableGroup("Default");
+            Assert.AreEqual("Default", cell.CollectableGroup);
+        }
     }
 }

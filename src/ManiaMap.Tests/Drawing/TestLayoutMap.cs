@@ -102,9 +102,17 @@ namespace MPewsey.ManiaMap.Drawing.Tests
 
             foreach (var roomState in layoutState.RoomStates.Values)
             {
-                for (int i = 0; i < roomState.Visibility.Array.Length; i++)
+                var cells = layout.Rooms[roomState.Id].Template.Cells;
+
+                for (int i = 0; i < cells.Rows; i++)
                 {
-                    roomState.Visibility.Array[i] = random.NextDouble() > 0.5;
+                    for (int j = 0; j < cells.Columns; j++)
+                    {
+                        if (random.NextDouble() > 0.3)
+                        {
+                            roomState.VisibleIndexes.Add(new Vector2DInt(i, j));
+                        }
+                    }
                 }
             }
 

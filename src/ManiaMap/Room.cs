@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -44,6 +45,12 @@ namespace MPewsey.ManiaMap
         /// </summary>
         [DataMember(Order = 7)]
         public RoomTemplate Template { get; private set; }
+
+        /// <summary>
+        /// A dictionary of collectable object ID's by local room index.
+        /// </summary>
+        [DataMember(Order = 8)]
+        public Dictionary<Vector2DInt, int> Collectables { get; private set; } = new Dictionary<Vector2DInt, int>();
 
         /// <summary>
         /// Initializes a room from a room source.

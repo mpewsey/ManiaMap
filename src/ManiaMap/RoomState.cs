@@ -16,15 +16,21 @@ namespace MPewsey.ManiaMap
         public Uid Id { get; private set; }
 
         /// <summary>
-        /// An array of room cell visibilities. True values indicate the cells are visible.
+        /// A set of visible room cell indexes.
         /// </summary>
         [DataMember(Order = 2)]
-        public Array2D<bool> Visibility { get; private set; }
+        public HashSet<Vector2DInt> VisibleIndexes { get; private set; } = new HashSet<Vector2DInt>();
+
+        /// <summary>
+        /// A set of acquired collectable indexes.
+        /// </summary>
+        [DataMember(Order = 3)]
+        public HashSet<Vector2DInt> CollectedIndexes { get; private set; } = new HashSet<Vector2DInt>();
 
         /// <summary>
         /// A set of flags that are set for a room.
         /// </summary>
-        [DataMember(Order = 3)]
+        [DataMember(Order = 4)]
         public HashSet<int> Flags { get; private set; } = new HashSet<int>();
 
         /// <summary>
@@ -34,7 +40,6 @@ namespace MPewsey.ManiaMap
         public RoomState(Room room)
         {
             Id = room.Id;
-            Visibility = new Array2D<bool>(room.Template.Cells.Rows, room.Template.Cells.Columns);
         }
     }
 }

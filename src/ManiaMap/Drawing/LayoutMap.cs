@@ -229,19 +229,19 @@ namespace MPewsey.ManiaMap.Drawing
                     for (int j = 0; j < cells.Columns; j++)
                     {
                         var cell = cells[i, j];
+                        var position = new Vector2DInt(i, j);
 
                         // If cell it empty, go to next cell.
                         if (cell == null)
                             continue;
 
                         // If room state is defined and is not visible, go to next cell.
-                        if (roomState != null && !roomState.Visibility.GetOrDefault(i, j))
+                        if (roomState != null && !roomState.VisibleIndexes.Contains(position))
                             continue;
 
                         // Calculate draw position
                         var x = TileSize.X * j + x0;
                         var y = TileSize.Y * i + y0;
-                        var position = new Vector2DInt(i, j);
                         var point = new Point(x, y);
 
                         // Get adjacent cells
