@@ -8,9 +8,14 @@
     <Description>Graph-based procedural generation of metroidvania style maps</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/mpewsey/ManiaMap</RepositoryUrl>
-    <PackageTags>procedural-generation;roguelike;metroidvania</PackageTags>
+    <PackageTags>procedural-generation;roguelike;metroidvania;videogames</PackageTags>
     <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
 	<VersionPrefix>1.0.0</VersionPrefix>
+	<Configurations>Debug;Release;Unity</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unity|AnyCPU'">
+    <Optimize>True</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,7 +32,7 @@
     <None Remove="Drawing\MapTiles\Default\WestWall.png" />
   </ItemGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)'!='Unity|AnyCPU'">
     <EmbeddedResource Include="Drawing\MapTiles\Default\BottomDoor.png" />
     <EmbeddedResource Include="Drawing\MapTiles\Default\EastDoor.png" />
     <EmbeddedResource Include="Drawing\MapTiles\Default\EastWall.png" />
@@ -41,6 +46,12 @@
     <EmbeddedResource Include="Drawing\MapTiles\Default\WestWall.png" />
   </ItemGroup>
 
+	<ItemGroup Condition="'$(Configuration)|$(Platform)'=='Unity|AnyCPU'">
+		<Compile Remove="Drawing\**" />
+		<EmbeddedResource Remove="Drawing\**" />
+		<None Remove="Drawing\**" />
+	</ItemGroup>
+	
   <ItemGroup>
     <None Include="..\..\README.md">
       <Pack>True</Pack>
