@@ -19,7 +19,7 @@ namespace MPewsey.ManiaMap.Drawing
         /// <summary>
         /// The size of the map tiles used in (x, y) coordinates.
         /// </summary>
-        public Point TileSize { get; set; } = new Point(16, 16);
+        public Vector2DInt TileSize { get; set; } = new Vector2DInt(16, 16);
 
         /// <summary>
         /// The padding to include around the layout when the map is drawn.
@@ -29,7 +29,7 @@ namespace MPewsey.ManiaMap.Drawing
         /// <summary>
         /// The map background color.
         /// </summary>
-        public Color BackgroundColor { get; set; } = Color.Black;
+        public System.Drawing.Color BackgroundColor { get; set; } = System.Drawing.Color.Black;
 
         /// <summary>
         /// A dictionary of map tiles by name. The applicable tiles are superimposed at the cell location
@@ -67,8 +67,8 @@ namespace MPewsey.ManiaMap.Drawing
         /// <param name="tiles">A dictionary of map tiles to use. If null, the default tiles will be used.</param>
         /// <param name="backgroundColor">The background color. If null, the default property value will be used.</param>
         public LayoutMap(Layout layout, LayoutState layoutState = null,
-            Padding? padding = null, Color? backgroundColor = null,
-            Point? tileSize = null, Dictionary<string, Image> tiles = null)
+            Padding? padding = null, System.Drawing.Color? backgroundColor = null,
+            Vector2DInt? tileSize = null, Dictionary<string, Image> tiles = null)
         {
             Layout = layout;
             LayoutState = layoutState;
@@ -179,7 +179,7 @@ namespace MPewsey.ManiaMap.Drawing
         /// <param name="z">The z (layer) value used to render the layout.</param>
         private void DrawMap(IImageProcessingContext image, int z)
         {
-            image.BackgroundColor(BackgroundColor);
+            image.BackgroundColor(ConvertColor(BackgroundColor));
             DrawGrid(image);
             DrawMapTiles(image, z);
         }
