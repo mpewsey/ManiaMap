@@ -14,10 +14,42 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Drawing\MapTiles\Default\BottomDoor.png" />
+    <None Remove="Drawing\MapTiles\Default\EastDoor.png" />
+    <None Remove="Drawing\MapTiles\Default\EastWall.png" />
+    <None Remove="Drawing\MapTiles\Default\Grid.png" />
+    <None Remove="Drawing\MapTiles\Default\NorthDoor.png" />
+    <None Remove="Drawing\MapTiles\Default\NorthWall.png" />
+    <None Remove="Drawing\MapTiles\Default\SouthDoor.png" />
+    <None Remove="Drawing\MapTiles\Default\SouthWall.png" />
+    <None Remove="Drawing\MapTiles\Default\TopDoor.png" />
+    <None Remove="Drawing\MapTiles\Default\WestDoor.png" />
+    <None Remove="Drawing\MapTiles\Default\WestWall.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Drawing\MapTiles\Default\BottomDoor.png" />
+    <EmbeddedResource Include="Drawing\MapTiles\Default\EastDoor.png" />
+    <EmbeddedResource Include="Drawing\MapTiles\Default\EastWall.png" />
+    <EmbeddedResource Include="Drawing\MapTiles\Default\Grid.png" />
+    <EmbeddedResource Include="Drawing\MapTiles\Default\NorthDoor.png" />
+    <EmbeddedResource Include="Drawing\MapTiles\Default\NorthWall.png" />
+    <EmbeddedResource Include="Drawing\MapTiles\Default\SouthDoor.png" />
+    <EmbeddedResource Include="Drawing\MapTiles\Default\SouthWall.png" />
+    <EmbeddedResource Include="Drawing\MapTiles\Default\TopDoor.png" />
+    <EmbeddedResource Include="Drawing\MapTiles\Default\WestDoor.png" />
+    <EmbeddedResource Include="Drawing\MapTiles\Default\WestWall.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="..\..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SixLabors.ImageSharp" Version="2.0.0" />
   </ItemGroup>
 
 </Project>
