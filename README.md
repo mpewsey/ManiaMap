@@ -25,7 +25,7 @@ The modules of this package are distributed as DLL files. The latest files can b
 
 ## Documentation
 
-Online documentation is available at: https://mpewsey.github.io/ManiaMap.Docs/.
+Online documentation is available at: https://mpewsey.github.io/ManiaMap/.
 
 ## Usage
 
