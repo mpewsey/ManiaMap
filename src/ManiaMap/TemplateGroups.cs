@@ -1,20 +1,52 @@
 ﻿using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
     /// <summary>
     /// A class for creating groups of `RoomTemplate`.
     /// </summary>
+    [DataContract]
     public class TemplateGroups
     {
         /// <summary>
         /// A dictionary of room templates by group string.
         /// </summary>
-        public Dictionary<string, List<RoomTemplate>> Groups { get; } = new Dictionary<string, List<RoomTemplate>>();
+        [DataMember(Order = 1)]
+        public Dictionary<string, List<RoomTemplate>> Groups { get; private set; } = new Dictionary<string, List<RoomTemplate>>();
 
         public override string ToString()
         {
             return $"TemplateGroups(Groups.Count = {Groups.Count})";
+        }
+
+        /// <summary>
+        /// Saves the template groups to the file path.
+        /// </summary>
+        /// <param name="path">The save file path.</param>
+        public void SaveXml(string path)
+        {
+            var serializer = new DataContractSerializer(GetType());
+
+            using (var stream = File.Create(path))
+            {
+                serializer.WriteObject(stream, this);
+            }
+        }
+
+        /// <summary>
+        /// Loads the template groups from the file path.
+        /// </summary>
+        /// <param name="path">The file path.</param>
+        public static TemplateGroups LoadXml(string path)
+        {
+            var serializer = new DataContractSerializer(typeof(TemplateGroups));
+
+            using (var stream = File.OpenRead(path))
+            {
+                return (TemplateGroups)serializer.ReadObject(stream);
+            }
         }
 
         /// <summary>

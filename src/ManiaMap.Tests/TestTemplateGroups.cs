@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MPewsey.ManiaMap.Tests
 {
@@ -37,6 +38,23 @@ namespace MPewsey.ManiaMap.Tests
             var list2 = new List<RoomTemplate> { template2 };
             templateGroups.Add("Group4", list1, list2);
             CollectionAssert.AreEquivalent(expected2, templateGroups.Groups["Group4"]);
+        }
+
+        [TestMethod]
+        public void TestSaveAndLoad()
+        {
+            var path = "TemplateGroups.xml";
+            var templateGroups = Samples.ManiaMapSample.LetterTemplateGroups();
+            templateGroups.SaveXml(path);
+            var copy = TemplateGroups.LoadXml(path);
+            CollectionAssert.AreEquivalent(templateGroups.Groups.Keys, copy.Groups.Keys);
+
+            foreach (var pair in templateGroups.Groups)
+            {
+                var x = pair.Value.Select(x => x.Id).ToList();
+                var y = copy.Groups[pair.Key].Select(x => x.Id).ToList();
+                CollectionAssert.AreEquivalent(x, y);
+            }
         }
     }
 }
