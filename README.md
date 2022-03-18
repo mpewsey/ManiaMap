@@ -19,14 +19,6 @@ This package allows for the creation of procedurally generated metroidvania styl
 * Supports .NET Standard 2.0.
 * Works with Windows, Mac, and Linux.
 
-## Installation
-
-The modules of this package are distributed as DLL files. The latest files can be downloaded from [Releases](https://github.com/mpewsey/ManiaMap/releases/latest). Simply reference these files in your project and import from the namespace.
-
-## Documentation
-
-Online documentation is available at: https://mpewsey.github.io/ManiaMap/.
-
 ## Usage
 
 ### Step 1: Create Room Templates
