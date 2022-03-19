@@ -1309,7 +1309,15 @@ HTML_EXTRA_STYLESHEET  = doxygen-awesome-css/doxygen-awesome.css
 # files will be copied as-is; there are no commands or markers available.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_EXTRA_FILES       = doxygen-awesome-css/doxygen-awesome-darkmode-toggle.js
+HTML_EXTRA_FILES       = doxygen-awesome-css/doxygen-awesome-darkmode-toggle.js \
+                         android-chrome-192x192.png \
+                         android-chrome-512x512.png \
+                         apple-touch-icon.png \
+                         favicon.ico \
+                         favicon-16x16.png \
+                         favicon-32x32.png \
+                         ManiaMap.png \
+                         site.webmanifest
 
 # The HTML_COLORSTYLE_HUE tag controls the color of the HTML output. Doxygen
 # will adjust the colors in the style sheet and background images according to
