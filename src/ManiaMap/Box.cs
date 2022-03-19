@@ -38,15 +38,9 @@ namespace MPewsey.ManiaMap
         /// <param name="position"></param>
         public bool Intersects(RoomTemplate template, Vector3DInt position)
         {
-            if (position.Z >= Min.Z && position.Z <= Max.Z)
-            {
-                if (template.Intersects(Min - position, Max - position))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return position.Z >= Min.Z
+                && position.Z <= Max.Z
+                && template.Intersects(Min - position, Max - position);
         }
 
         /// <summary>
