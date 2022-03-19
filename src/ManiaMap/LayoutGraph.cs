@@ -44,12 +44,12 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The number of nodes in the graph.
         /// </summary>
-        public int NodeCount { get => Nodes.Count; }
+        public int NodeCount => Nodes.Count;
 
         /// <summary>
         /// The number of edges in the graph.
         /// </summary>
-        public int EdgeCount { get => Edges.Count; }
+        public int EdgeCount => Edges.Count;
 
         /// <summary>
         /// Initializes a graph.
