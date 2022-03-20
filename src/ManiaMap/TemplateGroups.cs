@@ -22,7 +22,7 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Saves the template groups to the file path.
+        /// Saves the template groups to the file path using the `DataContractSerializer`.
         /// </summary>
         /// <param name="path">The save file path.</param>
         public void SaveXml(string path)
@@ -36,7 +36,7 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Loads the template groups from the file path.
+        /// Loads the template groups from the file path using the `DataContractSerializer`.
         /// </summary>
         /// <param name="path">The file path.</param>
         public static TemplateGroups LoadXml(string path)
