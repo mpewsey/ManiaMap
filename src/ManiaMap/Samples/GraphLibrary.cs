@@ -23,7 +23,7 @@ namespace MPewsey.ManiaMap.Samples
 
             foreach (var node in graph.GetNodes())
             {
-                node.AddTemplateGroups("Default");
+                node.TemplateGroup = "Default";
             }
 
             return graph;
@@ -49,7 +49,7 @@ namespace MPewsey.ManiaMap.Samples
 
             foreach (var node in graph.GetNodes())
             {
-                node.AddTemplateGroups("Default");
+                node.TemplateGroup = "Default";
             }
 
             return graph;
@@ -79,7 +79,7 @@ namespace MPewsey.ManiaMap.Samples
 
             foreach (var node in graph.GetNodes())
             {
-                node.AddTemplateGroups("Default");
+                node.TemplateGroup = "Default";
             }
 
             return graph;
@@ -110,7 +110,7 @@ namespace MPewsey.ManiaMap.Samples
 
             foreach (var node in graph.GetNodes())
             {
-                node.AddTemplateGroups("Default");
+                node.TemplateGroup = "Default";
             }
 
             return graph;
@@ -159,7 +159,7 @@ namespace MPewsey.ManiaMap.Samples
 
             foreach (var node in graph.GetNodes())
             {
-                node.AddTemplateGroups("Rooms");
+                node.TemplateGroup = "Rooms";
 
                 if (node.Id <= 10)
                     node.Color = Color.Blue;
@@ -174,7 +174,7 @@ namespace MPewsey.ManiaMap.Samples
             foreach (var edge in graph.GetEdges())
             {
                 edge.RoomChance = 0.5f;
-                edge.AddTemplateGroups("Paths");
+                edge.TemplateGroup = "Paths";
                 var id = Math.Min(edge.FromNode, edge.ToNode);
 
                 if (id <= 10)

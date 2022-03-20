@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace MPewsey.ManiaMap
 {
@@ -29,8 +28,8 @@ namespace MPewsey.ManiaMap
         int Z { get; set; }
 
         /// <summary>
-        /// A list of template group names that may be used for the room.
+        /// The template group name.
         /// </summary>
-        List<string> TemplateGroups { get; }
+        string TemplateGroup { get; }
     }
 }

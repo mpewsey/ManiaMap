@@ -157,14 +157,14 @@
         {
             var graph = new LayoutGraph(1, "ManiaMap");
 
-            graph.AddNode(0).TemplateGroups.Add("M1");
-            graph.AddNode(1).TemplateGroups.Add("A");
-            graph.AddNode(2).TemplateGroups.Add("N");
-            graph.AddNode(3).TemplateGroups.Add("I");
-            graph.AddNode(4).TemplateGroups.Add("A");
-            graph.AddNode(5).TemplateGroups.Add("M2");
-            graph.AddNode(6).TemplateGroups.Add("A");
-            graph.AddNode(7).TemplateGroups.Add("P");
+            graph.AddNode(0).SetTemplateGroup("M1");
+            graph.AddNode(1).SetTemplateGroup("A");
+            graph.AddNode(2).SetTemplateGroup("N");
+            graph.AddNode(3).SetTemplateGroup("I");
+            graph.AddNode(4).SetTemplateGroup("A");
+            graph.AddNode(5).SetTemplateGroup("M2");
+            graph.AddNode(6).SetTemplateGroup("A");
+            graph.AddNode(7).SetTemplateGroup("P");
 
             graph.AddEdge(0, 1);
             graph.AddEdge(1, 2);

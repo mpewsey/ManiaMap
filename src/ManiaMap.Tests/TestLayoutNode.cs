@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 using System.Drawing;
 
 namespace MPewsey.ManiaMap.Tests
@@ -30,19 +29,10 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
-        public void TestAddTemplateGroup()
+        public void TestSetTemplateGroup()
         {
-            var node = new LayoutNode(1).AddTemplateGroups("Default");
-            var expected = new List<string>() { "Default" };
-            CollectionAssert.AreEquivalent(expected, node.TemplateGroups);
-        }
-
-        [TestMethod]
-        public void TestAddTemplateGroups()
-        {
-            var node = new LayoutNode(1).AddTemplateGroups("Default", "Default", "OtherRooms");
-            var expected = new List<string>() { "Default", "OtherRooms" };
-            CollectionAssert.AreEquivalent(expected, node.TemplateGroups);
+            var node = new LayoutNode(1).SetTemplateGroup("Default");
+            Assert.AreEqual("Default", node.TemplateGroup);
         }
     }
 }

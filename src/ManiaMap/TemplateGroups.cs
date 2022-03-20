@@ -122,19 +122,16 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns a new list of room templates for the specified groups.
+        /// Returns a new list of room templates for the specified group.
         /// </summary>
-        /// <param name="groups">The list of group names.</param>
-        public List<RoomTemplate> GetTemplates(List<string> groups)
+        /// <param name="group">The template group name.</param>
+        public List<RoomTemplate> GetTemplates(string group)
         {
             var templates = new List<RoomTemplate>();
 
-            foreach (var group in groups)
+            if (!string.IsNullOrEmpty(group) && Groups.TryGetValue(group, out var list))
             {
-                if (Groups.TryGetValue(group, out var list))
-                {
-                    templates.AddRange(list);
-                }
+                templates.AddRange(list);
             }
 
             return templates;

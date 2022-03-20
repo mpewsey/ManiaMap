@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -12,7 +11,7 @@ namespace MPewsey.ManiaMap
     /// creates a node in a graph, then sets the name and adds a template group:
     /// 
     /// ```
-    /// graph.AddNode(1).SetName("Node1").AddTemplateGroups("Default");
+    /// graph.AddNode(1).SetName("Node1").SetTemplateGroup("Default");
     /// ```
     /// </summary>
     [DataContract]
@@ -34,7 +33,7 @@ namespace MPewsey.ManiaMap
 
         /// <inheritdoc>
         [DataMember(Order = 4)]
-        public List<string> TemplateGroups { get; private set; } = new List<string>();
+        public string TemplateGroup { get; set; }
 
         /// <inheritdoc>
         [DataMember(Order = 5)]
@@ -88,30 +87,12 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Adds template groups to the node and returns the node.
+        /// Sets the template group and returns the node.
         /// </summary>
-        /// <param name="group">The template group name.</param>
-        public LayoutNode AddTemplateGroups(string group)
+        /// <param name="value">The template group name.</param>
+        public LayoutNode SetTemplateGroup(string value)
         {
-            if (!TemplateGroups.Contains(group))
-            {
-                TemplateGroups.Add(group);
-            }
-
-            return this;
-        }
-
-        /// <summary>
-        /// Adds template groups to the node and returns the node.
-        /// </summary>
-        /// <param name="groups">The template group names.</param>
-        public LayoutNode AddTemplateGroups(params string[] groups)
-        {
-            foreach (var group in groups)
-            {
-                AddTemplateGroups(group);
-            }
-
+            TemplateGroup = value;
             return this;
         }
     }

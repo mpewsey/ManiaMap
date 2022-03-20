@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.Serialization;
 
@@ -13,7 +12,7 @@ namespace MPewsey.ManiaMap
     /// creates a edge in a graph, then sets the name and adds a template group:
     /// 
     /// ```
-    /// graph.AddEdge(1, 2).SetName("Edge1").AddTemplateGroups("Default");
+    /// graph.AddEdge(1, 2).SetName("Edge1").SetTemplateGroup("Default");
     /// ```
     /// </summary>
     [DataContract]
@@ -63,7 +62,7 @@ namespace MPewsey.ManiaMap
 
         /// <inheritdoc>
         [DataMember(Order = 9)]
-        public List<string> TemplateGroups { get; private set; } = new List<string>();
+        public string TemplateGroup { get; set; }
 
         /// <inheritdoc>
         public Uid RoomId { get => new Uid(FromNode, ToNode, 1); }
@@ -210,30 +209,12 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Adds template groups to the edge and returns the edge.
+        /// Sets the template group and returns the edge.
         /// </summary>
-        /// <param name="group">The group name.</param>
-        public LayoutEdge AddTemplateGroups(string group)
+        /// <param name="value">The template group name.</param>
+        public LayoutEdge SetTemplateGroup(string value)
         {
-            if (!TemplateGroups.Contains(group))
-            {
-                TemplateGroups.Add(group);
-            }
-
-            return this;
-        }
-
-        /// <summary>
-        /// Adds template groups to the edge and returns the edge.
-        /// </summary>
-        /// <param name="groups">The group names.</param>
-        public LayoutEdge AddTemplateGroups(params string[] groups)
-        {
-            foreach (var group in groups)
-            {
-                AddTemplateGroups(group);
-            }
-
+            TemplateGroup = value;
             return this;
         }
 

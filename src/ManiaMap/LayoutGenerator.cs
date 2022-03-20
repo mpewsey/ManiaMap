@@ -146,10 +146,10 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a new shuffled list of room templates for the groups.
         /// </summary>
-        /// <param name="groups">A list of template group names.</param>
-        private List<RoomTemplate> GetTemplates(List<string> groups)
+        /// <param name="group">The template group name.</param>
+        private List<RoomTemplate> GetTemplates(string group)
         {
-            var templates = TemplateGroups.GetTemplates(groups);
+            var templates = TemplateGroups.GetTemplates(group);
             Shuffle(templates);
             return templates;
         }
@@ -255,7 +255,7 @@ namespace MPewsey.ManiaMap
         private bool AddFirstRoom(IRoomSource source)
         {
             // Get the first template and add it to the layout.
-            foreach (var template in GetTemplates(source.TemplateGroups))
+            foreach (var template in GetTemplates(source.TemplateGroup))
             {
                 var room = new Room(source, Vector2DInt.Zero, Random.Next(), template);
                 Layout.Rooms.Add(room.Id, room);
@@ -278,7 +278,7 @@ namespace MPewsey.ManiaMap
             var fromRoom = Layout.Rooms[fromRoomId];
             var z = source.Z - fromRoom.Position.Z;
 
-            foreach (var template in GetTemplates(source.TemplateGroups))
+            foreach (var template in GetTemplates(source.TemplateGroup))
             {
                 foreach (var config in GetConfigurations(fromRoom.Template, template))
                 {
@@ -328,7 +328,7 @@ namespace MPewsey.ManiaMap
             var z1 = source.Z - backRoom.Position.Z;
             var z2 = aheadRoom.Position.Z - source.Z;
 
-            foreach (var template in GetTemplates(source.TemplateGroups))
+            foreach (var template in GetTemplates(source.TemplateGroup))
             {
                 foreach (var config1 in GetConfigurations(backRoom.Template, template))
                 {
