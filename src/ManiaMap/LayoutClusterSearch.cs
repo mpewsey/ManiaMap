@@ -6,7 +6,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A class for searching for neighbors in a `Layout` up to a specified depth.
     /// </summary>
-    public class LayoutNeighborSearch
+    public class LayoutClusterSearch
     {
         /// <summary>
         /// The room layout.
@@ -33,7 +33,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         /// <param name="layout">The room layout.</param>
         /// <param name="maxDepth">The maximum depth for which neighbors will be returned.</param>
-        public LayoutNeighborSearch(Layout layout, int maxDepth)
+        public LayoutClusterSearch(Layout layout, int maxDepth)
         {
             Layout = layout;
             MaxDepth = maxDepth;
@@ -43,7 +43,7 @@ namespace MPewsey.ManiaMap
         /// Returns an array of neighbors of the room up to the max depth.
         /// </summary>
         /// <param name="room">The room ID.</param>
-        public List<Uid> FindNeighbors(Uid room)
+        public List<Uid> FindCluster(Uid room)
         {
             Marked.Clear();
             Neighbors = Layout.RoomAdjacencies();

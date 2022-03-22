@@ -239,9 +239,9 @@ namespace MPewsey.ManiaMap
         /// </summary>
         /// <param name="room">The room ID.</param>
         /// <param name="maxDepth">The maximum depth for which neighbors will be returned.</param>
-        public List<Uid> FindNeighbors(Uid room, int maxDepth)
+        public List<Uid> FindCluster(Uid room, int maxDepth)
         {
-            return new LayoutNeighborSearch(this, maxDepth).FindNeighbors(room);
+            return new LayoutClusterSearch(this, maxDepth).FindCluster(room);
         }
 
         /// <summary>
