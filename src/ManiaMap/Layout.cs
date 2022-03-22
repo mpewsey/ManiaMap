@@ -77,7 +77,7 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Saves the layout to the file path.
+        /// Saves the layout to the file path using the `DataContractSerializer`.
         /// </summary>
         /// <param name="path">The save file path.</param>
         public void SaveXml(string path)
@@ -91,7 +91,7 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Loads the layout from the file path.
+        /// Loads the layout from the file path using the `DataContractSerializer`.
         /// </summary>
         /// <param name="path">The file path.</param>
         public static Layout LoadXml(string path)
