@@ -133,6 +133,18 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Sets all elements of the array to the value.
+        /// </summary>
+        /// <param name="value">The fill value.</param>
+        public void Fill(T value)
+        {
+            for (int i = 0; i < Array.Length; i++)
+            {
+                Array[i] = value;
+            }
+        }
+
+        /// <summary>
         /// Returns true if the index exists.
         /// </summary>
         /// <param name="row">The row index.</param>

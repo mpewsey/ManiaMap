@@ -49,6 +49,39 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns an array of distances from the specified index to each cell of the template.
+        /// Values of -1 indicate that the index does not exist.
+        /// </summary>
+        /// <param name="index">The index for which distances will be calculated.</param>
+        public Array2D<int> FindCellDistances(Vector2DInt index)
+        {
+            var distances = new Array2D<int>(Cells.Rows, Cells.Columns);
+            distances.Fill(-1);
+            SearchCellDistances(distances, index, 0);
+            return distances;
+        }
+
+        /// <summary>
+        /// Performs a recursive crawl of the template cells to determine the distance to an index.
+        /// </summary>
+        /// <param name="distances">The distances array.</param>
+        /// <param name="index">The current index.</param>
+        /// <param name="distance">The distance to the current index.</param>
+        private void SearchCellDistances(Array2D<int> distances, Vector2DInt index, int distance)
+        {
+            if (Cells.GetOrDefault(index.X, index.Y) == null)
+                return;
+            if (distances[index.X, index.Y] >= 0 && distances[index.X, index.Y] <= distance)
+                return;
+
+            distances[index.X, index.Y] = distance;
+            SearchCellDistances(distances, new Vector2DInt(index.X - 1, index.Y), distance + 1);
+            SearchCellDistances(distances, new Vector2DInt(index.X, index.Y - 1), distance + 1);
+            SearchCellDistances(distances, new Vector2DInt(index.X, index.Y + 1), distance + 1);
+            SearchCellDistances(distances, new Vector2DInt(index.X + 1, index.Y), distance + 1);
+        }
+
+        /// <summary>
         /// Returns an array of this template plus all mirrored and rotated variations.
         /// </summary>
         public List<RoomTemplate> AllVariations()
@@ -112,11 +145,13 @@ namespace MPewsey.ManiaMap
                 {
                     var x = Cells[i, j];
                     var y = other.Cells[i, j];
+                    var xIsNull = x == null;
+                    var yIsNull = y == null;
 
-                    if ((x == null) != (y == null))
+                    if (xIsNull != yIsNull)
                         return false;
 
-                    if (x != null && y != null && !x.Matches(y))
+                    if (!xIsNull && !yIsNull && !x.Matches(y))
                         return false;
                 }
             }
