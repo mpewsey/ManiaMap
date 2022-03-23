@@ -66,14 +66,6 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
-        public void TestToString()
-        {
-            var graph = Samples.GraphLibrary.GeekGraph();
-            var decomposer = new GraphChainDecomposer(graph);
-            Assert.IsTrue(decomposer.ToString().StartsWith("GraphChainDecomposer("));
-        }
-
-        [TestMethod]
         public void TestSplitLongChains()
         {
             var graph = Samples.GraphLibrary.GeekGraph();
