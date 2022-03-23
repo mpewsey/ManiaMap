@@ -15,7 +15,7 @@ namespace MPewsey.ManiaMap
         public static List<List<int>> FindBranches(LayoutGraph graph)
         {
             var marked = new HashSet<int>();
-            var parents = new Dictionary<int, int>();
+            var parents = new Dictionary<int, int>(graph.NodeCount);
             var branches = new List<List<int>>();
             var cycles = graph.FindCycles();
 

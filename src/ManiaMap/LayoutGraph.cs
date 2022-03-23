@@ -247,7 +247,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public List<List<int>> FindCycles()
         {
-            return new GraphCycleDecomposer(this).FindCycles();
+            return GraphCycleDecomposer.FindCycles(this);
         }
 
         /// <summary>

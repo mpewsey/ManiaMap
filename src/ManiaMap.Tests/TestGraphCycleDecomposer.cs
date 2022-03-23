@@ -63,13 +63,5 @@ namespace MPewsey.ManiaMap.Tests
                 CollectionAssert.AreEquivalent(expected[i], cycles[i]);
             }
         }
-
-        [TestMethod]
-        public void TestToString()
-        {
-            var graph = Samples.GraphLibrary.GeekGraph();
-            var decomposer = new GraphCycleDecomposer(graph);
-            Assert.IsTrue(decomposer.ToString().StartsWith("GraphCycleDecomposer("));
-        }
     }
 }
