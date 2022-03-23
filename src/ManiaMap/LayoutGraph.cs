@@ -255,7 +255,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public List<List<int>> FindBranches()
         {
-            return new GraphBranchDecomposer(this).FindBranches();
+            return GraphBranchDecomposer.FindBranches(this);
         }
 
         /// <summary>
