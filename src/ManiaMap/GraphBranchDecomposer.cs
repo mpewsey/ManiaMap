@@ -47,6 +47,25 @@ namespace MPewsey.ManiaMap
             Branches.Clear();
             Marked.Clear();
             Parents.Clear();
+            MarkTrunk();
+
+            // Search for branches beginning at each trunk node.
+            var trunk = Marked.ToArray();
+            Array.Sort(trunk);
+
+            foreach (var node in trunk)
+            {
+                BranchSearch(node, -1);
+            }
+
+            return Branches.ToList();
+        }
+
+        /// <summary>
+        /// Marks the trunk of the graph.
+        /// </summary>
+        private void MarkTrunk()
+        {
             var cycles = Graph.FindCycles();
 
             // Add trunk nodes to marked set.
@@ -63,17 +82,6 @@ namespace MPewsey.ManiaMap
             {
                 Marked.Add(Graph.MaxNeighborNode());
             }
-
-            // Search for branches beginning at each trunk node.
-            var trunk = Marked.ToArray();
-            Array.Sort(trunk);
-
-            foreach (var node in trunk)
-            {
-                BranchSearch(node, -1);
-            }
-
-            return Branches.ToList();
         }
 
         /// <summary>
