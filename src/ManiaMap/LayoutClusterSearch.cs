@@ -45,11 +45,10 @@ namespace MPewsey.ManiaMap
         /// <param name="room">The room ID.</param>
         public List<Uid> FindCluster(Uid room)
         {
+            Marked.Clear();
             Neighbors = Layout.RoomAdjacencies();
             SearchNeighbors(room, 0);
-            var result = Marked.ToList();
-            Marked.Clear();
-            return result;
+            return Marked.ToList();
         }
 
         /// <summary>
@@ -62,9 +61,9 @@ namespace MPewsey.ManiaMap
 
             foreach (var room in Layout.Rooms.Keys)
             {
+                Marked.Clear();
                 SearchNeighbors(room, 0);
                 dict.Add(room, Marked.ToList());
-                Marked.Clear();
             }
 
             return dict;

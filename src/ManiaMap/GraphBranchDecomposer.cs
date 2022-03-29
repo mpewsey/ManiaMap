@@ -44,6 +44,9 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public List<List<int>> FindBranches()
         {
+            Branches.Clear();
+            Marked.Clear();
+            Parents.Clear();
             var cycles = Graph.FindCycles();
 
             // Add trunk nodes to marked set.
@@ -70,11 +73,7 @@ namespace MPewsey.ManiaMap
                 BranchSearch(node, -1);
             }
 
-            var result = Branches.ToList();
-            Branches.Clear();
-            Marked.Clear();
-            Parents.Clear();
-            return result;
+            return Branches.ToList();
         }
 
         /// <summary>

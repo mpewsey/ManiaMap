@@ -46,17 +46,17 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public List<List<int>> FindCycles()
         {
+            Cycles.Clear();
+
             // Run searches from every node to accumulate complete set of cycles.
             foreach (var node in Graph.GetNodes())
             {
-                CycleSearch(node.Id, -1);
                 Parents.Clear();
                 Colors.Clear();
+                CycleSearch(node.Id, -1);
             }
 
-            var result = GetUniqueCycles();
-            Cycles.Clear();
-            return result;
+            return GetUniqueCycles();
         }
 
         /// <summary>

@@ -49,6 +49,10 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public List<List<LayoutEdge>> FindChains()
         {
+            Chains.Clear();
+            Marked.Clear();
+            Pool.Clear();
+
             AddCycleChains();
             AddBranchChains();
             RemoveDuplicateEdges();
@@ -56,11 +60,7 @@ namespace MPewsey.ManiaMap
             SplitLongChains();
             OrderEdgeNodes();
 
-            var result = FormSequentialChains();
-            Chains.Clear();
-            Marked.Clear();
-            Pool.Clear();
-            return result;
+            return FormSequentialChains();
         }
 
         /// <summary>
