@@ -8,7 +8,7 @@
         /// <summary>
         /// The array of cells.
         /// </summary>
-        private Array2D<Cell> Cells { get; set; }
+        public Array2D<Cell> Cells { get; set; }
 
         /// <summary>
         /// The array of distances.
@@ -18,21 +18,20 @@
         /// <summary>
         /// Initializes a new search.
         /// </summary>
-        public CellDistanceSearch()
+        /// <param name="cells">An array of cells.</param>
+        public CellDistanceSearch(Array2D<Cell> cells)
         {
-
+            Cells = cells;
         }
 
         /// <summary>
         /// Returns an array of distances from the specified index to each cell.
         /// Values of -1 indicate that the index does not exist.
         /// </summary>
-        /// <param name="cells">An array of cells.</param>
         /// <param name="index">The index for which distances will be calculated.</param>
-        public Array2D<int> FindCellDistances(Array2D<Cell> cells, Vector2DInt index)
+        public Array2D<int> FindCellDistances(Vector2DInt index)
         {
-            Cells = cells;
-            Distances = new Array2D<int>(cells.Rows, cells.Columns);
+            Distances = new Array2D<int>(Cells.Rows, Cells.Columns);
             Distances.Fill(-1);
             SearchCellDistances(index, 0);
             return Distances;

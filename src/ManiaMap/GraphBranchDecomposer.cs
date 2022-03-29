@@ -22,23 +22,29 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A dictionary of node parents by node ID.
         /// </summary>
-        private Dictionary<int, int> Parents { get; } = new Dictionary<int, int>();
+        private Dictionary<int, int> Parents { get; }
 
         /// <summary>
         /// A list of branches.
         /// </summary>
-        private List<List<int>> Branches { get; set; }
+        private List<List<int>> Branches { get; } = new List<List<int>>();
+
+        /// <summary>
+        /// Initializes a new decomposer.
+        /// </summary>
+        /// <param name="graph">The layout graph.</param>
+        public GraphBranchDecomposer(LayoutGraph graph)
+        {
+            Graph = graph;
+            Parents = new Dictionary<int, int>(graph.NodeCount);
+        }
 
         /// <summary>
         /// Returns a list of branches originating from the graph's cycles.
         /// </summary>
-        public List<List<int>> FindBranches(LayoutGraph graph)
+        public List<List<int>> FindBranches()
         {
-            Graph = graph;
-            Marked.Clear();
-            Parents.Clear();
-            Branches = new List<List<int>>();
-            var cycles = graph.FindCycles();
+            var cycles = Graph.FindCycles();
 
             // Add trunk nodes to marked set.
             foreach (var cycle in cycles)
@@ -52,7 +58,7 @@ namespace MPewsey.ManiaMap
             // Use the node with the max neighbors if cycles do not exist.
             if (Marked.Count == 0)
             {
-                Marked.Add(graph.MaxNeighborNode());
+                Marked.Add(Graph.MaxNeighborNode());
             }
 
             // Search for branches beginning at each trunk node.
@@ -64,7 +70,11 @@ namespace MPewsey.ManiaMap
                 BranchSearch(node, -1);
             }
 
-            return Branches;
+            var result = Branches.ToList();
+            Branches.Clear();
+            Marked.Clear();
+            Parents.Clear();
+            return result;
         }
 
         /// <summary>

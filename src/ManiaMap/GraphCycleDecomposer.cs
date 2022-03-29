@@ -21,37 +21,42 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A dictionary of node parents by node ID.
         /// </summary>
-        private Dictionary<int, int> Parents { get; } = new Dictionary<int, int>();
+        private Dictionary<int, int> Parents { get; }
 
         /// <summary>
         /// A dictionary of node colors by node ID.
         /// </summary>
-        private Dictionary<int, int> Colors { get; } = new Dictionary<int, int>();
+        private Dictionary<int, int> Colors { get; }
 
         /// <summary>
         /// The layout graph.
         /// </summary>
         private LayoutGraph Graph { get; set; }
 
+        public GraphCycleDecomposer(LayoutGraph graph)
+        {
+            Graph = graph;
+            Parents = new Dictionary<int, int>(graph.NodeCount);
+            Colors = new Dictionary<int, int>(graph.NodeCount);
+        }
+
         /// <summary>
         /// Returns lists of all combinations of unique node cycles in the graph
         /// using depth first search.
         /// </summary>
-        /// <param name="graph">The layout graph.</param>
-        public List<List<int>> FindCycles(LayoutGraph graph)
+        public List<List<int>> FindCycles()
         {
-            Graph = graph;
-            Cycles.Clear();
-
             // Run searches from every node to accumulate complete set of cycles.
-            foreach (var node in graph.GetNodes())
+            foreach (var node in Graph.GetNodes())
             {
+                CycleSearch(node.Id, -1);
                 Parents.Clear();
                 Colors.Clear();
-                CycleSearch(node.Id, -1);
             }
 
-            return GetUniqueCycles();
+            var result = GetUniqueCycles();
+            Cycles.Clear();
+            return result;
         }
 
         /// <summary>

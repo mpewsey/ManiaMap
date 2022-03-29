@@ -36,23 +36,19 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Initializes a new decomposer.
         /// </summary>
+        /// <param name="graph">The layout graph.</param>
         /// <param name="maxBranchLength">The maximum branch chain length. Branch chains exceeding this length will be split. Negative and zero values will be ignored.</param>
-        public GraphChainDecomposer(int maxBranchLength = -1)
+        public GraphChainDecomposer(LayoutGraph graph, int maxBranchLength = -1)
         {
+            Graph = graph;
             MaxBranchLength = maxBranchLength;
         }
 
         /// <summary>
         /// Returns a new list of chains for the graph.
         /// </summary>
-        /// <param name="graph">The layout graph.</param>
-        public List<List<LayoutEdge>> FindChains(LayoutGraph graph)
+        public List<List<LayoutEdge>> FindChains()
         {
-            Graph = graph;
-            Chains.Clear();
-            Marked.Clear();
-            Pool.Clear();
-
             AddCycleChains();
             AddBranchChains();
             RemoveDuplicateEdges();
@@ -60,7 +56,11 @@ namespace MPewsey.ManiaMap
             SplitLongChains();
             OrderEdgeNodes();
 
-            return FormSequentialChains();
+            var result = FormSequentialChains();
+            Chains.Clear();
+            Marked.Clear();
+            Pool.Clear();
+            return result;
         }
 
         /// <summary>

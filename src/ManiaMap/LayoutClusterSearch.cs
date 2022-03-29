@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace MPewsey.ManiaMap
 {
@@ -7,6 +8,11 @@ namespace MPewsey.ManiaMap
     /// </summary>
     public class LayoutClusterSearch
     {
+        /// <summary>
+        /// The room layout.
+        /// </summary>
+        public Layout Layout { get; set; }
+
         /// <summary>
         /// The maximum depth for which neighbors will be returned.
         /// </summary>
@@ -20,28 +26,48 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A set of all room ID's that have been visited.
         /// </summary>
-        private HashSet<Uid> Marked { get; set; }
+        private HashSet<Uid> Marked { get; } = new HashSet<Uid>();
 
         /// <summary>
         /// Initializes a new layout cluster search.
         /// </summary>
+        /// <param name="layout">The room layout.</param>
         /// <param name="maxDepth">The maximum depth for which neighbors will be returned.</param>
-        public LayoutClusterSearch(int maxDepth)
+        public LayoutClusterSearch(Layout layout, int maxDepth)
         {
+            Layout = layout;
             MaxDepth = maxDepth;
         }
 
         /// <summary>
-        /// Returns an array of neighbors of the room up to the max depth.
+        /// Returns a list of neighbors of the room up to the max depth.
         /// </summary>
-        /// <param name="layout">The room layout.</param>
         /// <param name="room">The room ID.</param>
-        public HashSet<Uid> FindCluster(Layout layout, Uid room)
+        public List<Uid> FindCluster(Uid room)
         {
-            Marked = new HashSet<Uid>();
-            Neighbors = layout.RoomAdjacencies();
+            Neighbors = Layout.RoomAdjacencies();
             SearchNeighbors(room, 0);
-            return Marked;
+            var result = Marked.ToList();
+            Marked.Clear();
+            return result;
+        }
+
+        /// <summary>
+        /// Returns a dictionary of all clusters up to the max depth.
+        /// </summary>
+        public Dictionary<Uid, List<Uid>> FindClusters()
+        {
+            Neighbors = Layout.RoomAdjacencies();
+            var dict = new Dictionary<Uid, List<Uid>>(Layout.Rooms.Count);
+
+            foreach (var room in Layout.Rooms.Keys)
+            {
+                SearchNeighbors(room, 0);
+                dict.Add(room, Marked.ToList());
+                Marked.Clear();
+            }
+
+            return dict;
         }
 
         /// <summary>
