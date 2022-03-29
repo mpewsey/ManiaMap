@@ -1,0 +1,71 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<AssemblyName>MPewsey.ManiaMap</AssemblyName>
+	<AssemblyTitle>MPewsey.ManiaMap</AssemblyTitle>
+	<RootNamespace>MPewsey.ManiaMap</RootNamespace>
+	<PackageId>MPewsey.ManiaMap</PackageId>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Matt Pewsey</Authors>
+    <Company>Matt Pewsey</Company>
+    <Copyright>Copyright © 2022</Copyright>
+    <Description>Graph-based procedural generation of metroidvania style maps</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/mpewsey/ManiaMap</RepositoryUrl>
+    <PackageTags>procedural-generation;roguelike;metroidvania;videogames</PackageTags>
+    <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+	<VersionPrefix>1.0.0</VersionPrefix>
+	<Configurations>Debug;Release;Unity</Configurations>
+	<PackageProjectUrl>https://mpewsey.github.io/ManiaMap/</PackageProjectUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unity|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Drawing\MapTiles\Default\BottomDoor.png" />
+    <None Remove="Drawing\MapTiles\Default\EastDoor.png" />
+    <None Remove="Drawing\MapTiles\Default\EastWall.png" />
+    <None Remove="Drawing\MapTiles\Default\Grid.png" />
+    <None Remove="Drawing\MapTiles\Default\NorthDoor.png" />
+    <None Remove="Drawing\MapTiles\Default\NorthWall.png" />
+    <None Remove="Drawing\MapTiles\Default\SouthDoor.png" />
+    <None Remove="Drawing\MapTiles\Default\SouthWall.png" />
+    <None Remove="Drawing\MapTiles\Default\TopDoor.png" />
+    <None Remove="Drawing\MapTiles\Default\WestDoor.png" />
+    <None Remove="Drawing\MapTiles\Default\WestWall.png" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(Configuration)|$(Platform)'!='Unity|AnyCPU'">
+    <EmbeddedResource Include="Drawing\MapTiles\Default\BottomDoor.png" />
+    <EmbeddedResource Include="Drawing\MapTiles\Default\EastDoor.png" />
+    <EmbeddedResource Include="Drawing\MapTiles\Default\EastWall.png" />
+    <EmbeddedResource Include="Drawing\MapTiles\Default\Grid.png" />
+    <EmbeddedResource Include="Drawing\MapTiles\Default\NorthDoor.png" />
+    <EmbeddedResource Include="Drawing\MapTiles\Default\NorthWall.png" />
+    <EmbeddedResource Include="Drawing\MapTiles\Default\SouthDoor.png" />
+    <EmbeddedResource Include="Drawing\MapTiles\Default\SouthWall.png" />
+    <EmbeddedResource Include="Drawing\MapTiles\Default\TopDoor.png" />
+    <EmbeddedResource Include="Drawing\MapTiles\Default\WestDoor.png" />
+    <EmbeddedResource Include="Drawing\MapTiles\Default\WestWall.png" />
+  </ItemGroup>
+
+	<ItemGroup Condition="'$(Configuration)|$(Platform)'=='Unity|AnyCPU'">
+		<Compile Remove="Drawing\**" />
+		<EmbeddedResource Remove="Drawing\**" />
+		<None Remove="Drawing\**" />
+	</ItemGroup>
+	
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SixLabors.ImageSharp" Version="2.0.0" />
+  </ItemGroup>
+
+</Project>

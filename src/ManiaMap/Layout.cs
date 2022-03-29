@@ -1,0 +1,242 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Runtime.Serialization;
+
+namespace MPewsey.ManiaMap
+{
+    /// <summary>
+    /// Represents a room layout consisting of `Room` and `DoorConnection`.
+    /// </summary>
+    [DataContract]
+    public class Layout
+    {
+        /// <summary>
+        /// The unique ID.
+        /// </summary>
+        [DataMember(Order = 0)]
+        public int Id { get; private set; }
+
+        /// <summary>
+        /// The name of the layout.
+        /// </summary>
+        [DataMember(Order = 1)]
+        public string Name { get; set; } = string.Empty;
+
+        /// <summary>
+        /// The random seed used to generate the layout.
+        /// </summary>
+        [DataMember(Order = 2)]
+        public int Seed { get; private set; }
+
+        /// <summary>
+        /// A dictionary of rooms in the layout by ID.
+        /// </summary>
+        [DataMember(Order = 3)]
+        public Dictionary<Uid, Room> Rooms { get; private set; } = new Dictionary<Uid, Room>();
+
+        /// <summary>
+        /// A list of door connections in the layout.
+        /// </summary>
+        [DataMember(Order = 4)]
+        public List<DoorConnection> DoorConnections { get; private set; } = new List<DoorConnection>();
+
+        /// <summary>
+        /// The current number of times the layout has been used as a base for another layout.
+        /// </summary>
+        public int Rebases { get; private set; }
+
+        /// <summary>
+        /// Initializes an empty layout.
+        /// </summary>
+        public Layout(int id, string name, int seed)
+        {
+            Id = id;
+            Name = name;
+            Seed = seed;
+        }
+
+        /// <summary>
+        /// Initializes a new layout from a base.
+        /// </summary>
+        /// <param name="baseLayout">The base layout.</param>
+        public Layout(Layout baseLayout)
+        {
+            Id = baseLayout.Id;
+            Name = baseLayout.Name;
+            Seed = baseLayout.Seed;
+            Rooms = new Dictionary<Uid, Room>(baseLayout.Rooms);
+            DoorConnections = new List<DoorConnection>(baseLayout.DoorConnections);
+            baseLayout.Rebases++;
+        }
+
+        public override string ToString()
+        {
+            return $"Layout(Name = {Name}, Seed = {Seed})";
+        }
+
+        /// <summary>
+        /// Returns true if the range intersects the layout.
+        /// </summary>
+        /// <param name="min">The minimum values of the range.</param>
+        /// <param name="max">The maximum values of the range.</param>
+        public bool Intersects(Vector3DInt min, Vector3DInt max)
+        {
+            foreach (var room in Rooms.Values)
+            {
+                if (room.Position.Z >= min.Z && room.Position.Z <= max.Z)
+                {
+                    if (room.Template.Intersects(min - room.Position, max - room.Position))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            foreach (var connection in DoorConnections)
+            {
+                var shaft = connection.Shaft;
+
+                if (shaft != null && shaft.Intersects(min, max))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Returns true if the template intersects the layout.
+        /// </summary>
+        /// <param name="template">The room template.</param>
+        /// <param name="position">The position of the room.</param>
+        /// <param name="z">The z position of the room.</param>
+        public bool Intersects(RoomTemplate template, Vector2DInt position, int z)
+        {
+            return Intersects(template, new Vector3DInt(position.X, position.Y, z));
+        }
+
+        /// <summary>
+        /// Returns true if the template intersects the layout.
+        /// </summary>
+        /// <param name="template">The room template.</param>
+        /// <param name="position">The position of the room.</param>
+        public bool Intersects(RoomTemplate template, Vector3DInt position)
+        {
+            foreach (var room in Rooms.Values)
+            {
+                if (room.Position.Z == position.Z)
+                {
+                    if (template.Intersects(room.Template, room.Position - position))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            foreach (var connection in DoorConnections)
+            {
+                var shaft = connection.Shaft;
+
+                if (shaft != null && shaft.Intersects(template, position))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Returns a new dictionary of room doors by room ID.
+        /// </summary>
+        public Dictionary<Uid, List<DoorPosition>> RoomDoors()
+        {
+            var dict = new Dictionary<Uid, List<DoorPosition>>(Rooms.Count);
+
+            foreach (var connection in DoorConnections)
+            {
+                if (!dict.TryGetValue(connection.FromRoom, out var fromDoors))
+                {
+                    fromDoors = new List<DoorPosition>();
+                    dict.Add(connection.FromRoom, fromDoors);
+                }
+
+                if (!dict.TryGetValue(connection.ToRoom, out var toDoors))
+                {
+                    toDoors = new List<DoorPosition>();
+                    dict.Add(connection.ToRoom, toDoors);
+                }
+
+                fromDoors.Add(connection.FromDoor);
+                toDoors.Add(connection.ToDoor);
+            }
+
+            return dict;
+        }
+
+        /// <summary>
+        /// Returns a new dictionary of neighbor rooms in the layout.
+        /// </summary>
+        public Dictionary<Uid, List<Uid>> RoomAdjacencies()
+        {
+            var dict = new Dictionary<Uid, List<Uid>>(Rooms.Count);
+
+            foreach (var connection in DoorConnections)
+            {
+                if (!dict.TryGetValue(connection.FromRoom, out var fromNeighbors))
+                {
+                    fromNeighbors = new List<Uid>();
+                    dict.Add(connection.FromRoom, fromNeighbors);
+                }
+
+                if (!dict.TryGetValue(connection.ToRoom, out var toNeighbors))
+                {
+                    toNeighbors = new List<Uid>();
+                    dict.Add(connection.ToRoom, toNeighbors);
+                }
+
+                fromNeighbors.Add(connection.ToRoom);
+                toNeighbors.Add(connection.FromRoom);
+            }
+
+            return dict;
+        }
+
+        /// <summary>
+        /// Returns the neighbors of the room up to the specified max depth.
+        /// The room itself is included in the result.
+        /// </summary>
+        /// <param name="room">The room ID.</param>
+        /// <param name="maxDepth">The maximum depth for which neighbors will be returned.</param>
+        public HashSet<Uid> FindCluster(Uid room, int maxDepth)
+        {
+            return new LayoutClusterSearch(maxDepth).FindCluster(this, room);
+        }
+
+        /// <summary>
+        /// Returns the rectangular bounds of the layout.
+        /// </summary>
+        public Rectangle Bounds()
+        {
+            if (Rooms.Count == 0)
+                return new Rectangle();
+
+            var minX = int.MaxValue;
+            var minY = int.MaxValue;
+            var maxX = int.MinValue;
+            var maxY = int.MinValue;
+
+            foreach (var room in Rooms.Values)
+            {
+                minX = Math.Min(minX, room.Position.X);
+                minY = Math.Min(minY, room.Position.Y);
+                maxX = Math.Max(maxX, room.Position.X + room.Template.Cells.Rows);
+                maxY = Math.Max(maxY, room.Position.Y + room.Template.Cells.Columns);
+            }
+
+            return new Rectangle(minY, minX, maxY - minY, maxX - minX);
+        }
+    }
+}
