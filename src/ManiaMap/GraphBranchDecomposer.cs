@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace MPewsey.ManiaMap
@@ -50,8 +49,8 @@ namespace MPewsey.ManiaMap
             MarkTrunk();
 
             // Search for branches beginning at each trunk node.
-            var trunk = Marked.ToArray();
-            Array.Sort(trunk);
+            var trunk = Marked.ToList();
+            trunk.Sort();
 
             foreach (var node in trunk)
             {
