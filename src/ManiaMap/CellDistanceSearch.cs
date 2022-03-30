@@ -54,7 +54,10 @@
         {
             if (data.Cells.GetOrDefault(index.X, index.Y) == null)
                 return;
-            if (data.Distances[index.X, index.Y] >= 0 && data.Distances[index.X, index.Y] <= distance)
+
+            var currentDistance = data.Distances[index.X, index.Y];
+
+            if (currentDistance >= 0 && currentDistance <= distance)
                 return;
 
             data.Distances[index.X, index.Y] = distance;
