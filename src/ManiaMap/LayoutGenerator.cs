@@ -83,7 +83,7 @@ namespace MPewsey.ManiaMap
             int chain = 0;
             var chains = Graph.FindChains(MaxBranchLength);
             var layouts = new Stack<Layout>();
-            layouts.Push(new Layout(id, Graph.Name, RandomSeed.Seed));
+            layouts.Push(new Layout(id, Graph.Name, RandomSeed));
 
             while (layouts.Count > 0)
             {
