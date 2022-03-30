@@ -72,7 +72,7 @@ namespace MPewsey.ManiaMap
         {
             double total = 0;
             var totals = new double[values.Length];
-            
+
             for (int i = 0; i < values.Length; i++)
             {
                 total += values[i];
