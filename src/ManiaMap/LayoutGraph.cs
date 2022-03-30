@@ -245,7 +245,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public List<List<int>> FindCycles()
         {
-            return new GraphCycleDecomposer(this).FindCycles();
+            return GraphCycleDecomposer.FindCycles(this);
         }
 
         /// <summary>
@@ -253,7 +253,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public List<List<int>> FindBranches()
         {
-            return new GraphBranchDecomposer(this).FindBranches();
+            return GraphBranchDecomposer.FindBranches(this);
         }
 
         /// <summary>
@@ -262,7 +262,7 @@ namespace MPewsey.ManiaMap
         /// <param name="maxBranchLength">The maximum branch chain length. Branch chains exceeding this length will be split. Negative and zero values will be ignored.</param>
         public List<List<LayoutEdge>> FindChains(int maxBranchLength = -1)
         {
-            return new GraphChainDecomposer(this, maxBranchLength).FindChains();
+            return GraphChainDecomposer.FindChains(this, maxBranchLength);
         }
     }
 }

@@ -55,7 +55,7 @@ namespace MPewsey.ManiaMap
         /// <param name="index">The index for which distances will be calculated.</param>
         public Array2D<int> FindCellDistances(Vector2DInt index)
         {
-            return new CellDistanceSearch(Cells).FindCellDistances(index);
+            return CellDistanceSearch.FindCellDistances(Cells, index);
         }
 
         /// <summary>
