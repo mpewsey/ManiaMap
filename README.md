@@ -88,8 +88,8 @@ To create repeatable layouts, a random seed is used by the layout generator. To 
 
 ```LayoutGenerator.cs
 var seed = new RandomSeed(12345);
-var generator = new LayoutGenerator();
-var layout = generator.GenerateLayout(id: 1, graph, templateGroups, seed);
+var generator = new LayoutGenerator(graph, templateGroups);
+var layout = generator.GenerateLayout(id: 1, seed);
 
 // Render map and save it to file
 var map = new LayoutMap(layout);
