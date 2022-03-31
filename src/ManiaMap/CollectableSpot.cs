@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MPewsey.ManiaMap
+﻿namespace MPewsey.ManiaMap
 {
     /// <summary>
     /// A class containing data for a collectable location.
@@ -33,6 +29,19 @@ namespace MPewsey.ManiaMap
         /// The neighboring collectable draw weight.
         /// </summary>
         public int NeighborWeight { get; set; } = 1000;
+
+        /// <summary>
+        /// Initializes a new spot.
+        /// </summary>
+        /// <param name="room">The room ID.</param>
+        /// <param name="position">The local position in the room.</param>
+        /// <param name="group">The collectable group.</param>
+        public CollectableSpot(Uid room, Vector2DInt position, string group)
+        {
+            Room = room;
+            Position = position;
+            Group = group;
+        }
 
         public override string ToString()
         {

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace MPewsey.ManiaMap
 {
@@ -47,16 +46,16 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns a list of neighbors of the room up to the max depth.
+        /// Returns a set of neighbors of the room up to the max depth.
         /// </summary>
         /// <param name="layout">The room layout.</param>
         /// <param name="room">The room ID.</param>
         /// <param name="maxDepth">The maximum depth for which neighbors will be returned.</param>
-        public static List<Uid> FindCluster(Layout layout, Uid room, int maxDepth)
+        public static HashSet<Uid> FindCluster(Layout layout, Uid room, int maxDepth)
         {
             var data = new Data(layout, maxDepth);
             SearchNeighbors(data, room, 0);
-            return data.Marked.ToList();
+            return data.Marked;
         }
 
         /// <summary>
@@ -64,16 +63,16 @@ namespace MPewsey.ManiaMap
         /// </summary>
         /// <param name="layout">The room layout.</param>
         /// <param name="maxDepth">The maximum depth for which neighbors will be returned.</param>
-        public static Dictionary<Uid, List<Uid>> FindClusters(Layout layout, int maxDepth)
+        public static Dictionary<Uid, HashSet<Uid>> FindClusters(Layout layout, int maxDepth)
         {
             var data = new Data(layout, maxDepth);
-            var dict = new Dictionary<Uid, List<Uid>>(data.Layout.Rooms.Count);
+            var dict = new Dictionary<Uid, HashSet<Uid>>(data.Layout.Rooms.Count);
 
             foreach (var room in data.Layout.Rooms.Keys)
             {
                 data.Marked.Clear();
                 SearchNeighbors(data, room, 0);
-                dict.Add(room, data.Marked.ToList());
+                dict.Add(room, new HashSet<Uid>(data.Marked));
             }
 
             return dict;
