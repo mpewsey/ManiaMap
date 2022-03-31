@@ -15,6 +15,7 @@ var class_m_pewsey_1_1_mania_map_1_1_cell =
     [ "TopDoorAligns", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a914eb22beea54a5c4f15c440ebfb210c", null ],
     [ "WestDoorAligns", "class_m_pewsey_1_1_mania_map_1_1_cell.html#af718903e779a35091dbaae0b00bda528", null ],
     [ "BottomDoor", "class_m_pewsey_1_1_mania_map_1_1_cell.html#adf1d4b7e0f25c085a1c9b590fd8dc138", null ],
+    [ "CollectableGroup", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a07f5b958c313cbac799d4cc9bfce915d", null ],
     [ "EastDoor", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a1c5be469ed13d26476f77081e6315c74", null ],
     [ "Empty", "class_m_pewsey_1_1_mania_map_1_1_cell.html#adce545f0d632f7f62c50be3be2264994", null ],
     [ "New", "class_m_pewsey_1_1_mania_map_1_1_cell.html#ae1cfb373ea02c2749468d7d7568da662", null ],

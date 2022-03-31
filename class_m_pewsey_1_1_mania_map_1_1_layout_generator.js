@@ -1,6 +1,6 @@
 var class_m_pewsey_1_1_mania_map_1_1_layout_generator =
 [
-    [ "LayoutGenerator", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a73d5ba51972127a067684bc0c2d4f7d5", null ],
+    [ "LayoutGenerator", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a465162ecce3ec47e59477a62c8f42039", null ],
     [ "AddChain", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a0499cfcd6282607699e27868740cefc7", null ],
     [ "AddDoorConnection", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a573f2f6cdef006ba109d15568960f123", null ],
     [ "AddFirstRoom", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#ac028391433d8787d203ab24c8f5b1cd4", null ],
@@ -15,8 +15,7 @@ var class_m_pewsey_1_1_mania_map_1_1_layout_generator =
     [ "ConfigurationSpaces", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#abf7c4f21a0336831d908a815693965cd", null ],
     [ "Graph", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a6e3c88e6fed182d545d37b0d02d4da40", null ],
     [ "Layout", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a264c0ebacd3ca68699d05a4875ddea93", null ],
-    [ "MaxBranchLength", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#aa5f9c9629326de0aac1566d13cb7a47c", null ],
-    [ "MaxRebases", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a24be882ab3e6c5ee7bffc0bfa128600a", null ],
     [ "RandomSeed", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a1bd308809aa70351a3a30b65a96940df", null ],
+    [ "Settings", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#aa3026023297d498a3b76ced1b17922fc", null ],
     [ "TemplateGroups", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a9ee83e6ced88908b900938a8bdf8b648", null ]
 ];
