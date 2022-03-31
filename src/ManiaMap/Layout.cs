@@ -36,10 +36,10 @@ namespace MPewsey.ManiaMap
         public Dictionary<Uid, Room> Rooms { get; private set; } = new Dictionary<Uid, Room>();
 
         /// <summary>
-        /// A list of door connections in the layout.
+        /// A dictionary of door connections by room ID pairs.
         /// </summary>
         [DataMember(Order = 4)]
-        public List<DoorConnection> DoorConnections { get; private set; } = new List<DoorConnection>();
+        public Dictionary<RoomPair, DoorConnection> DoorConnections { get; private set; } = new Dictionary<RoomPair, DoorConnection>();
 
         /// <summary>
         /// The current number of times the layout has been used as a base for another layout.
@@ -66,13 +66,36 @@ namespace MPewsey.ManiaMap
             Name = baseLayout.Name;
             Seed = baseLayout.Seed;
             Rooms = new Dictionary<Uid, Room>(baseLayout.Rooms);
-            DoorConnections = new List<DoorConnection>(baseLayout.DoorConnections);
+            DoorConnections = new Dictionary<RoomPair, DoorConnection>(baseLayout.DoorConnections);
             baseLayout.Rebases++;
         }
 
         public override string ToString()
         {
             return $"Layout(Name = {Name}, Seed = {Seed})";
+        }
+
+        /// <summary>
+        /// Returns the door connection between the rooms.
+        /// </summary>
+        /// <param name="room1">The first room ID.</param>
+        /// <param name="room2">The second room ID.</param>
+        public DoorConnection GetDoorConnection(Uid room1, Uid room2)
+        {
+            if (DoorConnections.TryGetValue(new RoomPair(room2, room1), out var connection))
+                return connection;
+            return DoorConnections[new RoomPair(room1, room2)];
+        }
+
+        /// <summary>
+        /// Removes the door connection from the layout.
+        /// </summary>
+        /// <param name="room1">The first room ID.</param>
+        /// <param name="room2">The second room ID.</param>
+        public bool RemoveDoorConnection(Uid room1, Uid room2)
+        {
+            return DoorConnections.Remove(new RoomPair(room1, room2))
+                || DoorConnections.Remove(new RoomPair(room2, room1));
         }
 
         /// <summary>
@@ -93,7 +116,7 @@ namespace MPewsey.ManiaMap
                 }
             }
 
-            foreach (var connection in DoorConnections)
+            foreach (var connection in DoorConnections.Values)
             {
                 var shaft = connection.Shaft;
 
@@ -135,7 +158,7 @@ namespace MPewsey.ManiaMap
                 }
             }
 
-            foreach (var connection in DoorConnections)
+            foreach (var connection in DoorConnections.Values)
             {
                 var shaft = connection.Shaft;
 
@@ -155,7 +178,7 @@ namespace MPewsey.ManiaMap
         {
             var dict = new Dictionary<Uid, List<DoorPosition>>(Rooms.Count);
 
-            foreach (var connection in DoorConnections)
+            foreach (var connection in DoorConnections.Values)
             {
                 if (!dict.TryGetValue(connection.FromRoom, out var fromDoors))
                 {
@@ -183,7 +206,7 @@ namespace MPewsey.ManiaMap
         {
             var dict = new Dictionary<Uid, List<Uid>>(Rooms.Count);
 
-            foreach (var connection in DoorConnections)
+            foreach (var connection in DoorConnections.Values)
             {
                 if (!dict.TryGetValue(connection.FromRoom, out var fromNeighbors))
                 {

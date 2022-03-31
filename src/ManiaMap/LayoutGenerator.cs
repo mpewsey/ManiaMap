@@ -349,7 +349,7 @@ namespace MPewsey.ManiaMap
                         {
                             // Remove the room and door connection added previously.
                             Layout.Rooms.Remove(room.Id);
-                            Layout.DoorConnections.RemoveAt(Layout.DoorConnections.Count - 1);
+                            Layout.RemoveDoorConnection(backRoomId, source.RoomId);
                             continue;
                         }
 
@@ -379,7 +379,7 @@ namespace MPewsey.ManiaMap
             {
                 // Rooms do not require shaft connection. Simply add the door connection.
                 var connection = new DoorConnection(fromRoom, toRoom, fromDoor, toDoor);
-                Layout.DoorConnections.Add(connection);
+                Layout.DoorConnections.Add(new RoomPair(fromRoomId, toRoomId), connection);
             }
             else
             {
@@ -396,7 +396,7 @@ namespace MPewsey.ManiaMap
 
                 var shaft = new Box(min, max);
                 var connection = new DoorConnection(fromRoom, toRoom, fromDoor, toDoor, shaft);
-                Layout.DoorConnections.Add(connection);
+                Layout.DoorConnections.Add(new RoomPair(fromRoomId, toRoomId), connection);
             }
 
             return true;
