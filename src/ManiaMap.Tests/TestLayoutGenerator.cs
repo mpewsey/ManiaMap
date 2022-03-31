@@ -75,7 +75,7 @@ namespace MPewsey.ManiaMap.Tests
             rooms.ForEach(x => Console.WriteLine(x));
 
             Console.WriteLine("\nDoor Connections:");
-            layout.DoorConnections.ForEach(x => Console.WriteLine(x));
+            Console.WriteLine(string.Join("\n", layout.DoorConnections.Values));
 
             Assert.AreEqual(graph.NodeCount, layout.Rooms.Count);
             Assert.AreEqual(graph.EdgeCount, layout.DoorConnections.Count);
@@ -117,7 +117,7 @@ namespace MPewsey.ManiaMap.Tests
             rooms.ForEach(x => Console.WriteLine(x));
 
             Console.WriteLine("\nDoor Connections:");
-            layout.DoorConnections.ForEach(x => Console.WriteLine(x));
+            Console.WriteLine(string.Join("\n", layout.DoorConnections.Values));
 
             Assert.AreEqual(8, layout.Rooms.Count);
             Assert.AreEqual(7, layout.DoorConnections.Count);

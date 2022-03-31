@@ -168,7 +168,7 @@ namespace MPewsey.ManiaMap
         /// Returns a new flattened array from a built-in 2D array.
         /// </summary>
         /// <param name="array">The built-in 2D array.</param>
-        private static T[] FlattenArray(T[,] array)
+        public static T[] FlattenArray(T[,] array)
         {
             var result = new T[array.Length];
             int k = 0;

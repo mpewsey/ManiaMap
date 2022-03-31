@@ -7,7 +7,7 @@ namespace MPewsey.ManiaMap
     /// A structure for representing a unique ID consisting of 3 integers.
     /// </summary>
     [DataContract]
-    public struct Uid : IEquatable<Uid>
+    public struct Uid : IEquatable<Uid>, IComparable<Uid>
     {
         /// <summary>
         /// The first ID value.
@@ -87,6 +87,21 @@ namespace MPewsey.ManiaMap
             hashCode = hashCode * -1521134295 + Value2.GetHashCode();
             hashCode = hashCode * -1521134295 + Value3.GetHashCode();
             return hashCode;
+        }
+
+        public int CompareTo(Uid other)
+        {
+            var comparison = Value1.CompareTo(other.Value1);
+
+            if (comparison != 0)
+                return comparison;
+
+            comparison = Value2.CompareTo(other.Value2);
+
+            if (comparison != 0)
+                return comparison;
+
+            return Value3.CompareTo(other.Value3);
         }
 
         public static bool operator ==(Uid left, Uid right)

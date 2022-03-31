@@ -5,76 +5,83 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A class for finding chains of a `LayoutGraph`.
     /// </summary>
-    public class GraphChainDecomposer
+    public static class GraphChainDecomposer
     {
         /// <summary>
-        /// The maximum branch chain length. Branch chains exceeding this length will be split.
-        /// Negative and zero values will be ignored.
+        /// A construct for storing decomposer data.
         /// </summary>
-        public int MaxBranchLength { get; set; }
-
-        /// <summary>
-        /// The layout graph.
-        /// </summary>
-        private LayoutGraph Graph { get; set; }
-
-        /// <summary>
-        /// A list of chains.
-        /// </summary>
-        private List<List<LayoutEdge>> Chains { get; } = new List<List<LayoutEdge>>();
-
-        /// <summary>
-        /// A set of all marked nodes.
-        /// </summary>
-        private HashSet<int> Marked { get; } = new HashSet<int>();
-
-        /// <summary>
-        /// A pool of chains.
-        /// </summary>
-        private LinkedList<List<LayoutEdge>> Pool { get; } = new LinkedList<List<LayoutEdge>>();
-
-        /// <summary>
-        /// Initializes a new decomposer.
-        /// </summary>
-        /// <param name="maxBranchLength">The maximum branch chain length. Branch chains exceeding this length will be split. Negative and zero values will be ignored.</param>
-        public GraphChainDecomposer(int maxBranchLength = -1)
+        private class Data
         {
-            MaxBranchLength = maxBranchLength;
+            /// <summary>
+            /// The layout graph.
+            /// </summary>
+            public LayoutGraph Graph { get; }
+
+            /// <summary>
+            /// The maximum branch chain length. Branch chains exceeding this length will be split.
+            /// Negative and zero values will be ignored.
+            /// </summary>
+            public int MaxBranchLength { get; }
+
+            /// <summary>
+            /// A list of chains.
+            /// </summary>
+            public List<List<LayoutEdge>> Chains { get; } = new List<List<LayoutEdge>>();
+
+            /// <summary>
+            /// A set of all marked nodes.
+            /// </summary>
+            public HashSet<int> Marked { get; } = new HashSet<int>();
+
+            /// <summary>
+            /// A pool of chains.
+            /// </summary>
+            public LinkedList<List<LayoutEdge>> Pool { get; } = new LinkedList<List<LayoutEdge>>();
+
+            /// <summary>
+            /// Initializes the data.
+            /// </summary>
+            /// <param name="graph">The layout graph.</param>
+            /// <param name="maxBranchLength">The maximum branch length.</param>
+            public Data(LayoutGraph graph, int maxBranchLength)
+            {
+                Graph = graph;
+                MaxBranchLength = maxBranchLength;
+            }
         }
 
         /// <summary>
         /// Returns a new list of chains for the graph.
         /// </summary>
         /// <param name="graph">The layout graph.</param>
-        public List<List<LayoutEdge>> FindChains(LayoutGraph graph)
+        /// <param name="maxBranchLength"> The maximum branch chain length. Branch chains exceeding this length will be split. Negative and zero values will be ignored.</param>
+        public static List<List<LayoutEdge>> FindChains(LayoutGraph graph, int maxBranchLength = -1)
         {
-            Graph = graph;
-            Chains.Clear();
-            Marked.Clear();
-            Pool.Clear();
+            var data = new Data(graph, maxBranchLength);
 
-            AddCycleChains();
-            AddBranchChains();
-            RemoveDuplicateEdges();
-            SplitBrokenChains();
-            SplitLongChains();
-            OrderEdgeNodes();
+            AddCycleChains(data);
+            AddBranchChains(data);
+            RemoveDuplicateEdges(data);
+            SplitBrokenChains(data);
+            SplitLongChains(data);
+            OrderEdgeNodes(data);
 
-            return FormSequentialChains();
+            return FormSequentialChains(data);
         }
 
         /// <summary>
         /// Returns a list of chains for all cycles in the graph.
         /// </summary>
-        private void AddCycleChains()
+        /// <param name="data">The decomposer data.</param>
+        private static void AddCycleChains(Data data)
         {
-            var cycles = Graph.FindCycles();
+            var cycles = data.Graph.FindCycles();
             cycles.Sort((x, y) => x.Count.CompareTo(y.Count));
 
             foreach (var cycle in cycles)
             {
                 cycle.Add(cycle[0]);
-                Chains.Add(GetChainEdges(cycle));
+                data.Chains.Add(GetChainEdges(data, cycle));
             }
         }
 
@@ -82,9 +89,10 @@ namespace MPewsey.ManiaMap
         /// Reverses the edges in the chains as necessary to make the nodes
         /// in the chain sequential.
         /// </summary>
-        private void OrderEdgeNodes()
+        /// <param name="data">The decomposer data.</param>
+        private static void OrderEdgeNodes(Data data)
         {
-            foreach (var chain in Chains)
+            foreach (var chain in data.Chains)
             {
                 for (int i = 1; i < chain.Count; i++)
                 {
@@ -111,13 +119,14 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Adds chains for all branches of the graph to the input list.
         /// </summary>
-        private void AddBranchChains()
+        /// <param name="data">The decomposer data.</param>
+        private static void AddBranchChains(Data data)
         {
-            var branches = Graph.FindBranches();
+            var branches = data.Graph.FindBranches();
 
             foreach (var branch in branches)
             {
-                Chains.Add(GetChainEdges(branch));
+                data.Chains.Add(GetChainEdges(data, branch));
             }
         }
 
@@ -125,11 +134,12 @@ namespace MPewsey.ManiaMap
         /// Removes any duplicate edges from the list of chains. The first
         /// occurence of an edge is retained.
         /// </summary>
-        private void RemoveDuplicateEdges()
+        /// <param name="data">The decomposer data.</param>
+        private static void RemoveDuplicateEdges(Data data)
         {
             var marked = new HashSet<LayoutEdge>();
 
-            foreach (var chain in Chains)
+            foreach (var chain in data.Chains)
             {
                 for (int i = chain.Count - 1; i >= 0; i--)
                 {
@@ -140,17 +150,18 @@ namespace MPewsey.ManiaMap
                 }
             }
 
-            Chains.RemoveAll(x => x.Count == 0);
+            data.Chains.RemoveAll(x => x.Count == 0);
         }
 
         /// <summary>
         /// Splits any non sequential chains into separate chains and returns a new list.
         /// </summary>
-        private void SplitBrokenChains()
+        /// <param name="data">The decomposer data.</param>
+        private static void SplitBrokenChains(Data data)
         {
-            for (int i = 0; i < Chains.Count; i++)
+            for (int i = 0; i < data.Chains.Count; i++)
             {
-                var chain = Chains[i];
+                var chain = data.Chains[i];
 
                 for (int j = 1; j < chain.Count; j++)
                 {
@@ -159,8 +170,8 @@ namespace MPewsey.ManiaMap
 
                     if (!x.SharesNode(y))
                     {
-                        Chains[i] = chain.GetRange(0, j);
-                        Chains.Insert(i + 1, chain.GetRange(j, chain.Count - j));
+                        data.Chains[i] = chain.GetRange(0, j);
+                        data.Chains.Insert(i + 1, chain.GetRange(j, chain.Count - j));
                         break;
                     }
                 }
@@ -171,18 +182,19 @@ namespace MPewsey.ManiaMap
         /// Splits non cycle chains which exceed the specified max length. If the max
         /// length is negative or zero, no action will be taken.
         /// </summary>
-        private void SplitLongChains()
+        /// <param name="data">The decomposer data.</param>
+        private static void SplitLongChains(Data data)
         {
-            if (MaxBranchLength > 0)
+            if (data.MaxBranchLength > 0)
             {
-                for (int i = 0; i < Chains.Count; i++)
+                for (int i = 0; i < data.Chains.Count; i++)
                 {
-                    var chain = Chains[i];
+                    var chain = data.Chains[i];
 
-                    if (!ChainIsCycle(chain) && chain.Count > MaxBranchLength)
+                    if (!ChainIsCycle(chain) && chain.Count > data.MaxBranchLength)
                     {
-                        Chains[i] = chain.GetRange(0, MaxBranchLength);
-                        Chains.Insert(i + 1, chain.GetRange(MaxBranchLength, chain.Count - MaxBranchLength));
+                        data.Chains[i] = chain.GetRange(0, data.MaxBranchLength);
+                        data.Chains.Insert(i + 1, chain.GetRange(data.MaxBranchLength, chain.Count - data.MaxBranchLength));
                     }
                 }
             }
@@ -191,27 +203,28 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a new list of sequential chains.
         /// </summary>
-        private List<List<LayoutEdge>> FormSequentialChains()
+        /// <param name="data">The decomposer data.</param>
+        private static List<List<LayoutEdge>> FormSequentialChains(Data data)
         {
-            var result = new List<List<LayoutEdge>>(Chains.Count);
+            var result = new List<List<LayoutEdge>>(data.Chains.Count);
 
-            foreach (var chain in Chains)
+            foreach (var chain in data.Chains)
             {
-                Pool.AddLast(chain);
+                data.Pool.AddLast(chain);
             }
 
-            if (Pool.First != null)
+            if (data.Pool.First != null)
             {
-                var chain = Pool.First.Value;
-                MarkNodes(chain);
+                var chain = data.Pool.First.Value;
+                MarkNodes(data, chain);
                 result.Add(chain);
-                Pool.RemoveFirst();
+                data.Pool.RemoveFirst();
             }
 
-            for (int i = 1; i < Chains.Count; i++)
+            for (int i = 1; i < data.Chains.Count; i++)
             {
-                var chain = FindNextChain();
-                MarkNodes(chain);
+                var chain = FindNextChain(data);
+                MarkNodes(data, chain);
                 result.Add(chain);
             }
 
@@ -221,20 +234,21 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns the next chain in the sequence.
         /// </summary>
-        private List<LayoutEdge> FindNextChain()
+        /// <param name="data">The decomposer data.</param>
+        private static List<LayoutEdge> FindNextChain(Data data)
         {
-            for (var node = Pool.First; node != null; node = node.Next)
+            for (var node = data.Pool.First; node != null; node = node.Next)
             {
                 var chain = node.Value;
 
                 // If the chain is a cycle, shift the elements of the chain to make a possible sequence.
                 if (ChainIsCycle(chain))
                 {
-                    var index = chain.FindIndex(x => Marked.Contains(x.FromNode));
+                    var index = chain.FindIndex(x => data.Marked.Contains(x.FromNode));
 
                     if (index >= 0)
                     {
-                        Pool.Remove(node);
+                        data.Pool.Remove(node);
                         var subChain = chain.GetRange(0, index);
                         chain.RemoveRange(0, index);
                         chain.AddRange(subChain);
@@ -245,16 +259,16 @@ namespace MPewsey.ManiaMap
                 }
 
                 // Check if first edge forms sequence.
-                if (Marked.Contains(chain[0].FromNode))
+                if (data.Marked.Contains(chain[0].FromNode))
                 {
-                    Pool.Remove(node);
+                    data.Pool.Remove(node);
                     return chain;
                 }
 
                 // Check if last edge forms sequence.
-                if (Marked.Contains(chain[chain.Count - 1].ToNode))
+                if (data.Marked.Contains(chain[chain.Count - 1].ToNode))
                 {
-                    Pool.Remove(node);
+                    data.Pool.Remove(node);
                     chain.Reverse();
                     chain.ForEach(x => x.Reverse());
                     return chain;
@@ -267,27 +281,29 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Adds the nodes in the chain to the marked set.
         /// </summary>
+        /// <param name="data">The decomposer data.</param>
         /// <param name="chain">A list of chain edges.</param>
-        private void MarkNodes(List<LayoutEdge> chain)
+        private static void MarkNodes(Data data, List<LayoutEdge> chain)
         {
             foreach (var edge in chain)
             {
-                Marked.Add(edge.FromNode);
-                Marked.Add(edge.ToNode);
+                data.Marked.Add(edge.FromNode);
+                data.Marked.Add(edge.ToNode);
             }
         }
 
         /// <summary>
         /// Returns a new list of edges based on a list of nodes.
         /// </summary>
+        /// <param name="data">The decomposer data.</param>
         /// <param name="nodes">A list of node ID's.</param>
-        private List<LayoutEdge> GetChainEdges(List<int> nodes)
+        private static List<LayoutEdge> GetChainEdges(Data data, List<int> nodes)
         {
             var chain = new List<LayoutEdge>(nodes.Count);
 
             for (int i = nodes.Count - 1; i >= 1; i--)
             {
-                chain.Add(Graph.GetEdge(nodes[i - 1], nodes[i]));
+                chain.Add(data.Graph.GetEdge(nodes[i - 1], nodes[i]));
             }
 
             return chain;
