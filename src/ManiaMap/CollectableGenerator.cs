@@ -40,6 +40,17 @@ namespace MPewsey.ManiaMap
         private Dictionary<Uid, HashSet<Uid>> Clusters { get; set; }
 
         /// <summary>
+        /// Initializes the generator.
+        /// </summary>
+        /// <param name="layout">The layout.</param>
+        /// <param name="collectableGroups">The collectable groups.</param>
+        public CollectableGenerator(Layout layout, CollectableGroups collectableGroups)
+        {
+            Layout = layout;
+            CollectableGroups = collectableGroups;
+        }
+
+        /// <summary>
         /// Adds collectables to the layout.
         /// </summary>
         /// <param name="random">The random seed.</param>
