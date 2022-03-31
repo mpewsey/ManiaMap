@@ -32,6 +32,11 @@ namespace MPewsey.ManiaMap
             ToRoom = to;
         }
 
+        public override string ToString()
+        {
+            return $"RoomPair(FromRoom = {FromRoom}, ToRoom = {ToRoom})";
+        }
+
         public override bool Equals(object obj)
         {
             return obj is RoomPair pair && Equals(pair);
