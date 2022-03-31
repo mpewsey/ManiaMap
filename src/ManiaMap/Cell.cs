@@ -55,6 +55,9 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 6)]
         public Door BottomDoor { get; set; }
 
+        /// <summary>
+        /// The collectable group name.
+        /// </summary>
         [DataMember(Order = 7)]
         public string CollectableGroup { get; set; }
 
@@ -212,6 +215,7 @@ namespace MPewsey.ManiaMap
                 NorthDoor = WestDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
+                CollectableGroup = CollectableGroup,
             };
         }
 
@@ -228,6 +232,7 @@ namespace MPewsey.ManiaMap
                 WestDoor = EastDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
+                CollectableGroup = CollectableGroup,
             };
         }
 
@@ -244,6 +249,7 @@ namespace MPewsey.ManiaMap
                 SouthDoor = WestDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
+                CollectableGroup = CollectableGroup,
             };
         }
 
@@ -260,6 +266,7 @@ namespace MPewsey.ManiaMap
                 EastDoor = EastDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
+                CollectableGroup = CollectableGroup,
             };
         }
 
@@ -276,6 +283,7 @@ namespace MPewsey.ManiaMap
                 EastDoor = WestDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
+                CollectableGroup = CollectableGroup,
             };
         }
 
@@ -290,7 +298,8 @@ namespace MPewsey.ManiaMap
                 && Door.Matches(NorthDoor, other.NorthDoor)
                 && Door.Matches(SouthDoor, other.SouthDoor)
                 && Door.Matches(EastDoor, other.EastDoor)
-                && Door.Matches(WestDoor, other.WestDoor);
+                && Door.Matches(WestDoor, other.WestDoor)
+                && CollectableGroup == other.CollectableGroup;
         }
     }
 }
