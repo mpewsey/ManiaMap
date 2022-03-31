@@ -13,6 +13,7 @@ namespace MPewsey.ManiaMap.Tests
             var value1 = new RoomPair(x, y);
             var value2 = new RoomPair(x, y);
             Assert.IsTrue(value1 == value2);
+            Assert.IsFalse(value1.Equals(null));
         }
 
         [TestMethod]

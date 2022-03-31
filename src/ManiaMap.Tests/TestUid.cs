@@ -11,6 +11,7 @@ namespace MPewsey.ManiaMap.Tests
             var x = new Uid(1, 2, 3);
             var y = new Uid(1, 2, 3);
             Assert.IsTrue(x == y);
+            Assert.IsFalse(x.Equals(null));
         }
 
         [TestMethod]
