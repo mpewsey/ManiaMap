@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('_uid_8cs_source.html',''); initResizab
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_m_pewsey_1_1_mania_map.html">MPewsey.ManiaMap</a></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    [DataContract]</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">   10</a></span>    <span class="keyword">public</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> : IEquatable&lt;Uid&gt;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">   10</a></span>    <span class="keyword">public</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> : IEquatable&lt;Uid&gt;, IComparable&lt;Uid&gt;</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    {</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        [DataMember(Order = 1)]</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html#aaa609f404ee2bb5bb0414917908d8ae6">   16</a></span>        <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code hl_property" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html#aaa609f404ee2bb5bb0414917908d8ae6">Value1</a> { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }</div>
@@ -163,17 +163,32 @@ $(document).ready(function(){initNavTree('_uid_8cs_source.html',''); initResizab
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="keywordflow">return</span> hashCode;</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        }</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> operator ==(<a class="code hl_function" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html#af98d88dbf0c79420b5e65626a0b36c36">Uid</a> left, <a class="code hl_function" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html#af98d88dbf0c79420b5e65626a0b36c36">Uid</a> right)</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keyword">public</span> <span class="keywordtype">int</span> CompareTo(<a class="code hl_function" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html#af98d88dbf0c79420b5e65626a0b36c36">Uid</a> other)</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        {</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            <span class="keywordflow">return</span> left.Equals(right);</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        }</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> operator !=(<a class="code hl_function" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html#af98d88dbf0c79420b5e65626a0b36c36">Uid</a> left, <a class="code hl_function" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html#af98d88dbf0c79420b5e65626a0b36c36">Uid</a> right)</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        {</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            <span class="keywordflow">return</span> !(left == right);</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        }</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    }</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>}</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            var comparison = <a class="code hl_property" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html#aaa609f404ee2bb5bb0414917908d8ae6">Value1</a>.CompareTo(other.Value1);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            <span class="keywordflow">if</span> (comparison != 0)</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                <span class="keywordflow">return</span> comparison;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            comparison = <a class="code hl_property" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html#a290a5a34439678ba103690cab94f5e26">Value2</a>.CompareTo(other.Value2);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            <span class="keywordflow">if</span> (comparison != 0)</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                <span class="keywordflow">return</span> comparison;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            <span class="keywordflow">return</span> <a class="code hl_property" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html#a252b9c739675f4d65908a9c79a763ddb">Value3</a>.CompareTo(other.Value3);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        }</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> operator ==(<a class="code hl_function" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html#af98d88dbf0c79420b5e65626a0b36c36">Uid</a> left, <a class="code hl_function" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html#af98d88dbf0c79420b5e65626a0b36c36">Uid</a> right)</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        {</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            <span class="keywordflow">return</span> left.Equals(right);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        }</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> operator !=(<a class="code hl_function" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html#af98d88dbf0c79420b5e65626a0b36c36">Uid</a> left, <a class="code hl_function" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html#af98d88dbf0c79420b5e65626a0b36c36">Uid</a> right)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            <span class="keywordflow">return</span> !(left == right);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        }</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    }</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>}</div>
 <div class="ttc" id="anamespace_m_pewsey_1_1_mania_map_html"><div class="ttname"><a href="namespace_m_pewsey_1_1_mania_map.html">MPewsey.ManiaMap</a></div><div class="ttdef"><b>Definition:</b> <a href="_array2_d_8cs_source.html#l00005">Array2D.cs:6</a></div></div>
 <div class="ttc" id="astruct_m_pewsey_1_1_mania_map_1_1_uid_html"><div class="ttname"><a href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">MPewsey.ManiaMap.Uid</a></div><div class="ttdoc">A structure for representing a unique ID consisting of 3 integers.</div><div class="ttdef"><b>Definition:</b> <a href="_uid_8cs_source.html#l00010">Uid.cs:11</a></div></div>
 <div class="ttc" id="astruct_m_pewsey_1_1_mania_map_1_1_uid_html_a252b9c739675f4d65908a9c79a763ddb"><div class="ttname"><a href="struct_m_pewsey_1_1_mania_map_1_1_uid.html#a252b9c739675f4d65908a9c79a763ddb">MPewsey.ManiaMap.Uid.Value3</a></div><div class="ttdeci">int Value3</div><div class="ttdoc">The third ID value.</div><div class="ttdef"><b>Definition:</b> <a href="_uid_8cs_source.html#l00028">Uid.cs:28</a></div></div>

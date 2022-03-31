@@ -7,6 +7,11 @@ var hierarchy =
     [ "MPewsey.ManiaMap.CellDistanceSearch", "class_m_pewsey_1_1_mania_map_1_1_cell_distance_search.html", null ],
     [ "MPewsey.ManiaMap.Configuration", "class_m_pewsey_1_1_mania_map_1_1_configuration.html", null ],
     [ "MPewsey.ManiaMap.ConfigurationSpace", "class_m_pewsey_1_1_mania_map_1_1_configuration_space.html", null ],
+    [ "MPewsey.ManiaMap.CellDistanceSearch.Data", "struct_m_pewsey_1_1_mania_map_1_1_cell_distance_search_1_1_data.html", null ],
+    [ "MPewsey.ManiaMap.GraphBranchDecomposer.Data", "class_m_pewsey_1_1_mania_map_1_1_graph_branch_decomposer_1_1_data.html", null ],
+    [ "MPewsey.ManiaMap.GraphChainDecomposer.Data", "class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html", null ],
+    [ "MPewsey.ManiaMap.GraphCycleDecomposer.Data", "class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer_1_1_data.html", null ],
+    [ "MPewsey.ManiaMap.LayoutClusterSearch.Data", "class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search_1_1_data.html", null ],
     [ "MPewsey.ManiaMap.Door", "class_m_pewsey_1_1_mania_map_1_1_door.html", null ],
     [ "MPewsey.ManiaMap.DoorConnection", "class_m_pewsey_1_1_mania_map_1_1_door_connection.html", null ],
     [ "MPewsey.ManiaMap.DoorPosition", "class_m_pewsey_1_1_mania_map_1_1_door_position.html", null ],
@@ -15,12 +20,15 @@ var hierarchy =
     [ "MPewsey.ManiaMap.GraphCycleDecomposer", "class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html", null ],
     [ "MPewsey.ManiaMap.Samples.GraphLibrary", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html", null ],
     [ "IComparable", null, [
-      [ "MPewsey.ManiaMap.EdgeIndexes", "struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html", null ]
+      [ "MPewsey.ManiaMap.EdgeIndexes", "struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html", null ],
+      [ "MPewsey.ManiaMap.RoomPair", "struct_m_pewsey_1_1_mania_map_1_1_room_pair.html", null ],
+      [ "MPewsey.ManiaMap.Uid", "struct_m_pewsey_1_1_mania_map_1_1_uid.html", null ]
     ] ],
     [ "IEquatable", null, [
       [ "MPewsey.ManiaMap.DoorPair", "struct_m_pewsey_1_1_mania_map_1_1_door_pair.html", null ],
       [ "MPewsey.ManiaMap.Drawing.Padding", "struct_m_pewsey_1_1_mania_map_1_1_drawing_1_1_padding.html", null ],
       [ "MPewsey.ManiaMap.EdgeIndexes", "struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html", null ],
+      [ "MPewsey.ManiaMap.RoomPair", "struct_m_pewsey_1_1_mania_map_1_1_room_pair.html", null ],
       [ "MPewsey.ManiaMap.TemplatePair", "struct_m_pewsey_1_1_mania_map_1_1_template_pair.html", null ],
       [ "MPewsey.ManiaMap.Uid", "struct_m_pewsey_1_1_mania_map_1_1_uid.html", null ],
       [ "MPewsey.ManiaMap.Vector2DInt", "struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int.html", null ],

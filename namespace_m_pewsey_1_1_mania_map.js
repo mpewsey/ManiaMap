@@ -26,6 +26,7 @@ var namespace_m_pewsey_1_1_mania_map =
     [ "LayoutState", "class_m_pewsey_1_1_mania_map_1_1_layout_state.html", "class_m_pewsey_1_1_mania_map_1_1_layout_state" ],
     [ "RandomSeed", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html", "class_m_pewsey_1_1_mania_map_1_1_random_seed" ],
     [ "Room", "class_m_pewsey_1_1_mania_map_1_1_room.html", "class_m_pewsey_1_1_mania_map_1_1_room" ],
+    [ "RoomPair", "struct_m_pewsey_1_1_mania_map_1_1_room_pair.html", "struct_m_pewsey_1_1_mania_map_1_1_room_pair" ],
     [ "RoomState", "class_m_pewsey_1_1_mania_map_1_1_room_state.html", "class_m_pewsey_1_1_mania_map_1_1_room_state" ],
     [ "RoomTemplate", "class_m_pewsey_1_1_mania_map_1_1_room_template.html", "class_m_pewsey_1_1_mania_map_1_1_room_template" ],
     [ "Serialization", "class_m_pewsey_1_1_mania_map_1_1_serialization.html", "class_m_pewsey_1_1_mania_map_1_1_serialization" ],

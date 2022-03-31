@@ -97,9 +97,9 @@ $(document).ready(function(){initNavTree('class_m_pewsey_1_1_mania_map_1_1_graph
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#properties">Properties</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">MPewsey.ManiaMap.GraphCycleDecomposer Class Reference</div></div>
 </div><!--header-->
@@ -108,35 +108,26 @@ $(document).ready(function(){initNavTree('class_m_pewsey_1_1_mania_map_1_1_graph
 <p>A class for finding cycles in a <code><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html" title="Represents a graph consisting of LayoutNode and LayoutEdge.">LayoutGraph</a></code>. The algorithm is based on [1].  
  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a0a07751351689bca6d5359b03906eaaa"><td class="memItemLeft" align="right" valign="top">List&lt; List&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#a0a07751351689bca6d5359b03906eaaa">FindCycles</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html">LayoutGraph</a> graph)</td></tr>
-<tr class="memdesc:a0a07751351689bca6d5359b03906eaaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns lists of all combinations of unique node cycles in the graph using depth first search.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#a0a07751351689bca6d5359b03906eaaa">More...</a><br /></td></tr>
-<tr class="separator:a0a07751351689bca6d5359b03906eaaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer_1_1_data.html">Data</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A construct for storing decomposer data.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer_1_1_data.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
-Properties</h2></td></tr>
-<tr class="memitem:a08b5b407bef40d8fbd7c94a9d35e05e4"><td class="memItemLeft" align="right" valign="top">List&lt; List&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#a08b5b407bef40d8fbd7c94a9d35e05e4">Cycles</a> = new List&lt;List&lt;int&gt;&gt;()<code> [get]</code></td></tr>
-<tr class="memdesc:a08b5b407bef40d8fbd7c94a9d35e05e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of cycles in the graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#a08b5b407bef40d8fbd7c94a9d35e05e4">More...</a><br /></td></tr>
-<tr class="separator:a08b5b407bef40d8fbd7c94a9d35e05e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08b10d82f8044fcd0fc047a2acb7e3a4"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#a08b10d82f8044fcd0fc047a2acb7e3a4">Parents</a> = new Dictionary&lt;int, int&gt;()<code> [get]</code></td></tr>
-<tr class="memdesc:a08b10d82f8044fcd0fc047a2acb7e3a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A dictionary of node parents by node ID.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#a08b10d82f8044fcd0fc047a2acb7e3a4">More...</a><br /></td></tr>
-<tr class="separator:a08b10d82f8044fcd0fc047a2acb7e3a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c82da1dc092a99c27fa00e08297690b"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#a7c82da1dc092a99c27fa00e08297690b">Colors</a> = new Dictionary&lt;int, int&gt;()<code> [get]</code></td></tr>
-<tr class="memdesc:a7c82da1dc092a99c27fa00e08297690b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A dictionary of node colors by node ID.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#a7c82da1dc092a99c27fa00e08297690b">More...</a><br /></td></tr>
-<tr class="separator:a7c82da1dc092a99c27fa00e08297690b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0682a5f28c1d041b58808ee7964440ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html">LayoutGraph</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#a0682a5f28c1d041b58808ee7964440ec">Graph</a><code> [getset]</code></td></tr>
-<tr class="memdesc:a0682a5f28c1d041b58808ee7964440ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">The layout graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#a0682a5f28c1d041b58808ee7964440ec">More...</a><br /></td></tr>
-<tr class="separator:a0682a5f28c1d041b58808ee7964440ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a8f8dc24e82232123c2ad8f0679432f2b"><td class="memItemLeft" align="right" valign="top">static List&lt; List&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#a8f8dc24e82232123c2ad8f0679432f2b">FindCycles</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html">LayoutGraph</a> graph)</td></tr>
+<tr class="memdesc:a8f8dc24e82232123c2ad8f0679432f2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns lists of all combinations of unique node cycles in the graph using depth first search.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#a8f8dc24e82232123c2ad8f0679432f2b">More...</a><br /></td></tr>
+<tr class="separator:a8f8dc24e82232123c2ad8f0679432f2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:aae515b53d14f7d3096e097a46369a378"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#aae515b53d14f7d3096e097a46369a378">CycleSearch</a> (int node, int parent)</td></tr>
-<tr class="memdesc:aae515b53d14f7d3096e097a46369a378"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs depth first search to find cycles in the graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#aae515b53d14f7d3096e097a46369a378">More...</a><br /></td></tr>
-<tr class="separator:aae515b53d14f7d3096e097a46369a378"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a46f2a04e976fac805dde6c6520ec90"><td class="memItemLeft" align="right" valign="top">List&lt; List&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#a6a46f2a04e976fac805dde6c6520ec90">GetUniqueCycles</a> ()</td></tr>
-<tr class="memdesc:a6a46f2a04e976fac805dde6c6520ec90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new list with all unique cycles in the graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#a6a46f2a04e976fac805dde6c6520ec90">More...</a><br /></td></tr>
-<tr class="separator:a6a46f2a04e976fac805dde6c6520ec90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a254eece8389550b785b2fbcb1e7873e0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#a254eece8389550b785b2fbcb1e7873e0">CycleSearch</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer_1_1_data.html">Data</a> data, int node, int parent)</td></tr>
+<tr class="memdesc:a254eece8389550b785b2fbcb1e7873e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs depth first search to find cycles in the graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#a254eece8389550b785b2fbcb1e7873e0">More...</a><br /></td></tr>
+<tr class="separator:a254eece8389550b785b2fbcb1e7873e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22c488f98da47a661c289290eccad63a"><td class="memItemLeft" align="right" valign="top">static List&lt; List&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#a22c488f98da47a661c289290eccad63a">GetUniqueCycles</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer_1_1_data.html">Data</a> data)</td></tr>
+<tr class="memdesc:a22c488f98da47a661c289290eccad63a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new list with all unique cycles in the graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#a22c488f98da47a661c289290eccad63a">More...</a><br /></td></tr>
+<tr class="separator:a22c488f98da47a661c289290eccad63a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >A class for finding cycles in a <code><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html" title="Represents a graph consisting of LayoutNode and LayoutEdge.">LayoutGraph</a></code>. The algorithm is based on [1]. </p>
@@ -148,8 +139,8 @@ References</h2>
 
 <p class="definition">Definition at line <a class="el" href="_graph_cycle_decomposer_8cs_source.html#l00014">14</a> of file <a class="el" href="_graph_cycle_decomposer_8cs_source.html">GraphCycleDecomposer.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="aae515b53d14f7d3096e097a46369a378" name="aae515b53d14f7d3096e097a46369a378"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae515b53d14f7d3096e097a46369a378">&#9670;&nbsp;</a></span>CycleSearch()</h2>
+<a id="a254eece8389550b785b2fbcb1e7873e0" name="a254eece8389550b785b2fbcb1e7873e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a254eece8389550b785b2fbcb1e7873e0">&#9670;&nbsp;</a></span>CycleSearch()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -158,8 +149,14 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void MPewsey.ManiaMap.GraphCycleDecomposer.CycleSearch </td>
+          <td class="memname">static void MPewsey.ManiaMap.GraphCycleDecomposer.CycleSearch </td>
           <td>(</td>
+          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer_1_1_data.html">Data</a>&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>node</em>, </td>
         </tr>
@@ -177,7 +174,7 @@ References</h2>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -185,30 +182,39 @@ References</h2>
 <p>Performs depth first search to find cycles in the graph. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">data</td><td>The decomposer data.</td></tr>
     <tr><td class="paramname">node</td><td>The node ID.</td></tr>
     <tr><td class="paramname">parent</td><td>The node's parent ID.</td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_graph_cycle_decomposer_8cs_source.html#l00062">62</a> of file <a class="el" href="_graph_cycle_decomposer_8cs_source.html">GraphCycleDecomposer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_graph_cycle_decomposer_8cs_source.html#l00075">75</a> of file <a class="el" href="_graph_cycle_decomposer_8cs_source.html">GraphCycleDecomposer.cs</a>.</p>
 
 </div>
 </div>
-<a id="a0a07751351689bca6d5359b03906eaaa" name="a0a07751351689bca6d5359b03906eaaa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a07751351689bca6d5359b03906eaaa">&#9670;&nbsp;</a></span>FindCycles()</h2>
+<a id="a8f8dc24e82232123c2ad8f0679432f2b" name="a8f8dc24e82232123c2ad8f0679432f2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f8dc24e82232123c2ad8f0679432f2b">&#9670;&nbsp;</a></span>FindCycles()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">List&lt; List&lt; int &gt; &gt; MPewsey.ManiaMap.GraphCycleDecomposer.FindCycles </td>
+          <td class="memname">static List&lt; List&lt; int &gt; &gt; MPewsey.ManiaMap.GraphCycleDecomposer.FindCycles </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html">LayoutGraph</a>&#160;</td>
           <td class="paramname"><em>graph</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns lists of all combinations of unique node cycles in the graph using depth first search. </p>
@@ -219,12 +225,12 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_graph_cycle_decomposer_8cs_source.html#l00041">41</a> of file <a class="el" href="_graph_cycle_decomposer_8cs_source.html">GraphCycleDecomposer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_graph_cycle_decomposer_8cs_source.html#l00054">54</a> of file <a class="el" href="_graph_cycle_decomposer_8cs_source.html">GraphCycleDecomposer.cs</a>.</p>
 
 </div>
 </div>
-<a id="a6a46f2a04e976fac805dde6c6520ec90" name="a6a46f2a04e976fac805dde6c6520ec90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a46f2a04e976fac805dde6c6520ec90">&#9670;&nbsp;</a></span>GetUniqueCycles()</h2>
+<a id="a22c488f98da47a661c289290eccad63a" name="a22c488f98da47a661c289290eccad63a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22c488f98da47a661c289290eccad63a">&#9670;&nbsp;</a></span>GetUniqueCycles()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -233,127 +239,29 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">List&lt; List&lt; int &gt; &gt; MPewsey.ManiaMap.GraphCycleDecomposer.GetUniqueCycles </td>
+          <td class="memname">static List&lt; List&lt; int &gt; &gt; MPewsey.ManiaMap.GraphCycleDecomposer.GetUniqueCycles </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer_1_1_data.html">Data</a>&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Returns a new list with all unique cycles in the graph. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>The decomposer data.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="_graph_cycle_decomposer_8cs_source.html#l00105">105</a> of file <a class="el" href="_graph_cycle_decomposer_8cs_source.html">GraphCycleDecomposer.cs</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Property Documentation</h2>
-<a id="a7c82da1dc092a99c27fa00e08297690b" name="a7c82da1dc092a99c27fa00e08297690b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c82da1dc092a99c27fa00e08297690b">&#9670;&nbsp;</a></span>Colors</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Dictionary&lt;int, int&gt; MPewsey.ManiaMap.GraphCycleDecomposer.Colors = new Dictionary&lt;int, int&gt;()</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>A dictionary of node colors by node ID. </p>
-
-<p class="definition">Definition at line <a class="el" href="_graph_cycle_decomposer_8cs_source.html#l00029">29</a> of file <a class="el" href="_graph_cycle_decomposer_8cs_source.html">GraphCycleDecomposer.cs</a>.</p>
-
-</div>
-</div>
-<a id="a08b5b407bef40d8fbd7c94a9d35e05e4" name="a08b5b407bef40d8fbd7c94a9d35e05e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08b5b407bef40d8fbd7c94a9d35e05e4">&#9670;&nbsp;</a></span>Cycles</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">List&lt;List&lt;int&gt; &gt; MPewsey.ManiaMap.GraphCycleDecomposer.Cycles = new List&lt;List&lt;int&gt;&gt;()</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>A list of cycles in the graph. </p>
-
-<p class="definition">Definition at line <a class="el" href="_graph_cycle_decomposer_8cs_source.html#l00019">19</a> of file <a class="el" href="_graph_cycle_decomposer_8cs_source.html">GraphCycleDecomposer.cs</a>.</p>
-
-</div>
-</div>
-<a id="a0682a5f28c1d041b58808ee7964440ec" name="a0682a5f28c1d041b58808ee7964440ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0682a5f28c1d041b58808ee7964440ec">&#9670;&nbsp;</a></span>Graph</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html">LayoutGraph</a> MPewsey.ManiaMap.GraphCycleDecomposer.Graph</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The layout graph. </p>
-
-<p class="definition">Definition at line <a class="el" href="_graph_cycle_decomposer_8cs_source.html#l00034">34</a> of file <a class="el" href="_graph_cycle_decomposer_8cs_source.html">GraphCycleDecomposer.cs</a>.</p>
-
-</div>
-</div>
-<a id="a08b10d82f8044fcd0fc047a2acb7e3a4" name="a08b10d82f8044fcd0fc047a2acb7e3a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08b10d82f8044fcd0fc047a2acb7e3a4">&#9670;&nbsp;</a></span>Parents</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Dictionary&lt;int, int&gt; MPewsey.ManiaMap.GraphCycleDecomposer.Parents = new Dictionary&lt;int, int&gt;()</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>A dictionary of node parents by node ID. </p>
-
-<p class="definition">Definition at line <a class="el" href="_graph_cycle_decomposer_8cs_source.html#l00024">24</a> of file <a class="el" href="_graph_cycle_decomposer_8cs_source.html">GraphCycleDecomposer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_graph_cycle_decomposer_8cs_source.html#l00119">119</a> of file <a class="el" href="_graph_cycle_decomposer_8cs_source.html">GraphCycleDecomposer.cs</a>.</p>
 
 </div>
 </div>

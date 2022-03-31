@@ -97,9 +97,9 @@ $(document).ready(function(){initNavTree('class_m_pewsey_1_1_mania_map_1_1_layou
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#properties">Properties</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">MPewsey.ManiaMap.LayoutClusterSearch Class Reference</div></div>
 </div><!--header-->
@@ -108,108 +108,34 @@ $(document).ready(function(){initNavTree('class_m_pewsey_1_1_mania_map_1_1_layou
 <p>A class for searching for neighbors in a <code><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html" title="Represents a room layout consisting of Room and DoorConnection.">Layout</a></code> up to a specified depth.  
  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search.html#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:ac1ddef1a94967be87653fe0e486757ee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search.html#ac1ddef1a94967be87653fe0e486757ee">LayoutClusterSearch</a> (int maxDepth)</td></tr>
-<tr class="memdesc:ac1ddef1a94967be87653fe0e486757ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new layout cluster search.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search.html#ac1ddef1a94967be87653fe0e486757ee">More...</a><br /></td></tr>
-<tr class="separator:ac1ddef1a94967be87653fe0e486757ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf35fd0068e23632ec1c7f2db7310e04"><td class="memItemLeft" align="right" valign="top">HashSet&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search.html#abf35fd0068e23632ec1c7f2db7310e04">FindCluster</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html">Layout</a> layout, <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> room)</td></tr>
-<tr class="memdesc:abf35fd0068e23632ec1c7f2db7310e04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an array of neighbors of the room up to the max depth.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search.html#abf35fd0068e23632ec1c7f2db7310e04">More...</a><br /></td></tr>
-<tr class="separator:abf35fd0068e23632ec1c7f2db7310e04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search_1_1_data.html">Data</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A construct for storing decomposer data.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search_1_1_data.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
-Properties</h2></td></tr>
-<tr class="memitem:af315feb40fa06ae9af4668d8c9ddfcc3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search.html#af315feb40fa06ae9af4668d8c9ddfcc3">MaxDepth</a><code> [getset]</code></td></tr>
-<tr class="memdesc:af315feb40fa06ae9af4668d8c9ddfcc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum depth for which neighbors will be returned.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search.html#af315feb40fa06ae9af4668d8c9ddfcc3">More...</a><br /></td></tr>
-<tr class="separator:af315feb40fa06ae9af4668d8c9ddfcc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85370f877a89ac8aad4954a3851e6847"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a>, List&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search.html#a85370f877a89ac8aad4954a3851e6847">Neighbors</a><code> [getset]</code></td></tr>
-<tr class="memdesc:a85370f877a89ac8aad4954a3851e6847"><td class="mdescLeft">&#160;</td><td class="mdescRight">A dictionary of room neighbors by ID.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search.html#a85370f877a89ac8aad4954a3851e6847">More...</a><br /></td></tr>
-<tr class="separator:a85370f877a89ac8aad4954a3851e6847"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa44be1d9177fe02adda6f100b80d1679"><td class="memItemLeft" align="right" valign="top">HashSet&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search.html#aa44be1d9177fe02adda6f100b80d1679">Marked</a><code> [getset]</code></td></tr>
-<tr class="memdesc:aa44be1d9177fe02adda6f100b80d1679"><td class="mdescLeft">&#160;</td><td class="mdescRight">A set of all room ID's that have been visited.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search.html#aa44be1d9177fe02adda6f100b80d1679">More...</a><br /></td></tr>
-<tr class="separator:aa44be1d9177fe02adda6f100b80d1679"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a199e61b5d5834f74b45b9a4a6d8d7b65"><td class="memItemLeft" align="right" valign="top">static List&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search.html#a199e61b5d5834f74b45b9a4a6d8d7b65">FindCluster</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html">Layout</a> layout, <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> room, int maxDepth)</td></tr>
+<tr class="memdesc:a199e61b5d5834f74b45b9a4a6d8d7b65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of neighbors of the room up to the max depth.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search.html#a199e61b5d5834f74b45b9a4a6d8d7b65">More...</a><br /></td></tr>
+<tr class="separator:a199e61b5d5834f74b45b9a4a6d8d7b65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6641e5b7ccd6690417d0d2aa45c3e6b2"><td class="memItemLeft" align="right" valign="top">static Dictionary&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a>, List&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search.html#a6641e5b7ccd6690417d0d2aa45c3e6b2">FindClusters</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html">Layout</a> layout, int maxDepth)</td></tr>
+<tr class="memdesc:a6641e5b7ccd6690417d0d2aa45c3e6b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a dictionary of all clusters up to the max depth.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search.html#a6641e5b7ccd6690417d0d2aa45c3e6b2">More...</a><br /></td></tr>
+<tr class="separator:a6641e5b7ccd6690417d0d2aa45c3e6b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:aaf5287690ccd954e3c350b6cfed47ab6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search.html#aaf5287690ccd954e3c350b6cfed47ab6">SearchNeighbors</a> (<a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> room, int depth)</td></tr>
-<tr class="memdesc:aaf5287690ccd954e3c350b6cfed47ab6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively searches for neighbors of the room.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search.html#aaf5287690ccd954e3c350b6cfed47ab6">More...</a><br /></td></tr>
-<tr class="separator:aaf5287690ccd954e3c350b6cfed47ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a6d39392f071d486e240774001f4dd3e1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search.html#a6d39392f071d486e240774001f4dd3e1">SearchNeighbors</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search_1_1_data.html">Data</a> data, <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> room, int depth)</td></tr>
+<tr class="memdesc:a6d39392f071d486e240774001f4dd3e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively searches for neighbors of the room.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search.html#a6d39392f071d486e240774001f4dd3e1">More...</a><br /></td></tr>
+<tr class="separator:a6d39392f071d486e240774001f4dd3e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >A class for searching for neighbors in a <code><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html" title="Represents a room layout consisting of Room and DoorConnection.">Layout</a></code> up to a specified depth. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_cluster_search_8cs_source.html#l00008">8</a> of file <a class="el" href="_layout_cluster_search_8cs_source.html">LayoutClusterSearch.cs</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ac1ddef1a94967be87653fe0e486757ee" name="ac1ddef1a94967be87653fe0e486757ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1ddef1a94967be87653fe0e486757ee">&#9670;&nbsp;</a></span>LayoutClusterSearch()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">MPewsey.ManiaMap.LayoutClusterSearch.LayoutClusterSearch </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>maxDepth</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initializes a new layout cluster search. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">maxDepth</td><td>The maximum depth for which neighbors will be returned.</td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="_layout_cluster_search_8cs_source.html#l00029">29</a> of file <a class="el" href="_layout_cluster_search_8cs_source.html">LayoutClusterSearch.cs</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="abf35fd0068e23632ec1c7f2db7310e04" name="abf35fd0068e23632ec1c7f2db7310e04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf35fd0068e23632ec1c7f2db7310e04">&#9670;&nbsp;</a></span>FindCluster()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">HashSet&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> &gt; MPewsey.ManiaMap.LayoutClusterSearch.FindCluster </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html">Layout</a>&#160;</td>
-          <td class="paramname"><em>layout</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a>&#160;</td>
-          <td class="paramname"><em>room</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns an array of neighbors of the room up to the max depth. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">layout</td><td>The room layout.</td></tr>
-    <tr><td class="paramname">room</td><td>The room ID.</td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="_layout_cluster_search_8cs_source.html#l00039">39</a> of file <a class="el" href="_layout_cluster_search_8cs_source.html">LayoutClusterSearch.cs</a>.</p>
-
-</div>
-</div>
-<a id="aaf5287690ccd954e3c350b6cfed47ab6" name="aaf5287690ccd954e3c350b6cfed47ab6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf5287690ccd954e3c350b6cfed47ab6">&#9670;&nbsp;</a></span>SearchNeighbors()</h2>
+<p class="definition">Definition at line <a class="el" href="_layout_cluster_search_8cs_source.html#l00009">9</a> of file <a class="el" href="_layout_cluster_search_8cs_source.html">LayoutClusterSearch.cs</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a199e61b5d5834f74b45b9a4a6d8d7b65" name="a199e61b5d5834f74b45b9a4a6d8d7b65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a199e61b5d5834f74b45b9a4a6d8d7b65">&#9670;&nbsp;</a></span>FindCluster()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -218,8 +144,115 @@ Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void MPewsey.ManiaMap.LayoutClusterSearch.SearchNeighbors </td>
+          <td class="memname">static List&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> &gt; MPewsey.ManiaMap.LayoutClusterSearch.FindCluster </td>
           <td>(</td>
+          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html">Layout</a>&#160;</td>
+          <td class="paramname"><em>layout</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a>&#160;</td>
+          <td class="paramname"><em>room</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxDepth</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a list of neighbors of the room up to the max depth. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">layout</td><td>The room layout.</td></tr>
+    <tr><td class="paramname">room</td><td>The room ID.</td></tr>
+    <tr><td class="paramname">maxDepth</td><td>The maximum depth for which neighbors will be returned.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_layout_cluster_search_8cs_source.html#l00055">55</a> of file <a class="el" href="_layout_cluster_search_8cs_source.html">LayoutClusterSearch.cs</a>.</p>
+
+</div>
+</div>
+<a id="a6641e5b7ccd6690417d0d2aa45c3e6b2" name="a6641e5b7ccd6690417d0d2aa45c3e6b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6641e5b7ccd6690417d0d2aa45c3e6b2">&#9670;&nbsp;</a></span>FindClusters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static Dictionary&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a>, List&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> &gt; &gt; MPewsey.ManiaMap.LayoutClusterSearch.FindClusters </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html">Layout</a>&#160;</td>
+          <td class="paramname"><em>layout</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxDepth</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a dictionary of all clusters up to the max depth. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">layout</td><td>The room layout.</td></tr>
+    <tr><td class="paramname">maxDepth</td><td>The maximum depth for which neighbors will be returned.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_layout_cluster_search_8cs_source.html#l00067">67</a> of file <a class="el" href="_layout_cluster_search_8cs_source.html">LayoutClusterSearch.cs</a>.</p>
+
+</div>
+</div>
+<a id="a6d39392f071d486e240774001f4dd3e1" name="a6d39392f071d486e240774001f4dd3e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d39392f071d486e240774001f4dd3e1">&#9670;&nbsp;</a></span>SearchNeighbors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void MPewsey.ManiaMap.LayoutClusterSearch.SearchNeighbors </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search_1_1_data.html">Data</a>&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype"><a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a>&#160;</td>
           <td class="paramname"><em>room</em>, </td>
         </tr>
@@ -237,7 +270,7 @@ Private Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -245,92 +278,14 @@ Private Member Functions</h2></td></tr>
 <p>Recursively searches for neighbors of the room. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">data</td><td>The decomposer data.</td></tr>
     <tr><td class="paramname">room</td><td>The room ID.</td></tr>
     <tr><td class="paramname">depth</td><td>The current depth.</td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_cluster_search_8cs_source.html#l00052">52</a> of file <a class="el" href="_layout_cluster_search_8cs_source.html">LayoutClusterSearch.cs</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Property Documentation</h2>
-<a id="aa44be1d9177fe02adda6f100b80d1679" name="aa44be1d9177fe02adda6f100b80d1679"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa44be1d9177fe02adda6f100b80d1679">&#9670;&nbsp;</a></span>Marked</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">HashSet&lt;<a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a>&gt; MPewsey.ManiaMap.LayoutClusterSearch.Marked</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>A set of all room ID's that have been visited. </p>
-
-<p class="definition">Definition at line <a class="el" href="_layout_cluster_search_8cs_source.html#l00023">23</a> of file <a class="el" href="_layout_cluster_search_8cs_source.html">LayoutClusterSearch.cs</a>.</p>
-
-</div>
-</div>
-<a id="af315feb40fa06ae9af4668d8c9ddfcc3" name="af315feb40fa06ae9af4668d8c9ddfcc3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af315feb40fa06ae9af4668d8c9ddfcc3">&#9670;&nbsp;</a></span>MaxDepth</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int MPewsey.ManiaMap.LayoutClusterSearch.MaxDepth</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The maximum depth for which neighbors will be returned. </p>
-
-<p class="definition">Definition at line <a class="el" href="_layout_cluster_search_8cs_source.html#l00013">13</a> of file <a class="el" href="_layout_cluster_search_8cs_source.html">LayoutClusterSearch.cs</a>.</p>
-
-</div>
-</div>
-<a id="a85370f877a89ac8aad4954a3851e6847" name="a85370f877a89ac8aad4954a3851e6847"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85370f877a89ac8aad4954a3851e6847">&#9670;&nbsp;</a></span>Neighbors</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Dictionary&lt;<a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a>, List&lt;<a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a>&gt; &gt; MPewsey.ManiaMap.LayoutClusterSearch.Neighbors</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>A dictionary of room neighbors by ID. </p>
-
-<p class="definition">Definition at line <a class="el" href="_layout_cluster_search_8cs_source.html#l00018">18</a> of file <a class="el" href="_layout_cluster_search_8cs_source.html">LayoutClusterSearch.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_cluster_search_8cs_source.html#l00088">88</a> of file <a class="el" href="_layout_cluster_search_8cs_source.html">LayoutClusterSearch.cs</a>.</p>
 
 </div>
 </div>

@@ -15,7 +15,7 @@ var searchData=
   ['top_12',['Top',['../struct_m_pewsey_1_1_mania_map_1_1_drawing_1_1_padding.html#a6a515d379f3202cc6ce7ea6db6bfbeb1',1,'MPewsey.ManiaMap.Drawing.Padding.Top()'],['../namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839baa4ffdcf0dc1f31b9acaf295d75b51d00',1,'MPewsey.ManiaMap.Top()']]],
   ['topdoor_13',['TopDoor',['../class_m_pewsey_1_1_mania_map_1_1_cell.html#a86498fe37730190c4d74645e305b6f94',1,'MPewsey::ManiaMap::Cell']]],
   ['topdooraligns_14',['TopDoorAligns',['../class_m_pewsey_1_1_mania_map_1_1_cell.html#a914eb22beea54a5c4f15c440ebfb210c',1,'MPewsey::ManiaMap::Cell']]],
-  ['toroom_15',['ToRoom',['../class_m_pewsey_1_1_mania_map_1_1_door_connection.html#ada1305a6db1495cc20716d22abcdfc7b',1,'MPewsey::ManiaMap::DoorConnection']]],
+  ['toroom_15',['ToRoom',['../class_m_pewsey_1_1_mania_map_1_1_door_connection.html#ada1305a6db1495cc20716d22abcdfc7b',1,'MPewsey.ManiaMap.DoorConnection.ToRoom()'],['../struct_m_pewsey_1_1_mania_map_1_1_room_pair.html#a8a3ccbfecc8b768ec9226394d7d1b835',1,'MPewsey.ManiaMap.RoomPair.ToRoom()']]],
   ['tosymbolstring_16',['ToSymbolString',['../class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a90de624db6fa2129ca8a0b2525e3e338',1,'MPewsey::ManiaMap::LayoutEdge']]],
   ['totemplate_17',['ToTemplate',['../class_m_pewsey_1_1_mania_map_1_1_configuration_space.html#a32c2651b2b0485d88c5b0062bce3abc5',1,'MPewsey.ManiaMap.ConfigurationSpace.ToTemplate()'],['../struct_m_pewsey_1_1_mania_map_1_1_template_pair.html#a7a7d40e121af038b438579a6be072be8',1,'MPewsey.ManiaMap.TemplatePair.ToTemplate()']]],
   ['trygetedge_18',['TryGetEdge',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a6ca8f3d1e74355a916a14dcec44e53ff',1,'MPewsey::ManiaMap::LayoutGraph']]],

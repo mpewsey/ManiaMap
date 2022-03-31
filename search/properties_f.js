@@ -11,7 +11,7 @@ var searchData=
   ['tonode_8',['ToNode',['../class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a9b0ec60037a165584334ca748a317043',1,'MPewsey::ManiaMap::LayoutEdge']]],
   ['top_9',['Top',['../struct_m_pewsey_1_1_mania_map_1_1_drawing_1_1_padding.html#a6a515d379f3202cc6ce7ea6db6bfbeb1',1,'MPewsey::ManiaMap::Drawing::Padding']]],
   ['topdoor_10',['TopDoor',['../class_m_pewsey_1_1_mania_map_1_1_cell.html#a86498fe37730190c4d74645e305b6f94',1,'MPewsey::ManiaMap::Cell']]],
-  ['toroom_11',['ToRoom',['../class_m_pewsey_1_1_mania_map_1_1_door_connection.html#ada1305a6db1495cc20716d22abcdfc7b',1,'MPewsey::ManiaMap::DoorConnection']]],
+  ['toroom_11',['ToRoom',['../class_m_pewsey_1_1_mania_map_1_1_door_connection.html#ada1305a6db1495cc20716d22abcdfc7b',1,'MPewsey.ManiaMap.DoorConnection.ToRoom()'],['../struct_m_pewsey_1_1_mania_map_1_1_room_pair.html#a8a3ccbfecc8b768ec9226394d7d1b835',1,'MPewsey.ManiaMap.RoomPair.ToRoom()']]],
   ['totemplate_12',['ToTemplate',['../class_m_pewsey_1_1_mania_map_1_1_configuration_space.html#a32c2651b2b0485d88c5b0062bce3abc5',1,'MPewsey.ManiaMap.ConfigurationSpace.ToTemplate()'],['../struct_m_pewsey_1_1_mania_map_1_1_template_pair.html#a7a7d40e121af038b438579a6be072be8',1,'MPewsey.ManiaMap.TemplatePair.ToTemplate()']]],
   ['twoway_13',['TwoWay',['../class_m_pewsey_1_1_mania_map_1_1_door.html#a1ffb2a8120f980f98f9e9a934e7c4ba8',1,'MPewsey::ManiaMap::Door']]],
   ['twowayentrance_14',['TwoWayEntrance',['../class_m_pewsey_1_1_mania_map_1_1_door.html#ad66afe6c621e04e429e4379b1d021947',1,'MPewsey::ManiaMap::Door']]],

@@ -7,6 +7,6 @@ var searchData=
   ['bottomdooraligns_4',['BottomDoorAligns',['../class_m_pewsey_1_1_mania_map_1_1_cell.html#ae4f9f27bdb64cbe5e0e730f2429480dd',1,'MPewsey::ManiaMap::Cell']]],
   ['bounds_5',['Bounds',['../class_m_pewsey_1_1_mania_map_1_1_layout.html#ad9ebd3474d4fc2ccdcd0d53b285dd654',1,'MPewsey::ManiaMap::Layout']]],
   ['box_6',['Box',['../class_m_pewsey_1_1_mania_map_1_1_box.html',1,'MPewsey::ManiaMap']]],
-  ['branches_7',['Branches',['../class_m_pewsey_1_1_mania_map_1_1_graph_branch_decomposer.html#a155d4f6ef01f83ad96de1f5021be59fe',1,'MPewsey::ManiaMap::GraphBranchDecomposer']]],
-  ['branchsearch_8',['BranchSearch',['../class_m_pewsey_1_1_mania_map_1_1_graph_branch_decomposer.html#a5c02237f43ec7bfeabdc56aac410f6a4',1,'MPewsey::ManiaMap::GraphBranchDecomposer']]]
+  ['branches_7',['Branches',['../class_m_pewsey_1_1_mania_map_1_1_graph_branch_decomposer_1_1_data.html#a56e28b9aac3baf20541483261fef9978',1,'MPewsey::ManiaMap::GraphBranchDecomposer::Data']]],
+  ['branchsearch_8',['BranchSearch',['../class_m_pewsey_1_1_mania_map_1_1_graph_branch_decomposer.html#acf3245408b079321980bac5db134d07c',1,'MPewsey::ManiaMap::GraphBranchDecomposer']]]
 ];

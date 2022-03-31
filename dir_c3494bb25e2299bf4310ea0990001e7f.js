@@ -29,6 +29,7 @@ var dir_c3494bb25e2299bf4310ea0990001e7f =
     [ "LayoutState.cs", "_layout_state_8cs_source.html", null ],
     [ "RandomSeed.cs", "_random_seed_8cs_source.html", null ],
     [ "Room.cs", "_room_8cs_source.html", null ],
+    [ "RoomPair.cs", "_room_pair_8cs_source.html", null ],
     [ "RoomState.cs", "_room_state_8cs_source.html", null ],
     [ "RoomTemplate.cs", "_room_template_8cs_source.html", null ],
     [ "Serialization.cs", "_serialization_8cs_source.html", null ],
