@@ -11,70 +11,59 @@ namespace MPewsey.ManiaMap
     /// 
     /// * [1] GeeksforGeeks. (2021, July 2). Print all the cycles in an undirected graph. Retrieved February 8, 2022, from https://www.geeksforgeeks.org/print-all-the-cycles-in-an-undirected-graph/
     /// </summary>
-    public static class GraphCycleDecomposer
+    public class GraphCycleDecomposer
     {
         /// <summary>
-        /// A construct for storing decomposer data.
+        /// The layout graph.
         /// </summary>
-        private class Data
-        {
-            /// <summary>
-            /// The layout graph.
-            /// </summary>
-            public LayoutGraph Graph { get; }
+        private LayoutGraph Graph { get; set; }
 
-            /// <summary>
-            /// A list of cycles in the graph.
-            /// </summary>
-            public List<List<int>> Cycles { get; } = new List<List<int>>();
+        /// <summary>
+        /// A list of cycles in the graph.
+        /// </summary>
+        private List<List<int>> Cycles { get; set; }
 
-            /// <summary>
-            /// A dictionary of node parents by node ID.
-            /// </summary>
-            public Dictionary<int, int> Parents { get; }
+        /// <summary>
+        /// A dictionary of node parents by node ID.
+        /// </summary>
+        private Dictionary<int, int> Parents { get; set; }
 
-            /// <summary>
-            /// A dictionary of node colors by node ID.
-            /// </summary>
-            public Dictionary<int, int> Colors { get; }
-
-            public Data(LayoutGraph graph)
-            {
-                Graph = graph;
-                Parents = new Dictionary<int, int>(graph.NodeCount);
-                Colors = new Dictionary<int, int>(graph.NodeCount);
-            }
-        }
+        /// <summary>
+        /// A dictionary of node colors by node ID.
+        /// </summary>
+        private Dictionary<int, int> Colors { get; set; }
 
         /// <summary>
         /// Returns lists of all combinations of unique node cycles in the graph
         /// using depth first search.
         /// </summary>
         /// <param name="graph">The layout graph.</param>
-        public static List<List<int>> FindCycles(LayoutGraph graph)
+        public List<List<int>> FindCycles(LayoutGraph graph)
         {
-            var data = new Data(graph);
+            Graph = graph;
+            Cycles = new List<List<int>>();
+            Parents = new Dictionary<int, int>(graph.NodeCount);
+            Colors = new Dictionary<int, int>(graph.NodeCount);
 
             // Run searches from every node to accumulate complete set of cycles.
-            foreach (var node in data.Graph.GetNodes())
+            foreach (var node in graph.GetNodes())
             {
-                data.Parents.Clear();
-                data.Colors.Clear();
-                CycleSearch(data, node.Id, -1);
+                Parents.Clear();
+                Colors.Clear();
+                CycleSearch(node.Id, -1);
             }
 
-            return GetUniqueCycles(data);
+            return GetUniqueCycles();
         }
 
         /// <summary>
         /// Performs depth first search to find cycles in the graph.
         /// </summary>
-        /// <param name="data">The decomposer data.</param>
         /// <param name="node">The node ID.</param>
         /// <param name="parent">The node's parent ID.</param>
-        private static void CycleSearch(Data data, int node, int parent)
+        private void CycleSearch(int node, int parent)
         {
-            data.Colors.TryGetValue(node, out var color);
+            Colors.TryGetValue(node, out var color);
 
             // Tree traversal from this node is already complete.
             if (color == 2)
@@ -86,12 +75,12 @@ namespace MPewsey.ManiaMap
             {
                 var current = parent;
                 var cycle = new List<int> { current };
-                data.Cycles.Add(cycle);
+                Cycles.Add(cycle);
 
                 // Accumulate parents into cycle until origin node is encountered.
                 while (current != node)
                 {
-                    current = data.Parents[current];
+                    current = Parents[current];
                     cycle.Add(current);
                 }
 
@@ -99,29 +88,28 @@ namespace MPewsey.ManiaMap
             }
 
             // Change color to indicate search is in progress for node.
-            data.Colors[node] = 1;
-            data.Parents[node] = parent;
+            Colors[node] = 1;
+            Parents[node] = parent;
 
-            foreach (var neighbor in data.Graph.GetNeighbors(node))
+            foreach (var neighbor in Graph.GetNeighbors(node))
             {
-                if (neighbor != data.Parents[node])
-                    CycleSearch(data, neighbor, node);
+                if (neighbor != Parents[node])
+                    CycleSearch(neighbor, node);
             }
 
             // Change color to indicate search from node is complete.
-            data.Colors[node] = 2;
+            Colors[node] = 2;
         }
 
         /// <summary>
         /// Returns a new list with all unique cycles in the graph.
         /// </summary>
-        /// <param name="data">The decomposer data.</param>
-        private static List<List<int>> GetUniqueCycles(Data data)
+        private List<List<int>> GetUniqueCycles()
         {
             var sets = new List<HashSet<int>>();
             var result = new List<List<int>>();
 
-            foreach (var cycle in data.Cycles)
+            foreach (var cycle in Cycles)
             {
                 if (!sets.Any(x => x.SetEquals(cycle)))
                 {

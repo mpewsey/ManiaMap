@@ -5,7 +5,7 @@ using System.Linq;
 namespace MPewsey.ManiaMap.Tests
 {
     [TestClass]
-    public class TestLayoutClusterSearch
+    public class TestClusterSearch
     {
         [TestMethod]
         public void TestFindClusterOfGeekGraph()
