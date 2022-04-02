@@ -60,13 +60,13 @@ namespace MPewsey.ManiaMap.Tests
 
             var expected = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             collectableGroups.Add("Default", expected);
-            var generator = new LayoutGenerator(graph, templateGroups);
+            var generator = new LayoutGenerator();
             var random = new RandomSeed(12345);
-            var layout = generator.GenerateLayout(1, random);
+            var layout = generator.Generate(1, graph, templateGroups, random);
             Assert.IsNotNull(layout);
 
-            var collectableGenerator = new CollectableGenerator(layout, collectableGroups);
-            collectableGenerator.GenerateCollectables(random);
+            var collectableGenerator = new CollectableGenerator();
+            collectableGenerator.Generate(layout, collectableGroups, random);
             var result = new List<int>();
 
             foreach (var room in layout.Rooms.Values)

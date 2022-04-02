@@ -15,19 +15,25 @@ namespace MPewsey.ManiaMap
     public class LayoutGenerator
     {
         /// <summary>
+        /// The maximum number of times that a sub layout can be used as a base before it is discarded.
+        /// </summary>
+        public int MaxRebases { get; set; }
+
+        /// <summary>
+        /// The maximum branch chain length. Branch chains exceeding this length will be split.
+        /// Negative and zero values will be ignored.
+        /// </summary>
+        public int MaxBranchLength { get; set; }
+
+        /// <summary>
         /// The layout graph.
         /// </summary>
-        public LayoutGraph Graph { get; set; }
+        private LayoutGraph Graph { get; set; }
 
         /// <summary>
         /// The template groups.
         /// </summary>
-        public TemplateGroups TemplateGroups { get; set; }
-
-        /// <summary>
-        /// The generator settings.
-        /// </summary>
-        public LayoutGeneratorSettings Settings { get; set; }
+        private TemplateGroups TemplateGroups { get; set; }
 
         /// <summary>
         /// A dictionary of configuration spaces by template pair.
@@ -45,37 +51,39 @@ namespace MPewsey.ManiaMap
         private Layout Layout { get; set; }
 
         /// <summary>
-        /// Initializes a layout generator.
+        /// Initializes the generator.
         /// </summary>
-        /// <param name="graph">The layout graph.</param>
-        /// <param name="templateGroups">The template groups.</param>
-        /// <param name="settings">The generator settings.</param>
-        public LayoutGenerator(LayoutGraph graph, TemplateGroups templateGroups, LayoutGeneratorSettings settings = null)
+        /// <param name="maxRebases">The maximum number of times that a sub layout can be used as a base before it is discarded.</param>
+        /// <param name="maxBranchLength">The maximum branch chain length. Branch chains exceeding this length will be split. Negative and zero values will be ignored.</param>
+        public LayoutGenerator(int maxRebases = 100, int maxBranchLength = -1)
         {
-            Graph = graph;
-            TemplateGroups = templateGroups;
-            Settings = settings ?? new LayoutGeneratorSettings();
+            MaxRebases = maxRebases;
+            MaxBranchLength = maxBranchLength;
         }
 
         public override string ToString()
         {
-            return $"LayoutGenerator(Graph = {Graph}, TemplateGroups = {TemplateGroups}, Settings = {Settings})";
+            return $"LayoutGenerator(MaxRebases = {MaxRebases}, MaxBranchLength = {MaxBranchLength})";
         }
 
         /// <summary>
         /// Generates and returns a new layout.
         /// </summary>
         /// <param name="id">The layout ID.</param>
+        /// <param name="graph">The layout graph.</param>
+        /// <param name="templateGroups">The template groups.</param>
         /// <param name="random">The random seed.</param>
-        public Layout GenerateLayout(int id, RandomSeed random)
+        public Layout Generate(int id, LayoutGraph graph, TemplateGroups templateGroups, RandomSeed random)
         {
+            Graph = graph;
+            TemplateGroups = templateGroups;
             RandomSeed = random;
-            ConfigurationSpaces = TemplateGroups.GetConfigurationSpaces();
+            ConfigurationSpaces = templateGroups.GetConfigurationSpaces();
 
             int chain = 0;
-            var chains = Graph.FindChains(Settings.MaxBranchLength);
+            var chains = Graph.FindChains(MaxBranchLength);
             var layouts = new Stack<Layout>();
-            layouts.Push(new Layout(id, Graph.Name, RandomSeed));
+            layouts.Push(new Layout(id, graph.Name, random));
 
             while (layouts.Count > 0)
             {
@@ -87,7 +95,7 @@ namespace MPewsey.ManiaMap
 
                 // If layout has been used as a base more than the maximum allowable count,
                 // remove the layout and backtrack.
-                if (Layout.Rebases >= Settings.MaxRebases)
+                if (Layout.Rebases >= MaxRebases)
                 {
                     layouts.Pop();
                     chain--;

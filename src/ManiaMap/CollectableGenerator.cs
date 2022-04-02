@@ -10,14 +10,19 @@ namespace MPewsey.ManiaMap
     public class CollectableGenerator
     {
         /// <summary>
+        /// The initial neighbor weight.
+        /// </summary>
+        public int InitialNeighborWeight { get; set; }
+
+        /// <summary>
         /// The layout.
         /// </summary>
-        public Layout Layout { get; set; }
+        private Layout Layout { get; set; }
 
         /// <summary>
         /// The collectable groups.
         /// </summary>
-        public CollectableGroups CollectableGroups { get; set; }
+        private CollectableGroups CollectableGroups { get; set; }
 
         /// <summary>
         /// The random seed.
@@ -42,26 +47,34 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Initializes the generator.
         /// </summary>
-        /// <param name="layout">The layout.</param>
-        /// <param name="collectableGroups">The collectable groups.</param>
-        public CollectableGenerator(Layout layout, CollectableGroups collectableGroups)
+        /// <param name="initialNeighborWeight">The initial neighbor weight.</param>
+        public CollectableGenerator(int initialNeighborWeight = 1000)
         {
-            Layout = layout;
-            CollectableGroups = collectableGroups;
+            InitialNeighborWeight = initialNeighborWeight;
+        }
+
+        public override string ToString()
+        {
+            return "CollectableGenerator()";
         }
 
         /// <summary>
         /// Adds collectables to the layout.
         /// </summary>
+        /// <param name="layout">The layout.</param>
+        /// <param name="collectableGroups">The collectable groups.</param>
         /// <param name="random">The random seed.</param>
-        public void GenerateCollectables(RandomSeed random)
+        public void Generate(Layout layout, CollectableGroups collectableGroups, RandomSeed random)
         {
+            Layout = layout;
+            CollectableGroups = collectableGroups;
             RandomSeed = random;
             Distances = new Dictionary<RoomTemplate, Dictionary<Vector2DInt, Array2D<int>>>();
             Clusters = Layout.FindClusters(1);
 
             AddCollectableSpots();
             AssignDoorWeights();
+            AssignInitialNeighborWeights();
 
             foreach (var pair in CollectableGroups.Groups.OrderBy(x => x.Key))
             {
@@ -208,6 +221,17 @@ namespace MPewsey.ManiaMap
                     var distance = GetDistance(room, door.Position, spot.Position);
                     spot.DoorWeight = Math.Min(distance, spot.DoorWeight);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Assigns the initial neighbor weight to the collectable spots.
+        /// </summary>
+        private void AssignInitialNeighborWeights()
+        {
+            foreach (var spot in CollectableSpots)
+            {
+                spot.NeighborWeight = InitialNeighborWeight;
             }
         }
 

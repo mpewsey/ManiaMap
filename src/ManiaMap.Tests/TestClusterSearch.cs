@@ -15,9 +15,9 @@ namespace MPewsey.ManiaMap.Tests
             var templateGroups = new TemplateGroups();
             templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
 
-            var generator = new LayoutGenerator(graph, templateGroups);
+            var generator = new LayoutGenerator();
             var random = new RandomSeed(123456);
-            var layout = generator.GenerateLayout(1, random);
+            var layout = generator.Generate(1, graph, templateGroups, random);
 
             var result = layout.FindCluster(new Uid(5), 2).ToList();
             var expected = new List<int>() { 5, 3, 2, 4, 6, 9, 10 };
@@ -33,9 +33,9 @@ namespace MPewsey.ManiaMap.Tests
             var templateGroups = new TemplateGroups();
             templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
 
-            var generator = new LayoutGenerator(graph, templateGroups);
+            var generator = new LayoutGenerator();
             var random = new RandomSeed(123456);
-            var layout = generator.GenerateLayout(1, random);
+            var layout = generator.Generate(1, graph, templateGroups, random);
 
             var results = layout.FindClusters(2);
             var result = results[new Uid(5)].ToList();

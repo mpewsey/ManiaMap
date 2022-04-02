@@ -23,12 +23,12 @@
         /// <summary>
         /// The door draw weight.
         /// </summary>
-        public int DoorWeight { get; set; } = 1000;
+        public int DoorWeight { get; set; } = int.MaxValue;
 
         /// <summary>
         /// The neighboring collectable draw weight.
         /// </summary>
-        public int NeighborWeight { get; set; } = 1000;
+        public int NeighborWeight { get; set; } = int.MaxValue;
 
         /// <summary>
         /// Initializes a new spot.

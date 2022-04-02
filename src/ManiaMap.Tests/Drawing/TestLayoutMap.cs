@@ -7,7 +7,7 @@ namespace MPewsey.ManiaMap.Drawing.Tests
     public class TestLayoutMap
     {
         [TestMethod]
-        public void TestSaveManiaMapImage()
+        public void TestSaveManiaMapImages()
         {
             var layout = Samples.ManiaMapSample.ManiaMapLayout();
 
@@ -19,27 +19,8 @@ namespace MPewsey.ManiaMap.Drawing.Tests
             Console.WriteLine("\nDoors:");
             Console.WriteLine(string.Join("\n", layout.DoorConnections));
 
-            var settings = new LayoutMapSettings(new Padding(4));
-            var map = new LayoutMap(layout, settings: settings);
-            map.SaveImage("ManiaMap.png");
-        }
-
-        [TestMethod]
-        public void TestSaveHyperSquareStackedLoopLayoutImage()
-        {
-            var graph = Samples.GraphLibrary.StackedLoopGraph();
-
-            var templateGroups = new TemplateGroups();
-            templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
-
-            var generator = new LayoutGenerator(graph, templateGroups);
-            var random = new RandomSeed(12345);
-            var layout = generator.GenerateLayout(1, random);
-
-            Assert.IsNotNull(layout);
-
-            var map = new LayoutMap(layout);
-            map.SaveImage("HyperSquareMap.png");
+            var map = new LayoutMap(new Padding(4));
+            map.SaveImages("ManiaMap.png", layout);
         }
 
         [TestMethod]
@@ -50,18 +31,18 @@ namespace MPewsey.ManiaMap.Drawing.Tests
             var templateGroups = new TemplateGroups();
             templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
 
-            var generator = new LayoutGenerator(graph, templateGroups);
+            var generator = new LayoutGenerator();
             var random = new RandomSeed(12345);
-            var layout = generator.GenerateLayout(1, random);
+            var layout = generator.Generate(1, graph, templateGroups, random);
 
             Assert.IsNotNull(layout);
 
-            var map = new LayoutMap(layout);
-            map.SaveImages("HyperSquareMap.png");
+            var map = new LayoutMap();
+            map.SaveImages("HyperSquareMap.png", layout);
         }
 
         [TestMethod]
-        public void TestSaveLLoopLayoutImage()
+        public void TestSaveLLoopLayoutImages()
         {
             var graph = Samples.GraphLibrary.LoopGraph();
 
@@ -69,26 +50,25 @@ namespace MPewsey.ManiaMap.Drawing.Tests
             var template = Samples.TemplateLibrary.Miscellaneous.LTemplate();
             templateGroups.Add("Default", template.UniqueVariations());
 
-            var generator = new LayoutGenerator(graph, templateGroups);
+            var generator = new LayoutGenerator();
             var random = new RandomSeed(12345);
-            var layout = generator.GenerateLayout(1, random);
+            var layout = generator.Generate(1, graph, templateGroups, random);
 
             Assert.IsNotNull(layout);
 
-            var map = new LayoutMap(layout);
-            map.SaveImage("LLoopMap.png");
+            var map = new LayoutMap();
+            map.SaveImages("LLoopMap.png", layout);
         }
 
         [TestMethod]
         public void TestToString()
         {
-            var layout = Samples.ManiaMapSample.ManiaMapLayout();
-            var map = new LayoutMap(layout);
+            var map = new LayoutMap();
             Assert.IsTrue(map.ToString().StartsWith("LayoutMap("));
         }
 
         [TestMethod]
-        public void TestSaveFilteredLLoopLayoutImage()
+        public void TestSaveFilteredLLoopLayoutImages()
         {
             var graph = Samples.GraphLibrary.LoopGraph();
 
@@ -96,9 +76,9 @@ namespace MPewsey.ManiaMap.Drawing.Tests
             var template = Samples.TemplateLibrary.Miscellaneous.LTemplate();
             templateGroups.Add("Default", template.UniqueVariations());
 
-            var generator = new LayoutGenerator(graph, templateGroups);
+            var generator = new LayoutGenerator();
             var random = new RandomSeed(12345);
-            var layout = generator.GenerateLayout(1, random);
+            var layout = generator.Generate(1, graph, templateGroups, random);
 
             Assert.IsNotNull(layout);
 
@@ -120,12 +100,12 @@ namespace MPewsey.ManiaMap.Drawing.Tests
                 }
             }
 
-            var map = new LayoutMap(layout, layoutState);
-            map.SaveImage("FilteredLLoopMap.png");
+            var map = new LayoutMap();
+            map.SaveImages("FilteredLLoopMap.png", layout, layoutState);
         }
 
         [TestMethod]
-        public void TestSaveBigLayoutImage()
+        public void TestSaveBigLayoutImages()
         {
             var graph = Samples.GraphLibrary.BigGraph();
             var templateGroups = new TemplateGroups();
@@ -154,14 +134,14 @@ namespace MPewsey.ManiaMap.Drawing.Tests
                 rect1x4.UniqueVariations(),
                 angle3x4.UniqueVariations());
 
-            var generator = new LayoutGenerator(graph, templateGroups);
+            var generator = new LayoutGenerator();
             var random = new RandomSeed(12345);
-            var layout = generator.GenerateLayout(1, random);
+            var layout = generator.Generate(1, graph, templateGroups, random);
 
             Assert.IsNotNull(layout);
 
-            var map = new LayoutMap(layout);
-            map.SaveImage("BigLayoutMap.png");
+            var map = new LayoutMap();
+            map.SaveImages("BigLayoutMap.png", layout);
         }
     }
 }
