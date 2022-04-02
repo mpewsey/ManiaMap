@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MPewsey.ManiaMap
@@ -6,47 +7,46 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A class for decomposing the branches of a `LayoutGraph` into chains.
     /// </summary>
-    public class GraphBranchDecomposer
+    public class GraphBranchDecomposer<T>
     {
         /// <summary>
-        /// The layout graph.
+        /// A dictionary of node neighbors by node ID.
         /// </summary>
-        private LayoutGraph Graph { get; set; }
+        private Dictionary<T, List<T>> Neighbors { get; set; }
 
         /// <summary>
         /// A dictionary of node parents by node ID.
         /// </summary>
-        private Dictionary<int, int> Parents { get; set; }
+        private Dictionary<T, T> Parents { get; set; }
 
         /// <summary>
         /// A set of marked nodes.
         /// </summary>
-        private HashSet<int> Marked { get; set; }
+        private HashSet<T> Marked { get; set; }
 
         /// <summary>
         /// A list of branches.
         /// </summary>
-        private List<List<int>> Branches { get; set; }
+        private List<List<T>> Branches { get; set; }
 
         /// <summary>
         /// Returns a list of branches originating from the graph's cycles.
         /// </summary>
-        /// <param name="graph">The layout graph.</param>
-        public List<List<int>> FindBranches(LayoutGraph graph)
+        /// <param name="neighbors">A dictionary of graph neighbors.</param>
+        public List<List<T>> FindBranches(Dictionary<T, List<T>> neighbors)
         {
-            Graph = graph;
-            Parents = new Dictionary<int, int>(graph.NodeCount);
-            Marked = new HashSet<int>();
-            Branches = new List<List<int>>();
+            Neighbors = neighbors;
+            Parents = new Dictionary<T, T>(neighbors.Count);
+            Marked = new HashSet<T>();
+            Branches = new List<List<T>>();
             MarkTrunk();
 
             // Search for branches beginning at each trunk node.
-            var trunk = Marked.ToList();
-            trunk.Sort();
+            var trunk = Marked.OrderBy(x => x).ToList();
 
             foreach (var node in trunk)
             {
-                BranchSearch(node, -1);
+                BranchSearch(node, node);
             }
 
             return Branches;
@@ -57,7 +57,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         private void MarkTrunk()
         {
-            var cycles = Graph.FindCycles();
+            var cycles = new GraphCycleDecomposer<T>().FindCycles(Neighbors);
 
             // Add trunk nodes to marked set.
             foreach (var cycle in cycles)
@@ -71,8 +71,34 @@ namespace MPewsey.ManiaMap
             // Use the node with the max neighbors if cycles do not exist.
             if (Marked.Count == 0)
             {
-                Marked.Add(Graph.MaxNeighborNode());
+                Marked.Add(MaxNeighborNode());
             }
+        }
+
+        /// <summary>
+        /// Returns the node ID with the maximum number of neighbors.
+        /// </summary>
+        /// <exception cref="Exception">Raised if the graph does not contain any nodes.</exception>
+        public T MaxNeighborNode()
+        {
+            T maxNode = default;
+            int maxNeighbors = -1;
+
+            foreach (var pair in Neighbors.OrderBy(x => x.Key))
+            {
+                var count = pair.Value.Count;
+
+                if (count > maxNeighbors)
+                {
+                    maxNode = pair.Key;
+                    maxNeighbors = count;
+                }
+            }
+
+            if (maxNeighbors < 0)
+                throw new Exception("Graph does not contain any nodes.");
+
+            return maxNode;
         }
 
         /// <summary>
@@ -80,25 +106,25 @@ namespace MPewsey.ManiaMap
         /// </summary>
         /// <param name="node">The node ID.</param>
         /// <param name="parent">The node's parent ID.</param>
-        private void BranchSearch(int node, int parent)
+        private void BranchSearch(T node, T parent)
         {
             // If the node already has a parent, then it has been traversed previously from another trunk node.
             // The node is a member of a connecting branch between two trunk nodes.
             if (Parents.ContainsKey(node))
             {
-                var branch = new List<int> { parent, node };
+                var branch = new List<T> { parent, node };
                 AddParentsToBranch(node, branch);
                 Branches.Add(branch);
                 return;
             }
 
-            var neighbors = Graph.GetNeighbors(node);
+            var neighbors = Neighbors[node];
             Parents[node] = parent;
 
             // If the node is a deadend node, accumulate the parents into a branch.
             if (neighbors.Count == 1 && !Marked.Contains(node))
             {
-                var branch = new List<int> { node };
+                var branch = new List<T> { node };
                 AddParentsToBranch(node, branch);
                 Branches.Add(branch);
                 return;
@@ -116,7 +142,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         /// <param name="node">The node ID.</param>
         /// <param name="branch">The branch to which nodes will be added.</param>
-        private void AddParentsToBranch(int node, List<int> branch)
+        private void AddParentsToBranch(T node, List<T> branch)
         {
             var current = node;
             var isMarked = false;

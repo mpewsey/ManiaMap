@@ -11,46 +11,46 @@ namespace MPewsey.ManiaMap
     /// 
     /// * [1] GeeksforGeeks. (2021, July 2). Print all the cycles in an undirected graph. Retrieved February 8, 2022, from https://www.geeksforgeeks.org/print-all-the-cycles-in-an-undirected-graph/
     /// </summary>
-    public class GraphCycleDecomposer
+    public class GraphCycleDecomposer<T>
     {
         /// <summary>
-        /// The layout graph.
+        /// A dictionary of node neighbors by node ID.
         /// </summary>
-        private LayoutGraph Graph { get; set; }
+        private Dictionary<T, List<T>> Neighbors { get; set; }
 
         /// <summary>
         /// A list of cycles in the graph.
         /// </summary>
-        private List<List<int>> Cycles { get; set; }
+        private List<List<T>> Cycles { get; set; }
 
         /// <summary>
         /// A dictionary of node parents by node ID.
         /// </summary>
-        private Dictionary<int, int> Parents { get; set; }
+        private Dictionary<T, T> Parents { get; set; }
 
         /// <summary>
         /// A dictionary of node colors by node ID.
         /// </summary>
-        private Dictionary<int, int> Colors { get; set; }
+        private Dictionary<T, int> Colors { get; set; }
 
         /// <summary>
         /// Returns lists of all combinations of unique node cycles in the graph
         /// using depth first search.
         /// </summary>
-        /// <param name="graph">The layout graph.</param>
-        public List<List<int>> FindCycles(LayoutGraph graph)
+        /// <param name="neighbors">A dictionary of graph neighbors.</param>
+        public List<List<T>> FindCycles(Dictionary<T, List<T>> neighbors)
         {
-            Graph = graph;
-            Cycles = new List<List<int>>();
-            Parents = new Dictionary<int, int>(graph.NodeCount);
-            Colors = new Dictionary<int, int>(graph.NodeCount);
+            Neighbors = neighbors;
+            Cycles = new List<List<T>>();
+            Parents = new Dictionary<T, T>(neighbors.Count);
+            Colors = new Dictionary<T, int>(neighbors.Count);
 
             // Run searches from every node to accumulate complete set of cycles.
-            foreach (var node in graph.GetNodes())
+            foreach (var node in neighbors.Keys.OrderBy(x => x))
             {
                 Parents.Clear();
                 Colors.Clear();
-                CycleSearch(node.Id, -1);
+                CycleSearch(node, node);
             }
 
             return GetUniqueCycles();
@@ -61,7 +61,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         /// <param name="node">The node ID.</param>
         /// <param name="parent">The node's parent ID.</param>
-        private void CycleSearch(int node, int parent)
+        private void CycleSearch(T node, T parent)
         {
             Colors.TryGetValue(node, out var color);
 
@@ -74,11 +74,11 @@ namespace MPewsey.ManiaMap
             if (color == 1)
             {
                 var current = parent;
-                var cycle = new List<int> { current };
+                var cycle = new List<T> { current };
                 Cycles.Add(cycle);
 
                 // Accumulate parents into cycle until origin node is encountered.
-                while (current != node)
+                while (!EqualityComparer<T>.Default.Equals(current, node))
                 {
                     current = Parents[current];
                     cycle.Add(current);
@@ -91,9 +91,9 @@ namespace MPewsey.ManiaMap
             Colors[node] = 1;
             Parents[node] = parent;
 
-            foreach (var neighbor in Graph.GetNeighbors(node))
+            foreach (var neighbor in Neighbors[node])
             {
-                if (neighbor != Parents[node])
+                if (!EqualityComparer<T>.Default.Equals(neighbor, Parents[node]))
                     CycleSearch(neighbor, node);
             }
 
@@ -104,17 +104,17 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a new list with all unique cycles in the graph.
         /// </summary>
-        private List<List<int>> GetUniqueCycles()
+        private List<List<T>> GetUniqueCycles()
         {
-            var sets = new List<HashSet<int>>();
-            var result = new List<List<int>>();
+            var sets = new List<HashSet<T>>();
+            var result = new List<List<T>>();
 
             foreach (var cycle in Cycles)
             {
                 if (!sets.Any(x => x.SetEquals(cycle)))
                 {
                     result.Add(cycle);
-                    sets.Add(new HashSet<int>(cycle));
+                    sets.Add(new HashSet<T>(cycle));
                 }
             }
 
