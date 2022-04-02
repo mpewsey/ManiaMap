@@ -11,6 +11,7 @@ namespace MPewsey.ManiaMap
     /// 
     /// * [1] GeeksforGeeks. (2021, July 2). Print all the cycles in an undirected graph. Retrieved February 8, 2022, from https://www.geeksforgeeks.org/print-all-the-cycles-in-an-undirected-graph/
     /// </summary>
+    /// <typeparam name="T">The type of the node ID.</typeparam>
     public class GraphCycleDecomposer<T>
     {
         /// <summary>

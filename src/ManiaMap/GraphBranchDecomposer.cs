@@ -7,6 +7,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A class for decomposing the branches of a graph into chains.
     /// </summary>
+    /// <typeparam name="T">The type of the node ID.</typeparam>
     public class GraphBranchDecomposer<T>
     {
         /// <summary>

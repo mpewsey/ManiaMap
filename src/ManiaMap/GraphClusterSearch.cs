@@ -5,6 +5,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A class for searching for neighbors in a graph up to a specified depth.
     /// </summary>
+    /// <typeparam name="T">The type of the node ID.</typeparam>
     public class GraphClusterSearch<T>
     {
         /// <summary>
