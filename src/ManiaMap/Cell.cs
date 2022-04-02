@@ -12,12 +12,12 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a new empty cell (null).
         /// </summary>
-        public static Cell Empty { get => null; }
+        public static Cell Empty => null;
 
         /// <summary>
         /// Returns a new cell with no doors set.
         /// </summary>
-        public static Cell New { get => new Cell(); }
+        public static Cell New => new Cell();
 
         /// <summary>
         /// The west door. Set to null if no door exists.

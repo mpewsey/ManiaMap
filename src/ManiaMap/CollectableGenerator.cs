@@ -7,17 +7,22 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A class for distributing collectables throughout a `Layout`.
     /// </summary>
-    public class CollectableGenerator
+    public class CollectableGenerator : IGenerationStep
     {
+        /// <summary>
+        /// The initial neighbor weight.
+        /// </summary>
+        public int InitialNeighborWeight { get; set; }
+
         /// <summary>
         /// The layout.
         /// </summary>
-        public Layout Layout { get; set; }
+        private Layout Layout { get; set; }
 
         /// <summary>
         /// The collectable groups.
         /// </summary>
-        public CollectableGroups CollectableGroups { get; set; }
+        private CollectableGroups CollectableGroups { get; set; }
 
         /// <summary>
         /// The random seed.
@@ -42,26 +47,52 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Initializes the generator.
         /// </summary>
-        /// <param name="layout">The layout.</param>
-        /// <param name="collectableGroups">The collectable groups.</param>
-        public CollectableGenerator(Layout layout, CollectableGroups collectableGroups)
+        /// <param name="initialNeighborWeight">The initial neighbor weight.</param>
+        public CollectableGenerator(int initialNeighborWeight = 1000)
         {
-            Layout = layout;
-            CollectableGroups = collectableGroups;
+            InitialNeighborWeight = initialNeighborWeight;
+        }
+
+        public override string ToString()
+        {
+            return "CollectableGenerator()";
+        }
+
+        /// <summary>
+        /// Adds collectables to the layout.
+        /// 
+        /// The following arguments are required:
+        /// * Layout - The room layout.
+        /// * CollectableGroups - The collectable groups.
+        /// * RandomSeed - The random seed.
+        /// </summary>
+        /// <param name="args">The pipeline arguments dictionary.</param>
+        /// <param name="artifacts">The pipeline artifacts dictionary.</param>
+        public void Generate(Dictionary<string, object> args, Dictionary<string, object> artifacts)
+        {
+            var layout = GenerationPipeline.GetArgument<Layout>("Layout", args, artifacts);
+            var collectableGroups = GenerationPipeline.GetArgument<CollectableGroups>("CollectableGroups", args, artifacts);
+            var randomSeed = GenerationPipeline.GetArgument<RandomSeed>("RandomSeed", args, artifacts);
+            Generate(layout, collectableGroups, randomSeed);
         }
 
         /// <summary>
         /// Adds collectables to the layout.
         /// </summary>
-        /// <param name="random">The random seed.</param>
-        public void GenerateCollectables(RandomSeed random)
+        /// <param name="layout">The layout.</param>
+        /// <param name="collectableGroups">The collectable groups.</param>
+        /// <param name="randomSeed">The random seed.</param>
+        public void Generate(Layout layout, CollectableGroups collectableGroups, RandomSeed randomSeed)
         {
-            RandomSeed = random;
+            Layout = layout;
+            CollectableGroups = collectableGroups;
+            RandomSeed = randomSeed;
             Distances = new Dictionary<RoomTemplate, Dictionary<Vector2DInt, Array2D<int>>>();
             Clusters = Layout.FindClusters(1);
 
             AddCollectableSpots();
             AssignDoorWeights();
+            AssignInitialNeighborWeights();
 
             foreach (var pair in CollectableGroups.Groups.OrderBy(x => x.Key))
             {
@@ -208,6 +239,17 @@ namespace MPewsey.ManiaMap
                     var distance = GetDistance(room, door.Position, spot.Position);
                     spot.DoorWeight = Math.Min(distance, spot.DoorWeight);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Assigns the initial neighbor weight to the collectable spots.
+        /// </summary>
+        private void AssignInitialNeighborWeights()
+        {
+            foreach (var spot in CollectableSpots)
+            {
+                spot.NeighborWeight = InitialNeighborWeight;
             }
         }
 

@@ -15,9 +15,9 @@ namespace MPewsey.ManiaMap.Tests
             var templateGroups = new TemplateGroups();
             templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
 
-            var generator = new LayoutGenerator(graph, templateGroups);
+            var generator = new LayoutGenerator();
             var random = new RandomSeed(12345);
-            var layout = generator.GenerateLayout(1, random);
+            var layout = generator.Generate(1, graph, templateGroups, random);
 
             Assert.IsNotNull(layout);
 
@@ -39,9 +39,9 @@ namespace MPewsey.ManiaMap.Tests
             var templateGroups = new TemplateGroups();
             templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
 
-            var generator = new LayoutGenerator(graph, templateGroups);
+            var generator = new LayoutGenerator();
             var random = new RandomSeed(12345);
-            var layout = generator.GenerateLayout(1, random);
+            var layout = generator.Generate(1, graph, templateGroups, random);
 
             Assert.IsNotNull(layout);
 
@@ -64,9 +64,9 @@ namespace MPewsey.ManiaMap.Tests
             var template = Samples.TemplateLibrary.Miscellaneous.LTemplate();
             templateGroups.Add("Default", template.UniqueVariations());
 
-            var generator = new LayoutGenerator(graph, templateGroups);
+            var generator = new LayoutGenerator();
             var random = new RandomSeed(12345);
-            var layout = generator.GenerateLayout(1, random);
+            var layout = generator.Generate(1, graph, templateGroups, random);
 
             Assert.IsNotNull(layout);
 
@@ -89,9 +89,9 @@ namespace MPewsey.ManiaMap.Tests
             var templateGroups = new TemplateGroups();
             templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
 
-            var generator = new LayoutGenerator(graph, templateGroups);
+            var generator = new LayoutGenerator();
             var random = new RandomSeed(123456);
-            var layout = generator.GenerateLayout(1, random);
+            var layout = generator.Generate(1, graph, templateGroups, random);
 
             Assert.IsNotNull(layout);
 
@@ -126,12 +126,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestToString()
         {
-            var graph = Samples.GraphLibrary.GeekGraph();
-
-            var templateGroups = new TemplateGroups();
-            templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
-
-            var generator = new LayoutGenerator(graph, templateGroups);
+            var generator = new LayoutGenerator();
             Assert.IsTrue(generator.ToString().StartsWith("LayoutGenerator("));
         }
     }

@@ -12,20 +12,40 @@ namespace MPewsey.ManiaMap.Drawing
     public class LayoutMap
     {
         /// <summary>
+        /// The size of the map tiles used in (x, y) coordinates.
+        /// </summary>
+        public Vector2DInt TileSize { get; set; } = new Vector2DInt(16, 16);
+
+        /// <summary>
+        /// The padding to include around the layout when the map is drawn.
+        /// </summary>
+        public Padding Padding { get; set; } = new Padding(1);
+
+        /// <summary>
+        /// The map background color.
+        /// </summary>
+        public System.Drawing.Color BackgroundColor { get; set; } = System.Drawing.Color.Black;
+
+        /// <summary>
+        /// A dictionary of map tiles by name. The applicable tiles are superimposed at the cell location
+        /// when the map is drawn. The following names are used internally:
+        /// 
+        /// * "NorthDoor", "TopDoor", etc. - Tiles used when there is a door in that direction.
+        /// * "NorthWall", "TopWall", etc. - Tiles used when there is a wall in that direction.
+        /// * "Grid" (Optional) - If specified, used to fill the background before any tiles are drawn.
+        /// </summary>
+        public Dictionary<string, Image> Tiles { get; set; }
+
+        /// <summary>
         /// The room layout.
         /// </summary>
-        public Layout Layout { get; set; }
+        private Layout Layout { get; set; }
 
         /// <summary>
         /// The layout state, used to determine which tiles are visible when drawing a map.
         /// If this value is null, all tiles will be drawn.
         /// </summary>
-        public LayoutState LayoutState { get; set; }
-
-        /// <summary>
-        /// The layout map settings.
-        /// </summary>
-        public LayoutMapSettings Settings { get; set; }
+        private LayoutState LayoutState { get; set; }
 
         /// <summary>
         /// A dictionary of room door positions by room ID.
@@ -38,35 +58,24 @@ namespace MPewsey.ManiaMap.Drawing
         private System.Drawing.Rectangle LayoutBounds { get; set; }
 
         /// <summary>
-        /// Initializes a layout map.
+        /// Initializes the settings.
         /// </summary>
-        /// <param name="layout">The layout.</param>
-        /// <param name="layoutState">The layout state.</param>
         /// <param name="tileSize">The tile size. If null, the default property value will be used.</param>
         /// <param name="padding">The padding around the layout. If null, the default property value will be used.</param>
         /// <param name="tiles">A dictionary of map tiles to use. If null, the default tiles will be used.</param>
         /// <param name="backgroundColor">The background color. If null, the default property value will be used.</param>
-        public LayoutMap(Layout layout, LayoutState layoutState = null, LayoutMapSettings settings = null)
+        public LayoutMap(Padding? padding = null, System.Drawing.Color? backgroundColor = null,
+            Vector2DInt? tileSize = null, Dictionary<string, Image> tiles = null)
         {
-            Layout = layout;
-            LayoutState = layoutState;
-            Settings = settings ?? new LayoutMapSettings();
+            TileSize = tileSize ?? TileSize;
+            Padding = padding ?? Padding;
+            BackgroundColor = backgroundColor ?? BackgroundColor;
+            Tiles = tiles ?? MapTiles.GetDefaultTiles();
         }
 
         public override string ToString()
         {
-            return $"LayoutMap(Layout = {Layout})";
-        }
-
-        /// <summary>
-        /// Renders a map of the layout and saves it to the designated file path.
-        /// </summary>
-        /// <param name="path">The file path to which the image will be saved.</param>
-        /// <param name="z">The z (layer) value used to render the layout.</param>
-        public void SaveImage(string path, int z = 0)
-        {
-            var map = CreateImage(z);
-            map.Save(path);
+            return $"LayoutMap(TileSize = {TileSize}, Padding = {Padding})";
         }
 
         /// <summary>
@@ -74,11 +83,13 @@ namespace MPewsey.ManiaMap.Drawing
         /// The z (layer) values are added into the file paths before the file extension.
         /// </summary>
         /// <param name="path">The file path.</param>
-        public void SaveImages(string path)
+        /// <param name="layout">The room layout.</param>
+        /// <param name="state">The room layout state.</param>
+        public void SaveImages(string path, Layout layout, LayoutState state = null)
         {
             var ext = Path.GetExtension(path);
             var name = Path.ChangeExtension(path, null);
-            var maps = CreateImages();
+            var maps = CreateImages(layout, state);
 
             foreach (var pair in maps)
             {
@@ -109,36 +120,19 @@ namespace MPewsey.ManiaMap.Drawing
         }
 
         /// <summary>
-        /// Returns a rendered map of the layout.
-        /// </summary>
-        /// <param name="z">The z (layer) value used to render the layout.</param>
-        public Image CreateImage(int z = 0)
-        {
-            LayoutBounds = Layout.Bounds();
-            RoomDoors = Layout.RoomDoors();
-
-            var padding = Settings.Padding;
-            var tileSize = Settings.TileSize;
-            var width = tileSize.X * (padding.Left + padding.Right + LayoutBounds.Width);
-            var height = tileSize.Y * (padding.Top + padding.Bottom + LayoutBounds.Height);
-
-            var map = new Image<Rgba32>(width, height);
-            map.Mutate(x => DrawMap(x, z));
-            return map;
-        }
-
-        /// <summary>
         /// Returns a dictionary of map layer images by z (layer) value.
         /// </summary>
-        public Dictionary<int, Image> CreateImages()
+        /// <param name="layout">The room layout.</param>
+        /// <param name="state">The room layout state.</param>
+        public Dictionary<int, Image> CreateImages(Layout layout, LayoutState state = null)
         {
+            Layout = layout;
+            LayoutState = state;
             LayoutBounds = Layout.Bounds();
             RoomDoors = Layout.RoomDoors();
 
-            var padding = Settings.Padding;
-            var tileSize = Settings.TileSize;
-            var width = tileSize.X * (padding.Left + padding.Right + LayoutBounds.Width);
-            var height = tileSize.Y * (padding.Top + padding.Bottom + LayoutBounds.Height);
+            var width = TileSize.X * (Padding.Left + Padding.Right + LayoutBounds.Width);
+            var height = TileSize.Y * (Padding.Top + Padding.Bottom + LayoutBounds.Height);
             var dict = new Dictionary<int, Image>();
 
             foreach (var room in Layout.Rooms.Values)
@@ -161,7 +155,7 @@ namespace MPewsey.ManiaMap.Drawing
         /// <param name="z">The z (layer) value used to render the layout.</param>
         private void DrawMap(IImageProcessingContext image, int z)
         {
-            image.BackgroundColor(ConvertColor(Settings.BackgroundColor));
+            image.BackgroundColor(ConvertColor(BackgroundColor));
             DrawGrid(image);
             DrawMapTiles(image, z);
         }
@@ -172,14 +166,13 @@ namespace MPewsey.ManiaMap.Drawing
         /// <param name="image">The image context.</param>
         private void DrawGrid(IImageProcessingContext image)
         {
-            if (Settings.Tiles.TryGetValue("Grid", out Image gridTile))
+            if (Tiles.TryGetValue("Grid", out Image gridTile))
             {
-                var tileSize = Settings.TileSize;
                 var (width, height) = image.GetCurrentSize();
 
-                for (int x = 0; x < width; x += tileSize.X)
+                for (int x = 0; x < width; x += TileSize.X)
                 {
-                    for (int y = 0; y < height; y += tileSize.Y)
+                    for (int y = 0; y < height; y += TileSize.Y)
                     {
                         image.DrawImage(gridTile, new Point(x, y), 1);
                     }
@@ -194,9 +187,6 @@ namespace MPewsey.ManiaMap.Drawing
         /// <param name="z">The z (layer) value used to render the layout.</param>
         private void DrawMapTiles(IImageProcessingContext image, int z)
         {
-            var tileSize = Settings.TileSize;
-            var padding = Settings.Padding;
-
             foreach (var room in Layout.Rooms.Values)
             {
                 // If room Z (layer) value is not equal, go to next room.
@@ -205,9 +195,9 @@ namespace MPewsey.ManiaMap.Drawing
 
                 var roomState = LayoutState?.RoomStates[room.Id];
                 var cells = room.Template.Cells;
-                var x0 = (room.Position.Y - LayoutBounds.X + padding.Left) * tileSize.X;
-                var y0 = (room.Position.X - LayoutBounds.Y + padding.Top) * tileSize.Y;
-                var cellTile = new Image<Rgba32>(tileSize.X, tileSize.Y);
+                var x0 = (room.Position.Y - LayoutBounds.X + Padding.Left) * TileSize.X;
+                var y0 = (room.Position.X - LayoutBounds.Y + Padding.Top) * TileSize.Y;
+                var cellTile = new Image<Rgba32>(TileSize.X, TileSize.Y);
                 cellTile.Mutate(x => x.BackgroundColor(ConvertColor(room.Color)));
 
                 for (int i = 0; i < cells.Rows; i++)
@@ -226,8 +216,8 @@ namespace MPewsey.ManiaMap.Drawing
                             continue;
 
                         // Calculate draw position
-                        var x = tileSize.X * j + x0;
-                        var y = tileSize.Y * i + y0;
+                        var x = TileSize.X * j + x0;
+                        var y = TileSize.Y * i + y0;
                         var point = new Point(x, y);
 
                         // Get adjacent cells
@@ -290,9 +280,9 @@ namespace MPewsey.ManiaMap.Drawing
             Door door, Cell neighbor, string doorName, string wallName)
         {
             if (door != null && door.Type != DoorType.None && DoorExists(room, position, direction))
-                return Settings.Tiles[doorName];
+                return Tiles[doorName];
             if (neighbor == null && wallName != null)
-                return Settings.Tiles[wallName];
+                return Tiles[wallName];
             return null;
         }
     }

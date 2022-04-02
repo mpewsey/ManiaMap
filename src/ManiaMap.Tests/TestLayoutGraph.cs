@@ -71,5 +71,16 @@ namespace MPewsey.ManiaMap.Tests
             var graph = Samples.GraphLibrary.GeekGraph();
             Assert.IsTrue(graph.ToString().StartsWith("LayoutGraph("));
         }
+
+        [TestMethod]
+        public void TestGetNeighbors()
+        {
+            var graph = new LayoutGraph(1, "Test");
+            graph.AddEdge(1, 2);
+            graph.AddEdge(2, 3);
+            graph.GetNeighbors(2);
+            var expected = new List<int> { 1, 3 };
+            CollectionAssert.AreEquivalent(expected, graph.GetNeighbors(2).ToList());
+        }
     }
 }

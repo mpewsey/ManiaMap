@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -190,11 +188,11 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns an enumerable of all nodes in the graph. The nodes are sorted by ID.
+        /// Returns an enumerable of all nodes in the graph.
         /// </summary>
         public IEnumerable<LayoutNode> GetNodes()
         {
-            return Nodes.Values.OrderBy(x => x.Id);
+            return Nodes.Values;
         }
 
         /// <summary>
@@ -215,37 +213,11 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns the node ID with the maximum number of neighbors.
-        /// </summary>
-        /// <exception cref="Exception">Raised if the graph does not contain any nodes.</exception>
-        public int MaxNeighborNode()
-        {
-            int maxNode = 0;
-            int maxNeighbors = -1;
-
-            foreach (var node in GetNodes())
-            {
-                var count = GetNeighbors(node.Id).Count;
-
-                if (count > maxNeighbors)
-                {
-                    maxNode = node.Id;
-                    maxNeighbors = count;
-                }
-            }
-
-            if (maxNeighbors < 0)
-                throw new Exception("Graph does not contain any nodes.");
-
-            return maxNode;
-        }
-
-        /// <summary>
         /// Returns a list of cycles in the graph.
         /// </summary>
         public List<List<int>> FindCycles()
         {
-            return GraphCycleDecomposer.FindCycles(this);
+            return new GraphCycleDecomposer<int>().FindCycles(Neighbors);
         }
 
         /// <summary>
@@ -253,7 +225,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public List<List<int>> FindBranches()
         {
-            return GraphBranchDecomposer.FindBranches(this);
+            return new GraphBranchDecomposer<int>().FindBranches(Neighbors);
         }
 
         /// <summary>
@@ -262,7 +234,7 @@ namespace MPewsey.ManiaMap
         /// <param name="maxBranchLength">The maximum branch chain length. Branch chains exceeding this length will be split. Negative and zero values will be ignored.</param>
         public List<List<LayoutEdge>> FindChains(int maxBranchLength = -1)
         {
-            return GraphChainDecomposer.FindChains(this, maxBranchLength);
+            return new GraphChainDecomposer().FindChains(this, maxBranchLength);
         }
     }
 }

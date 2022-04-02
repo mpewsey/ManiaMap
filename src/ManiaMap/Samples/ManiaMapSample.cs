@@ -184,9 +184,9 @@
         {
             var graph = ManiaMapLayoutGraph();
             var templateGroups = LetterTemplateGroups();
-            var generator = new LayoutGenerator(graph, templateGroups);
+            var generator = new LayoutGenerator();
             var random = new RandomSeed(12345);
-            return generator.GenerateLayout(1, random);
+            return generator.Generate(1, graph, templateGroups, random);
         }
     }
 }
