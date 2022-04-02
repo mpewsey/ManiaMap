@@ -63,6 +63,7 @@ namespace MPewsey.ManiaMap
         /// <param name="parent">The node's parent ID.</param>
         private void CycleSearch(T node, T parent)
         {
+            var comparer = EqualityComparer<T>.Default;
             Colors.TryGetValue(node, out var color);
 
             // Tree traversal from this node is already complete.
@@ -78,7 +79,7 @@ namespace MPewsey.ManiaMap
                 Cycles.Add(cycle);
 
                 // Accumulate parents into cycle until origin node is encountered.
-                while (!EqualityComparer<T>.Default.Equals(current, node))
+                while (!comparer.Equals(current, node))
                 {
                     current = Parents[current];
                     cycle.Add(current);
@@ -93,7 +94,7 @@ namespace MPewsey.ManiaMap
 
             foreach (var neighbor in Neighbors[node])
             {
-                if (!EqualityComparer<T>.Default.Equals(neighbor, Parents[node]))
+                if (!comparer.Equals(neighbor, Parents[node]))
                     CycleSearch(neighbor, node);
             }
 
