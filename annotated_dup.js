@@ -4,11 +4,11 @@ var annotated_dup =
       [ "ManiaMap", "namespace_m_pewsey_1_1_mania_map.html", [
         [ "Drawing", "namespace_m_pewsey_1_1_mania_map_1_1_drawing.html", [
           [ "LayoutMap", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map" ],
-          [ "LayoutMapSettings", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map_settings.html", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map_settings" ],
           [ "MapTiles", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_map_tiles.html", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_map_tiles" ],
           [ "Padding", "struct_m_pewsey_1_1_mania_map_1_1_drawing_1_1_padding.html", "struct_m_pewsey_1_1_mania_map_1_1_drawing_1_1_padding" ]
         ] ],
         [ "Samples", "namespace_m_pewsey_1_1_mania_map_1_1_samples.html", [
+          [ "BigLayoutSample", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_big_layout_sample.html", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_big_layout_sample" ],
           [ "GraphLibrary", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library" ],
           [ "ManiaMapSample", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample" ],
           [ "TemplateLibrary", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library.html", [
@@ -32,15 +32,16 @@ var annotated_dup =
         [ "DoorPair", "struct_m_pewsey_1_1_mania_map_1_1_door_pair.html", "struct_m_pewsey_1_1_mania_map_1_1_door_pair" ],
         [ "DoorPosition", "class_m_pewsey_1_1_mania_map_1_1_door_position.html", "class_m_pewsey_1_1_mania_map_1_1_door_position" ],
         [ "EdgeIndexes", "struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html", "struct_m_pewsey_1_1_mania_map_1_1_edge_indexes" ],
+        [ "GenerationPipeline", "class_m_pewsey_1_1_mania_map_1_1_generation_pipeline.html", "class_m_pewsey_1_1_mania_map_1_1_generation_pipeline" ],
         [ "GraphBranchDecomposer", "class_m_pewsey_1_1_mania_map_1_1_graph_branch_decomposer.html", "class_m_pewsey_1_1_mania_map_1_1_graph_branch_decomposer" ],
         [ "GraphChainDecomposer", "class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html", "class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer" ],
+        [ "GraphClusterSearch", "class_m_pewsey_1_1_mania_map_1_1_graph_cluster_search.html", "class_m_pewsey_1_1_mania_map_1_1_graph_cluster_search" ],
         [ "GraphCycleDecomposer", "class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html", "class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer" ],
+        [ "IGenerationStep", "interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html", "interface_m_pewsey_1_1_mania_map_1_1_i_generation_step" ],
         [ "IRoomSource", "interface_m_pewsey_1_1_mania_map_1_1_i_room_source.html", "interface_m_pewsey_1_1_mania_map_1_1_i_room_source" ],
         [ "Layout", "class_m_pewsey_1_1_mania_map_1_1_layout.html", "class_m_pewsey_1_1_mania_map_1_1_layout" ],
-        [ "LayoutClusterSearch", "class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search.html", "class_m_pewsey_1_1_mania_map_1_1_layout_cluster_search" ],
         [ "LayoutEdge", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html", "class_m_pewsey_1_1_mania_map_1_1_layout_edge" ],
         [ "LayoutGenerator", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html", "class_m_pewsey_1_1_mania_map_1_1_layout_generator" ],
-        [ "LayoutGeneratorSettings", "class_m_pewsey_1_1_mania_map_1_1_layout_generator_settings.html", "class_m_pewsey_1_1_mania_map_1_1_layout_generator_settings" ],
         [ "LayoutGraph", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html", "class_m_pewsey_1_1_mania_map_1_1_layout_graph" ],
         [ "LayoutNode", "class_m_pewsey_1_1_mania_map_1_1_layout_node.html", "class_m_pewsey_1_1_mania_map_1_1_layout_node" ],
         [ "LayoutState", "class_m_pewsey_1_1_mania_map_1_1_layout_state.html", "class_m_pewsey_1_1_mania_map_1_1_layout_state" ],

@@ -97,8 +97,9 @@ $(document).ready(function(){initNavTree('class_m_pewsey_1_1_mania_map_1_1_graph
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#properties">Properties</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">MPewsey.ManiaMap.GraphChainDecomposer Class Reference</div></div>
@@ -108,50 +109,65 @@ $(document).ready(function(){initNavTree('class_m_pewsey_1_1_mania_map_1_1_graph
 <p>A class for finding chains of a <code><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html" title="Represents a graph consisting of LayoutNode and LayoutEdge.">LayoutGraph</a></code>.  
  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">Data</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A construct for storing decomposer data.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ace87cd9c875b4c1f5cbbf8809dc7088f"><td class="memItemLeft" align="right" valign="top">List&lt; List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#ace87cd9c875b4c1f5cbbf8809dc7088f">FindChains</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html">LayoutGraph</a> graph, int maxBranchLength=-1)</td></tr>
+<tr class="memdesc:ace87cd9c875b4c1f5cbbf8809dc7088f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new list of chains for the graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#ace87cd9c875b4c1f5cbbf8809dc7088f">More...</a><br /></td></tr>
+<tr class="separator:ace87cd9c875b4c1f5cbbf8809dc7088f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a76de58ca576b28406e15240153f3cd0d"><td class="memItemLeft" align="right" valign="top">static List&lt; List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a76de58ca576b28406e15240153f3cd0d">FindChains</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html">LayoutGraph</a> graph, int maxBranchLength=-1)</td></tr>
-<tr class="memdesc:a76de58ca576b28406e15240153f3cd0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new list of chains for the graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a76de58ca576b28406e15240153f3cd0d">More...</a><br /></td></tr>
-<tr class="separator:a76de58ca576b28406e15240153f3cd0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
+Properties</h2></td></tr>
+<tr class="memitem:aae26b651c1caf4720e3405279a67e85c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#aae26b651c1caf4720e3405279a67e85c">MaxBranchLength</a><code> [getset]</code></td></tr>
+<tr class="memdesc:aae26b651c1caf4720e3405279a67e85c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum branch chain length. Branch chains exceeding this length will be split. Negative and zero values will be ignored.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#aae26b651c1caf4720e3405279a67e85c">More...</a><br /></td></tr>
+<tr class="separator:aae26b651c1caf4720e3405279a67e85c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0aeb15dbdc818c78514a2f6b5eddf89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html">LayoutGraph</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#ac0aeb15dbdc818c78514a2f6b5eddf89">Graph</a><code> [getset]</code></td></tr>
+<tr class="memdesc:ac0aeb15dbdc818c78514a2f6b5eddf89"><td class="mdescLeft">&#160;</td><td class="mdescRight">The layout graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#ac0aeb15dbdc818c78514a2f6b5eddf89">More...</a><br /></td></tr>
+<tr class="separator:ac0aeb15dbdc818c78514a2f6b5eddf89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af446e0aa96f0707dea05b331211f1150"><td class="memItemLeft" align="right" valign="top">List&lt; List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#af446e0aa96f0707dea05b331211f1150">Chains</a><code> [getset]</code></td></tr>
+<tr class="memdesc:af446e0aa96f0707dea05b331211f1150"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of chains.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#af446e0aa96f0707dea05b331211f1150">More...</a><br /></td></tr>
+<tr class="separator:af446e0aa96f0707dea05b331211f1150"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17b27df77ce61c79b858e2972e1f4fcf"><td class="memItemLeft" align="right" valign="top">HashSet&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a17b27df77ce61c79b858e2972e1f4fcf">Marked</a><code> [getset]</code></td></tr>
+<tr class="memdesc:a17b27df77ce61c79b858e2972e1f4fcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">A set of all marked nodes.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a17b27df77ce61c79b858e2972e1f4fcf">More...</a><br /></td></tr>
+<tr class="separator:a17b27df77ce61c79b858e2972e1f4fcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45f38038549cc0c91bb2f6fad346a119"><td class="memItemLeft" align="right" valign="top">LinkedList&lt; List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a45f38038549cc0c91bb2f6fad346a119">Pool</a><code> [getset]</code></td></tr>
+<tr class="memdesc:a45f38038549cc0c91bb2f6fad346a119"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pool of chains.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a45f38038549cc0c91bb2f6fad346a119">More...</a><br /></td></tr>
+<tr class="separator:a45f38038549cc0c91bb2f6fad346a119"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ac0fd81226c45223c13a782c688d43f33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#ac0fd81226c45223c13a782c688d43f33">AddCycleChains</a> ()</td></tr>
+<tr class="memdesc:ac0fd81226c45223c13a782c688d43f33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of chains for all cycles in the graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#ac0fd81226c45223c13a782c688d43f33">More...</a><br /></td></tr>
+<tr class="separator:ac0fd81226c45223c13a782c688d43f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a895089e6b69537074aaef44d73c254e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a895089e6b69537074aaef44d73c254e5">OrderEdgeNodes</a> ()</td></tr>
+<tr class="memdesc:a895089e6b69537074aaef44d73c254e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverses the edges in the chains as necessary to make the nodes in the chain sequential.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a895089e6b69537074aaef44d73c254e5">More...</a><br /></td></tr>
+<tr class="separator:a895089e6b69537074aaef44d73c254e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb98391cec399d3ca561f113a58df01c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#abb98391cec399d3ca561f113a58df01c">AddBranchChains</a> ()</td></tr>
+<tr class="memdesc:abb98391cec399d3ca561f113a58df01c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds chains for all branches of the graph to the input list.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#abb98391cec399d3ca561f113a58df01c">More...</a><br /></td></tr>
+<tr class="separator:abb98391cec399d3ca561f113a58df01c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4805a057f584b3ec9c114af2a6130d79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a4805a057f584b3ec9c114af2a6130d79">RemoveDuplicateEdges</a> ()</td></tr>
+<tr class="memdesc:a4805a057f584b3ec9c114af2a6130d79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes any duplicate edges from the list of chains. The first occurence of an edge is retained.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a4805a057f584b3ec9c114af2a6130d79">More...</a><br /></td></tr>
+<tr class="separator:a4805a057f584b3ec9c114af2a6130d79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40eb81eeb7a15406cd0744acdfd3a3ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a40eb81eeb7a15406cd0744acdfd3a3ca">SplitBrokenChains</a> ()</td></tr>
+<tr class="memdesc:a40eb81eeb7a15406cd0744acdfd3a3ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits any non sequential chains into separate chains and returns a new list.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a40eb81eeb7a15406cd0744acdfd3a3ca">More...</a><br /></td></tr>
+<tr class="separator:a40eb81eeb7a15406cd0744acdfd3a3ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9422cbd16fbd60257d41533a0c6f46d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#ae9422cbd16fbd60257d41533a0c6f46d">SplitLongChains</a> ()</td></tr>
+<tr class="memdesc:ae9422cbd16fbd60257d41533a0c6f46d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits non cycle chains which exceed the specified max length. If the max length is negative or zero, no action will be taken.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#ae9422cbd16fbd60257d41533a0c6f46d">More...</a><br /></td></tr>
+<tr class="separator:ae9422cbd16fbd60257d41533a0c6f46d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a90f4cfa42df69b61c1d936c81c41de"><td class="memItemLeft" align="right" valign="top">List&lt; List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a0a90f4cfa42df69b61c1d936c81c41de">FormSequentialChains</a> ()</td></tr>
+<tr class="memdesc:a0a90f4cfa42df69b61c1d936c81c41de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new list of sequential chains.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a0a90f4cfa42df69b61c1d936c81c41de">More...</a><br /></td></tr>
+<tr class="separator:a0a90f4cfa42df69b61c1d936c81c41de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a134655285cd5f8e5a3f3d7468760b0c7"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a134655285cd5f8e5a3f3d7468760b0c7">FindNextChain</a> ()</td></tr>
+<tr class="memdesc:a134655285cd5f8e5a3f3d7468760b0c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next chain in the sequence.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a134655285cd5f8e5a3f3d7468760b0c7">More...</a><br /></td></tr>
+<tr class="separator:a134655285cd5f8e5a3f3d7468760b0c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16cfee1a7f2e53953a220489c6cbc663"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a16cfee1a7f2e53953a220489c6cbc663">MarkNodes</a> (List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt; chain)</td></tr>
+<tr class="memdesc:a16cfee1a7f2e53953a220489c6cbc663"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the nodes in the chain to the marked set.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a16cfee1a7f2e53953a220489c6cbc663">More...</a><br /></td></tr>
+<tr class="separator:a16cfee1a7f2e53953a220489c6cbc663"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accdab101c4567f850da7ad1ee2cab8d2"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#accdab101c4567f850da7ad1ee2cab8d2">GetChainEdges</a> (List&lt; int &gt; nodes)</td></tr>
+<tr class="memdesc:accdab101c4567f850da7ad1ee2cab8d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new list of edges based on a list of nodes.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#accdab101c4567f850da7ad1ee2cab8d2">More...</a><br /></td></tr>
+<tr class="separator:accdab101c4567f850da7ad1ee2cab8d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
-<tr class="memitem:a7c1787ffa0047e1ea2c9540be18295d3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a7c1787ffa0047e1ea2c9540be18295d3">AddCycleChains</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">Data</a> data)</td></tr>
-<tr class="memdesc:a7c1787ffa0047e1ea2c9540be18295d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of chains for all cycles in the graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a7c1787ffa0047e1ea2c9540be18295d3">More...</a><br /></td></tr>
-<tr class="separator:a7c1787ffa0047e1ea2c9540be18295d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab218933471b9ebbb3fa7f76bfd486737"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#ab218933471b9ebbb3fa7f76bfd486737">OrderEdgeNodes</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">Data</a> data)</td></tr>
-<tr class="memdesc:ab218933471b9ebbb3fa7f76bfd486737"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverses the edges in the chains as necessary to make the nodes in the chain sequential.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#ab218933471b9ebbb3fa7f76bfd486737">More...</a><br /></td></tr>
-<tr class="separator:ab218933471b9ebbb3fa7f76bfd486737"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a101af02f3f8b5bf7bc9b61be96c57d2f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a101af02f3f8b5bf7bc9b61be96c57d2f">AddBranchChains</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">Data</a> data)</td></tr>
-<tr class="memdesc:a101af02f3f8b5bf7bc9b61be96c57d2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds chains for all branches of the graph to the input list.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a101af02f3f8b5bf7bc9b61be96c57d2f">More...</a><br /></td></tr>
-<tr class="separator:a101af02f3f8b5bf7bc9b61be96c57d2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32a14a0f57020f681b25ff2689e4334b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a32a14a0f57020f681b25ff2689e4334b">RemoveDuplicateEdges</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">Data</a> data)</td></tr>
-<tr class="memdesc:a32a14a0f57020f681b25ff2689e4334b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes any duplicate edges from the list of chains. The first occurence of an edge is retained.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a32a14a0f57020f681b25ff2689e4334b">More...</a><br /></td></tr>
-<tr class="separator:a32a14a0f57020f681b25ff2689e4334b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27f76bcd8b07c7a6adbd89675144004f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a27f76bcd8b07c7a6adbd89675144004f">SplitBrokenChains</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">Data</a> data)</td></tr>
-<tr class="memdesc:a27f76bcd8b07c7a6adbd89675144004f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits any non sequential chains into separate chains and returns a new list.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a27f76bcd8b07c7a6adbd89675144004f">More...</a><br /></td></tr>
-<tr class="separator:a27f76bcd8b07c7a6adbd89675144004f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad2fefa865c6bc0f21ed8d4ad43bae9a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#aad2fefa865c6bc0f21ed8d4ad43bae9a">SplitLongChains</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">Data</a> data)</td></tr>
-<tr class="memdesc:aad2fefa865c6bc0f21ed8d4ad43bae9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits non cycle chains which exceed the specified max length. If the max length is negative or zero, no action will be taken.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#aad2fefa865c6bc0f21ed8d4ad43bae9a">More...</a><br /></td></tr>
-<tr class="separator:aad2fefa865c6bc0f21ed8d4ad43bae9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad1c19e8aa7af4a1407a9832dd0166e4"><td class="memItemLeft" align="right" valign="top">static List&lt; List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#aad1c19e8aa7af4a1407a9832dd0166e4">FormSequentialChains</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">Data</a> data)</td></tr>
-<tr class="memdesc:aad1c19e8aa7af4a1407a9832dd0166e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new list of sequential chains.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#aad1c19e8aa7af4a1407a9832dd0166e4">More...</a><br /></td></tr>
-<tr class="separator:aad1c19e8aa7af4a1407a9832dd0166e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9edf0d0e995d88ec7ee82b01927d212"><td class="memItemLeft" align="right" valign="top">static List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#aa9edf0d0e995d88ec7ee82b01927d212">FindNextChain</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">Data</a> data)</td></tr>
-<tr class="memdesc:aa9edf0d0e995d88ec7ee82b01927d212"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next chain in the sequence.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#aa9edf0d0e995d88ec7ee82b01927d212">More...</a><br /></td></tr>
-<tr class="separator:aa9edf0d0e995d88ec7ee82b01927d212"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bb18f9cdf0ecad2465e020d0ed69f01"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a0bb18f9cdf0ecad2465e020d0ed69f01">MarkNodes</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">Data</a> data, List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt; chain)</td></tr>
-<tr class="memdesc:a0bb18f9cdf0ecad2465e020d0ed69f01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the nodes in the chain to the marked set.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a0bb18f9cdf0ecad2465e020d0ed69f01">More...</a><br /></td></tr>
-<tr class="separator:a0bb18f9cdf0ecad2465e020d0ed69f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade99b0855efd0f09c60089b41e6b176c"><td class="memItemLeft" align="right" valign="top">static List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#ade99b0855efd0f09c60089b41e6b176c">GetChainEdges</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">Data</a> data, List&lt; int &gt; nodes)</td></tr>
-<tr class="memdesc:ade99b0855efd0f09c60089b41e6b176c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new list of edges based on a list of nodes.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#ade99b0855efd0f09c60089b41e6b176c">More...</a><br /></td></tr>
-<tr class="separator:ade99b0855efd0f09c60089b41e6b176c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdeaa337cba503941b8d1c68639c0ea2"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#acdeaa337cba503941b8d1c68639c0ea2">ChainIsCycle</a> (List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt; chain)</td></tr>
 <tr class="memdesc:acdeaa337cba503941b8d1c68639c0ea2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the chain is a cycle.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#acdeaa337cba503941b8d1c68639c0ea2">More...</a><br /></td></tr>
 <tr class="separator:acdeaa337cba503941b8d1c68639c0ea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,8 +177,8 @@ Static Private Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00008">8</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a101af02f3f8b5bf7bc9b61be96c57d2f" name="a101af02f3f8b5bf7bc9b61be96c57d2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a101af02f3f8b5bf7bc9b61be96c57d2f">&#9670;&nbsp;</a></span>AddBranchChains()</h2>
+<a id="abb98391cec399d3ca561f113a58df01c" name="abb98391cec399d3ca561f113a58df01c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb98391cec399d3ca561f113a58df01c">&#9670;&nbsp;</a></span>AddBranchChains()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -171,34 +187,27 @@ Static Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void MPewsey.ManiaMap.GraphChainDecomposer.AddBranchChains </td>
+          <td class="memname">void MPewsey.ManiaMap.GraphChainDecomposer.AddBranchChains </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">Data</a>&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Adds chains for all branches of the graph to the input list. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>The decomposer data.</td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00123">123</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00107">107</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
 
 </div>
 </div>
-<a id="a7c1787ffa0047e1ea2c9540be18295d3" name="a7c1787ffa0047e1ea2c9540be18295d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c1787ffa0047e1ea2c9540be18295d3">&#9670;&nbsp;</a></span>AddCycleChains()</h2>
+<a id="ac0fd81226c45223c13a782c688d43f33" name="ac0fd81226c45223c13a782c688d43f33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0fd81226c45223c13a782c688d43f33">&#9670;&nbsp;</a></span>AddCycleChains()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -207,29 +216,22 @@ Static Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void MPewsey.ManiaMap.GraphChainDecomposer.AddCycleChains </td>
+          <td class="memname">void MPewsey.ManiaMap.GraphChainDecomposer.AddCycleChains </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">Data</a>&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Returns a list of chains for all cycles in the graph. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>The decomposer data.</td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00076">76</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00062">62</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
 
 </div>
 </div>
@@ -265,21 +267,18 @@ Static Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00316">316</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00293">293</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
 
 </div>
 </div>
-<a id="a76de58ca576b28406e15240153f3cd0d" name="a76de58ca576b28406e15240153f3cd0d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76de58ca576b28406e15240153f3cd0d">&#9670;&nbsp;</a></span>FindChains()</h2>
+<a id="ace87cd9c875b4c1f5cbbf8809dc7088f" name="ace87cd9c875b4c1f5cbbf8809dc7088f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace87cd9c875b4c1f5cbbf8809dc7088f">&#9670;&nbsp;</a></span>FindChains()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static List&lt; List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt; &gt; MPewsey.ManiaMap.GraphChainDecomposer.FindChains </td>
+          <td class="memname">List&lt; List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt; &gt; MPewsey.ManiaMap.GraphChainDecomposer.FindChains </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html">LayoutGraph</a>&#160;</td>
           <td class="paramname"><em>graph</em>, </td>
@@ -296,11 +295,6 @@ Static Private Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Returns a new list of chains for the graph. </p>
@@ -312,12 +306,12 @@ Static Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00058">58</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00041">41</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
 
 </div>
 </div>
-<a id="aa9edf0d0e995d88ec7ee82b01927d212" name="aa9edf0d0e995d88ec7ee82b01927d212"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9edf0d0e995d88ec7ee82b01927d212">&#9670;&nbsp;</a></span>FindNextChain()</h2>
+<a id="a134655285cd5f8e5a3f3d7468760b0c7" name="a134655285cd5f8e5a3f3d7468760b0c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a134655285cd5f8e5a3f3d7468760b0c7">&#9670;&nbsp;</a></span>FindNextChain()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -326,34 +320,27 @@ Static Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt; MPewsey.ManiaMap.GraphChainDecomposer.FindNextChain </td>
+          <td class="memname">List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt; MPewsey.ManiaMap.GraphChainDecomposer.FindNextChain </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">Data</a>&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Returns the next chain in the sequence. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>The decomposer data.</td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00238">238</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00217">217</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
 
 </div>
 </div>
-<a id="aad1c19e8aa7af4a1407a9832dd0166e4" name="aad1c19e8aa7af4a1407a9832dd0166e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad1c19e8aa7af4a1407a9832dd0166e4">&#9670;&nbsp;</a></span>FormSequentialChains()</h2>
+<a id="a0a90f4cfa42df69b61c1d936c81c41de" name="a0a90f4cfa42df69b61c1d936c81c41de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a90f4cfa42df69b61c1d936c81c41de">&#9670;&nbsp;</a></span>FormSequentialChains()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -362,34 +349,27 @@ Static Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static List&lt; List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt; &gt; MPewsey.ManiaMap.GraphChainDecomposer.FormSequentialChains </td>
+          <td class="memname">List&lt; List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt; &gt; MPewsey.ManiaMap.GraphChainDecomposer.FormSequentialChains </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">Data</a>&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Returns a new list of sequential chains. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>The decomposer data.</td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00207">207</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00187">187</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
 
 </div>
 </div>
-<a id="ade99b0855efd0f09c60089b41e6b176c" name="ade99b0855efd0f09c60089b41e6b176c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade99b0855efd0f09c60089b41e6b176c">&#9670;&nbsp;</a></span>GetChainEdges()</h2>
+<a id="accdab101c4567f850da7ad1ee2cab8d2" name="accdab101c4567f850da7ad1ee2cab8d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accdab101c4567f850da7ad1ee2cab8d2">&#9670;&nbsp;</a></span>GetChainEdges()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -398,26 +378,16 @@ Static Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt; MPewsey.ManiaMap.GraphChainDecomposer.GetChainEdges </td>
+          <td class="memname">List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt; MPewsey.ManiaMap.GraphChainDecomposer.GetChainEdges </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">Data</a>&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">List&lt; int &gt;&#160;</td>
-          <td class="paramname"><em>nodes</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>nodes</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -425,18 +395,17 @@ Static Private Member Functions</h2></td></tr>
 <p>Returns a new list of edges based on a list of nodes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>The decomposer data.</td></tr>
     <tr><td class="paramname">nodes</td><td>A list of node ID's.</td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00300">300</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00277">277</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
 
 </div>
 </div>
-<a id="a0bb18f9cdf0ecad2465e020d0ed69f01" name="a0bb18f9cdf0ecad2465e020d0ed69f01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0bb18f9cdf0ecad2465e020d0ed69f01">&#9670;&nbsp;</a></span>MarkNodes()</h2>
+<a id="a16cfee1a7f2e53953a220489c6cbc663" name="a16cfee1a7f2e53953a220489c6cbc663"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16cfee1a7f2e53953a220489c6cbc663">&#9670;&nbsp;</a></span>MarkNodes()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -445,26 +414,16 @@ Static Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void MPewsey.ManiaMap.GraphChainDecomposer.MarkNodes </td>
+          <td class="memname">void MPewsey.ManiaMap.GraphChainDecomposer.MarkNodes </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">Data</a>&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt;&#160;</td>
-          <td class="paramname"><em>chain</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>chain</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -472,18 +431,17 @@ Static Private Member Functions</h2></td></tr>
 <p>Adds the nodes in the chain to the marked set. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>The decomposer data.</td></tr>
     <tr><td class="paramname">chain</td><td>A list of chain edges.</td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00286">286</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00264">264</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
 
 </div>
 </div>
-<a id="ab218933471b9ebbb3fa7f76bfd486737" name="ab218933471b9ebbb3fa7f76bfd486737"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab218933471b9ebbb3fa7f76bfd486737">&#9670;&nbsp;</a></span>OrderEdgeNodes()</h2>
+<a id="a895089e6b69537074aaef44d73c254e5" name="a895089e6b69537074aaef44d73c254e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a895089e6b69537074aaef44d73c254e5">&#9670;&nbsp;</a></span>OrderEdgeNodes()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -492,34 +450,27 @@ Static Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void MPewsey.ManiaMap.GraphChainDecomposer.OrderEdgeNodes </td>
+          <td class="memname">void MPewsey.ManiaMap.GraphChainDecomposer.OrderEdgeNodes </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">Data</a>&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Reverses the edges in the chains as necessary to make the nodes in the chain sequential. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>The decomposer data.</td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00093">93</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00078">78</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
 
 </div>
 </div>
-<a id="a32a14a0f57020f681b25ff2689e4334b" name="a32a14a0f57020f681b25ff2689e4334b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32a14a0f57020f681b25ff2689e4334b">&#9670;&nbsp;</a></span>RemoveDuplicateEdges()</h2>
+<a id="a4805a057f584b3ec9c114af2a6130d79" name="a4805a057f584b3ec9c114af2a6130d79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4805a057f584b3ec9c114af2a6130d79">&#9670;&nbsp;</a></span>RemoveDuplicateEdges()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -528,34 +479,27 @@ Static Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void MPewsey.ManiaMap.GraphChainDecomposer.RemoveDuplicateEdges </td>
+          <td class="memname">void MPewsey.ManiaMap.GraphChainDecomposer.RemoveDuplicateEdges </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">Data</a>&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Removes any duplicate edges from the list of chains. The first occurence of an edge is retained. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>The decomposer data.</td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00138">138</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00121">121</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
 
 </div>
 </div>
-<a id="a27f76bcd8b07c7a6adbd89675144004f" name="a27f76bcd8b07c7a6adbd89675144004f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27f76bcd8b07c7a6adbd89675144004f">&#9670;&nbsp;</a></span>SplitBrokenChains()</h2>
+<a id="a40eb81eeb7a15406cd0744acdfd3a3ca" name="a40eb81eeb7a15406cd0744acdfd3a3ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40eb81eeb7a15406cd0744acdfd3a3ca">&#9670;&nbsp;</a></span>SplitBrokenChains()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -564,34 +508,27 @@ Static Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void MPewsey.ManiaMap.GraphChainDecomposer.SplitBrokenChains </td>
+          <td class="memname">void MPewsey.ManiaMap.GraphChainDecomposer.SplitBrokenChains </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">Data</a>&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Splits any non sequential chains into separate chains and returns a new list. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>The decomposer data.</td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00160">160</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00142">142</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
 
 </div>
 </div>
-<a id="aad2fefa865c6bc0f21ed8d4ad43bae9a" name="aad2fefa865c6bc0f21ed8d4ad43bae9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad2fefa865c6bc0f21ed8d4ad43bae9a">&#9670;&nbsp;</a></span>SplitLongChains()</h2>
+<a id="ae9422cbd16fbd60257d41533a0c6f46d" name="ae9422cbd16fbd60257d41533a0c6f46d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9422cbd16fbd60257d41533a0c6f46d">&#9670;&nbsp;</a></span>SplitLongChains()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -600,29 +537,153 @@ Static Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void MPewsey.ManiaMap.GraphChainDecomposer.SplitLongChains </td>
+          <td class="memname">void MPewsey.ManiaMap.GraphChainDecomposer.SplitLongChains </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">Data</a>&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Splits non cycle chains which exceed the specified max length. If the max length is negative or zero, no action will be taken. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>The decomposer data.</td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00186">186</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00167">167</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Property Documentation</h2>
+<a id="af446e0aa96f0707dea05b331211f1150" name="af446e0aa96f0707dea05b331211f1150"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af446e0aa96f0707dea05b331211f1150">&#9670;&nbsp;</a></span>Chains</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;List&lt;<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a>&gt; &gt; MPewsey.ManiaMap.GraphChainDecomposer.Chains</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A list of chains. </p>
+
+<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00024">24</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
+
+</div>
+</div>
+<a id="ac0aeb15dbdc818c78514a2f6b5eddf89" name="ac0aeb15dbdc818c78514a2f6b5eddf89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0aeb15dbdc818c78514a2f6b5eddf89">&#9670;&nbsp;</a></span>Graph</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html">LayoutGraph</a> MPewsey.ManiaMap.GraphChainDecomposer.Graph</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The layout graph. </p>
+
+<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00019">19</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
+
+</div>
+</div>
+<a id="a17b27df77ce61c79b858e2972e1f4fcf" name="a17b27df77ce61c79b858e2972e1f4fcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17b27df77ce61c79b858e2972e1f4fcf">&#9670;&nbsp;</a></span>Marked</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">HashSet&lt;int&gt; MPewsey.ManiaMap.GraphChainDecomposer.Marked</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A set of all marked nodes. </p>
+
+<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00029">29</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
+
+</div>
+</div>
+<a id="aae26b651c1caf4720e3405279a67e85c" name="aae26b651c1caf4720e3405279a67e85c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae26b651c1caf4720e3405279a67e85c">&#9670;&nbsp;</a></span>MaxBranchLength</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MPewsey.ManiaMap.GraphChainDecomposer.MaxBranchLength</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The maximum branch chain length. Branch chains exceeding this length will be split. Negative and zero values will be ignored. </p>
+
+<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00014">14</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
+
+</div>
+</div>
+<a id="a45f38038549cc0c91bb2f6fad346a119" name="a45f38038549cc0c91bb2f6fad346a119"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45f38038549cc0c91bb2f6fad346a119">&#9670;&nbsp;</a></span>Pool</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">LinkedList&lt;List&lt;<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a>&gt; &gt; MPewsey.ManiaMap.GraphChainDecomposer.Pool</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A pool of chains. </p>
+
+<p class="definition">Definition at line <a class="el" href="_graph_chain_decomposer_8cs_source.html#l00034">34</a> of file <a class="el" href="_graph_chain_decomposer_8cs_source.html">GraphChainDecomposer.cs</a>.</p>
 
 </div>
 </div>

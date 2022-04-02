@@ -11,7 +11,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ManiaMap: Member List</title>
+<title>ManiaMap: /github/workspace/src/ManiaMap/IGenerationStep.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,7 +77,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('_i_generation_step_8cs_source.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -96,23 +96,27 @@ $(document).ready(function(){initNavTree('class_m_pewsey_1_1_mania_map_1_1_graph
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">MPewsey.ManiaMap.GraphChainDecomposer.Data Member List</div></div>
+  <div class="headertitle"><div class="title">IGenerationStep.cs</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>This is the complete list of members for <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">MPewsey.ManiaMap.GraphChainDecomposer.Data</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html#aa227b5afcdd48d9644cab19cb882de88">Chains</a></td><td class="entry"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">MPewsey.ManiaMap.GraphChainDecomposer.Data</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html#ad74b043f7e6559bbcfba587381c0e51e">Data</a>(LayoutGraph graph, int maxBranchLength)</td><td class="entry"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">MPewsey.ManiaMap.GraphChainDecomposer.Data</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html#a36dbb4e38b6f72076e4731b6e610d03e">Graph</a></td><td class="entry"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">MPewsey.ManiaMap.GraphChainDecomposer.Data</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html#aea794bbabc96389b58118b70ca8be477">Marked</a></td><td class="entry"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">MPewsey.ManiaMap.GraphChainDecomposer.Data</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html#a9cb6632bdc42352c35e8cb08dc959638">MaxBranchLength</a></td><td class="entry"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">MPewsey.ManiaMap.GraphChainDecomposer.Data</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html#ac00d2862ccdba748ae5e6750606692f9">Pool</a></td><td class="entry"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer_1_1_data.html">MPewsey.ManiaMap.GraphChainDecomposer.Data</a></td><td class="entry"></td></tr>
-</table></div><!-- contents -->
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using</span> System.Collections.Generic;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_m_pewsey_1_1_mania_map.html">MPewsey.ManiaMap</a></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>{</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html">    5</a></span>    <span class="keyword">public</span> <span class="keyword">interface </span><a class="code hl_interface" href="interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html">IGenerationStep</a></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html#a994f629ae243cdd0432a71a4e73eaf66">   13</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html#a994f629ae243cdd0432a71a4e73eaf66">Generate</a>(Dictionary&lt;string, object&gt; args, Dictionary&lt;string, object&gt; artifacts);</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    }</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>}</div>
+<div class="ttc" id="ainterface_m_pewsey_1_1_mania_map_1_1_i_generation_step_html"><div class="ttname"><a href="interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html">MPewsey.ManiaMap.IGenerationStep</a></div><div class="ttdef"><b>Definition:</b> <a href="_i_generation_step_8cs_source.html#l00005">IGenerationStep.cs:6</a></div></div>
+<div class="ttc" id="ainterface_m_pewsey_1_1_mania_map_1_1_i_generation_step_html_a994f629ae243cdd0432a71a4e73eaf66"><div class="ttname"><a href="interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html#a994f629ae243cdd0432a71a4e73eaf66">MPewsey.ManiaMap.IGenerationStep.Generate</a></div><div class="ttdeci">void Generate(Dictionary&lt; string, object &gt; args, Dictionary&lt; string, object &gt; artifacts)</div><div class="ttdoc">Performs the generation operations for this step. Artifacts should be written to the input dictionary...</div></div>
+<div class="ttc" id="anamespace_m_pewsey_1_1_mania_map_html"><div class="ttname"><a href="namespace_m_pewsey_1_1_mania_map.html">MPewsey.ManiaMap</a></div><div class="ttdef"><b>Definition:</b> <a href="_array2_d_8cs_source.html#l00005">Array2D.cs:6</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_c3494bb25e2299bf4310ea0990001e7f.html">ManiaMap</a></li><li class="navelem"><b>IGenerationStep.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2 </li>
   </ul>
 </div>

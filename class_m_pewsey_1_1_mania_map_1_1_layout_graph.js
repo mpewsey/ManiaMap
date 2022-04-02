@@ -11,7 +11,6 @@ var class_m_pewsey_1_1_mania_map_1_1_layout_graph =
     [ "GetNeighbors", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a5b83ea4b4abee8eb69da202dd7fe89ed", null ],
     [ "GetNode", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a60f5f3e6d7254be2bc8c8aa2427bfc10", null ],
     [ "GetNodes", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a6f18f5fb2e2bc95d408a85dcfde4df32", null ],
-    [ "MaxNeighborNode", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#ae13904e47dd2663171684b4daea24249", null ],
     [ "RemoveEdge", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#ad186c306c9bd0326a339bd3436c4280c", null ],
     [ "RemoveNode", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a4adc9a6dfa507f23997ba6d918c06e6b", null ],
     [ "TryGetEdge", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a6ca8f3d1e74355a916a14dcec44e53ff", null ],

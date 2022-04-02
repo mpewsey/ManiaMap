@@ -111,11 +111,13 @@ Features</h1>
 <li>Graph-based procedural generation.</li>
 <li>Specification of room connection constraints by defining door directions and matching door codes.</li>
 <li>Rendering of generated layouts to image files using built-in or custom map tiles.</li>
+<li>Procedural distribution of collectables throughout layout.</li>
 <li>Supports .NET Standard 2.0.</li>
 <li>Works with Windows, Mac, and Linux.</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md5"></a>
-Usage</h1>
+Layout Generator Example</h1>
+<p >The following subsections outline how to use the <code>LayoutGenerator</code> class to generate a room layout.</p>
 <h2><a class="anchor" id="autotoc_md6"></a>
 Step 1: Create Room Templates</h2>
 <p >The generator creates rooms by pulling from user-defined room templates. Room templates consist of a 2D array of cells, that may be empty (a null value) or filled. Each cell includes the possible door connections (north, south, east, west, top, and/or bottom) that can be made from that cell to other rooms. Furthermore, each door includes a door code, which requires a match in another template for a connection to be made, as well as a traversal type, such the door being one-way or two-way.</p>
@@ -170,14 +172,48 @@ Step 4: Run the Layout Generator</h2>
 <p >To create repeatable layouts, a random seed is used by the layout generator. To generate a room layout, simply select a seed and pass your layout graph and room template groups to the <code>LayoutGenerator</code>, as shown below. In the example, a map of the layout is also rendered and saved using the <code>LayoutMap</code> class. For this instance, the default built-in tiles are used. However, custom tiles can also be specified by the user.</p>
 <div class="fragment"><div class="line">{LayoutGenerator.cs} </div>
 <div class="line">var seed = new RandomSeed(12345);</div>
-<div class="line">var generator = new LayoutGenerator(graph, templateGroups);</div>
-<div class="line">var layout = generator.GenerateLayout(id: 1, seed);</div>
+<div class="line">var generator = new LayoutGenerator();</div>
+<div class="line">var layout = generator.Generate(layoutId: 1, graph, templateGroups, seed);</div>
 <div class="line"> </div>
 <div class="line">// Render map and save it to file</div>
 <div class="line">var map = new LayoutMap(layout);</div>
 <div class="line">map.SaveImage(&quot;Map.png&quot;);</div>
-</div><!-- fragment --><p ><img src="https://user-images.githubusercontent.com/23442063/153345310-25def719-c5a7-43c5-95ca-9e2e09493e54.png" alt="Map" class="inline"/> </p>
-</div></div><!-- PageDoc -->
+</div><!-- fragment --><p ><img src="https://user-images.githubusercontent.com/23442063/153345310-25def719-c5a7-43c5-95ca-9e2e09493e54.png" alt="Map" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md10"></a>
+Collectable Generator Example</h1>
+<div class="fragment"><div class="line">{CollectableGenerator.cs} </div>
+<div class="line">var seed = new RandomSeed(12345);</div>
+<div class="line">var generator = new CollectableGenerator();</div>
+<div class="line"> </div>
+<div class="line">// Add collectable ID&#39;s to groups. Multiple ID&#39;s may be added for the same item.</div>
+<div class="line">// These groups will also need to be assigned to some room template cells.</div>
+<div class="line">var collectableGroups = new CollectableGroups();</div>
+<div class="line">collectableGroups.Add(&quot;Group1&quot;, 1, 1, 1, 2, 3, 4, 5);</div>
+<div class="line">collectableGroups.Add(&quot;Group2&quot;, 6, 7, 7, 8, 8, 9, 10);</div>
+<div class="line"> </div>
+<div class="line">generator.Generate(layout, collectableGroups, seed);</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md11"></a>
+Generator Pipeline Example</h1>
+<div class="fragment"><div class="line">{GeneratorPipeline.cs} </div>
+<div class="line">// Create a dictionary of arguments to be passed to each pipeline step.</div>
+<div class="line">var args = new Dictionary&lt;string, object&gt;</div>
+<div class="line">{</div>
+<div class="line">    { &quot;LayoutId&quot;, 1 },</div>
+<div class="line">    { &quot;LayoutGraph&quot;, graph },</div>
+<div class="line">    { &quot;TemplateGroups&quot;, templateGroups },</div>
+<div class="line">    { &quot;CollectableGroups&quot;, collectableGroups },</div>
+<div class="line">    { &quot;RandomSeed&quot;, seed },</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">// Use the default pipeline</div>
+<div class="line">var pipeline = GenerationPipeline.CreateDefaultPipeline();</div>
+<div class="line"> </div>
+<div class="line">// Or create your own</div>
+<div class="line">pipeline = new GenerationPipeline(new LayoutGenerator(), new CollectableGenerator());</div>
+<div class="line"> </div>
+<div class="line">var results = pipeline.Generate(args);</div>
+<div class="line">var layout = (Layout)results[&quot;Layout&quot;];</div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

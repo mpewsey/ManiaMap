@@ -136,7 +136,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:af85a72781afd8b0e851f03e2e93f8f30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the edge with the specified nodes. The order of the input nodes does not matter.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#af85a72781afd8b0e851f03e2e93f8f30">More...</a><br /></td></tr>
 <tr class="separator:af85a72781afd8b0e851f03e2e93f8f30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f18f5fb2e2bc95d408a85dcfde4df32"><td class="memItemLeft" align="right" valign="top">IEnumerable&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_node.html">LayoutNode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a6f18f5fb2e2bc95d408a85dcfde4df32">GetNodes</a> ()</td></tr>
-<tr class="memdesc:a6f18f5fb2e2bc95d408a85dcfde4df32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an enumerable of all nodes in the graph. The nodes are sorted by ID.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a6f18f5fb2e2bc95d408a85dcfde4df32">More...</a><br /></td></tr>
+<tr class="memdesc:a6f18f5fb2e2bc95d408a85dcfde4df32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an enumerable of all nodes in the graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a6f18f5fb2e2bc95d408a85dcfde4df32">More...</a><br /></td></tr>
 <tr class="separator:a6f18f5fb2e2bc95d408a85dcfde4df32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa69a3fea4c391295b539833bce6d85e"><td class="memItemLeft" align="right" valign="top">IEnumerable&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aaa69a3fea4c391295b539833bce6d85e">GetEdges</a> ()</td></tr>
 <tr class="memdesc:aaa69a3fea4c391295b539833bce6d85e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an enumerable of all edges in the graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aaa69a3fea4c391295b539833bce6d85e">More...</a><br /></td></tr>
@@ -144,9 +144,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5b83ea4b4abee8eb69da202dd7fe89ed"><td class="memItemLeft" align="right" valign="top">IReadOnlyList&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a5b83ea4b4abee8eb69da202dd7fe89ed">GetNeighbors</a> (int id)</td></tr>
 <tr class="memdesc:a5b83ea4b4abee8eb69da202dd7fe89ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an enumerable of all neighbors for the specified node.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a5b83ea4b4abee8eb69da202dd7fe89ed">More...</a><br /></td></tr>
 <tr class="separator:a5b83ea4b4abee8eb69da202dd7fe89ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae13904e47dd2663171684b4daea24249"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#ae13904e47dd2663171684b4daea24249">MaxNeighborNode</a> ()</td></tr>
-<tr class="memdesc:ae13904e47dd2663171684b4daea24249"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the node ID with the maximum number of neighbors.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#ae13904e47dd2663171684b4daea24249">More...</a><br /></td></tr>
-<tr class="separator:ae13904e47dd2663171684b4daea24249"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6fc9fea13ea812c3b37a8c2b49f5ce2"><td class="memItemLeft" align="right" valign="top">List&lt; List&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aa6fc9fea13ea812c3b37a8c2b49f5ce2">FindCycles</a> ()</td></tr>
 <tr class="memdesc:aa6fc9fea13ea812c3b37a8c2b49f5ce2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of cycles in the graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aa6fc9fea13ea812c3b37a8c2b49f5ce2">More...</a><br /></td></tr>
 <tr class="separator:aa6fc9fea13ea812c3b37a8c2b49f5ce2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -184,7 +181,7 @@ Properties</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Represents a graph consisting of <code><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_node.html" title="A node in a LayoutGraph.">LayoutNode</a></code> and <code><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html" title="Represents an edge connecting two nodes of a LayoutGraph.">LayoutEdge</a></code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00012">12</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00010">10</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a192029faed6fe982af521bdc4c7acad7" name="a192029faed6fe982af521bdc4c7acad7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a192029faed6fe982af521bdc4c7acad7">&#9670;&nbsp;</a></span>LayoutGraph()</h2>
@@ -221,7 +218,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00059">59</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00057">57</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>
@@ -261,7 +258,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00098">98</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00096">96</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>
@@ -289,7 +286,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00075">75</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00073">73</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>
@@ -310,7 +307,7 @@ Properties</h2></td></tr>
 
 <p>Returns a list of branches in the graph. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00254">254</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00226">226</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>
@@ -338,7 +335,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00263">263</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00235">235</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>
@@ -359,7 +356,7 @@ Properties</h2></td></tr>
 
 <p>Returns a list of cycles in the graph. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00246">246</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00218">218</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>
@@ -398,7 +395,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00185">185</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00183">183</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>
@@ -419,7 +416,7 @@ Properties</h2></td></tr>
 
 <p>Returns an enumerable of all edges in the graph. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00203">203</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00201">201</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>
@@ -447,7 +444,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00212">212</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00210">210</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>
@@ -475,7 +472,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00161">161</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00159">159</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>
@@ -494,36 +491,9 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns an enumerable of all nodes in the graph. The nodes are sorted by ID. </p>
+<p>Returns an enumerable of all nodes in the graph. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00195">195</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
-
-</div>
-</div>
-<a id="ae13904e47dd2663171684b4daea24249" name="ae13904e47dd2663171684b4daea24249"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae13904e47dd2663171684b4daea24249">&#9670;&nbsp;</a></span>MaxNeighborNode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int MPewsey.ManiaMap.LayoutGraph.MaxNeighborNode </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the node ID with the maximum number of neighbors. </p>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">Exception</td><td>Raised if the graph does not contain any nodes.</td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00221">221</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00193">193</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>
@@ -562,7 +532,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00148">148</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00146">146</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>
@@ -590,7 +560,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00125">125</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00123">123</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>
@@ -609,7 +579,7 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00065">65</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00063">63</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>
@@ -655,7 +625,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00173">173</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00171">171</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>
@@ -682,7 +652,7 @@ Properties</h2></td></tr>
 
 <p>The number of edges in the graph. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00052">52</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00050">50</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>
@@ -708,7 +678,7 @@ Properties</h2></td></tr>
 
 <p>A dictionary of nodes by from and to node ID's. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00036">36</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00034">34</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>
@@ -734,7 +704,7 @@ Properties</h2></td></tr>
 
 <p>The graph ID. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00018">18</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00016">16</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>
@@ -760,7 +730,7 @@ Properties</h2></td></tr>
 
 <p>The graph name. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00024">24</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00022">22</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>
@@ -786,7 +756,7 @@ Properties</h2></td></tr>
 
 <p>A dictionary of neighboring nodes by node ID. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00042">42</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00040">40</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>
@@ -812,7 +782,7 @@ Properties</h2></td></tr>
 
 <p>The number of nodes in the graph. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00047">47</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00045">45</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>
@@ -838,7 +808,7 @@ Properties</h2></td></tr>
 
 <p>A dictionary of nodes by ID. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00030">30</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00028">28</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>

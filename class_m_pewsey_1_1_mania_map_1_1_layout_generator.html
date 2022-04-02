@@ -107,29 +107,44 @@ $(document).ready(function(){initNavTree('class_m_pewsey_1_1_mania_map_1_1_layou
 
 <p>A class for generator room <code><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html" title="Represents a room layout consisting of Room and DoorConnection.">Layout</a></code> based on various <code><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html" title="Contains information for the geometry and properties of a Room in a Layout.">RoomTemplate</a></code> and a <code><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html" title="Represents a graph consisting of LayoutNode and LayoutEdge.">LayoutGraph</a></code>.  
  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#details">More...</a></p>
+<div class="dynheader">
+Inheritance diagram for MPewsey.ManiaMap.LayoutGenerator:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_m_pewsey_1_1_mania_map_1_1_layout_generator.png" usemap="#MPewsey.ManiaMap.LayoutGenerator_map" alt=""/>
+  <map id="MPewsey.ManiaMap.LayoutGenerator_map" name="MPewsey.ManiaMap.LayoutGenerator_map">
+<area href="interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html" alt="MPewsey.ManiaMap.IGenerationStep" shape="rect" coords="0,0,230,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a465162ecce3ec47e59477a62c8f42039"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a465162ecce3ec47e59477a62c8f42039">LayoutGenerator</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html">LayoutGraph</a> graph, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_template_groups.html">TemplateGroups</a> templateGroups, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator_settings.html">LayoutGeneratorSettings</a> settings=null)</td></tr>
-<tr class="memdesc:a465162ecce3ec47e59477a62c8f42039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a layout generator.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a465162ecce3ec47e59477a62c8f42039">More...</a><br /></td></tr>
-<tr class="separator:a465162ecce3ec47e59477a62c8f42039"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad66a4eb35d3428f86e1ead83146fe88a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#ad66a4eb35d3428f86e1ead83146fe88a">LayoutGenerator</a> (int maxRebases=100, int maxBranchLength=-1)</td></tr>
+<tr class="memdesc:ad66a4eb35d3428f86e1ead83146fe88a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the generator.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#ad66a4eb35d3428f86e1ead83146fe88a">More...</a><br /></td></tr>
+<tr class="separator:ad66a4eb35d3428f86e1ead83146fe88a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90499d6c6dcdab2f303667e8f6e52339"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a90499d6c6dcdab2f303667e8f6e52339">ToString</a> ()</td></tr>
 <tr class="separator:a90499d6c6dcdab2f303667e8f6e52339"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7ea35fef203d9ab69351cb3ce2f1ea5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html">Layout</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#ab7ea35fef203d9ab69351cb3ce2f1ea5">GenerateLayout</a> (int id, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html">RandomSeed</a> random)</td></tr>
-<tr class="memdesc:ab7ea35fef203d9ab69351cb3ce2f1ea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates and returns a new layout.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#ab7ea35fef203d9ab69351cb3ce2f1ea5">More...</a><br /></td></tr>
-<tr class="separator:ab7ea35fef203d9ab69351cb3ce2f1ea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af04b3869bcfeecdf9cbcc643cd740f0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#af04b3869bcfeecdf9cbcc643cd740f0c">Generate</a> (Dictionary&lt; string, object &gt; args, Dictionary&lt; string, object &gt; artifacts)</td></tr>
+<tr class="memdesc:af04b3869bcfeecdf9cbcc643cd740f0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a new layout and adds it to the artifacts.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#af04b3869bcfeecdf9cbcc643cd740f0c">More...</a><br /></td></tr>
+<tr class="separator:af04b3869bcfeecdf9cbcc643cd740f0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace486e51bab95b498649cfd571529572"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html">Layout</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#ace486e51bab95b498649cfd571529572">Generate</a> (int layoutId, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html">LayoutGraph</a> graph, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_template_groups.html">TemplateGroups</a> templateGroups, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html">RandomSeed</a> randomSeed)</td></tr>
+<tr class="memdesc:ace486e51bab95b498649cfd571529572"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates and returns a new layout.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#ace486e51bab95b498649cfd571529572">More...</a><br /></td></tr>
+<tr class="separator:ace486e51bab95b498649cfd571529572"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
+<tr class="memitem:a24be882ab3e6c5ee7bffc0bfa128600a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a24be882ab3e6c5ee7bffc0bfa128600a">MaxRebases</a><code> [getset]</code></td></tr>
+<tr class="memdesc:a24be882ab3e6c5ee7bffc0bfa128600a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum number of times that a sub layout can be used as a base before it is discarded.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a24be882ab3e6c5ee7bffc0bfa128600a">More...</a><br /></td></tr>
+<tr class="separator:a24be882ab3e6c5ee7bffc0bfa128600a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5f9c9629326de0aac1566d13cb7a47c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#aa5f9c9629326de0aac1566d13cb7a47c">MaxBranchLength</a><code> [getset]</code></td></tr>
+<tr class="memdesc:aa5f9c9629326de0aac1566d13cb7a47c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum branch chain length. Branch chains exceeding this length will be split. Negative and zero values will be ignored.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#aa5f9c9629326de0aac1566d13cb7a47c">More...</a><br /></td></tr>
+<tr class="separator:aa5f9c9629326de0aac1566d13cb7a47c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e3c88e6fed182d545d37b0d02d4da40"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html">LayoutGraph</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a6e3c88e6fed182d545d37b0d02d4da40">Graph</a><code> [getset]</code></td></tr>
 <tr class="memdesc:a6e3c88e6fed182d545d37b0d02d4da40"><td class="mdescLeft">&#160;</td><td class="mdescRight">The layout graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a6e3c88e6fed182d545d37b0d02d4da40">More...</a><br /></td></tr>
 <tr class="separator:a6e3c88e6fed182d545d37b0d02d4da40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ee83e6ced88908b900938a8bdf8b648"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_template_groups.html">TemplateGroups</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a9ee83e6ced88908b900938a8bdf8b648">TemplateGroups</a><code> [getset]</code></td></tr>
 <tr class="memdesc:a9ee83e6ced88908b900938a8bdf8b648"><td class="mdescLeft">&#160;</td><td class="mdescRight">The template groups.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a9ee83e6ced88908b900938a8bdf8b648">More...</a><br /></td></tr>
 <tr class="separator:a9ee83e6ced88908b900938a8bdf8b648"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3026023297d498a3b76ced1b17922fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator_settings.html">LayoutGeneratorSettings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#aa3026023297d498a3b76ced1b17922fc">Settings</a><code> [getset]</code></td></tr>
-<tr class="memdesc:aa3026023297d498a3b76ced1b17922fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The generator settings.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#aa3026023297d498a3b76ced1b17922fc">More...</a><br /></td></tr>
-<tr class="separator:aa3026023297d498a3b76ced1b17922fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf7c4f21a0336831d908a815693965cd"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_template_pair.html">TemplatePair</a>, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_configuration_space.html">ConfigurationSpace</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#abf7c4f21a0336831d908a815693965cd">ConfigurationSpaces</a><code> [getset]</code></td></tr>
 <tr class="memdesc:abf7c4f21a0336831d908a815693965cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">A dictionary of configuration spaces by template pair.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#abf7c4f21a0336831d908a815693965cd">More...</a><br /></td></tr>
 <tr class="separator:abf7c4f21a0336831d908a815693965cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -184,8 +199,8 @@ References</h2>
 
 <p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00015">15</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a465162ecce3ec47e59477a62c8f42039" name="a465162ecce3ec47e59477a62c8f42039"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a465162ecce3ec47e59477a62c8f42039">&#9670;&nbsp;</a></span>LayoutGenerator()</h2>
+<a id="ad66a4eb35d3428f86e1ead83146fe88a" name="ad66a4eb35d3428f86e1ead83146fe88a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad66a4eb35d3428f86e1ead83146fe88a">&#9670;&nbsp;</a></span>LayoutGenerator()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -193,20 +208,14 @@ References</h2>
         <tr>
           <td class="memname">MPewsey.ManiaMap.LayoutGenerator.LayoutGenerator </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html">LayoutGraph</a>&#160;</td>
-          <td class="paramname"><em>graph</em>, </td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxRebases</em> = <code>100</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_template_groups.html">TemplateGroups</a>&#160;</td>
-          <td class="paramname"><em>templateGroups</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator_settings.html">LayoutGeneratorSettings</a>&#160;</td>
-          <td class="paramname"><em>settings</em> = <code>null</code>&#160;</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxBranchLength</em> = <code>-1</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -216,17 +225,16 @@ References</h2>
       </table>
 </div><div class="memdoc">
 
-<p>Initializes a layout generator. </p>
+<p>Initializes the generator. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">graph</td><td>The layout graph.</td></tr>
-    <tr><td class="paramname">templateGroups</td><td>The template groups.</td></tr>
-    <tr><td class="paramname">settings</td><td>The generator settings.</td></tr>
+    <tr><td class="paramname">maxRebases</td><td>The maximum number of times that a sub layout can be used as a base before it is discarded.</td></tr>
+    <tr><td class="paramname">maxBranchLength</td><td>The maximum branch chain length. Branch chains exceeding this length will be split. Negative and zero values will be ignored.</td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00053">53</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00058">58</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -263,7 +271,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00138">138</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00169">169</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -317,7 +325,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00363">363</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00394">394</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -353,7 +361,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00232">232</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00263">263</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -414,7 +422,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00252">252</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00283">283</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -456,7 +464,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00205">205</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00236">236</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -503,27 +511,89 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00165">165</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00196">196</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
-<a id="ab7ea35fef203d9ab69351cb3ce2f1ea5" name="ab7ea35fef203d9ab69351cb3ce2f1ea5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7ea35fef203d9ab69351cb3ce2f1ea5">&#9670;&nbsp;</a></span>GenerateLayout()</h2>
+<a id="af04b3869bcfeecdf9cbcc643cd740f0c" name="af04b3869bcfeecdf9cbcc643cd740f0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af04b3869bcfeecdf9cbcc643cd740f0c">&#9670;&nbsp;</a></span>Generate() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html">Layout</a> MPewsey.ManiaMap.LayoutGenerator.GenerateLayout </td>
+          <td class="memname">void MPewsey.ManiaMap.LayoutGenerator.Generate </td>
+          <td>(</td>
+          <td class="paramtype">Dictionary&lt; string, object &gt;&#160;</td>
+          <td class="paramname"><em>args</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Dictionary&lt; string, object &gt;&#160;</td>
+          <td class="paramname"><em>artifacts</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates a new layout and adds it to the artifacts. </p>
+<p >The following arguments are required:</p><ul>
+<li>LayoutId - The layout ID.</li>
+<li><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html" title="Represents a graph consisting of LayoutNode and LayoutEdge.">LayoutGraph</a> - The layout graph.</li>
+<li><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_template_groups.html" title="A class for creating groups of RoomTemplate.">TemplateGroups</a> - The template groups.</li>
+<li><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html" title="A class for associating a random number generator with an initial seed.">RandomSeed</a> - The random seed.</li>
+</ul>
+<p >The following entries are added to the artifacts dictionary:</p><ul>
+<li><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html" title="Represents a room layout consisting of Room and DoorConnection.">Layout</a> - The generated layout. </li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>The pipeline arguments dictionary.</td></tr>
+    <tr><td class="paramname">artifacts</td><td>The pipeline artifacts dictionary.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html#a994f629ae243cdd0432a71a4e73eaf66">MPewsey.ManiaMap.IGenerationStep</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00083">83</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+
+</div>
+</div>
+<a id="ace486e51bab95b498649cfd571529572" name="ace486e51bab95b498649cfd571529572"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace486e51bab95b498649cfd571529572">&#9670;&nbsp;</a></span>Generate() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html">Layout</a> MPewsey.ManiaMap.LayoutGenerator.Generate </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
+          <td class="paramname"><em>layoutId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html">LayoutGraph</a>&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_template_groups.html">TemplateGroups</a>&#160;</td>
+          <td class="paramname"><em>templateGroups</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html">RandomSeed</a>&#160;</td>
-          <td class="paramname"><em>random</em>&#160;</td>
+          <td class="paramname"><em>randomSeed</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -536,13 +606,15 @@ References</h2>
 <p>Generates and returns a new layout. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td>The layout ID.</td></tr>
-    <tr><td class="paramname">random</td><td>The random seed.</td></tr>
+    <tr><td class="paramname">layoutId</td><td>The layout ID.</td></tr>
+    <tr><td class="paramname">graph</td><td>The layout graph.</td></tr>
+    <tr><td class="paramname">templateGroups</td><td>The template groups.</td></tr>
+    <tr><td class="paramname">randomSeed</td><td>The random seed.</td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00070">70</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00099">99</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -589,7 +661,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00115">115</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00146">146</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -625,7 +697,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00127">127</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00158">158</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -707,7 +779,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00299">299</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00330">330</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -754,7 +826,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00179">179</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00210">210</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -773,7 +845,7 @@ References</h2>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00060">60</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00064">64</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -800,7 +872,7 @@ References</h2>
 
 <p>A dictionary of configuration spaces by template pair. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00035">35</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00041">41</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -819,14 +891,14 @@ References</h2>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>The layout graph. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00020">20</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00031">31</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -852,7 +924,59 @@ References</h2>
 
 <p>The current layout. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00045">45</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00051">51</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+
+</div>
+</div>
+<a id="aa5f9c9629326de0aac1566d13cb7a47c" name="aa5f9c9629326de0aac1566d13cb7a47c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5f9c9629326de0aac1566d13cb7a47c">&#9670;&nbsp;</a></span>MaxBranchLength</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MPewsey.ManiaMap.LayoutGenerator.MaxBranchLength</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The maximum branch chain length. Branch chains exceeding this length will be split. Negative and zero values will be ignored. </p>
+
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00026">26</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+
+</div>
+</div>
+<a id="a24be882ab3e6c5ee7bffc0bfa128600a" name="a24be882ab3e6c5ee7bffc0bfa128600a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24be882ab3e6c5ee7bffc0bfa128600a">&#9670;&nbsp;</a></span>MaxRebases</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MPewsey.ManiaMap.LayoutGenerator.MaxRebases</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The maximum number of times that a sub layout can be used as a base before it is discarded. </p>
+
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00020">20</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -878,33 +1002,7 @@ References</h2>
 
 <p>The random number generator. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00040">40</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
-
-</div>
-</div>
-<a id="aa3026023297d498a3b76ced1b17922fc" name="aa3026023297d498a3b76ced1b17922fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3026023297d498a3b76ced1b17922fc">&#9670;&nbsp;</a></span>Settings</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator_settings.html">LayoutGeneratorSettings</a> MPewsey.ManiaMap.LayoutGenerator.Settings</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The generator settings. </p>
-
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00030">30</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00046">46</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -923,14 +1021,14 @@ References</h2>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>The template groups. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00025">25</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00036">36</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>

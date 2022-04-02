@@ -7,7 +7,7 @@ var searchData=
   ['rectangle2x3template_4',['Rectangle2x3Template',['../class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_rectangles.html#a48d06106c782f83496195356456c9344',1,'MPewsey::ManiaMap::Samples::TemplateLibrary::Rectangles']]],
   ['rectangle2x4template_5',['Rectangle2x4Template',['../class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_rectangles.html#a031e481415310e925d6f6fcfae1b3f1c',1,'MPewsey::ManiaMap::Samples::TemplateLibrary::Rectangles']]],
   ['removedoorconnection_6',['RemoveDoorConnection',['../class_m_pewsey_1_1_mania_map_1_1_layout.html#a77df98644b700e8cd44b21d0e7ca978d',1,'MPewsey::ManiaMap::Layout']]],
-  ['removeduplicateedges_7',['RemoveDuplicateEdges',['../class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a32a14a0f57020f681b25ff2689e4334b',1,'MPewsey::ManiaMap::GraphChainDecomposer']]],
+  ['removeduplicateedges_7',['RemoveDuplicateEdges',['../class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a4805a057f584b3ec9c114af2a6130d79',1,'MPewsey::ManiaMap::GraphChainDecomposer']]],
   ['removeedge_8',['RemoveEdge',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#ad186c306c9bd0326a339bd3436c4280c',1,'MPewsey::ManiaMap::LayoutGraph']]],
   ['removenode_9',['RemoveNode',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a4adc9a6dfa507f23997ba6d918c06e6b',1,'MPewsey::ManiaMap::LayoutGraph']]],
   ['reverse_10',['Reverse',['../class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#ac8018be356582feceb26234259469048',1,'MPewsey::ManiaMap::LayoutEdge']]],

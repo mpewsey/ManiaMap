@@ -27,12 +27,14 @@ var NAVTREE =
   [ "ManiaMap", "index.html", [
     [ "About", "index.html#autotoc_md3", null ],
     [ "Features", "index.html#autotoc_md4", null ],
-    [ "Usage", "index.html#autotoc_md5", [
+    [ "Layout Generator Example", "index.html#autotoc_md5", [
       [ "Step 1: Create Room Templates", "index.html#autotoc_md6", null ],
       [ "Step 2: Assign Room Templates to Template Groups", "index.html#autotoc_md7", null ],
       [ "Step 3: Create a Layout Graph", "index.html#autotoc_md8", null ],
       [ "Step 4: Run the Layout Generator", "index.html#autotoc_md9", null ]
     ] ],
+    [ "Collectable Generator Example", "index.html#autotoc_md10", null ],
+    [ "Generator Pipeline Example", "index.html#autotoc_md11", null ],
     [ "Packages", "namespaces.html", [
       [ "Packages", "namespaces.html", "namespaces_dup" ],
       [ "Package Functions", "namespacemembers.html", [
@@ -59,10 +61,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_array2_d_8cs_source.html",
-"class_m_pewsey_1_1_mania_map_1_1_door.html#a1ffb2a8120f980f98f9e9a934e7c4ba8",
-"class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a3e257b9651135a6aa4ad663a6feef51b",
-"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html",
-"struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int.html"
+"class_m_pewsey_1_1_mania_map_1_1_configuration_space.html#a3a8627a3b8ad767c3ca222de40cb7451",
+"class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a459e70544c3ba9c578a991206768e859",
+"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a244cc19d0b05cac21246565990ae8e2e",
+"struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int.html#a53491fbf7ea4b279e791cd8c44eca44f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
