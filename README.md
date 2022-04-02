@@ -91,8 +91,8 @@ To create repeatable layouts, a random seed is used by the layout generator. To 
 
 ```LayoutGenerator.cs
 var seed = new RandomSeed(12345);
-var generator = new LayoutGenerator(graph, templateGroups);
-var layout = generator.Generate(layoutId: 1, seed);
+var generator = new LayoutGenerator();
+var layout = generator.Generate(layoutId: 1, graph, templateGroups, seed);
 
 // Render map and save it to file
 var map = new LayoutMap(layout);
@@ -100,3 +100,41 @@ map.SaveImage("Map.png");
 ```
 
 ![Map](https://user-images.githubusercontent.com/23442063/153345310-25def719-c5a7-43c5-95ca-9e2e09493e54.png)
+
+## Collectable Generator Example
+
+```CollectableGenerator.cs
+var seed = new RandomSeed(12345);
+var generator = new CollectableGenerator();
+
+// Add collectable ID's to groups. Multiple ID's may be added for the same item.
+// These groups will also need to be assigned to some room template cells.
+var collectableGroups = new CollectableGroups();
+collectableGroups.Add("Group1", 1, 1, 1, 2, 3, 4, 5);
+collectableGroups.Add("Group2", 6, 7, 7, 8, 8, 9, 10);
+
+generator.Generate(layout, collectableGroups, seed);
+```
+
+## Generator Pipeline Example
+
+```GeneratorPipeline.cs
+// Create a dictionary of arguments to be passed to each stage of the generator.
+var map = new Dictionary<string, object>
+{
+    { "LayoutId", 1 },
+    { "LayoutGraph", graph },
+    { "TemplateGroups", templateGroups },
+    { "CollectableGroups", collectableGroups },
+    { "RandomSeed", seed },
+};
+
+// Use the default pipeline
+var pipeline = GenerationPipeline.CreateDefaultPipeline();
+
+// Or create your own
+pipeline = GenerationPipeline(new LayoutGenerator(), new CollectableGenerator());
+
+var results = pipeline.Generate(map);
+var layout = (Layout)results["Layout"];
+```
