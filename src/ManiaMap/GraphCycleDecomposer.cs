@@ -4,7 +4,7 @@ using System.Linq;
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// A class for finding cycles in a `LayoutGraph`. The algorithm is based on [1].
+    /// A class for finding cycles in a graph. The algorithm is based on [1].
     /// 
     /// References
     /// ----------

@@ -5,7 +5,7 @@ using System.Linq;
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// A class for decomposing the branches of a `LayoutGraph` into chains.
+    /// A class for decomposing the branches of a graph into chains.
     /// </summary>
     public class GraphBranchDecomposer<T>
     {
