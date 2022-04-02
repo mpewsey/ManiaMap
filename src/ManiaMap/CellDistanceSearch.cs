@@ -40,9 +40,9 @@
             if (Cells.GetOrDefault(index.X, index.Y) == null)
                 return;
 
-            var currentDistance = Distances[index.X, index.Y];
+            var current = Distances[index.X, index.Y];
 
-            if (currentDistance >= 0 && currentDistance <= distance)
+            if (current >= 0 && current <= distance)
                 return;
 
             Distances[index.X, index.Y] = distance;
