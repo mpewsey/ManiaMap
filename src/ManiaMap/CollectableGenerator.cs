@@ -58,12 +58,21 @@ namespace MPewsey.ManiaMap
             return "CollectableGenerator()";
         }
 
-        /// <inheritdoc/>
-        public void Generate(Dictionary<string, object> map)
+        /// <summary>
+        /// Adds collectables to the layout.
+        /// 
+        /// The following arguments are required:
+        /// * Layout - The room layout.
+        /// * CollectableGroups - The collectable groups.
+        /// * RandomSeed - The random seed.
+        /// </summary>
+        /// <param name="args">The pipeline arguments dictionary.</param>
+        /// <param name="artifacts">The pipeline artifacts dictionary.</param>
+        public void Generate(Dictionary<string, object> args, Dictionary<string, object> artifacts)
         {
-            var layout = (Layout)map["Layout"];
-            var collectableGroups = (CollectableGroups)map["CollectableGroups"];
-            var randomSeed = (RandomSeed)map["RandomSeed"];
+            var layout = GenerationPipeline.GetArgument<Layout>("Layout", args, artifacts);
+            var collectableGroups = GenerationPipeline.GetArgument<CollectableGroups>("CollectableGroups", args, artifacts);
+            var randomSeed = GenerationPipeline.GetArgument<RandomSeed>("RandomSeed", args, artifacts);
             Generate(layout, collectableGroups, randomSeed);
         }
 

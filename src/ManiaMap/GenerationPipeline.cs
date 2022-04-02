@@ -30,12 +30,27 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Invokes all generators of the pipeline and returns a dictionary of results.
         /// </summary>
-        /// <param name="map">A dictionary of generator arguments.</param>
-        public Dictionary<string, object> Generate(Dictionary<string, object> map)
+        /// <param name="args">A dictionary of generator arguments.</param>
+        public Dictionary<string, object> Generate(Dictionary<string, object> args)
         {
-            map = new Dictionary<string, object>(map);
-            Steps.ForEach(x => x.Generate(map));
-            return map;
+            var artifacts = new Dictionary<string, object>();
+            Steps.ForEach(x => x.Generate(args, artifacts));
+            return artifacts;
+        }
+
+        /// <summary>
+        /// Returns the argument from the argument and artifacts dictionary.
+        /// The artifact dictionary is checked first, then the argument dictionary.
+        /// </summary>
+        /// <param name="name">The name of the argument.</param>
+        /// <param name="args">The argument dictionary.</param>
+        /// <param name="artifacts">The artifact dictionary.</param>
+        public static T GetArgument<T>(string name,
+            Dictionary<string, object> args, Dictionary<string, object> artifacts = null)
+        {
+            if (artifacts != null && artifacts.TryGetValue(name, out var value))
+                return (T)value;
+            return (T)args[name];
         }
     }
 }

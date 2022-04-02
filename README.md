@@ -120,7 +120,7 @@ generator.Generate(layout, collectableGroups, seed);
 
 ```GeneratorPipeline.cs
 // Create a dictionary of arguments to be passed to each pipeline step.
-var map = new Dictionary<string, object>
+var args = new Dictionary<string, object>
 {
     { "LayoutId", 1 },
     { "LayoutGraph", graph },
@@ -135,6 +135,6 @@ var pipeline = GenerationPipeline.CreateDefaultPipeline();
 // Or create your own
 pipeline = new GenerationPipeline(new LayoutGenerator(), new CollectableGenerator());
 
-var results = pipeline.Generate(map);
+var results = pipeline.Generate(args);
 var layout = (Layout)results["Layout"];
 ```

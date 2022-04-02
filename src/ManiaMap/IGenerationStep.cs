@@ -8,7 +8,8 @@ namespace MPewsey.ManiaMap
         /// Performs the generation operations for this step.
         /// Artifacts should be written to the input dictionary.
         /// </summary>
-        /// <param name="map">A dictionary of arguments.</param>
-        void Generate(Dictionary<string, object> map);
+        /// <param name="args">A dictionary of arguments.</param>
+        /// <param name="artifacts">A dictionary of generator artifacts.</param>
+        void Generate(Dictionary<string, object> args, Dictionary<string, object> artifacts);
     }
 }

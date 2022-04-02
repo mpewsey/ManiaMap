@@ -66,14 +66,27 @@ namespace MPewsey.ManiaMap
             return $"LayoutGenerator(MaxRebases = {MaxRebases}, MaxBranchLength = {MaxBranchLength})";
         }
 
-        /// <inheritdoc/>
-        public void Generate(Dictionary<string, object> map)
+        /// <summary>
+        /// Generates a new layout and adds it to the artifacts.
+        /// 
+        /// The following arguments are required:
+        /// * LayoutId - The layout ID.
+        /// * LayoutGraph - The layout graph.
+        /// * TemplateGroups - The template groups.
+        /// * RandomSeed - The random seed.
+        /// 
+        /// The following entries are added to the artifacts dictionary:
+        /// * Layout - The generated layout.
+        /// </summary>
+        /// <param name="args">The pipeline arguments dictionary.</param>
+        /// <param name="artifacts">The pipeline artifacts dictionary.</param>
+        public void Generate(Dictionary<string, object> args, Dictionary<string, object> artifacts)
         {
-            var layoutId = (int)map["LayoutId"];
-            var graph = (LayoutGraph)map["LayoutGraph"];
-            var templateGroups = (TemplateGroups)map["TemplateGroups"];
-            var randomSeed = (RandomSeed)map["RandomSeed"];
-            map["Layout"] = Generate(layoutId, graph, templateGroups, randomSeed);
+            var layoutId = GenerationPipeline.GetArgument<int>("LayoutId", args, artifacts);
+            var graph = GenerationPipeline.GetArgument<LayoutGraph>("LayoutGraph", args, artifacts);
+            var templateGroups = GenerationPipeline.GetArgument<TemplateGroups>("TemplateGroups", args, artifacts);
+            var randomSeed = GenerationPipeline.GetArgument<RandomSeed>("RandomSeed", args, artifacts);
+            artifacts["Layout"] = Generate(layoutId, graph, templateGroups, randomSeed);
         }
 
         /// <summary>
