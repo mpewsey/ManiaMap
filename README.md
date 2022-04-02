@@ -119,7 +119,7 @@ generator.Generate(layout, collectableGroups, seed);
 ## Generator Pipeline Example
 
 ```GeneratorPipeline.cs
-// Create a dictionary of arguments to be passed to each stage of the generator.
+// Create a dictionary of arguments to be passed to each pipeline step.
 var map = new Dictionary<string, object>
 {
     { "LayoutId", 1 },
