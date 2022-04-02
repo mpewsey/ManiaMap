@@ -12,7 +12,7 @@ namespace MPewsey.ManiaMap
     /// ----------
     /// * [1] Nepožitek, Ondřej. (2019, January 13). Dungeon Generator (Part 2) – Implementation. Retrieved February 8, 2022, from https://ondra.nepozitek.cz/blog/238/dungeon-generator-part-2-implementation/
     /// </summary>
-    public class LayoutGenerator
+    public class LayoutGenerator : IGenerationStep
     {
         /// <summary>
         /// The maximum number of times that a sub layout can be used as a base before it is discarded.
@@ -66,24 +66,34 @@ namespace MPewsey.ManiaMap
             return $"LayoutGenerator(MaxRebases = {MaxRebases}, MaxBranchLength = {MaxBranchLength})";
         }
 
+        /// <inheritdoc/>
+        public void Generate(Dictionary<string, object> map)
+        {
+            var layoutId = (int)map["LayoutId"];
+            var graph = (LayoutGraph)map["LayoutGraph"];
+            var templateGroups = (TemplateGroups)map["TemplateGroups"];
+            var randomSeed = (RandomSeed)map["RandomSeed"];
+            map["Layout"] = Generate(layoutId, graph, templateGroups, randomSeed);
+        }
+
         /// <summary>
         /// Generates and returns a new layout.
         /// </summary>
-        /// <param name="id">The layout ID.</param>
+        /// <param name="layoutId">The layout ID.</param>
         /// <param name="graph">The layout graph.</param>
         /// <param name="templateGroups">The template groups.</param>
-        /// <param name="random">The random seed.</param>
-        public Layout Generate(int id, LayoutGraph graph, TemplateGroups templateGroups, RandomSeed random)
+        /// <param name="randomSeed">The random seed.</param>
+        public Layout Generate(int layoutId, LayoutGraph graph, TemplateGroups templateGroups, RandomSeed randomSeed)
         {
             Graph = graph;
             TemplateGroups = templateGroups;
-            RandomSeed = random;
+            RandomSeed = randomSeed;
             ConfigurationSpaces = templateGroups.GetConfigurationSpaces();
 
             int chain = 0;
             var chains = Graph.FindChains(MaxBranchLength);
             var layouts = new Stack<Layout>();
-            layouts.Push(new Layout(id, graph.Name, random));
+            layouts.Push(new Layout(layoutId, graph.Name, randomSeed));
 
             while (layouts.Count > 0)
             {

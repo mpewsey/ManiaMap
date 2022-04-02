@@ -7,7 +7,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A class for distributing collectables throughout a `Layout`.
     /// </summary>
-    public class CollectableGenerator
+    public class CollectableGenerator : IGenerationStep
     {
         /// <summary>
         /// The initial neighbor weight.
@@ -58,17 +58,26 @@ namespace MPewsey.ManiaMap
             return "CollectableGenerator()";
         }
 
+        /// <inheritdoc/>
+        public void Generate(Dictionary<string, object> map)
+        {
+            var layout = (Layout)map["Layout"];
+            var collectableGroups = (CollectableGroups)map["CollectableGroups"];
+            var randomSeed = (RandomSeed)map["RandomSeed"];
+            Generate(layout, collectableGroups, randomSeed);
+        }
+
         /// <summary>
         /// Adds collectables to the layout.
         /// </summary>
         /// <param name="layout">The layout.</param>
         /// <param name="collectableGroups">The collectable groups.</param>
-        /// <param name="random">The random seed.</param>
-        public void Generate(Layout layout, CollectableGroups collectableGroups, RandomSeed random)
+        /// <param name="randomSeed">The random seed.</param>
+        public void Generate(Layout layout, CollectableGroups collectableGroups, RandomSeed randomSeed)
         {
             Layout = layout;
             CollectableGroups = collectableGroups;
-            RandomSeed = random;
+            RandomSeed = randomSeed;
             Distances = new Dictionary<RoomTemplate, Dictionary<Vector2DInt, Array2D<int>>>();
             Clusters = Layout.FindClusters(1);
 

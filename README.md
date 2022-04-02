@@ -20,7 +20,9 @@ This package allows for the creation of procedurally generated metroidvania styl
 * Supports .NET Standard 2.0.
 * Works with Windows, Mac, and Linux.
 
-## Usage
+## Layout Generator Example
+
+The following subsections outline how to use the `LayoutGenerator` class to generate a room layout.
 
 ### Step 1: Create Room Templates
 
@@ -90,7 +92,7 @@ To create repeatable layouts, a random seed is used by the layout generator. To 
 ```LayoutGenerator.cs
 var seed = new RandomSeed(12345);
 var generator = new LayoutGenerator(graph, templateGroups);
-var layout = generator.GenerateLayout(id: 1, seed);
+var layout = generator.Generate(layoutId: 1, seed);
 
 // Render map and save it to file
 var map = new LayoutMap(layout);
