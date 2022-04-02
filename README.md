@@ -133,7 +133,7 @@ var map = new Dictionary<string, object>
 var pipeline = GenerationPipeline.CreateDefaultPipeline();
 
 // Or create your own
-pipeline = GenerationPipeline(new LayoutGenerator(), new CollectableGenerator());
+pipeline = new GenerationPipeline(new LayoutGenerator(), new CollectableGenerator());
 
 var results = pipeline.Generate(map);
 var layout = (Layout)results["Layout"];
