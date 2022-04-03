@@ -1,4 +1,4 @@
-name: Tests
+name: Coverage Tests
 
 on:
   push:
@@ -33,7 +33,7 @@ jobs:
 
     - name: Build
       run: dotnet build ".\src" --no-restore
-      
+
     - name: Test
       run: dotnet test ".\src" --no-build --verbosity normal --collect:"XPlat Code Coverage"
 

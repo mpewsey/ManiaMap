@@ -1,4 +1,4 @@
-name: Tests
+name: Release Tests
 
 on:
   push:
@@ -33,6 +33,6 @@ jobs:
 
     - name: Build
       run: dotnet build ".\src" --configuration Release --no-restore
-      
+
     - name: Test
       run: dotnet test ".\src" --no-restore --verbosity normal
