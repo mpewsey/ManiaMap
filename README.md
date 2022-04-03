@@ -116,7 +116,7 @@ collectableGroups.Add("Group2", 6, 7, 7, 8, 8, 9, 10);
 generator.Generate(layout, collectableGroups, seed);
 ```
 
-## Generator Pipeline Example
+## Generation Pipeline Example
 
 ```GeneratorPipeline.cs
 // Create a dictionary of arguments to be passed to each pipeline step.

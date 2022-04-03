@@ -2,6 +2,9 @@
 
 namespace MPewsey.ManiaMap
 {
+    /// <summary>
+    /// An interface for creating a step of the `GenerationPipeline`.
+    /// </summary>
     public interface IGenerationStep
     {
         /// <summary>
