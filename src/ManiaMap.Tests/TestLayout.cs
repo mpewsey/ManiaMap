@@ -12,7 +12,7 @@ namespace MPewsey.ManiaMap.Tests
             var layout = new Layout(1, "TestLayout", new RandomSeed(12345));
             Assert.IsTrue(layout.ToString().StartsWith("Layout("));
         }
-        
+
         [TestMethod]
         public void TestSaveAndLoad()
         {

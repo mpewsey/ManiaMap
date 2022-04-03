@@ -12,6 +12,10 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public List<IGenerationStep> Steps { get; set; } = new List<IGenerationStep>();
 
+        /// <summary>
+        /// Initializes a new pipeline.
+        /// </summary>
+        /// <param name="steps">The generation steps in order.</param>
         public GenerationPipeline(params IGenerationStep[] steps)
         {
             Steps.AddRange(steps);
