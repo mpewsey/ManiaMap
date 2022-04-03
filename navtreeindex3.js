@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a2428d71ce4ce9ec9fb258a389bc0e40e":[6,0,0,0,1,2,7],
+"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a244cc19d0b05cac21246565990ae8e2e":[6,0,0,0,1,2,3],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a244cc19d0b05cac21246565990ae8e2e":[5,0,0,0,1,2,3],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a282a26738aaec20cf0430016cb8700ed":[5,0,0,0,1,2,1],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a282a26738aaec20cf0430016cb8700ed":[6,0,0,0,1,2,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int.html":[5,0,0,0,38],
 "struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int.html#a16f9ca6493da30edaefc80abafb4c11f":[6,0,0,0,38,2],
 "struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int.html#a16f9ca6493da30edaefc80abafb4c11f":[5,0,0,0,38,2],
-"struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int.html#a368b1b42d69b10a628e5a1ffeac146fb":[5,0,0,0,38,0],
-"struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int.html#a368b1b42d69b10a628e5a1ffeac146fb":[6,0,0,0,38,0],
-"struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int.html#a53491fbf7ea4b279e791cd8c44eca44f":[5,0,0,0,38,1]
+"struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int.html#a368b1b42d69b10a628e5a1ffeac146fb":[5,0,0,0,38,0]
 };
