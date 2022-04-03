@@ -14,15 +14,22 @@ jobs:
         with:
           dotnet-version: 6.0.x
 
+      - uses: actions/cache@v2
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
       - name: Restore dependencies
         run: dotnet restore ".\src"
-        
+
       - name: Build
         run: dotnet build ".\src" --configuration Release --no-restore
-        
+
       - name: Test
         run: dotnet test ".\src" --no-restore --verbosity normal
-        
+
       # Publish
       - name: Publish on Version Change
         id: publish_nuget
@@ -30,16 +37,16 @@ jobs:
         with:
           # Filepath of the project to be packaged, relative to root of repository
           PROJECT_FILE_PATH: src/ManiaMap/ManiaMap.csproj
-          
+
           # NuGet package id, used for version detection & defaults to project name
           PACKAGE_NAME: MPewsey.ManiaMap
-          
+
           # Filepath with version info, relative to root of repository & defaults to PROJECT_FILE_PATH
           # VERSION_FILE_PATH: Directory.Build.props
 
           # Regex pattern to extract version info in a capturing group
           # VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
-          
+
           # Useful with external providers like Nerdbank.GitVersioning, ignores VERSION_FILE_PATH & VERSION_REGEX
           # VERSION_STATIC: 1.0.0
 
