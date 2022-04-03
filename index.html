@@ -176,8 +176,8 @@ Step 4: Run the Layout Generator</h2>
 <div class="line">var layout = generator.Generate(layoutId: 1, graph, templateGroups, seed);</div>
 <div class="line"> </div>
 <div class="line">// Render map and save it to file</div>
-<div class="line">var map = new LayoutMap(layout);</div>
-<div class="line">map.SaveImage(&quot;Map.png&quot;);</div>
+<div class="line">var map = new LayoutMap();</div>
+<div class="line">map.SaveImage(&quot;Map.png&quot;, layout);</div>
 </div><!-- fragment --><p ><img src="https://user-images.githubusercontent.com/23442063/153345310-25def719-c5a7-43c5-95ca-9e2e09493e54.png" alt="Map" class="inline"/></p>
 <h1><a class="anchor" id="autotoc_md10"></a>
 Collectable Generator Example</h1>
