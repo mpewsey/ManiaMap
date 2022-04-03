@@ -7,6 +7,13 @@ namespace MPewsey.ManiaMap.Tests
     public class TestLayout
     {
         [TestMethod]
+        public void TestToString()
+        {
+            var layout = new Layout(1, "TestLayout", new RandomSeed(12345));
+            Assert.IsTrue(layout.ToString().StartsWith("Layout("));
+        }
+        
+        [TestMethod]
         public void TestSaveAndLoad()
         {
             var path = "ManiaMapLayout.xml";
