@@ -20,6 +20,10 @@ This package allows for the creation of procedurally generated metroidvania styl
 * Supports .NET Standard 2.0.
 * Works with Windows, Mac, and Linux.
 
+## Installation
+
+The package may be installed through [NuGet](https://www.nuget.org/packages/MPewsey.ManiaMap/).
+
 ## Layout Generator Example
 
 The following subsections outline how to use the `LayoutGenerator` class to generate a room layout.
