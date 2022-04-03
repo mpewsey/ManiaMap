@@ -34,7 +34,7 @@ var NAVTREE =
       [ "Step 4: Run the Layout Generator", "index.html#autotoc_md9", null ]
     ] ],
     [ "Collectable Generator Example", "index.html#autotoc_md10", null ],
-    [ "Generator Pipeline Example", "index.html#autotoc_md11", null ],
+    [ "Generation Pipeline Example", "index.html#autotoc_md11", null ],
     [ "Packages", "namespaces.html", [
       [ "Packages", "namespaces.html", "namespaces_dup" ],
       [ "Package Functions", "namespacemembers.html", [
