@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
   <div class="headertitle"><div class="title">ManiaMap </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a class="anchor" id="md__github_workspace_README"></a> <a href="https://github.com/mpewsey/ManiaMap/actions/workflows/tests.yml"><img src="https://github.com/mpewsey/ManiaMap/actions/workflows/tests.yml/badge.svg?event=push" alt="Tests" style="pointer-events: none;" class="inline"/></a> <a href="https://mpewsey.github.io/ManiaMap"><img src="https://github.com/mpewsey/ManiaMap/actions/workflows/docs.yml/badge.svg?event=push" alt="Docs" style="pointer-events: none;" class="inline"/></a> <a href="https://codecov.io/gh/mpewsey/ManiaMap"><img src="https://codecov.io/gh/mpewsey/ManiaMap/branch/main/graph/badge.svg?token=Q1LDU83FAQ" alt="codecov" style="pointer-events: none;" class="inline"/></a></p>
+<div class="textblock"><p ><a class="anchor" id="md__github_workspace_README"></a> <a href="https://github.com/mpewsey/ManiaMap/actions/workflows/tests.yml"><img src="https://github.com/mpewsey/ManiaMap/actions/workflows/tests.yml/badge.svg?event=push" alt="Tests" style="pointer-events: none;" class="inline"/></a> <a href="https://mpewsey.github.io/ManiaMap"><img src="https://github.com/mpewsey/ManiaMap/actions/workflows/docs.yml/badge.svg?event=push" alt="Docs" style="pointer-events: none;" class="inline"/></a> <a href="https://codecov.io/gh/mpewsey/ManiaMap"><img src="https://codecov.io/gh/mpewsey/ManiaMap/branch/main/graph/badge.svg?token=Q1LDU83FAQ" alt="codecov" style="pointer-events: none;" class="inline"/></a> <a href="https://www.nuget.org/packages/MPewsey.ManiaMap/"><img src="https://img.shields.io/nuget/v/MPewsey.ManiaMap?label=NuGet" alt="NuGet" class="inline"/></a></p>
 <h1><a class="anchor" id="autotoc_md3"></a>
 About</h1>
 <p >This package allows for the creation of procedurally generated metroidvania style layouts from user-defined level layout graphs and room templates. The resulting layouts can be used in games, such as those of the rouge-like genre, or to render maps, such as that shown below.</p>
@@ -116,12 +116,9 @@ Features</h1>
 <li>Works with Windows, Mac, and Linux.</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md5"></a>
-Installation</h1>
-<p >The package may be installed through <a href="https://www.nuget.org/packages/MPewsey.ManiaMap/">NuGet</a>.</p>
-<h1><a class="anchor" id="autotoc_md6"></a>
 Layout Generator Example</h1>
 <p >The following subsections outline how to use the <code>LayoutGenerator</code> class to generate a room layout.</p>
-<h2><a class="anchor" id="autotoc_md7"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Step 1: Create Room Templates</h2>
 <p >The generator creates rooms by pulling from user-defined room templates. Room templates consist of a 2D array of cells, that may be empty (a null value) or filled. Each cell includes the possible door connections (north, south, east, west, top, and/or bottom) that can be made from that cell to other rooms. Furthermore, each door includes a door code, which requires a match in another template for a connection to be made, as well as a traversal type, such the door being one-way or two-way.</p>
 <p >Depending on how much variety you want to be included in your layout, one or more templates are required by the generator. The following code provides an example for the creation of a simple 3x3 square room template. In it, a series of cells are created and have doors set to them via directional characters ("N" = North, "S" = South, etc.). The cells are then assigned to a 2D array to create the geometry of the layout. Finally, these cells are passed to the <code>RoomTemplate</code> initializer, along with a unique ID, to create the room template.</p>
@@ -144,13 +141,13 @@ Step 1: Create Room Templates</h2>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line">var roomTemplate = new RoomTemplate(id: 1, name: &quot;Square&quot;, cells);</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md7"></a>
 Step 2: Assign Room Templates to Template Groups</h2>
 <p >Once some room template have been defined, they must be added to one or more room template groups, which can be referenced by name later. This is accomplished by simply adding them to a <code>TemplateGroups</code> object:</p>
 <div class="fragment"><div class="line">{TemplateGroups.cs} </div>
 <div class="line">var templateGroups = new TemplateGroups();</div>
 <div class="line">templateGroups.Add(&quot;Default&quot;, roomTemplate);</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md9"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
 Step 3: Create a Layout Graph</h2>
 <p >To provide a designed feel to generated layouts, the generator uses a room layout graph as the basis for generating layouts. The layout graph consists of nodes, representing rooms, and edges, representing door connections between rooms. Ultimately, the layout graph contains information to help guide the features of a room layout. Each graph element can be assigned one or more room template groups (created in Step 2) from which room templates can be drawn for that location. Z (layer) values can also be assigned to elements to create a multi-level room layout. In addition, properties such as names and colors can be assigned that will be passed on to the generated rooms, allowing for their use elsewhere in a game or other application.</p>
 <p >In the below example, the graph shown in the image is created by adding edges to a graph. In the process, the nodes, representing rooms, are automatically created. Afterwards, the code loops over all of the created nodes and assigns a "Default" template group to them, from which room templates will be drawn by the generator.</p>
@@ -170,7 +167,7 @@ Step 3: Create a Layout Graph</h2>
 <div class="line">    node.TemplateGroup = &quot;Default&quot;;</div>
 <div class="line">}</div>
 </div><!-- fragment --><p ><img src="https://user-images.githubusercontent.com/23442063/153694050-f653f3df-8170-4a2e-bd05-8f35083ccfef.png" alt="Example Layout Graph" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md10"></a>
+<h2><a class="anchor" id="autotoc_md9"></a>
 Step 4: Run the Layout Generator</h2>
 <p >To create repeatable layouts, a random seed is used by the layout generator. To generate a room layout, simply select a seed and pass your layout graph and room template groups to the <code>LayoutGenerator</code>, as shown below. In the example, a map of the layout is also rendered and saved using the <code>LayoutMap</code> class. For this instance, the default built-in tiles are used. However, custom tiles can also be specified by the user.</p>
 <div class="fragment"><div class="line">{LayoutGenerator.cs} </div>
@@ -182,7 +179,7 @@ Step 4: Run the Layout Generator</h2>
 <div class="line">var map = new LayoutMap(layout);</div>
 <div class="line">map.SaveImage(&quot;Map.png&quot;);</div>
 </div><!-- fragment --><p ><img src="https://user-images.githubusercontent.com/23442063/153345310-25def719-c5a7-43c5-95ca-9e2e09493e54.png" alt="Map" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md11"></a>
+<h1><a class="anchor" id="autotoc_md10"></a>
 Collectable Generator Example</h1>
 <div class="fragment"><div class="line">{CollectableGenerator.cs} </div>
 <div class="line">var seed = new RandomSeed(12345);</div>
@@ -195,7 +192,7 @@ Collectable Generator Example</h1>
 <div class="line">collectableGroups.Add(&quot;Group2&quot;, 6, 7, 7, 8, 8, 9, 10);</div>
 <div class="line"> </div>
 <div class="line">generator.Generate(layout, collectableGroups, seed);</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md12"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md11"></a>
 Generation Pipeline Example</h1>
 <div class="fragment"><div class="line">{GeneratorPipeline.cs} </div>
 <div class="line">// Create a dictionary of arguments to be passed to each pipeline step.</div>

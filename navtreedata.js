@@ -27,15 +27,14 @@ var NAVTREE =
   [ "ManiaMap", "index.html", [
     [ "About", "index.html#autotoc_md3", null ],
     [ "Features", "index.html#autotoc_md4", null ],
-    [ "Installation", "index.html#autotoc_md5", null ],
-    [ "Layout Generator Example", "index.html#autotoc_md6", [
-      [ "Step 1: Create Room Templates", "index.html#autotoc_md7", null ],
-      [ "Step 2: Assign Room Templates to Template Groups", "index.html#autotoc_md8", null ],
-      [ "Step 3: Create a Layout Graph", "index.html#autotoc_md9", null ],
-      [ "Step 4: Run the Layout Generator", "index.html#autotoc_md10", null ]
+    [ "Layout Generator Example", "index.html#autotoc_md5", [
+      [ "Step 1: Create Room Templates", "index.html#autotoc_md6", null ],
+      [ "Step 2: Assign Room Templates to Template Groups", "index.html#autotoc_md7", null ],
+      [ "Step 3: Create a Layout Graph", "index.html#autotoc_md8", null ],
+      [ "Step 4: Run the Layout Generator", "index.html#autotoc_md9", null ]
     ] ],
-    [ "Collectable Generator Example", "index.html#autotoc_md11", null ],
-    [ "Generation Pipeline Example", "index.html#autotoc_md12", null ],
+    [ "Collectable Generator Example", "index.html#autotoc_md10", null ],
+    [ "Generation Pipeline Example", "index.html#autotoc_md11", null ],
     [ "Packages", "namespaces.html", [
       [ "Packages", "namespaces.html", "namespaces_dup" ],
       [ "Package Functions", "namespacemembers.html", [
