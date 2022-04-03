@@ -3,6 +3,7 @@
 [![Tests](https://github.com/mpewsey/ManiaMap/actions/workflows/tests.yml/badge.svg?event=push)](https://github.com/mpewsey/ManiaMap/actions/workflows/tests.yml)
 [![Docs](https://github.com/mpewsey/ManiaMap/actions/workflows/docs.yml/badge.svg?event=push)](https://mpewsey.github.io/ManiaMap)
 [![codecov](https://codecov.io/gh/mpewsey/ManiaMap/branch/main/graph/badge.svg?token=Q1LDU83FAQ)](https://codecov.io/gh/mpewsey/ManiaMap)
+[![NuGet](https://img.shields.io/nuget/v/MPewsey.ManiaMap?label=NuGet)](https://www.nuget.org/packages/MPewsey.ManiaMap/)
 
 ## About
 
@@ -19,10 +20,6 @@ This package allows for the creation of procedurally generated metroidvania styl
 * Procedural distribution of collectables throughout layout.
 * Supports .NET Standard 2.0.
 * Works with Windows, Mac, and Linux.
-
-## Installation
-
-The package may be installed through [NuGet](https://www.nuget.org/packages/MPewsey.ManiaMap/).
 
 ## Layout Generator Example
 
