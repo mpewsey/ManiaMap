@@ -1,12 +1,12 @@
 ﻿namespace MPewsey.ManiaMap.Samples
 {
     /// <summary>
-    /// Contains methods for the Big Layout sample.
+    /// Contains methods for the big layout sample.
     /// </summary>
     public static class BigLayoutSample
     {
         /// <summary>
-        /// Returns the template groups for the Big Layout sample.
+        /// Returns the template groups for the big layout sample.
         /// </summary>
         public static TemplateGroups BigLayoutTemplateGroups()
         {

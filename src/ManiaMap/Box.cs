@@ -20,6 +20,11 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 1)]
         public Vector3DInt Max { get; private set; }
 
+        /// <summary>
+        /// Initializes a new box from two vectors.
+        /// </summary>
+        /// <param name="min">The minimum range of the box.</param>
+        /// <param name="max">The maximum range of the box.</param>
         public Box(Vector3DInt min, Vector3DInt max)
         {
             Min = min;

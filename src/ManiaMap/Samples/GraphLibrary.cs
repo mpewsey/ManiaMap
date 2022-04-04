@@ -116,6 +116,9 @@ namespace MPewsey.ManiaMap.Samples
             return graph;
         }
 
+        /// <summary>
+        /// Returns the graph for the big layout.
+        /// </summary>
         public static LayoutGraph BigGraph()
         {
             var graph = new LayoutGraph(5, "BigLayoutGraph");

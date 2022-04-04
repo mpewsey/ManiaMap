@@ -62,9 +62,9 @@ namespace MPewsey.ManiaMap
         /// Adds collectables to the layout.
         /// 
         /// The following arguments are required:
-        /// * Layout - The room layout.
-        /// * CollectableGroups - The collectable groups.
-        /// * RandomSeed - The random seed.
+        /// * %Layout - The room layout.
+        /// * %CollectableGroups - The collectable groups.
+        /// * %RandomSeed - The random seed.
         /// </summary>
         /// <param name="args">The pipeline arguments dictionary.</param>
         /// <param name="artifacts">The pipeline artifacts dictionary.</param>

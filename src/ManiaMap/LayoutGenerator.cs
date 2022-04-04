@@ -70,13 +70,13 @@ namespace MPewsey.ManiaMap
         /// Generates a new layout and adds it to the artifacts.
         /// 
         /// The following arguments are required:
-        /// * LayoutId - The layout ID.
-        /// * LayoutGraph - The layout graph.
-        /// * TemplateGroups - The template groups.
-        /// * RandomSeed - The random seed.
+        /// * %LayoutId - The layout ID.
+        /// * %LayoutGraph - The layout graph.
+        /// * %TemplateGroups - The template groups.
+        /// * %RandomSeed - The random seed.
         /// 
         /// The following entries are added to the artifacts dictionary:
-        /// * Layout - The generated layout.
+        /// * %Layout - The generated layout.
         /// </summary>
         /// <param name="args">The pipeline arguments dictionary.</param>
         /// <param name="artifacts">The pipeline artifacts dictionary.</param>
