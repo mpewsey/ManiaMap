@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// A class for generator room `Layout` based on various `RoomTemplate` and a `LayoutGraph`.
+    /// A class for generator room Layout based on various RoomTemplate and a LayoutGraph.
     /// 
     /// The algorithm is based on [1] but does not include a simulated annealing evolver.
     /// 

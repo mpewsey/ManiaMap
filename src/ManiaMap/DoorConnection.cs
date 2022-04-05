@@ -3,7 +3,7 @@
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// Represents a door connection between two `Room`.
+    /// Represents a door connection between two Room.
     /// </summary>
     [DataContract]
     public class DoorConnection

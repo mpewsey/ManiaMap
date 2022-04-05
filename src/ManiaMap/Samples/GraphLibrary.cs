@@ -4,7 +4,7 @@ using System.Drawing;
 namespace MPewsey.ManiaMap.Samples
 {
     /// <summary>
-    /// Contains a collection of `LayoutGraph`.
+    /// Contains a collection of LayoutGraph.
     /// </summary>
     public static class GraphLibrary
     {
@@ -86,7 +86,7 @@ namespace MPewsey.ManiaMap.Samples
         }
 
         /// <summary>
-        /// Returns a `LoopGraph` with some nodes set to different Z (layer) values.
+        /// Returns a LoopGraph with some nodes set to different Z (layer) values.
         /// </summary>
         public static LayoutGraph StackedLoopGraph()
         {

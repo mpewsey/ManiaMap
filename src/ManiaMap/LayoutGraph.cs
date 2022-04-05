@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// Represents a graph consisting of `LayoutNode` and `LayoutEdge`.
+    /// Represents a graph consisting of LayoutNode and LayoutEdge.
     /// </summary>
     [DataContract]
     public class LayoutGraph

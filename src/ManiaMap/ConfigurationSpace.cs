@@ -3,7 +3,7 @@
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// A class referencing two `RoomTemplate` and a list of all valid `Configuration` between them.
+    /// A class referencing two RoomTemplate and a list of all valid Configuration between them.
     /// </summary>
     public class ConfigurationSpace
     {

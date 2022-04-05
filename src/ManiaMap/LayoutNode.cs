@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// A node in a `LayoutGraph`.
+    /// A node in a LayoutGraph.
     /// 
     /// Several chainable property setting methods are included to allow the creation
     /// of a node and setting of properties in a single line. For example, the following

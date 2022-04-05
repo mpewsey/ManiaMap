@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// A structure containing two `Room` ID's.
+    /// A structure containing two Room ID's.
     /// </summary>
     [DataContract]
     public struct RoomPair : IEquatable<RoomPair>, IComparable<RoomPair>

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// Represents a room in a `Layout`.
+    /// Represents a room in a Layout.
     /// </summary>
     [DataContract]
     public class Room

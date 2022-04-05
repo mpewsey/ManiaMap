@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// A class for creating groups of `RoomTemplate`.
+    /// A class for creating groups of RoomTemplate.
     /// </summary>
     [DataContract]
     public class TemplateGroups

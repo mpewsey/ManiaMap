@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// Stores the state of a `Room` in a `Layout`.
+    /// Stores the state of a Room in a Layout.
     /// </summary>
     [DataContract]
     public class RoomState

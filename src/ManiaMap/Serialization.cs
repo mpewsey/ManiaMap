@@ -9,7 +9,7 @@ namespace MPewsey.ManiaMap
     public static class Serialization
     {
         /// <summary>
-        /// Saves the object to the file path using the `DataContractSerializer`.
+        /// Saves the object to the file path using the DataContractSerializer.
         /// </summary>
         /// <param name="path">The save file path.</param>
         /// <param name="graph">The object for serialization.</param>
@@ -24,7 +24,7 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Loads an object from a file path using the `DataContractSerializer`.
+        /// Loads an object from a file path using the DataContractSerializer.
         /// </summary>
         /// <param name="path">The file path.</param>
         public static T LoadXml<T>(string path)

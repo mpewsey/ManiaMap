@@ -1,12 +1,12 @@
 ﻿namespace MPewsey.ManiaMap.Samples
 {
     /// <summary>
-    /// Contains collections of `RoomTemplate`.
+    /// Contains collections of RoomTemplate.
     /// </summary>
     public static class TemplateLibrary
     {
         /// <summary>
-        /// Contains a collection of miscellaneous `RoomTemplate`.
+        /// Contains a collection of miscellaneous RoomTemplate.
         /// </summary>
         public static class Miscellaneous
         {
@@ -125,7 +125,7 @@
         }
 
         /// <summary>
-        /// Contains a collection of square `RoomTemplate`.
+        /// Contains a collection of square RoomTemplate.
         /// </summary>
         public static class Squares
         {
@@ -190,7 +190,7 @@
         }
 
         /// <summary>
-        /// Contains a collection of rectangular `RoomTemplate`.
+        /// Contains a collection of rectangular RoomTemplate.
         /// </summary>
         public static class Rectangles
         {
@@ -288,7 +288,7 @@
         }
 
         /// <summary>
-        /// Contains a collection of angle `RoomTemplate`.
+        /// Contains a collection of angle RoomTemplate.
         /// </summary>
         public static class Angles
         {

@@ -3,7 +3,7 @@
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// A class referencing a `Door` and its local position within a `Room`.
+    /// A class referencing a Door and its local position within a Room.
     /// </summary>
     [DataContract]
     public class DoorPosition

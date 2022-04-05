@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// Contains the states of a `Layout`.
+    /// Contains the states of a Layout.
     /// </summary>
     [DataContract]
     public class LayoutState

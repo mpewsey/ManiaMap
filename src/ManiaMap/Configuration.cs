@@ -1,7 +1,7 @@
 ﻿namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// A configuration where two `RoomTemplate` can be joined.
+    /// A configuration where two RoomTemplate can be joined.
     /// </summary>
     public class Configuration
     {

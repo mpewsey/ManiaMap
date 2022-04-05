@@ -7,7 +7,7 @@ using System.IO;
 namespace MPewsey.ManiaMap.Drawing
 {
     /// <summary>
-    /// A class for generating maps from a `Layout` and `LayoutState`.
+    /// A class for generating maps from a Layout and LayoutState.
     /// </summary>
     public class LayoutMap
     {
@@ -256,9 +256,9 @@ namespace MPewsey.ManiaMap.Drawing
         }
 
         /// <summary>
-        /// Converts a `System.Drawing` color to an ImageSharp color.
+        /// Converts a System.Drawing color to an ImageSharp color.
         /// </summary>
-        /// <param name="color">The `System.Drawing` color.</param>
+        /// <param name="color">The System.Drawing color.</param>
         private static Color ConvertColor(System.Drawing.Color color)
         {
             return Color.FromRgba(color.R, color.G, color.B, color.A);

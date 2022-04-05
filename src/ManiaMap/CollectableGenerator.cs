@@ -5,7 +5,7 @@ using System.Linq;
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// A class for distributing collectables throughout a `Layout`.
+    /// A class for distributing collectables throughout a Layout.
     /// </summary>
     public class CollectableGenerator : IGenerationStep
     {

@@ -3,7 +3,7 @@
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// A class for finding chains of a `LayoutGraph`.
+    /// A class for finding chains of a LayoutGraph.
     /// </summary>
     public class GraphChainDecomposer
     {

@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// A `RoomTemplate` cell element with references to door connections for that cell.
+    /// A RoomTemplate cell element with references to door connections for that cell.
     /// </summary>
     [DataContract]
     public class Cell
@@ -87,7 +87,7 @@ namespace MPewsey.ManiaMap
         /// * 'B' = Bottom
         /// </param>
         /// <param name="door">The door to be copied and assigned to each location.</param>
-        /// <exception cref="Exception">Raised if a character in the `directions` string is invalid.</exception>
+        /// <exception cref="Exception">Raised if a character in the directions string is invalid.</exception>
         public Cell SetDoors(string directions, Door door)
         {
             foreach (var direction in directions)

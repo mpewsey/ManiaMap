@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// Contains information for the geometry and properties of a `Room` in a `Layout`.
+    /// Contains information for the geometry and properties of a Room in a Layout.
     /// </summary>
     [DataContract(IsReference = true)]
     public class RoomTemplate
