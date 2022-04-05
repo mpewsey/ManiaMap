@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace MPewsey.ManiaMap
 {
@@ -94,13 +93,20 @@ namespace MPewsey.ManiaMap
             AssignDoorWeights();
             AssignInitialNeighborWeights();
 
-            foreach (var pair in CollectableGroups.Groups.OrderBy(x => x.Key))
+            foreach (var collectable in GetCollectables())
             {
-                foreach (var id in randomSeed.Shuffled(pair.Value))
-                {
-                    AddCollectable(pair.Key, id);
-                }
+                AddCollectable(collectable.Group, collectable.Id);
             }
+        }
+
+        /// <summary>
+        /// Returns a new list of shuffled collectables.
+        /// </summary>
+        private List<Collectable> GetCollectables()
+        {
+            var collectables = CollectableGroups.GetCollectables();
+            RandomSeed.Shuffle(collectables);
+            return collectables;
         }
 
         /// <summary>

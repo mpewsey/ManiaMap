@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -85,6 +86,24 @@ namespace MPewsey.ManiaMap
             {
                 list.AddRange(collection);
             }
+        }
+
+        /// <summary>
+        /// Returns a new list of collectables.
+        /// </summary>
+        public List<Collectable> GetCollectables()
+        {
+            var list = new List<Collectable>();
+
+            foreach (var pair in Groups.OrderBy(x => x.Key))
+            {
+                foreach (var id in pair.Value)
+                {
+                    list.Add(new Collectable(pair.Key, id));
+                }
+            }
+
+            return list;
         }
     }
 }
