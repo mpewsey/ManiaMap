@@ -7,6 +7,7 @@ var dir_c3494bb25e2299bf4310ea0990001e7f =
     [ "Box.cs", "_box_8cs_source.html", null ],
     [ "Cell.cs", "_cell_8cs_source.html", null ],
     [ "CellDistanceSearch.cs", "_cell_distance_search_8cs_source.html", null ],
+    [ "Collectable.cs", "_collectable_8cs_source.html", null ],
     [ "CollectableGenerator.cs", "_collectable_generator_8cs_source.html", null ],
     [ "CollectableGroups.cs", "_collectable_groups_8cs_source.html", null ],
     [ "CollectableSpot.cs", "_collectable_spot_8cs_source.html", null ],

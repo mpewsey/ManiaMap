@@ -8,6 +8,7 @@ var class_m_pewsey_1_1_mania_map_1_1_collectable_generator =
     [ "AssignInitialNeighborWeights", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#ad56fb4d6e2c2a057244466dc6954757c", null ],
     [ "Generate", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#ae577c514e7ff99176292bd4fe65c4f41", null ],
     [ "Generate", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#aafefe156c9569656434cbf94951f9619", null ],
+    [ "GetCollectables", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a631c5d35afc60a378db6dc3ba3e35406", null ],
     [ "GetDistance", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#aa0c64afeb2a48416a974a3228b95cd98", null ],
     [ "GetWeights", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a6087a8d87c8c653abf88005304bca099", null ],
     [ "UpdateNeighborWeights", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a40fde1c80168b2a92852d7ba0b8ce763", null ],

@@ -6,6 +6,7 @@ var namespace_m_pewsey_1_1_mania_map =
     [ "Box", "class_m_pewsey_1_1_mania_map_1_1_box.html", "class_m_pewsey_1_1_mania_map_1_1_box" ],
     [ "Cell", "class_m_pewsey_1_1_mania_map_1_1_cell.html", "class_m_pewsey_1_1_mania_map_1_1_cell" ],
     [ "CellDistanceSearch", "class_m_pewsey_1_1_mania_map_1_1_cell_distance_search.html", "class_m_pewsey_1_1_mania_map_1_1_cell_distance_search" ],
+    [ "Collectable", "struct_m_pewsey_1_1_mania_map_1_1_collectable.html", "struct_m_pewsey_1_1_mania_map_1_1_collectable" ],
     [ "CollectableGenerator", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator" ],
     [ "CollectableGroups", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups" ],
     [ "CollectableSpot", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot" ],

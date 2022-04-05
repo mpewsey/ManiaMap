@@ -25,6 +25,7 @@ var hierarchy =
       [ "MPewsey.ManiaMap.Uid", "struct_m_pewsey_1_1_mania_map_1_1_uid.html", null ]
     ] ],
     [ "IEquatable", null, [
+      [ "MPewsey.ManiaMap.Collectable", "struct_m_pewsey_1_1_mania_map_1_1_collectable.html", null ],
       [ "MPewsey.ManiaMap.DoorPair", "struct_m_pewsey_1_1_mania_map_1_1_door_pair.html", null ],
       [ "MPewsey.ManiaMap.Drawing.Padding", "struct_m_pewsey_1_1_mania_map_1_1_drawing_1_1_padding.html", null ],
       [ "MPewsey.ManiaMap.EdgeIndexes", "struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html", null ],
