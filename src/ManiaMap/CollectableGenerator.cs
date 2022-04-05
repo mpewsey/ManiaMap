@@ -96,7 +96,7 @@ namespace MPewsey.ManiaMap
 
             foreach (var pair in CollectableGroups.Groups.OrderBy(x => x.Key))
             {
-                foreach (var id in pair.Value)
+                foreach (var id in randomSeed.Shuffled(pair.Value))
                 {
                     AddCollectable(pair.Key, id);
                 }

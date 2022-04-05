@@ -42,6 +42,17 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns a new shuffled copy of the list.
+        /// </summary>
+        /// <param name="list">The list</param>
+        public List<T> Shuffled<T>(List<T> list)
+        {
+            var copy = new List<T>(list);
+            Shuffle(copy);
+            return copy;
+        }
+
+        /// <summary>
         /// Draws a random weighted index from an array.
         /// </summary>
         /// <param name="weights">An array of weights.</param>

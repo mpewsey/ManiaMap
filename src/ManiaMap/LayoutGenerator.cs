@@ -146,9 +146,7 @@ namespace MPewsey.ManiaMap
         private List<Configuration> GetConfigurations(RoomTemplate x, RoomTemplate y)
         {
             var space = ConfigurationSpaces[new TemplatePair(x, y)];
-            var result = new List<Configuration>(space.Configurations);
-            RandomSeed.Shuffle(result);
-            return result;
+            return RandomSeed.Shuffled(space.Configurations);
         }
 
         /// <summary>
