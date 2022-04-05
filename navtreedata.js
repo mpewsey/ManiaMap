@@ -35,6 +35,9 @@ var NAVTREE =
     ] ],
     [ "Collectable Generator Example", "index.html#autotoc_md10", null ],
     [ "Generation Pipeline Example", "index.html#autotoc_md11", null ],
+    [ "Changelog", "md__github_workspace__c_h_a_n_g_e_l_o_g.html", [
+      [ "v1.0.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md13", null ]
+    ] ],
     [ "Packages", "namespaces.html", [
       [ "Packages", "namespaces.html", "namespaces_dup" ],
       [ "Package Functions", "namespacemembers.html", [
@@ -64,7 +67,7 @@ var NAVTREEINDEX =
 "class_m_pewsey_1_1_mania_map_1_1_configuration.html#aee2cfb3c790e8ecde5adba37b8121762",
 "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html",
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html",
-"struct_m_pewsey_1_1_mania_map_1_1_template_pair.html#a7a7d40e121af038b438579a6be072be8"
+"struct_m_pewsey_1_1_mania_map_1_1_template_pair.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
