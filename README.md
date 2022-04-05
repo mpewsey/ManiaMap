@@ -18,6 +18,8 @@ This package allows for the creation of procedurally generated metroidvania styl
 * Specification of room connection constraints by defining door directions and matching door codes.
 * Rendering of generated layouts to image files using built-in or custom map tiles.
 * Procedural distribution of collectables throughout layout.
+* Supports gradual map discovery through cell filters.
+* Persistence of layout and layout state data through serialization.
 * Supports .NET Standard 2.0.
 * Works with Windows, Mac, and Linux.
 
