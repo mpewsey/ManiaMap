@@ -29,11 +29,6 @@ namespace MPewsey.ManiaMap
         private HashSet<int> Marked { get; set; }
 
         /// <summary>
-        /// A pool of chains.
-        /// </summary>
-        private LinkedList<List<LayoutEdge>> Pool { get; set; }
-
-        /// <summary>
         /// Returns a new list of chains for the graph.
         /// </summary>
         /// <param name="graph">The layout graph.</param>
@@ -44,7 +39,6 @@ namespace MPewsey.ManiaMap
             MaxBranchLength = maxBranchLength;
             Chains = new List<List<LayoutEdge>>();
             Marked = new HashSet<int>();
-            Pool = new LinkedList<List<LayoutEdge>>();
 
             AddCycleChains();
             AddBranchChains();
@@ -188,20 +182,15 @@ namespace MPewsey.ManiaMap
         {
             var result = new List<List<LayoutEdge>>(Chains.Count);
 
-            foreach (var chain in Chains)
+            if (Chains.Count > 0)
             {
-                Pool.AddLast(chain);
-            }
-
-            if (Pool.First != null)
-            {
-                var chain = Pool.First.Value;
+                var chain = Chains[0];
+                Chains.RemoveAt(0);
                 MarkNodes(chain);
                 result.Add(chain);
-                Pool.RemoveFirst();
             }
 
-            for (int i = 1; i < Chains.Count; i++)
+            while (Chains.Count > 0)
             {
                 var chain = FindNextChain();
                 MarkNodes(chain);
@@ -216,9 +205,9 @@ namespace MPewsey.ManiaMap
         /// </summary>
         private List<LayoutEdge> FindNextChain()
         {
-            for (var node = Pool.First; node != null; node = node.Next)
+            for (int i = 0; i < Chains.Count; i++)
             {
-                var chain = node.Value;
+                var chain = Chains[i];
 
                 // If the chain is a cycle, shift the elements of the chain to make a possible sequence.
                 if (ChainIsCycle(chain))
@@ -227,7 +216,7 @@ namespace MPewsey.ManiaMap
 
                     if (index >= 0)
                     {
-                        Pool.Remove(node);
+                        Chains.RemoveAt(i);
                         var subChain = chain.GetRange(0, index);
                         chain.RemoveRange(0, index);
                         chain.AddRange(subChain);
@@ -240,14 +229,14 @@ namespace MPewsey.ManiaMap
                 // Check if first edge forms sequence.
                 if (Marked.Contains(chain[0].FromNode))
                 {
-                    Pool.Remove(node);
+                    Chains.RemoveAt(i);
                     return chain;
                 }
 
                 // Check if last edge forms sequence.
                 if (Marked.Contains(chain[chain.Count - 1].ToNode))
                 {
-                    Pool.Remove(node);
+                    Chains.RemoveAt(i);
                     chain.Reverse();
                     chain.ForEach(x => x.Reverse());
                     return chain;
