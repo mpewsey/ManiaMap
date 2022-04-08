@@ -21,6 +21,6 @@ var searchData=
   ['gettemplates_18',['GetTemplates',['../class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a762ecf78ad2e29371d1b59f8e6786526',1,'MPewsey.ManiaMap.LayoutGenerator.GetTemplates()'],['../class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a8985ee30b76ed60744002525506fa62c',1,'MPewsey.ManiaMap.TemplateGroups.GetTemplates()']]],
   ['gettile_19',['GetTile',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a43725ee5273c89fbcf53864de4a34ef0',1,'MPewsey::ManiaMap::Drawing::LayoutMap']]],
   ['getuniquecycles_20',['GetUniqueCycles',['../class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#aafc564a750f67e7a340092ae2a610086',1,'MPewsey::ManiaMap::GraphCycleDecomposer']]],
-  ['getweight_21',['GetWeight',['../class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#ac79765e366d4078841087146ab49a4ca',1,'MPewsey::ManiaMap::CollectableSpot']]],
+  ['getweight_21',['GetWeight',['../class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a04c6a2ac134a116e821e510cf1e729f5',1,'MPewsey::ManiaMap::CollectableSpot']]],
   ['getweights_22',['GetWeights',['../class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a6087a8d87c8c653abf88005304bca099',1,'MPewsey::ManiaMap::CollectableGenerator']]]
 ];

@@ -119,9 +119,9 @@ Inheritance diagram for MPewsey.ManiaMap.CollectableGenerator:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a330660465777299b0541411d48c64924"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a330660465777299b0541411d48c64924">CollectableGenerator</a> (int initialNeighborWeight=1000)</td></tr>
-<tr class="memdesc:a330660465777299b0541411d48c64924"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the generator.  <a href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a330660465777299b0541411d48c64924">More...</a><br /></td></tr>
-<tr class="separator:a330660465777299b0541411d48c64924"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab906b8e03fb5f304445f72618332d85f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#ab906b8e03fb5f304445f72618332d85f">CollectableGenerator</a> (float doorPower=2, float neighborPower=1, int initialNeighborWeight=1000)</td></tr>
+<tr class="memdesc:ab906b8e03fb5f304445f72618332d85f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the generator.  <a href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#ab906b8e03fb5f304445f72618332d85f">More...</a><br /></td></tr>
+<tr class="separator:ab906b8e03fb5f304445f72618332d85f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae577c514e7ff99176292bd4fe65c4f41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#ae577c514e7ff99176292bd4fe65c4f41">Generate</a> (Dictionary&lt; string, object &gt; args, Dictionary&lt; string, object &gt; artifacts)</td></tr>
 <tr class="memdesc:ae577c514e7ff99176292bd4fe65c4f41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds collectables to the layout.  <a href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#ae577c514e7ff99176292bd4fe65c4f41">More...</a><br /></td></tr>
 <tr class="separator:ae577c514e7ff99176292bd4fe65c4f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,12 +145,18 @@ Properties</h2></td></tr>
 <tr class="memitem:aa3ce7a7be0bca5a42def2e5c2fd5c359"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html">RoomTemplate</a>, Dictionary&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int.html">Vector2DInt</a>, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_array2_d.html">Array2D</a>&lt; int &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#aa3ce7a7be0bca5a42def2e5c2fd5c359">Distances</a><code> [getset]</code></td></tr>
 <tr class="memdesc:aa3ce7a7be0bca5a42def2e5c2fd5c359"><td class="mdescLeft">&#160;</td><td class="mdescRight">A dictionary of distances by local position and room template.  <a href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#aa3ce7a7be0bca5a42def2e5c2fd5c359">More...</a><br /></td></tr>
 <tr class="separator:aa3ce7a7be0bca5a42def2e5c2fd5c359"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae76834ed3b4caf3c53a8e6ba1d74a839"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#ae76834ed3b4caf3c53a8e6ba1d74a839">DoorPower</a><code> [getset]</code></td></tr>
+<tr class="memdesc:ae76834ed3b4caf3c53a8e6ba1d74a839"><td class="mdescLeft">&#160;</td><td class="mdescRight">The exponent used for the door weight.  <a href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#ae76834ed3b4caf3c53a8e6ba1d74a839">More...</a><br /></td></tr>
+<tr class="separator:ae76834ed3b4caf3c53a8e6ba1d74a839"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5ab1f4e0c7832f31e20f4526a1c11ec"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#ac5ab1f4e0c7832f31e20f4526a1c11ec">InitialNeighborWeight</a><code> [getset]</code></td></tr>
 <tr class="memdesc:ac5ab1f4e0c7832f31e20f4526a1c11ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">The initial neighbor weight.  <a href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#ac5ab1f4e0c7832f31e20f4526a1c11ec">More...</a><br /></td></tr>
 <tr class="separator:ac5ab1f4e0c7832f31e20f4526a1c11ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb9e6527d7c170daecb841b0e44a80fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html">Layout</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#aeb9e6527d7c170daecb841b0e44a80fd">Layout</a><code> [getset]</code></td></tr>
 <tr class="memdesc:aeb9e6527d7c170daecb841b0e44a80fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The layout.  <a href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#aeb9e6527d7c170daecb841b0e44a80fd">More...</a><br /></td></tr>
 <tr class="separator:aeb9e6527d7c170daecb841b0e44a80fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5673de84b40d1ea6f217aad7ff51df3e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a5673de84b40d1ea6f217aad7ff51df3e">NeighborPower</a><code> [getset]</code></td></tr>
+<tr class="memdesc:a5673de84b40d1ea6f217aad7ff51df3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The exponent used for the neighbor weight.  <a href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a5673de84b40d1ea6f217aad7ff51df3e">More...</a><br /></td></tr>
+<tr class="separator:a5673de84b40d1ea6f217aad7ff51df3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a013960499a60294962394c7727d60aef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html">RandomSeed</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a013960499a60294962394c7727d60aef">RandomSeed</a><code> [getset]</code></td></tr>
 <tr class="memdesc:a013960499a60294962394c7727d60aef"><td class="mdescLeft">&#160;</td><td class="mdescRight">The random seed.  <a href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a013960499a60294962394c7727d60aef">More...</a><br /></td></tr>
 <tr class="separator:a013960499a60294962394c7727d60aef"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -190,8 +196,8 @@ Private Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00009">9</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a330660465777299b0541411d48c64924" name="a330660465777299b0541411d48c64924"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a330660465777299b0541411d48c64924">&#9670;&nbsp;</a></span>CollectableGenerator()</h2>
+<a id="ab906b8e03fb5f304445f72618332d85f" name="ab906b8e03fb5f304445f72618332d85f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab906b8e03fb5f304445f72618332d85f">&#9670;&nbsp;</a></span>CollectableGenerator()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -199,22 +205,40 @@ Private Member Functions</h2></td></tr>
         <tr>
           <td class="memname">MPewsey.ManiaMap.CollectableGenerator.CollectableGenerator </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>initialNeighborWeight</em> = <code>1000</code></td><td>)</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>doorPower</em> = <code>2</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>neighborPower</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>initialNeighborWeight</em> = <code>1000</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Initializes the generator. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p >/// </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">doorPower</td><td>The exponent used for the door weight.</td></tr>
+    <tr><td class="paramname">neighborPower</td><td>The exponent used for the neighbor weight.</td></tr>
     <tr><td class="paramname">initialNeighborWeight</td><td>The initial neighbor weight.</td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00050">50</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00062">62</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -268,7 +292,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00118">118</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00132">132</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -297,7 +321,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Creates a new list of collectable spots. </p>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00198">198</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00212">212</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -333,7 +357,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00212">212</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00226">226</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -362,7 +386,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Assigns the door weights to the collectable spots. </p>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00235">235</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00249">249</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -391,7 +415,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Assigns the initial neighbor weight to the collectable spots. </p>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00254">254</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00268">268</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -437,7 +461,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html#a994f629ae243cdd0432a71a4e73eaf66">MPewsey.ManiaMap.IGenerationStep</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00070">70</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00084">84</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -483,7 +507,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00084">84</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00098">98</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -512,7 +536,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Returns a new list of shuffled collectables. </p>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00105">105</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00119">119</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -566,7 +590,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00268">268</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00282">282</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -602,7 +626,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00180">180</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00194">194</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -621,7 +645,7 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00055">55</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00069">69</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -657,7 +681,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00141">141</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00155">155</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -684,7 +708,7 @@ Private Member Functions</h2></td></tr>
 
 <p>A dictionary of clusters by room ID. </p>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00044">44</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00054">54</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -710,7 +734,7 @@ Private Member Functions</h2></td></tr>
 
 <p>The collectable groups. </p>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00024">24</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00034">34</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -736,7 +760,7 @@ Private Member Functions</h2></td></tr>
 
 <p>A list of collectable spots. </p>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00034">34</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00044">44</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -762,7 +786,33 @@ Private Member Functions</h2></td></tr>
 
 <p>A dictionary of distances by local position and room template. </p>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00039">39</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00049">49</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+
+</div>
+</div>
+<a id="ae76834ed3b4caf3c53a8e6ba1d74a839" name="ae76834ed3b4caf3c53a8e6ba1d74a839"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae76834ed3b4caf3c53a8e6ba1d74a839">&#9670;&nbsp;</a></span>DoorPower</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float MPewsey.ManiaMap.CollectableGenerator.DoorPower</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The exponent used for the door weight. </p>
+
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00019">19</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -814,7 +864,33 @@ Private Member Functions</h2></td></tr>
 
 <p>The layout. </p>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00019">19</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00029">29</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+
+</div>
+</div>
+<a id="a5673de84b40d1ea6f217aad7ff51df3e" name="a5673de84b40d1ea6f217aad7ff51df3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5673de84b40d1ea6f217aad7ff51df3e">&#9670;&nbsp;</a></span>NeighborPower</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float MPewsey.ManiaMap.CollectableGenerator.NeighborPower</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The exponent used for the neighbor weight. </p>
+
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00024">24</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -840,7 +916,7 @@ Private Member Functions</h2></td></tr>
 
 <p>The random seed. </p>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00029">29</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00039">39</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 
 </div>
 </div>

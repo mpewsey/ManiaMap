@@ -10,11 +10,12 @@ var searchData=
   ['doorexists_7',['DoorExists',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#adad40db20badadf38917ba2a57a8c9f7',1,'MPewsey::ManiaMap::Drawing::LayoutMap']]],
   ['doorpair_8',['DoorPair',['../struct_m_pewsey_1_1_mania_map_1_1_door_pair.html#a8b8c07e4ca4c720863d2d959f7ed8c72',1,'MPewsey.ManiaMap.DoorPair.DoorPair()'],['../struct_m_pewsey_1_1_mania_map_1_1_door_pair.html',1,'MPewsey.ManiaMap.DoorPair']]],
   ['doorposition_9',['DoorPosition',['../class_m_pewsey_1_1_mania_map_1_1_door_position.html#a1bf8254ea6e1de042321da7d57a06ff3',1,'MPewsey.ManiaMap.DoorPosition.DoorPosition()'],['../class_m_pewsey_1_1_mania_map_1_1_door_position.html',1,'MPewsey.ManiaMap.DoorPosition']]],
-  ['doortype_10',['DoorType',['../namespace_m_pewsey_1_1_mania_map.html#a419070e26de8251aeeaa0578ad0d9fb1',1,'MPewsey::ManiaMap']]],
-  ['doortypesalign_11',['DoorTypesAlign',['../class_m_pewsey_1_1_mania_map_1_1_door.html#a74c481960823d899ccdff93a5863eea5',1,'MPewsey::ManiaMap::Door']]],
-  ['doorweight_12',['DoorWeight',['../class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#ab6c50e3ad23072cd8d374c6d83fd15b4',1,'MPewsey::ManiaMap::CollectableSpot']]],
-  ['drawgrid_13',['DrawGrid',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a57bc570f47a7b9197a4b2b27560c3c38',1,'MPewsey::ManiaMap::Drawing::LayoutMap']]],
-  ['drawmap_14',['DrawMap',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a4f6ef7800c3c0974dc037c3452f545d2',1,'MPewsey::ManiaMap::Drawing::LayoutMap']]],
-  ['drawmaptiles_15',['DrawMapTiles',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a50411116b00e86e094fdf1a7bc48bcf0',1,'MPewsey::ManiaMap::Drawing::LayoutMap']]],
-  ['drawweightedindex_16',['DrawWeightedIndex',['../class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a206e40db90f7a63cee0bf21aac53934e',1,'MPewsey::ManiaMap::RandomSeed']]]
+  ['doorpower_10',['DoorPower',['../class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#ae76834ed3b4caf3c53a8e6ba1d74a839',1,'MPewsey::ManiaMap::CollectableGenerator']]],
+  ['doortype_11',['DoorType',['../namespace_m_pewsey_1_1_mania_map.html#a419070e26de8251aeeaa0578ad0d9fb1',1,'MPewsey::ManiaMap']]],
+  ['doortypesalign_12',['DoorTypesAlign',['../class_m_pewsey_1_1_mania_map_1_1_door.html#a74c481960823d899ccdff93a5863eea5',1,'MPewsey::ManiaMap::Door']]],
+  ['doorweight_13',['DoorWeight',['../class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#ab6c50e3ad23072cd8d374c6d83fd15b4',1,'MPewsey::ManiaMap::CollectableSpot']]],
+  ['drawgrid_14',['DrawGrid',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a57bc570f47a7b9197a4b2b27560c3c38',1,'MPewsey::ManiaMap::Drawing::LayoutMap']]],
+  ['drawmap_15',['DrawMap',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a4f6ef7800c3c0974dc037c3452f545d2',1,'MPewsey::ManiaMap::Drawing::LayoutMap']]],
+  ['drawmaptiles_16',['DrawMapTiles',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a50411116b00e86e094fdf1a7bc48bcf0',1,'MPewsey::ManiaMap::Drawing::LayoutMap']]],
+  ['drawweightedindex_17',['DrawWeightedIndex',['../class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a206e40db90f7a63cee0bf21aac53934e',1,'MPewsey::ManiaMap::RandomSeed']]]
 ];

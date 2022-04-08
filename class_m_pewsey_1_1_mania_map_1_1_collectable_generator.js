@@ -1,6 +1,6 @@
 var class_m_pewsey_1_1_mania_map_1_1_collectable_generator =
 [
-    [ "CollectableGenerator", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a330660465777299b0541411d48c64924", null ],
+    [ "CollectableGenerator", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#ab906b8e03fb5f304445f72618332d85f", null ],
     [ "AddCollectable", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#aa269b01fe47132d549a75957e59d270d", null ],
     [ "AddCollectableSpots", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a45d9b74e667cbdc8a01e91338f9c1e10", null ],
     [ "AddRoomCollectableSpots", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a9cc488feb6ce97567ade5cf7cc190b5b", null ],
@@ -16,7 +16,9 @@ var class_m_pewsey_1_1_mania_map_1_1_collectable_generator =
     [ "CollectableGroups", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a280b9c77309a3ae992c15eb7b9d15b4d", null ],
     [ "CollectableSpots", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a5e0ae8246f4d89788f972f11273e7cc3", null ],
     [ "Distances", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#aa3ce7a7be0bca5a42def2e5c2fd5c359", null ],
+    [ "DoorPower", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#ae76834ed3b4caf3c53a8e6ba1d74a839", null ],
     [ "InitialNeighborWeight", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#ac5ab1f4e0c7832f31e20f4526a1c11ec", null ],
     [ "Layout", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#aeb9e6527d7c170daecb841b0e44a80fd", null ],
+    [ "NeighborPower", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a5673de84b40d1ea6f217aad7ff51df3e", null ],
     [ "RandomSeed", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a013960499a60294962394c7727d60aef", null ]
 ];

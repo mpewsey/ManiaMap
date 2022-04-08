@@ -4,7 +4,7 @@ var searchData=
   ['cellsmatch_1',['CellsMatch',['../class_m_pewsey_1_1_mania_map_1_1_room_template.html#a9745ab1a700a420fc4a425d0c9f460bc',1,'MPewsey::ManiaMap::RoomTemplate']]],
   ['chainiscycle_2',['ChainIsCycle',['../class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#acdeaa337cba503941b8d1c68639c0ea2',1,'MPewsey::ManiaMap::GraphChainDecomposer']]],
   ['collectable_3',['Collectable',['../struct_m_pewsey_1_1_mania_map_1_1_collectable.html#aaf59c24d216cd53cb47ff7e8f98c1f27',1,'MPewsey::ManiaMap::Collectable']]],
-  ['collectablegenerator_4',['CollectableGenerator',['../class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a330660465777299b0541411d48c64924',1,'MPewsey::ManiaMap::CollectableGenerator']]],
+  ['collectablegenerator_4',['CollectableGenerator',['../class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#ab906b8e03fb5f304445f72618332d85f',1,'MPewsey::ManiaMap::CollectableGenerator']]],
   ['collectablespot_5',['CollectableSpot',['../class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a7804d0d7cc737cbba48804e95e236c6f',1,'MPewsey::ManiaMap::CollectableSpot']]],
   ['configuration_6',['Configuration',['../class_m_pewsey_1_1_mania_map_1_1_configuration.html#a1e70c5e8cfc3443fb8fd8ce952541795',1,'MPewsey::ManiaMap::Configuration']]],
   ['configurationspace_7',['ConfigurationSpace',['../class_m_pewsey_1_1_mania_map_1_1_configuration_space.html#a3a8627a3b8ad767c3ca222de40cb7451',1,'MPewsey::ManiaMap::ConfigurationSpace']]],

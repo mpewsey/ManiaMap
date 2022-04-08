@@ -112,9 +112,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7804d0d7cc737cbba48804e95e236c6f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a7804d0d7cc737cbba48804e95e236c6f">CollectableSpot</a> (<a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> room, <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int.html">Vector2DInt</a> position, string group)</td></tr>
 <tr class="memdesc:a7804d0d7cc737cbba48804e95e236c6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new spot.  <a href="class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a7804d0d7cc737cbba48804e95e236c6f">More...</a><br /></td></tr>
 <tr class="separator:a7804d0d7cc737cbba48804e95e236c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac79765e366d4078841087146ab49a4ca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#ac79765e366d4078841087146ab49a4ca">GetWeight</a> ()</td></tr>
-<tr class="memdesc:ac79765e366d4078841087146ab49a4ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the draw weight for the spot.  <a href="class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#ac79765e366d4078841087146ab49a4ca">More...</a><br /></td></tr>
-<tr class="separator:ac79765e366d4078841087146ab49a4ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04c6a2ac134a116e821e510cf1e729f5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a04c6a2ac134a116e821e510cf1e729f5">GetWeight</a> (double doorPower, double neighborPower)</td></tr>
+<tr class="memdesc:a04c6a2ac134a116e821e510cf1e729f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the draw weight for the spot.  <a href="class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a04c6a2ac134a116e821e510cf1e729f5">More...</a><br /></td></tr>
+<tr class="separator:a04c6a2ac134a116e821e510cf1e729f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a111fd7afee30dce45278a5528bb721c6"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a111fd7afee30dce45278a5528bb721c6">ToString</a> ()</td></tr>
 <tr class="separator:a111fd7afee30dce45278a5528bb721c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -139,7 +139,7 @@ Properties</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >A class containing data for a collectable location. </p>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_spot_8cs_source.html#l00006">6</a> of file <a class="el" href="_collectable_spot_8cs_source.html">CollectableSpot.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_spot_8cs_source.html#l00008">8</a> of file <a class="el" href="_collectable_spot_8cs_source.html">CollectableSpot.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7804d0d7cc737cbba48804e95e236c6f" name="a7804d0d7cc737cbba48804e95e236c6f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7804d0d7cc737cbba48804e95e236c6f">&#9670;&nbsp;</a></span>CollectableSpot()</h2>
@@ -183,29 +183,47 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_spot_8cs_source.html#l00039">39</a> of file <a class="el" href="_collectable_spot_8cs_source.html">CollectableSpot.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_spot_8cs_source.html#l00041">41</a> of file <a class="el" href="_collectable_spot_8cs_source.html">CollectableSpot.cs</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac79765e366d4078841087146ab49a4ca" name="ac79765e366d4078841087146ab49a4ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac79765e366d4078841087146ab49a4ca">&#9670;&nbsp;</a></span>GetWeight()</h2>
+<a id="a04c6a2ac134a116e821e510cf1e729f5" name="a04c6a2ac134a116e821e510cf1e729f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04c6a2ac134a116e821e510cf1e729f5">&#9670;&nbsp;</a></span>GetWeight()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int MPewsey.ManiaMap.CollectableSpot.GetWeight </td>
+          <td class="memname">double MPewsey.ManiaMap.CollectableSpot.GetWeight </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>doorPower</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>neighborPower</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Returns the draw weight for the spot. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">doorPower</td><td>The exponent used for the door weight.</td></tr>
+    <tr><td class="paramname">neighborPower</td><td>The exponent used for the neighbor weight.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_spot_8cs_source.html#l00054">54</a> of file <a class="el" href="_collectable_spot_8cs_source.html">CollectableSpot.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_spot_8cs_source.html#l00058">58</a> of file <a class="el" href="_collectable_spot_8cs_source.html">CollectableSpot.cs</a>.</p>
 
 </div>
 </div>
@@ -224,7 +242,7 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_collectable_spot_8cs_source.html#l00046">46</a> of file <a class="el" href="_collectable_spot_8cs_source.html">CollectableSpot.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_spot_8cs_source.html#l00048">48</a> of file <a class="el" href="_collectable_spot_8cs_source.html">CollectableSpot.cs</a>.</p>
 
 </div>
 </div>
@@ -251,7 +269,7 @@ Properties</h2></td></tr>
 
 <p>The door draw weight. </p>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_spot_8cs_source.html#l00026">26</a> of file <a class="el" href="_collectable_spot_8cs_source.html">CollectableSpot.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_spot_8cs_source.html#l00028">28</a> of file <a class="el" href="_collectable_spot_8cs_source.html">CollectableSpot.cs</a>.</p>
 
 </div>
 </div>
@@ -277,7 +295,7 @@ Properties</h2></td></tr>
 
 <p>The collectable group name. </p>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_spot_8cs_source.html#l00021">21</a> of file <a class="el" href="_collectable_spot_8cs_source.html">CollectableSpot.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_spot_8cs_source.html#l00023">23</a> of file <a class="el" href="_collectable_spot_8cs_source.html">CollectableSpot.cs</a>.</p>
 
 </div>
 </div>
@@ -303,7 +321,7 @@ Properties</h2></td></tr>
 
 <p>The neighboring collectable draw weight. </p>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_spot_8cs_source.html#l00031">31</a> of file <a class="el" href="_collectable_spot_8cs_source.html">CollectableSpot.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_spot_8cs_source.html#l00033">33</a> of file <a class="el" href="_collectable_spot_8cs_source.html">CollectableSpot.cs</a>.</p>
 
 </div>
 </div>
@@ -329,7 +347,7 @@ Properties</h2></td></tr>
 
 <p>The local position in the room. </p>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_spot_8cs_source.html#l00016">16</a> of file <a class="el" href="_collectable_spot_8cs_source.html">CollectableSpot.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_spot_8cs_source.html#l00018">18</a> of file <a class="el" href="_collectable_spot_8cs_source.html">CollectableSpot.cs</a>.</p>
 
 </div>
 </div>
@@ -355,7 +373,7 @@ Properties</h2></td></tr>
 
 <p>The room ID. </p>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_spot_8cs_source.html#l00011">11</a> of file <a class="el" href="_collectable_spot_8cs_source.html">CollectableSpot.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_spot_8cs_source.html#l00013">13</a> of file <a class="el" href="_collectable_spot_8cs_source.html">CollectableSpot.cs</a>.</p>
 
 </div>
 </div>
