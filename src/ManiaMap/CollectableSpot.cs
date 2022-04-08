@@ -1,4 +1,6 @@
-﻿namespace MPewsey.ManiaMap
+﻿using System;
+
+namespace MPewsey.ManiaMap
 {
     /// <summary>
     /// A class containing data for a collectable location.
@@ -51,9 +53,13 @@
         /// <summary>
         /// Returns the draw weight for the spot.
         /// </summary>
-        public int GetWeight()
+        /// <param name="doorPower">The exponent used for the door weight.</param>
+        /// <param name="neighborPower">The exponent used for the neighbor weight.</param>
+        public double GetWeight(double doorPower, double neighborPower)
         {
-            return (DoorWeight + 1) * NeighborWeight;
+            var wd = Math.Pow(DoorWeight + 1, doorPower);
+            var wn = Math.Pow(NeighborWeight, neighborPower);
+            return wd * wn;
         }
     }
 }

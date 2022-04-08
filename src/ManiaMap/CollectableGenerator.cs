@@ -14,6 +14,16 @@ namespace MPewsey.ManiaMap
         public int InitialNeighborWeight { get; set; }
 
         /// <summary>
+        /// The exponent used for the door weight.
+        /// </summary>
+        public float DoorPower { get; set; }
+
+        /// <summary>
+        /// The exponent used for the neighbor weight.
+        /// </summary>
+        public float NeighborPower { get; set; }
+
+        /// <summary>
         /// The layout.
         /// </summary>
         private Layout Layout { get; set; }
@@ -43,18 +53,22 @@ namespace MPewsey.ManiaMap
         /// </summary>
         private Dictionary<Uid, HashSet<Uid>> Clusters { get; set; }
 
-        /// <summary>
+        /// /// <summary>
         /// Initializes the generator.
         /// </summary>
+        /// <param name="doorPower">The exponent used for the door weight.</param>
+        /// <param name="neighborPower">The exponent used for the neighbor weight.</param>
         /// <param name="initialNeighborWeight">The initial neighbor weight.</param>
-        public CollectableGenerator(int initialNeighborWeight = 1000)
+        public CollectableGenerator(float doorPower = 2, float neighborPower = 1, int initialNeighborWeight = 1000)
         {
+            DoorPower = doorPower;
+            NeighborPower = neighborPower;
             InitialNeighborWeight = initialNeighborWeight;
         }
 
         public override string ToString()
         {
-            return "CollectableGenerator()";
+            return $"CollectableGenerator(DoorPower = {DoorPower}, NeighborPower = {NeighborPower}, InitialNeighborWeight = {InitialNeighborWeight})";
         }
 
         /// <summary>
@@ -186,7 +200,7 @@ namespace MPewsey.ManiaMap
                 var spot = CollectableSpots[i];
 
                 if (spot.Group == group)
-                    weights[i] = spot.GetWeight();
+                    weights[i] = spot.GetWeight(DoorPower, NeighborPower);
             }
 
             return weights;
