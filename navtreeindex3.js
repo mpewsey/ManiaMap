@@ -1,12 +1,10 @@
 var NAVTREEINDEX3 =
 {
-"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_big_layout_sample.html":[6,0,0,0,1,0],
-"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_big_layout_sample.html#a0121c176b6e495ee8500b7bb5670e09c":[6,0,0,0,1,0,0],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_big_layout_sample.html#a0121c176b6e495ee8500b7bb5670e09c":[7,0,0,0,1,0,0],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html":[6,0,0,0,1,1],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html":[7,0,0,0,1,1],
-"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#a06206416ebb982056e107e93b28c762e":[7,0,0,0,1,1,3],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#a06206416ebb982056e107e93b28c762e":[6,0,0,0,1,1,3],
+"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#a06206416ebb982056e107e93b28c762e":[7,0,0,0,1,1,3],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#a390075d9339df2ab15fa75722d475c6b":[7,0,0,0,1,1,0],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#a390075d9339df2ab15fa75722d475c6b":[6,0,0,0,1,1,0],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#a4cce06cc9ae25476b64797837a752c17":[7,0,0,0,1,1,4],
@@ -249,5 +247,7 @@ var NAVTREEINDEX3 =
 "struct_m_pewsey_1_1_mania_map_1_1_room_pair.html":[6,0,0,0,32],
 "struct_m_pewsey_1_1_mania_map_1_1_room_pair.html#a8a3ccbfecc8b768ec9226394d7d1b835":[7,0,0,0,32,2],
 "struct_m_pewsey_1_1_mania_map_1_1_room_pair.html#a8a3ccbfecc8b768ec9226394d7d1b835":[6,0,0,0,32,2],
-"struct_m_pewsey_1_1_mania_map_1_1_room_pair.html#aa1d599fbbe94783d3c90993a352c27f3":[7,0,0,0,32,1]
+"struct_m_pewsey_1_1_mania_map_1_1_room_pair.html#aa1d599fbbe94783d3c90993a352c27f3":[7,0,0,0,32,1],
+"struct_m_pewsey_1_1_mania_map_1_1_room_pair.html#aa1d599fbbe94783d3c90993a352c27f3":[6,0,0,0,32,1],
+"struct_m_pewsey_1_1_mania_map_1_1_room_pair.html#ab12d28cd7cabf571faeb9ba552864080":[6,0,0,0,32,0]
 };

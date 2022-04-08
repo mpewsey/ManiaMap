@@ -15,6 +15,5 @@ var class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer =
     [ "Chains", "class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#af446e0aa96f0707dea05b331211f1150", null ],
     [ "Graph", "class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#ac0aeb15dbdc818c78514a2f6b5eddf89", null ],
     [ "Marked", "class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a17b27df77ce61c79b858e2972e1f4fcf", null ],
-    [ "MaxBranchLength", "class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#aae26b651c1caf4720e3405279a67e85c", null ],
-    [ "Pool", "class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a45f38038549cc0c91bb2f6fad346a119", null ]
+    [ "MaxBranchLength", "class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#aae26b651c1caf4720e3405279a67e85c", null ]
 ];
