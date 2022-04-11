@@ -34,7 +34,7 @@ namespace MPewsey.ManiaMap
         /// <param name="randomSeed">The random seed.</param>
         public LayoutGraph DrawSelection(IList<LayoutGraph> graphs, RandomSeed randomSeed)
         {
-            var index = randomSeed.Random.Next(0, graphs.Count);
+            var index = randomSeed.Next(0, graphs.Count);
             return graphs[index].Copy();
         }
 
@@ -45,7 +45,7 @@ namespace MPewsey.ManiaMap
         /// <param name="randomSeed">The random seed.</param>
         public LayoutGraph DrawSelection(IList<Func<LayoutGraph>> functions, RandomSeed randomSeed)
         {
-            var index = randomSeed.Random.Next(0, functions.Count);
+            var index = randomSeed.Next(0, functions.Count);
             return functions[index].Invoke().Copy();
         }
 

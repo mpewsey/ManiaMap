@@ -64,7 +64,7 @@ namespace MPewsey.ManiaMap
             Id = source.RoomId;
             Name = source.Name;
             Position = new Vector3DInt(position.X, position.Y, source.Z);
-            Seed = random.Random.Next();
+            Seed = random.Next();
             Color = source.Color;
             Template = template;
         }

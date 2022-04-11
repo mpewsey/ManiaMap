@@ -16,7 +16,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The random number generator.
         /// </summary>
-        public Random Random { get; }
+        private Random Random { get; }
 
         /// <summary>
         /// Initializes a new random seed.
@@ -29,14 +29,40 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns a random integer on the interval [0, `int.MaxValue`).
+        /// </summary>
+        public int Next()
+        {
+            return Random.Next();
+        }
+
+        /// <summary>
+        /// Returns a random integer on the interval [`minValue`, `maxValue`).
+        /// </summary>
+        /// <param name="minValue">The minimum value.</param>
+        /// <param name="maxValue">The maximum value.</param>
+        public int Next(int minValue, int maxValue)
+        {
+            return Random.Next(minValue, maxValue);
+        }
+
+        /// <summary>
+        /// Returns a random double in the interval [0, 1).
+        /// </summary>
+        public double NextDouble()
+        {
+            return Random.NextDouble();
+        }
+
+        /// <summary>
         /// Shuffles the specified list in place.
         /// </summary>
         /// <param name="list">The list to shuffle.</param>
-        public void Shuffle<T>(List<T> list)
+        public void Shuffle<T>(IList<T> list)
         {
             for (int i = 0; i < list.Count - 1; i++)
             {
-                var j = Random.Next(i, list.Count);
+                var j = Next(i, list.Count);
                 (list[i], list[j]) = (list[j], list[i]);
             }
         }
@@ -55,13 +81,13 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Draws a random weighted index from an array.
         /// </summary>
-        /// <param name="weights">An array of weights.</param>
-        public int DrawWeightedIndex(double[] weights)
+        /// <param name="weights">A list of weights.</param>
+        public int DrawWeightedIndex(IList<double> weights)
         {
-            if (weights.Length > 0)
+            if (weights.Count > 0)
             {
                 var totals = CumSum(weights);
-                var value = totals[totals.Length - 1] * Random.NextDouble();
+                var value = totals[totals.Length - 1] * NextDouble();
 
                 for (int i = 0; i < totals.Length; i++)
                 {
@@ -76,15 +102,15 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns the cumulative sum of the array.
+        /// Returns the cumulative sums of the list.
         /// </summary>
-        /// <param name="values">An array of values.</param>
-        public static double[] CumSum(double[] values)
+        /// <param name="values">An list of values.</param>
+        public static double[] CumSum(IList<double> values)
         {
             double total = 0;
-            var totals = new double[values.Length];
+            var totals = new double[values.Count];
 
-            for (int i = 0; i < values.Length; i++)
+            for (int i = 0; i < totals.Length; i++)
             {
                 total += values[i];
                 totals[i] = total;
