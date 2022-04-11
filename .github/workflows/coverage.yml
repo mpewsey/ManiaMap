@@ -1,4 +1,4 @@
-name: Release Tests
+name: Coverage
 
 on:
   push:
@@ -40,7 +40,10 @@ jobs:
       run: dotnet restore ".\src"
 
     - name: Build
-      run: dotnet build ".\src" --configuration Release --no-restore
+      run: dotnet build ".\src" --no-restore
 
     - name: Test
-      run: dotnet test ".\src" --no-restore --verbosity normal
+      run: dotnet test ".\src" --no-build --verbosity normal --collect:"XPlat Code Coverage"
+
+    - name: Codecov
+      uses: codecov/codecov-action@v2
