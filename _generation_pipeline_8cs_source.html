@@ -122,7 +122,7 @@ $(document).ready(function(){initNavTree('_generation_pipeline_8cs_source.html',
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="class_m_pewsey_1_1_mania_map_1_1_generation_pipeline.html#a753408c88f985493b380092b0b231dd1">   38</a></span>        <span class="keyword">public</span> Dictionary&lt;string, object&gt; <a class="code hl_function" href="class_m_pewsey_1_1_mania_map_1_1_generation_pipeline.html#a753408c88f985493b380092b0b231dd1">Generate</a>(Dictionary&lt;string, object&gt; args)</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        {</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            var artifacts = <span class="keyword">new</span> Dictionary&lt;string, object&gt;();</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <a class="code hl_property" href="class_m_pewsey_1_1_mania_map_1_1_generation_pipeline.html#a5b2969578915c3973bfe9cccdf68b539">Steps</a>.ForEach(x =&gt; x.Generate(args, artifacts));</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <a class="code hl_property" href="class_m_pewsey_1_1_mania_map_1_1_generation_pipeline.html#a5b2969578915c3973bfe9cccdf68b539">Steps</a>.ForEach(x =&gt; x.ApplyStep(args, artifacts));</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keywordflow">return</span> artifacts;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        }</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>

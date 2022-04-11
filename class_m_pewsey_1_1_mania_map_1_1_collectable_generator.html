@@ -119,12 +119,12 @@ Inheritance diagram for MPewsey.ManiaMap.CollectableGenerator:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a343957ab147e236108bd2a98e536cbe0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a343957ab147e236108bd2a98e536cbe0">ApplyStep</a> (Dictionary&lt; string, object &gt; args, Dictionary&lt; string, object &gt; artifacts)</td></tr>
+<tr class="memdesc:a343957ab147e236108bd2a98e536cbe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds collectables to the layout.  <a href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a343957ab147e236108bd2a98e536cbe0">More...</a><br /></td></tr>
+<tr class="separator:a343957ab147e236108bd2a98e536cbe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab906b8e03fb5f304445f72618332d85f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#ab906b8e03fb5f304445f72618332d85f">CollectableGenerator</a> (float doorPower=2, float neighborPower=1, int initialNeighborWeight=1000)</td></tr>
 <tr class="memdesc:ab906b8e03fb5f304445f72618332d85f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the generator.  <a href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#ab906b8e03fb5f304445f72618332d85f">More...</a><br /></td></tr>
 <tr class="separator:ab906b8e03fb5f304445f72618332d85f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae577c514e7ff99176292bd4fe65c4f41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#ae577c514e7ff99176292bd4fe65c4f41">Generate</a> (Dictionary&lt; string, object &gt; args, Dictionary&lt; string, object &gt; artifacts)</td></tr>
-<tr class="memdesc:ae577c514e7ff99176292bd4fe65c4f41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds collectables to the layout.  <a href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#ae577c514e7ff99176292bd4fe65c4f41">More...</a><br /></td></tr>
-<tr class="separator:ae577c514e7ff99176292bd4fe65c4f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafefe156c9569656434cbf94951f9619"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#aafefe156c9569656434cbf94951f9619">Generate</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html">Layout</a> layout, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html">CollectableGroups</a> collectableGroups, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html">RandomSeed</a> randomSeed)</td></tr>
 <tr class="memdesc:aafefe156c9569656434cbf94951f9619"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds collectables to the layout.  <a href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#aafefe156c9569656434cbf94951f9619">More...</a><br /></td></tr>
 <tr class="separator:aafefe156c9569656434cbf94951f9619"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -361,6 +361,52 @@ Private Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a343957ab147e236108bd2a98e536cbe0" name="a343957ab147e236108bd2a98e536cbe0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a343957ab147e236108bd2a98e536cbe0">&#9670;&nbsp;</a></span>ApplyStep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MPewsey.ManiaMap.CollectableGenerator.ApplyStep </td>
+          <td>(</td>
+          <td class="paramtype">Dictionary&lt; string, object &gt;&#160;</td>
+          <td class="paramname"><em>args</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Dictionary&lt; string, object &gt;&#160;</td>
+          <td class="paramname"><em>artifacts</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds collectables to the layout. </p>
+<p >The following arguments are required:</p><ul>
+<li>Layout - The room layout.</li>
+<li>CollectableGroups - The collectable groups.</li>
+<li>RandomSeed - The random seed. </li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>The pipeline arguments dictionary.</td></tr>
+    <tr><td class="paramname">artifacts</td><td>The pipeline artifacts dictionary.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html#aecc0f6981a03c194e063da327e76b58e">MPewsey.ManiaMap.IGenerationStep</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00084">84</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+
+</div>
+</div>
 <a id="a53d15cbe4b180928d68c1870b887ba9f" name="a53d15cbe4b180928d68c1870b887ba9f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a53d15cbe4b180928d68c1870b887ba9f">&#9670;&nbsp;</a></span>AssignDoorWeights()</h2>
 
@@ -419,54 +465,8 @@ Private Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae577c514e7ff99176292bd4fe65c4f41" name="ae577c514e7ff99176292bd4fe65c4f41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae577c514e7ff99176292bd4fe65c4f41">&#9670;&nbsp;</a></span>Generate() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void MPewsey.ManiaMap.CollectableGenerator.Generate </td>
-          <td>(</td>
-          <td class="paramtype">Dictionary&lt; string, object &gt;&#160;</td>
-          <td class="paramname"><em>args</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Dictionary&lt; string, object &gt;&#160;</td>
-          <td class="paramname"><em>artifacts</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Adds collectables to the layout. </p>
-<p >The following arguments are required:</p><ul>
-<li>Layout - The room layout.</li>
-<li>CollectableGroups - The collectable groups.</li>
-<li>RandomSeed - The random seed. </li>
-</ul>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">args</td><td>The pipeline arguments dictionary.</td></tr>
-    <tr><td class="paramname">artifacts</td><td>The pipeline artifacts dictionary.</td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Implements <a class="el" href="interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html#a994f629ae243cdd0432a71a4e73eaf66">MPewsey.ManiaMap.IGenerationStep</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00084">84</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
-
-</div>
-</div>
 <a id="aafefe156c9569656434cbf94951f9619" name="aafefe156c9569656434cbf94951f9619"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aafefe156c9569656434cbf94951f9619">&#9670;&nbsp;</a></span>Generate() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aafefe156c9569656434cbf94951f9619">&#9670;&nbsp;</a></span>Generate()</h2>
 
 <div class="memitem">
 <div class="memproto">
