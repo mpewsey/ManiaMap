@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -63,6 +64,19 @@ namespace MPewsey.ManiaMap
         public override string ToString()
         {
             return $"LayoutGraph(Id = {Id}, Name = {Name})";
+        }
+
+        /// <summary>
+        /// Returns a copy of the graph.
+        /// </summary>
+        public LayoutGraph Copy()
+        {
+            return new LayoutGraph(Id, Name)
+            {
+                Nodes = Nodes.ToDictionary(x => x.Key, x => x.Value.Copy()),
+                Edges = Edges.ToDictionary(x => x.Key, x => x.Value.Copy()),
+                Neighbors = Neighbors.ToDictionary(x => x.Key, x => new List<int>(x.Value)),
+            };
         }
 
         /// <summary>

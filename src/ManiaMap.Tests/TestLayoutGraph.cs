@@ -82,5 +82,19 @@ namespace MPewsey.ManiaMap.Tests
             var expected = new List<int> { 1, 3 };
             CollectionAssert.AreEquivalent(expected, graph.GetNeighbors(2).ToList());
         }
+
+        [TestMethod]
+        public void TestCopy()
+        {
+            var graph = new LayoutGraph(1, "Test");
+            graph.AddEdge(1, 2);
+            graph.AddEdge(2, 3);
+            var copy = graph.Copy();
+
+            Assert.AreEqual(graph.Id, copy.Id);
+            Assert.AreEqual(graph.Name, copy.Name);
+            Assert.AreEqual(graph.NodeCount, copy.NodeCount);
+            Assert.AreEqual(graph.EdgeCount, copy.EdgeCount);
+        }
     }
 }

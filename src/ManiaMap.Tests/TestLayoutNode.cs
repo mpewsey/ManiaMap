@@ -34,5 +34,17 @@ namespace MPewsey.ManiaMap.Tests
             var node = new LayoutNode(1).SetTemplateGroup("Default");
             Assert.AreEqual("Default", node.TemplateGroup);
         }
+
+        [TestMethod]
+        public void TestCopy()
+        {
+            var node = new LayoutNode(1);
+            var copy = node.Copy();
+
+            foreach (var property in node.GetType().GetProperties())
+            {
+                Assert.AreEqual(property.GetValue(node), property.GetValue(copy));
+            }
+        }
     }
 }

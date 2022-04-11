@@ -57,6 +57,20 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns a copy of the node.
+        /// </summary>
+        public LayoutNode Copy()
+        {
+            return new LayoutNode(Id)
+            {
+                Name = Name,
+                Z = Z,
+                TemplateGroup = TemplateGroup,
+                Color = Color,
+            };
+        }
+
+        /// <summary>
         /// Sets the Z value of the node and returns the node.
         /// </summary>
         /// <param name="value">The z value.</param>

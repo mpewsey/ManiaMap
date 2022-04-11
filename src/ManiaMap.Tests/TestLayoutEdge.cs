@@ -77,5 +77,17 @@ namespace MPewsey.ManiaMap.Tests
             var edge = new LayoutEdge(1, 2).SetName("Edge1");
             Assert.AreEqual("Edge1", edge.Name);
         }
+
+        [TestMethod]
+        public void TestCopy()
+        {
+            var edge = new LayoutEdge(1, 2);
+            var copy = edge.Copy();
+
+            foreach (var property in edge.GetType().GetProperties())
+            {
+                Assert.AreEqual(property.GetValue(edge), property.GetValue(copy));
+            }
+        }
     }
 }

@@ -84,6 +84,23 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns a copy of the edge.
+        /// </summary>
+        public LayoutEdge Copy()
+        {
+            return new LayoutEdge(FromNode, ToNode)
+            {
+                Name = Name,
+                Direction = Direction,
+                DoorCode = DoorCode,
+                Z = Z,
+                RoomChance = RoomChance,
+                Color = Color,
+                TemplateGroup = TemplateGroup,
+            };
+        }
+
+        /// <summary>
         /// Returns true if the room chance is satisfied.
         /// </summary>
         /// <param name="value">A random value between 0 and 1 to check against.</param>
