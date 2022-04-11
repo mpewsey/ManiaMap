@@ -1,6 +1,7 @@
 var class_m_pewsey_1_1_mania_map_1_1_layout_node =
 [
     [ "LayoutNode", "class_m_pewsey_1_1_mania_map_1_1_layout_node.html#a47bed83dd4749d0af752a5cedce8989c", null ],
+    [ "Copy", "class_m_pewsey_1_1_mania_map_1_1_layout_node.html#aef65876e88fe11b7ec38e3c74adec32b", null ],
     [ "SetColor", "class_m_pewsey_1_1_mania_map_1_1_layout_node.html#a191513f7a486b16effa7783c3c2c0260", null ],
     [ "SetName", "class_m_pewsey_1_1_mania_map_1_1_layout_node.html#afe48492b25c26d36e5e7b7838df34b21", null ],
     [ "SetTemplateGroup", "class_m_pewsey_1_1_mania_map_1_1_layout_node.html#a9f300244bcb6ed91701ab9679348abb2", null ],

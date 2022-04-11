@@ -3,6 +3,7 @@ var class_m_pewsey_1_1_mania_map_1_1_layout_graph =
     [ "LayoutGraph", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a192029faed6fe982af521bdc4c7acad7", null ],
     [ "AddEdge", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#ae94725c6a503f9e46131b3c0a3c7b713", null ],
     [ "AddNode", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a084790da06a53c932c12619a80407e72", null ],
+    [ "Copy", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#af2d41bce92b05eb8a34eeb0b6e6a0873", null ],
     [ "FindBranches", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a9fe63701854d462734269302eb51c9e5", null ],
     [ "FindChains", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a3716610fef3880ed1447591abe177ed2", null ],
     [ "FindCycles", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aa6fc9fea13ea812c3b37a8c2b49f5ce2", null ],

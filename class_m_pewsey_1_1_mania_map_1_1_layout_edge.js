@@ -1,6 +1,7 @@
 var class_m_pewsey_1_1_mania_map_1_1_layout_edge =
 [
     [ "LayoutEdge", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a53f93e9176f697a666777ca434a88d94", null ],
+    [ "Copy", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#add67e993408f77fdf1a7ecf65be0a316", null ],
     [ "Reverse", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#ac8018be356582feceb26234259469048", null ],
     [ "ReverseEdgeDirection", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a1928381cad3d7c53b98aa702b88c6943", null ],
     [ "RoomChanceSatisfied", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#ab6d1585f93e92ac5492dac662bd3e65a", null ],
