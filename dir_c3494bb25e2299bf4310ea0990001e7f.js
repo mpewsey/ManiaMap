@@ -32,6 +32,7 @@ var dir_c3494bb25e2299bf4310ea0990001e7f =
     [ "LayoutEdge.cs", "_layout_edge_8cs_source.html", null ],
     [ "LayoutGenerator.cs", "_layout_generator_8cs_source.html", null ],
     [ "LayoutGraph.cs", "_layout_graph_8cs_source.html", null ],
+    [ "LayoutGraphSelector.cs", "_layout_graph_selector_8cs_source.html", null ],
     [ "LayoutNode.cs", "_layout_node_8cs_source.html", null ],
     [ "LayoutState.cs", "_layout_state_8cs_source.html", null ],
     [ "RandomSeed.cs", "_random_seed_8cs_source.html", null ],

@@ -37,7 +37,8 @@ var hierarchy =
     ] ],
     [ "MPewsey.ManiaMap.IGenerationStep", "interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html", [
       [ "MPewsey.ManiaMap.CollectableGenerator", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html", null ],
-      [ "MPewsey.ManiaMap.LayoutGenerator", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html", null ]
+      [ "MPewsey.ManiaMap.LayoutGenerator", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html", null ],
+      [ "MPewsey.ManiaMap.LayoutGraphSelector", "class_m_pewsey_1_1_mania_map_1_1_layout_graph_selector.html", null ]
     ] ],
     [ "MPewsey.ManiaMap.IRoomSource", "interface_m_pewsey_1_1_mania_map_1_1_i_room_source.html", [
       [ "MPewsey.ManiaMap.LayoutEdge", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html", null ],

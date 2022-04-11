@@ -8,5 +8,6 @@ var searchData=
   ['drawgrid_5',['DrawGrid',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a57bc570f47a7b9197a4b2b27560c3c38',1,'MPewsey::ManiaMap::Drawing::LayoutMap']]],
   ['drawmap_6',['DrawMap',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a4f6ef7800c3c0974dc037c3452f545d2',1,'MPewsey::ManiaMap::Drawing::LayoutMap']]],
   ['drawmaptiles_7',['DrawMapTiles',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a50411116b00e86e094fdf1a7bc48bcf0',1,'MPewsey::ManiaMap::Drawing::LayoutMap']]],
-  ['drawweightedindex_8',['DrawWeightedIndex',['../class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a206e40db90f7a63cee0bf21aac53934e',1,'MPewsey::ManiaMap::RandomSeed']]]
+  ['drawselection_8',['DrawSelection',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph_selector.html#a96b5cbfd6b217242c51baf565c636921',1,'MPewsey.ManiaMap.LayoutGraphSelector.DrawSelection(IList&lt; LayoutGraph &gt; graphs, RandomSeed randomSeed)'],['../class_m_pewsey_1_1_mania_map_1_1_layout_graph_selector.html#ae4db0f27b6b9229246880d6da21f7b6a',1,'MPewsey.ManiaMap.LayoutGraphSelector.DrawSelection(IList&lt; Func&lt; LayoutGraph &gt; &gt; functions, RandomSeed randomSeed)'],['../class_m_pewsey_1_1_mania_map_1_1_layout_graph_selector.html#aa1431950535322c8f09494af1813870f',1,'MPewsey.ManiaMap.LayoutGraphSelector.DrawSelection(object graphs, RandomSeed randomSeed)']]],
+  ['drawweightedindex_9',['DrawWeightedIndex',['../class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a206e40db90f7a63cee0bf21aac53934e',1,'MPewsey::ManiaMap::RandomSeed']]]
 ];
