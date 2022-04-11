@@ -7,12 +7,14 @@ on:
     - '**.cs'
     - '**.csproj'
     - '**.sln'
+    - '.github/workflows/**'
   pull_request:
     branches: [ main ]
     paths:
     - '**.cs'
     - '**.csproj'
     - '**.sln'
+    - '.github/workflows/**'
 
 jobs:
   build:
