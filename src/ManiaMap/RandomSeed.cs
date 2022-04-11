@@ -68,12 +68,12 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns a new shuffled copy of the list.
+        /// Returns a new shuffled copy of the collection.
         /// </summary>
-        /// <param name="list">The list</param>
-        public List<T> Shuffled<T>(List<T> list)
+        /// <param name="list">The collection</param>
+        public List<T> Shuffled<T>(IEnumerable<T> collection)
         {
-            var copy = new List<T>(list);
+            var copy = new List<T>(collection);
             Shuffle(copy);
             return copy;
         }
