@@ -119,11 +119,11 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
-        public void TestCellsMatch()
+        public void TestCellValuesEqual()
         {
             var template1 = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
             var template2 = template1.Rotated180().Rotated180();
-            Assert.IsTrue(template1.CellsMatch(template2));
+            Assert.IsTrue(template1.CellValuesAreEqual(template2));
         }
     }
 }

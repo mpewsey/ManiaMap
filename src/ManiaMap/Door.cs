@@ -71,7 +71,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns true if the two doors have matching values.
         /// </summary>
-        public static bool Matches(Door x, Door y)
+        public static bool ValuesAreEqual(Door x, Door y)
         {
             if (x == y)
                 return true;
@@ -79,13 +79,13 @@ namespace MPewsey.ManiaMap
             if (x == null || y == null)
                 return false;
 
-            return x.Matches(y);
+            return x.ValuesAreEqual(y);
         }
 
         /// <summary>
         /// Returns true if the values of the two doors match.
         /// </summary>
-        public bool Matches(Door other)
+        public bool ValuesAreEqual(Door other)
         {
             return Code == other.Code && Type == other.Type;
         }

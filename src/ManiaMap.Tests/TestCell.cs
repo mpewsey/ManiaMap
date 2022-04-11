@@ -14,19 +14,19 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
-        public void TestMatches()
+        public void TestValuesEqual()
         {
             var cell1 = Cell.New.SetDoors("NW", Door.TwoWay);
             var cell2 = cell1.Rotated180().Rotated180();
-            Assert.IsTrue(cell1.Matches(cell2));
+            Assert.IsTrue(cell1.ValuesAreEqual(cell2));
         }
 
         [TestMethod]
-        public void TestDoesNotMatch()
+        public void TestValuesAreNotEqual()
         {
             var cell1 = Cell.New.SetDoors("NW", Door.TwoWay);
             var cell2 = cell1.Rotated180();
-            Assert.IsFalse(cell1.Matches(cell2));
+            Assert.IsFalse(cell1.ValuesAreEqual(cell2));
         }
 
         [TestMethod]

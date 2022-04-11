@@ -98,7 +98,7 @@ namespace MPewsey.ManiaMap
 
             foreach (var template in templates)
             {
-                if (!result.Any(x => x.CellsMatch(template)))
+                if (!result.Any(x => x.CellValuesAreEqual(template)))
                 {
                     result.Add(template);
                 }
@@ -111,7 +111,7 @@ namespace MPewsey.ManiaMap
         /// Returns true if all cells in this template match the cells of another template.
         /// </summary>
         /// <param name="other">The other room template.</param>
-        public bool CellsMatch(RoomTemplate other)
+        public bool CellValuesAreEqual(RoomTemplate other)
         {
             if (Cells.Rows != other.Cells.Rows || Cells.Columns != other.Cells.Columns)
                 return false;
@@ -120,16 +120,10 @@ namespace MPewsey.ManiaMap
             {
                 for (int j = 0; j < Cells.Columns; j++)
                 {
-                    var x = Cells[i, j];
-                    var y = other.Cells[i, j];
-                    var xIsNull = x == null;
-                    var yIsNull = y == null;
-
-                    if (xIsNull != yIsNull)
+                    if (!Cell.ValuesAreEqual(Cells[i, j], other.Cells[i, j]))
+                    {
                         return false;
-
-                    if (!xIsNull && !yIsNull && !x.Matches(y))
-                        return false;
+                    }
                 }
             }
 

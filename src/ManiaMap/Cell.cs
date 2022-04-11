@@ -288,17 +288,33 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns true if the values of the two cells match.
+        /// Returns true if the values of the two cells are equal.
+        /// </summary>
+        /// <param name="x">The first cell.</param>
+        /// <param name="y">The second cell.</param>
+        public static bool ValuesAreEqual(Cell x, Cell y)
+        {
+            if (x == y)
+                return true;
+
+            if (x == null || y == null)
+                return false;
+
+            return x.ValuesAreEqual(y);
+        }
+
+        /// <summary>
+        /// Returns true if the values of the two cells are equal.
         /// </summary>
         /// <param name="other">The other cell.</param>
-        public bool Matches(Cell other)
+        public bool ValuesAreEqual(Cell other)
         {
-            return Door.Matches(TopDoor, other.TopDoor)
-                && Door.Matches(BottomDoor, other.BottomDoor)
-                && Door.Matches(NorthDoor, other.NorthDoor)
-                && Door.Matches(SouthDoor, other.SouthDoor)
-                && Door.Matches(EastDoor, other.EastDoor)
-                && Door.Matches(WestDoor, other.WestDoor)
+            return Door.ValuesAreEqual(TopDoor, other.TopDoor)
+                && Door.ValuesAreEqual(BottomDoor, other.BottomDoor)
+                && Door.ValuesAreEqual(NorthDoor, other.NorthDoor)
+                && Door.ValuesAreEqual(SouthDoor, other.SouthDoor)
+                && Door.ValuesAreEqual(EastDoor, other.EastDoor)
+                && Door.ValuesAreEqual(WestDoor, other.WestDoor)
                 && CollectableGroup == other.CollectableGroup;
         }
     }
