@@ -1,9 +1,12 @@
 var class_m_pewsey_1_1_mania_map_1_1_random_seed =
 [
     [ "RandomSeed", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a02eaa4d27e579642488ce571261222df", null ],
-    [ "CumSum", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html#af142e24c771c7513bbbb5a4360e091f8", null ],
-    [ "DrawWeightedIndex", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a206e40db90f7a63cee0bf21aac53934e", null ],
-    [ "Shuffle< T >", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a823237d9062a8a1793e1a87311f1e889", null ],
+    [ "CumSum", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html#aed714072bbac96903c364b0845d84311", null ],
+    [ "DrawWeightedIndex", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html#aba5a9a2ee2e6ef15751dfb110c40720b", null ],
+    [ "Next", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html#aeae1c43084fac8f33dc6be281e7ec353", null ],
+    [ "Next", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a671e94bbaafcfe0cd8ffee834859924a", null ],
+    [ "NextDouble", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a7d7fc74557f4d34aa2749577d11392ee", null ],
+    [ "Shuffle< T >", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html#af95b540cc559e273693644e1160a56cd", null ],
     [ "Shuffled< T >", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html#acb172d884a271df17e9ea6935e4422b7", null ],
     [ "Random", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a27c70e193107e6f1d06ccf5ac8632ce1", null ],
     [ "Seed", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a3f7b8e44d67ed65205b54dad758d0d0e", null ]
