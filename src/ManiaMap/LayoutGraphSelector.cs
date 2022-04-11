@@ -20,7 +20,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         /// <param name="args">The pipeline arguments dictionary.</param>
         /// <param name="artifacts">The pipeline artifacts dictionary.</param>
-        public void Generate(Dictionary<string, object> args, Dictionary<string, object> artifacts)
+        public void ApplyStep(Dictionary<string, object> args, Dictionary<string, object> artifacts)
         {
             var randomSeed = GenerationPipeline.GetArgument<RandomSeed>("RandomSeed", args, artifacts);
             var layouts = GenerationPipeline.GetArgument<object>("LayoutGraphs", args, artifacts);

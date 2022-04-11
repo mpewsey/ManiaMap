@@ -13,6 +13,6 @@ namespace MPewsey.ManiaMap
         /// </summary>
         /// <param name="args">A dictionary of arguments.</param>
         /// <param name="artifacts">A dictionary of generator artifacts.</param>
-        void Generate(Dictionary<string, object> args, Dictionary<string, object> artifacts);
+        void ApplyStep(Dictionary<string, object> args, Dictionary<string, object> artifacts);
     }
 }

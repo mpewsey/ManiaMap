@@ -27,7 +27,7 @@ namespace MPewsey.ManiaMap.Tests
 
             var artifacts = new Dictionary<string, object>();
             var selector = new LayoutGraphSelector();
-            selector.Generate(args, artifacts);
+            selector.ApplyStep(args, artifacts);
             Assert.AreEqual(1, artifacts.Count);
             Assert.IsTrue(artifacts.ContainsKey("LayoutGraph"));
         }
@@ -52,7 +52,7 @@ namespace MPewsey.ManiaMap.Tests
 
             var artifacts = new Dictionary<string, object>();
             var selector = new LayoutGraphSelector();
-            selector.Generate(args, artifacts);
+            selector.ApplyStep(args, artifacts);
             Assert.AreEqual(1, artifacts.Count);
             Assert.IsTrue(artifacts.ContainsKey("LayoutGraph"));
         }

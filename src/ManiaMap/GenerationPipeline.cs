@@ -38,7 +38,7 @@ namespace MPewsey.ManiaMap
         public Dictionary<string, object> Generate(Dictionary<string, object> args)
         {
             var artifacts = new Dictionary<string, object>();
-            Steps.ForEach(x => x.Generate(args, artifacts));
+            Steps.ForEach(x => x.ApplyStep(args, artifacts));
             return artifacts;
         }
 
