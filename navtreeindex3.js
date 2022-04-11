@@ -1,12 +1,14 @@
 var NAVTREEINDEX3 =
 {
+"class_m_pewsey_1_1_mania_map_1_1_room_template.html#af7e6b1f545b7bade7f7a271d2ce3a30a":[6,0,0,0,34,1],
 "class_m_pewsey_1_1_mania_map_1_1_room_template.html#af84301352664fd2270680fe9b209d9c8":[6,0,0,0,34,5],
+"class_m_pewsey_1_1_mania_map_1_1_room_template.html#af84301352664fd2270680fe9b209d9c8":[7,0,0,0,34,5],
 "class_m_pewsey_1_1_mania_map_1_1_room_template.html#affa7d3379fb478ac22833f4b3beda41f":[7,0,0,0,34,13],
 "class_m_pewsey_1_1_mania_map_1_1_room_template.html#affa7d3379fb478ac22833f4b3beda41f":[6,0,0,0,34,13],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_big_layout_sample.html":[6,0,0,0,1,0],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_big_layout_sample.html":[7,0,0,0,1,0],
-"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_big_layout_sample.html#a0121c176b6e495ee8500b7bb5670e09c":[7,0,0,0,1,0,0],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_big_layout_sample.html#a0121c176b6e495ee8500b7bb5670e09c":[6,0,0,0,1,0,0],
+"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_big_layout_sample.html#a0121c176b6e495ee8500b7bb5670e09c":[7,0,0,0,1,0,0],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html":[6,0,0,0,1,1],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html":[7,0,0,0,1,1],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#a06206416ebb982056e107e93b28c762e":[6,0,0,0,1,1,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html#a2fec8a09e3e53fae0051288f4d9c8921":[7,0,0,0,16,1],
 "struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html#a3bffbdf622f9778818c2b4a872fd6ce0":[6,0,0,0,16,0],
 "struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html#a3bffbdf622f9778818c2b4a872fd6ce0":[7,0,0,0,16,0],
-"struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html#a421409bcd4bbb06eaafba21fd0371467":[7,0,0,0,16,2],
-"struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html#a421409bcd4bbb06eaafba21fd0371467":[6,0,0,0,16,2],
-"struct_m_pewsey_1_1_mania_map_1_1_room_pair.html":[7,0,0,0,32]
+"struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html#a421409bcd4bbb06eaafba21fd0371467":[7,0,0,0,16,2]
 };

@@ -2,7 +2,6 @@ var class_m_pewsey_1_1_mania_map_1_1_cell =
 [
     [ "BottomDoorAligns", "class_m_pewsey_1_1_mania_map_1_1_cell.html#ae4f9f27bdb64cbe5e0e730f2429480dd", null ],
     [ "EastDoorAligns", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a6a9b35b3b3a88b67e6a073f053b30fab", null ],
-    [ "Matches", "class_m_pewsey_1_1_mania_map_1_1_cell.html#ae90bcc76aabcac70009945913f7b3d05", null ],
     [ "MirroredHorizontally", "class_m_pewsey_1_1_mania_map_1_1_cell.html#ae7685f899e3f8192602da245181dde69", null ],
     [ "MirroredVertically", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a675599ac2e0c35596a8946a946ea50e9", null ],
     [ "NorthDoorAligns", "class_m_pewsey_1_1_mania_map_1_1_cell.html#aece896b5e42bf7ef6a31f8cb225ad814", null ],
@@ -13,6 +12,8 @@ var class_m_pewsey_1_1_mania_map_1_1_cell =
     [ "SetDoors", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a30d08ef844ba323dd76b981a7e278f3f", null ],
     [ "SouthDoorAligns", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a9debb06e02c8f00ae6367492323bc257", null ],
     [ "TopDoorAligns", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a914eb22beea54a5c4f15c440ebfb210c", null ],
+    [ "ValuesAreEqual", "class_m_pewsey_1_1_mania_map_1_1_cell.html#ac02a26a98fa40e1d2d6bb697c85b1a87", null ],
+    [ "ValuesAreEqual", "class_m_pewsey_1_1_mania_map_1_1_cell.html#ae7b2c94ffdb8eeae474b510eb6348cc4", null ],
     [ "WestDoorAligns", "class_m_pewsey_1_1_mania_map_1_1_cell.html#af718903e779a35091dbaae0b00bda528", null ],
     [ "BottomDoor", "class_m_pewsey_1_1_mania_map_1_1_cell.html#adf1d4b7e0f25c085a1c9b590fd8dc138", null ],
     [ "CollectableGroup", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a07f5b958c313cbac799d4cc9bfce915d", null ],

@@ -4,7 +4,7 @@ var searchData=
   ['cell_1',['Cell',['../class_m_pewsey_1_1_mania_map_1_1_cell.html',1,'MPewsey::ManiaMap']]],
   ['celldistancesearch_2',['CellDistanceSearch',['../class_m_pewsey_1_1_mania_map_1_1_cell_distance_search.html',1,'MPewsey::ManiaMap']]],
   ['cells_3',['Cells',['../class_m_pewsey_1_1_mania_map_1_1_room_template.html#affa7d3379fb478ac22833f4b3beda41f',1,'MPewsey.ManiaMap.RoomTemplate.Cells()'],['../class_m_pewsey_1_1_mania_map_1_1_cell_distance_search.html#a8335cae64c7ef26f6ef82c9fb30ae2a1',1,'MPewsey.ManiaMap.CellDistanceSearch.Cells()']]],
-  ['cellsmatch_4',['CellsMatch',['../class_m_pewsey_1_1_mania_map_1_1_room_template.html#a9745ab1a700a420fc4a425d0c9f460bc',1,'MPewsey::ManiaMap::RoomTemplate']]],
+  ['cellvaluesareequal_4',['CellValuesAreEqual',['../class_m_pewsey_1_1_mania_map_1_1_room_template.html#a83ed90297ad1141b7575bea798775de6',1,'MPewsey::ManiaMap::RoomTemplate']]],
   ['chainiscycle_5',['ChainIsCycle',['../class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#acdeaa337cba503941b8d1c68639c0ea2',1,'MPewsey::ManiaMap::GraphChainDecomposer']]],
   ['chains_6',['Chains',['../class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#af446e0aa96f0707dea05b331211f1150',1,'MPewsey::ManiaMap::GraphChainDecomposer']]],
   ['changelog_7',['Changelog',['../md__github_workspace__c_h_a_n_g_e_l_o_g.html',1,'']]],

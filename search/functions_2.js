@@ -1,7 +1,7 @@
 var searchData=
 [
   ['caninsertroom_0',['CanInsertRoom',['../class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a2f25f33be4ea12b2dbbb689fbf9069ec',1,'MPewsey::ManiaMap::LayoutGenerator']]],
-  ['cellsmatch_1',['CellsMatch',['../class_m_pewsey_1_1_mania_map_1_1_room_template.html#a9745ab1a700a420fc4a425d0c9f460bc',1,'MPewsey::ManiaMap::RoomTemplate']]],
+  ['cellvaluesareequal_1',['CellValuesAreEqual',['../class_m_pewsey_1_1_mania_map_1_1_room_template.html#a83ed90297ad1141b7575bea798775de6',1,'MPewsey::ManiaMap::RoomTemplate']]],
   ['chainiscycle_2',['ChainIsCycle',['../class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#acdeaa337cba503941b8d1c68639c0ea2',1,'MPewsey::ManiaMap::GraphChainDecomposer']]],
   ['collectable_3',['Collectable',['../struct_m_pewsey_1_1_mania_map_1_1_collectable.html#aaf59c24d216cd53cb47ff7e8f98c1f27',1,'MPewsey::ManiaMap::Collectable']]],
   ['collectablegenerator_4',['CollectableGenerator',['../class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#ab906b8e03fb5f304445f72618332d85f',1,'MPewsey::ManiaMap::CollectableGenerator']]],

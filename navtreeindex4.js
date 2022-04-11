@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html#a421409bcd4bbb06eaafba21fd0371467":[6,0,0,0,16,2],
+"struct_m_pewsey_1_1_mania_map_1_1_room_pair.html":[7,0,0,0,32],
 "struct_m_pewsey_1_1_mania_map_1_1_room_pair.html":[6,0,0,0,32],
 "struct_m_pewsey_1_1_mania_map_1_1_room_pair.html#a8a3ccbfecc8b768ec9226394d7d1b835":[7,0,0,0,32,2],
 "struct_m_pewsey_1_1_mania_map_1_1_room_pair.html#a8a3ccbfecc8b768ec9226394d7d1b835":[6,0,0,0,32,2],

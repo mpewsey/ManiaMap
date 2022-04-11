@@ -3,7 +3,7 @@ var class_m_pewsey_1_1_mania_map_1_1_room_template =
     [ "RoomTemplate", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a57adce33cc33bc37449a9f285d1590d1", null ],
     [ "AlignedDoors", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#af7e6b1f545b7bade7f7a271d2ce3a30a", null ],
     [ "AllVariations", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a6dbb55ea3b030cb1fae0b63a1f04a798", null ],
-    [ "CellsMatch", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a9745ab1a700a420fc4a425d0c9f460bc", null ],
+    [ "CellValuesAreEqual", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a83ed90297ad1141b7575bea798775de6", null ],
     [ "FindCellDistances", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#adea53c43b5a6e2cf5b8eb4438e9e1828", null ],
     [ "Intersects", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#af84301352664fd2270680fe9b209d9c8", null ],
     [ "Intersects", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#ac22b0a0c99f4de675882bd6b70fe385d", null ],
