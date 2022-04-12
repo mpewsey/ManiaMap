@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// A class from performing pseudo-random number generation.
+    /// A class for performing pseudo-random number generation.
     /// 
     /// References
     /// ----------
