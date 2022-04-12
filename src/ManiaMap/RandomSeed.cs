@@ -5,7 +5,12 @@ using System.Runtime.Serialization;
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// A class for associating a random number generator with an initial seed.
+    /// A class from performing pseudo-random number generation.
+    /// 
+    /// References
+    /// ----------
+    /// * [1] Rossetta Code. Subtractive generator. Retrieved April 12, 2022, from https://rosettacode.org/wiki/Subtractive_generator.
+    /// * [2] Microsoft Corporation. Reference Source .Net 4.8. Retrieved April 12, 2022, from https://referencesource.microsoft.com/#mscorlib/system/random.cs,bb77e610694e64ca.
     /// </summary>
     [DataContract]
     public class RandomSeed
@@ -48,10 +53,10 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Maps a value to a positive integer.
+        /// Returns the positive modulo of a value with respect to int.MaxValue.
         /// </summary>
         /// <param name="value">The value.</param>
-        private static int Map(int value)
+        private static int Mod(int value)
         {
             if (value < 0)
                 return value + int.MaxValue;
@@ -87,7 +92,7 @@ namespace MPewsey.ManiaMap
             {
                 var index = (21 * i) % 55;
                 Seeds[index] = mk;
-                mk = Map(mj - mk);
+                mk = Mod(mj - mk);
                 mj = Seeds[index];
             }
 
@@ -96,7 +101,7 @@ namespace MPewsey.ManiaMap
             {
                 for (int i = 1; i < 56; i++)
                 {
-                    Seeds[i] = Map(Seeds[i] - Seeds[1 + (i + 30) % 55]);
+                    Seeds[i] = Mod(Seeds[i] - Seeds[1 + (i + 30) % 55]);
                 }
             }
         }
@@ -109,7 +114,7 @@ namespace MPewsey.ManiaMap
         {
             var i = WrapIndex(Position + 1);
             var j = WrapIndex(Position + 22);
-            var next = Map(Seeds[i] - Seeds[j]);
+            var next = Mod(Seeds[i] - Seeds[j]);
 
             if (next == int.MaxValue)
                 next--;
@@ -178,8 +183,9 @@ namespace MPewsey.ManiaMap
             if ((next % 2) == 0)
                 next = -next;
 
-            var result = (double)next + int.MaxValue - 1;
-            result /= 2 * (double)int.MaxValue - 1;
+            double result = next;
+            result += int.MaxValue - 1;
+            result /= 2.0 * int.MaxValue - 1;
             return result;
         }
 
