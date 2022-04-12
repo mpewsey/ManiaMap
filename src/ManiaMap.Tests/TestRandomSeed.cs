@@ -61,6 +61,17 @@ namespace MPewsey.ManiaMap.Tests
             }
 
             CollectionAssert.AreEqual(expected, result);
+
+            // Check that SetSeed properly resets the randomizer.
+            seed.SetSeed(12345);
+            result.Clear();
+
+            for (int i = 0; i < expected.Count; i++)
+            {
+                result.Add(seed.Next());
+            }
+
+            CollectionAssert.AreEqual(expected, result);
         }
 
         [TestMethod]
