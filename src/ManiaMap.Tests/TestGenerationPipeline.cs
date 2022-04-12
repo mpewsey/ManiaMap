@@ -13,7 +13,7 @@ namespace MPewsey.ManiaMap.Tests
             var graph = Samples.GraphLibrary.BigGraph();
             var templateGroups = Samples.BigLayoutSample.BigLayoutTemplateGroups();
             var collectableGroups = new CollectableGroups();
-            collectableGroups.Add("Default", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+            collectableGroups.Add("Default", new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
 
             var args = new Dictionary<string, object>
             {

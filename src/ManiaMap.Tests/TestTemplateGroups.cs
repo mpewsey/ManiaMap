@@ -30,14 +30,6 @@ namespace MPewsey.ManiaMap.Tests
 
             templateGroups.Add("Group2", expected1);
             CollectionAssert.AreEquivalent(expected1, templateGroups.Groups["Group2"]);
-
-            templateGroups.Add("Group3", template1, template2);
-            CollectionAssert.AreEquivalent(expected2, templateGroups.Groups["Group3"]);
-
-            var list1 = new List<RoomTemplate> { template1 };
-            var list2 = new List<RoomTemplate> { template2 };
-            templateGroups.Add("Group4", list1, list2);
-            CollectionAssert.AreEquivalent(expected2, templateGroups.Groups["Group4"]);
         }
 
         [TestMethod]

@@ -42,22 +42,6 @@ namespace MPewsey.ManiaMap
         /// </summary>
         /// <param name="group">The group name.</param>
         /// <param name="collectables">The collectable ID's.</param>
-        public void Add(string group, params int[] collectables)
-        {
-            if (!Groups.TryGetValue(group, out var list))
-            {
-                list = new List<int>();
-                Groups.Add(group, list);
-            }
-
-            list.AddRange(collectables);
-        }
-
-        /// <summary>
-        /// Adds collectables to a group.
-        /// </summary>
-        /// <param name="group">The group name.</param>
-        /// <param name="collectables">The collectable ID's.</param>
         public void Add(string group, IEnumerable<int> collectables)
         {
             if (!Groups.TryGetValue(group, out var list))
@@ -67,25 +51,6 @@ namespace MPewsey.ManiaMap
             }
 
             list.AddRange(collectables);
-        }
-
-        /// <summary>
-        /// Adds collectables to a group.
-        /// </summary>
-        /// <param name="group">The group name.</param>
-        /// <param name="collectables">The collectable ID's.</param>
-        public void Add(string group, params IEnumerable<int>[] collectables)
-        {
-            if (!Groups.TryGetValue(group, out var list))
-            {
-                list = new List<int>();
-                Groups.Add(group, list);
-            }
-
-            foreach (var collection in collectables)
-            {
-                list.AddRange(collection);
-            }
         }
 
         /// <summary>
