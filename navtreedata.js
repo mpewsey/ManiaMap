@@ -25,18 +25,18 @@
 var NAVTREE =
 [
   [ "ManiaMap", "index.html", [
-    [ "About", "index.html#autotoc_md3", null ],
-    [ "Features", "index.html#autotoc_md4", null ],
-    [ "Layout Generator Example", "index.html#autotoc_md5", [
-      [ "Step 1: Create Room Templates", "index.html#autotoc_md6", null ],
-      [ "Step 2: Assign Room Templates to Template Groups", "index.html#autotoc_md7", null ],
-      [ "Step 3: Create a Layout Graph", "index.html#autotoc_md8", null ],
-      [ "Step 4: Run the Layout Generator", "index.html#autotoc_md9", null ]
+    [ "About", "index.html#autotoc_md4", null ],
+    [ "Features", "index.html#autotoc_md5", null ],
+    [ "Layout Generator Example", "index.html#autotoc_md6", [
+      [ "Step 1: Create Room Templates", "index.html#autotoc_md7", null ],
+      [ "Step 2: Assign Room Templates to Template Groups", "index.html#autotoc_md8", null ],
+      [ "Step 3: Create a Layout Graph", "index.html#autotoc_md9", null ],
+      [ "Step 4: Run the Layout Generator", "index.html#autotoc_md10", null ]
     ] ],
-    [ "Collectable Generator Example", "index.html#autotoc_md10", null ],
-    [ "Generation Pipeline Example", "index.html#autotoc_md11", null ],
+    [ "Collectable Generator Example", "index.html#autotoc_md11", null ],
+    [ "Generation Pipeline Example", "index.html#autotoc_md12", null ],
     [ "Changelog", "md__github_workspace__c_h_a_n_g_e_l_o_g.html", [
-      [ "v1.0.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md13", null ]
+      [ "v1.0.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md14", null ]
     ] ],
     [ "Packages", "namespaces.html", [
       [ "Packages", "namespaces.html", "namespaces_dup" ],
@@ -66,8 +66,8 @@ var NAVTREEINDEX =
 "_____docs_____8cs_source.html",
 "class_m_pewsey_1_1_mania_map_1_1_configuration.html#ad67f00dc6d018b49b330fb3f11aae96e",
 "class_m_pewsey_1_1_mania_map_1_1_layout.html#ad9ebd3474d4fc2ccdcd0d53b285dd654",
-"class_m_pewsey_1_1_mania_map_1_1_room_template.html#a6dbb55ea3b030cb1fae0b63a1f04a798",
-"struct_m_pewsey_1_1_mania_map_1_1_drawing_1_1_padding.html#a6a515d379f3202cc6ce7ea6db6bfbeb1"
+"class_m_pewsey_1_1_mania_map_1_1_room_state.html#a977eefae887d5f2fa1f0be3cd46454cd",
+"struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a4ddef99bfda4882290c4bd58763770f1"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

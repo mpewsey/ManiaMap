@@ -100,12 +100,14 @@ $(document).ready(function(){initNavTree('class_m_pewsey_1_1_mania_map_1_1_rando
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#properties">Properties</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">MPewsey.ManiaMap.RandomSeed Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>A class for associating a random number generator with an initial seed.  
+<p>A class from performing pseudo-random number generation.  
  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -114,23 +116,37 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aba5a9a2ee2e6ef15751dfb110c40720b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a random weighted index from an array.  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#aba5a9a2ee2e6ef15751dfb110c40720b">More...</a><br /></td></tr>
 <tr class="separator:aba5a9a2ee2e6ef15751dfb110c40720b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeae1c43084fac8f33dc6be281e7ec353"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#aeae1c43084fac8f33dc6be281e7ec353">Next</a> ()</td></tr>
-<tr class="memdesc:aeae1c43084fac8f33dc6be281e7ec353"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random integer on the interval [0, <code>int.MaxValue</code>).  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#aeae1c43084fac8f33dc6be281e7ec353">More...</a><br /></td></tr>
+<tr class="memdesc:aeae1c43084fac8f33dc6be281e7ec353"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random integer on the interval [0, int.MaxValue).  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#aeae1c43084fac8f33dc6be281e7ec353">More...</a><br /></td></tr>
 <tr class="separator:aeae1c43084fac8f33dc6be281e7ec353"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d0ba21bad848c045f7d99d7a11e1987"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a0d0ba21bad848c045f7d99d7a11e1987">Next</a> (int maxValue)</td></tr>
+<tr class="memdesc:a0d0ba21bad848c045f7d99d7a11e1987"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random value on the interval [0, maxValue).  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a0d0ba21bad848c045f7d99d7a11e1987">More...</a><br /></td></tr>
+<tr class="separator:a0d0ba21bad848c045f7d99d7a11e1987"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a671e94bbaafcfe0cd8ffee834859924a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a671e94bbaafcfe0cd8ffee834859924a">Next</a> (int minValue, int maxValue)</td></tr>
-<tr class="memdesc:a671e94bbaafcfe0cd8ffee834859924a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random integer on the interval [<code>minValue</code>, <code>maxValue</code>).  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a671e94bbaafcfe0cd8ffee834859924a">More...</a><br /></td></tr>
+<tr class="memdesc:a671e94bbaafcfe0cd8ffee834859924a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random value on the interval [minValue, maxValue).  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a671e94bbaafcfe0cd8ffee834859924a">More...</a><br /></td></tr>
 <tr class="separator:a671e94bbaafcfe0cd8ffee834859924a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d7fc74557f4d34aa2749577d11392ee"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a7d7fc74557f4d34aa2749577d11392ee">NextDouble</a> ()</td></tr>
-<tr class="memdesc:a7d7fc74557f4d34aa2749577d11392ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random double in the interval [0, 1).  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a7d7fc74557f4d34aa2749577d11392ee">More...</a><br /></td></tr>
+<tr class="memdesc:a7d7fc74557f4d34aa2749577d11392ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random double on the interval [0, 1).  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a7d7fc74557f4d34aa2749577d11392ee">More...</a><br /></td></tr>
 <tr class="separator:a7d7fc74557f4d34aa2749577d11392ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad84e7993e75beaa5d8c74ff0c3049744"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#ad84e7993e75beaa5d8c74ff0c3049744">NextDouble</a> (double maxValue)</td></tr>
+<tr class="memdesc:ad84e7993e75beaa5d8c74ff0c3049744"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random double on the interval [0, maxValue).  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#ad84e7993e75beaa5d8c74ff0c3049744">More...</a><br /></td></tr>
+<tr class="separator:ad84e7993e75beaa5d8c74ff0c3049744"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a080be621bac1156040a24bb3f988d74a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a080be621bac1156040a24bb3f988d74a">NextDouble</a> (double minValue, double maxValue)</td></tr>
+<tr class="memdesc:a080be621bac1156040a24bb3f988d74a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random double on the interval [minValue, maxValue).  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a080be621bac1156040a24bb3f988d74a">More...</a><br /></td></tr>
+<tr class="separator:a080be621bac1156040a24bb3f988d74a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02eaa4d27e579642488ce571261222df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a02eaa4d27e579642488ce571261222df">RandomSeed</a> (int seed)</td></tr>
 <tr class="memdesc:a02eaa4d27e579642488ce571261222df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new random seed.  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a02eaa4d27e579642488ce571261222df">More...</a><br /></td></tr>
 <tr class="separator:a02eaa4d27e579642488ce571261222df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad31f8d8e616b27fbb9eaf28e51bfef21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#ad31f8d8e616b27fbb9eaf28e51bfef21">SetSeed</a> (int seed)</td></tr>
+<tr class="memdesc:ad31f8d8e616b27fbb9eaf28e51bfef21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the random seed and initializes the randomizer.  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#ad31f8d8e616b27fbb9eaf28e51bfef21">More...</a><br /></td></tr>
+<tr class="separator:ad31f8d8e616b27fbb9eaf28e51bfef21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af95b540cc559e273693644e1160a56cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#af95b540cc559e273693644e1160a56cd">Shuffle&lt; T &gt;</a> (IList&lt; T &gt; list)</td></tr>
 <tr class="memdesc:af95b540cc559e273693644e1160a56cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shuffles the specified list in place.  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#af95b540cc559e273693644e1160a56cd">More...</a><br /></td></tr>
 <tr class="separator:af95b540cc559e273693644e1160a56cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5651980818ab64caee82c32030e1865"><td class="memItemLeft" align="right" valign="top">List&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#ad5651980818ab64caee82c32030e1865">Shuffled&lt; T &gt;</a> (IEnumerable&lt; T &gt; collection)</td></tr>
 <tr class="memdesc:ad5651980818ab64caee82c32030e1865"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new shuffled copy of the collection.  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#ad5651980818ab64caee82c32030e1865">More...</a><br /></td></tr>
 <tr class="separator:ad5651980818ab64caee82c32030e1865"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a848db2a845eb906149093f5d8ccf5fd4"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a848db2a845eb906149093f5d8ccf5fd4">ToString</a> ()</td></tr>
+<tr class="separator:a848db2a845eb906149093f5d8ccf5fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -140,20 +156,66 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:a27c70e193107e6f1d06ccf5ac8632ce1"><td class="memItemLeft" align="right" valign="top">Random&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a27c70e193107e6f1d06ccf5ac8632ce1">Random</a><code> [get]</code></td></tr>
-<tr class="memdesc:a27c70e193107e6f1d06ccf5ac8632ce1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The random number generator.  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a27c70e193107e6f1d06ccf5ac8632ce1">More...</a><br /></td></tr>
-<tr class="separator:a27c70e193107e6f1d06ccf5ac8632ce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f7b8e44d67ed65205b54dad758d0d0e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a3f7b8e44d67ed65205b54dad758d0d0e">Seed</a><code> [get]</code></td></tr>
+<tr class="memitem:ac775b1e2219d299d7897b520564fdef6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#ac775b1e2219d299d7897b520564fdef6">Position1</a><code> [getset]</code></td></tr>
+<tr class="memdesc:ac775b1e2219d299d7897b520564fdef6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The first position of the randomizer.  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#ac775b1e2219d299d7897b520564fdef6">More...</a><br /></td></tr>
+<tr class="separator:ac775b1e2219d299d7897b520564fdef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6382b0fc837ac059fbafc1631656cc76"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a6382b0fc837ac059fbafc1631656cc76">Position2</a><code> [getset]</code></td></tr>
+<tr class="memdesc:a6382b0fc837ac059fbafc1631656cc76"><td class="mdescLeft">&#160;</td><td class="mdescRight">The second position of the randomizer.  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a6382b0fc837ac059fbafc1631656cc76">More...</a><br /></td></tr>
+<tr class="separator:a6382b0fc837ac059fbafc1631656cc76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f7b8e44d67ed65205b54dad758d0d0e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a3f7b8e44d67ed65205b54dad758d0d0e">Seed</a><code> [getprivate set]</code></td></tr>
 <tr class="memdesc:a3f7b8e44d67ed65205b54dad758d0d0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The random seed.  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a3f7b8e44d67ed65205b54dad758d0d0e">More...</a><br /></td></tr>
 <tr class="separator:a3f7b8e44d67ed65205b54dad758d0d0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b0399a89a6254c6fb1156ca7a7a7f42"><td class="memItemLeft" align="right" valign="top">int[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a8b0399a89a6254c6fb1156ca7a7a7f42">Seeds</a> = new int[56]<code> [getset]</code></td></tr>
+<tr class="memdesc:a8b0399a89a6254c6fb1156ca7a7a7f42"><td class="mdescLeft">&#160;</td><td class="mdescRight">An array of previous seeds.  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a8b0399a89a6254c6fb1156ca7a7a7f42">More...</a><br /></td></tr>
+<tr class="separator:a8b0399a89a6254c6fb1156ca7a7a7f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ad87c223f0b2032abb8b6d4686e56844b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#ad87c223f0b2032abb8b6d4686e56844b">NextLargeDouble</a> ()</td></tr>
+<tr class="memdesc:ad87c223f0b2032abb8b6d4686e56844b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random high resolution double on the interval [0, 1).  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#ad87c223f0b2032abb8b6d4686e56844b">More...</a><br /></td></tr>
+<tr class="separator:ad87c223f0b2032abb8b6d4686e56844b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:ad2974a10da5a3db7f18050991c4f96fc"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#ad2974a10da5a3db7f18050991c4f96fc">Mod</a> (int value)</td></tr>
+<tr class="memdesc:ad2974a10da5a3db7f18050991c4f96fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the positive modulo of a value with respect to int.MaxValue.  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#ad2974a10da5a3db7f18050991c4f96fc">More...</a><br /></td></tr>
+<tr class="separator:ad2974a10da5a3db7f18050991c4f96fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd01e73b9ad812074b92e60fcb445434"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#abd01e73b9ad812074b92e60fcb445434">WrapIndex</a> (int value)</td></tr>
+<tr class="memdesc:abd01e73b9ad812074b92e60fcb445434"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wraps an index if it exceeds the top array bounds.  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#abd01e73b9ad812074b92e60fcb445434">More...</a><br /></td></tr>
+<tr class="separator:abd01e73b9ad812074b92e60fcb445434"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >A class for associating a random number generator with an initial seed. </p>
+<div class="textblock"><p >A class from performing pseudo-random number generation. </p>
+<h2><a class="anchor" id="autotoc_md2"></a>
+References</h2>
+<ul>
+<li>[1] Rossetta Code. Subtractive generator. Retrieved April 12, 2022, from <a href="https://rosettacode.org/wiki/Subtractive_generator">https://rosettacode.org/wiki/Subtractive_generator</a>.</li>
+<li>[2] Microsoft Corporation. Reference Source .NET Framework 4.8. Retrieved April 12, 2022, from <a href="https://referencesource.microsoft.com/#mscorlib/system/random.cs,bb77e610694e64ca">https://referencesource.microsoft.com/#mscorlib/system/random.cs,bb77e610694e64ca</a>. </li>
+</ul>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00009">9</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00016">16</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a317f22792542688f47c959acdebbcb86" name="a317f22792542688f47c959acdebbcb86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a317f22792542688f47c959acdebbcb86">&#9670;&nbsp;</a></span>RandomSeed() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MPewsey.ManiaMap.RandomSeed.RandomSeed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00042">42</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+
+</div>
+</div>
 <a id="a02eaa4d27e579642488ce571261222df" name="a02eaa4d27e579642488ce571261222df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02eaa4d27e579642488ce571261222df">&#9670;&nbsp;</a></span>RandomSeed()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a02eaa4d27e579642488ce571261222df">&#9670;&nbsp;</a></span>RandomSeed() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -176,7 +238,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00025">25</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00051">51</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
@@ -213,7 +275,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00108">108</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00251">251</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
@@ -241,12 +303,48 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00085">85</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00228">228</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+
+</div>
+</div>
+<a id="ad2974a10da5a3db7f18050991c4f96fc" name="ad2974a10da5a3db7f18050991c4f96fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2974a10da5a3db7f18050991c4f96fc">&#9670;&nbsp;</a></span>Mod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int MPewsey.ManiaMap.RandomSeed.Mod </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the positive modulo of a value with respect to int.MaxValue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The value.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00065">65</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
 <a id="aeae1c43084fac8f33dc6be281e7ec353" name="aeae1c43084fac8f33dc6be281e7ec353"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeae1c43084fac8f33dc6be281e7ec353">&#9670;&nbsp;</a></span>Next() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aeae1c43084fac8f33dc6be281e7ec353">&#9670;&nbsp;</a></span>Next() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -260,14 +358,43 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a random integer on the interval [0, <code>int.MaxValue</code>). </p>
+<p>Returns a random integer on the interval [0, int.MaxValue). </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00034">34</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00120">120</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+
+</div>
+</div>
+<a id="a0d0ba21bad848c045f7d99d7a11e1987" name="a0d0ba21bad848c045f7d99d7a11e1987"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d0ba21bad848c045f7d99d7a11e1987">&#9670;&nbsp;</a></span>Next() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MPewsey.ManiaMap.RandomSeed.Next </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxValue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a random value on the interval [0, maxValue). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maxValue</td><td>The maximum value.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00139">139</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
 <a id="a671e94bbaafcfe0cd8ffee834859924a" name="a671e94bbaafcfe0cd8ffee834859924a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a671e94bbaafcfe0cd8ffee834859924a">&#9670;&nbsp;</a></span>Next() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a671e94bbaafcfe0cd8ffee834859924a">&#9670;&nbsp;</a></span>Next() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -292,7 +419,7 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a random integer on the interval [<code>minValue</code>, <code>maxValue</code>). </p>
+<p>Returns a random value on the interval [minValue, maxValue). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">minValue</td><td>The minimum value.</td></tr>
@@ -301,12 +428,12 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00044">44</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00149">149</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
 <a id="a7d7fc74557f4d34aa2749577d11392ee" name="a7d7fc74557f4d34aa2749577d11392ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d7fc74557f4d34aa2749577d11392ee">&#9670;&nbsp;</a></span>NextDouble()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d7fc74557f4d34aa2749577d11392ee">&#9670;&nbsp;</a></span>NextDouble() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -320,9 +447,133 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a random double in the interval [0, 1). </p>
+<p>Returns a random double on the interval [0, 1). </p>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00052">52</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00159">159</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+
+</div>
+</div>
+<a id="ad84e7993e75beaa5d8c74ff0c3049744" name="ad84e7993e75beaa5d8c74ff0c3049744"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad84e7993e75beaa5d8c74ff0c3049744">&#9670;&nbsp;</a></span>NextDouble() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double MPewsey.ManiaMap.RandomSeed.NextDouble </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>maxValue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a random double on the interval [0, maxValue). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maxValue</td><td>The maximum value.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00168">168</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+
+</div>
+</div>
+<a id="a080be621bac1156040a24bb3f988d74a" name="a080be621bac1156040a24bb3f988d74a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a080be621bac1156040a24bb3f988d74a">&#9670;&nbsp;</a></span>NextDouble() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double MPewsey.ManiaMap.RandomSeed.NextDouble </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>minValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>maxValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a random double on the interval [minValue, maxValue). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">minValue</td><td>The minimum value.</td></tr>
+    <tr><td class="paramname">maxValue</td><td>The maximum value.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00178">178</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+
+</div>
+</div>
+<a id="ad87c223f0b2032abb8b6d4686e56844b" name="ad87c223f0b2032abb8b6d4686e56844b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad87c223f0b2032abb8b6d4686e56844b">&#9670;&nbsp;</a></span>NextLargeDouble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double MPewsey.ManiaMap.RandomSeed.NextLargeDouble </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a random high resolution double on the interval [0, 1). </p>
+
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00187">187</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+
+</div>
+</div>
+<a id="ad31f8d8e616b27fbb9eaf28e51bfef21" name="ad31f8d8e616b27fbb9eaf28e51bfef21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad31f8d8e616b27fbb9eaf28e51bfef21">&#9670;&nbsp;</a></span>SetSeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MPewsey.ManiaMap.RandomSeed.SetSeed </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>seed</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the random seed and initializes the randomizer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">seed</td><td>The random seed.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00087">87</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
@@ -350,7 +601,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00061">61</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00204">204</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
@@ -378,13 +629,31 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00074">74</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00217">217</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Property Documentation</h2>
-<a id="a27c70e193107e6f1d06ccf5ac8632ce1" name="a27c70e193107e6f1d06ccf5ac8632ce1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27c70e193107e6f1d06ccf5ac8632ce1">&#9670;&nbsp;</a></span>Random</h2>
+<a id="a848db2a845eb906149093f5d8ccf5fd4" name="a848db2a845eb906149093f5d8ccf5fd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a848db2a845eb906149093f5d8ccf5fd4">&#9670;&nbsp;</a></span>ToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">override string MPewsey.ManiaMap.RandomSeed.ToString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00056">56</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+
+</div>
+</div>
+<a id="abd01e73b9ad812074b92e60fcb445434" name="abd01e73b9ad812074b92e60fcb445434"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd01e73b9ad812074b92e60fcb445434">&#9670;&nbsp;</a></span>WrapIndex()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -393,19 +662,82 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Random MPewsey.ManiaMap.RandomSeed.Random</td>
+          <td class="memname">static int MPewsey.ManiaMap.RandomSeed.WrapIndex </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>The random number generator. </p>
+<p>Wraps an index if it exceeds the top array bounds. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The index.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00019">19</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00076">76</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Property Documentation</h2>
+<a id="ac775b1e2219d299d7897b520564fdef6" name="ac775b1e2219d299d7897b520564fdef6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac775b1e2219d299d7897b520564fdef6">&#9670;&nbsp;</a></span>Position1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MPewsey.ManiaMap.RandomSeed.Position1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The first position of the randomizer. </p>
+
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00028">28</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+
+</div>
+</div>
+<a id="a6382b0fc837ac059fbafc1631656cc76" name="a6382b0fc837ac059fbafc1631656cc76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6382b0fc837ac059fbafc1631656cc76">&#9670;&nbsp;</a></span>Position2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MPewsey.ManiaMap.RandomSeed.Position2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The second position of the randomizer. </p>
+
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00034">34</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
@@ -424,14 +756,40 @@ Properties</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">private set</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>The random seed. </p>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00014">14</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00022">22</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+
+</div>
+</div>
+<a id="a8b0399a89a6254c6fb1156ca7a7a7f42" name="a8b0399a89a6254c6fb1156ca7a7a7f42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b0399a89a6254c6fb1156ca7a7a7f42">&#9670;&nbsp;</a></span>Seeds</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int [] MPewsey.ManiaMap.RandomSeed.Seeds = new int[56]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>An array of previous seeds. </p>
+
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00040">40</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
