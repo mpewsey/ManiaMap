@@ -10,7 +10,7 @@ namespace MPewsey.ManiaMap
     /// References
     /// ----------
     /// * [1] Rossetta Code. Subtractive generator. Retrieved April 12, 2022, from https://rosettacode.org/wiki/Subtractive_generator.
-    /// * [2] Microsoft Corporation. Reference Source .Net 4.8. Retrieved April 12, 2022, from https://referencesource.microsoft.com/#mscorlib/system/random.cs,bb77e610694e64ca.
+    /// * [2] Microsoft Corporation. Reference Source .NET Framework 4.8. Retrieved April 12, 2022, from https://referencesource.microsoft.com/#mscorlib/system/random.cs,bb77e610694e64ca.
     /// </summary>
     [DataContract]
     public class RandomSeed
