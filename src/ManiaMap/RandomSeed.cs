@@ -22,15 +22,21 @@ namespace MPewsey.ManiaMap
         public int Seed { get; private set; }
 
         /// <summary>
-        /// The current position of the randomizer.
+        /// The first position of the randomizer.
         /// </summary>
         [DataMember(Order = 2)]
-        private int Position { get; set; }
+        private int Position1 { get; set; }
+
+        /// <summary>
+        /// The second position of the randomizer.
+        /// </summary>
+        [DataMember(Order = 3)]
+        private int Position2 { get; set; }
 
         /// <summary>
         /// An array of previous seeds.
         /// </summary>
-        [DataMember(Order = 3)]
+        [DataMember(Order = 4)]
         private int[] Seeds { get; set; } = new int[56];
 
         public RandomSeed()
@@ -81,7 +87,8 @@ namespace MPewsey.ManiaMap
         public void SetSeed(int seed)
         {
             Seed = seed;
-            Position = 0;
+            Position1 = 0;
+            Position2 = 21;
             var mj = seed == int.MinValue ? int.MaxValue : Math.Abs(seed);
             mj = 161803398 - mj;
             Seeds[55] = mj;
@@ -112,15 +119,16 @@ namespace MPewsey.ManiaMap
         /// <returns></returns>
         public int Next()
         {
-            var i = WrapIndex(Position + 1);
-            var j = WrapIndex(Position + 22);
+            var i = WrapIndex(Position1 + 1);
+            var j = WrapIndex(Position2 + 1);
             var next = Mod(Seeds[i] - Seeds[j]);
 
             if (next == int.MaxValue)
                 next--;
 
             Seeds[i] = next;
-            Position = i;
+            Position1 = i;
+            Position2 = j;
             return next;
         }
 
@@ -142,7 +150,7 @@ namespace MPewsey.ManiaMap
         {
             var delta = maxValue - (long)minValue;
             var t = delta <= int.MaxValue ? NextDouble() : NextLargeDouble();
-            return (int)(t * delta + minValue);
+            return (int)((long)(t * delta) + minValue);
         }
 
         /// <summary>
@@ -180,7 +188,7 @@ namespace MPewsey.ManiaMap
         {
             var next = Next();
 
-            if ((next % 2) == 0)
+            if ((Next() % 2) == 0)
                 next = -next;
 
             double result = next;
