@@ -39,6 +39,9 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 4)]
         private int[] Seeds { get; set; } = new int[56];
 
+        /// <summary>
+        /// Initializes a new random seed based on the current system ticks.
+        /// </summary>
         public RandomSeed()
         {
             SetSeed(Environment.TickCount);
@@ -222,7 +225,7 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Draws a random weighted index from an array.
+        /// Draws a random weighted index from a list.
         /// </summary>
         /// <param name="weights">A list of weights.</param>
         public int DrawWeightedIndex(IList<double> weights)
