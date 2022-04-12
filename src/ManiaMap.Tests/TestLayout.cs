@@ -20,7 +20,7 @@ namespace MPewsey.ManiaMap.Tests
             var layout = Samples.ManiaMapSample.ManiaMapLayout();
             Serialization.SaveXml(path, layout);
             var copy = Serialization.LoadXml<Layout>(path);
-            Assert.AreEqual(layout.Seed, copy.Seed);
+            Assert.AreEqual(layout.Seed.Seed, copy.Seed.Seed);
         }
 
         [TestMethod]
