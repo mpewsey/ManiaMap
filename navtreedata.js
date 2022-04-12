@@ -66,8 +66,8 @@ var NAVTREEINDEX =
 "_____docs_____8cs_source.html",
 "class_m_pewsey_1_1_mania_map_1_1_configuration.html#ad67f00dc6d018b49b330fb3f11aae96e",
 "class_m_pewsey_1_1_mania_map_1_1_layout.html#ad9ebd3474d4fc2ccdcd0d53b285dd654",
-"class_m_pewsey_1_1_mania_map_1_1_room_state.html#a977eefae887d5f2fa1f0be3cd46454cd",
-"struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a4ddef99bfda4882290c4bd58763770f1"
+"class_m_pewsey_1_1_mania_map_1_1_room_state.html#a068ab1998bd58222f81def619f59b2f7",
+"struct_m_pewsey_1_1_mania_map_1_1_collectable.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

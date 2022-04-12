@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"struct_m_pewsey_1_1_mania_map_1_1_collectable.html":[6,0,0,0,6],
+"struct_m_pewsey_1_1_mania_map_1_1_collectable.html":[7,0,0,0,6],
 "struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a4ddef99bfda4882290c4bd58763770f1":[6,0,0,0,6,2],
 "struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a4ddef99bfda4882290c4bd58763770f1":[7,0,0,0,6,2],
 "struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a89100c293fdd139c875847c3f9da634c":[6,0,0,0,6,1],

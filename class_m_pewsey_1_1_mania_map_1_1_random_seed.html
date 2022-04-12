@@ -113,7 +113,7 @@ $(document).ready(function(){initNavTree('class_m_pewsey_1_1_mania_map_1_1_rando
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aba5a9a2ee2e6ef15751dfb110c40720b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#aba5a9a2ee2e6ef15751dfb110c40720b">DrawWeightedIndex</a> (IList&lt; double &gt; weights)</td></tr>
-<tr class="memdesc:aba5a9a2ee2e6ef15751dfb110c40720b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a random weighted index from an array.  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#aba5a9a2ee2e6ef15751dfb110c40720b">More...</a><br /></td></tr>
+<tr class="memdesc:aba5a9a2ee2e6ef15751dfb110c40720b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a random weighted index from a list.  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#aba5a9a2ee2e6ef15751dfb110c40720b">More...</a><br /></td></tr>
 <tr class="separator:aba5a9a2ee2e6ef15751dfb110c40720b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeae1c43084fac8f33dc6be281e7ec353"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#aeae1c43084fac8f33dc6be281e7ec353">Next</a> ()</td></tr>
 <tr class="memdesc:aeae1c43084fac8f33dc6be281e7ec353"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random integer on the interval [0, int.MaxValue).  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#aeae1c43084fac8f33dc6be281e7ec353">More...</a><br /></td></tr>
@@ -133,6 +133,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a080be621bac1156040a24bb3f988d74a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a080be621bac1156040a24bb3f988d74a">NextDouble</a> (double minValue, double maxValue)</td></tr>
 <tr class="memdesc:a080be621bac1156040a24bb3f988d74a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random double on the interval [minValue, maxValue).  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a080be621bac1156040a24bb3f988d74a">More...</a><br /></td></tr>
 <tr class="separator:a080be621bac1156040a24bb3f988d74a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a317f22792542688f47c959acdebbcb86"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a317f22792542688f47c959acdebbcb86">RandomSeed</a> ()</td></tr>
+<tr class="memdesc:a317f22792542688f47c959acdebbcb86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new random seed based on the current system ticks.  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a317f22792542688f47c959acdebbcb86">More...</a><br /></td></tr>
+<tr class="separator:a317f22792542688f47c959acdebbcb86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02eaa4d27e579642488ce571261222df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a02eaa4d27e579642488ce571261222df">RandomSeed</a> (int seed)</td></tr>
 <tr class="memdesc:a02eaa4d27e579642488ce571261222df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new random seed.  <a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a02eaa4d27e579642488ce571261222df">More...</a><br /></td></tr>
 <tr class="separator:a02eaa4d27e579642488ce571261222df"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -210,7 +213,9 @@ References</h2>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00042">42</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p>Initializes a new random seed based on the current system ticks. </p>
+
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00045">45</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
@@ -238,7 +243,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00051">51</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00054">54</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
@@ -275,7 +280,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00251">251</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00254">254</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
@@ -295,7 +300,7 @@ References</h2>
       </table>
 </div><div class="memdoc">
 
-<p>Draws a random weighted index from an array. </p>
+<p>Draws a random weighted index from a list. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">weights</td><td>A list of weights.</td></tr>
@@ -303,7 +308,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00228">228</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00231">231</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
@@ -339,7 +344,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00065">65</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00068">68</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
@@ -361,7 +366,7 @@ References</h2>
 <p>Returns a random integer on the interval [0, int.MaxValue). </p>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00120">120</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00123">123</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
@@ -389,7 +394,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00139">139</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00142">142</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
@@ -428,7 +433,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00149">149</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00152">152</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
@@ -449,7 +454,7 @@ References</h2>
 
 <p>Returns a random double on the interval [0, 1). </p>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00159">159</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00162">162</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
@@ -477,7 +482,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00168">168</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00171">171</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
@@ -516,7 +521,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00178">178</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00181">181</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
@@ -545,7 +550,7 @@ References</h2>
 
 <p>Returns a random high resolution double on the interval [0, 1). </p>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00187">187</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00190">190</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
@@ -573,7 +578,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00087">87</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00090">90</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
@@ -601,7 +606,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00204">204</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00207">207</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
@@ -629,7 +634,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00217">217</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00220">220</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
@@ -648,7 +653,7 @@ References</h2>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00056">56</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00059">59</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
@@ -684,7 +689,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00076">76</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_random_seed_8cs_source.html#l00079">79</a> of file <a class="el" href="_random_seed_8cs_source.html">RandomSeed.cs</a>.</p>
 
 </div>
 </div>
