@@ -19,7 +19,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestDrawWeightedIndex()
         {
-            var seed = new RandomSeed(12345);
+            var seed = new RandomSeed();
             var values = new double[] { 0, 1, 0 };
             Assert.AreEqual(1, seed.DrawWeightedIndex(values));
             Assert.AreEqual(-1, seed.DrawWeightedIndex(Array.Empty<double>()));
@@ -107,7 +107,26 @@ namespace MPewsey.ManiaMap.Tests
         {
             var expected = new List<int>()
             {
-
+                667, 701, 7747, 5111, 7974,
+                8273, 1659, 7361, 2602, 5060,
+                2302, 3871, 2159, 208, 1348,
+                7408, 1950, 8870, 8611, 3588,
+                1037, 5295, 3587, 7075, 5804,
+                6205, 7324, 7478, 3962, 2452,
+                6863, 2105, 5175, 4853, 2528,
+                7707, 25, 4839, 4479, 4864,
+                7115, 4512, 2699, 2830, 6352,
+                2947, 3695, 8526, 1756, 8522,
+                6443, 6158, 4415, 4966, 301,
+                5371, 7114, 672, 9306, 1769,
+                948, 4180, 3398, 149, 8196,
+                197, 8696, 7305, 7680, 3640,
+                7382, 7111, 4390, 3746, 6472,
+                6524, 2596, 757, 722, 2856,
+                2510, 8798, 5722, 5440, 6009,
+                705, 7690, 208, 4552, 7156,
+                593, 9353, 5532, 2710, 3916,
+                2935, 1113, 2549, 4633, 6155,
             };
 
             var seed = new RandomSeed(12345);
