@@ -101,6 +101,31 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Sets the properties of this edge to that of the specified other edge,
+        /// with the exception of the node ID's.
+        /// </summary>
+        /// <param name="other">The other edge.</param>
+        public void SetProperties(LayoutEdge other)
+        {
+            Name = other.Name;
+            Direction = other.Direction;
+            DoorCode = other.DoorCode;
+            Z = other.Z;
+            RoomChance = other.RoomChance;
+            Color = other.Color;
+            TemplateGroup = other.TemplateGroup;
+        }
+
+        /// <summary>
+        /// Returns true if the edge is connected to the node.
+        /// </summary>
+        /// <param name="id">The node ID.</param>
+        public bool HasNode(int id)
+        {
+            return FromNode == id || ToNode == id;
+        }
+
+        /// <summary>
         /// Returns true if the room chance is satisfied.
         /// </summary>
         /// <param name="value">A random value between 0 and 1 to check against.</param>

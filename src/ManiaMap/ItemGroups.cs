@@ -47,10 +47,10 @@ namespace MPewsey.ManiaMap
         /// Adds the values to the group.
         /// </summary>
         /// <param name="group">The group.</param>
-        /// <param name="templates">An enumerable of values to add.</param>
-        public void Add(TKey group, IEnumerable<TValue> templates)
+        /// <param name="values">An enumerable of values to add.</param>
+        public void Add(TKey group, IEnumerable<TValue> values)
         {
-            Get(group).AddRange(templates);
+            Get(group).AddRange(values);
         }
     }
 }

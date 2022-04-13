@@ -80,6 +80,24 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Swaps the edges for two nodes in the graph.
+        /// </summary>
+        /// <param name="id1">The first node ID.</param>
+        /// <param name="id2">The second node ID.</param>
+        public void SwapEdges(int id1, int id2)
+        {
+            var edges = GetEdges().Where(x => x.HasNode(id1) || x.HasNode(id2)).ToList();
+            edges.ForEach(x => RemoveEdge(x.FromNode, x.ToNode));
+
+            foreach (var edge in edges)
+            {
+                var node1 = edge.FromNode == id1 ? id2 : edge.FromNode == id2 ? id1 : edge.FromNode;
+                var node2 = edge.ToNode == id1 ? id2 : edge.ToNode == id2 ? id1 : edge.ToNode;
+                AddEdge(node1, node2).SetProperties(edge);
+            }
+        }
+
+        /// <summary>
         /// Adds a node to the graph and returns it. If the node already exists, returns
         /// the existing node.
         /// </summary>

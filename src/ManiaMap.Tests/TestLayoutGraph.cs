@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -95,6 +96,41 @@ namespace MPewsey.ManiaMap.Tests
             Assert.AreEqual(graph.Name, copy.Name);
             Assert.AreEqual(graph.NodeCount, copy.NodeCount);
             Assert.AreEqual(graph.EdgeCount, copy.EdgeCount);
+        }
+
+        [TestMethod]
+        public void TestSwapEdges()
+        {
+            var graph = Samples.GraphLibrary.CrossGraph();
+            graph.SwapEdges(1, 0);
+            var expected = new LayoutGraph(1, "CrossLayoutGraph");
+
+            expected.AddEdge(1, 0);
+            expected.AddEdge(0, 2);
+            expected.AddEdge(1, 3);
+            expected.AddEdge(1, 4);
+            expected.AddEdge(1, 5);
+
+            var expectedEdges = expected.GetEdges().Select(x => new EdgeIndexes(x.FromNode, x.ToNode)).ToList();
+            var resultEdges = graph.GetEdges().Select(x => new EdgeIndexes(x.FromNode, x.ToNode)).ToList();
+
+            var expectedNodes = expected.GetNodes().Select(x => x.Id).ToList();
+            var resultNodes = graph.GetNodes().Select(x => x.Id).ToList();
+
+            Console.WriteLine("Expected Edges:");
+            Console.WriteLine(string.Join("\n", expectedEdges));
+            Console.WriteLine("\nResult Edges:");
+            Console.WriteLine(string.Join("\n", resultEdges));
+
+            Console.WriteLine("\nExpected Nodes:");
+            Console.WriteLine(string.Join(", ", expectedNodes));
+            Console.WriteLine("\nResult Nodes:");
+            Console.WriteLine(string.Join(", ", resultNodes));
+
+            CollectionAssert.AreEquivalent(expectedEdges, resultEdges);
+            CollectionAssert.AreEquivalent(expectedNodes, resultNodes);
+            CollectionAssert.AreEquivalent(expected.GetNeighbors(1).ToList(), graph.GetNeighbors(1).ToList());
+            CollectionAssert.AreEquivalent(expected.GetNeighbors(0).ToList(), graph.GetNeighbors(0).ToList());
         }
     }
 }
