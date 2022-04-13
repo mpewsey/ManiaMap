@@ -10,7 +10,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A list of generation stages.
         /// </summary>
-        public List<IGenerationStep> Steps { get; set; } = new List<IGenerationStep>();
+        public List<IGenerationStep> Steps { get; private set; } = new List<IGenerationStep>();
 
         /// <summary>
         /// Initializes a new pipeline.
@@ -22,11 +22,16 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns a new pipeline with the default generators.
+        /// Returns a new pipeline with common default generators in the following order:
+        /// 
+        /// 1. LayoutGraphRandomizer
+        /// 2. LayoutGenerator
+        /// 3. CollectableGenerator
         /// </summary>
         public static GenerationPipeline CreateDefaultPipeline()
         {
             return new GenerationPipeline(
+                new LayoutGraphRandomizer(),
                 new LayoutGenerator(),
                 new CollectableGenerator());
         }
