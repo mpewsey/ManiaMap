@@ -125,15 +125,6 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns true if the edge is connected to the node.
-        /// </summary>
-        /// <param name="id">The node ID.</param>
-        public bool HasNode(int id)
-        {
-            return FromNode == id || ToNode == id;
-        }
-
-        /// <summary>
         /// Returns true if the room chance is satisfied.
         /// </summary>
         /// <param name="value">A random value between 0 and 1 to check against.</param>

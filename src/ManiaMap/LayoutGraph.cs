@@ -41,6 +41,12 @@ namespace MPewsey.ManiaMap
         private Dictionary<int, List<int>> Neighbors { get; set; } = new Dictionary<int, List<int>>();
 
         /// <summary>
+        /// A dictionary of node variation groups.
+        /// </summary>
+        [DataMember(Order = 6)]
+        private Dictionary<string, List<int>> NodeVariations { get; set; } = new Dictionary<string, List<int>>();
+
+        /// <summary>
         /// The number of nodes in the graph.
         /// </summary>
         public int NodeCount => Nodes.Count;
@@ -72,6 +78,7 @@ namespace MPewsey.ManiaMap
             Nodes = other.Nodes.ToDictionary(x => x.Key, x => x.Value.Copy());
             Edges = other.Edges.ToDictionary(x => x.Key, x => x.Value.Copy());
             Neighbors = other.Neighbors.ToDictionary(x => x.Key, x => new List<int>(x.Value));
+            NodeVariations = other.NodeVariations.ToDictionary(x => x.Key, x => new List<int>(x.Value));
         }
 
         public override string ToString()
@@ -88,15 +95,166 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns a readonly list of the node variations for the group.
+        /// </summary>
+        /// <param name="group">The group name.</param>
+        public IReadOnlyList<int> GetNodeVariations(string group)
+        {
+            return NodeVariations[group];
+        }
+
+        /// <summary>
+        /// Returns a new variation of the graph.
+        /// </summary>
+        /// <param name="randomSeed">The random seed.</param>
+        public LayoutGraph GetVariation(RandomSeed randomSeed)
+        {
+            var graph = Copy();
+            graph.ApplyVariations(randomSeed);
+            return graph;
+        }
+
+        /// <summary>
+        /// Applies random variations to the graph.
+        /// </summary>
+        /// <param name="randomSeed">The random seed.</param>
+        private void ApplyVariations(RandomSeed randomSeed)
+        {
+            foreach (var pair in NodeVariations.OrderBy(x => x.Key))
+            {
+                var variations = randomSeed.Shuffled(pair.Value);
+
+                for (int i = 0; i < variations.Count; i++)
+                {
+                    SwapEdges(pair.Value[i], variations[i]);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Returns the node variations list for the group. If the group does not already exist,
+        /// creates it and returns a new list.
+        /// </summary>
+        /// <param name="group">The group name.</param>
+        private List<int> FetchNodeVariations(string group)
+        {
+            if (!NodeVariations.TryGetValue(group, out var list))
+            {
+                list = new List<int>();
+                NodeVariations.Add(group, list);
+            }
+
+            return list;
+        }
+
+        /// <summary>
+        /// Adds a node variation to the graph. If the node does not already exist, creates it.
+        /// </summary>
+        /// <param name="group">The group name.</param>
+        /// <param name="id">The node ID.</param>
+        public void AddNodeVariation(string group, int id)
+        {
+            AddNode(id);
+            var variations = FetchNodeVariations(group);
+
+            if (!variations.Contains(id))
+                variations.Add(id);
+        }
+
+        /// <summary>
+        /// Adds node variations to the graph. If the nodes do not already exist, creates them.
+        /// </summary>
+        /// <param name="group">The group name.</param>
+        /// <param name="ids">The node ID's.</param>
+        public void AddNodeVariation(string group, IEnumerable<int> ids)
+        {
+            var variations = FetchNodeVariations(group);
+
+            foreach (var id in ids)
+            {
+                AddNode(id);
+
+                if (!variations.Contains(id))
+                    variations.Add(id);
+            }
+        }
+
+        /// <summary>
+        /// Removes all variations for the node.
+        /// </summary>
+        /// <param name="id">he node ID.</param>
+        public void RemoveNodeVariations(int id)
+        {
+            foreach (var variations in NodeVariations.Values)
+            {
+                variations.Remove(id);
+            }
+        }
+
+        /// <summary>
+        /// Removes the node variation from the graph.
+        /// </summary>
+        /// <param name="group">The group name.</param>
+        /// <param name="id">The node ID.</param>
+        public void RemoveNodeVariation(string group, int id)
+        {
+            FetchNodeVariations(group).Remove(id);
+        }
+
+        /// <summary>
+        /// Removes the node variations from the graph.
+        /// </summary>
+        /// <param name="group">The group name.</param>
+        /// <param name="ids">The node ID.</param>
+        public void RemoveNodeVariation(string group, IEnumerable<int> ids)
+        {
+            var variations = FetchNodeVariations(group);
+
+            foreach (var id in ids)
+            {
+                variations.Remove(id);
+            }
+        }
+
+        /// <summary>
+        /// Returns a list of edges with the node ID.
+        /// </summary>
+        /// <param name="id">The node ID.</param>
+        public List<LayoutEdge> GetEdges(int id)
+        {
+            var neighbors = Neighbors[id];
+            var edges = new List<LayoutEdge>(neighbors.Count);
+
+            foreach (var neighbor in neighbors)
+            {
+                edges.Add(GetEdge(id, neighbor));
+            }
+
+            return edges;
+        }
+
+        /// <summary>
         /// Swaps the edges for two nodes in the graph.
         /// </summary>
         /// <param name="id1">The first node ID.</param>
         /// <param name="id2">The second node ID.</param>
         public void SwapEdges(int id1, int id2)
         {
-            var edges = GetEdges().Where(x => x.HasNode(id1) || x.HasNode(id2)).ToList();
-            edges.ForEach(x => RemoveEdge(x.FromNode, x.ToNode));
+            // Get a set of all edges with the nodes.
+            var edges = new HashSet<LayoutEdge>(GetEdges(id1));
 
+            foreach (var edge in GetEdges(id2))
+            {
+                edges.Add(edge);
+            }
+
+            // Remove all existing edges
+            foreach (var edge in edges)
+            {
+                RemoveEdge(edge.FromNode, edge.ToNode);
+            }
+
+            // Create new edges with the node replacements and copy properties to new edges.
             foreach (var edge in edges)
             {
                 var node1 = edge.FromNode == id1 ? id2 : edge.FromNode == id2 ? id1 : edge.FromNode;
@@ -175,6 +333,7 @@ namespace MPewsey.ManiaMap
 
             Neighbors.Remove(id);
             Nodes.Remove(id);
+            RemoveNodeVariations(id);
         }
 
         /// <summary>

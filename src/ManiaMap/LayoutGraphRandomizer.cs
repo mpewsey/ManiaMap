@@ -23,7 +23,7 @@ namespace MPewsey.ManiaMap
         {
             var randomSeed = GenerationPipeline.GetArgument<RandomSeed>("RandomSeed", args, artifacts);
             var graph = GenerationPipeline.GetArgument<LayoutGraph>("LayoutGraph", args, artifacts);
-            artifacts["LayoutGraph"] = Randomize(graph, randomSeed);
+            artifacts["LayoutGraph"] = RandomizeLayout(graph, randomSeed);
         }
 
         /// <summary>
@@ -31,10 +31,9 @@ namespace MPewsey.ManiaMap
         /// </summary>
         /// <param name="graph">The layout graph.</param>
         /// <param name="randomSeed">The random seed.</param>
-        public LayoutGraph Randomize(LayoutGraph graph, RandomSeed randomSeed)
+        public LayoutGraph RandomizeLayout(LayoutGraph graph, RandomSeed randomSeed)
         {
-            var result = graph.Copy();
-            return result;
+            return graph.GetVariation(randomSeed);
         }
     }
 }
