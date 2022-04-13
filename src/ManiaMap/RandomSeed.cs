@@ -56,9 +56,30 @@ namespace MPewsey.ManiaMap
             SetSeed(seed);
         }
 
+        /// <summary>
+        /// Initializes a copy of a random seed.
+        /// </summary>
+        /// <param name="other">The random seed to be copied.</param>
+        private RandomSeed(RandomSeed other)
+        {
+            Seed = other.Seed;
+            Position1 = other.Position1;
+            Position2 = other.Position2;
+            Seeds = new int[other.Seeds.Length];
+            Array.Copy(other.Seeds, Seeds, other.Seeds.Length);
+        }
+
         public override string ToString()
         {
             return $"RandomSeed(Seed = {Seed})";
+        }
+
+        /// <summary>
+        /// Returns a copy of the object.
+        /// </summary>
+        public RandomSeed Copy()
+        {
+            return new RandomSeed(this);
         }
 
         /// <summary>

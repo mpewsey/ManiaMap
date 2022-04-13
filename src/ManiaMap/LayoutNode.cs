@@ -51,6 +51,19 @@ namespace MPewsey.ManiaMap
             Id = id;
         }
 
+        /// <summary>
+        /// Initializes a copy of the node.
+        /// </summary>
+        /// <param name="other">The node to be copied.</param>
+        private LayoutNode(LayoutNode other)
+        {
+            Id = other.Id;
+            Name = other.Name;
+            Z = other.Z;
+            TemplateGroup = other.TemplateGroup;
+            Color = other.Color;
+        }
+
         public override string ToString()
         {
             return $"LayoutNode(Id = {Id}, Name = {Name})";
@@ -61,13 +74,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public LayoutNode Copy()
         {
-            return new LayoutNode(Id)
-            {
-                Name = Name,
-                Z = Z,
-                TemplateGroup = TemplateGroup,
-                Color = Color,
-            };
+            return new LayoutNode(this);
         }
 
         /// <summary>

@@ -61,6 +61,19 @@ namespace MPewsey.ManiaMap
             Name = name;
         }
 
+        /// <summary>
+        /// Initializes a copy of the graph.
+        /// </summary>
+        /// <param name="other">The graph to be copied.</param>
+        private LayoutGraph(LayoutGraph other)
+        {
+            Id = other.Id;
+            Name = other.Name;
+            Nodes = other.Nodes.ToDictionary(x => x.Key, x => x.Value.Copy());
+            Edges = other.Edges.ToDictionary(x => x.Key, x => x.Value.Copy());
+            Neighbors = other.Neighbors.ToDictionary(x => x.Key, x => new List<int>(x.Value));
+        }
+
         public override string ToString()
         {
             return $"LayoutGraph(Id = {Id}, Name = {Name})";
@@ -71,12 +84,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public LayoutGraph Copy()
         {
-            return new LayoutGraph(Id, Name)
-            {
-                Nodes = Nodes.ToDictionary(x => x.Key, x => x.Value.Copy()),
-                Edges = Edges.ToDictionary(x => x.Key, x => x.Value.Copy()),
-                Neighbors = Neighbors.ToDictionary(x => x.Key, x => new List<int>(x.Value)),
-            };
+            return new LayoutGraph(this);
         }
 
         /// <summary>

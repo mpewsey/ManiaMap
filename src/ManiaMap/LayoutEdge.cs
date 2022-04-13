@@ -78,6 +78,23 @@ namespace MPewsey.ManiaMap
             ToNode = toNode;
         }
 
+        /// <summary>
+        /// Initializes a copy of the edge.
+        /// </summary>
+        /// <param name="other">The edge to be copied.</param>
+        private LayoutEdge(LayoutEdge other)
+        {
+            Name = other.Name;
+            FromNode = other.FromNode;
+            ToNode = other.ToNode;
+            Direction = other.Direction;
+            DoorCode = other.DoorCode;
+            Z = other.Z;
+            RoomChance = other.RoomChance;
+            Color = other.Color;
+            TemplateGroup = other.TemplateGroup;
+        }
+
         public override string ToString()
         {
             return $"LayoutEdge(Name = {Name}, FromNode = {FromNode}, ToNode = {ToNode}, Direction = {Direction}, DoorCode = {DoorCode})";
@@ -88,16 +105,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public LayoutEdge Copy()
         {
-            return new LayoutEdge(FromNode, ToNode)
-            {
-                Name = Name,
-                Direction = Direction,
-                DoorCode = DoorCode,
-                Z = Z,
-                RoomChance = RoomChance,
-                Color = Color,
-                TemplateGroup = TemplateGroup,
-            };
+            return new LayoutEdge(this);
         }
 
         /// <summary>
