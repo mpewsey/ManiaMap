@@ -86,7 +86,10 @@ namespace MPewsey.ManiaMap.Tests
 
             foreach (var property in door.GetType().GetProperties())
             {
-                Assert.AreEqual(property.GetValue(door), property.GetValue(copy));
+                if (!property.GetGetMethod().IsStatic)
+                {
+                    Assert.AreEqual(property.GetValue(door), property.GetValue(copy));
+                }
             }
         }
     }
