@@ -113,8 +113,8 @@ var generator = new CollectableGenerator();
 // Add collectable ID's to groups. Multiple ID's may be added for the same item.
 // These groups will also need to be assigned to some room template cells.
 var collectableGroups = new CollectableGroups();
-collectableGroups.Add("Group1", 1, 1, 1, 2, 3, 4, 5);
-collectableGroups.Add("Group2", 6, 7, 7, 8, 8, 9, 10);
+collectableGroups.Add("Group1", new int[] { 1, 1, 1, 2, 3, 4, 5 });
+collectableGroups.Add("Group2", new int[] { 6, 7, 7, 8, 8, 9, 10 });
 
 generator.Generate(layout, collectableGroups, seed);
 ```
