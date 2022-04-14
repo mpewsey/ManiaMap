@@ -183,6 +183,7 @@ Step 4: Run the Layout Generator</h2>
 </div><!-- fragment --><p ><img src="https://user-images.githubusercontent.com/23442063/153345310-25def719-c5a7-43c5-95ca-9e2e09493e54.png" alt="Map" class="inline"/></p>
 <h1><a class="anchor" id="autotoc_md11"></a>
 Collectable Generator Example</h1>
+<p >The collectable generator distributes collectables throughout a layout.</p>
 <div class="fragment"><div class="line">{CollectableGenerator.cs} </div>
 <div class="line">var seed = new RandomSeed(12345);</div>
 <div class="line">var generator = new CollectableGenerator();</div>
@@ -196,6 +197,7 @@ Collectable Generator Example</h1>
 <div class="line">generator.Generate(layout, collectableGroups, seed);</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md12"></a>
 Layout Graph Randomizer Example</h1>
+<p >The layout graph randomizer generates variations of a layout graph based on user-defined swappable nodes.</p>
 <div class="fragment"><div class="line">{LayoutGraphRandomizer.cs} </div>
 <div class="line">var seed = new RandomSeed(12345);</div>
 <div class="line">var graph = new LayoutGraph(id: 1, name: &quot;ExampleGraph&quot;);</div>
@@ -213,6 +215,7 @@ Layout Graph Randomizer Example</h1>
 <div class="line">var graphVariation = randomizer.RandomizeGraph(graph, seed);</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md13"></a>
 Generation Pipeline Example</h1>
+<p >The generation pipeline provides a way for multiple generation steps to be chained together. This is often easier than making manual calls to each generation step.</p>
 <div class="fragment"><div class="line">{GeneratorPipeline.cs} </div>
 <div class="line">// Create a dictionary of arguments to be passed to each pipeline step.</div>
 <div class="line">var args = new Dictionary&lt;string, object&gt;</div>
