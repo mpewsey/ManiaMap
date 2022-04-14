@@ -217,20 +217,15 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns a list of edges with the node ID.
+        /// Returns a enumerable of edges with the node ID.
         /// </summary>
         /// <param name="id">The node ID.</param>
-        public List<LayoutEdge> GetEdges(int id)
+        public IEnumerable<LayoutEdge> GetEdges(int id)
         {
-            var neighbors = Neighbors[id];
-            var edges = new List<LayoutEdge>(neighbors.Count);
-
-            foreach (var neighbor in neighbors)
+            foreach (var neighbor in Neighbors[id])
             {
-                edges.Add(GetEdge(id, neighbor));
+                yield return GetEdge(id, neighbor);
             }
-
-            return edges;
         }
 
         /// <summary>
@@ -240,15 +235,13 @@ namespace MPewsey.ManiaMap
         /// <param name="id2">The second node ID.</param>
         public void SwapEdges(int id1, int id2)
         {
+            if (id1 == id2)
+                return;
+            
             // Get a set of all edges with the nodes.
-            var edges = new HashSet<LayoutEdge>(GetEdges(id1));
+            var edges = GetEdges(id1).Concat(GetEdges(id2)).Distinct().ToList();
 
-            foreach (var edge in GetEdges(id2))
-            {
-                edges.Add(edge);
-            }
-
-            // Remove all existing edges
+            // Remove existing edges
             foreach (var edge in edges)
             {
                 RemoveEdge(edge.FromNode, edge.ToNode);
