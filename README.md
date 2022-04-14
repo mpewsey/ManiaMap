@@ -121,6 +121,24 @@ collectableGroups.Add("Group2", new int[] { 6, 7, 7, 8, 8, 9, 10 });
 generator.Generate(layout, collectableGroups, seed);
 ```
 
+## Layout Graph Selector Example
+
+The layout graph selector draws a random layout graph from a supplied list. This is useful when used as an early step in a `GenerationPipeline`.
+
+```LayoutGraphSelector.cs
+// Create a list of graphs from which to draw.
+var graphs = new List<LayoutGraph>
+{
+    new LayoutGraph(id: 1, name: "ExampleGraph1"),
+    new LayoutGraph(id: 2, name: "ExampleGraph2"),
+    new LayoutGraph(id: 3, name: "ExampleGraph3"),
+};
+
+var seed = new RandomSeed(12345);
+var selector = new LayoutGraphSelector();
+var graph = selector.DrawSelection(graphs, seed);
+```
+
 ## Layout Graph Randomizer Example
 
 The layout graph randomizer generates variations of a layout graph based on user-defined swappable nodes.
