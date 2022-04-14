@@ -34,9 +34,10 @@ var NAVTREE =
       [ "Step 4: Run the Layout Generator", "index.html#autotoc_md10", null ]
     ] ],
     [ "Collectable Generator Example", "index.html#autotoc_md11", null ],
-    [ "Generation Pipeline Example", "index.html#autotoc_md12", null ],
+    [ "Layout Graph Randomizer Example", "index.html#autotoc_md12", null ],
+    [ "Generation Pipeline Example", "index.html#autotoc_md13", null ],
     [ "Changelog", "md__github_workspace__c_h_a_n_g_e_l_o_g.html", [
-      [ "v1.0.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md14", null ]
+      [ "v1.0.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md15", null ]
     ] ],
     [ "Packages", "namespaces.html", [
       [ "Packages", "namespaces.html", "namespaces_dup" ],
