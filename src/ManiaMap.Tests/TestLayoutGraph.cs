@@ -155,6 +155,15 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
+        public void TestRemoveAllVariations()
+        {
+            var graph = new LayoutGraph(1, "Variations");
+            graph.AddNodeVariation("Group1", 1);
+            graph.RemoveNodeVariations(1);
+            CollectionAssert.AreEquivalent(new List<int>(), graph.GetNodeVariations("Group1").ToList());
+        }
+
+        [TestMethod]
         public void TestRemoveNodeVariation()
         {
             var graph = new LayoutGraph(1, "Variations");
