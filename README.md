@@ -119,6 +119,25 @@ collectableGroups.Add("Group2", new int[] { 6, 7, 7, 8, 8, 9, 10 });
 generator.Generate(layout, collectableGroups, seed);
 ```
 
+## Layout Graph Randomizer Example
+
+```LayoutGraphRandomizer.cs
+var seed = new RandomSeed(12345);
+var graph = new LayoutGraph(id: 1, name: "ExampleGraph");
+
+// Add any nodes and edges to the graph.
+// See the previous Layout Generator example.
+
+// Add nodes to variation groups.
+// The nodes in these groups will be shuffled and swapped by the randomizer.
+graph.AddNodeVariation("Group1", new int[] { 1, 5, 3 });
+graph.AddNodeVariation("Group2", new int[] { 0, 7, 10, 12 });
+
+// Create a randomizer and create a new graph variation.
+var randomizer = new LayoutGraphRandomizer();
+var graphVariation = randomizer.RandomizeGraph(graph, seed);
+```
+
 ## Generation Pipeline Example
 
 ```GeneratorPipeline.cs
