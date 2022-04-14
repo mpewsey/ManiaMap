@@ -190,8 +190,8 @@ Collectable Generator Example</h1>
 <div class="line">// Add collectable ID&#39;s to groups. Multiple ID&#39;s may be added for the same item.</div>
 <div class="line">// These groups will also need to be assigned to some room template cells.</div>
 <div class="line">var collectableGroups = new CollectableGroups();</div>
-<div class="line">collectableGroups.Add(&quot;Group1&quot;, 1, 1, 1, 2, 3, 4, 5);</div>
-<div class="line">collectableGroups.Add(&quot;Group2&quot;, 6, 7, 7, 8, 8, 9, 10);</div>
+<div class="line">collectableGroups.Add(&quot;Group1&quot;, new int[] { 1, 1, 1, 2, 3, 4, 5 });</div>
+<div class="line">collectableGroups.Add(&quot;Group2&quot;, new int[] { 6, 7, 7, 8, 8, 9, 10 });</div>
 <div class="line"> </div>
 <div class="line">generator.Generate(layout, collectableGroups, seed);</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md12"></a>

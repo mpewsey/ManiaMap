@@ -109,9 +109,9 @@ $(document).ready(function(){initNavTree('class_m_pewsey_1_1_mania_map_1_1_room_
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af7e6b1f545b7bade7f7a271d2ce3a30a"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_door_pair.html">DoorPair</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html#af7e6b1f545b7bade7f7a271d2ce3a30a">AlignedDoors</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html">RoomTemplate</a> other, <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int.html">Vector2DInt</a> offset)</td></tr>
-<tr class="memdesc:af7e6b1f545b7bade7f7a271d2ce3a30a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of doors aligning with a template at the specified offset.  <a href="class_m_pewsey_1_1_mania_map_1_1_room_template.html#af7e6b1f545b7bade7f7a271d2ce3a30a">More...</a><br /></td></tr>
-<tr class="separator:af7e6b1f545b7bade7f7a271d2ce3a30a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af979b93f14c583a0deeba01a3539255f"><td class="memItemLeft" align="right" valign="top">IEnumerable&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_door_pair.html">DoorPair</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html#af979b93f14c583a0deeba01a3539255f">AlignedDoors</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html">RoomTemplate</a> other, <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int.html">Vector2DInt</a> offset)</td></tr>
+<tr class="memdesc:af979b93f14c583a0deeba01a3539255f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an enumerable of doors aligning with a template at the specified offset.  <a href="class_m_pewsey_1_1_mania_map_1_1_room_template.html#af979b93f14c583a0deeba01a3539255f">More...</a><br /></td></tr>
+<tr class="separator:af979b93f14c583a0deeba01a3539255f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dbb55ea3b030cb1fae0b63a1f04a798"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html">RoomTemplate</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html#a6dbb55ea3b030cb1fae0b63a1f04a798">AllVariations</a> ()</td></tr>
 <tr class="memdesc:a6dbb55ea3b030cb1fae0b63a1f04a798"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an array of this template plus all mirrored and rotated variations.  <a href="class_m_pewsey_1_1_mania_map_1_1_room_template.html#a6dbb55ea3b030cb1fae0b63a1f04a798">More...</a><br /></td></tr>
 <tr class="separator:a6dbb55ea3b030cb1fae0b63a1f04a798"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -215,14 +215,14 @@ Properties</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af7e6b1f545b7bade7f7a271d2ce3a30a" name="af7e6b1f545b7bade7f7a271d2ce3a30a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7e6b1f545b7bade7f7a271d2ce3a30a">&#9670;&nbsp;</a></span>AlignedDoors()</h2>
+<a id="af979b93f14c583a0deeba01a3539255f" name="af979b93f14c583a0deeba01a3539255f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af979b93f14c583a0deeba01a3539255f">&#9670;&nbsp;</a></span>AlignedDoors()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">List&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_door_pair.html">DoorPair</a> &gt; MPewsey.ManiaMap.RoomTemplate.AlignedDoors </td>
+          <td class="memname">IEnumerable&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_door_pair.html">DoorPair</a> &gt; MPewsey.ManiaMap.RoomTemplate.AlignedDoors </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html">RoomTemplate</a>&#160;</td>
           <td class="paramname"><em>other</em>, </td>
@@ -241,7 +241,7 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a list of doors aligning with a template at the specified offset. </p>
+<p>Returns an enumerable of doors aligning with a template at the specified offset. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>The other room template.</td></tr>

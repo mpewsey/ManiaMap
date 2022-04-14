@@ -2,6 +2,8 @@ var class_m_pewsey_1_1_mania_map_1_1_random_seed =
 [
     [ "RandomSeed", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a317f22792542688f47c959acdebbcb86", null ],
     [ "RandomSeed", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a02eaa4d27e579642488ce571261222df", null ],
+    [ "RandomSeed", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html#ac567a2a8040a91ea908c5ea35eb9ba40", null ],
+    [ "Copy", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a844fe9de256efa65255f4818d677644e", null ],
     [ "CumSum", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html#aed714072bbac96903c364b0845d84311", null ],
     [ "DrawWeightedIndex", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html#aba5a9a2ee2e6ef15751dfb110c40720b", null ],
     [ "Mod", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html#ad2974a10da5a3db7f18050991c4f96fc", null ],

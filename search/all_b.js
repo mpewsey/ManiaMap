@@ -10,8 +10,9 @@ var searchData=
   ['nextlargedouble_7',['NextLargeDouble',['../class_m_pewsey_1_1_mania_map_1_1_random_seed.html#ad87c223f0b2032abb8b6d4686e56844b',1,'MPewsey::ManiaMap::RandomSeed']]],
   ['nodecount_8',['NodeCount',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a3670442090f5a1910da23275ef123d8c',1,'MPewsey::ManiaMap::LayoutGraph']]],
   ['nodes_9',['Nodes',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a68a3d089ce8e518830d665874abb8e57',1,'MPewsey::ManiaMap::LayoutGraph']]],
-  ['none_10',['None',['../namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839ba6adf97f83acf6453d4a6a4b1070f3754',1,'MPewsey.ManiaMap.None()'],['../namespace_m_pewsey_1_1_mania_map.html#a419070e26de8251aeeaa0578ad0d9fb1a6adf97f83acf6453d4a6a4b1070f3754',1,'MPewsey.ManiaMap.None()']]],
-  ['north_11',['North',['../namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839ba601560b94fbb188919dd1d36c8ab70a4',1,'MPewsey::ManiaMap']]],
-  ['northdoor_12',['NorthDoor',['../class_m_pewsey_1_1_mania_map_1_1_cell.html#af47830af94a2c6c1469cabad9ab79d91',1,'MPewsey::ManiaMap::Cell']]],
-  ['northdooraligns_13',['NorthDoorAligns',['../class_m_pewsey_1_1_mania_map_1_1_cell.html#aece896b5e42bf7ef6a31f8cb225ad814',1,'MPewsey::ManiaMap::Cell']]]
+  ['nodevariations_10',['NodeVariations',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a437208393b6ebd20a9c821861b959178',1,'MPewsey::ManiaMap::LayoutGraph']]],
+  ['none_11',['None',['../namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839ba6adf97f83acf6453d4a6a4b1070f3754',1,'MPewsey.ManiaMap.None()'],['../namespace_m_pewsey_1_1_mania_map.html#a419070e26de8251aeeaa0578ad0d9fb1a6adf97f83acf6453d4a6a4b1070f3754',1,'MPewsey.ManiaMap.None()']]],
+  ['north_12',['North',['../namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839ba601560b94fbb188919dd1d36c8ab70a4',1,'MPewsey::ManiaMap']]],
+  ['northdoor_13',['NorthDoor',['../class_m_pewsey_1_1_mania_map_1_1_cell.html#af47830af94a2c6c1469cabad9ab79d91',1,'MPewsey::ManiaMap::Cell']]],
+  ['northdooraligns_14',['NorthDoorAligns',['../class_m_pewsey_1_1_mania_map_1_1_cell.html#aece896b5e42bf7ef6a31f8cb225ad814',1,'MPewsey::ManiaMap::Cell']]]
 ];

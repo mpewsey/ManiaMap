@@ -6,7 +6,6 @@ var hierarchy =
     [ "MPewsey.ManiaMap.Box", "class_m_pewsey_1_1_mania_map_1_1_box.html", null ],
     [ "MPewsey.ManiaMap.Cell", "class_m_pewsey_1_1_mania_map_1_1_cell.html", null ],
     [ "MPewsey.ManiaMap.CellDistanceSearch", "class_m_pewsey_1_1_mania_map_1_1_cell_distance_search.html", null ],
-    [ "MPewsey.ManiaMap.CollectableGroups", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html", null ],
     [ "MPewsey.ManiaMap.CollectableSpot", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html", null ],
     [ "MPewsey.ManiaMap.Configuration", "class_m_pewsey_1_1_mania_map_1_1_configuration.html", null ],
     [ "MPewsey.ManiaMap.ConfigurationSpace", "class_m_pewsey_1_1_mania_map_1_1_configuration_space.html", null ],
@@ -38,11 +37,19 @@ var hierarchy =
     [ "MPewsey.ManiaMap.IGenerationStep", "interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html", [
       [ "MPewsey.ManiaMap.CollectableGenerator", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html", null ],
       [ "MPewsey.ManiaMap.LayoutGenerator", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html", null ],
+      [ "MPewsey.ManiaMap.LayoutGraphRandomizer", "class_m_pewsey_1_1_mania_map_1_1_layout_graph_randomizer.html", null ],
       [ "MPewsey.ManiaMap.LayoutGraphSelector", "class_m_pewsey_1_1_mania_map_1_1_layout_graph_selector.html", null ]
     ] ],
     [ "MPewsey.ManiaMap.IRoomSource", "interface_m_pewsey_1_1_mania_map_1_1_i_room_source.html", [
       [ "MPewsey.ManiaMap.LayoutEdge", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html", null ],
       [ "MPewsey.ManiaMap.LayoutNode", "class_m_pewsey_1_1_mania_map_1_1_layout_node.html", null ]
+    ] ],
+    [ "MPewsey.ManiaMap.ItemGroups< TKey, TValue >", "class_m_pewsey_1_1_mania_map_1_1_item_groups.html", null ],
+    [ "MPewsey.ManiaMap.ItemGroups< string, int >", "class_m_pewsey_1_1_mania_map_1_1_item_groups.html", [
+      [ "MPewsey.ManiaMap.CollectableGroups", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html", null ]
+    ] ],
+    [ "MPewsey.ManiaMap.ItemGroups< string, RoomTemplate >", "class_m_pewsey_1_1_mania_map_1_1_item_groups.html", [
+      [ "MPewsey.ManiaMap.TemplateGroups", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html", null ]
     ] ],
     [ "MPewsey.ManiaMap.Layout", "class_m_pewsey_1_1_mania_map_1_1_layout.html", null ],
     [ "MPewsey.ManiaMap.LayoutGraph", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html", null ],
@@ -58,6 +65,5 @@ var hierarchy =
     [ "MPewsey.ManiaMap.RoomTemplate", "class_m_pewsey_1_1_mania_map_1_1_room_template.html", null ],
     [ "MPewsey.ManiaMap.Serialization", "class_m_pewsey_1_1_mania_map_1_1_serialization.html", null ],
     [ "MPewsey.ManiaMap.Samples.TemplateLibrary.Squares", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html", null ],
-    [ "MPewsey.ManiaMap.TemplateGroups", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html", null ],
     [ "MPewsey.ManiaMap.Samples.TemplateLibrary", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library.html", null ]
 ];

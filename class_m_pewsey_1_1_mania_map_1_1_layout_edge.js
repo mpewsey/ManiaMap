@@ -1,6 +1,7 @@
 var class_m_pewsey_1_1_mania_map_1_1_layout_edge =
 [
     [ "LayoutEdge", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a53f93e9176f697a666777ca434a88d94", null ],
+    [ "LayoutEdge", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#aac0eb8ecb1b98b7858c40de5ee4102f6", null ],
     [ "Copy", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#add67e993408f77fdf1a7ecf65be0a316", null ],
     [ "Reverse", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#ac8018be356582feceb26234259469048", null ],
     [ "ReverseEdgeDirection", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a1928381cad3d7c53b98aa702b88c6943", null ],
@@ -9,6 +10,7 @@ var class_m_pewsey_1_1_mania_map_1_1_layout_edge =
     [ "SetDirection", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a2074973cb3471fad8e9c1476739c623b", null ],
     [ "SetDoorCode", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a3e257b9651135a6aa4ad663a6feef51b", null ],
     [ "SetName", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#af2c8c853b3882318040620463f354bdf", null ],
+    [ "SetProperties", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#ad3a5ba6815bdcf89343b28739adc4856", null ],
     [ "SetRoomChance", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a7d448ad8a764ec3e37aeb1f9e51021cb", null ],
     [ "SetTemplateGroup", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a827834ee5b76a1e075c87f6fb544b098", null ],
     [ "SetZ", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#af7a5abe1055b1259e3967f524ae37e91", null ],

@@ -120,7 +120,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a817152bafdd9bb7b3097c05c8a5d58ef"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generation_pipeline.html">GenerationPipeline</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generation_pipeline.html#a817152bafdd9bb7b3097c05c8a5d58ef">CreateDefaultPipeline</a> ()</td></tr>
-<tr class="memdesc:a817152bafdd9bb7b3097c05c8a5d58ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new pipeline with the default generators.  <a href="class_m_pewsey_1_1_mania_map_1_1_generation_pipeline.html#a817152bafdd9bb7b3097c05c8a5d58ef">More...</a><br /></td></tr>
+<tr class="memdesc:a817152bafdd9bb7b3097c05c8a5d58ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new pipeline with common default generators in the following order:  <a href="class_m_pewsey_1_1_mania_map_1_1_generation_pipeline.html#a817152bafdd9bb7b3097c05c8a5d58ef">More...</a><br /></td></tr>
 <tr class="separator:a817152bafdd9bb7b3097c05c8a5d58ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a257a53869d532cbdbbdda3fbe8e4e944"><td class="memItemLeft" align="right" valign="top">static T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generation_pipeline.html#a257a53869d532cbdbbdda3fbe8e4e944">GetArgument&lt; T &gt;</a> (string name, Dictionary&lt; string, object &gt; args, Dictionary&lt; string, object &gt; artifacts=null)</td></tr>
 <tr class="memdesc:a257a53869d532cbdbbdda3fbe8e4e944"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the argument from the argument and artifacts dictionary. The artifact dictionary is checked first, then the argument dictionary.  <a href="class_m_pewsey_1_1_mania_map_1_1_generation_pipeline.html#a257a53869d532cbdbbdda3fbe8e4e944">More...</a><br /></td></tr>
@@ -128,7 +128,7 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:a5b2969578915c3973bfe9cccdf68b539"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html">IGenerationStep</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generation_pipeline.html#a5b2969578915c3973bfe9cccdf68b539">Steps</a> = new List&lt;<a class="el" href="interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html">IGenerationStep</a>&gt;()<code> [getset]</code></td></tr>
+<tr class="memitem:a5b2969578915c3973bfe9cccdf68b539"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html">IGenerationStep</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generation_pipeline.html#a5b2969578915c3973bfe9cccdf68b539">Steps</a> = new List&lt;<a class="el" href="interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html">IGenerationStep</a>&gt;()<code> [getprivate set]</code></td></tr>
 <tr class="memdesc:a5b2969578915c3973bfe9cccdf68b539"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of generation stages.  <a href="class_m_pewsey_1_1_mania_map_1_1_generation_pipeline.html#a5b2969578915c3973bfe9cccdf68b539">More...</a><br /></td></tr>
 <tr class="separator:a5b2969578915c3973bfe9cccdf68b539"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -189,9 +189,14 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a new pipeline with the default generators. </p>
+<p>Returns a new pipeline with common default generators in the following order: </p>
+<ol type="1">
+<li><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph_randomizer.html" title="A class for generating randomized variations in a LayoutGraph.">LayoutGraphRandomizer</a></li>
+<li><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html" title="A class for generator room Layout based on various RoomTemplate and a LayoutGraph.">LayoutGenerator</a></li>
+<li><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html" title="A class for distributing collectables throughout a Layout.">CollectableGenerator</a> </li>
+</ol>
 
-<p class="definition">Definition at line <a class="el" href="_generation_pipeline_8cs_source.html#l00027">27</a> of file <a class="el" href="_generation_pipeline_8cs_source.html">GenerationPipeline.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generation_pipeline_8cs_source.html#l00031">31</a> of file <a class="el" href="_generation_pipeline_8cs_source.html">GenerationPipeline.cs</a>.</p>
 
 </div>
 </div>
@@ -219,7 +224,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_generation_pipeline_8cs_source.html#l00038">38</a> of file <a class="el" href="_generation_pipeline_8cs_source.html">GenerationPipeline.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generation_pipeline_8cs_source.html#l00043">43</a> of file <a class="el" href="_generation_pipeline_8cs_source.html">GenerationPipeline.cs</a>.</p>
 
 </div>
 </div>
@@ -273,7 +278,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_generation_pipeline_8cs_source.html#l00052">52</a> of file <a class="el" href="_generation_pipeline_8cs_source.html">GenerationPipeline.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generation_pipeline_8cs_source.html#l00057">57</a> of file <a class="el" href="_generation_pipeline_8cs_source.html">GenerationPipeline.cs</a>.</p>
 
 </div>
 </div>
@@ -293,7 +298,7 @@ Properties</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">private set</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
