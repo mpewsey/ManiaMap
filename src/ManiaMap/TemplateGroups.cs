@@ -7,84 +7,11 @@ namespace MPewsey.ManiaMap
     /// A class for creating groups of RoomTemplate.
     /// </summary>
     [DataContract]
-    public class TemplateGroups
+    public class TemplateGroups : ItemGroups<string, RoomTemplate>
     {
-        /// <summary>
-        /// A dictionary of room templates by group string.
-        /// </summary>
-        [DataMember(Order = 1)]
-        public Dictionary<string, List<RoomTemplate>> Groups { get; private set; } = new Dictionary<string, List<RoomTemplate>>();
-
         public override string ToString()
         {
             return $"TemplateGroups(Groups.Count = {Groups.Count})";
-        }
-
-        /// <summary>
-        /// Adds the template to the group.
-        /// </summary>
-        /// <param name="group">The group name.</param>
-        /// <param name="template">The room template to add.</param>
-        public void Add(string group, RoomTemplate template)
-        {
-            if (!Groups.TryGetValue(group, out var list))
-            {
-                list = new List<RoomTemplate>();
-                Groups.Add(group, list);
-            }
-
-            list.Add(template);
-        }
-
-        /// <summary>
-        /// Adds the templates to the group.
-        /// </summary>
-        /// <param name="group">The group name.</param>
-        /// <param name="templates">The room templates to add.</param>
-        public void Add(string group, params RoomTemplate[] templates)
-        {
-            if (!Groups.TryGetValue(group, out var list))
-            {
-                list = new List<RoomTemplate>();
-                Groups.Add(group, list);
-            }
-
-            list.AddRange(templates);
-        }
-
-        /// <summary>
-        /// Adds the templates to the group.
-        /// </summary>
-        /// <param name="group">The group name.</param>
-        /// <param name="templates">An enumerable of room templates to add.</param>
-        public void Add(string group, IEnumerable<RoomTemplate> templates)
-        {
-            if (!Groups.TryGetValue(group, out var list))
-            {
-                list = new List<RoomTemplate>();
-                Groups.Add(group, list);
-            }
-
-            list.AddRange(templates);
-        }
-
-        /// <summary>
-        /// Adds the templates to the group.
-        /// </summary>
-        /// <param name="group">The group name.</param>
-        /// <param name="templates">Enumerables of room templates to add.</param>
-        public void Add(string group, params IEnumerable<RoomTemplate>[] templates)
-        {
-            if (!Groups.TryGetValue(group, out var list))
-            {
-                list = new List<RoomTemplate>();
-                Groups.Add(group, list);
-            }
-
-            foreach (var collection in templates)
-            {
-                list.AddRange(collection);
-            }
         }
 
         /// <summary>

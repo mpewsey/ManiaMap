@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -95,6 +96,107 @@ namespace MPewsey.ManiaMap.Tests
             Assert.AreEqual(graph.Name, copy.Name);
             Assert.AreEqual(graph.NodeCount, copy.NodeCount);
             Assert.AreEqual(graph.EdgeCount, copy.EdgeCount);
+        }
+
+        [TestMethod]
+        public void TestSwapEdges()
+        {
+            var graph = Samples.GraphLibrary.CrossGraph();
+            graph.SwapEdges(1, 0);
+            var expected = new LayoutGraph(1, "CrossLayoutGraph");
+
+            expected.AddEdge(1, 0);
+            expected.AddEdge(0, 2);
+            expected.AddEdge(1, 3);
+            expected.AddEdge(1, 4);
+            expected.AddEdge(1, 5);
+
+            var expectedEdges = expected.GetEdges().Select(x => new EdgeIndexes(x.FromNode, x.ToNode)).ToList();
+            var resultEdges = graph.GetEdges().Select(x => new EdgeIndexes(x.FromNode, x.ToNode)).ToList();
+
+            var expectedNodes = expected.GetNodes().Select(x => x.Id).ToList();
+            var resultNodes = graph.GetNodes().Select(x => x.Id).ToList();
+
+            Console.WriteLine("Expected Edges:");
+            Console.WriteLine(string.Join("\n", expectedEdges));
+            Console.WriteLine("\nResult Edges:");
+            Console.WriteLine(string.Join("\n", resultEdges));
+
+            Console.WriteLine("\nExpected Nodes:");
+            Console.WriteLine(string.Join(", ", expectedNodes));
+            Console.WriteLine("\nResult Nodes:");
+            Console.WriteLine(string.Join(", ", resultNodes));
+
+            CollectionAssert.AreEquivalent(expectedEdges, resultEdges);
+            CollectionAssert.AreEquivalent(expectedNodes, resultNodes);
+            CollectionAssert.AreEquivalent(expected.GetNeighbors(1).ToList(), graph.GetNeighbors(1).ToList());
+            CollectionAssert.AreEquivalent(expected.GetNeighbors(0).ToList(), graph.GetNeighbors(0).ToList());
+        }
+
+        [TestMethod]
+        public void TestAddNodeVariation()
+        {
+            var graph = new LayoutGraph(1, "Variations");
+            graph.AddNodeVariation("Group1", 1);
+            graph.AddNodeVariation("Group1", 2);
+            var expected = new List<int> { 1, 2 };
+            CollectionAssert.AreEquivalent(expected, graph.GetNodeVariations("Group1").ToList());
+            CollectionAssert.AreEquivalent(expected, graph.GetNodes().Select(x => x.Id).ToList());
+        }
+
+        [TestMethod]
+        public void TestAddNodeVariations()
+        {
+            var graph = new LayoutGraph(1, "Variations");
+            graph.AddNodeVariation("Group1", new int[] { 1, 2 });
+            var expected = new List<int> { 1, 2 };
+            CollectionAssert.AreEquivalent(expected, graph.GetNodeVariations("Group1").ToList());
+            CollectionAssert.AreEquivalent(expected, graph.GetNodes().Select(x => x.Id).ToList());
+        }
+
+        [TestMethod]
+        public void TestRemoveAllVariations()
+        {
+            var graph = new LayoutGraph(1, "Variations");
+            graph.AddNodeVariation("Group1", 1);
+            graph.RemoveNodeVariations(1);
+            CollectionAssert.AreEquivalent(new List<int>(), graph.GetNodeVariations("Group1").ToList());
+        }
+
+        [TestMethod]
+        public void TestRemoveNodeVariation()
+        {
+            var graph = new LayoutGraph(1, "Variations");
+            graph.AddNodeVariation("Group1", 1);
+            graph.RemoveNodeVariation("Group1", 1);
+            CollectionAssert.AreEquivalent(new List<int>(), graph.GetNodeVariations("Group1").ToList());
+            CollectionAssert.AreEquivalent(new List<int> { 1 }, graph.GetNodes().Select(x => x.Id).ToList());
+        }
+
+        [TestMethod]
+        public void TestRemoveNodeVariations()
+        {
+            var graph = new LayoutGraph(1, "Variations");
+            graph.AddNodeVariation("Group1", new int[] { 1, 2 });
+            graph.RemoveNodeVariation("Group1", new int[] { 1, 2 });
+            var expected = new List<int> { 1, 2 };
+            CollectionAssert.AreEquivalent(new List<int>(), graph.GetNodeVariations("Group1").ToList());
+            CollectionAssert.AreEquivalent(expected, graph.GetNodes().Select(x => x.Id).ToList());
+        }
+
+        [TestMethod]
+        public void TestGetVariation()
+        {
+            var graph = Samples.GraphLibrary.CrossGraph();
+            graph.AddNodeVariation("Group1", new int[] { 0, 1 });
+            var seed = new RandomSeed(12345);
+
+            for (int i = 0; i < 1000; i++)
+            {
+                var variation = graph.GetVariation(seed);
+                Assert.AreEqual(graph.Id, variation.Id);
+                Assert.AreEqual(graph.Name, variation.Name);
+            }
         }
     }
 }

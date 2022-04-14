@@ -77,5 +77,20 @@ namespace MPewsey.ManiaMap.Tests
             var expected = directions.Select(x => x.Item3).ToList();
             CollectionAssert.AreEqual(expected, results);
         }
+
+        [TestMethod]
+        public void TestCopy()
+        {
+            var door = new Door(DoorType.OneWayExit, 10);
+            var copy = door.Copy();
+
+            foreach (var property in door.GetType().GetProperties())
+            {
+                if (!property.GetGetMethod().IsStatic)
+                {
+                    Assert.AreEqual(property.GetValue(door), property.GetValue(copy));
+                }
+            }
+        }
     }
 }

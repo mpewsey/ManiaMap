@@ -12,27 +12,27 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a new two-way door.
         /// </summary>
-        public static Door TwoWay => new Door { Type = DoorType.TwoWay };
+        public static Door TwoWay => new Door(DoorType.TwoWay);
 
         /// <summary>
         /// Returns a new two-way exit door.
         /// </summary>
-        public static Door TwoWayExit => new Door { Type = DoorType.TwoWayExit };
+        public static Door TwoWayExit => new Door(DoorType.TwoWayExit);
 
         /// <summary>
         /// Returns a new two-way entrance door.
         /// </summary>
-        public static Door TwoWayEntrance => new Door { Type = DoorType.TwoWayEntrance };
+        public static Door TwoWayEntrance => new Door(DoorType.TwoWayEntrance);
 
         /// <summary>
         /// Returns a new one-way exit door.
         /// </summary>
-        public static Door OneWayExit => new Door { Type = DoorType.OneWayExit };
+        public static Door OneWayExit => new Door(DoorType.OneWayExit);
 
         /// <summary>
         /// Returns a new one-way entrance door.
         /// </summary>
-        public static Door OneWayEntrance => new Door { Type = DoorType.OneWayEntrance };
+        public static Door OneWayEntrance => new Door(DoorType.OneWayEntrance);
 
         /// <summary>
         /// The door type.
@@ -46,6 +46,25 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 2)]
         public int Code { get; set; }
 
+        /// <summary>
+        /// Initializes a new door.
+        /// </summary>
+        public Door(DoorType type = DoorType.None, int code = 0)
+        {
+            Type = type;
+            Code = code;
+        }
+
+        /// <summary>
+        /// Initializes a copy of a door.
+        /// </summary>
+        /// <param name="other">The door to be copied.</param>
+        private Door(Door other)
+        {
+            Type = other.Type;
+            Code = other.Code;
+        }
+
         public override string ToString()
         {
             return $"Door(Type = {Type}, Code = {Code})";
@@ -56,7 +75,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public Door Copy()
         {
-            return new Door { Type = Type, Code = Code };
+            return new Door(this);
         }
 
         /// <summary>

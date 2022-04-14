@@ -19,15 +19,7 @@ namespace MPewsey.ManiaMap.Tests
             CollectionAssert.AreEqual(expected, groups.Groups["Default"]);
 
             groups.Groups.Clear();
-            groups.Add("Default", 1, 2, 3);
-            CollectionAssert.AreEqual(expected, groups.Groups["Default"]);
-
-            groups.Groups.Clear();
             groups.Add("Default", new List<int> { 1, 2, 3 });
-            CollectionAssert.AreEqual(expected, groups.Groups["Default"]);
-
-            groups.Groups.Clear();
-            groups.Add("Default", new List<int> { 1, 2 }, new List<int> { 3 });
             CollectionAssert.AreEqual(expected, groups.Groups["Default"]);
         }
 

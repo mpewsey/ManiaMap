@@ -259,5 +259,17 @@ namespace MPewsey.ManiaMap.Tests
             var seed = new RandomSeed(12345);
             Assert.IsTrue(seed.ToString().StartsWith("RandomSeed("));
         }
+
+        [TestMethod]
+        public void TestCopy()
+        {
+            var seed = new RandomSeed(12345);
+            var copy = seed.Copy();
+
+            for (int i = 0; i < 1000; i++)
+            {
+                Assert.AreEqual(seed.Next(), copy.Next());
+            }
+        }
     }
 }
