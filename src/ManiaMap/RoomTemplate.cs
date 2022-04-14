@@ -266,18 +266,17 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns a list of doors aligning with a template at the specified offset.
+        /// Returns an enumerable of doors aligning with a template at the specified offset.
         /// </summary>
         /// <param name="other">The other room template.</param>
         /// <param name="offset">The offset of the other template from this one.</param>
-        public List<DoorPair> AlignedDoors(RoomTemplate other, Vector2DInt offset)
+        public IEnumerable<DoorPair> AlignedDoors(RoomTemplate other, Vector2DInt offset)
         {
-            var result = new List<DoorPair>();
             var jStart = Math.Max(0, offset.Y - 1);
             var jStop = Math.Min(Cells.Columns, other.Cells.Columns + offset.Y + 1);
 
             if (jStart >= jStop)
-                return result;
+                yield break;
 
             var iStart = Math.Max(0, offset.X - 1);
             var iStop = Math.Min(Cells.Rows, other.Cells.Rows + offset.X + 1);
@@ -303,14 +302,14 @@ namespace MPewsey.ManiaMap
                         {
                             var door1 = new DoorPosition(new Vector2DInt(i, j), DoorDirection.Top, cell.TopDoor);
                             var door2 = new DoorPosition(new Vector2DInt(x, y), DoorDirection.Bottom, vert.BottomDoor);
-                            result.Add(new DoorPair(door1, door2));
+                            yield return new DoorPair(door1, door2);
                         }
 
                         if (cell.BottomDoorAligns(vert))
                         {
                             var door1 = new DoorPosition(new Vector2DInt(i, j), DoorDirection.Bottom, cell.BottomDoor);
                             var door2 = new DoorPosition(new Vector2DInt(x, y), DoorDirection.Top, vert.TopDoor);
-                            result.Add(new DoorPair(door1, door2));
+                            yield return new DoorPair(door1, door2);
                         }
                     }
                     else
@@ -324,34 +323,32 @@ namespace MPewsey.ManiaMap
                         {
                             var door1 = new DoorPosition(new Vector2DInt(i, j), DoorDirection.West, cell.WestDoor);
                             var door2 = new DoorPosition(new Vector2DInt(x, y - 1), DoorDirection.East, west.EastDoor);
-                            result.Add(new DoorPair(door1, door2));
+                            yield return new DoorPair(door1, door2);
                         }
 
                         if (cell.NorthDoorAligns(north))
                         {
                             var door1 = new DoorPosition(new Vector2DInt(i, j), DoorDirection.North, cell.NorthDoor);
                             var door2 = new DoorPosition(new Vector2DInt(x - 1, y), DoorDirection.South, north.SouthDoor);
-                            result.Add(new DoorPair(door1, door2));
+                            yield return new DoorPair(door1, door2);
                         }
 
                         if (cell.EastDoorAligns(east))
                         {
                             var door1 = new DoorPosition(new Vector2DInt(i, j), DoorDirection.East, cell.EastDoor);
                             var door2 = new DoorPosition(new Vector2DInt(x, y + 1), DoorDirection.West, east.WestDoor);
-                            result.Add(new DoorPair(door1, door2));
+                            yield return new DoorPair(door1, door2);
                         }
 
                         if (cell.SouthDoorAligns(south))
                         {
                             var door1 = new DoorPosition(new Vector2DInt(i, j), DoorDirection.South, cell.SouthDoor);
                             var door2 = new DoorPosition(new Vector2DInt(x + 1, y), DoorDirection.North, south.NorthDoor);
-                            result.Add(new DoorPair(door1, door2));
+                            yield return new DoorPair(door1, door2);
                         }
                     }
                 }
             }
-
-            return result;
         }
     }
 }

@@ -51,9 +51,8 @@ namespace MPewsey.ManiaMap
                 for (int j = -ToTemplate.Cells.Columns; j <= FromTemplate.Cells.Columns; j++)
                 {
                     var position = new Vector2DInt(i, j);
-                    var doorPairs = FromTemplate.AlignedDoors(ToTemplate, position);
 
-                    foreach (var pair in doorPairs)
+                    foreach (var pair in FromTemplate.AlignedDoors(ToTemplate, position))
                     {
                         var config = new Configuration(position, pair.FromDoor, pair.ToDoor);
                         Configurations.Add(config);
