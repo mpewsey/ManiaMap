@@ -106,6 +106,8 @@ map.SaveImage("Map.png", layout);
 
 ## Collectable Generator Example
 
+The collectable generator distributes collectables throughout a layout.
+
 ```CollectableGenerator.cs
 var seed = new RandomSeed(12345);
 var generator = new CollectableGenerator();
@@ -120,6 +122,8 @@ generator.Generate(layout, collectableGroups, seed);
 ```
 
 ## Layout Graph Randomizer Example
+
+The layout graph randomizer generates variations of a layout graph based on user-defined swappable nodes.
 
 ```LayoutGraphRandomizer.cs
 var seed = new RandomSeed(12345);
@@ -139,6 +143,8 @@ var graphVariation = randomizer.RandomizeGraph(graph, seed);
 ```
 
 ## Generation Pipeline Example
+
+The generation pipeline provides a way for multiple generation steps to be chained together. This is often easier than making manual calls to each generation step.
 
 ```GeneratorPipeline.cs
 // Create a dictionary of arguments to be passed to each pipeline step.
