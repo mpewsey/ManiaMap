@@ -196,6 +196,21 @@ Collectable Generator Example</h1>
 <div class="line"> </div>
 <div class="line">generator.Generate(layout, collectableGroups, seed);</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md12"></a>
+Layout Graph Selector Example</h1>
+<p >The layout graph selector draws a random layout graph from a supplied list. This is useful when used as an early step in a <code>GenerationPipeline</code>.</p>
+<div class="fragment"><div class="line">{LayoutGraphSelector.cs} </div>
+<div class="line">// Create a list of graphs from which to draw.</div>
+<div class="line">var graphs = new List&lt;LayoutGraph&gt;</div>
+<div class="line">{</div>
+<div class="line">    new LayoutGraph(id: 1, name: &quot;ExampleGraph1&quot;),</div>
+<div class="line">    new LayoutGraph(id: 2, name: &quot;ExampleGraph2&quot;),</div>
+<div class="line">    new LayoutGraph(id: 3, name: &quot;ExampleGraph3&quot;),</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">var seed = new RandomSeed(12345);</div>
+<div class="line">var selector = new LayoutGraphSelector();</div>
+<div class="line">var graph = selector.DrawSelection(graphs, seed);</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md13"></a>
 Layout Graph Randomizer Example</h1>
 <p >The layout graph randomizer generates variations of a layout graph based on user-defined swappable nodes.</p>
 <div class="fragment"><div class="line">{LayoutGraphRandomizer.cs} </div>
@@ -213,7 +228,7 @@ Layout Graph Randomizer Example</h1>
 <div class="line">// Create a randomizer and create a new graph variation.</div>
 <div class="line">var randomizer = new LayoutGraphRandomizer();</div>
 <div class="line">var graphVariation = randomizer.RandomizeGraph(graph, seed);</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md13"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md14"></a>
 Generation Pipeline Example</h1>
 <p >The generation pipeline provides a way for multiple generation steps to be chained together. This is often easier than making manual calls to each generation step.</p>
 <div class="fragment"><div class="line">{GeneratorPipeline.cs} </div>

@@ -34,10 +34,11 @@ var NAVTREE =
       [ "Step 4: Run the Layout Generator", "index.html#autotoc_md10", null ]
     ] ],
     [ "Collectable Generator Example", "index.html#autotoc_md11", null ],
-    [ "Layout Graph Randomizer Example", "index.html#autotoc_md12", null ],
-    [ "Generation Pipeline Example", "index.html#autotoc_md13", null ],
+    [ "Layout Graph Selector Example", "index.html#autotoc_md12", null ],
+    [ "Layout Graph Randomizer Example", "index.html#autotoc_md13", null ],
+    [ "Generation Pipeline Example", "index.html#autotoc_md14", null ],
     [ "Changelog", "md__github_workspace__c_h_a_n_g_e_l_o_g.html", [
-      [ "v1.0.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md15", null ]
+      [ "v1.0.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md16", null ]
     ] ],
     [ "Packages", "namespaces.html", [
       [ "Packages", "namespaces.html", "namespaces_dup" ],
@@ -68,7 +69,7 @@ var NAVTREEINDEX =
 "class_m_pewsey_1_1_mania_map_1_1_configuration.html#afb0de359f956905960015bec06a26c4e",
 "class_m_pewsey_1_1_mania_map_1_1_layout.html#ab89eb62709f502ea2f6dcc56a6b12672",
 "class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a8b0399a89a6254c6fb1156ca7a7a7f42",
-"interface_m_pewsey_1_1_mania_map_1_1_i_room_source.html#aaf89671afed4263c02e3032375a2d2a1"
+"interface_m_pewsey_1_1_mania_map_1_1_i_room_source.html#a9a125119bfe05d720e70d666dd2136cd"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
