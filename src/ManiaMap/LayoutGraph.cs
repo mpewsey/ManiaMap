@@ -222,10 +222,7 @@ namespace MPewsey.ManiaMap
         /// <param name="id">The node ID.</param>
         public IEnumerable<LayoutEdge> GetEdges(int id)
         {
-            foreach (var neighbor in Neighbors[id])
-            {
-                yield return GetEdge(id, neighbor);
-            }
+            return Neighbors[id].Select(x => GetEdge(id, x));
         }
 
         /// <summary>
@@ -237,7 +234,7 @@ namespace MPewsey.ManiaMap
         {
             if (id1 == id2)
                 return;
-            
+
             // Get a set of all edges with the nodes.
             var edges = GetEdges(id1).Concat(GetEdges(id2)).Distinct().ToList();
 
