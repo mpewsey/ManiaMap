@@ -32,5 +32,12 @@ namespace MPewsey.ManiaMap.Tests
 
             CollectionAssert.AreEquivalent(expected, result);
         }
+
+        [TestMethod]
+        public void TestToString()
+        {
+            var generator = new CollectableGenerator();
+            Assert.IsTrue(generator.ToString().StartsWith("CollectableGenerator("));
+        }
     }
 }
