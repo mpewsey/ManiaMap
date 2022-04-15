@@ -55,9 +55,9 @@ namespace MPewsey.ManiaMap
         /// <param name="args">The argument dictionary.</param>
         /// <param name="artifacts">The artifact dictionary.</param>
         public static T GetArgument<T>(string name,
-            Dictionary<string, object> args, Dictionary<string, object> artifacts = null)
+            Dictionary<string, object> args, Dictionary<string, object> artifacts)
         {
-            if (artifacts != null && artifacts.TryGetValue(name, out var value))
+            if (artifacts.TryGetValue(name, out var value))
                 return (T)value;
             return (T)args[name];
         }
