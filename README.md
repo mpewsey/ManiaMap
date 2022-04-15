@@ -106,6 +106,8 @@ map.SaveImage("Map.png", layout);
 
 ## Collectable Generator Example
 
+The collectable generator distributes collectables throughout a layout.
+
 ```CollectableGenerator.cs
 var seed = new RandomSeed(12345);
 var generator = new CollectableGenerator();
@@ -119,7 +121,48 @@ collectableGroups.Add("Group2", new int[] { 6, 7, 7, 8, 8, 9, 10 });
 generator.Generate(layout, collectableGroups, seed);
 ```
 
+## Layout Graph Selector Example
+
+The layout graph selector draws a random layout graph from a supplied list. This is useful when used as an early step in a `GenerationPipeline`.
+
+```LayoutGraphSelector.cs
+// Create a list of graphs from which to draw.
+var graphs = new List<LayoutGraph>
+{
+    new LayoutGraph(id: 1, name: "ExampleGraph1"),
+    new LayoutGraph(id: 2, name: "ExampleGraph2"),
+    new LayoutGraph(id: 3, name: "ExampleGraph3"),
+};
+
+var seed = new RandomSeed(12345);
+var selector = new LayoutGraphSelector();
+var graph = selector.DrawSelection(graphs, seed);
+```
+
+## Layout Graph Randomizer Example
+
+The layout graph randomizer generates variations of a layout graph based on user-defined swappable nodes.
+
+```LayoutGraphRandomizer.cs
+var seed = new RandomSeed(12345);
+var graph = new LayoutGraph(id: 1, name: "ExampleGraph");
+
+// Add any nodes and edges to the graph.
+// See the previous Layout Generator example.
+
+// Add nodes to variation groups.
+// The nodes in these groups will be shuffled and swapped by the randomizer.
+graph.AddNodeVariation("Group1", new int[] { 1, 5, 3 });
+graph.AddNodeVariation("Group2", new int[] { 0, 7, 10, 12 });
+
+// Create a randomizer and create a new graph variation.
+var randomizer = new LayoutGraphRandomizer();
+var graphVariation = randomizer.RandomizeGraph(graph, seed);
+```
+
 ## Generation Pipeline Example
+
+The generation pipeline provides a way for multiple generation steps to be chained together. This is often easier than making manual calls to each generation step.
 
 ```GeneratorPipeline.cs
 // Create a dictionary of arguments to be passed to each pipeline step.
