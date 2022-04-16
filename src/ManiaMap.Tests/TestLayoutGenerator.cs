@@ -129,5 +129,22 @@ namespace MPewsey.ManiaMap.Tests
             var generator = new LayoutGenerator();
             Assert.IsTrue(generator.ToString().StartsWith("LayoutGenerator("));
         }
+
+        [DataTestMethod]
+        [DataRow(12345)]
+        [DataRow(12355)]
+        [DataRow(12365)]
+        [DataRow(12375)]
+        [DataRow(12385)]
+        [DataRow(123456789)]
+        public void TestBigLayout(int seed)
+        {
+            var random = new RandomSeed(seed);
+            var graph = Samples.GraphLibrary.BigGraph();
+            var templateGroups = Samples.BigLayoutSample.BigLayoutTemplateGroups();
+            var generator = new LayoutGenerator();
+            var layout = generator.Generate(1, graph, templateGroups, random);
+            Assert.IsNotNull(layout);
+        }
     }
 }

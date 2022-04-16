@@ -14,10 +14,17 @@ namespace MPewsey.ManiaMap
     /// </summary>
     public class LayoutGenerator : IGenerationStep
     {
+        private int _maxRebases;
         /// <summary>
         /// The maximum number of times that a sub layout can be used as a base before it is discarded.
         /// </summary>
-        public int MaxRebases { get; set; }
+        public int MaxRebases { get => _maxRebases; set => _maxRebases = Math.Max(value, 1); }
+
+        private float _rebaseDecayRate;
+        /// <summary>
+        /// The rebase decay rate. This should be a value greater than or equal to zero.
+        /// </summary>
+        public float RebaseDecayRate { get => _rebaseDecayRate; set => _rebaseDecayRate = Math.Max(value, 0); }
 
         /// <summary>
         /// The maximum branch chain length. Branch chains exceeding this length will be split.
@@ -54,16 +61,18 @@ namespace MPewsey.ManiaMap
         /// Initializes the generator.
         /// </summary>
         /// <param name="maxRebases">The maximum number of times that a sub layout can be used as a base before it is discarded.</param>
+        /// <param name="rebaseDecayRate">The rebase decay rate. This should be a value greater than or equal to zero.</param>
         /// <param name="maxBranchLength">The maximum branch chain length. Branch chains exceeding this length will be split. Negative and zero values will be ignored.</param>
-        public LayoutGenerator(int maxRebases = 100, int maxBranchLength = -1)
+        public LayoutGenerator(int maxRebases = 100, float rebaseDecayRate = 0.25f, int maxBranchLength = -1)
         {
             MaxRebases = maxRebases;
+            RebaseDecayRate = rebaseDecayRate;
             MaxBranchLength = maxBranchLength;
         }
 
         public override string ToString()
         {
-            return $"LayoutGenerator(MaxRebases = {MaxRebases}, MaxBranchLength = {MaxBranchLength})";
+            return $"LayoutGenerator(MaxRebases = {MaxRebases}, RebaseDecayRate = {RebaseDecayRate}, MaxBranchLength = {MaxBranchLength})";
         }
 
         /// <summary>
@@ -104,6 +113,7 @@ namespace MPewsey.ManiaMap
             ConfigurationSpaces = templateGroups.GetConfigurationSpaces();
 
             int chain = 0;
+            var allowableRebases = AllowableRebases(chain);
             var chains = Graph.FindChains(MaxBranchLength);
             var layouts = new Stack<Layout>();
             layouts.Push(new Layout(layoutId, graph.Name, randomSeed));
@@ -118,10 +128,11 @@ namespace MPewsey.ManiaMap
 
                 // If layout has been used as a base more than the maximum allowable count,
                 // remove the layout and backtrack.
-                if (Layout.Rebases >= MaxRebases)
+                if (Layout.Rebases > allowableRebases)
                 {
                     layouts.Pop();
                     chain--;
+                    allowableRebases = AllowableRebases(chain);
                     continue;
                 }
 
@@ -132,10 +143,21 @@ namespace MPewsey.ManiaMap
                 {
                     layouts.Push(Layout);
                     chain++;
+                    allowableRebases = AllowableRebases(chain);
                 }
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// Returns the allowable number of rebases for the chain index.
+        /// </summary>
+        /// <param name="chain">The chain index.</param>
+        private int AllowableRebases(int chain)
+        {
+            var value = (int)Math.Ceiling(MaxRebases * Math.Exp(-chain * RebaseDecayRate));
+            return Math.Max(value, 1);
         }
 
         /// <summary>
