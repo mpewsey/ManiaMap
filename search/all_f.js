@@ -35,5 +35,6 @@ var searchData=
   ['squaretemplate_32',['SquareTemplate',['../class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_miscellaneous.html#ab16147b6a2009b22a5955f3c5ccadd8c',1,'MPewsey::ManiaMap::Samples::TemplateLibrary::Miscellaneous']]],
   ['stackedloopgraph_33',['StackedLoopGraph',['../class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#a4cce06cc9ae25476b64797837a752c17',1,'MPewsey::ManiaMap::Samples::GraphLibrary']]],
   ['steps_34',['Steps',['../class_m_pewsey_1_1_mania_map_1_1_generation_pipeline.html#a5b2969578915c3973bfe9cccdf68b539',1,'MPewsey::ManiaMap::GenerationPipeline']]],
-  ['swapedges_35',['SwapEdges',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a4d9f0e9ca4b75ebbade6f1ee6a2a12dc',1,'MPewsey::ManiaMap::LayoutGraph']]]
+  ['success_35',['Success',['../class_m_pewsey_1_1_mania_map_1_1_generation_pipeline_1_1_results.html#a4bf1bc08f738987f5742efea382ee7fc',1,'MPewsey::ManiaMap::GenerationPipeline::Results']]],
+  ['swapedges_36',['SwapEdges',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a4d9f0e9ca4b75ebbade6f1ee6a2a12dc',1,'MPewsey::ManiaMap::LayoutGraph']]]
 ];

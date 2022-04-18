@@ -60,6 +60,7 @@ var hierarchy =
     [ "MPewsey.ManiaMap.Samples.TemplateLibrary.Miscellaneous", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_miscellaneous.html", null ],
     [ "MPewsey.ManiaMap.RandomSeed", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html", null ],
     [ "MPewsey.ManiaMap.Samples.TemplateLibrary.Rectangles", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_rectangles.html", null ],
+    [ "MPewsey.ManiaMap.GenerationPipeline.Results", "class_m_pewsey_1_1_mania_map_1_1_generation_pipeline_1_1_results.html", null ],
     [ "MPewsey.ManiaMap.Room", "class_m_pewsey_1_1_mania_map_1_1_room.html", null ],
     [ "MPewsey.ManiaMap.RoomState", "class_m_pewsey_1_1_mania_map_1_1_room_state.html", null ],
     [ "MPewsey.ManiaMap.RoomTemplate", "class_m_pewsey_1_1_mania_map_1_1_room_template.html", null ],

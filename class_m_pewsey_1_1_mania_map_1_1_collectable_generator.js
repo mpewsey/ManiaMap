@@ -4,7 +4,7 @@ var class_m_pewsey_1_1_mania_map_1_1_collectable_generator =
     [ "AddCollectable", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#aa269b01fe47132d549a75957e59d270d", null ],
     [ "AddCollectableSpots", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a45d9b74e667cbdc8a01e91338f9c1e10", null ],
     [ "AddRoomCollectableSpots", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a9cc488feb6ce97567ade5cf7cc190b5b", null ],
-    [ "ApplyStep", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a343957ab147e236108bd2a98e536cbe0", null ],
+    [ "ApplyStep", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#abfd76632bf5de74517804b74d957edf7", null ],
     [ "AssignDoorWeights", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a53d15cbe4b180928d68c1870b887ba9f", null ],
     [ "AssignInitialNeighborWeights", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#ad56fb4d6e2c2a057244466dc6954757c", null ],
     [ "Generate", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#aafefe156c9569656434cbf94951f9619", null ],

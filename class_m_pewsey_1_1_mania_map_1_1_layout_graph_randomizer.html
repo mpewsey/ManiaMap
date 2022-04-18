@@ -117,9 +117,9 @@ Inheritance diagram for MPewsey.ManiaMap.LayoutGraphRandomizer:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acbae60da1df6150a786683dce5f75178"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph_randomizer.html#acbae60da1df6150a786683dce5f75178">ApplyStep</a> (Dictionary&lt; string, object &gt; args, Dictionary&lt; string, object &gt; artifacts)</td></tr>
-<tr class="memdesc:acbae60da1df6150a786683dce5f75178"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a randomized copy of a layout graph and adds it to the artifacts.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_graph_randomizer.html#acbae60da1df6150a786683dce5f75178">More...</a><br /></td></tr>
-<tr class="separator:acbae60da1df6150a786683dce5f75178"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9364deadc664c9b7d4ad1962227d193f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph_randomizer.html#a9364deadc664c9b7d4ad1962227d193f">ApplyStep</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generation_pipeline_1_1_results.html">GenerationPipeline.Results</a> results)</td></tr>
+<tr class="memdesc:a9364deadc664c9b7d4ad1962227d193f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a randomized copy of a layout graph and adds it to the results output dictionary.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_graph_randomizer.html#a9364deadc664c9b7d4ad1962227d193f">More...</a><br /></td></tr>
+<tr class="separator:a9364deadc664c9b7d4ad1962227d193f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6db4b36d45faac486cb47040dae49ef3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html">LayoutGraph</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph_randomizer.html#a6db4b36d45faac486cb47040dae49ef3">RandomizeGraph</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html">LayoutGraph</a> graph, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html">RandomSeed</a> randomSeed)</td></tr>
 <tr class="memdesc:a6db4b36d45faac486cb47040dae49ef3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a randomized copy of the layout graph based on the available variations.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_graph_randomizer.html#a6db4b36d45faac486cb47040dae49ef3">More...</a><br /></td></tr>
 <tr class="separator:a6db4b36d45faac486cb47040dae49ef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,10 +127,10 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >A class for generating randomized variations in a <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html" title="Represents a graph consisting of LayoutNode and LayoutEdge.">LayoutGraph</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_randomizer_8cs_source.html#l00008">8</a> of file <a class="el" href="_layout_graph_randomizer_8cs_source.html">LayoutGraphRandomizer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_randomizer_8cs_source.html#l00006">6</a> of file <a class="el" href="_layout_graph_randomizer_8cs_source.html">LayoutGraphRandomizer.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="acbae60da1df6150a786683dce5f75178" name="acbae60da1df6150a786683dce5f75178"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acbae60da1df6150a786683dce5f75178">&#9670;&nbsp;</a></span>ApplyStep()</h2>
+<a id="a9364deadc664c9b7d4ad1962227d193f" name="a9364deadc664c9b7d4ad1962227d193f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9364deadc664c9b7d4ad1962227d193f">&#9670;&nbsp;</a></span>ApplyStep()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -138,42 +138,31 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void MPewsey.ManiaMap.LayoutGraphRandomizer.ApplyStep </td>
           <td>(</td>
-          <td class="paramtype">Dictionary&lt; string, object &gt;&#160;</td>
-          <td class="paramname"><em>args</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generation_pipeline_1_1_results.html">GenerationPipeline.Results</a>&#160;</td>
+          <td class="paramname"><em>results</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Dictionary&lt; string, object &gt;&#160;</td>
-          <td class="paramname"><em>artifacts</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a randomized copy of a layout graph and adds it to the artifacts. </p>
+<p>Creates a randomized copy of a layout graph and adds it to the results output dictionary. </p>
 <p >The following arguments are required:</p><ul>
 <li>LayoutGraph - The layout graph.</li>
 <li>RandomSeed - The random seed.</li>
 </ul>
-<p >The following entries are added to the artifacts dictionary:</p><ul>
+<p >The following entries are added to the results output dictionary:</p><ul>
 <li>LayoutGraph - The randomized layout graph. </li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">args</td><td>The pipeline arguments dictionary.</td></tr>
-    <tr><td class="paramname">artifacts</td><td>The pipeline artifacts dictionary.</td></tr>
+    <tr><td class="paramname">results</td><td>The pipeline results.</td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html#aecc0f6981a03c194e063da327e76b58e">MPewsey.ManiaMap.IGenerationStep</a>.</p>
+<p>Implements <a class="el" href="interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html#a0f12642a8f7cc1274cff4e0f806f1d43">MPewsey.ManiaMap.IGenerationStep</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_randomizer_8cs_source.html#l00022">22</a> of file <a class="el" href="_layout_graph_randomizer_8cs_source.html">LayoutGraphRandomizer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_randomizer_8cs_source.html#l00019">19</a> of file <a class="el" href="_layout_graph_randomizer_8cs_source.html">LayoutGraphRandomizer.cs</a>.</p>
 
 </div>
 </div>
@@ -212,7 +201,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_randomizer_8cs_source.html#l00034">34</a> of file <a class="el" href="_layout_graph_randomizer_8cs_source.html">LayoutGraphRandomizer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_randomizer_8cs_source.html#l00033">33</a> of file <a class="el" href="_layout_graph_randomizer_8cs_source.html">LayoutGraphRandomizer.cs</a>.</p>
 
 </div>
 </div>
