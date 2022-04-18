@@ -15,7 +15,7 @@ namespace MPewsey.ManiaMap.Tests
             var collectableGroups = new CollectableGroups();
             collectableGroups.Add("Default", new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
 
-            var args = new Dictionary<string, object>
+            var inputs = new Dictionary<string, object>
             {
                 { "LayoutId", 1 },
                 { "LayoutGraph", graph },
@@ -25,9 +25,9 @@ namespace MPewsey.ManiaMap.Tests
             };
 
             var pipeline = GenerationPipeline.CreateDefaultPipeline();
-            var results = pipeline.Generate(args);
-            Assert.IsTrue(results.ContainsKey("Layout"));
-            Assert.IsNotNull(results["Layout"] as Layout);
+            var results = pipeline.Generate(inputs);
+            Assert.IsTrue(results.Success);
+            Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
         }
     }
 }

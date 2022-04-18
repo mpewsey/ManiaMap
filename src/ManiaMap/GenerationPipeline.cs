@@ -8,6 +8,48 @@ namespace MPewsey.ManiaMap
     public class GenerationPipeline
     {
         /// <summary>
+        /// A container for holding pipeline results.
+        /// </summary>
+        public class Results
+        {
+            /// <summary>
+            /// A dictionary of pipeline inputs.
+            /// </summary>
+            public Dictionary<string, object> Inputs { get; set; }
+
+            /// <summary>
+            /// A dictionary of pipeline output results.
+            /// </summary>
+            public Dictionary<string, object> Outputs { get; set; } = new Dictionary<string, object>();
+
+            /// <summary>
+            /// True if the pipeline steps are successful.
+            /// </summary>
+            public bool Success { get; set; } = true;
+
+            /// <summary>
+            /// Initializes a new result.
+            /// </summary>
+            /// <param name="inputs">The input dictionary.</param>
+            public Results(Dictionary<string, object> inputs)
+            {
+                Inputs = inputs;
+            }
+
+            /// <summary>
+            /// Searches the output and input dictionaries for the key and returns it.
+            /// </summary>
+            /// <typeparam name="T">The object type.</typeparam>
+            /// <param name="key">The dictionary key.</param>
+            public T GetArgument<T>(string key)
+            {
+                if (Outputs.TryGetValue(key, out var value))
+                    return (T)value;
+                return (T)Inputs[key];
+            }
+        }
+
+        /// <summary>
         /// A list of generation stages.
         /// </summary>
         public List<IGenerationStep> Steps { get; private set; } = new List<IGenerationStep>();
@@ -37,29 +79,23 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Invokes all generators of the pipeline and returns a dictionary of results.
+        /// Invokes all generators of the pipeline and returns the results.
         /// </summary>
-        /// <param name="args">A dictionary of generator arguments.</param>
-        public Dictionary<string, object> Generate(Dictionary<string, object> args)
+        /// <param name="inputs">A dictionary of generator inputs.</param>
+        public Results Generate(Dictionary<string, object> inputs)
         {
-            var artifacts = new Dictionary<string, object>();
-            Steps.ForEach(x => x.ApplyStep(args, artifacts));
-            return artifacts;
-        }
+            var results = new Results(inputs);
 
-        /// <summary>
-        /// Returns the argument from the argument and artifacts dictionary.
-        /// The artifact dictionary is checked first, then the argument dictionary.
-        /// </summary>
-        /// <param name="name">The name of the argument.</param>
-        /// <param name="args">The argument dictionary.</param>
-        /// <param name="artifacts">The artifact dictionary.</param>
-        public static T GetArgument<T>(string name,
-            Dictionary<string, object> args, Dictionary<string, object> artifacts)
-        {
-            if (artifacts.TryGetValue(name, out var value))
-                return (T)value;
-            return (T)args[name];
+            foreach (var step in Steps)
+            {
+                results.Success = false;
+                step.ApplyStep(results);
+
+                if (!results.Success)
+                    return results;
+            }
+
+            return results;
         }
     }
 }

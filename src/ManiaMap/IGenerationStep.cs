@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace MPewsey.ManiaMap
+﻿namespace MPewsey.ManiaMap
 {
     /// <summary>
     /// An interface for creating a step of the GenerationPipeline.
@@ -9,10 +7,9 @@ namespace MPewsey.ManiaMap
     {
         /// <summary>
         /// Performs the generation operations for this step.
-        /// Artifacts should be written to the input dictionary.
+        /// Artifacts should be written to the results output dictionary.
         /// </summary>
-        /// <param name="args">A dictionary of arguments.</param>
-        /// <param name="artifacts">A dictionary of generator artifacts.</param>
-        void ApplyStep(Dictionary<string, object> args, Dictionary<string, object> artifacts);
+        /// <param name="results">The generation pipeline results.</param>
+        void ApplyStep(GenerationPipeline.Results results);
     }
 }

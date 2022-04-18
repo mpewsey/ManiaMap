@@ -9,22 +9,23 @@ namespace MPewsey.ManiaMap
     public class LayoutGraphSelector : IGenerationStep
     {
         /// <summary>
-        /// Draws a random layout graph and adds a copy to the artifacts.
+        /// Draws a random layout graph and adds a copy to the results output dictionary.
         /// 
         /// The following arguments are required:
         /// * %LayoutGraphs - A list of layout graphs or functions that return layout graphs.
         /// * %RandomSeed - The random seed.
         /// 
-        /// The following entries are added to the artifacts dictionary:
+        /// The following entries are added to the results output dictionary:
         /// * %LayoutGraph - The drawn layout graph.
         /// </summary>
-        /// <param name="args">The pipeline arguments dictionary.</param>
-        /// <param name="artifacts">The pipeline artifacts dictionary.</param>
-        public void ApplyStep(Dictionary<string, object> args, Dictionary<string, object> artifacts)
+        /// <param name="results">The pipeline results.</param>
+        public void ApplyStep(GenerationPipeline.Results results)
         {
-            var randomSeed = GenerationPipeline.GetArgument<RandomSeed>("RandomSeed", args, artifacts);
-            var layouts = GenerationPipeline.GetArgument<object>("LayoutGraphs", args, artifacts);
-            artifacts["LayoutGraph"] = DrawSelection(layouts, randomSeed);
+            var randomSeed = results.GetArgument<RandomSeed>("RandomSeed");
+            var layouts = results.GetArgument<object>("LayoutGraphs");
+
+            results.Outputs["LayoutGraph"] = DrawSelection(layouts, randomSeed);
+            results.Success = true;
         }
 
         /// <summary>

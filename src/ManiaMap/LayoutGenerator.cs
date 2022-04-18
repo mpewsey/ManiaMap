@@ -76,7 +76,7 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Generates a new layout and adds it to the artifacts.
+        /// Generates a new layout and adds it to the results output dictionary.
         /// 
         /// The following arguments are required:
         /// * %LayoutId - The layout ID.
@@ -84,18 +84,20 @@ namespace MPewsey.ManiaMap
         /// * %TemplateGroups - The template groups.
         /// * %RandomSeed - The random seed.
         /// 
-        /// The following entries are added to the artifacts dictionary:
+        /// The following entries are added to the results output dictionary:
         /// * %Layout - The generated layout.
         /// </summary>
-        /// <param name="args">The pipeline arguments dictionary.</param>
-        /// <param name="artifacts">The pipeline artifacts dictionary.</param>
-        public void ApplyStep(Dictionary<string, object> args, Dictionary<string, object> artifacts)
+        /// <param name="results">The pipeline results.</param>
+        public void ApplyStep(GenerationPipeline.Results results)
         {
-            var layoutId = GenerationPipeline.GetArgument<int>("LayoutId", args, artifacts);
-            var graph = GenerationPipeline.GetArgument<LayoutGraph>("LayoutGraph", args, artifacts);
-            var templateGroups = GenerationPipeline.GetArgument<TemplateGroups>("TemplateGroups", args, artifacts);
-            var randomSeed = GenerationPipeline.GetArgument<RandomSeed>("RandomSeed", args, artifacts);
-            artifacts["Layout"] = Generate(layoutId, graph, templateGroups, randomSeed);
+            var layoutId = results.GetArgument<int>("LayoutId");
+            var graph = results.GetArgument<LayoutGraph>("LayoutGraph");
+            var templateGroups = results.GetArgument<TemplateGroups>("TemplateGroups");
+            var randomSeed = results.GetArgument<RandomSeed>("RandomSeed");
+
+            var layout = Generate(layoutId, graph, templateGroups, randomSeed);
+            results.Outputs["Layout"] = layout;
+            results.Success = layout != null;
         }
 
         /// <summary>

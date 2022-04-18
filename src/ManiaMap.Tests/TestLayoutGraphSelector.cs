@@ -19,17 +19,18 @@ namespace MPewsey.ManiaMap.Tests
                 new LayoutGraph(3, "Graph3"),
             };
 
-            var args = new Dictionary<string, object>
+            var input = new Dictionary<string, object>
             {
                 { "LayoutGraphs", graphs },
                 { "RandomSeed", seed },
             };
 
-            var artifacts = new Dictionary<string, object>();
             var selector = new LayoutGraphSelector();
-            selector.ApplyStep(args, artifacts);
-            Assert.AreEqual(1, artifacts.Count);
-            Assert.IsTrue(artifacts.ContainsKey("LayoutGraph"));
+            var results = new GenerationPipeline.Results(input);
+            selector.ApplyStep(results);
+            Assert.IsTrue(results.Success);
+            Assert.AreEqual(1, results.Outputs.Count);
+            Assert.IsTrue(results.Outputs.ContainsKey("LayoutGraph"));
         }
 
         [TestMethod]
@@ -44,17 +45,18 @@ namespace MPewsey.ManiaMap.Tests
                 () => new LayoutGraph(3, "Graph3"),
             };
 
-            var args = new Dictionary<string, object>
+            var input = new Dictionary<string, object>
             {
                 { "LayoutGraphs", graphs },
                 { "RandomSeed", seed },
             };
 
-            var artifacts = new Dictionary<string, object>();
             var selector = new LayoutGraphSelector();
-            selector.ApplyStep(args, artifacts);
-            Assert.AreEqual(1, artifacts.Count);
-            Assert.IsTrue(artifacts.ContainsKey("LayoutGraph"));
+            var results = new GenerationPipeline.Results(input);
+            selector.ApplyStep(results);
+            Assert.IsTrue(results.Success);
+            Assert.AreEqual(1, results.Outputs.Count);
+            Assert.IsTrue(results.Outputs.ContainsKey("LayoutGraph"));
         }
     }
 }

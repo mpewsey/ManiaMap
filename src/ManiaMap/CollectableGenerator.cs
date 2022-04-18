@@ -79,14 +79,15 @@ namespace MPewsey.ManiaMap
         /// * %CollectableGroups - The collectable groups.
         /// * %RandomSeed - The random seed.
         /// </summary>
-        /// <param name="args">The pipeline arguments dictionary.</param>
-        /// <param name="artifacts">The pipeline artifacts dictionary.</param>
-        public void ApplyStep(Dictionary<string, object> args, Dictionary<string, object> artifacts)
+        /// <param name="result">The pipeline results.</param>
+        public void ApplyStep(GenerationPipeline.Results results)
         {
-            var layout = GenerationPipeline.GetArgument<Layout>("Layout", args, artifacts);
-            var collectableGroups = GenerationPipeline.GetArgument<CollectableGroups>("CollectableGroups", args, artifacts);
-            var randomSeed = GenerationPipeline.GetArgument<RandomSeed>("RandomSeed", args, artifacts);
+            var layout = results.GetArgument<Layout>("Layout");
+            var collectableGroups = results.GetArgument<CollectableGroups>("CollectableGroups");
+            var randomSeed = results.GetArgument<RandomSeed>("RandomSeed");
+
             Generate(layout, collectableGroups, randomSeed);
+            results.Success = true;
         }
 
         /// <summary>
