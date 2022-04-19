@@ -25,22 +25,22 @@
 var NAVTREE =
 [
   [ "ManiaMap", "index.html", [
-    [ "About", "index.html#autotoc_md4", null ],
-    [ "Features", "index.html#autotoc_md5", null ],
-    [ "Layout Generator Example", "index.html#autotoc_md6", [
-      [ "Step 1: Create Room Templates", "index.html#autotoc_md7", null ],
-      [ "Step 2: Assign Room Templates to Template Groups", "index.html#autotoc_md8", null ],
-      [ "Step 3: Create a Layout Graph", "index.html#autotoc_md9", null ],
-      [ "Step 4: Run the Layout Generator", "index.html#autotoc_md10", null ]
+    [ "About", "index.html#autotoc_md5", null ],
+    [ "Features", "index.html#autotoc_md6", null ],
+    [ "Layout Generator Example", "index.html#autotoc_md7", [
+      [ "Step 1: Create Room Templates", "index.html#autotoc_md8", null ],
+      [ "Step 2: Assign Room Templates to Template Groups", "index.html#autotoc_md9", null ],
+      [ "Step 3: Create a Layout Graph", "index.html#autotoc_md10", null ],
+      [ "Step 4: Run the Layout Generator", "index.html#autotoc_md11", null ]
     ] ],
-    [ "Collectable Generator Example", "index.html#autotoc_md11", null ],
-    [ "Layout Graph Selector Example", "index.html#autotoc_md12", null ],
-    [ "Layout Graph Randomizer Example", "index.html#autotoc_md13", null ],
-    [ "Generation Pipeline Example", "index.html#autotoc_md14", null ],
+    [ "Collectable Generator Example", "index.html#autotoc_md12", null ],
+    [ "Layout Graph Selector Example", "index.html#autotoc_md13", null ],
+    [ "Layout Graph Randomizer Example", "index.html#autotoc_md14", null ],
+    [ "Generation Pipeline Example", "index.html#autotoc_md15", null ],
     [ "Changelog", "md__github_workspace__c_h_a_n_g_e_l_o_g.html", [
-      [ "Development", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md16", null ],
-      [ "v1.1.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md17", null ],
-      [ "v1.0.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md18", null ]
+      [ "Development", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md17", null ],
+      [ "v1.1.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md18", null ],
+      [ "v1.0.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md19", null ]
     ] ],
     [ "Packages", "namespaces.html", [
       [ "Packages", "namespaces.html", "namespaces_dup" ],
