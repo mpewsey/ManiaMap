@@ -5,6 +5,10 @@ namespace MPewsey.ManiaMap
 {
     /// <summary>
     /// A class for distributing collectables throughout a Layout.
+    /// 
+    /// References
+    /// ----------
+    /// * [1] Pewsey, Matt (2022, April 19). An Approach to Randomly Distributing Game Collectables. Retrieved April 19, 2022, from https://mpewsey.github.io/2022/04/19/collectable-distribution-algorithm.html.
     /// </summary>
     public class CollectableGenerator : IGenerationStep
     {
