@@ -1,7 +1,10 @@
 # Changelog
 
 ## Development
+
+## v1.2.0
 * Added rebase decay rate to layout generator. This addition generally improves layout generation times and increases the success rate of layout generation.
+* Add results container to generation pipeline.
 
 ## v1.1.0
 * Added support for the creation of randomized layout graph variations. This may be implemented within a generation pipeline using the new `LayoutGraphRandomizer` generation step.
