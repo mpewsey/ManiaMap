@@ -296,28 +296,27 @@ namespace MPewsey.ManiaMap
 
                     if (intersects)
                     {
-                        var vert = other.Cells.GetOrDefault(x, y);
+                        var top = other.Cells.GetOrDefault(x, y);
 
-                        if (cell.TopDoorAligns(vert))
+                        if (cell.TopDoorAligns(top))
                         {
                             var door1 = new DoorPosition(new Vector2DInt(i, j), DoorDirection.Top, cell.TopDoor);
-                            var door2 = new DoorPosition(new Vector2DInt(x, y), DoorDirection.Bottom, vert.BottomDoor);
+                            var door2 = new DoorPosition(new Vector2DInt(x, y), DoorDirection.Bottom, top.BottomDoor);
                             yield return new DoorPair(door1, door2);
                         }
 
-                        if (cell.BottomDoorAligns(vert))
+                        var bottom = other.Cells.GetOrDefault(x, y);
+
+                        if (cell.BottomDoorAligns(bottom))
                         {
                             var door1 = new DoorPosition(new Vector2DInt(i, j), DoorDirection.Bottom, cell.BottomDoor);
-                            var door2 = new DoorPosition(new Vector2DInt(x, y), DoorDirection.Top, vert.TopDoor);
+                            var door2 = new DoorPosition(new Vector2DInt(x, y), DoorDirection.Top, bottom.TopDoor);
                             yield return new DoorPair(door1, door2);
                         }
                     }
                     else
                     {
-                        var north = other.Cells.GetOrDefault(x - 1, y);
-                        var south = other.Cells.GetOrDefault(x + 1, y);
                         var west = other.Cells.GetOrDefault(x, y - 1);
-                        var east = other.Cells.GetOrDefault(x, y + 1);
 
                         if (cell.WestDoorAligns(west))
                         {
@@ -326,6 +325,8 @@ namespace MPewsey.ManiaMap
                             yield return new DoorPair(door1, door2);
                         }
 
+                        var north = other.Cells.GetOrDefault(x - 1, y);
+
                         if (cell.NorthDoorAligns(north))
                         {
                             var door1 = new DoorPosition(new Vector2DInt(i, j), DoorDirection.North, cell.NorthDoor);
@@ -333,12 +334,16 @@ namespace MPewsey.ManiaMap
                             yield return new DoorPair(door1, door2);
                         }
 
+                        var east = other.Cells.GetOrDefault(x, y + 1);
+
                         if (cell.EastDoorAligns(east))
                         {
                             var door1 = new DoorPosition(new Vector2DInt(i, j), DoorDirection.East, cell.EastDoor);
                             var door2 = new DoorPosition(new Vector2DInt(x, y + 1), DoorDirection.West, east.WestDoor);
                             yield return new DoorPair(door1, door2);
                         }
+
+                        var south = other.Cells.GetOrDefault(x + 1, y);
 
                         if (cell.SouthDoorAligns(south))
                         {
