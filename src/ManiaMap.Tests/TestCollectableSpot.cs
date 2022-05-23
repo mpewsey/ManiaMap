@@ -8,7 +8,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestToString()
         {
-            var spot = new CollectableSpot(new Uid(1), new Vector2DInt(2, 3), "Default");
+            var spot = new CollectableSpot(new Uid(1), new Vector2DInt(2, 3), 1, "Default");
             Assert.IsTrue(spot.ToString().StartsWith("CollectableSpot("));
         }
     }

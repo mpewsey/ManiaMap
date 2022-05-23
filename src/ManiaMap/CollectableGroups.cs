@@ -26,7 +26,7 @@ namespace MPewsey.ManiaMap
             {
                 foreach (var id in pair.Value)
                 {
-                    list.Add(new Collectable(pair.Key, id));
+                    list.Add(new Collectable(id, pair.Key));
                 }
             }
 

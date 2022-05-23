@@ -47,10 +47,10 @@ namespace MPewsey.ManiaMap
         public RoomTemplate Template { get; private set; }
 
         /// <summary>
-        /// A dictionary of collectable object ID's by local room index.
+        /// A dictionary of collectable object ID's by location ID.
         /// </summary>
         [DataMember(Order = 8)]
-        public Dictionary<Vector2DInt, int> Collectables { get; private set; } = new Dictionary<Vector2DInt, int>();
+        public Dictionary<Uid, int> Collectables { get; private set; } = new Dictionary<Uid, int>();
 
         /// <summary>
         /// Initializes a room from a room source.

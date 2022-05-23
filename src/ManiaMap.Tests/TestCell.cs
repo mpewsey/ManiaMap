@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace MPewsey.ManiaMap.Tests
 {
@@ -43,10 +44,11 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
-        public void TestSetCollectableGroup()
+        public void TestAddCollectableGroup()
         {
-            var cell = Cell.New.SetCollectableGroup("Default");
-            Assert.AreEqual("Default", cell.CollectableGroup);
+            var cell = Cell.New.AddCollectableGroup(0, "Group1").AddCollectableGroup(1, "Group2");
+            var expected = new List<Collectable> { new Collectable(0, "Group1"), new Collectable(1, "Group2") };
+            CollectionAssert.AreEqual(expected, cell.CollectableGroups);
         }
     }
 }
