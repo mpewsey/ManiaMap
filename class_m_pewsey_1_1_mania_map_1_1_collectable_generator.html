@@ -182,7 +182,7 @@ Private Member Functions</h2></td></tr>
 <tr class="memdesc:a631c5d35afc60a378db6dc3ba3e35406"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new list of shuffled collectables.  <a href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a631c5d35afc60a378db6dc3ba3e35406">More...</a><br /></td></tr>
 <tr class="separator:a631c5d35afc60a378db6dc3ba3e35406"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0c64afeb2a48416a974a3228b95cd98"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#aa0c64afeb2a48416a974a3228b95cd98">GetDistance</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room.html">Room</a> room, <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int.html">Vector2DInt</a> index1, <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int.html">Vector2DInt</a> index2)</td></tr>
-<tr class="memdesc:aa0c64afeb2a48416a974a3228b95cd98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the distance between the two points in the room.  <a href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#aa0c64afeb2a48416a974a3228b95cd98">More...</a><br /></td></tr>
+<tr class="memdesc:aa0c64afeb2a48416a974a3228b95cd98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the distance between the two points in the room. This method attempts to use cached distance matrix results if it can.  <a href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#aa0c64afeb2a48416a974a3228b95cd98">More...</a><br /></td></tr>
 <tr class="separator:aa0c64afeb2a48416a974a3228b95cd98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6087a8d87c8c653abf88005304bca099"><td class="memItemLeft" align="right" valign="top">double[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a6087a8d87c8c653abf88005304bca099">GetWeights</a> (string group)</td></tr>
 <tr class="memdesc:a6087a8d87c8c653abf88005304bca099"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new array of draw weights for the collectable spots.  <a href="class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a6087a8d87c8c653abf88005304bca099">More...</a><br /></td></tr>
@@ -426,7 +426,7 @@ References</h2>
 
 <p>Assigns the door weights to the collectable spots. </p>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00254">254</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00257">257</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -455,7 +455,7 @@ References</h2>
 
 <p>Assigns the initial neighbor weight to the collectable spots. </p>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00273">273</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00276">276</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -574,7 +574,7 @@ References</h2>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the distance between the two points in the room. </p>
+<p>Returns the distance between the two points in the room. This method attempts to use cached distance matrix results if it can. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">room</td><td>The room.</td></tr>
@@ -584,7 +584,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00287">287</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collectable_generator_8cs_source.html#l00291">291</a> of file <a class="el" href="_collectable_generator_8cs_source.html">CollectableGenerator.cs</a>.</p>
 
 </div>
 </div>

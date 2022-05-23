@@ -1,6 +1,8 @@
 var class_m_pewsey_1_1_mania_map_1_1_cell =
 [
+    [ "AddCollectableGroup", "class_m_pewsey_1_1_mania_map_1_1_cell.html#ad0506eb18c2d2bdeee145cfde39362e3", null ],
     [ "BottomDoorAligns", "class_m_pewsey_1_1_mania_map_1_1_cell.html#ae4f9f27bdb64cbe5e0e730f2429480dd", null ],
+    [ "Copy", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a5c6b444a18a63314964cb3f495323104", null ],
     [ "EastDoorAligns", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a6a9b35b3b3a88b67e6a073f053b30fab", null ],
     [ "MirroredHorizontally", "class_m_pewsey_1_1_mania_map_1_1_cell.html#ae7685f899e3f8192602da245181dde69", null ],
     [ "MirroredVertically", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a675599ac2e0c35596a8946a946ea50e9", null ],
@@ -8,7 +10,6 @@ var class_m_pewsey_1_1_mania_map_1_1_cell =
     [ "Rotated180", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a95d3ce7e10ef7b07bdd803d2c949752e", null ],
     [ "Rotated270", "class_m_pewsey_1_1_mania_map_1_1_cell.html#ac6e477b3382ff7da618443e7688a43b9", null ],
     [ "Rotated90", "class_m_pewsey_1_1_mania_map_1_1_cell.html#aa7c20348912701fee6810ae78bf5290c", null ],
-    [ "SetCollectableGroup", "class_m_pewsey_1_1_mania_map_1_1_cell.html#aa17ad02e484456df9cc77f28fb526c17", null ],
     [ "SetDoors", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a30d08ef844ba323dd76b981a7e278f3f", null ],
     [ "SouthDoorAligns", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a9debb06e02c8f00ae6367492323bc257", null ],
     [ "TopDoorAligns", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a914eb22beea54a5c4f15c440ebfb210c", null ],
@@ -16,7 +17,7 @@ var class_m_pewsey_1_1_mania_map_1_1_cell =
     [ "ValuesAreEqual", "class_m_pewsey_1_1_mania_map_1_1_cell.html#ae7b2c94ffdb8eeae474b510eb6348cc4", null ],
     [ "WestDoorAligns", "class_m_pewsey_1_1_mania_map_1_1_cell.html#af718903e779a35091dbaae0b00bda528", null ],
     [ "BottomDoor", "class_m_pewsey_1_1_mania_map_1_1_cell.html#adf1d4b7e0f25c085a1c9b590fd8dc138", null ],
-    [ "CollectableGroup", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a07f5b958c313cbac799d4cc9bfce915d", null ],
+    [ "CollectableGroups", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a0ae60abdf2c4e5a4c3afb64d97a05554", null ],
     [ "EastDoor", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a1c5be469ed13d26476f77081e6315c74", null ],
     [ "Empty", "class_m_pewsey_1_1_mania_map_1_1_cell.html#adce545f0d632f7f62c50be3be2264994", null ],
     [ "New", "class_m_pewsey_1_1_mania_map_1_1_cell.html#ae1cfb373ea02c2749468d7d7568da662", null ],
