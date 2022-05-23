@@ -1,6 +1,7 @@
 # Changelog
 
 ## Development
+* Added support for multiple collectables within a single cell. This breaks compatibility with previous versions.
 
 ## v1.2.0
 * Added rebase decay rate to layout generator. This addition generally improves layout generation times and increases the success rate of layout generation.

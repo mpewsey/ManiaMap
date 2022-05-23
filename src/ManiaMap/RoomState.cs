@@ -22,10 +22,10 @@ namespace MPewsey.ManiaMap
         public HashSet<Vector2DInt> VisibleIndexes { get; private set; } = new HashSet<Vector2DInt>();
 
         /// <summary>
-        /// A set of acquired collectable indexes.
+        /// A set of acquired collectable locations.
         /// </summary>
         [DataMember(Order = 3)]
-        public HashSet<Vector2DInt> CollectedIndexes { get; private set; } = new HashSet<Vector2DInt>();
+        public HashSet<Uid> CollectedLocations { get; private set; } = new HashSet<Uid>();
 
         /// <summary>
         /// A set of flags that are set for a room.

@@ -146,7 +146,7 @@ namespace MPewsey.ManiaMap
             var spot = CollectableSpots[index];
             CollectableSpots.RemoveAt(index);
             var room = Layout.Rooms[spot.Room];
-            room.Collectables.Add(spot.Position, id);
+            room.Collectables.Add(spot.Id, id);
 
             // Update the draw weights of neighboring spots
             UpdateNeighborWeights(spot);
@@ -236,12 +236,15 @@ namespace MPewsey.ManiaMap
             {
                 for (int j = 0; j < cells.Columns; j++)
                 {
-                    var group = cells[i, j]?.CollectableGroup;
+                    var cell = cells[i, j];
 
-                    if (!string.IsNullOrEmpty(group))
+                    if (cell == null)
+                        continue;
+
+                    foreach (var collectable in cell.CollectableGroups)
                     {
                         var position = new Vector2DInt(i, j);
-                        var spot = new CollectableSpot(room.Id, position, group);
+                        var spot = new CollectableSpot(room.Id, position, collectable.Id, collectable.Group);
                         CollectableSpots.Add(spot);
                     }
                 }
@@ -280,6 +283,7 @@ namespace MPewsey.ManiaMap
 
         /// <summary>
         /// Returns the distance between the two points in the room.
+        /// This method attempts to use cached distance matrix results if it can.
         /// </summary>
         /// <param name="room">The room.</param>
         /// <param name="index1">The first point.</param>

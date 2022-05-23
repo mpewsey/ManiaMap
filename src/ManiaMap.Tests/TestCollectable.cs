@@ -8,8 +8,8 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestEqualsOperator()
         {
-            var x = new Collectable("Group1", 1);
-            var y = new Collectable("Group1", 1);
+            var x = new Collectable(1, "Group1");
+            var y = new Collectable(1, "Group1");
             Assert.IsTrue(x == y);
             Assert.IsFalse(x.Equals(null));
         }
@@ -17,23 +17,23 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestDoesNotEqualOperator()
         {
-            var x = new Collectable("Group1", 1);
-            var y = new Collectable("Group2", 2);
+            var x = new Collectable(1, "Group1");
+            var y = new Collectable(2, "Group2");
             Assert.IsTrue(x != y);
         }
 
         [TestMethod]
         public void TestToString()
         {
-            var x = new Collectable("Group1", 1);
-            Assert.AreEqual("Collectable(Group = Group1, Id = 1)", x.ToString());
+            var x = new Collectable(1, "Group1");
+            Assert.AreEqual("Collectable(Id = 1, Group = Group1)", x.ToString());
         }
 
         [TestMethod]
         public void TestGetHashCode()
         {
-            var x = new Collectable("Group1", 1);
-            var y = new Collectable("Group1", 1);
+            var x = new Collectable(1, "Group1");
+            var y = new Collectable(1, "Group1");
             Assert.AreEqual(x.GetHashCode(), y.GetHashCode());
         }
     }

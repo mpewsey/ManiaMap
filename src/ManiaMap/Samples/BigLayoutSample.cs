@@ -53,7 +53,7 @@ namespace MPewsey.ManiaMap.Samples
                 {
                     foreach (var cell in template.Cells.Array)
                     {
-                        cell?.SetCollectableGroup("Default");
+                        cell?.AddCollectableGroup(1, "Default");
                     }
                 }
             }

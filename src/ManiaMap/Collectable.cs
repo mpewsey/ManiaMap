@@ -1,37 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
     /// <summary>
     /// A structure containing a collectable group and ID.
     /// </summary>
+    [DataContract]
     public struct Collectable : IEquatable<Collectable>
     {
         /// <summary>
-        /// The group name.
+        /// The ID.
         /// </summary>
-        public string Group { get; }
+        [DataMember(Order = 1)]
+        public int Id { get; private set; }
 
         /// <summary>
-        /// The collectable ID.
+        /// The group name.
         /// </summary>
-        public int Id { get; }
+        [DataMember(Order = 2)]
+        public string Group { get; private set; }
 
         /// <summary>
         /// Initializes a new collectable.
         /// </summary>
+        /// <param name="id">The ID.</param>
         /// <param name="group">The group name.</param>
-        /// <param name="id">The collectable ID.</param>
-        public Collectable(string group, int id)
+        public Collectable(int id, string group)
         {
-            Group = group;
             Id = id;
+            Group = group;
         }
 
         public override string ToString()
         {
-            return $"Collectable(Group = {Group}, Id = {Id})";
+            return $"Collectable(Id = {Id}, Group = {Group})";
         }
 
         public override bool Equals(object obj)
@@ -41,15 +45,16 @@ namespace MPewsey.ManiaMap
 
         public bool Equals(Collectable other)
         {
-            return Group == other.Group &&
-                   Id == other.Id;
+            return Id == other.Id
+                && Group == other.Group;
+
         }
 
         public override int GetHashCode()
         {
             int hashCode = 84831244;
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Group);
             hashCode = hashCode * -1521134295 + Id.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Group);
             return hashCode;
         }
 

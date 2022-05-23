@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -59,7 +61,7 @@ namespace MPewsey.ManiaMap
         /// The collectable group name.
         /// </summary>
         [DataMember(Order = 7)]
-        public string CollectableGroup { get; set; }
+        public List<Collectable> CollectableGroups { get; private set; } = new List<Collectable>();
 
         public override string ToString()
         {
@@ -127,12 +129,21 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Sets the collectable group and returns the cell.
+        /// Adds the collectable group and returns the cell.
         /// </summary>
-        /// <param name="value">The collectable group name.</param>
-        public Cell SetCollectableGroup(string value)
+        /// <param name="locationId">The location ID, unique to the cell.</param>
+        /// <param name="group">The collectable group name.</param>
+        public Cell AddCollectableGroup(int locationId, string group)
         {
-            CollectableGroup = value;
+            if (string.IsNullOrWhiteSpace(group))
+                throw new Exception($"Group name is null or white space.");
+
+            var index = CollectableGroups.FindIndex(x => x.Id == locationId);
+
+            if (index >= 0)
+                throw new Exception($"Location ID already exists: {locationId}.");
+
+            CollectableGroups.Add(new Collectable(locationId, group));
             return this;
         }
 
@@ -203,6 +214,23 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns a new copy of the cell.
+        /// </summary>
+        public Cell Copy()
+        {
+            return new Cell
+            {
+                EastDoor = EastDoor?.Copy(),
+                SouthDoor = SouthDoor?.Copy(),
+                WestDoor = WestDoor?.Copy(),
+                NorthDoor = NorthDoor?.Copy(),
+                TopDoor = TopDoor?.Copy(),
+                BottomDoor = BottomDoor?.Copy(),
+                CollectableGroups = new List<Collectable>(CollectableGroups),
+            };
+        }
+
+        /// <summary>
         /// Returns a new cell rotated clockwise 90 degrees.
         /// </summary>
         public Cell Rotated90()
@@ -215,7 +243,7 @@ namespace MPewsey.ManiaMap
                 NorthDoor = WestDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableGroup = CollectableGroup,
+                CollectableGroups = new List<Collectable>(CollectableGroups),
             };
         }
 
@@ -232,7 +260,7 @@ namespace MPewsey.ManiaMap
                 WestDoor = EastDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableGroup = CollectableGroup,
+                CollectableGroups = new List<Collectable>(CollectableGroups),
             };
         }
 
@@ -249,7 +277,7 @@ namespace MPewsey.ManiaMap
                 SouthDoor = WestDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableGroup = CollectableGroup,
+                CollectableGroups = new List<Collectable>(CollectableGroups),
             };
         }
 
@@ -266,7 +294,7 @@ namespace MPewsey.ManiaMap
                 EastDoor = EastDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableGroup = CollectableGroup,
+                CollectableGroups = new List<Collectable>(CollectableGroups),
             };
         }
 
@@ -283,7 +311,7 @@ namespace MPewsey.ManiaMap
                 EastDoor = WestDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableGroup = CollectableGroup,
+                CollectableGroups = new List<Collectable>(CollectableGroups),
             };
         }
 
@@ -315,7 +343,7 @@ namespace MPewsey.ManiaMap
                 && Door.ValuesAreEqual(SouthDoor, other.SouthDoor)
                 && Door.ValuesAreEqual(EastDoor, other.EastDoor)
                 && Door.ValuesAreEqual(WestDoor, other.WestDoor)
-                && CollectableGroup == other.CollectableGroup;
+                && CollectableGroups.SequenceEqual(other.CollectableGroups);
         }
     }
 }

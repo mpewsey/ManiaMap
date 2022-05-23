@@ -69,7 +69,7 @@ namespace MPewsey.ManiaMap
 
             return new List<RoomTemplate>()
             {
-                this,
+                Copy(),
                 Rotated90(),
                 Rotated180(),
                 Rotated270(),
@@ -128,6 +128,21 @@ namespace MPewsey.ManiaMap
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// Returns a copy of the room template.
+        /// </summary>
+        public RoomTemplate Copy()
+        {
+            var cells = new Array2D<Cell>(Cells.Rows, Cells.Columns);
+
+            for (int i = 0; i < cells.Array.Length; i++)
+            {
+                cells.Array[i] = Cells.Array[i]?.Copy();
+            }
+
+            return new RoomTemplate(Id, Name, cells);
         }
 
         /// <summary>
