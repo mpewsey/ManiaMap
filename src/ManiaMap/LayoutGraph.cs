@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using MPewsey.ManiaMap.Exceptions;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 
@@ -283,6 +284,9 @@ namespace MPewsey.ManiaMap
         /// <param name="toNode">The to node ID.</param>
         public LayoutEdge AddEdge(int fromNode, int toNode)
         {
+            if (fromNode == toNode)
+                throw new InvalidIdException($"From node cannot be the same as to node: {fromNode}.");
+
             if (!TryGetEdge(fromNode, toNode, out var edge))
             {
                 edge = new LayoutEdge(fromNode, toNode);

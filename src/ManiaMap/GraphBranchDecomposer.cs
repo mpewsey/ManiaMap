@@ -1,4 +1,4 @@
-﻿using System;
+﻿using MPewsey.ManiaMap.Exceptions;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -79,7 +79,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns the node ID with the maximum number of neighbors.
         /// </summary>
-        /// <exception cref="Exception">Raised if the graph does not contain any nodes.</exception>
+        /// <exception cref="EmptyGraphException">Raised if the graph does not contain any nodes.</exception>
         public T MaxNeighborNode()
         {
             T maxNode = default;
@@ -97,7 +97,7 @@ namespace MPewsey.ManiaMap
             }
 
             if (maxNeighbors < 0)
-                throw new Exception("Graph does not contain any nodes.");
+                throw new EmptyGraphException("Graph does not contain any nodes.");
 
             return maxNode;
         }

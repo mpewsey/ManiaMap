@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+using MPewsey.ManiaMap.Exceptions;
 using System.Collections.Generic;
 
 namespace MPewsey.ManiaMap.Tests
@@ -40,7 +40,7 @@ namespace MPewsey.ManiaMap.Tests
             Assert.IsNotNull(cell.SouthDoor);
             Assert.IsNotNull(cell.WestDoor);
             Assert.IsNotNull(cell.EastDoor);
-            Assert.ThrowsException<Exception>(() => Cell.New.SetDoors("x", Door.TwoWay));
+            Assert.ThrowsException<UnhandledCaseException>(() => Cell.New.SetDoors("x", Door.TwoWay));
         }
 
         [TestMethod]
