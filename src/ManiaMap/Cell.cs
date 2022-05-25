@@ -64,6 +64,37 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 7)]
         public List<Collectable> CollectableGroups { get; private set; } = new List<Collectable>();
 
+        /// <summary>
+        /// Initializes a new cell.
+        /// </summary>
+        public Cell()
+        {
+
+        }
+
+        /// <summary>
+        /// Initializes a copy of a cell.
+        /// </summary>
+        /// <param name="other">The cell to copy.</param>
+        public Cell(Cell other)
+        {
+            EastDoor = other.EastDoor?.Copy();
+            SouthDoor = other.SouthDoor?.Copy();
+            WestDoor = other.WestDoor?.Copy();
+            NorthDoor = other.NorthDoor?.Copy();
+            TopDoor = other.TopDoor?.Copy();
+            BottomDoor = other.BottomDoor?.Copy();
+            CollectableGroups = new List<Collectable>(other.CollectableGroups);
+        }
+
+        /// <summary>
+        /// Returns a new copy of the cell.
+        /// </summary>
+        public Cell Copy()
+        {
+            return new Cell(this);
+        }
+
         public override string ToString()
         {
             var west = WestDoor?.ToString() ?? "None";
@@ -214,23 +245,6 @@ namespace MPewsey.ManiaMap
             return EastDoor != null
                 && other?.WestDoor != null
                 && EastDoor.Aligns(other.WestDoor);
-        }
-
-        /// <summary>
-        /// Returns a new copy of the cell.
-        /// </summary>
-        public Cell Copy()
-        {
-            return new Cell
-            {
-                EastDoor = EastDoor?.Copy(),
-                SouthDoor = SouthDoor?.Copy(),
-                WestDoor = WestDoor?.Copy(),
-                NorthDoor = NorthDoor?.Copy(),
-                TopDoor = TopDoor?.Copy(),
-                BottomDoor = BottomDoor?.Copy(),
-                CollectableGroups = new List<Collectable>(CollectableGroups),
-            };
         }
 
         /// <summary>
