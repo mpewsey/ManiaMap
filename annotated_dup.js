@@ -7,6 +7,15 @@ var annotated_dup =
           [ "MapTiles", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_map_tiles.html", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_map_tiles" ],
           [ "Padding", "struct_m_pewsey_1_1_mania_map_1_1_drawing_1_1_padding.html", "struct_m_pewsey_1_1_mania_map_1_1_drawing_1_1_padding" ]
         ] ],
+        [ "Exceptions", "namespace_m_pewsey_1_1_mania_map_1_1_exceptions.html", [
+          [ "CollectableSpotNotFoundException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_collectable_spot_not_found_exception.html", null ],
+          [ "DuplicateIdException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_duplicate_id_exception.html", null ],
+          [ "EmptyGraphException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_empty_graph_exception.html", null ],
+          [ "InvalidChainOrderException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_chain_order_exception.html", null ],
+          [ "InvalidIdException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_id_exception.html", null ],
+          [ "InvalidNameException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_name_exception.html", null ],
+          [ "UnhandledCaseException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_unhandled_case_exception.html", null ]
+        ] ],
         [ "Samples", "namespace_m_pewsey_1_1_mania_map_1_1_samples.html", [
           [ "BigLayoutSample", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_big_layout_sample.html", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_big_layout_sample" ],
           [ "GraphLibrary", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library" ],

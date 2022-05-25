@@ -1,6 +1,7 @@
 var dir_c3494bb25e2299bf4310ea0990001e7f =
 [
     [ "Drawing", "dir_e29a52a7ce48aacacba2ae39510be046.html", "dir_e29a52a7ce48aacacba2ae39510be046" ],
+    [ "Exceptions", "dir_f6bc70aa840ea92fb92ef71daa07b304.html", "dir_f6bc70aa840ea92fb92ef71daa07b304" ],
     [ "Samples", "dir_cd574c43519a0dc23b891ea5f5de7339.html", "dir_cd574c43519a0dc23b891ea5f5de7339" ],
     [ "__Docs__.cs", "_____docs_____8cs_source.html", null ],
     [ "Array2D.cs", "_array2_d_8cs_source.html", null ],

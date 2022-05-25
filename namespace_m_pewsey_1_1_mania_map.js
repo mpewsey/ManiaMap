@@ -1,6 +1,7 @@
 var namespace_m_pewsey_1_1_mania_map =
 [
     [ "Drawing", "namespace_m_pewsey_1_1_mania_map_1_1_drawing.html", "namespace_m_pewsey_1_1_mania_map_1_1_drawing" ],
+    [ "Exceptions", "namespace_m_pewsey_1_1_mania_map_1_1_exceptions.html", "namespace_m_pewsey_1_1_mania_map_1_1_exceptions" ],
     [ "Samples", "namespace_m_pewsey_1_1_mania_map_1_1_samples.html", "namespace_m_pewsey_1_1_mania_map_1_1_samples" ],
     [ "Array2D", "class_m_pewsey_1_1_mania_map_1_1_array2_d.html", "class_m_pewsey_1_1_mania_map_1_1_array2_d" ],
     [ "Box", "class_m_pewsey_1_1_mania_map_1_1_box.html", "class_m_pewsey_1_1_mania_map_1_1_box" ],

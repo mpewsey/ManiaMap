@@ -1,5 +1,7 @@
 var class_m_pewsey_1_1_mania_map_1_1_cell =
 [
+    [ "Cell", "class_m_pewsey_1_1_mania_map_1_1_cell.html#abdb1043a0d2409f4c21383b447c1376e", null ],
+    [ "Cell", "class_m_pewsey_1_1_mania_map_1_1_cell.html#affb73f4b1093e1a9ce4226963bdfaab5", null ],
     [ "AddCollectableGroup", "class_m_pewsey_1_1_mania_map_1_1_cell.html#ad0506eb18c2d2bdeee145cfde39362e3", null ],
     [ "BottomDoorAligns", "class_m_pewsey_1_1_mania_map_1_1_cell.html#ae4f9f27bdb64cbe5e0e730f2429480dd", null ],
     [ "Copy", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a5c6b444a18a63314964cb3f495323104", null ],

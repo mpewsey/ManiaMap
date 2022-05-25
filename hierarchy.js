@@ -12,6 +12,15 @@ var hierarchy =
     [ "MPewsey.ManiaMap.Door", "class_m_pewsey_1_1_mania_map_1_1_door.html", null ],
     [ "MPewsey.ManiaMap.DoorConnection", "class_m_pewsey_1_1_mania_map_1_1_door_connection.html", null ],
     [ "MPewsey.ManiaMap.DoorPosition", "class_m_pewsey_1_1_mania_map_1_1_door_position.html", null ],
+    [ "Exception", null, [
+      [ "MPewsey.ManiaMap.Exceptions.CollectableSpotNotFoundException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_collectable_spot_not_found_exception.html", null ],
+      [ "MPewsey.ManiaMap.Exceptions.DuplicateIdException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_duplicate_id_exception.html", null ],
+      [ "MPewsey.ManiaMap.Exceptions.EmptyGraphException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_empty_graph_exception.html", null ],
+      [ "MPewsey.ManiaMap.Exceptions.InvalidChainOrderException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_chain_order_exception.html", null ],
+      [ "MPewsey.ManiaMap.Exceptions.InvalidIdException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_id_exception.html", null ],
+      [ "MPewsey.ManiaMap.Exceptions.InvalidNameException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_name_exception.html", null ],
+      [ "MPewsey.ManiaMap.Exceptions.UnhandledCaseException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_unhandled_case_exception.html", null ]
+    ] ],
     [ "MPewsey.ManiaMap.GenerationPipeline", "class_m_pewsey_1_1_mania_map_1_1_generation_pipeline.html", null ],
     [ "MPewsey.ManiaMap.GraphBranchDecomposer< T >", "class_m_pewsey_1_1_mania_map_1_1_graph_branch_decomposer.html", null ],
     [ "MPewsey.ManiaMap.GraphChainDecomposer", "class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html", null ],
