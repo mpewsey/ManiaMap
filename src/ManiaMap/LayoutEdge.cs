@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MPewsey.ManiaMap.Exceptions;
+using System;
 using System.Drawing;
 using System.Runtime.Serialization;
 
@@ -149,6 +150,7 @@ namespace MPewsey.ManiaMap
         /// given the conditions are met, whereas the "-", with its one line, signals that
         /// the edge only ever goes in one direction.
         /// </summary>
+        /// <exception cref="UnhandledCaseException">Raised if the edge direction is not handled.</exception>
         public string ToSymbolString()
         {
             switch (Direction)
@@ -164,7 +166,7 @@ namespace MPewsey.ManiaMap
                 case EdgeDirection.ReverseFixed:
                     return $"({FromNode} <- {ToNode})";
                 default:
-                    throw new Exception($"Unhandled Edge Direction: {Direction}.");
+                    throw new UnhandledCaseException($"Unhandled Edge Direction: {Direction}.");
             }
         }
 

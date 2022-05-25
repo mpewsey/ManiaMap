@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MPewsey.ManiaMap.Exceptions;
+using System;
 using System.Collections.Generic;
 
 namespace MPewsey.ManiaMap
@@ -133,7 +134,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         /// <param name="group">The collectable group.</param>
         /// <param name="id">The collectable ID.</param>
-        /// <exception cref="Exception">Raised if a collectable spot can not be found for the group.</exception>
+        /// <exception cref="CollectableSpotNotFoundException">Raised if a collectable spot can not be found for the group.</exception>
         private void AddCollectable(string group, int id)
         {
             // Draw a collectable spot and assign the collectable to the room.
@@ -141,7 +142,7 @@ namespace MPewsey.ManiaMap
             var index = RandomSeed.DrawWeightedIndex(weights);
 
             if (index < 0)
-                throw new Exception($"Failed to find collectable spot for group: {group}.");
+                throw new CollectableSpotNotFoundException($"Failed to find collectable spot for group: {group}.");
 
             var spot = CollectableSpots[index];
             CollectableSpots.RemoveAt(index);

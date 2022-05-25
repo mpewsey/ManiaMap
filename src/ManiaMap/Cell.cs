@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MPewsey.ManiaMap.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -89,7 +90,7 @@ namespace MPewsey.ManiaMap
         /// * 'B' = Bottom
         /// </param>
         /// <param name="door">The door to be copied and assigned to each location.</param>
-        /// <exception cref="Exception">Raised if a character in the directions string is invalid.</exception>
+        /// <exception cref="UnhandledCaseException">Raised if a character in the directions string is invalid.</exception>
         public Cell SetDoors(string directions, Door door)
         {
             foreach (var direction in directions)
@@ -121,7 +122,7 @@ namespace MPewsey.ManiaMap
                         TopDoor = door?.Copy();
                         break;
                     default:
-                        throw new Exception($"Unhandled character: {direction}.");
+                        throw new UnhandledCaseException($"Unhandled character: {direction}.");
                 }
             }
 
@@ -133,15 +134,17 @@ namespace MPewsey.ManiaMap
         /// </summary>
         /// <param name="locationId">The location ID, unique to the cell.</param>
         /// <param name="group">The collectable group name.</param>
+        /// <exception cref="InvalidNameException">Raised if the group name is null or white space.</exception>
+        /// <exception cref="DuplicateIdException">Raised if the location ID already exists.</exception>
         public Cell AddCollectableGroup(int locationId, string group)
         {
             if (string.IsNullOrWhiteSpace(group))
-                throw new Exception($"Group name is null or white space.");
+                throw new InvalidNameException($"Group name is null or white space.");
 
             var index = CollectableGroups.FindIndex(x => x.Id == locationId);
 
             if (index >= 0)
-                throw new Exception($"Location ID already exists: {locationId}.");
+                throw new DuplicateIdException($"Location ID already exists: {locationId}.");
 
             CollectableGroups.Add(new Collectable(locationId, group));
             return this;

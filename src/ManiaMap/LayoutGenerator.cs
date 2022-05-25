@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MPewsey.ManiaMap.Exceptions;
+using System;
 using System.Collections.Generic;
 
 namespace MPewsey.ManiaMap
@@ -254,7 +255,7 @@ namespace MPewsey.ManiaMap
         /// Attempts to add the rooms for the edge to the layout. Returns true if successful.
         /// </summary>
         /// <param name="edge">The edge.</param>
-        /// <exception cref="Exception">Raised if the to node already exist, indicating the chains are not properly ordered.</exception>
+        /// <exception cref="InvalidChainOrderException">Raised if the to node already exist, indicating the chains are not properly ordered.</exception>
         private bool AddRooms(LayoutEdge edge)
         {
             var fromNode = Graph.GetNode(edge.FromNode);
@@ -264,7 +265,7 @@ namespace MPewsey.ManiaMap
             var addEdgeRoom = edge.RoomChanceSatisfied(RandomSeed.NextDouble());
 
             if (toRoomExists)
-                throw new Exception("To Node Exists. Chains are not properly ordered.");
+                throw new InvalidChainOrderException("To Node Exists. Chains are not properly ordered.");
 
             // If both rooms do not exist, add the first room. If that fails, abort.
             if (!fromRoomExists && !AddFirstRoom(fromNode))
