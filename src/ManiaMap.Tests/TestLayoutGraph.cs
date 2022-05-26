@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.ManiaMap.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -197,6 +198,13 @@ namespace MPewsey.ManiaMap.Tests
                 Assert.AreEqual(graph.Id, variation.Id);
                 Assert.AreEqual(graph.Name, variation.Name);
             }
+        }
+
+        [TestMethod]
+        public void TestAddAddBetweenSameNodes()
+        {
+            var graph = new LayoutGraph(1, "Test");
+            Assert.ThrowsException<InvalidIdException>(() => graph.AddEdge(1, 1));
         }
     }
 }
