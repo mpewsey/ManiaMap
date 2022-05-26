@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.ManiaMap.Exceptions;
 using System;
 using System.Collections.Generic;
 
@@ -35,6 +36,13 @@ namespace MPewsey.ManiaMap.Tests
             {
                 CollectionAssert.AreEquivalent(expected[i], branches[i]);
             }
+        }
+
+        [TestMethod]
+        public void TestEmptyGraph()
+        {
+            var graph = new LayoutGraph(1, "Test");
+            Assert.ThrowsException<EmptyGraphException>(() => graph.FindBranches());
         }
     }
 }
