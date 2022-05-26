@@ -9,7 +9,7 @@
     <Authors>Matt Pewsey</Authors>
     <Company>Matt Pewsey</Company>
     <Copyright>Copyright © 2022</Copyright>
-    <Description>Graph-based procedural generation of metroidvania style maps</Description>
+    <Description>Procedural generation of metroidvania style maps</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/mpewsey/ManiaMap</RepositoryUrl>
     <PackageTags>procedural-generation;roguelike;metroidvania;videogames</PackageTags>
