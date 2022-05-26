@@ -1,6 +1,8 @@
 # Changelog
 
 ## Development
+
+## v1.3.0
 * Added support for multiple collectables within a single cell. This breaks compatibility with previous versions.
 * Added new exceptions namespace with named exceptions.
 
