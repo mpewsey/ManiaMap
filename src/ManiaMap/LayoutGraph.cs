@@ -429,5 +429,36 @@ namespace MPewsey.ManiaMap
         {
             return new GraphChainDecomposer().FindChains(this, maxBranchLength);
         }
+
+        /// <summary>
+        /// Returns a set of neighbor node ID's of the specified node up to the max depth.
+        /// </summary>
+        /// <param name="node">The node ID.</param>
+        /// <param name="maxDepth">The maximum depth for which neighbors will be returned.</param>
+        public HashSet<int> FindCluster(int node, int maxDepth)
+        {
+            return new GraphClusterSearch<int>().FindCluster(Neighbors, node, maxDepth);
+        }
+
+        /// <summary>
+        /// Returns a dictionary of all node ID clusters up to the max depth.
+        /// </summary>
+        /// <param name="maxDepth">The maximum depth for which neighbors will be returned.</param>
+        public Dictionary<int, HashSet<int>> FindClusters(int maxDepth)
+        {
+            return new GraphClusterSearch<int>().FindClusters(Neighbors, maxDepth);
+        }
+
+        /// <summary>
+        /// Returns true if the graph is fully connected.
+        /// </summary>
+        public bool IsFullyConnected()
+        {
+            if (Nodes.Count == 0)
+                return true;
+
+            var cluster = FindCluster(Nodes.Keys.First(), int.MaxValue);
+            return cluster.Count == Nodes.Count;
+        }
     }
 }
