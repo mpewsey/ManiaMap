@@ -14,6 +14,7 @@ var class_m_pewsey_1_1_mania_map_1_1_layout_generator =
     [ "GetTemplates", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a762ecf78ad2e29371d1b59f8e6786526", null ],
     [ "InsertRoom", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#ad3c0a6af782d8cd09b22beb2977c6554", null ],
     [ "InsertRooms", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#ab0609d29da4589ec6efa6687ae8551ec", null ],
+    [ "Validate", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#ac82be800f9ca502b990cbaf5002b26dc", null ],
     [ "ConfigurationSpaces", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#abf7c4f21a0336831d908a815693965cd", null ],
     [ "Graph", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a6e3c88e6fed182d545d37b0d02d4da40", null ],
     [ "Layout", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a264c0ebacd3ca68699d05a4875ddea93", null ],

@@ -131,6 +131,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3716610fef3880ed1447591abe177ed2"><td class="memItemLeft" align="right" valign="top">List&lt; List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a3716610fef3880ed1447591abe177ed2">FindChains</a> (int maxBranchLength=-1)</td></tr>
 <tr class="memdesc:a3716610fef3880ed1447591abe177ed2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of chains in the graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a3716610fef3880ed1447591abe177ed2">More...</a><br /></td></tr>
 <tr class="separator:a3716610fef3880ed1447591abe177ed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a814b8681bbd508b033b333167bb00a6a"><td class="memItemLeft" align="right" valign="top">HashSet&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a814b8681bbd508b033b333167bb00a6a">FindCluster</a> (int node, int maxDepth)</td></tr>
+<tr class="memdesc:a814b8681bbd508b033b333167bb00a6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a set of neighbor node ID's of the specified node up to the max depth.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a814b8681bbd508b033b333167bb00a6a">More...</a><br /></td></tr>
+<tr class="separator:a814b8681bbd508b033b333167bb00a6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecfcb7b5b3a0a3499e0e9768328c7bd7"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; int, HashSet&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aecfcb7b5b3a0a3499e0e9768328c7bd7">FindClusters</a> (int maxDepth)</td></tr>
+<tr class="memdesc:aecfcb7b5b3a0a3499e0e9768328c7bd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a dictionary of all node ID clusters up to the max depth.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aecfcb7b5b3a0a3499e0e9768328c7bd7">More...</a><br /></td></tr>
+<tr class="separator:aecfcb7b5b3a0a3499e0e9768328c7bd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6fc9fea13ea812c3b37a8c2b49f5ce2"><td class="memItemLeft" align="right" valign="top">List&lt; List&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aa6fc9fea13ea812c3b37a8c2b49f5ce2">FindCycles</a> ()</td></tr>
 <tr class="memdesc:aa6fc9fea13ea812c3b37a8c2b49f5ce2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of cycles in the graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aa6fc9fea13ea812c3b37a8c2b49f5ce2">More...</a><br /></td></tr>
 <tr class="separator:aa6fc9fea13ea812c3b37a8c2b49f5ce2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -158,6 +164,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a55f890fc8dcdaaeaec5d023677b423b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html">LayoutGraph</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a55f890fc8dcdaaeaec5d023677b423b7">GetVariation</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html">RandomSeed</a> randomSeed)</td></tr>
 <tr class="memdesc:a55f890fc8dcdaaeaec5d023677b423b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new variation of the graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a55f890fc8dcdaaeaec5d023677b423b7">More...</a><br /></td></tr>
 <tr class="separator:a55f890fc8dcdaaeaec5d023677b423b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa67b977ab2d12555faa47abd30f71bc0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aa67b977ab2d12555faa47abd30f71bc0">IsFullyConnected</a> ()</td></tr>
+<tr class="memdesc:aa67b977ab2d12555faa47abd30f71bc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the graph is fully connected.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aa67b977ab2d12555faa47abd30f71bc0">More...</a><br /></td></tr>
+<tr class="separator:aa67b977ab2d12555faa47abd30f71bc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a192029faed6fe982af521bdc4c7acad7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a192029faed6fe982af521bdc4c7acad7">LayoutGraph</a> (int id, string name)</td></tr>
 <tr class="memdesc:a192029faed6fe982af521bdc4c7acad7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a192029faed6fe982af521bdc4c7acad7">More...</a><br /></td></tr>
 <tr class="separator:a192029faed6fe982af521bdc4c7acad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -592,6 +601,73 @@ Private Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a814b8681bbd508b033b333167bb00a6a" name="a814b8681bbd508b033b333167bb00a6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a814b8681bbd508b033b333167bb00a6a">&#9670;&nbsp;</a></span>FindCluster()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HashSet&lt; int &gt; MPewsey.ManiaMap.LayoutGraph.FindCluster </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxDepth</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a set of neighbor node ID's of the specified node up to the max depth. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>The node ID.</td></tr>
+    <tr><td class="paramname">maxDepth</td><td>The maximum depth for which neighbors will be returned.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00438">438</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+
+</div>
+</div>
+<a id="aecfcb7b5b3a0a3499e0e9768328c7bd7" name="aecfcb7b5b3a0a3499e0e9768328c7bd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecfcb7b5b3a0a3499e0e9768328c7bd7">&#9670;&nbsp;</a></span>FindClusters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dictionary&lt; int, HashSet&lt; int &gt; &gt; MPewsey.ManiaMap.LayoutGraph.FindClusters </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxDepth</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a dictionary of all node ID clusters up to the max depth. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maxDepth</td><td>The maximum depth for which neighbors will be returned.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00447">447</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+
+</div>
+</div>
 <a id="aa6fc9fea13ea812c3b37a8c2b49f5ce2" name="aa6fc9fea13ea812c3b37a8c2b49f5ce2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa6fc9fea13ea812c3b37a8c2b49f5ce2">&#9670;&nbsp;</a></span>FindCycles()</h2>
 
@@ -831,6 +907,27 @@ Private Member Functions</h2></td></tr>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00111">111</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
+
+</div>
+</div>
+<a id="aa67b977ab2d12555faa47abd30f71bc0" name="aa67b977ab2d12555faa47abd30f71bc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa67b977ab2d12555faa47abd30f71bc0">&#9670;&nbsp;</a></span>IsFullyConnected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MPewsey.ManiaMap.LayoutGraph.IsFullyConnected </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns true if the graph is fully connected. </p>
+
+<p class="definition">Definition at line <a class="el" href="_layout_graph_8cs_source.html#l00455">455</a> of file <a class="el" href="_layout_graph_8cs_source.html">LayoutGraph.cs</a>.</p>
 
 </div>
 </div>

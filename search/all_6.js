@@ -14,7 +14,7 @@ var searchData=
   ['getdoorconnection_11',['GetDoorConnection',['../class_m_pewsey_1_1_mania_map_1_1_layout.html#a6689dcd718161a15fb77e66b19301563',1,'MPewsey::ManiaMap::Layout']]],
   ['getedge_12',['GetEdge',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#af85a72781afd8b0e851f03e2e93f8f30',1,'MPewsey::ManiaMap::LayoutGraph']]],
   ['getedgedirection_13',['GetEdgeDirection',['../class_m_pewsey_1_1_mania_map_1_1_door.html#a673291c615ce2b24f520a6027fb5d839',1,'MPewsey::ManiaMap::Door']]],
-  ['getedges_14',['GetEdges',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a09fbe638ba34cfb2e1e1a1f85c86b2c1',1,'MPewsey.ManiaMap.LayoutGraph.GetEdges(int id)'],['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aaa69a3fea4c391295b539833bce6d85e',1,'MPewsey.ManiaMap.LayoutGraph.GetEdges()']]],
+  ['getedges_14',['GetEdges',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aaa69a3fea4c391295b539833bce6d85e',1,'MPewsey.ManiaMap.LayoutGraph.GetEdges()'],['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a09fbe638ba34cfb2e1e1a1f85c86b2c1',1,'MPewsey.ManiaMap.LayoutGraph.GetEdges(int id)']]],
   ['getneighbors_15',['GetNeighbors',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a5b83ea4b4abee8eb69da202dd7fe89ed',1,'MPewsey::ManiaMap::LayoutGraph']]],
   ['getnode_16',['GetNode',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a60f5f3e6d7254be2bc8c8aa2427bfc10',1,'MPewsey::ManiaMap::LayoutGraph']]],
   ['getnodes_17',['GetNodes',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a6f18f5fb2e2bc95d408a85dcfde4df32',1,'MPewsey::ManiaMap::LayoutGraph']]],
@@ -32,6 +32,7 @@ var searchData=
   ['graphclustersearch_29',['GraphClusterSearch',['../class_m_pewsey_1_1_mania_map_1_1_graph_cluster_search.html',1,'MPewsey::ManiaMap']]],
   ['graphcycledecomposer_30',['GraphCycleDecomposer',['../class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html',1,'MPewsey::ManiaMap']]],
   ['graphlibrary_31',['GraphLibrary',['../class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html',1,'MPewsey::ManiaMap::Samples']]],
-  ['group_32',['Group',['../struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a89100c293fdd139c875847c3f9da634c',1,'MPewsey.ManiaMap.Collectable.Group()'],['../class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a9c2acb46217c7b7a5953c1009d0a9bcb',1,'MPewsey.ManiaMap.CollectableSpot.Group()']]],
-  ['groups_33',['Groups',['../class_m_pewsey_1_1_mania_map_1_1_item_groups.html#a85fe0b381eb73981ac89acce730cdb0a',1,'MPewsey::ManiaMap::ItemGroups']]]
+  ['graphnotfullyconnectedexception_32',['GraphNotFullyConnectedException',['../class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_graph_not_fully_connected_exception.html',1,'MPewsey::ManiaMap::Exceptions']]],
+  ['group_33',['Group',['../struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a89100c293fdd139c875847c3f9da634c',1,'MPewsey.ManiaMap.Collectable.Group()'],['../class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a9c2acb46217c7b7a5953c1009d0a9bcb',1,'MPewsey.ManiaMap.CollectableSpot.Group()']]],
+  ['groups_34',['Groups',['../class_m_pewsey_1_1_mania_map_1_1_item_groups.html#a85fe0b381eb73981ac89acce730cdb0a',1,'MPewsey::ManiaMap::ItemGroups']]]
 ];

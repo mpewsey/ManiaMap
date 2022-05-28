@@ -31,11 +31,12 @@ var NAVTREEINDEX0 =
 "_graph_cluster_search_8cs_source.html":[10,0,0,0,25],
 "_graph_cycle_decomposer_8cs_source.html":[10,0,0,0,26],
 "_graph_library_8cs_source.html":[10,0,0,0,2,2],
+"_graph_not_fully_connected_exception_8cs_source.html":[10,0,0,0,1,4],
 "_i_generation_step_8cs_source.html":[10,0,0,0,27],
 "_i_room_source_8cs_source.html":[10,0,0,0,28],
-"_invalid_chain_order_exception_8cs_source.html":[10,0,0,0,1,4],
-"_invalid_id_exception_8cs_source.html":[10,0,0,0,1,5],
-"_invalid_name_exception_8cs_source.html":[10,0,0,0,1,6],
+"_invalid_chain_order_exception_8cs_source.html":[10,0,0,0,1,5],
+"_invalid_id_exception_8cs_source.html":[10,0,0,0,1,6],
+"_invalid_name_exception_8cs_source.html":[10,0,0,0,1,7],
 "_item_groups_8cs_source.html":[10,0,0,0,29],
 "_layout_8cs_source.html":[10,0,0,0,30],
 "_layout_edge_8cs_source.html":[10,0,0,0,31],
@@ -60,7 +61,7 @@ var NAVTREEINDEX0 =
 "_template_library_8cs_source.html":[10,0,0,0,2,4],
 "_template_pair_8cs_source.html":[10,0,0,0,45],
 "_uid_8cs_source.html":[10,0,0,0,46],
-"_unhandled_case_exception_8cs_source.html":[10,0,0,0,1,7],
+"_unhandled_case_exception_8cs_source.html":[10,0,0,0,1,8],
 "_vector2_d_int_8cs_source.html":[10,0,0,0,47],
 "_vector3_d_int_8cs_source.html":[10,0,0,0,48],
 "annotated.html":[9,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a9c2acb46217c7b7a5953c1009d0a9bcb":[9,0,0,0,10,3],
 "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#aab69e750b87004adf88a4ab015d71624":[9,0,0,0,10,6],
 "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#aab69e750b87004adf88a4ab015d71624":[8,0,0,0,10,6],
-"class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#ab6c50e3ad23072cd8d374c6d83fd15b4":[9,0,0,0,10,2],
-"class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#ab6c50e3ad23072cd8d374c6d83fd15b4":[8,0,0,0,10,2]
+"class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#ab6c50e3ad23072cd8d374c6d83fd15b4":[9,0,0,0,10,2]
 };

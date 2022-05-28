@@ -16,6 +16,7 @@ var hierarchy =
       [ "MPewsey.ManiaMap.Exceptions.CollectableSpotNotFoundException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_collectable_spot_not_found_exception.html", null ],
       [ "MPewsey.ManiaMap.Exceptions.DuplicateIdException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_duplicate_id_exception.html", null ],
       [ "MPewsey.ManiaMap.Exceptions.EmptyGraphException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_empty_graph_exception.html", null ],
+      [ "MPewsey.ManiaMap.Exceptions.GraphNotFullyConnectedException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_graph_not_fully_connected_exception.html", null ],
       [ "MPewsey.ManiaMap.Exceptions.InvalidChainOrderException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_chain_order_exception.html", null ],
       [ "MPewsey.ManiaMap.Exceptions.InvalidIdException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_id_exception.html", null ],
       [ "MPewsey.ManiaMap.Exceptions.InvalidNameException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_name_exception.html", null ],
