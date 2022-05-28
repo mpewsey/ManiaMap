@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.ManiaMap.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -124,6 +125,47 @@ namespace MPewsey.ManiaMap.Tests
             var template1 = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
             var template2 = template1.Rotated180().Rotated180();
             Assert.IsTrue(template1.CellValuesAreEqual(template2));
+        }
+
+        [TestMethod]
+        public void TestIsFullyConnected()
+        {
+            var template = Samples.TemplateLibrary.Angles.Angle3x4();
+            Assert.IsTrue(template.IsFullyConnected());
+        }
+
+        [TestMethod]
+        public void TestIsNotFullyConnected()
+        {
+            var x = Cell.Empty;
+            var o = Cell.New;
+
+            var cells = new Cell[,]
+            {
+                { x, o, o, x },
+                { o, o, x, o },
+                { x, o, o, x },
+            };
+
+            var template = new RoomTemplate(1, "Test", cells);
+            Assert.IsFalse(template.IsFullyConnected());
+        }
+
+        [TestMethod]
+        public void TestCellsNotFullyConnected()
+        {
+            var x = Cell.Empty;
+            var o = Cell.New;
+
+            var cells = new Cell[,]
+            {
+                { x, o, o, x },
+                { o, o, x, o },
+                { x, o, o, x },
+            };
+
+            var template = new RoomTemplate(1, "Test", cells);
+            Assert.ThrowsException<CellsNotFullyConnectedException>(() => template.Validate());
         }
     }
 }

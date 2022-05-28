@@ -165,6 +165,37 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns the 2D index corresponding to the specified flat index.
+        /// </summary>
+        /// <param name="index">The flat index.</param>
+        /// <exception cref="IndexOutOfRangeException">Raised if the index is outside the bounds of the array.</exception>
+        public Vector2DInt InverseIndex(int index)
+        {
+            if ((uint)index < Array.Length)
+                return new Vector2DInt(index / Columns, index % Columns);
+            throw new IndexOutOfRangeException($"Index out of range: {index}.");
+        }
+
+        /// <summary>
+        /// Returns the first 2D index where the specified predicate is true.
+        /// Returns a -1 vector if no index is found.
+        /// </summary>
+        /// <param name="predicate"></param>
+        public Vector2DInt FindIndex(Func<T, bool> predicate)
+        {
+            for (int i = 0; i < Rows; i++)
+            {
+                for (int j = 0; j < Columns; j++)
+                {
+                    if (predicate.Invoke(Array[Index(i, j)]))
+                        return new Vector2DInt(i, j);
+                }
+            }
+
+            return new Vector2DInt(-1, -1);
+        }
+
+        /// <summary>
         /// Returns a new flattened array from a built-in 2D array.
         /// </summary>
         /// <param name="array">The built-in 2D array.</param>
