@@ -30,6 +30,7 @@ var class_m_pewsey_1_1_mania_map_1_1_layout_graph =
     [ "RemoveNodeVariations", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a96de7dcde1904a526c892fa11ddcf34d", null ],
     [ "SwapEdges", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a4d9f0e9ca4b75ebbade6f1ee6a2a12dc", null ],
     [ "TryGetEdge", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a6ca8f3d1e74355a916a14dcec44e53ff", null ],
+    [ "Validate", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#ac3237a4cd118ccd9e07158718d240992", null ],
     [ "EdgeCount", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a313ed7c273a9e390ddba9a0ddaf78d5b", null ],
     [ "Edges", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aacef134e5829933f88e4f8e817a6942f", null ],
     [ "Id", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#af3b95e8cad22acd3f8b096c276bd6d89", null ],

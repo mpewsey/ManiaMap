@@ -1,6 +1,7 @@
 var dir_f6bc70aa840ea92fb92ef71daa07b304 =
 [
     [ "__Docs__.cs", "_exceptions_2_____docs_____8cs_source.html", null ],
+    [ "CellsNotFullyConnectedException.cs", "_cells_not_fully_connected_exception_8cs_source.html", null ],
     [ "CollectableSpotNotFoundException.cs", "_collectable_spot_not_found_exception_8cs_source.html", null ],
     [ "DuplicateIdException.cs", "_duplicate_id_exception_8cs_source.html", null ],
     [ "EmptyGraphException.cs", "_empty_graph_exception_8cs_source.html", null ],
