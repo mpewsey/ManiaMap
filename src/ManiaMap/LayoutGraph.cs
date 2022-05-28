@@ -96,6 +96,16 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Validates the graph and raises any applicable exceptions.
+        /// </summary>
+        /// <exception cref="GraphNotFullyConnectedException">Raised if the graph is not fully connected.</exception>
+        public void Validate()
+        {
+            if (!IsFullyConnected())
+                throw new GraphNotFullyConnectedException($"Graph is not fully connected: {this}.");
+        }
+
+        /// <summary>
         /// Returns a readonly list of the node variations for the group.
         /// </summary>
         /// <param name="group">The group name.</param>

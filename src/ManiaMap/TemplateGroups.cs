@@ -15,6 +15,17 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Validates the template groups and raises any associated exceptions.
+        /// </summary>
+        public void Validate()
+        {
+            foreach (var template in AllTemplates())
+            {
+                template.Validate();
+            }
+        }
+
+        /// <summary>
         /// Returns an enumerable of all room templates.
         /// </summary>
         public IEnumerable<RoomTemplate> AllTemplates()
@@ -36,7 +47,7 @@ namespace MPewsey.ManiaMap
         {
             var templates = new List<RoomTemplate>();
 
-            if (!string.IsNullOrEmpty(group) && Groups.TryGetValue(group, out var list))
+            if (!string.IsNullOrWhiteSpace(group) && Groups.TryGetValue(group, out var list))
             {
                 templates.AddRange(list);
             }

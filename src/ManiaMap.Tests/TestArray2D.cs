@@ -183,5 +183,55 @@ namespace MPewsey.ManiaMap.Tests
             Console.WriteLine(result.ToArrayString());
             CollectionAssert.AreEqual(expected.Array, result.Array);
         }
+
+        [TestMethod]
+        public void TestInverseIndex()
+        {
+            int k = 0;
+            var array = new Array2D<bool>(4, 5);
+
+            for (int i = 0; i < array.Rows; i++)
+            {
+                for (int j = 0; j < array.Columns; j++)
+                {
+                    var index = array.InverseIndex(k++);
+                    Assert.AreEqual(new Vector2DInt(i, j), index);
+                }
+            }
+        }
+
+        [TestMethod]
+        public void TestInverseIndexOutOfRange()
+        {
+            var array = new Array2D<bool>(4, 5);
+            Assert.ThrowsException<IndexOutOfRangeException>(() => array.InverseIndex(-1));
+            Assert.ThrowsException<IndexOutOfRangeException>(() => array.InverseIndex(array.Array.Length));
+        }
+
+        [TestMethod]
+        public void TestFindIndex()
+        {
+            var data = new int[,]
+            {
+                { 1, 2, 3, 4 },
+                { 5, 6, 7, 8 },
+                { 9, 10, 11, 12 },
+            };
+
+            var array = new Array2D<int>(data);
+
+            for (int i = 0; i < array.Rows; i++)
+            {
+                for (int j = 0; j < array.Columns; j++)
+                {
+                    var value = array[i, j];
+                    var expected = new Vector2DInt(i, j);
+                    var result = array.FindIndex(x => x == value);
+                    Assert.AreEqual(expected, result);
+                }
+            }
+
+            Assert.AreEqual(new Vector2DInt(-1, -1), array.FindIndex(x => x == -1));
+        }
     }
 }

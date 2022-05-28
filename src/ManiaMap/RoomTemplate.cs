@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MPewsey.ManiaMap.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -46,6 +47,32 @@ namespace MPewsey.ManiaMap
         public override string ToString()
         {
             return $"RoomTemplate(Id = {Id}, Name = {Name})";
+        }
+
+        /// <summary>
+        /// Validates the template and raises any associated exceptions.
+        /// </summary>
+        /// <exception cref="CellsNotFullyConnectedException">Raised if the cells are not fully connected.</exception>
+        public void Validate()
+        {
+            if (!IsFullyConnected())
+                throw new CellsNotFullyConnectedException($"Cells are not fully connected: {this}.");
+        }
+
+        /// <summary>
+        /// Returns true if the cells in the template are fully connected.
+        /// </summary>
+        public bool IsFullyConnected()
+        {
+            var index = Cells.FindIndex(x => x != null);
+
+            if (index.X < 0 || index.Y < 0)
+                return true;
+
+            var cellCount = Cells.Array.Count(x => x != null);
+            var distances = FindCellDistances(index);
+            var connectedCount = distances.Array.Count(x => x >= 0);
+            return cellCount == connectedCount;
         }
 
         /// <summary>
