@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.ManiaMap.Exceptions;
 using System;
 using System.Linq;
 
@@ -103,6 +104,20 @@ namespace MPewsey.ManiaMap.Tests
 
             Assert.AreEqual(graph.NodeCount, layout.Rooms.Count);
             Assert.AreEqual(graph.EdgeCount, layout.DoorConnections.Count);
+        }
+
+        [TestMethod]
+        public void TestGraphIsNotFullyConnected()
+        {
+            var graph = Samples.GraphLibrary.GeekGraph();
+            graph.AddNode(100000);
+
+            var templateGroups = new TemplateGroups();
+            templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
+
+            var generator = new LayoutGenerator();
+            var random = new RandomSeed(123456);
+            Assert.ThrowsException<GraphNotFullyConnectedException>(() => generator.Generate(1, graph, templateGroups, random));
         }
 
         [TestMethod]

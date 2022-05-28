@@ -206,5 +206,45 @@ namespace MPewsey.ManiaMap.Tests
             var graph = new LayoutGraph(1, "Test");
             Assert.ThrowsException<InvalidIdException>(() => graph.AddEdge(1, 1));
         }
+
+        [TestMethod]
+        public void TestFindCluster()
+        {
+            var graph = Samples.GraphLibrary.GeekGraph();
+            var result = graph.FindCluster(5, 2).ToList();
+            var expected = new List<int>() { 5, 3, 2, 4, 6, 9, 10 };
+            CollectionAssert.AreEquivalent(expected, result);
+        }
+
+        [TestMethod]
+        public void TestFindClusters()
+        {
+            var graph = Samples.GraphLibrary.GeekGraph();
+            var result = graph.FindClusters(2);
+            var expected = new List<int>() { 5, 3, 2, 4, 6, 9, 10 };
+            CollectionAssert.AreEquivalent(expected, result[5].ToList());
+        }
+
+        [TestMethod]
+        public void TestEmptyGraphIsFullyConnected()
+        {
+            var graph = new LayoutGraph(1, "Test");
+            Assert.IsTrue(graph.IsFullyConnected());
+        }
+
+        [TestMethod]
+        public void TestIsFullyConnected()
+        {
+            var graph = Samples.GraphLibrary.BigGraph();
+            Assert.IsTrue(graph.IsFullyConnected());
+        }
+
+        [TestMethod]
+        public void TestIsNotFullyConnected()
+        {
+            var graph = Samples.GraphLibrary.BigGraph();
+            graph.AddNode(10000);
+            Assert.IsFalse(graph.IsFullyConnected());
+        }
     }
 }

@@ -114,6 +114,7 @@ namespace MPewsey.ManiaMap
             TemplateGroups = templateGroups;
             RandomSeed = randomSeed;
             ConfigurationSpaces = templateGroups.GetConfigurationSpaces();
+            Validate();
 
             int chain = 0;
             var allowableRebases = AllowableRebases(chain);
@@ -151,6 +152,16 @@ namespace MPewsey.ManiaMap
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// Validates the current generator state and throws exceptions accordingly.
+        /// </summary>
+        /// <exception cref="GraphNotFullyConnectedException">Raised if the layout graph is not fully connected.</exception>
+        private void Validate()
+        {
+            if (!Graph.IsFullyConnected())
+                throw new GraphNotFullyConnectedException($"Graph is not fully connected: {Graph}.");
         }
 
         /// <summary>
