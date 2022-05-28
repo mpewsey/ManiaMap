@@ -135,6 +135,13 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
+        public void TestEmptyIsFullyConnected()
+        {
+            var template = new RoomTemplate(1, "Test", new Array2D<Cell>());
+            Assert.IsTrue(template.IsFullyConnected());
+        }
+
+        [TestMethod]
         public void TestIsNotFullyConnected()
         {
             var x = Cell.Empty;
