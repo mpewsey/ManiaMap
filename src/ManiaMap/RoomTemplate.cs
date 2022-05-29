@@ -57,6 +57,8 @@ namespace MPewsey.ManiaMap
         {
             if (!IsFullyConnected())
                 throw new CellsNotFullyConnectedException($"Cells are not fully connected: {this}.");
+            if (!AnyDoorExists())
+                throw new NoDoorsExistException($"No doors exist for template: {this}.");
         }
 
         /// <summary>
