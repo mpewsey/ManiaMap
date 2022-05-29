@@ -47,7 +47,6 @@ namespace MPewsey.ManiaMap
         {
             return Id == other.Id
                 && Group == other.Group;
-
         }
 
         public override int GetHashCode()
