@@ -21,6 +21,8 @@ var hierarchy =
       [ "MPewsey.ManiaMap.Exceptions.InvalidChainOrderException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_chain_order_exception.html", null ],
       [ "MPewsey.ManiaMap.Exceptions.InvalidIdException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_id_exception.html", null ],
       [ "MPewsey.ManiaMap.Exceptions.InvalidNameException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_name_exception.html", null ],
+      [ "MPewsey.ManiaMap.Exceptions.NoDoorsExistException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_no_doors_exist_exception.html", null ],
+      [ "MPewsey.ManiaMap.Exceptions.NoTemplateGroupAssignedException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_no_template_group_assigned_exception.html", null ],
       [ "MPewsey.ManiaMap.Exceptions.UnhandledCaseException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_unhandled_case_exception.html", null ]
     ] ],
     [ "MPewsey.ManiaMap.GenerationPipeline", "class_m_pewsey_1_1_mania_map_1_1_generation_pipeline.html", null ],

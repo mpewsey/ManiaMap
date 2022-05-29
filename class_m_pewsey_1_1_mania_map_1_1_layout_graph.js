@@ -23,6 +23,7 @@ var class_m_pewsey_1_1_mania_map_1_1_layout_graph =
     [ "GetNodeVariations", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a7f188045e328920bb08707d17336fc6d", null ],
     [ "GetVariation", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a55f890fc8dcdaaeaec5d023677b423b7", null ],
     [ "IsFullyConnected", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aa67b977ab2d12555faa47abd30f71bc0", null ],
+    [ "IsValid", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aa990f5af95d3f83f22412a74dd3752ab", null ],
     [ "RemoveEdge", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#ad186c306c9bd0326a339bd3436c4280c", null ],
     [ "RemoveNode", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a4adc9a6dfa507f23997ba6d918c06e6b", null ],
     [ "RemoveNodeVariation", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a7cd7eefd114f566882f35bb7f7599ced", null ],

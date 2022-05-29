@@ -9,5 +9,7 @@ var dir_f6bc70aa840ea92fb92ef71daa07b304 =
     [ "InvalidChainOrderException.cs", "_invalid_chain_order_exception_8cs_source.html", null ],
     [ "InvalidIdException.cs", "_invalid_id_exception_8cs_source.html", null ],
     [ "InvalidNameException.cs", "_invalid_name_exception_8cs_source.html", null ],
+    [ "NoDoorsExistException.cs", "_no_doors_exist_exception_8cs_source.html", null ],
+    [ "NoTemplateGroupAssignedException.cs", "_no_template_group_assigned_exception_8cs_source.html", null ],
     [ "UnhandledCaseException.cs", "_unhandled_case_exception_8cs_source.html", null ]
 ];

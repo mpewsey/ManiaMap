@@ -8,5 +8,7 @@ var namespace_m_pewsey_1_1_mania_map_1_1_exceptions =
     [ "InvalidChainOrderException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_chain_order_exception.html", null ],
     [ "InvalidIdException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_id_exception.html", null ],
     [ "InvalidNameException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_name_exception.html", null ],
+    [ "NoDoorsExistException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_no_doors_exist_exception.html", null ],
+    [ "NoTemplateGroupAssignedException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_no_template_group_assigned_exception.html", null ],
     [ "UnhandledCaseException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_unhandled_case_exception.html", null ]
 ];

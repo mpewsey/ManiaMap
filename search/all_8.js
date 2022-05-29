@@ -15,7 +15,8 @@ var searchData=
   ['inverseindex_12',['InverseIndex',['../class_m_pewsey_1_1_mania_map_1_1_array2_d.html#af9759de0616d51069d615999b734e35c',1,'MPewsey::ManiaMap::Array2D']]],
   ['iroomsource_13',['IRoomSource',['../interface_m_pewsey_1_1_mania_map_1_1_i_room_source.html',1,'MPewsey::ManiaMap']]],
   ['isfullyconnected_14',['IsFullyConnected',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aa67b977ab2d12555faa47abd30f71bc0',1,'MPewsey.ManiaMap.LayoutGraph.IsFullyConnected()'],['../class_m_pewsey_1_1_mania_map_1_1_room_template.html#a0c07b40937ac5d8f6de1ba915d41ff5e',1,'MPewsey.ManiaMap.RoomTemplate.IsFullyConnected()']]],
-  ['itemgroups_15',['ItemGroups',['../class_m_pewsey_1_1_mania_map_1_1_item_groups.html',1,'MPewsey::ManiaMap']]],
-  ['itemgroups_3c_20string_2c_20int_20_3e_16',['ItemGroups&lt; string, int &gt;',['../class_m_pewsey_1_1_mania_map_1_1_item_groups.html',1,'MPewsey::ManiaMap']]],
-  ['itemgroups_3c_20string_2c_20roomtemplate_20_3e_17',['ItemGroups&lt; string, RoomTemplate &gt;',['../class_m_pewsey_1_1_mania_map_1_1_item_groups.html',1,'MPewsey::ManiaMap']]]
+  ['isvalid_15',['IsValid',['../class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#ae18604da7667940843337bc73cd56528',1,'MPewsey.ManiaMap.LayoutEdge.IsValid()'],['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aa990f5af95d3f83f22412a74dd3752ab',1,'MPewsey.ManiaMap.LayoutGraph.IsValid()'],['../class_m_pewsey_1_1_mania_map_1_1_layout_node.html#ac5a1cbaec9d3a66260c51b793b94bee2',1,'MPewsey.ManiaMap.LayoutNode.IsValid()'],['../class_m_pewsey_1_1_mania_map_1_1_room_template.html#a94cca2a8dcbaf318447c8c92cccf01ce',1,'MPewsey.ManiaMap.RoomTemplate.IsValid()']]],
+  ['itemgroups_16',['ItemGroups',['../class_m_pewsey_1_1_mania_map_1_1_item_groups.html',1,'MPewsey::ManiaMap']]],
+  ['itemgroups_3c_20string_2c_20int_20_3e_17',['ItemGroups&lt; string, int &gt;',['../class_m_pewsey_1_1_mania_map_1_1_item_groups.html',1,'MPewsey::ManiaMap']]],
+  ['itemgroups_3c_20string_2c_20roomtemplate_20_3e_18',['ItemGroups&lt; string, RoomTemplate &gt;',['../class_m_pewsey_1_1_mania_map_1_1_item_groups.html',1,'MPewsey::ManiaMap']]]
 ];

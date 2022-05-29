@@ -4,6 +4,7 @@ var class_m_pewsey_1_1_mania_map_1_1_door =
     [ "Door", "class_m_pewsey_1_1_mania_map_1_1_door.html#a77b063efc90b9751ee552e39df3f1e23", null ],
     [ "Aligns", "class_m_pewsey_1_1_mania_map_1_1_door.html#aee2c12c32d44b5d9585452270d049e03", null ],
     [ "Copy", "class_m_pewsey_1_1_mania_map_1_1_door.html#ae0ac630246b3ebd31a249d2e1d9f4178", null ],
+    [ "DoorExists", "class_m_pewsey_1_1_mania_map_1_1_door.html#a7bec2d2fdfbbbb8e35d9215ea680da42", null ],
     [ "DoorTypesAlign", "class_m_pewsey_1_1_mania_map_1_1_door.html#a74c481960823d899ccdff93a5863eea5", null ],
     [ "GetEdgeDirection", "class_m_pewsey_1_1_mania_map_1_1_door.html#a673291c615ce2b24f520a6027fb5d839", null ],
     [ "SetCode", "class_m_pewsey_1_1_mania_map_1_1_door.html#aca3fe7bd086df7071be545d5a67fcc7d", null ],

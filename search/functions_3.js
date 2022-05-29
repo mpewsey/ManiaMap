@@ -2,7 +2,7 @@ var searchData=
 [
   ['door_0',['Door',['../class_m_pewsey_1_1_mania_map_1_1_door.html#a844bb6405bb418c5dc7fd1dc0d070e26',1,'MPewsey.ManiaMap.Door.Door(DoorType type=DoorType.None, int code=0)'],['../class_m_pewsey_1_1_mania_map_1_1_door.html#a77b063efc90b9751ee552e39df3f1e23',1,'MPewsey.ManiaMap.Door.Door(Door other)']]],
   ['doorconnection_1',['DoorConnection',['../class_m_pewsey_1_1_mania_map_1_1_door_connection.html#a22b42c9d1e82bcc3d1bd2427cb3b829d',1,'MPewsey::ManiaMap::DoorConnection']]],
-  ['doorexists_2',['DoorExists',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#adad40db20badadf38917ba2a57a8c9f7',1,'MPewsey::ManiaMap::Drawing::LayoutMap']]],
+  ['doorexists_2',['DoorExists',['../class_m_pewsey_1_1_mania_map_1_1_door.html#a7bec2d2fdfbbbb8e35d9215ea680da42',1,'MPewsey.ManiaMap.Door.DoorExists()'],['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#adad40db20badadf38917ba2a57a8c9f7',1,'MPewsey.ManiaMap.Drawing.LayoutMap.DoorExists()']]],
   ['doorpair_3',['DoorPair',['../struct_m_pewsey_1_1_mania_map_1_1_door_pair.html#a8b8c07e4ca4c720863d2d959f7ed8c72',1,'MPewsey::ManiaMap::DoorPair']]],
   ['doorposition_4',['DoorPosition',['../class_m_pewsey_1_1_mania_map_1_1_door_position.html#a1bf8254ea6e1de042321da7d57a06ff3',1,'MPewsey::ManiaMap::DoorPosition']]],
   ['doortypesalign_5',['DoorTypesAlign',['../class_m_pewsey_1_1_mania_map_1_1_door.html#a74c481960823d899ccdff93a5863eea5',1,'MPewsey::ManiaMap::Door']]],
