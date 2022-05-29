@@ -174,5 +174,29 @@ namespace MPewsey.ManiaMap.Tests
             var template = new RoomTemplate(1, "Test", cells);
             Assert.ThrowsException<CellsNotFullyConnectedException>(() => template.Validate());
         }
+
+        [TestMethod]
+        public void TestAnyDoorExists()
+        {
+            var template = Samples.TemplateLibrary.Squares.Square3x3Template();
+            Assert.IsTrue(template.AnyDoorExists());
+        }
+
+        [TestMethod]
+        public void TestAnyDoorDoesNotExist()
+        {
+            var x = Cell.Empty;
+            var o = Cell.New;
+
+            var cells = new Cell[,]
+            {
+                { x, o, x },
+                { o, o, o },
+                { x, o, x },
+            };
+
+            var template = new RoomTemplate(1, "Test", cells);
+            Assert.IsFalse(template.AnyDoorExists());
+        }
     }
 }

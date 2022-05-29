@@ -60,6 +60,21 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns true if a door is not null and is assigned a type
+        /// anywhere in the template.
+        /// </summary>
+        public bool AnyDoorExists()
+        {
+            foreach (var cell in Cells.Array)
+            {
+                if (cell != null && cell.AnyDoorExists())
+                    return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
         /// Returns true if the cells in the template are fully connected.
         /// </summary>
         public bool IsFullyConnected()

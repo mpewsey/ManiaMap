@@ -362,5 +362,18 @@ namespace MPewsey.ManiaMap
                 && Door.ValuesAreEqual(WestDoor, other.WestDoor)
                 && CollectableGroups.SequenceEqual(other.CollectableGroups);
         }
+
+        /// <summary>
+        /// Returns true if any door is not null and is assigned a type.
+        /// </summary>
+        public bool AnyDoorExists()
+        {
+            return Door.DoorExists(TopDoor)
+                || Door.DoorExists(BottomDoor)
+                || Door.DoorExists(NorthDoor)
+                || Door.DoorExists(SouthDoor)
+                || Door.DoorExists(WestDoor)
+                || Door.DoorExists(EastDoor);
+        }
     }
 }

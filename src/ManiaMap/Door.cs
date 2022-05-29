@@ -88,6 +88,15 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns true if the door is not null is assigned a type.
+        /// </summary>
+        /// <param name="door">The door.</param>
+        public static bool DoorExists(Door door)
+        {
+            return door != null && door.Type != DoorType.None;
+        }
+
+        /// <summary>
         /// Returns true if the two doors have matching values.
         /// </summary>
         public static bool ValuesAreEqual(Door x, Door y)
