@@ -97,5 +97,12 @@ namespace MPewsey.ManiaMap.Tests
             var edge = new LayoutEdge(1, 2).SetRoomChance(1);
             Assert.ThrowsException<NoTemplateGroupAssignedException>(() => edge.Validate());
         }
+
+        [TestMethod]
+        public void TestIsValid()
+        {
+            var edge = new LayoutEdge(1, 2).SetRoomChance(1).SetTemplateGroup("Default");
+            Assert.IsTrue(edge.IsValid());
+        }
     }
 }

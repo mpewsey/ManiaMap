@@ -116,6 +116,16 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns true if the graph is valid.
+        /// </summary>
+        public bool IsValid()
+        {
+            return IsFullyConnected()
+                && Nodes.Values.All(x => x.IsValid())
+                && Edges.Values.All(x => x.IsValid());
+        }
+
+        /// <summary>
         /// Returns a readonly list of the node variations for the group.
         /// </summary>
         /// <param name="group">The group name.</param>

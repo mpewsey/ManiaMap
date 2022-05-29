@@ -215,5 +215,12 @@ namespace MPewsey.ManiaMap.Tests
             var template = new RoomTemplate(1, "Test", cells);
             Assert.IsFalse(template.AnyDoorExists());
         }
+
+        [TestMethod]
+        public void TestIsValid()
+        {
+            var template = Samples.TemplateLibrary.Squares.Square3x3Template();
+            Assert.IsTrue(template.IsValid());
+        }
     }
 }

@@ -63,6 +63,15 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns true if the room template is valid.
+        /// </summary>
+        public bool IsValid()
+        {
+            return IsFullyConnected()
+                && AnyDoorExists();
+        }
+
+        /// <summary>
         /// Returns true if a door is not null and is assigned a type
         /// anywhere in the template.
         /// </summary>

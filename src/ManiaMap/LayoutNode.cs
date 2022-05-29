@@ -89,6 +89,14 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns true if the node is valid.
+        /// </summary>
+        public bool IsValid()
+        {
+            return !string.IsNullOrWhiteSpace(TemplateGroup);
+        }
+
+        /// <summary>
         /// Sets the Z value of the node and returns the node.
         /// </summary>
         /// <param name="value">The z value.</param>

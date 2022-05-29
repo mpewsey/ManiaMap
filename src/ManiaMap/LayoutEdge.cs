@@ -136,6 +136,14 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns true if the edge is valid.
+        /// </summary>
+        public bool IsValid()
+        {
+            return RoomChance <= 0 || !string.IsNullOrWhiteSpace(TemplateGroup);
+        }
+
+        /// <summary>
         /// Returns true if the room chance is satisfied.
         /// </summary>
         /// <param name="value">A random value between 0 and 1 to check against.</param>
