@@ -53,12 +53,13 @@ namespace MPewsey.ManiaMap
         /// Validates the template and raises any associated exceptions.
         /// </summary>
         /// <exception cref="CellsNotFullyConnectedException">Raised if the cells are not fully connected.</exception>
+        /// <exception cref="NoDoorsExistException">Raised if no typed door is assigned to the template.</exception>
         public void Validate()
         {
             if (!IsFullyConnected())
                 throw new CellsNotFullyConnectedException($"Cells are not fully connected: {this}.");
             if (!AnyDoorExists())
-                throw new NoDoorsExistException($"No doors exist for template: {this}.");
+                throw new NoDoorsExistException($"No doors exist in template: {this}.");
         }
 
         /// <summary>
