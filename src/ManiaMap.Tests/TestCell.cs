@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MPewsey.ManiaMap.Exceptions;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MPewsey.ManiaMap.Tests
 {
@@ -48,7 +49,7 @@ namespace MPewsey.ManiaMap.Tests
         {
             var cell = Cell.New.AddCollectableGroup(0, "Group1").AddCollectableGroup(1, "Group2");
             var expected = new List<Collectable> { new Collectable(0, "Group1"), new Collectable(1, "Group2") };
-            CollectionAssert.AreEqual(expected, cell.CollectableGroups);
+            CollectionAssert.AreEqual(expected, cell.GetCollectableGroups().ToList());
         }
 
         [TestMethod]
