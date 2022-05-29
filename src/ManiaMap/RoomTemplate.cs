@@ -53,10 +53,37 @@ namespace MPewsey.ManiaMap
         /// Validates the template and raises any associated exceptions.
         /// </summary>
         /// <exception cref="CellsNotFullyConnectedException">Raised if the cells are not fully connected.</exception>
+        /// <exception cref="NoDoorsExistException">Raised if no typed door is assigned to the template.</exception>
         public void Validate()
         {
             if (!IsFullyConnected())
                 throw new CellsNotFullyConnectedException($"Cells are not fully connected: {this}.");
+            if (!AnyDoorExists())
+                throw new NoDoorsExistException($"No doors exist in template: {this}.");
+        }
+
+        /// <summary>
+        /// Returns true if the room template is valid.
+        /// </summary>
+        public bool IsValid()
+        {
+            return IsFullyConnected()
+                && AnyDoorExists();
+        }
+
+        /// <summary>
+        /// Returns true if a door is not null and is assigned a type
+        /// anywhere in the template.
+        /// </summary>
+        public bool AnyDoorExists()
+        {
+            foreach (var cell in Cells.Array)
+            {
+                if (cell != null && cell.AnyDoorExists())
+                    return true;
+            }
+
+            return false;
         }
 
         /// <summary>

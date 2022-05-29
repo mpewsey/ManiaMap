@@ -246,5 +246,12 @@ namespace MPewsey.ManiaMap.Tests
             graph.AddNode(10000);
             Assert.IsFalse(graph.IsFullyConnected());
         }
+
+        [TestMethod]
+        public void TestIsValid()
+        {
+            var graph = Samples.GraphLibrary.BigGraph();
+            Assert.IsTrue(graph.IsValid());
+        }
     }
 }

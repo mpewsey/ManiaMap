@@ -62,7 +62,7 @@ namespace MPewsey.ManiaMap
         /// The collectable group name.
         /// </summary>
         [DataMember(Order = 7)]
-        public List<Collectable> CollectableGroups { get; private set; } = new List<Collectable>();
+        private List<Collectable> CollectableGroups { get; set; } = new List<Collectable>();
 
         /// <summary>
         /// Initializes a new cell.
@@ -104,6 +104,14 @@ namespace MPewsey.ManiaMap
             var top = TopDoor?.ToString() ?? "None";
             var bottom = BottomDoor?.ToString() ?? "None";
             return $"Cell(WestDoor = {west}, NorthDoor = {north}, EastDoor = {east}, SouthDoor = {south}, TopDoor = {top}, BottomDoor = {bottom})";
+        }
+
+        /// <summary>
+        /// Returns an enumerable of assigned collectable groups.
+        /// </summary>
+        public IEnumerable<Collectable> GetCollectableGroups()
+        {
+            return CollectableGroups;
         }
 
         /// <summary>
@@ -361,6 +369,19 @@ namespace MPewsey.ManiaMap
                 && Door.ValuesAreEqual(EastDoor, other.EastDoor)
                 && Door.ValuesAreEqual(WestDoor, other.WestDoor)
                 && CollectableGroups.SequenceEqual(other.CollectableGroups);
+        }
+
+        /// <summary>
+        /// Returns true if any door is not null and is assigned a type.
+        /// </summary>
+        public bool AnyDoorExists()
+        {
+            return Door.DoorExists(TopDoor)
+                || Door.DoorExists(BottomDoor)
+                || Door.DoorExists(NorthDoor)
+                || Door.DoorExists(SouthDoor)
+                || Door.DoorExists(WestDoor)
+                || Door.DoorExists(EastDoor);
         }
     }
 }

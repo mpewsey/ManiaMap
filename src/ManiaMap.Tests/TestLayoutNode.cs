@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.ManiaMap.Exceptions;
 using System.Drawing;
 
 namespace MPewsey.ManiaMap.Tests
@@ -45,6 +46,20 @@ namespace MPewsey.ManiaMap.Tests
             {
                 Assert.AreEqual(property.GetValue(node), property.GetValue(copy));
             }
+        }
+
+        [TestMethod]
+        public void TestNoTemplateGroupAssigned()
+        {
+            var node = new LayoutNode(1);
+            Assert.ThrowsException<NoTemplateGroupAssignedException>(() => node.Validate());
+        }
+
+        [TestMethod]
+        public void TestIsValid()
+        {
+            var node = new LayoutNode(1).SetTemplateGroup("Default");
+            Assert.IsTrue(node.IsValid());
         }
     }
 }
