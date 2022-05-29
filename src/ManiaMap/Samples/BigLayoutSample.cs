@@ -47,7 +47,7 @@ namespace MPewsey.ManiaMap.Samples
             paths.ForEach(x => templateGroups.Add("Paths", x));
 
             // Set Default template group to all cells
-            foreach (var templates in templateGroups.Groups.Values)
+            foreach (var templates in templateGroups.GetItemGroups())
             {
                 foreach (var template in templates)
                 {

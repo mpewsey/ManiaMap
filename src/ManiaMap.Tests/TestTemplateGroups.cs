@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.ManiaMap.Exceptions;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -26,10 +27,10 @@ namespace MPewsey.ManiaMap.Tests
             var templateGroups = new TemplateGroups();
 
             templateGroups.Add("Group1", template1);
-            CollectionAssert.AreEquivalent(expected1, templateGroups.Groups["Group1"]);
+            CollectionAssert.AreEquivalent(expected1, templateGroups.Get("Group1"));
 
             templateGroups.Add("Group2", expected1);
-            CollectionAssert.AreEquivalent(expected1, templateGroups.Groups["Group2"]);
+            CollectionAssert.AreEquivalent(expected1, templateGroups.Get("Group2"));
         }
 
         [TestMethod]
@@ -39,14 +40,22 @@ namespace MPewsey.ManiaMap.Tests
             var templateGroups = Samples.ManiaMapSample.LetterTemplateGroups();
             Serialization.SaveXml(path, templateGroups);
             var copy = Serialization.LoadXml<TemplateGroups>(path);
-            CollectionAssert.AreEquivalent(templateGroups.Groups.Keys, copy.Groups.Keys);
+            CollectionAssert.AreEquivalent(templateGroups.GetGroupIds().ToList(), copy.GetGroupIds().ToList());
 
-            foreach (var pair in templateGroups.Groups)
+            foreach (var pair in templateGroups.GetGroups())
             {
                 var x = pair.Value.Select(x => x.Id).ToList();
-                var y = copy.Groups[pair.Key].Select(x => x.Id).ToList();
+                var y = copy.Get(pair.Key).Select(x => x.Id).ToList();
                 CollectionAssert.AreEquivalent(x, y);
             }
+        }
+
+        [TestMethod]
+        public void TestInvalidGroupName()
+        {
+            var group = new TemplateGroups();
+            var template = new RoomTemplate(1, "Test", new Array2D<Cell>());
+            Assert.ThrowsException<InvalidNameException>(() => group.Add("", template));
         }
     }
 }

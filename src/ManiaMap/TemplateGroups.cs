@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using MPewsey.ManiaMap.Exceptions;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -14,28 +15,39 @@ namespace MPewsey.ManiaMap
             return $"TemplateGroups(Groups.Count = {Groups.Count})";
         }
 
+        /// <inheritdoc/>
+        public override void Add(string group, RoomTemplate value)
+        {
+            ValidateGroupName(group);
+            base.Add(group, value);
+        }
+
+        /// <inheritdoc/>
+        public override void Add(string group, IEnumerable<RoomTemplate> values)
+        {
+            ValidateGroupName(group);
+            base.Add(group, values);
+        }
+
+        /// <summary>
+        /// Validates the specified group name and throws an exception if it is invalid.
+        /// </summary>
+        /// <param name="group">The group name.</param>
+        /// <exception cref="InvalidNameException">Raised if the group name is invalid.</exception>
+        private static void ValidateGroupName(string group)
+        {
+            if (string.IsNullOrWhiteSpace(group))
+                throw new InvalidNameException($"Invalid group name: {group}.");
+        }
+
         /// <summary>
         /// Validates the template groups and raises any associated exceptions.
         /// </summary>
         public void Validate()
         {
-            foreach (var template in AllTemplates())
+            foreach (var template in GetAllItems())
             {
                 template.Validate();
-            }
-        }
-
-        /// <summary>
-        /// Returns an enumerable of all room templates.
-        /// </summary>
-        public IEnumerable<RoomTemplate> AllTemplates()
-        {
-            foreach (var group in Groups.Values)
-            {
-                foreach (var template in group)
-                {
-                    yield return template;
-                }
             }
         }
 
@@ -62,9 +74,9 @@ namespace MPewsey.ManiaMap
         {
             var spaces = new Dictionary<TemplatePair, ConfigurationSpace>();
 
-            foreach (var from in AllTemplates())
+            foreach (var from in GetAllItems())
             {
-                foreach (var to in AllTemplates())
+                foreach (var to in GetAllItems())
                 {
                     var pair = new TemplatePair(from, to);
 
