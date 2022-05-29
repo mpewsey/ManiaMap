@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using MPewsey.ManiaMap.Exceptions;
+using System.Drawing;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -75,6 +76,16 @@ namespace MPewsey.ManiaMap
         public LayoutNode Copy()
         {
             return new LayoutNode(this);
+        }
+
+        /// <summary>
+        /// Validates the node and raises any applicable exceptions.
+        /// </summary>
+        /// <exception cref="NoTemplateGroupAssignedException">Raised if a valid template group is not assigned to the node.</exception>
+        public void Validate()
+        {
+            if (string.IsNullOrWhiteSpace(TemplateGroup))
+                throw new NoTemplateGroupAssignedException($"No template group assigned to node: {this}.");
         }
 
         /// <summary>

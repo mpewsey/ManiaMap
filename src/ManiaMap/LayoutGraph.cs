@@ -103,6 +103,16 @@ namespace MPewsey.ManiaMap
         {
             if (!IsFullyConnected())
                 throw new GraphNotFullyConnectedException($"Graph is not fully connected: {this}.");
+
+            foreach (var node in Nodes.Values)
+            {
+                node.Validate();
+            }
+
+            foreach (var edge in Edges.Values)
+            {
+                edge.Validate();
+            }
         }
 
         /// <summary>

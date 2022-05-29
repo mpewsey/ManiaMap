@@ -126,6 +126,16 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Validates the edge and raises any applicable exceptions.
+        /// </summary>
+        /// <exception cref="NoTemplateGroupAssignedException">Raised if the room chance is non-zero and a valid template group is not assigned.</exception>
+        public void Validate()
+        {
+            if (RoomChance > 0 && string.IsNullOrWhiteSpace(TemplateGroup))
+                throw new NoTemplateGroupAssignedException($"Template group is not assigned to edge with non-zero room chance: {this}.");
+        }
+
+        /// <summary>
         /// Returns true if the room chance is satisfied.
         /// </summary>
         /// <param name="value">A random value between 0 and 1 to check against.</param>
