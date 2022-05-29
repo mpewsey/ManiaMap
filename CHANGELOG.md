@@ -1,7 +1,9 @@
 # Changelog
 
 ## Development
-* Added validation to layout graphs and room templates. Exceptions will now be thrown during generation if one of these inputs is invalid.
+
+## v1.4.0
+* Added validation to layout graphs, room templates, collectable groups, and template groups.
 
 ## v1.3.0
 * Added support for multiple collectables within a single cell. This breaks compatibility with previous versions.
