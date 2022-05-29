@@ -134,28 +134,27 @@ $(document).ready(function(){initNavTree('_collectable_8cs_source.html',''); ini
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        {</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            <span class="keywordflow">return</span> <a class="code hl_property" href="struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a4ddef99bfda4882290c4bd58763770f1">Id</a> == other.Id</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                &amp;&amp; <a class="code hl_property" href="struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a89100c293fdd139c875847c3f9da634c">Group</a> == other.Group;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        }</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keyword">public</span> <span class="keyword">override</span> <span class="keywordtype">int</span> GetHashCode()</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <span class="keywordtype">int</span> hashCode = 84831244;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            hashCode = hashCode * -1521134295 + <a class="code hl_property" href="struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a4ddef99bfda4882290c4bd58763770f1">Id</a>.GetHashCode();</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            hashCode = hashCode * -1521134295 + EqualityComparer&lt;string&gt;.Default.GetHashCode(<a class="code hl_property" href="struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a89100c293fdd139c875847c3f9da634c">Group</a>);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <span class="keywordflow">return</span> hashCode;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        }</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> operator ==(<a class="code hl_function" href="struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a132fec379b4d13dec961d0ffd1df5a56">Collectable</a> left, <a class="code hl_function" href="struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a132fec379b4d13dec961d0ffd1df5a56">Collectable</a> right)</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        {</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            <span class="keywordflow">return</span> left.Equals(right);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        }</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> operator !=(<a class="code hl_function" href="struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a132fec379b4d13dec961d0ffd1df5a56">Collectable</a> left, <a class="code hl_function" href="struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a132fec379b4d13dec961d0ffd1df5a56">Collectable</a> right)</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        {</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            <span class="keywordflow">return</span> !(left == right);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        }</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    }</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keyword">public</span> <span class="keyword">override</span> <span class="keywordtype">int</span> GetHashCode()</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            <span class="keywordtype">int</span> hashCode = 84831244;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            hashCode = hashCode * -1521134295 + <a class="code hl_property" href="struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a4ddef99bfda4882290c4bd58763770f1">Id</a>.GetHashCode();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            hashCode = hashCode * -1521134295 + EqualityComparer&lt;string&gt;.Default.GetHashCode(<a class="code hl_property" href="struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a89100c293fdd139c875847c3f9da634c">Group</a>);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="keywordflow">return</span> hashCode;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> operator ==(<a class="code hl_function" href="struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a132fec379b4d13dec961d0ffd1df5a56">Collectable</a> left, <a class="code hl_function" href="struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a132fec379b4d13dec961d0ffd1df5a56">Collectable</a> right)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            <span class="keywordflow">return</span> left.Equals(right);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> operator !=(<a class="code hl_function" href="struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a132fec379b4d13dec961d0ffd1df5a56">Collectable</a> left, <a class="code hl_function" href="struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a132fec379b4d13dec961d0ffd1df5a56">Collectable</a> right)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="keywordflow">return</span> !(left == right);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        }</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>}</div>
 <div class="ttc" id="anamespace_m_pewsey_1_1_mania_map_html"><div class="ttname"><a href="namespace_m_pewsey_1_1_mania_map.html">MPewsey.ManiaMap</a></div><div class="ttdoc">This namespace provides core library functionality.</div><div class="ttdef"><b>Definition:</b> <a href="_____docs_____8cs_source.html#l00004">__Docs__.cs:5</a></div></div>
 <div class="ttc" id="astruct_m_pewsey_1_1_mania_map_1_1_collectable_html"><div class="ttname"><a href="struct_m_pewsey_1_1_mania_map_1_1_collectable.html">MPewsey.ManiaMap.Collectable</a></div><div class="ttdoc">A structure containing a collectable group and ID.</div><div class="ttdef"><b>Definition:</b> <a href="_collectable_8cs_source.html#l00011">Collectable.cs:12</a></div></div>
 <div class="ttc" id="astruct_m_pewsey_1_1_mania_map_1_1_collectable_html_a132fec379b4d13dec961d0ffd1df5a56"><div class="ttname"><a href="struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a132fec379b4d13dec961d0ffd1df5a56">MPewsey.ManiaMap.Collectable.Collectable</a></div><div class="ttdeci">Collectable(int id, string group)</div><div class="ttdoc">Initializes a new collectable.</div><div class="ttdef"><b>Definition:</b> <a href="_collectable_8cs_source.html#l00030">Collectable.cs:30</a></div></div>
