@@ -2,6 +2,9 @@
 
 ## Development
 
+## v1.4.1
+* Remove None enum from `DoorDirection` and `DoorType`.
+
 ## v1.4.0
 * Added validation to layout graphs, room templates, collectable groups, and template groups.
 

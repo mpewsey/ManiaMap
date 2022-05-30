@@ -49,7 +49,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Initializes a new door.
         /// </summary>
-        public Door(DoorType type = DoorType.None, int code = 0)
+        public Door(DoorType type, int code = 0)
         {
             Type = type;
             Code = code;
@@ -85,15 +85,6 @@ namespace MPewsey.ManiaMap
         {
             Code = code;
             return this;
-        }
-
-        /// <summary>
-        /// Returns true if the door is not null is assigned a type.
-        /// </summary>
-        /// <param name="door">The door.</param>
-        public static bool DoorExists(Door door)
-        {
-            return door != null && door.Type != DoorType.None;
         }
 
         /// <summary>
@@ -134,13 +125,8 @@ namespace MPewsey.ManiaMap
         /// <exception cref="ArgumentException">Raised if an unhandled door type is submitted.</exception>
         public static bool DoorTypesAlign(DoorType from, DoorType to)
         {
-            if (to == DoorType.None)
-                return false;
-
             switch (from)
             {
-                case DoorType.None:
-                    return false;
                 case DoorType.TwoWay:
                     return true;
                 case DoorType.TwoWayExit:

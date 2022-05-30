@@ -5,8 +5,6 @@
     /// </summary>
     public enum DoorDirection
     {
-        /// %Door does not exist.
-        None,
         /// %Door points north.
         North,
         /// %Door points south.

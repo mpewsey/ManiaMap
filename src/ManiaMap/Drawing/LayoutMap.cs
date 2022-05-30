@@ -279,7 +279,7 @@ namespace MPewsey.ManiaMap.Drawing
         private Image GetTile(Room room, Vector2DInt position, DoorDirection direction,
             Door door, Cell neighbor, string doorName, string wallName)
         {
-            if (door != null && door.Type != DoorType.None && DoorExists(room, position, direction))
+            if (door != null && DoorExists(room, position, direction))
                 return Tiles[doorName];
             if (neighbor == null && wallName != null)
                 return Tiles[wallName];

@@ -34,8 +34,6 @@ namespace MPewsey.ManiaMap.Tests
                 (DoorType.TwoWay, DoorType.OneWayExit, true),
                 (DoorType.TwoWay, DoorType.OneWayEntrance, true),
                 (DoorType.TwoWay, DoorType.TwoWayEntrance, true),
-                (DoorType.None, DoorType.TwoWay, false),
-                (DoorType.TwoWay, DoorType.None, false),
                 (DoorType.OneWayExit, DoorType.OneWayEntrance, true),
                 (DoorType.OneWayEntrance, DoorType.OneWayExit, true),
             };

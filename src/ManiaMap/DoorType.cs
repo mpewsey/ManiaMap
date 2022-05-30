@@ -5,8 +5,6 @@
     /// </summary>
     public enum DoorType
     {
-        /// No door.
-        None,
         /// A two-way door.
         TwoWay,
         /// A one-way exit door that, once conditions are met, becomes a two-way door.
