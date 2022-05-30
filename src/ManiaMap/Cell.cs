@@ -376,12 +376,12 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public bool AnyDoorExists()
         {
-            return Door.DoorExists(TopDoor)
-                || Door.DoorExists(BottomDoor)
-                || Door.DoorExists(NorthDoor)
-                || Door.DoorExists(SouthDoor)
-                || Door.DoorExists(WestDoor)
-                || Door.DoorExists(EastDoor);
+            return NorthDoor != null
+                || SouthDoor != null
+                || WestDoor != null
+                || EastDoor != null
+                || TopDoor != null
+                || BottomDoor != null;
         }
     }
 }
