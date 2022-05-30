@@ -121,6 +121,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a83ed90297ad1141b7575bea798775de6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html#a83ed90297ad1141b7575bea798775de6">CellValuesAreEqual</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html">RoomTemplate</a> other)</td></tr>
 <tr class="memdesc:a83ed90297ad1141b7575bea798775de6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if all cells in this template match the cells of another template.  <a href="class_m_pewsey_1_1_mania_map_1_1_room_template.html#a83ed90297ad1141b7575bea798775de6">More...</a><br /></td></tr>
 <tr class="separator:a83ed90297ad1141b7575bea798775de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1823dc290db06e7abafe3c922d671d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html#ad1823dc290db06e7abafe3c922d671d2">CollectableSpotIdsAreUnique</a> ()</td></tr>
+<tr class="memdesc:ad1823dc290db06e7abafe3c922d671d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the collectable spots assigned to the template all have unique ID's.  <a href="class_m_pewsey_1_1_mania_map_1_1_room_template.html#ad1823dc290db06e7abafe3c922d671d2">More...</a><br /></td></tr>
+<tr class="separator:ad1823dc290db06e7abafe3c922d671d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3af220836feab125508910c58dad186e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html">RoomTemplate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html#a3af220836feab125508910c58dad186e">Copy</a> ()</td></tr>
 <tr class="memdesc:a3af220836feab125508910c58dad186e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a copy of the room template.  <a href="class_m_pewsey_1_1_mania_map_1_1_room_template.html#a3af220836feab125508910c58dad186e">More...</a><br /></td></tr>
 <tr class="separator:a3af220836feab125508910c58dad186e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -265,7 +268,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00342">342</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00370">370</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -286,7 +289,7 @@ Properties</h2></td></tr>
 
 <p>Returns an array of this template plus all mirrored and rotated variations. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00118">118</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00146">146</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -307,7 +310,7 @@ Properties</h2></td></tr>
 
 <p>Returns true if a door is not null and is assigned a type anywhere in the template. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00078">78</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00106">106</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -335,7 +338,28 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00168">168</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00196">196</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+
+</div>
+</div>
+<a id="ad1823dc290db06e7abafe3c922d671d2" name="ad1823dc290db06e7abafe3c922d671d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1823dc290db06e7abafe3c922d671d2">&#9670;&nbsp;</a></span>CollectableSpotIdsAreUnique()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MPewsey.ManiaMap.RoomTemplate.CollectableSpotIdsAreUnique </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns true if the collectable spots assigned to the template all have unique ID's. </p>
+
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00081">81</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -356,7 +380,7 @@ Properties</h2></td></tr>
 
 <p>Returns a copy of the room template. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00190">190</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00218">218</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -384,7 +408,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00110">110</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00138">138</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -423,7 +447,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00312">312</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00340">340</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -462,7 +486,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00282">282</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00310">310</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -483,7 +507,7 @@ Properties</h2></td></tr>
 
 <p>Returns true if the cells in the template are fully connected. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00092">92</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00120">120</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -504,7 +528,7 @@ Properties</h2></td></tr>
 
 <p>Returns true if the room template is valid. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00068">68</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00070">70</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -525,7 +549,7 @@ Properties</h2></td></tr>
 
 <p>Returns a new room template mirrored horizontally, i.e. about the vertical axis. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00265">265</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00293">293</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -546,7 +570,7 @@ Properties</h2></td></tr>
 
 <p>Returns a new room template mirrored vertically, i.e. about the horizontal axis. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00250">250</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00278">278</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -567,7 +591,7 @@ Properties</h2></td></tr>
 
 <p>Returns a new room template rotated 180 degrees. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00220">220</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00248">248</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -588,7 +612,7 @@ Properties</h2></td></tr>
 
 <p>Returns a new room template rotated 270 degrees clockwise. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00235">235</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00263">263</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -609,7 +633,7 @@ Properties</h2></td></tr>
 
 <p>Returns a new room template rotated 90 degrees clockwise. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00205">205</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00233">233</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -649,7 +673,7 @@ Properties</h2></td></tr>
 
 <p>Returns a new list of this template plus all unique variations. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00148">148</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00176">176</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>

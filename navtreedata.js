@@ -38,7 +38,7 @@ var NAVTREE =
     [ "Layout Graph Randomizer Example", "index.html#autotoc_md14", null ],
     [ "Generation Pipeline Example", "index.html#autotoc_md15", null ],
     [ "Changelog", "md__github_workspace__c_h_a_n_g_e_l_o_g.html", [
-      [ "Development", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md17", null ],
+      [ "v1.5.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md17", null ],
       [ "v1.4.1", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md18", null ],
       [ "v1.4.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md19", null ],
       [ "v1.3.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md20", null ],
@@ -72,9 +72,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_____docs_____8cs_source.html",
-"class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a038f94ead38ebcb53d0ceefa73bb7bbb",
-"class_m_pewsey_1_1_mania_map_1_1_graph_cluster_search.html",
-"class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aa990f5af95d3f83f22412a74dd3752ab",
+"class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a04c6a2ac134a116e821e510cf1e729f5",
+"class_m_pewsey_1_1_mania_map_1_1_graph_cluster_search.html#a1655ce428ff526ec1d492ec6cb8fc78c",
+"class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aaa69a3fea4c391295b539833bce6d85e",
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_miscellaneous.html#a9567f11246cdebe94a924e7962f184fe"
 ];
 

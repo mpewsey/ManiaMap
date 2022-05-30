@@ -4,7 +4,7 @@ var searchData=
   ['addbranchchains_1',['AddBranchChains',['../class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#abb98391cec399d3ca561f113a58df01c',1,'MPewsey::ManiaMap::GraphChainDecomposer']]],
   ['addchain_2',['AddChain',['../class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a0499cfcd6282607699e27868740cefc7',1,'MPewsey::ManiaMap::LayoutGenerator']]],
   ['addcollectable_3',['AddCollectable',['../class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#aa269b01fe47132d549a75957e59d270d',1,'MPewsey::ManiaMap::CollectableGenerator']]],
-  ['addcollectablegroup_4',['AddCollectableGroup',['../class_m_pewsey_1_1_mania_map_1_1_cell.html#ad0506eb18c2d2bdeee145cfde39362e3',1,'MPewsey::ManiaMap::Cell']]],
+  ['addcollectablespot_4',['AddCollectableSpot',['../class_m_pewsey_1_1_mania_map_1_1_cell.html#abe04b1b5a8306f50992ce8ed5d54e73a',1,'MPewsey::ManiaMap::Cell']]],
   ['addcollectablespots_5',['AddCollectableSpots',['../class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a45d9b74e667cbdc8a01e91338f9c1e10',1,'MPewsey::ManiaMap::CollectableGenerator']]],
   ['addcyclechains_6',['AddCycleChains',['../class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#ac0fd81226c45223c13a782c688d43f33',1,'MPewsey::ManiaMap::GraphChainDecomposer']]],
   ['adddoorconnection_7',['AddDoorConnection',['../class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a573f2f6cdef006ba109d15568960f123',1,'MPewsey::ManiaMap::LayoutGenerator']]],
