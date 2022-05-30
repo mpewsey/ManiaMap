@@ -50,7 +50,7 @@ namespace MPewsey.ManiaMap
         /// A dictionary of collectable object ID's by location ID.
         /// </summary>
         [DataMember(Order = 8)]
-        public Dictionary<Uid, int> Collectables { get; private set; } = new Dictionary<Uid, int>();
+        public Dictionary<int, int> Collectables { get; private set; } = new Dictionary<int, int>();
 
         /// <summary>
         /// Initializes a room from a room source.

@@ -59,10 +59,10 @@ namespace MPewsey.ManiaMap
         public Door BottomDoor { get; set; }
 
         /// <summary>
-        /// The collectable group name.
+        /// The collectable spots.
         /// </summary>
         [DataMember(Order = 7)]
-        private List<Collectable> CollectableGroups { get; set; } = new List<Collectable>();
+        private List<Collectable> CollectableSpots { get; set; } = new List<Collectable>();
 
         /// <summary>
         /// Initializes a new cell.
@@ -84,7 +84,7 @@ namespace MPewsey.ManiaMap
             NorthDoor = other.NorthDoor?.Copy();
             TopDoor = other.TopDoor?.Copy();
             BottomDoor = other.BottomDoor?.Copy();
-            CollectableGroups = new List<Collectable>(other.CollectableGroups);
+            CollectableSpots = new List<Collectable>(other.CollectableSpots);
         }
 
         /// <summary>
@@ -107,11 +107,11 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns an enumerable of assigned collectable groups.
+        /// Returns an enumerable of assigned collectable spots.
         /// </summary>
-        public IEnumerable<Collectable> GetCollectableGroups()
+        public IEnumerable<Collectable> GetCollectableSpots()
         {
-            return CollectableGroups;
+            return CollectableSpots;
         }
 
         /// <summary>
@@ -169,23 +169,23 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Adds the collectable group and returns the cell.
+        /// Adds the collectable spot and returns the cell.
         /// </summary>
-        /// <param name="locationId">The location ID, unique to the cell.</param>
+        /// <param name="id">The location ID, unique to the cell.</param>
         /// <param name="group">The collectable group name.</param>
         /// <exception cref="InvalidNameException">Raised if the group name is null or white space.</exception>
         /// <exception cref="DuplicateIdException">Raised if the location ID already exists.</exception>
-        public Cell AddCollectableGroup(int locationId, string group)
+        public Cell AddCollectableSpot(int id, string group)
         {
             if (string.IsNullOrWhiteSpace(group))
                 throw new InvalidNameException($"Group name is null or white space.");
 
-            var index = CollectableGroups.FindIndex(x => x.Id == locationId);
+            var index = CollectableSpots.FindIndex(x => x.Id == id);
 
             if (index >= 0)
-                throw new DuplicateIdException($"Location ID already exists: {locationId}.");
+                throw new DuplicateIdException($"Location ID already exists: {id}.");
 
-            CollectableGroups.Add(new Collectable(locationId, group));
+            CollectableSpots.Add(new Collectable(id, group));
             return this;
         }
 
@@ -268,7 +268,7 @@ namespace MPewsey.ManiaMap
                 NorthDoor = WestDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableGroups = new List<Collectable>(CollectableGroups),
+                CollectableSpots = new List<Collectable>(CollectableSpots),
             };
         }
 
@@ -285,7 +285,7 @@ namespace MPewsey.ManiaMap
                 WestDoor = EastDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableGroups = new List<Collectable>(CollectableGroups),
+                CollectableSpots = new List<Collectable>(CollectableSpots),
             };
         }
 
@@ -302,7 +302,7 @@ namespace MPewsey.ManiaMap
                 SouthDoor = WestDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableGroups = new List<Collectable>(CollectableGroups),
+                CollectableSpots = new List<Collectable>(CollectableSpots),
             };
         }
 
@@ -319,7 +319,7 @@ namespace MPewsey.ManiaMap
                 EastDoor = EastDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableGroups = new List<Collectable>(CollectableGroups),
+                CollectableSpots = new List<Collectable>(CollectableSpots),
             };
         }
 
@@ -336,7 +336,7 @@ namespace MPewsey.ManiaMap
                 EastDoor = WestDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableGroups = new List<Collectable>(CollectableGroups),
+                CollectableSpots = new List<Collectable>(CollectableSpots),
             };
         }
 
@@ -368,7 +368,7 @@ namespace MPewsey.ManiaMap
                 && Door.ValuesAreEqual(SouthDoor, other.SouthDoor)
                 && Door.ValuesAreEqual(EastDoor, other.EastDoor)
                 && Door.ValuesAreEqual(WestDoor, other.WestDoor)
-                && CollectableGroups.SequenceEqual(other.CollectableGroups);
+                && CollectableSpots.SequenceEqual(other.CollectableSpots);
         }
 
         /// <summary>

@@ -242,7 +242,7 @@ namespace MPewsey.ManiaMap
                     if (cell == null)
                         continue;
 
-                    foreach (var collectable in cell.GetCollectableGroups())
+                    foreach (var collectable in cell.GetCollectableSpots())
                     {
                         var position = new Vector2DInt(i, j);
                         var spot = new CollectableSpot(room.Id, position, collectable.Id, collectable.Group);
