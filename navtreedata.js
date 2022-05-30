@@ -39,11 +39,12 @@ var NAVTREE =
     [ "Generation Pipeline Example", "index.html#autotoc_md15", null ],
     [ "Changelog", "md__github_workspace__c_h_a_n_g_e_l_o_g.html", [
       [ "Development", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md17", null ],
-      [ "v1.4.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md18", null ],
-      [ "v1.3.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md19", null ],
-      [ "v1.2.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md20", null ],
-      [ "v1.1.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md21", null ],
-      [ "v1.0.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md22", null ]
+      [ "v1.4.1", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md18", null ],
+      [ "v1.4.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md19", null ],
+      [ "v1.3.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md20", null ],
+      [ "v1.2.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md21", null ],
+      [ "v1.1.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md22", null ],
+      [ "v1.0.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md23", null ]
     ] ],
     [ "Packages", "namespaces.html", [
       [ "Packages", "namespaces.html", "namespaces_dup" ],
@@ -72,10 +73,9 @@ var NAVTREEINDEX =
 [
 "_____docs_____8cs_source.html",
 "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a038f94ead38ebcb53d0ceefa73bb7bbb",
-"class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#af446e0aa96f0707dea05b331211f1150",
-"class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aa6fc9fea13ea812c3b37a8c2b49f5ce2",
-"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_miscellaneous.html#a6948fae06e475642d9fc86bd8625a4ee",
-"struct_m_pewsey_1_1_mania_map_1_1_vector3_d_int.html#aeec9bc7e6adf6a78564e9e8d3cbce1fe"
+"class_m_pewsey_1_1_mania_map_1_1_graph_cluster_search.html",
+"class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aa990f5af95d3f83f22412a74dd3752ab",
+"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_miscellaneous.html#a9567f11246cdebe94a924e7962f184fe"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

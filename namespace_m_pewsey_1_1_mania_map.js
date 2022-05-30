@@ -46,7 +46,6 @@ var namespace_m_pewsey_1_1_mania_map =
     [ "Vector2DInt", "struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int.html", "struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int" ],
     [ "Vector3DInt", "struct_m_pewsey_1_1_mania_map_1_1_vector3_d_int.html", "struct_m_pewsey_1_1_mania_map_1_1_vector3_d_int" ],
     [ "DoorDirection", "namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839b", [
-      [ "None", "namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839ba6adf97f83acf6453d4a6a4b1070f3754", null ],
       [ "North", "namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839ba601560b94fbb188919dd1d36c8ab70a4", null ],
       [ "South", "namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839ba263d7b2cf53802c9ed127b718c0bf9fd", null ],
       [ "East", "namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839baa99dc62d017d04cf67266593f9c3761e", null ],
@@ -55,7 +54,6 @@ var namespace_m_pewsey_1_1_mania_map =
       [ "Bottom", "namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839ba2ad9d63b69c4a10a5cc9cad923133bc4", null ]
     ] ],
     [ "DoorType", "namespace_m_pewsey_1_1_mania_map.html#a419070e26de8251aeeaa0578ad0d9fb1", [
-      [ "None", "namespace_m_pewsey_1_1_mania_map.html#a419070e26de8251aeeaa0578ad0d9fb1a6adf97f83acf6453d4a6a4b1070f3754", null ],
       [ "TwoWay", "namespace_m_pewsey_1_1_mania_map.html#a419070e26de8251aeeaa0578ad0d9fb1a6c267346f8ebb889610a5a90838be815", null ],
       [ "TwoWayExit", "namespace_m_pewsey_1_1_mania_map.html#a419070e26de8251aeeaa0578ad0d9fb1a6702dfb7e514e7c80853b55569b98163", null ],
       [ "TwoWayEntrance", "namespace_m_pewsey_1_1_mania_map.html#a419070e26de8251aeeaa0578ad0d9fb1adee39297861eb71920d44a5434584a6c", null ],
