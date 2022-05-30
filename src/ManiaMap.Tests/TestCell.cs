@@ -45,24 +45,24 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
-        public void TestAddCollectableGroup()
+        public void TestAddCollectableSpot()
         {
-            var cell = Cell.New.AddCollectableGroup(0, "Group1").AddCollectableGroup(1, "Group2");
+            var cell = Cell.New.AddCollectableSpot(0, "Group1").AddCollectableSpot(1, "Group2");
             var expected = new List<Collectable> { new Collectable(0, "Group1"), new Collectable(1, "Group2") };
-            CollectionAssert.AreEqual(expected, cell.GetCollectableGroups().ToList());
+            CollectionAssert.AreEqual(expected, cell.GetCollectableSpots().ToList());
         }
 
         [TestMethod]
         public void TestInvalidCollectableGroupName()
         {
-            Assert.ThrowsException<InvalidNameException>(() => Cell.New.AddCollectableGroup(0, ""));
+            Assert.ThrowsException<InvalidNameException>(() => Cell.New.AddCollectableSpot(0, ""));
         }
 
         [TestMethod]
         public void TestDuplicateLocationId()
         {
-            var cell = Cell.New.AddCollectableGroup(1, "Default");
-            Assert.ThrowsException<DuplicateIdException>(() => cell.AddCollectableGroup(1, "Default"));
+            var cell = Cell.New.AddCollectableSpot(1, "Default");
+            Assert.ThrowsException<DuplicateIdException>(() => cell.AddCollectableSpot(1, "Default"));
         }
     }
 }

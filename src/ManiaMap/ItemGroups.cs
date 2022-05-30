@@ -34,9 +34,9 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns an enumerable of all item groups.
+        /// Returns an enumerable of all group items.
         /// </summary>
-        public IEnumerable<List<TValue>> GetItemGroups()
+        public IEnumerable<List<TValue>> GetGroupItems()
         {
             return Groups.Values;
         }

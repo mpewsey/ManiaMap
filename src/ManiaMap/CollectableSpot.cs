@@ -20,7 +20,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The location ID.
         /// </summary>
-        public int LocationId { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// The collectable group name.
@@ -38,28 +38,23 @@ namespace MPewsey.ManiaMap
         public int NeighborWeight { get; set; } = int.MaxValue;
 
         /// <summary>
-        /// The unique ID of the collectable spot within the room.
-        /// </summary>
-        public Uid Id => new Uid(Position.X, Position.Y, LocationId);
-
-        /// <summary>
         /// Initializes a new spot.
         /// </summary>
         /// <param name="room">The room ID.</param>
         /// <param name="position">The local position in the room.</param>
-        /// <param name="locationId">The location ID.</param>
+        /// <param name="id">The location ID.</param>
         /// <param name="group">The collectable group.</param>
-        public CollectableSpot(Uid room, Vector2DInt position, int locationId, string group)
+        public CollectableSpot(Uid room, Vector2DInt position, int id, string group)
         {
             Room = room;
             Position = position;
-            LocationId = locationId;
+            Id = id;
             Group = group;
         }
 
         public override string ToString()
         {
-            return $"CollectableSpot(Room = {Room}, Position = {Position}, LocationId = {LocationId}, Group = {Group})";
+            return $"CollectableSpot(Room = {Room}, Position = {Position}, Id = {Id}, Group = {Group})";
         }
 
         /// <summary>

@@ -217,6 +217,32 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
+        public void TestDuplicateCollectableId()
+        {
+            var template = Samples.TemplateLibrary.Squares.Square3x3Template();
+            template.Cells[0, 0].AddCollectableSpot(1, "Default");
+            template.Cells[0, 1].AddCollectableSpot(1, "Default");
+            Assert.ThrowsException<DuplicateIdException>(() => template.Validate());
+        }
+
+        [TestMethod]
+        public void TestCollectableSpotIdsAreUnique()
+        {
+            var template = Samples.TemplateLibrary.Squares.Square3x3Template();
+            template.Cells[0, 0].AddCollectableSpot(1, "Default");
+            Assert.IsTrue(template.CollectableSpotIdsAreUnique());
+        }
+
+        [TestMethod]
+        public void TestCollectableSpotIdsAreNotUnique()
+        {
+            var template = Samples.TemplateLibrary.Squares.Square3x3Template();
+            template.Cells[0, 0].AddCollectableSpot(1, "Default");
+            template.Cells[0, 1].AddCollectableSpot(1, "Default");
+            Assert.IsFalse(template.CollectableSpotIdsAreUnique());
+        }
+
+        [TestMethod]
         public void TestIsValid()
         {
             var template = Samples.TemplateLibrary.Squares.Square3x3Template();

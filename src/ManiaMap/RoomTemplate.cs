@@ -60,6 +60,8 @@ namespace MPewsey.ManiaMap
                 throw new CellsNotFullyConnectedException($"Cells are not fully connected: {this}.");
             if (!AnyDoorExists())
                 throw new NoDoorsExistException($"No doors exist in template: {this}.");
+            if (!CollectableSpotIdsAreUnique())
+                throw new DuplicateIdException($"Collectable spots have duplicate ID: {this}.");
         }
 
         /// <summary>
@@ -68,7 +70,33 @@ namespace MPewsey.ManiaMap
         public bool IsValid()
         {
             return IsFullyConnected()
-                && AnyDoorExists();
+                && AnyDoorExists()
+                && CollectableSpotIdsAreUnique();
+        }
+
+        /// <summary>
+        /// Returns true if the collectable spots assigned to the template
+        /// all have unique ID's.
+        /// </summary>
+        public bool CollectableSpotIdsAreUnique()
+        {
+            var ids = new HashSet<int>();
+
+            foreach (var cell in Cells.Array)
+            {
+                if (cell == null)
+                    continue;
+
+                foreach (var spot in cell.GetCollectableSpots())
+                {
+                    if (!ids.Add(spot.Id))
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
         }
 
         /// <summary>
