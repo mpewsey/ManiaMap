@@ -1,6 +1,7 @@
 # Changelog
 
-## Development
+## v1.5.0
+* Changed the way that collectable spots are implemented. Unique ID's must now be unique to the room, not to the cell. This breaks compatibility with previous versions.
 
 ## v1.4.1
 * Remove None enum from `DoorDirection` and `DoorType`.
