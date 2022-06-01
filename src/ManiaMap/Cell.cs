@@ -91,13 +91,14 @@ namespace MPewsey.ManiaMap
 
         public override string ToString()
         {
-            var west = WestDoor?.ToString() ?? "None";
-            var north = NorthDoor?.ToString() ?? "None";
-            var south = SouthDoor?.ToString() ?? "None";
-            var east = EastDoor?.ToString() ?? "None";
-            var top = TopDoor?.ToString() ?? "None";
-            var bottom = BottomDoor?.ToString() ?? "None";
-            return $"Cell(WestDoor = {west}, NorthDoor = {north}, EastDoor = {east}, SouthDoor = {south}, TopDoor = {top}, BottomDoor = {bottom})";
+            var strings = new List<string>(Doors.Count);
+
+            foreach (var door in Doors.OrderBy(x => x.Key))
+            {
+                strings.Add($"{door.Key}Door = {door.Value}");
+            }
+
+            return $"Cell({string.Join(", ", strings)})";
         }
 
         /// <summary>
