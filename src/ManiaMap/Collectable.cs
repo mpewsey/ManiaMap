@@ -1,25 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
     /// <summary>
     /// A structure containing a collectable group and ID.
     /// </summary>
-    [DataContract]
     public struct Collectable : IEquatable<Collectable>
     {
         /// <summary>
         /// The ID.
         /// </summary>
-        [DataMember(Order = 1)]
         public int Id { get; private set; }
 
         /// <summary>
         /// The group name.
         /// </summary>
-        [DataMember(Order = 2)]
         public string Group { get; private set; }
 
         /// <summary>

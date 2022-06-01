@@ -1,6 +1,7 @@
 ﻿using MPewsey.ManiaMap.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MPewsey.ManiaMap
 {
@@ -242,10 +243,10 @@ namespace MPewsey.ManiaMap
                     if (cell == null)
                         continue;
 
-                    foreach (var collectable in cell.GetCollectableSpots())
+                    foreach (var pair in cell.CollectableSpots.OrderBy(x => x.Key))
                     {
                         var position = new Vector2DInt(i, j);
-                        var spot = new CollectableSpot(room.Id, position, collectable.Id, collectable.Group);
+                        var spot = new CollectableSpot(room.Id, position, pair.Key, pair.Value);
                         CollectableSpots.Add(spot);
                     }
                 }

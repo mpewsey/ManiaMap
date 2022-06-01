@@ -49,7 +49,7 @@ namespace MPewsey.ManiaMap.Tests
         {
             var cell = Cell.New.AddCollectableSpot(0, "Group1").AddCollectableSpot(1, "Group2");
             var expected = new List<Collectable> { new Collectable(0, "Group1"), new Collectable(1, "Group2") };
-            CollectionAssert.AreEqual(expected, cell.GetCollectableSpots().ToList());
+            CollectionAssert.AreEqual(expected, cell.CollectableSpots.Select(x => new Collectable(x.Key, x.Value)).ToList());
         }
 
         [TestMethod]
