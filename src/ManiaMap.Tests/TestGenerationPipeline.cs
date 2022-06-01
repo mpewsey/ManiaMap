@@ -31,7 +31,7 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
-        public void TestSaveAndLoad()
+        public void TestSaveAndLoadXml()
         {
             var random = new RandomSeed(12345);
             var graph = Samples.GraphLibrary.BigGraph();
@@ -53,7 +53,10 @@ namespace MPewsey.ManiaMap.Tests
             Assert.IsTrue(results.Success);
             Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
             var layout = (Layout)results.Outputs["Layout"];
-            Serialization.SaveXml("BigLayout.xml", layout);
+            var path = "BigLayout.xml";
+            Serialization.SaveXml(path, layout);
+            var copy = Serialization.LoadXml<Layout>(path);
+            Assert.AreEqual(layout.Id, copy.Id);
         }
     }
 }

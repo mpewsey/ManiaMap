@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
 using System.Linq;
 
 namespace MPewsey.ManiaMap.Tests
@@ -14,11 +15,32 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
-        public void TestSaveAndLoad()
+        public void TestSaveAndLoadXml()
         {
             var path = "ManiaMapLayout.xml";
             var layout = Samples.ManiaMapSample.ManiaMapLayout();
             Serialization.SaveXml(path, layout);
+            var copy = Serialization.LoadXml<Layout>(path);
+            Assert.AreEqual(layout.Seed.Seed, copy.Seed.Seed);
+        }
+
+        [TestMethod]
+        public void TestSaveAndLoadXmlBytes()
+        {
+            var path = "ManiaMapLayout.xml";
+            var layout = Samples.ManiaMapSample.ManiaMapLayout();
+            Serialization.SaveXml(path, layout);
+            var bytes = File.ReadAllBytes(path);
+            var copy = Serialization.LoadXml<Layout>(bytes);
+            Assert.AreEqual(layout.Seed.Seed, copy.Seed.Seed);
+        }
+
+        [TestMethod]
+        public void TestSaveAndLoadPrettyXml()
+        {
+            var path = "ManiaMapLayoutPrettyPrint.xml";
+            var layout = Samples.ManiaMapSample.ManiaMapLayout();
+            Serialization.SavePrettyXml(path, layout);
             var copy = Serialization.LoadXml<Layout>(path);
             Assert.AreEqual(layout.Seed.Seed, copy.Seed.Seed);
         }

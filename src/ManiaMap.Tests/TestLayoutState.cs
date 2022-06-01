@@ -6,7 +6,7 @@ namespace MPewsey.ManiaMap.Tests
     public class TestLayoutState
     {
         [TestMethod]
-        public void TestSaveAndLoad()
+        public void TestSaveAndLoadXml()
         {
             var path = "ManiaMapLayoutState.xml";
             var layout = Samples.ManiaMapSample.ManiaMapLayout();
