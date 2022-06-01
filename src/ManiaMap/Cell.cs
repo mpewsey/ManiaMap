@@ -36,31 +36,37 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The west door. Set to null if no door exists.
         /// </summary>
+        [IgnoreDataMember]
         public Door WestDoor { get => GetDoor(DoorDirection.West); set => SetDoor(DoorDirection.West, value); }
 
         /// <summary>
         /// The north door. Set to null if no door exists.
         /// </summary>
+        [IgnoreDataMember]
         public Door NorthDoor { get => GetDoor(DoorDirection.North); set => SetDoor(DoorDirection.North, value); }
 
         /// <summary>
         /// The east door. Set to null if no door exists.
         /// </summary>
+        [IgnoreDataMember]
         public Door EastDoor { get => GetDoor(DoorDirection.East); set => SetDoor(DoorDirection.East, value); }
 
         /// <summary>
         /// The south door. Set to null if no door exists.
         /// </summary>
+        [IgnoreDataMember]
         public Door SouthDoor { get => GetDoor(DoorDirection.South); set => SetDoor(DoorDirection.South, value); }
 
         /// <summary>
         /// The top door. Set to null if no door exists.
         /// </summary>
+        [IgnoreDataMember]
         public Door TopDoor { get => GetDoor(DoorDirection.Top); set => SetDoor(DoorDirection.Top, value); }
 
         /// <summary>
         /// The bottom door. Set to null if no door exists.
         /// </summary>
+        [IgnoreDataMember]
         public Door BottomDoor { get => GetDoor(DoorDirection.Bottom); set => SetDoor(DoorDirection.Bottom, value); }
 
         /// <summary>
