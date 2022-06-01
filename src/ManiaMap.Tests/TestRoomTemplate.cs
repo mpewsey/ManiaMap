@@ -243,6 +243,14 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
+        public void TestCollectableGroupNameNotValid()
+        {
+            var template = Samples.TemplateLibrary.Squares.Square3x3Template();
+            template.Cells[0, 0].CollectableSpots[1] = "";
+            Assert.ThrowsException<InvalidNameException>(() => template.Validate());
+        }
+
+        [TestMethod]
         public void TestIsValid()
         {
             var template = Samples.TemplateLibrary.Squares.Square3x3Template();

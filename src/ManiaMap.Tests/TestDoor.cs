@@ -90,5 +90,14 @@ namespace MPewsey.ManiaMap.Tests
                 }
             }
         }
+
+        [TestMethod]
+        public void TestValuesAreEqual()
+        {
+            var door = Door.TwoWay;
+            Assert.IsTrue(Door.ValuesAreEqual(door, door));
+            Assert.IsTrue(Door.ValuesAreEqual(door, door.Copy()));
+            Assert.IsFalse(Door.ValuesAreEqual(door, null));
+        }
     }
 }

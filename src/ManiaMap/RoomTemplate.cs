@@ -62,7 +62,7 @@ namespace MPewsey.ManiaMap
                 throw new CellsNotFullyConnectedException($"Cells are not fully connected: {this}.");
             if (!AnyDoorExists())
                 throw new NoDoorsExistException($"No doors exist in template: {this}.");
-            if (!CollectableGroupsNamesAreValid())
+            if (!CollectableGroupNamesAreValid())
                 throw new InvalidNameException($"Invalid collectable group name: {this}.");
             if (!CollectableSpotIdsAreUnique())
                 throw new DuplicateIdException($"Collectable spots have duplicate ID: {this}.");
@@ -75,14 +75,14 @@ namespace MPewsey.ManiaMap
         {
             return IsFullyConnected()
                 && AnyDoorExists()
-                && CollectableGroupsNamesAreValid()
+                && CollectableGroupNamesAreValid()
                 && CollectableSpotIdsAreUnique();
         }
 
         /// <summary>
         /// Returns true if all collectable group names assigned to the cell are valid.
         /// </summary>
-        public bool CollectableGroupsNamesAreValid()
+        public bool CollectableGroupNamesAreValid()
         {
             foreach (var cell in Cells.Array)
             {
