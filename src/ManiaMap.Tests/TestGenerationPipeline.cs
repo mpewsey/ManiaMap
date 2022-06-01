@@ -31,6 +31,35 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
+        public void TestSaveAndLoadPrettyXml()
+        {
+            var random = new RandomSeed(12345);
+            var graph = Samples.GraphLibrary.BigGraph();
+            var templateGroups = Samples.BigLayoutSample.BigLayoutTemplateGroups();
+            var collectableGroups = new CollectableGroups();
+            collectableGroups.Add("Default", new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
+
+            var inputs = new Dictionary<string, object>
+            {
+                { "LayoutId", 1 },
+                { "LayoutGraph", graph },
+                { "TemplateGroups", templateGroups },
+                { "CollectableGroups", collectableGroups },
+                { "RandomSeed", random },
+            };
+
+            var pipeline = GenerationPipeline.CreateDefaultPipeline();
+            var results = pipeline.Generate(inputs);
+            Assert.IsTrue(results.Success);
+            Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
+            var layout = (Layout)results.Outputs["Layout"];
+            var path = "BigLayoutPrettyPrint.xml";
+            Serialization.SavePrettyXml(path, layout);
+            var copy = Serialization.LoadXml<Layout>(path);
+            Assert.AreEqual(layout.Id, copy.Id);
+        }
+
+        [TestMethod]
         public void TestSaveAndLoadXml()
         {
             var random = new RandomSeed(12345);

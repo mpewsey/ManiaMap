@@ -248,5 +248,15 @@ namespace MPewsey.ManiaMap.Tests
             var template = Samples.TemplateLibrary.Squares.Square3x3Template();
             Assert.IsTrue(template.IsValid());
         }
+
+        [TestMethod]
+        public void TestSaveAndLoadPrettyXml()
+        {
+            var path = "Angle3x4PrettyPrint.xml";
+            var template = Samples.TemplateLibrary.Angles.Angle3x4();
+            Serialization.SavePrettyXml(path, template);
+            var copy = Serialization.LoadXml<RoomTemplate>(path);
+            Assert.AreEqual(template.Id, copy.Id);
+        }
     }
 }
