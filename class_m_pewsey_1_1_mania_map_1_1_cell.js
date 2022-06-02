@@ -5,6 +5,7 @@ var class_m_pewsey_1_1_mania_map_1_1_cell =
     [ "AddCollectableSpot", "class_m_pewsey_1_1_mania_map_1_1_cell.html#abe04b1b5a8306f50992ce8ed5d54e73a", null ],
     [ "AnyDoorExists", "class_m_pewsey_1_1_mania_map_1_1_cell.html#af7a0c774063b22b9f93ae8d8c4821db9", null ],
     [ "BottomDoorAligns", "class_m_pewsey_1_1_mania_map_1_1_cell.html#ae4f9f27bdb64cbe5e0e730f2429480dd", null ],
+    [ "CollectableGroupNamesAreValid", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a3277b4b8e3cbf59e5e4d57e0d79c715a", null ],
     [ "Copy", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a5c6b444a18a63314964cb3f495323104", null ],
     [ "EastDoorAligns", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a6a9b35b3b3a88b67e6a073f053b30fab", null ],
     [ "GetDoor", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a5f6d252f22973a8e52ddeb54c71c8fa8", null ],
