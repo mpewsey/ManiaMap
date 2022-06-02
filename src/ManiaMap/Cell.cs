@@ -384,10 +384,7 @@ namespace MPewsey.ManiaMap
         /// <param name="other">The other cell.</param>
         public bool ValuesAreEqual(Cell other)
         {
-            if (Doors.Count != other.Doors.Count)
-                return false;
-
-            if (CollectableSpots.Count != other.CollectableSpots.Count)
+            if (Doors.Count != other.Doors.Count || CollectableSpots.Count != other.CollectableSpots.Count)
                 return false;
 
             foreach (var pair in Doors)
