@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -74,6 +75,27 @@ namespace MPewsey.ManiaMap.Tests
             var results = directions.Select(x => Door.GetEdgeDirection(x.Item1, x.Item2)).ToList();
             var expected = directions.Select(x => x.Item3).ToList();
             CollectionAssert.AreEqual(expected, results);
+        }
+
+        [TestMethod]
+        public void TestGetEdgeDirectionExceptions()
+        {
+            var directions = new List<(DoorType, DoorType)>()
+            {
+                (DoorType.TwoWayExit, DoorType.TwoWayExit),
+                (DoorType.TwoWayExit, DoorType.OneWayExit),
+                (DoorType.TwoWayEntrance, DoorType.TwoWayEntrance),
+                (DoorType.TwoWayEntrance, DoorType.OneWayEntrance),
+                (DoorType.OneWayExit, DoorType.TwoWayExit),
+                (DoorType.OneWayExit, DoorType.OneWayExit),
+                (DoorType.OneWayEntrance, DoorType.TwoWayEntrance),
+                (DoorType.OneWayEntrance, DoorType.OneWayEntrance),
+            };
+
+            foreach (var (x, y) in directions)
+            {
+                Assert.ThrowsException<ArgumentException>(() => Door.GetEdgeDirection(x, y));
+            }
         }
 
         [TestMethod]
