@@ -44,6 +44,22 @@ namespace MPewsey.ManiaMap
             Cells = cells;
         }
 
+        /// <summary>
+        /// Returns a copy of the room template.
+        /// </summary>
+        /// <param name="other">The room template to copy.</param>
+        private RoomTemplate(RoomTemplate other)
+        {
+            Id = other.Id;
+            Name = other.Name;
+            Cells = new Array2D<Cell>(other.Cells.Rows, other.Cells.Columns);
+
+            for (int i = 0; i < Cells.Array.Length; i++)
+            {
+                Cells.Array[i] = other.Cells.Array[i]?.Copy();
+            }
+        }
+
         public override string ToString()
         {
             return $"RoomTemplate(Id = {Id}, Name = {Name})";
@@ -242,14 +258,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public RoomTemplate Copy()
         {
-            var cells = new Array2D<Cell>(Cells.Rows, Cells.Columns);
-
-            for (int i = 0; i < cells.Array.Length; i++)
-            {
-                cells.Array[i] = Cells.Array[i]?.Copy();
-            }
-
-            return new RoomTemplate(Id, Name, cells);
+            return new RoomTemplate(this);
         }
 
         /// <summary>
