@@ -46,15 +46,6 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
-        public void TestFindDoorConnection()
-        {
-            var layout = Samples.ManiaMapSample.ManiaMapLayout();
-            var connection = layout.DoorConnections.Values.First();
-            Assert.AreEqual(connection, layout.FindDoorConnection(connection.FromRoom, connection.FromDoor.Position, connection.FromDoor.Direction));
-            Assert.IsNull(layout.FindDoorConnection(new Uid(-1, -1, -1), Vector2DInt.Zero, DoorDirection.North));
-        }
-
-        [TestMethod]
         public void TestGetDoorConnection()
         {
             var layout = Samples.ManiaMapSample.ManiaMapLayout();

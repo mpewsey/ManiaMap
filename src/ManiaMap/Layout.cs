@@ -172,23 +172,6 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns the door connection matching the room door.
-        /// </summary>
-        /// <param name="roomId">The room ID.</param>
-        /// <param name="position">The door position.</param>
-        /// <param name="direction">The door direction.</param>
-        public DoorConnection FindDoorConnection(Uid roomId, Vector2DInt position, DoorDirection direction)
-        {
-            foreach (var connection in DoorConnections.Values)
-            {
-                if (connection.ContainsDoor(roomId, position, direction))
-                    return connection;
-            }
-
-            return null;
-        }
-
-        /// <summary>
         /// Returns a new dictionary of room doors by room ID.
         /// </summary>
         public Dictionary<Uid, List<DoorPosition>> GetRoomDoors()
