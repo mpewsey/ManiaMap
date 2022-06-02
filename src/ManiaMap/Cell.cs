@@ -387,17 +387,17 @@ namespace MPewsey.ManiaMap
             if (Doors.Count != other.Doors.Count || CollectableSpots.Count != other.CollectableSpots.Count)
                 return false;
 
-            foreach (var pair in Doors)
+            foreach (var pair in other.Doors)
             {
-                if (!other.Doors.TryGetValue(pair.Key, out Door value) || !Door.ValuesAreEqual(pair.Value, value))
+                if (!Doors.TryGetValue(pair.Key, out Door value) || !Door.ValuesAreEqual(pair.Value, value))
                 {
                     return false;
                 }
             }
 
-            foreach (var pair in CollectableSpots)
+            foreach (var pair in other.CollectableSpots)
             {
-                if (!other.CollectableSpots.TryGetValue(pair.Key, out string value) || pair.Value != value)
+                if (!CollectableSpots.TryGetValue(pair.Key, out string value) || pair.Value != value)
                 {
                     return false;
                 }
