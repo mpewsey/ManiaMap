@@ -58,7 +58,7 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
-        public void TestSaveAndLoad()
+        public void TestSaveAndLoadXml()
         {
             var path = "LayoutGraph.xml";
             var graph = Samples.GraphLibrary.GeekGraph();

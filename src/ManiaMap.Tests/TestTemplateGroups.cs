@@ -34,7 +34,7 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
-        public void TestSaveAndLoad()
+        public void TestSaveAndLoadXml()
         {
             var path = "TemplateGroups.xml";
             var templateGroups = Samples.ManiaMapSample.LetterTemplateGroups();

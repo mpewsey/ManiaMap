@@ -11,8 +11,8 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestToString()
         {
-            var cell = Cell.New;
-            Assert.IsTrue(cell.ToString().StartsWith("Cell("));
+            var cell = Cell.New.SetDoors("N", Door.TwoWay);
+            Assert.IsTrue(cell.ToString().StartsWith("Cell(NorthDoor = "));
         }
 
         [TestMethod]
@@ -49,7 +49,7 @@ namespace MPewsey.ManiaMap.Tests
         {
             var cell = Cell.New.AddCollectableSpot(0, "Group1").AddCollectableSpot(1, "Group2");
             var expected = new List<Collectable> { new Collectable(0, "Group1"), new Collectable(1, "Group2") };
-            CollectionAssert.AreEqual(expected, cell.GetCollectableSpots().ToList());
+            CollectionAssert.AreEqual(expected, cell.CollectableSpots.Select(x => new Collectable(x.Key, x.Value)).ToList());
         }
 
         [TestMethod]
@@ -63,6 +63,30 @@ namespace MPewsey.ManiaMap.Tests
         {
             var cell = Cell.New.AddCollectableSpot(1, "Default");
             Assert.ThrowsException<DuplicateIdException>(() => cell.AddCollectableSpot(1, "Default"));
+        }
+
+        [TestMethod]
+        public void TestValuesAreEqual()
+        {
+            var cell1 = Cell.New.AddCollectableSpot(1, "Group1");
+            var cell2 = Cell.New.AddCollectableSpot(1, "Group2");
+            Assert.IsFalse(Cell.ValuesAreEqual(cell1, cell2));
+
+            var cell3 = Cell.New.SetDoors("N", Door.TwoWay);
+            var cell4 = Cell.New.SetDoors("N", Door.OneWayEntrance);
+            Assert.IsFalse(Cell.ValuesAreEqual(cell3, cell4));
+
+            var cell5 = Cell.New.AddCollectableSpot(1, "Group1").SetDoors("NWSE", Door.TwoWay);
+            var cell6 = Cell.New.AddCollectableSpot(1, "Group1").SetDoors("NWSE", Door.TwoWay);
+            Assert.IsTrue(Cell.ValuesAreEqual(cell5, cell6));
+
+            var cell7 = Cell.New.AddCollectableSpot(1, "Group1");
+            var cell8 = Cell.New;
+            Assert.IsFalse(Cell.ValuesAreEqual(cell7, cell8));
+
+            var cell9 = Cell.New.SetDoors("N", Door.TwoWay);
+            var cell10 = Cell.New;
+            Assert.IsFalse(Cell.ValuesAreEqual(cell9, cell10));
         }
     }
 }

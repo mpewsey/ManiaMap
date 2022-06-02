@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -77,6 +78,27 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
+        public void TestGetEdgeDirectionExceptions()
+        {
+            var directions = new List<(DoorType, DoorType)>()
+            {
+                (DoorType.TwoWayExit, DoorType.TwoWayExit),
+                (DoorType.TwoWayExit, DoorType.OneWayExit),
+                (DoorType.TwoWayEntrance, DoorType.TwoWayEntrance),
+                (DoorType.TwoWayEntrance, DoorType.OneWayEntrance),
+                (DoorType.OneWayExit, DoorType.TwoWayExit),
+                (DoorType.OneWayExit, DoorType.OneWayExit),
+                (DoorType.OneWayEntrance, DoorType.TwoWayEntrance),
+                (DoorType.OneWayEntrance, DoorType.OneWayEntrance),
+            };
+
+            foreach (var (x, y) in directions)
+            {
+                Assert.ThrowsException<ArgumentException>(() => Door.GetEdgeDirection(x, y));
+            }
+        }
+
+        [TestMethod]
         public void TestCopy()
         {
             var door = new Door(DoorType.OneWayExit, 10);
@@ -89,6 +111,15 @@ namespace MPewsey.ManiaMap.Tests
                     Assert.AreEqual(property.GetValue(door), property.GetValue(copy));
                 }
             }
+        }
+
+        [TestMethod]
+        public void TestValuesAreEqual()
+        {
+            var door = Door.TwoWay;
+            Assert.IsTrue(Door.ValuesAreEqual(door, door));
+            Assert.IsTrue(Door.ValuesAreEqual(door, door.Copy()));
+            Assert.IsFalse(Door.ValuesAreEqual(door, null));
         }
     }
 }

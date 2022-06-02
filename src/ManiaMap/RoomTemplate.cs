@@ -54,12 +54,16 @@ namespace MPewsey.ManiaMap
         /// </summary>
         /// <exception cref="CellsNotFullyConnectedException">Raised if the cells are not fully connected.</exception>
         /// <exception cref="NoDoorsExistException">Raised if no typed door is assigned to the template.</exception>
+        /// <exception cref="InvalidNameException">Raised if a collectable group name is null or whitespace.</exception>
+        /// <exception cref="DuplicateIdException">Raised if a duplicate collectable spot ID exists.</exception>
         public void Validate()
         {
             if (!IsFullyConnected())
                 throw new CellsNotFullyConnectedException($"Cells are not fully connected: {this}.");
             if (!AnyDoorExists())
                 throw new NoDoorsExistException($"No doors exist in template: {this}.");
+            if (!CollectableGroupNamesAreValid())
+                throw new InvalidNameException($"Invalid collectable group name: {this}.");
             if (!CollectableSpotIdsAreUnique())
                 throw new DuplicateIdException($"Collectable spots have duplicate ID: {this}.");
         }
@@ -71,7 +75,28 @@ namespace MPewsey.ManiaMap
         {
             return IsFullyConnected()
                 && AnyDoorExists()
+                && CollectableGroupNamesAreValid()
                 && CollectableSpotIdsAreUnique();
+        }
+
+        /// <summary>
+        /// Returns true if all collectable group names assigned to the cell are valid.
+        /// </summary>
+        public bool CollectableGroupNamesAreValid()
+        {
+            foreach (var cell in Cells.Array)
+            {
+                if (cell == null)
+                    continue;
+
+                foreach (var group in cell.CollectableSpots.Values)
+                {
+                    if (string.IsNullOrWhiteSpace(group))
+                        return false;
+                }
+            }
+
+            return true;
         }
 
         /// <summary>
@@ -87,9 +112,9 @@ namespace MPewsey.ManiaMap
                 if (cell == null)
                     continue;
 
-                foreach (var spot in cell.GetCollectableSpots())
+                foreach (var id in cell.CollectableSpots.Keys)
                 {
-                    if (!ids.Add(spot.Id))
+                    if (!ids.Add(id))
                     {
                         return false;
                     }

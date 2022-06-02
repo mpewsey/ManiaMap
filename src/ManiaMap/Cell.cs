@@ -1,5 +1,4 @@
 ﻿using MPewsey.ManiaMap.Exceptions;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -23,46 +22,46 @@ namespace MPewsey.ManiaMap
         public static Cell New => new Cell();
 
         /// <summary>
-        /// The west door. Set to null if no door exists.
+        /// A dictionary of doors.
         /// </summary>
         [DataMember(Order = 1)]
-        public Door WestDoor { get; set; }
+        public Dictionary<DoorDirection, Door> Doors { get; set; } = new Dictionary<DoorDirection, Door>();
+
+        /// <summary>
+        /// A dictionary of collectable group names by location ID.
+        /// </summary>
+        [DataMember(Order = 2)]
+        public Dictionary<int, string> CollectableSpots { get; set; } = new Dictionary<int, string>();
+
+        /// <summary>
+        /// The west door. Set to null if no door exists.
+        /// </summary>
+        public Door WestDoor { get => GetDoor(DoorDirection.West); set => SetDoor(DoorDirection.West, value); }
 
         /// <summary>
         /// The north door. Set to null if no door exists.
         /// </summary>
-        [DataMember(Order = 2)]
-        public Door NorthDoor { get; set; }
+        public Door NorthDoor { get => GetDoor(DoorDirection.North); set => SetDoor(DoorDirection.North, value); }
 
         /// <summary>
         /// The east door. Set to null if no door exists.
         /// </summary>
-        [DataMember(Order = 3)]
-        public Door EastDoor { get; set; }
+        public Door EastDoor { get => GetDoor(DoorDirection.East); set => SetDoor(DoorDirection.East, value); }
 
         /// <summary>
         /// The south door. Set to null if no door exists.
         /// </summary>
-        [DataMember(Order = 4)]
-        public Door SouthDoor { get; set; }
+        public Door SouthDoor { get => GetDoor(DoorDirection.South); set => SetDoor(DoorDirection.South, value); }
 
         /// <summary>
         /// The top door. Set to null if no door exists.
         /// </summary>
-        [DataMember(Order = 5)]
-        public Door TopDoor { get; set; }
+        public Door TopDoor { get => GetDoor(DoorDirection.Top); set => SetDoor(DoorDirection.Top, value); }
 
         /// <summary>
         /// The bottom door. Set to null if no door exists.
         /// </summary>
-        [DataMember(Order = 6)]
-        public Door BottomDoor { get; set; }
-
-        /// <summary>
-        /// The collectable spots.
-        /// </summary>
-        [DataMember(Order = 7)]
-        private List<Collectable> CollectableSpots { get; set; } = new List<Collectable>();
+        public Door BottomDoor { get => GetDoor(DoorDirection.Bottom); set => SetDoor(DoorDirection.Bottom, value); }
 
         /// <summary>
         /// Initializes a new cell.
@@ -78,13 +77,8 @@ namespace MPewsey.ManiaMap
         /// <param name="other">The cell to copy.</param>
         public Cell(Cell other)
         {
-            EastDoor = other.EastDoor?.Copy();
-            SouthDoor = other.SouthDoor?.Copy();
-            WestDoor = other.WestDoor?.Copy();
-            NorthDoor = other.NorthDoor?.Copy();
-            TopDoor = other.TopDoor?.Copy();
-            BottomDoor = other.BottomDoor?.Copy();
-            CollectableSpots = new List<Collectable>(other.CollectableSpots);
+            Doors = other.Doors.ToDictionary(x => x.Key, x => x.Value?.Copy());
+            CollectableSpots = new Dictionary<int, string>(other.CollectableSpots);
         }
 
         /// <summary>
@@ -97,21 +91,37 @@ namespace MPewsey.ManiaMap
 
         public override string ToString()
         {
-            var west = WestDoor?.ToString() ?? "None";
-            var north = NorthDoor?.ToString() ?? "None";
-            var south = SouthDoor?.ToString() ?? "None";
-            var east = EastDoor?.ToString() ?? "None";
-            var top = TopDoor?.ToString() ?? "None";
-            var bottom = BottomDoor?.ToString() ?? "None";
-            return $"Cell(WestDoor = {west}, NorthDoor = {north}, EastDoor = {east}, SouthDoor = {south}, TopDoor = {top}, BottomDoor = {bottom})";
+            var strings = new List<string>(Doors.Count);
+
+            foreach (var door in Doors.OrderBy(x => x.Key))
+            {
+                strings.Add($"{door.Key}Door = {door.Value}");
+            }
+
+            return $"Cell({string.Join(", ", strings)})";
         }
 
         /// <summary>
-        /// Returns an enumerable of assigned collectable spots.
+        /// Returns the door corresponding to the direction. If the door does not exist, returns null.
         /// </summary>
-        public IEnumerable<Collectable> GetCollectableSpots()
+        /// <param name="direction">The door direction.</param>
+        public Door GetDoor(DoorDirection direction)
         {
-            return CollectableSpots;
+            Doors.TryGetValue(direction, out Door door);
+            return door;
+        }
+
+        /// <summary>
+        /// Sets the door direction. If the door is null, removes the entry from the dictionary.
+        /// </summary>
+        /// <param name="direction">The door direction.</param>
+        /// <param name="door">The door.</param>
+        public void SetDoor(DoorDirection direction, Door door)
+        {
+            if (door == null)
+                Doors.Remove(direction);
+            else
+                Doors[direction] = door;
         }
 
         /// <summary>
@@ -180,12 +190,10 @@ namespace MPewsey.ManiaMap
             if (string.IsNullOrWhiteSpace(group))
                 throw new InvalidNameException($"Group name is null or white space.");
 
-            var index = CollectableSpots.FindIndex(x => x.Id == id);
-
-            if (index >= 0)
+            if (CollectableSpots.ContainsKey(id))
                 throw new DuplicateIdException($"Location ID already exists: {id}.");
 
-            CollectableSpots.Add(new Collectable(id, group));
+            CollectableSpots.Add(id, group);
             return this;
         }
 
@@ -268,7 +276,7 @@ namespace MPewsey.ManiaMap
                 NorthDoor = WestDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableSpots = new List<Collectable>(CollectableSpots),
+                CollectableSpots = new Dictionary<int, string>(CollectableSpots),
             };
         }
 
@@ -285,7 +293,7 @@ namespace MPewsey.ManiaMap
                 WestDoor = EastDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableSpots = new List<Collectable>(CollectableSpots),
+                CollectableSpots = new Dictionary<int, string>(CollectableSpots),
             };
         }
 
@@ -302,7 +310,7 @@ namespace MPewsey.ManiaMap
                 SouthDoor = WestDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableSpots = new List<Collectable>(CollectableSpots),
+                CollectableSpots = new Dictionary<int, string>(CollectableSpots),
             };
         }
 
@@ -319,7 +327,7 @@ namespace MPewsey.ManiaMap
                 EastDoor = EastDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableSpots = new List<Collectable>(CollectableSpots),
+                CollectableSpots = new Dictionary<int, string>(CollectableSpots),
             };
         }
 
@@ -336,7 +344,7 @@ namespace MPewsey.ManiaMap
                 EastDoor = WestDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableSpots = new List<Collectable>(CollectableSpots),
+                CollectableSpots = new Dictionary<int, string>(CollectableSpots),
             };
         }
 
@@ -362,13 +370,29 @@ namespace MPewsey.ManiaMap
         /// <param name="other">The other cell.</param>
         public bool ValuesAreEqual(Cell other)
         {
-            return Door.ValuesAreEqual(TopDoor, other.TopDoor)
-                && Door.ValuesAreEqual(BottomDoor, other.BottomDoor)
-                && Door.ValuesAreEqual(NorthDoor, other.NorthDoor)
-                && Door.ValuesAreEqual(SouthDoor, other.SouthDoor)
-                && Door.ValuesAreEqual(EastDoor, other.EastDoor)
-                && Door.ValuesAreEqual(WestDoor, other.WestDoor)
-                && CollectableSpots.SequenceEqual(other.CollectableSpots);
+            if (Doors.Count != other.Doors.Count)
+                return false;
+
+            if (CollectableSpots.Count != other.CollectableSpots.Count)
+                return false;
+
+            foreach (var pair in Doors)
+            {
+                if (!other.Doors.TryGetValue(pair.Key, out Door value) || !Door.ValuesAreEqual(pair.Value, value))
+                {
+                    return false;
+                }
+            }
+
+            foreach (var pair in CollectableSpots)
+            {
+                if (!other.CollectableSpots.TryGetValue(pair.Key, out string value) || pair.Value != value)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         /// <summary>
@@ -376,12 +400,13 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public bool AnyDoorExists()
         {
-            return NorthDoor != null
-                || SouthDoor != null
-                || WestDoor != null
-                || EastDoor != null
-                || TopDoor != null
-                || BottomDoor != null;
+            foreach (var door in Doors.Values)
+            {
+                if (door != null)
+                    return true;
+            }
+
+            return false;
         }
     }
 }
