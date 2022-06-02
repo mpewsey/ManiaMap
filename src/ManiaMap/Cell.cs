@@ -105,7 +105,7 @@ namespace MPewsey.ManiaMap
         /// Returns the door corresponding to the direction. If the door does not exist, returns null.
         /// </summary>
         /// <param name="direction">The door direction.</param>
-        private Door GetDoor(DoorDirection direction)
+        public Door GetDoor(DoorDirection direction)
         {
             Doors.TryGetValue(direction, out Door door);
             return door;
@@ -116,7 +116,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         /// <param name="direction">The door direction.</param>
         /// <param name="door">The door.</param>
-        private void SetDoor(DoorDirection direction, Door door)
+        public void SetDoor(DoorDirection direction, Door door)
         {
             if (door == null)
                 Doors.Remove(direction);
@@ -378,18 +378,18 @@ namespace MPewsey.ManiaMap
 
             foreach (var pair in Doors)
             {
-                if (!other.Doors.TryGetValue(pair.Key, out Door value))
+                if (!other.Doors.TryGetValue(pair.Key, out Door value) || !Door.ValuesAreEqual(pair.Value, value))
+                {
                     return false;
-                if (!Door.ValuesAreEqual(pair.Value, value))
-                    return false;
+                }
             }
 
             foreach (var pair in CollectableSpots)
             {
-                if (!other.CollectableSpots.TryGetValue(pair.Key, out string value))
+                if (!other.CollectableSpots.TryGetValue(pair.Key, out string value) || pair.Value != value)
+                {
                     return false;
-                if (pair.Value != value)
-                    return false;
+                }
             }
 
             return true;

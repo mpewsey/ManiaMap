@@ -55,7 +55,7 @@ namespace MPewsey.ManiaMap.Samples
                 {
                     foreach (var cell in template.Cells.Array)
                     {
-                        cell?.CollectableSpots.Add(seed.Next(), "Default");
+                        cell?.AddCollectableSpot(seed.Next(), "Default");
                     }
                 }
             }
