@@ -101,35 +101,66 @@ $(document).ready(function(){initNavTree('_serialization_8cs_source.html',''); i
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using</span> System.IO;</div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">using</span> System.Runtime.Serialization;</div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_m_pewsey_1_1_mania_map.html">MPewsey.ManiaMap</a></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_m_pewsey_1_1_mania_map_1_1_serialization.html">    9</a></span>    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class </span><a class="code hl_class" href="class_m_pewsey_1_1_mania_map_1_1_serialization.html">Serialization</a></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#ad4924b1da1ba72c78697c5dbd16592e3">   16</a></span>        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#ad4924b1da1ba72c78697c5dbd16592e3">SaveXml&lt;T&gt;</a>(<span class="keywordtype">string</span> path, T graph)</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            var serializer = <span class="keyword">new</span> DataContractSerializer(typeof(T));</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            <span class="keyword">using</span> (var stream = File.Create(path))</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>                serializer.WriteObject(stream, graph);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            }</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        }</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#aabed96dd1d7ad18f35770ddfc0637bf9">   30</a></span>        <span class="keyword">public</span> <span class="keyword">static</span> T <a class="code hl_function" href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#aabed96dd1d7ad18f35770ddfc0637bf9">LoadXml&lt;T&gt;</a>(<span class="keywordtype">string</span> path)</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            var serializer = <span class="keyword">new</span> DataContractSerializer(typeof(T));</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="keyword">using</span> (var stream = File.OpenRead(path))</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                <span class="keywordflow">return</span> (T)serializer.ReadObject(stream);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            }</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        }</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    }</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
-<div class="ttc" id="aclass_m_pewsey_1_1_mania_map_1_1_serialization_html"><div class="ttname"><a href="class_m_pewsey_1_1_mania_map_1_1_serialization.html">MPewsey.ManiaMap.Serialization</a></div><div class="ttdoc">Contains methods for serializing objects.</div><div class="ttdef"><b>Definition:</b> <a href="_serialization_8cs_source.html#l00009">Serialization.cs:10</a></div></div>
-<div class="ttc" id="aclass_m_pewsey_1_1_mania_map_1_1_serialization_html_aabed96dd1d7ad18f35770ddfc0637bf9"><div class="ttname"><a href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#aabed96dd1d7ad18f35770ddfc0637bf9">MPewsey.ManiaMap.Serialization.LoadXml&lt; T &gt;</a></div><div class="ttdeci">static T LoadXml&lt; T &gt;(string path)</div><div class="ttdoc">Loads an object from a file path using the DataContractSerializer.</div><div class="ttdef"><b>Definition:</b> <a href="_serialization_8cs_source.html#l00030">Serialization.cs:30</a></div></div>
-<div class="ttc" id="aclass_m_pewsey_1_1_mania_map_1_1_serialization_html_ad4924b1da1ba72c78697c5dbd16592e3"><div class="ttname"><a href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#ad4924b1da1ba72c78697c5dbd16592e3">MPewsey.ManiaMap.Serialization.SaveXml&lt; T &gt;</a></div><div class="ttdeci">static void SaveXml&lt; T &gt;(string path, T graph)</div><div class="ttdoc">Saves the object to the file path using the DataContractSerializer.</div><div class="ttdef"><b>Definition:</b> <a href="_serialization_8cs_source.html#l00016">Serialization.cs:16</a></div></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">using</span> System.Xml;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_m_pewsey_1_1_mania_map.html">MPewsey.ManiaMap</a></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_m_pewsey_1_1_mania_map_1_1_serialization.html">   10</a></span>    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class </span><a class="code hl_class" href="class_m_pewsey_1_1_mania_map_1_1_serialization.html">Serialization</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#a7145ad5abd17aab39fac2ed44781687a">   18</a></span>        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#a7145ad5abd17aab39fac2ed44781687a">SavePrettyXml&lt;T&gt;</a>(<span class="keywordtype">string</span> path, T graph)</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            var serializer = <span class="keyword">new</span> DataContractSerializer(typeof(T));</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            var settings = <span class="keyword">new</span> XmlWriterSettings</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>                Indent = <span class="keyword">true</span>,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>                IndentChars = <span class="stringliteral">&quot;\t&quot;</span>,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>                NewLineChars = <span class="stringliteral">&quot;\n&quot;</span>,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            };</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <span class="keyword">using</span> (var stream = File.Create(path))</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                <span class="keyword">using</span> (var writer = XmlWriter.Create(stream, settings))</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>                {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>                    serializer.WriteObject(writer, graph);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>                }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            }</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#ad4924b1da1ba72c78697c5dbd16592e3">   42</a></span>        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#ad4924b1da1ba72c78697c5dbd16592e3">SaveXml&lt;T&gt;</a>(<span class="keywordtype">string</span> path, T graph)</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            var serializer = <span class="keyword">new</span> DataContractSerializer(typeof(T));</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <span class="keyword">using</span> (var stream = File.Create(path))</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                serializer.WriteObject(stream, graph);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#aabed96dd1d7ad18f35770ddfc0637bf9">   56</a></span>        <span class="keyword">public</span> <span class="keyword">static</span> T <a class="code hl_function" href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#aabed96dd1d7ad18f35770ddfc0637bf9">LoadXml&lt;T&gt;</a>(<span class="keywordtype">string</span> path)</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            var serializer = <span class="keyword">new</span> DataContractSerializer(typeof(T));</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <span class="keyword">using</span> (var stream = File.OpenRead(path))</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                <span class="keywordflow">return</span> (T)serializer.ReadObject(stream);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        }</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#a373a063efdfa5e6c122c9ce1a3d4fb19">   70</a></span>        <span class="keyword">public</span> <span class="keyword">static</span> T <a class="code hl_function" href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#aabed96dd1d7ad18f35770ddfc0637bf9">LoadXml&lt;T&gt;</a>(<span class="keywordtype">byte</span>[] bytes)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        {</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            var serializer = <span class="keyword">new</span> DataContractSerializer(typeof(T));</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            <span class="keyword">using</span> (var stream = <span class="keyword">new</span> MemoryStream(bytes))</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                <span class="keywordflow">return</span> (T)serializer.ReadObject(stream);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            }</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}</div>
+<div class="ttc" id="aclass_m_pewsey_1_1_mania_map_1_1_serialization_html"><div class="ttname"><a href="class_m_pewsey_1_1_mania_map_1_1_serialization.html">MPewsey.ManiaMap.Serialization</a></div><div class="ttdoc">Contains methods for serializing objects.</div><div class="ttdef"><b>Definition:</b> <a href="_serialization_8cs_source.html#l00010">Serialization.cs:11</a></div></div>
+<div class="ttc" id="aclass_m_pewsey_1_1_mania_map_1_1_serialization_html_a7145ad5abd17aab39fac2ed44781687a"><div class="ttname"><a href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#a7145ad5abd17aab39fac2ed44781687a">MPewsey.ManiaMap.Serialization.SavePrettyXml&lt; T &gt;</a></div><div class="ttdeci">static void SavePrettyXml&lt; T &gt;(string path, T graph)</div><div class="ttdoc">Saves the object to the file path using the DataContractSerializer. The saved file includes tabs and ...</div><div class="ttdef"><b>Definition:</b> <a href="_serialization_8cs_source.html#l00018">Serialization.cs:18</a></div></div>
+<div class="ttc" id="aclass_m_pewsey_1_1_mania_map_1_1_serialization_html_aabed96dd1d7ad18f35770ddfc0637bf9"><div class="ttname"><a href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#aabed96dd1d7ad18f35770ddfc0637bf9">MPewsey.ManiaMap.Serialization.LoadXml&lt; T &gt;</a></div><div class="ttdeci">static T LoadXml&lt; T &gt;(string path)</div><div class="ttdoc">Loads an object from a file path using the DataContractSerializer.</div><div class="ttdef"><b>Definition:</b> <a href="_serialization_8cs_source.html#l00056">Serialization.cs:56</a></div></div>
+<div class="ttc" id="aclass_m_pewsey_1_1_mania_map_1_1_serialization_html_ad4924b1da1ba72c78697c5dbd16592e3"><div class="ttname"><a href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#ad4924b1da1ba72c78697c5dbd16592e3">MPewsey.ManiaMap.Serialization.SaveXml&lt; T &gt;</a></div><div class="ttdeci">static void SaveXml&lt; T &gt;(string path, T graph)</div><div class="ttdoc">Saves the object to the file path using the DataContractSerializer.</div><div class="ttdef"><b>Definition:</b> <a href="_serialization_8cs_source.html#l00042">Serialization.cs:42</a></div></div>
 <div class="ttc" id="anamespace_m_pewsey_1_1_mania_map_html"><div class="ttname"><a href="namespace_m_pewsey_1_1_mania_map.html">MPewsey.ManiaMap</a></div><div class="ttdoc">This namespace provides core library functionality.</div><div class="ttdef"><b>Definition:</b> <a href="_____docs_____8cs_source.html#l00004">__Docs__.cs:5</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

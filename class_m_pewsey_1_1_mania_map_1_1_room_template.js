@@ -5,6 +5,7 @@ var class_m_pewsey_1_1_mania_map_1_1_room_template =
     [ "AllVariations", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a6dbb55ea3b030cb1fae0b63a1f04a798", null ],
     [ "AnyDoorExists", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#aef88fefe00c6d76bdfb96c91a2ec8270", null ],
     [ "CellValuesAreEqual", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a83ed90297ad1141b7575bea798775de6", null ],
+    [ "CollectableGroupNamesAreValid", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a1f64fe4ef4e47375e36c7186c219786a", null ],
     [ "CollectableSpotIdsAreUnique", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#ad1823dc290db06e7abafe3c922d671d2", null ],
     [ "Copy", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a3af220836feab125508910c58dad186e", null ],
     [ "FindCellDistances", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#adea53c43b5a6e2cf5b8eb4438e9e1828", null ],

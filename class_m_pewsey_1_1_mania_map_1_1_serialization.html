@@ -108,9 +108,15 @@ $(document).ready(function(){initNavTree('class_m_pewsey_1_1_mania_map_1_1_seria
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a373a063efdfa5e6c122c9ce1a3d4fb19"><td class="memItemLeft" align="right" valign="top">static T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#a373a063efdfa5e6c122c9ce1a3d4fb19">LoadXml&lt; T &gt;</a> (byte[] bytes)</td></tr>
+<tr class="memdesc:a373a063efdfa5e6c122c9ce1a3d4fb19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads an object from a byte array using the DataContractSerializer.  <a href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#a373a063efdfa5e6c122c9ce1a3d4fb19">More...</a><br /></td></tr>
+<tr class="separator:a373a063efdfa5e6c122c9ce1a3d4fb19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabed96dd1d7ad18f35770ddfc0637bf9"><td class="memItemLeft" align="right" valign="top">static T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#aabed96dd1d7ad18f35770ddfc0637bf9">LoadXml&lt; T &gt;</a> (string path)</td></tr>
 <tr class="memdesc:aabed96dd1d7ad18f35770ddfc0637bf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads an object from a file path using the DataContractSerializer.  <a href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#aabed96dd1d7ad18f35770ddfc0637bf9">More...</a><br /></td></tr>
 <tr class="separator:aabed96dd1d7ad18f35770ddfc0637bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7145ad5abd17aab39fac2ed44781687a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#a7145ad5abd17aab39fac2ed44781687a">SavePrettyXml&lt; T &gt;</a> (string path, T graph)</td></tr>
+<tr class="memdesc:a7145ad5abd17aab39fac2ed44781687a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the object to the file path using the DataContractSerializer. The saved file includes tabs and new lines.  <a href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#a7145ad5abd17aab39fac2ed44781687a">More...</a><br /></td></tr>
+<tr class="separator:a7145ad5abd17aab39fac2ed44781687a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4924b1da1ba72c78697c5dbd16592e3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#ad4924b1da1ba72c78697c5dbd16592e3">SaveXml&lt; T &gt;</a> (string path, T graph)</td></tr>
 <tr class="memdesc:ad4924b1da1ba72c78697c5dbd16592e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the object to the file path using the DataContractSerializer.  <a href="class_m_pewsey_1_1_mania_map_1_1_serialization.html#ad4924b1da1ba72c78697c5dbd16592e3">More...</a><br /></td></tr>
 <tr class="separator:ad4924b1da1ba72c78697c5dbd16592e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,10 +124,46 @@ Static Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Contains methods for serializing objects. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serialization_8cs_source.html#l00009">9</a> of file <a class="el" href="_serialization_8cs_source.html">Serialization.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serialization_8cs_source.html#l00010">10</a> of file <a class="el" href="_serialization_8cs_source.html">Serialization.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a373a063efdfa5e6c122c9ce1a3d4fb19" name="a373a063efdfa5e6c122c9ce1a3d4fb19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a373a063efdfa5e6c122c9ce1a3d4fb19">&#9670;&nbsp;</a></span>LoadXml&lt; T &gt;() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static T MPewsey.ManiaMap.Serialization.LoadXml&lt; T &gt; </td>
+          <td>(</td>
+          <td class="paramtype">byte[]&#160;</td>
+          <td class="paramname"><em>bytes</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Loads an object from a byte array using the DataContractSerializer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bytes</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_serialization_8cs_source.html#l00070">70</a> of file <a class="el" href="_serialization_8cs_source.html">Serialization.cs</a>.</p>
+
+</div>
+</div>
 <a id="aabed96dd1d7ad18f35770ddfc0637bf9" name="aabed96dd1d7ad18f35770ddfc0637bf9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabed96dd1d7ad18f35770ddfc0637bf9">&#9670;&nbsp;</a></span>LoadXml&lt; T &gt;()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aabed96dd1d7ad18f35770ddfc0637bf9">&#9670;&nbsp;</a></span>LoadXml&lt; T &gt;() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -152,7 +194,54 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_serialization_8cs_source.html#l00030">30</a> of file <a class="el" href="_serialization_8cs_source.html">Serialization.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serialization_8cs_source.html#l00056">56</a> of file <a class="el" href="_serialization_8cs_source.html">Serialization.cs</a>.</p>
+
+</div>
+</div>
+<a id="a7145ad5abd17aab39fac2ed44781687a" name="a7145ad5abd17aab39fac2ed44781687a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7145ad5abd17aab39fac2ed44781687a">&#9670;&nbsp;</a></span>SavePrettyXml&lt; T &gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void MPewsey.ManiaMap.Serialization.SavePrettyXml&lt; T &gt; </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>graph</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Saves the object to the file path using the DataContractSerializer. The saved file includes tabs and new lines. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>The save file path.</td></tr>
+    <tr><td class="paramname">graph</td><td>The object for serialization.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_serialization_8cs_source.html#l00018">18</a> of file <a class="el" href="_serialization_8cs_source.html">Serialization.cs</a>.</p>
 
 </div>
 </div>
@@ -199,7 +288,7 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_serialization_8cs_source.html#l00016">16</a> of file <a class="el" href="_serialization_8cs_source.html">Serialization.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serialization_8cs_source.html#l00042">42</a> of file <a class="el" href="_serialization_8cs_source.html">Serialization.cs</a>.</p>
 
 </div>
 </div>

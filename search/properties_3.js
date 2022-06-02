@@ -6,5 +6,6 @@ var searchData=
   ['doorcode_3',['DoorCode',['../class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#aaf11208ba7ea493fd9fd0b12c115963d',1,'MPewsey::ManiaMap::LayoutEdge']]],
   ['doorconnections_4',['DoorConnections',['../class_m_pewsey_1_1_mania_map_1_1_layout.html#a3af40a1a6e4f376c2dcc15b4d8fc0a10',1,'MPewsey::ManiaMap::Layout']]],
   ['doorpower_5',['DoorPower',['../class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#ae76834ed3b4caf3c53a8e6ba1d74a839',1,'MPewsey::ManiaMap::CollectableGenerator']]],
-  ['doorweight_6',['DoorWeight',['../class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#ab6c50e3ad23072cd8d374c6d83fd15b4',1,'MPewsey::ManiaMap::CollectableSpot']]]
+  ['doors_6',['Doors',['../class_m_pewsey_1_1_mania_map_1_1_cell.html#a5b5ae435af3b4afc7181af5e2a297f6f',1,'MPewsey::ManiaMap::Cell']]],
+  ['doorweight_7',['DoorWeight',['../class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#ab6c50e3ad23072cd8d374c6d83fd15b4',1,'MPewsey::ManiaMap::CollectableSpot']]]
 ];

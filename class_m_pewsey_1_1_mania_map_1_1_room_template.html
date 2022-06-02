@@ -121,6 +121,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a83ed90297ad1141b7575bea798775de6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html#a83ed90297ad1141b7575bea798775de6">CellValuesAreEqual</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html">RoomTemplate</a> other)</td></tr>
 <tr class="memdesc:a83ed90297ad1141b7575bea798775de6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if all cells in this template match the cells of another template.  <a href="class_m_pewsey_1_1_mania_map_1_1_room_template.html#a83ed90297ad1141b7575bea798775de6">More...</a><br /></td></tr>
 <tr class="separator:a83ed90297ad1141b7575bea798775de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f64fe4ef4e47375e36c7186c219786a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html#a1f64fe4ef4e47375e36c7186c219786a">CollectableGroupNamesAreValid</a> ()</td></tr>
+<tr class="memdesc:a1f64fe4ef4e47375e36c7186c219786a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if all collectable group names assigned to the cell are valid.  <a href="class_m_pewsey_1_1_mania_map_1_1_room_template.html#a1f64fe4ef4e47375e36c7186c219786a">More...</a><br /></td></tr>
+<tr class="separator:a1f64fe4ef4e47375e36c7186c219786a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1823dc290db06e7abafe3c922d671d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html#ad1823dc290db06e7abafe3c922d671d2">CollectableSpotIdsAreUnique</a> ()</td></tr>
 <tr class="memdesc:ad1823dc290db06e7abafe3c922d671d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the collectable spots assigned to the template all have unique ID's.  <a href="class_m_pewsey_1_1_mania_map_1_1_room_template.html#ad1823dc290db06e7abafe3c922d671d2">More...</a><br /></td></tr>
 <tr class="separator:ad1823dc290db06e7abafe3c922d671d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -268,7 +271,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00370">370</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00395">395</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -289,7 +292,7 @@ Properties</h2></td></tr>
 
 <p>Returns an array of this template plus all mirrored and rotated variations. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00146">146</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00171">171</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -310,7 +313,7 @@ Properties</h2></td></tr>
 
 <p>Returns true if a door is not null and is assigned a type anywhere in the template. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00106">106</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00131">131</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -338,7 +341,28 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00196">196</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00221">221</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+
+</div>
+</div>
+<a id="a1f64fe4ef4e47375e36c7186c219786a" name="a1f64fe4ef4e47375e36c7186c219786a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f64fe4ef4e47375e36c7186c219786a">&#9670;&nbsp;</a></span>CollectableGroupNamesAreValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MPewsey.ManiaMap.RoomTemplate.CollectableGroupNamesAreValid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns true if all collectable group names assigned to the cell are valid. </p>
+
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00085">85</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -359,7 +383,7 @@ Properties</h2></td></tr>
 
 <p>Returns true if the collectable spots assigned to the template all have unique ID's. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00081">81</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00106">106</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -380,7 +404,7 @@ Properties</h2></td></tr>
 
 <p>Returns a copy of the room template. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00218">218</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00243">243</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -408,7 +432,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00138">138</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00163">163</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -447,7 +471,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00340">340</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00365">365</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -486,7 +510,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00310">310</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00335">335</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -507,7 +531,7 @@ Properties</h2></td></tr>
 
 <p>Returns true if the cells in the template are fully connected. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00120">120</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00145">145</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -528,7 +552,7 @@ Properties</h2></td></tr>
 
 <p>Returns true if the room template is valid. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00070">70</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00074">74</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -549,7 +573,7 @@ Properties</h2></td></tr>
 
 <p>Returns a new room template mirrored horizontally, i.e. about the vertical axis. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00293">293</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00318">318</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -570,7 +594,7 @@ Properties</h2></td></tr>
 
 <p>Returns a new room template mirrored vertically, i.e. about the horizontal axis. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00278">278</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00303">303</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -591,7 +615,7 @@ Properties</h2></td></tr>
 
 <p>Returns a new room template rotated 180 degrees. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00248">248</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00273">273</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -612,7 +636,7 @@ Properties</h2></td></tr>
 
 <p>Returns a new room template rotated 270 degrees clockwise. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00263">263</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00288">288</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -633,7 +657,7 @@ Properties</h2></td></tr>
 
 <p>Returns a new room template rotated 90 degrees clockwise. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00233">233</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00258">258</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -673,7 +697,7 @@ Properties</h2></td></tr>
 
 <p>Returns a new list of this template plus all unique variations. </p>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00176">176</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00201">201</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
@@ -697,11 +721,13 @@ Properties</h2></td></tr>
   <table class="exception">
     <tr><td class="paramname">CellsNotFullyConnectedException</td><td>Raised if the cells are not fully connected.</td></tr>
     <tr><td class="paramname">NoDoorsExistException</td><td>Raised if no typed door is assigned to the template.</td></tr>
+    <tr><td class="paramname">InvalidNameException</td><td>Raised if a collectable group name is null or whitespace.</td></tr>
+    <tr><td class="paramname">DuplicateIdException</td><td>Raised if a duplicate collectable spot ID exists.</td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00057">57</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_template_8cs_source.html#l00059">59</a> of file <a class="el" href="_room_template_8cs_source.html">RoomTemplate.cs</a>.</p>
 
 </div>
 </div>
