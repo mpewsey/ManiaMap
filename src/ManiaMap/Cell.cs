@@ -75,7 +75,7 @@ namespace MPewsey.ManiaMap
         /// Initializes a copy of a cell.
         /// </summary>
         /// <param name="other">The cell to copy.</param>
-        public Cell(Cell other)
+        private Cell(Cell other)
         {
             Doors = other.Doors.ToDictionary(x => x.Key, x => x.Value?.Copy());
             CollectableSpots = new Dictionary<int, string>(other.CollectableSpots);
@@ -122,6 +122,20 @@ namespace MPewsey.ManiaMap
                 Doors.Remove(direction);
             else
                 Doors[direction] = door;
+        }
+
+        /// <summary>
+        /// Returns true if all collectable group names are not null or white space.
+        /// </summary>
+        public bool CollectableGroupNamesAreValid()
+        {
+            foreach (var group in CollectableSpots.Values)
+            {
+                if (string.IsNullOrWhiteSpace(group))
+                    return false;
+            }
+
+            return true;
         }
 
         /// <summary>
@@ -370,23 +384,20 @@ namespace MPewsey.ManiaMap
         /// <param name="other">The other cell.</param>
         public bool ValuesAreEqual(Cell other)
         {
-            if (Doors.Count != other.Doors.Count)
+            if (Doors.Count != other.Doors.Count || CollectableSpots.Count != other.CollectableSpots.Count)
                 return false;
 
-            if (CollectableSpots.Count != other.CollectableSpots.Count)
-                return false;
-
-            foreach (var pair in Doors)
+            foreach (var pair in other.Doors)
             {
-                if (!other.Doors.TryGetValue(pair.Key, out Door value) || !Door.ValuesAreEqual(pair.Value, value))
+                if (!Doors.TryGetValue(pair.Key, out Door value) || !Door.ValuesAreEqual(pair.Value, value))
                 {
                     return false;
                 }
             }
 
-            foreach (var pair in CollectableSpots)
+            foreach (var pair in other.CollectableSpots)
             {
-                if (!other.CollectableSpots.TryGetValue(pair.Key, out string value) || pair.Value != value)
+                if (!CollectableSpots.TryGetValue(pair.Key, out string value) || pair.Value != value)
                 {
                     return false;
                 }

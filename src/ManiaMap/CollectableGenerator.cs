@@ -258,7 +258,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         private void AssignDoorWeights()
         {
-            var doors = Layout.RoomDoors();
+            var doors = Layout.GetRoomDoors();
 
             foreach (var spot in CollectableSpots)
             {

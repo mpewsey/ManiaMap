@@ -60,5 +60,17 @@ namespace MPewsey.ManiaMap
             var shaft = Shaft?.ToString() ?? "None";
             return $"DoorConnection(FromRoom = {FromRoom}, ToRoom = {ToRoom}, FromDoor = {FromDoor}, ToDoor = {ToDoor}, Shaft = {shaft})";
         }
+
+        /// <summary>
+        /// Returns true if the connection includes the room door.
+        /// </summary>
+        /// <param name="roomId">The room ID.</param>
+        /// <param name="position">The door position.</param>
+        /// <param name="direction">The door direction.</param>
+        public bool ContainsDoor(Uid roomId, Vector2DInt position, DoorDirection direction)
+        {
+            return (FromRoom == roomId && FromDoor.Matches(position, direction))
+                || (ToRoom == roomId && ToDoor.Matches(position, direction));
+        }
     }
 }
