@@ -128,8 +128,8 @@ namespace MPewsey.ManiaMap.Drawing
         {
             Layout = layout;
             LayoutState = state;
-            LayoutBounds = Layout.Bounds();
-            RoomDoors = Layout.RoomDoors();
+            LayoutBounds = Layout.GetBounds();
+            RoomDoors = Layout.GetRoomDoors();
 
             var width = TileSize.X * (Padding.Left + Padding.Right + LayoutBounds.Width);
             var height = TileSize.Y * (Padding.Top + Padding.Bottom + LayoutBounds.Height);
