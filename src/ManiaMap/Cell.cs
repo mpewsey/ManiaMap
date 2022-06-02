@@ -75,7 +75,7 @@ namespace MPewsey.ManiaMap
         /// Initializes a copy of a cell.
         /// </summary>
         /// <param name="other">The cell to copy.</param>
-        public Cell(Cell other)
+        private Cell(Cell other)
         {
             Doors = other.Doors.ToDictionary(x => x.Key, x => x.Value?.Copy());
             CollectableSpots = new Dictionary<int, string>(other.CollectableSpots);
