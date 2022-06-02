@@ -204,6 +204,7 @@ namespace MPewsey.ManiaMap.Tests
         {
             var x = Cell.Empty;
             var o = Cell.New;
+            o.Doors.Add(DoorDirection.North, null);
 
             var cells = new Cell[,]
             {
