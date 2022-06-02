@@ -96,20 +96,14 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns true if all collectable group names assigned to the cell are valid.
+        /// Returns true if all collectable group names assigned to the template are valid.
         /// </summary>
         public bool CollectableGroupNamesAreValid()
         {
             foreach (var cell in Cells.Array)
             {
-                if (cell == null)
-                    continue;
-
-                foreach (var group in cell.CollectableSpots.Values)
-                {
-                    if (string.IsNullOrWhiteSpace(group))
-                        return false;
-                }
+                if (cell != null && !cell.CollectableGroupNamesAreValid())
+                    return false;
             }
 
             return true;

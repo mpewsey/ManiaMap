@@ -125,6 +125,20 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns true if all collectable group names are not null or white space.
+        /// </summary>
+        public bool CollectableGroupNamesAreValid()
+        {
+            foreach (var group in CollectableSpots.Values)
+            {
+                if (string.IsNullOrWhiteSpace(group))
+                    return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
         /// Sets the doors of the cell based on specified direction characters.
         /// Returns the cell.
         /// </summary>
