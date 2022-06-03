@@ -55,6 +55,16 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
+        public void TestContainsDoor()
+        {
+            var layout = Samples.ManiaMapSample.ManiaMapLayout();
+            var connection = layout.DoorConnections.Values.First();
+            Assert.IsTrue(connection.ContainsDoor(connection.FromRoom, connection.FromDoor.Position, connection.FromDoor.Direction));
+            Assert.IsTrue(connection.ContainsDoor(connection.ToRoom, connection.ToDoor.Position, connection.ToDoor.Direction));
+            Assert.IsFalse(connection.ContainsDoor(connection.FromRoom, connection.ToDoor.Position, connection.ToDoor.Direction));
+        }
+
+        [TestMethod]
         public void TestRemoveDoorConnection()
         {
             var layout = Samples.ManiaMapSample.ManiaMapLayout();
