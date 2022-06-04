@@ -53,16 +53,16 @@ namespace MPewsey.ManiaMap.Tests
             Array2D<int> array = new int[,]
             {
                 { 1, 2, 3, 4 },
-                { 0, 0, 0, 5 },
-                { 0, 0, 0, 6 },
+                { 5, 6, 7, 8 },
+                { 9, 10, 11, 12 },
             };
 
             Array2D<int> expected = new int[,]
             {
-                { 0, 0, 1 },
-                { 0, 0, 2 },
-                { 0, 0, 3 },
-                { 6, 5, 4 },
+                { 9, 5, 1 },
+                { 10, 6, 2 },
+                { 11, 7, 3 },
+                { 12, 8, 4 },
             };
 
             var result = array.Rotated90();
@@ -81,14 +81,14 @@ namespace MPewsey.ManiaMap.Tests
             Array2D<int> array = new int[,]
             {
                 { 1, 2, 3, 4 },
-                { 0, 0, 0, 5 },
-                { 0, 0, 0, 6 },
+                { 5, 6, 7, 8 },
+                { 9, 10, 11, 12 },
             };
 
             Array2D<int> expected = new int[,]
             {
-                { 6, 0, 0, 0 },
-                { 5, 0, 0, 0 },
+                { 12, 11, 10, 9 },
+                { 8, 7, 6, 5 },
                 { 4, 3, 2, 1 },
             };
 
@@ -108,16 +108,16 @@ namespace MPewsey.ManiaMap.Tests
             Array2D<int> array = new int[,]
             {
                 { 1, 2, 3, 4 },
-                { 0, 0, 0, 5 },
-                { 0, 0, 0, 6 },
+                { 5, 6, 7, 8 },
+                { 9, 10, 11, 12 },
             };
 
             Array2D<int> expected = new int[,]
             {
-                { 4, 5, 6 },
-                { 3, 0, 0 },
-                { 2, 0, 0 },
-                { 1, 0, 0 },
+                { 4, 8, 12 },
+                { 3, 7, 11 },
+                { 2, 6, 10 },
+                { 1, 5, 9 },
             };
 
             var result = array.Rotated270();
@@ -136,14 +136,14 @@ namespace MPewsey.ManiaMap.Tests
             Array2D<int> array = new int[,]
             {
                 { 1, 2, 3, 4 },
-                { 0, 0, 0, 5 },
-                { 0, 0, 0, 6 },
+                { 5, 6, 7, 8 },
+                { 9, 10, 11, 12 },
             };
 
             Array2D<int> expected = new int[,]
             {
-                { 0, 0, 0, 6 },
-                { 0, 0, 0, 5 },
+                { 9, 10, 11, 12 },
+                { 5, 6, 7, 8 },
                 { 1, 2, 3, 4 },
             };
 
@@ -163,15 +163,15 @@ namespace MPewsey.ManiaMap.Tests
             Array2D<int> array = new int[,]
             {
                 { 1, 2, 3, 4 },
-                { 0, 0, 0, 5 },
-                { 0, 0, 0, 6 },
+                { 5, 6, 7, 8 },
+                { 9, 10, 11, 12 },
             };
 
             Array2D<int> expected = new int[,]
             {
                 { 4, 3, 2, 1 },
-                { 5, 0, 0, 0 },
-                { 6, 0, 0, 0 },
+                { 8, 7, 6, 5 },
+                { 12, 11, 10, 9 },
             };
 
             var result = array.MirroredHorizontally();

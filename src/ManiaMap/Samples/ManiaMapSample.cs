@@ -23,7 +23,7 @@
                 { o, x, x, x, a },
             };
 
-            return new RoomTemplate(1, "M", cells);
+            return new RoomTemplate(1, "M", cells).Copy();
         }
 
         /// <summary>
@@ -45,7 +45,7 @@
                 { b, x, x, x, a },
             };
 
-            return new RoomTemplate(1, "M", cells);
+            return new RoomTemplate(1, "M", cells).Copy();
         }
 
         /// <summary>
@@ -67,7 +67,7 @@
                 { b, o, a },
             };
 
-            return new RoomTemplate(2, "A", cells);
+            return new RoomTemplate(2, "A", cells).Copy();
         }
 
         /// <summary>
@@ -89,7 +89,7 @@
                 { b, x, a },
             };
 
-            return new RoomTemplate(3, "N", cells);
+            return new RoomTemplate(3, "N", cells).Copy();
         }
 
         /// <summary>
@@ -111,7 +111,7 @@
                 { b, o, a },
             };
 
-            return new RoomTemplate(4, "I", cells);
+            return new RoomTemplate(4, "I", cells).Copy();
         }
 
         /// <summary>
@@ -132,7 +132,7 @@
                 { a, x, x },
             };
 
-            return new RoomTemplate(5, "P", cells);
+            return new RoomTemplate(5, "P", cells).Copy();
         }
 
         /// <summary>
