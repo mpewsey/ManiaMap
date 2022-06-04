@@ -317,7 +317,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public RoomTemplate Rotated270()
         {
-            var cells = Cells.Rotated180();
+            var cells = Cells.Rotated270();
 
             for (int i = 0; i < cells.Array.Length; i++)
             {
@@ -347,7 +347,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public RoomTemplate MirroredHorizontally()
         {
-            var cells = Cells.MirroredVertically();
+            var cells = Cells.MirroredHorizontally();
 
             for (int i = 0; i < cells.Array.Length; i++)
             {

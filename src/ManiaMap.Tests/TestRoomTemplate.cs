@@ -277,5 +277,49 @@ namespace MPewsey.ManiaMap.Tests
             Assert.IsTrue(RoomTemplate.ValuesAreEqual(template1, template2));
             Assert.IsFalse(RoomTemplate.ValuesAreEqual(template1, null));
         }
+
+        [TestMethod]
+        public void TestRotated90()
+        {
+            var template = Samples.TemplateLibrary.Squares.Square2x2Template();
+            Assert.IsTrue(template.CellValuesAreEqual(template.Rotated90()));
+        }
+
+        [TestMethod]
+        public void TestRotated180()
+        {
+            var template = Samples.TemplateLibrary.Squares.Square2x2Template();
+            Assert.IsTrue(template.CellValuesAreEqual(template.Rotated180()));
+        }
+
+        [TestMethod]
+        public void TestRotated270()
+        {
+            var template1 = Samples.TemplateLibrary.Squares.Square2x2Template();
+            var template2 = template1.Rotated270();
+            Assert.IsTrue(template1.CellValuesAreEqual(template2));
+        }
+
+        [TestMethod]
+        public void TestMirroredHorizontally()
+        {
+            var template1 = Samples.TemplateLibrary.Squares.Square2x2Template();
+            var template2 = template1.MirroredHorizontally();
+            Assert.IsTrue(template1.CellValuesAreEqual(template2));
+        }
+
+        [TestMethod]
+        public void TestMirroredVertically()
+        {
+            var template = Samples.TemplateLibrary.Squares.Square2x2Template();
+            Assert.IsTrue(template.CellValuesAreEqual(template.MirroredVertically()));
+        }
+
+        [TestMethod]
+        public void TestUniqueVariations()
+        {
+            var template = Samples.TemplateLibrary.Squares.Square2x2Template();
+            Assert.AreEqual(1, template.UniqueVariations().Count);
+        }
     }
 }

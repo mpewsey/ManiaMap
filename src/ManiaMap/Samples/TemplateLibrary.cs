@@ -28,7 +28,7 @@
                     { o, b, o },
                 };
 
-                return new RoomTemplate(1, "Square", cells);
+                return new RoomTemplate(1, "Square", cells).Copy();
             }
 
             /// <summary>
@@ -50,7 +50,7 @@
                     { o, b, o },
                 };
 
-                return new RoomTemplate(2, "Ring", cells);
+                return new RoomTemplate(2, "Ring", cells).Copy();
             }
 
             /// <summary>
@@ -73,7 +73,7 @@
                     { x, b, x },
                 };
 
-                return new RoomTemplate(3, "Plus", cells);
+                return new RoomTemplate(3, "Plus", cells).Copy();
             }
 
             /// <summary>
@@ -98,7 +98,7 @@
                     { f, g, h },
                 };
 
-                return new RoomTemplate(4, "HyperSquare", cells);
+                return new RoomTemplate(4, "HyperSquare", cells).Copy();
             }
 
             /// <summary>
@@ -120,7 +120,7 @@
                     { c, o, b },
                 };
 
-                return new RoomTemplate(5, "LTemplate", cells);
+                return new RoomTemplate(5, "LTemplate", cells).Copy();
             }
         }
 
@@ -141,7 +141,7 @@
                     { a },
                 };
 
-                return new RoomTemplate(100, "Square1x1", cells);
+                return new RoomTemplate(100, "Square1x1", cells).Copy();
             }
 
             /// <summary>
@@ -160,7 +160,7 @@
                     { c, d },
                 };
 
-                return new RoomTemplate(101, "Square2x2", cells);
+                return new RoomTemplate(101, "Square2x2", cells).Copy();
             }
 
             /// <summary>
@@ -185,7 +185,7 @@
                     { f, g, h },
                 };
 
-                return new RoomTemplate(102, "Square3x3", cells);
+                return new RoomTemplate(102, "Square3x3", cells).Copy();
             }
         }
 
@@ -207,7 +207,7 @@
                     { a, b },
                 };
 
-                return new RoomTemplate(200, "Rectangle1x2", cells);
+                return new RoomTemplate(200, "Rectangle1x2", cells).Copy();
             }
 
             /// <summary>
@@ -224,7 +224,7 @@
                     { a, o, b },
                 };
 
-                return new RoomTemplate(201, "Rectangle1x3", cells);
+                return new RoomTemplate(201, "Rectangle1x3", cells).Copy();
             }
 
             /// <summary>
@@ -241,7 +241,7 @@
                     { a, o, o, b },
                 };
 
-                return new RoomTemplate(202, "Rectangle1x4", cells);
+                return new RoomTemplate(202, "Rectangle1x4", cells).Copy();
             }
 
             /// <summary>
@@ -262,7 +262,7 @@
                     { d, e, f },
                 };
 
-                return new RoomTemplate(203, "Rectangle2x3", cells);
+                return new RoomTemplate(203, "Rectangle2x3", cells).Copy();
             }
 
             /// <summary>
@@ -283,7 +283,7 @@
                     { d, e, e, f },
                 };
 
-                return new RoomTemplate(204, "Rectangle2x4", cells);
+                return new RoomTemplate(204, "Rectangle2x4", cells).Copy();
             }
         }
 
@@ -311,7 +311,7 @@
                     { c, x, x, x },
                 };
 
-                return new RoomTemplate(300, "Angle3x4", cells);
+                return new RoomTemplate(300, "Angle3x4", cells).Copy();
             }
         }
     }
