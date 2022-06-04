@@ -267,5 +267,15 @@ namespace MPewsey.ManiaMap.Tests
             var copy = Serialization.LoadXml<RoomTemplate>(path);
             Assert.AreEqual(template.Id, copy.Id);
         }
+
+        [TestMethod]
+        public void TestValuesAreEqual()
+        {
+            var template1 = Samples.TemplateLibrary.Angles.Angle3x4();
+            var template2 = Samples.TemplateLibrary.Angles.Angle3x4();
+            Assert.IsTrue(RoomTemplate.ValuesAreEqual(template1, template1));
+            Assert.IsTrue(RoomTemplate.ValuesAreEqual(template1, template2));
+            Assert.IsFalse(RoomTemplate.ValuesAreEqual(template1, null));
+        }
     }
 }

@@ -66,6 +66,33 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns true if the values of the room templates are equal.
+        /// </summary>
+        /// <param name="x">The first template.</param>
+        /// <param name="y">The second template.</param>
+        public static bool ValuesAreEqual(RoomTemplate x, RoomTemplate y)
+        {
+            if (x == y)
+                return true;
+
+            if (x == null || y == null)
+                return false;
+
+            return x.ValuesAreEqual(y);
+        }
+
+        /// <summary>
+        /// Returns true if the values of the room template are equal to the specified template.
+        /// </summary>
+        /// <param name="other">The other room template.</param>
+        public bool ValuesAreEqual(RoomTemplate other)
+        {
+            return Id == other.Id
+                && Name == other.Name
+                && CellValuesAreEqual(other);
+        }
+
+        /// <summary>
         /// Validates the template and raises any associated exceptions.
         /// </summary>
         /// <exception cref="CellsNotFullyConnectedException">Raised if the cells are not fully connected.</exception>
