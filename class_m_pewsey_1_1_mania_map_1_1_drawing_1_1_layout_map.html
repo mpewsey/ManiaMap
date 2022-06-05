@@ -164,9 +164,9 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a50411116b00e86e094fdf1a7bc48bcf0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a50411116b00e86e094fdf1a7bc48bcf0">DrawMapTiles</a> (IImageProcessingContext image, int z)</td></tr>
 <tr class="memdesc:a50411116b00e86e094fdf1a7bc48bcf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the room map tiles onto the image context.  <a href="class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a50411116b00e86e094fdf1a7bc48bcf0">More...</a><br /></td></tr>
 <tr class="separator:a50411116b00e86e094fdf1a7bc48bcf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43725ee5273c89fbcf53864de4a34ef0"><td class="memItemLeft" align="right" valign="top">Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a43725ee5273c89fbcf53864de4a34ef0">GetTile</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room.html">Room</a> room, <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int.html">Vector2DInt</a> position, <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839b">DoorDirection</a> direction, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_door.html">Door</a> door, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_cell.html">Cell</a> neighbor, string doorName, string wallName)</td></tr>
-<tr class="memdesc:a43725ee5273c89fbcf53864de4a34ef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the map tile corresponding to the wall or door location. Returns null if the tile has neither a wall or door.  <a href="class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a43725ee5273c89fbcf53864de4a34ef0">More...</a><br /></td></tr>
-<tr class="separator:a43725ee5273c89fbcf53864de4a34ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4595f86cb9ec5245b4ac83aa3c93a47"><td class="memItemLeft" align="right" valign="top">Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ac4595f86cb9ec5245b4ac83aa3c93a47">GetTile</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room.html">Room</a> room, <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int.html">Vector2DInt</a> position, <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839b">DoorDirection</a> direction, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_cell.html">Cell</a> cell, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_cell.html">Cell</a> neighbor, string doorName, string wallName)</td></tr>
+<tr class="memdesc:ac4595f86cb9ec5245b4ac83aa3c93a47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the map tile corresponding to the wall or door location. Returns null if the tile has neither a wall or door.  <a href="class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ac4595f86cb9ec5245b4ac83aa3c93a47">More...</a><br /></td></tr>
+<tr class="separator:ac4595f86cb9ec5245b4ac83aa3c93a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
@@ -492,8 +492,8 @@ Static Private Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a43725ee5273c89fbcf53864de4a34ef0" name="a43725ee5273c89fbcf53864de4a34ef0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43725ee5273c89fbcf53864de4a34ef0">&#9670;&nbsp;</a></span>GetTile()</h2>
+<a id="ac4595f86cb9ec5245b4ac83aa3c93a47" name="ac4595f86cb9ec5245b4ac83aa3c93a47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4595f86cb9ec5245b4ac83aa3c93a47">&#9670;&nbsp;</a></span>GetTile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -522,8 +522,8 @@ Static Private Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_door.html">Door</a>&#160;</td>
-          <td class="paramname"><em>door</em>, </td>
+          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_cell.html">Cell</a>&#160;</td>
+          <td class="paramname"><em>cell</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -562,7 +562,7 @@ Static Private Member Functions</h2></td></tr>
     <tr><td class="paramname">room</td><td>The room.</td></tr>
     <tr><td class="paramname">position</td><td>The local coordinate.</td></tr>
     <tr><td class="paramname">direction</td><td>The door direction.</td></tr>
-    <tr><td class="paramname">door</td><td>The door.</td></tr>
+    <tr><td class="paramname">cell</td><td>The cell.</td></tr>
     <tr><td class="paramname">neighbor</td><td>The neighbor cell in the door direction. The neighbor can be null.</td></tr>
     <tr><td class="paramname">doorName</td><td>The door map tile name.</td></tr>
     <tr><td class="paramname">wallName</td><td>The wall map tile name. If null, the wall tile will not be used.</td></tr>
