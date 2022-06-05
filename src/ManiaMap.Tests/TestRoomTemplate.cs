@@ -279,21 +279,21 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
-        public void TestRotated90()
+        public void TestSquareRotated90()
         {
             var template = Samples.TemplateLibrary.Squares.Square2x2Template();
             Assert.IsTrue(template.CellValuesAreEqual(template.Rotated90()));
         }
 
         [TestMethod]
-        public void TestRotated180()
+        public void TestSquareRotated180()
         {
             var template = Samples.TemplateLibrary.Squares.Square2x2Template();
             Assert.IsTrue(template.CellValuesAreEqual(template.Rotated180()));
         }
 
         [TestMethod]
-        public void TestRotated270()
+        public void TestSquareRotated270()
         {
             var template1 = Samples.TemplateLibrary.Squares.Square2x2Template();
             var template2 = template1.Rotated270();
@@ -301,7 +301,7 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
-        public void TestMirroredHorizontally()
+        public void TestSquareMirroredHorizontally()
         {
             var template1 = Samples.TemplateLibrary.Squares.Square2x2Template();
             var template2 = template1.MirroredHorizontally();
@@ -309,7 +309,7 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
-        public void TestMirroredVertically()
+        public void TestSquareMirroredVertically()
         {
             var template = Samples.TemplateLibrary.Squares.Square2x2Template();
             Assert.IsTrue(template.CellValuesAreEqual(template.MirroredVertically()));
@@ -320,6 +320,158 @@ namespace MPewsey.ManiaMap.Tests
         {
             var template = Samples.TemplateLibrary.Squares.Square2x2Template();
             Assert.AreEqual(1, template.UniqueVariations().Count);
+        }
+
+        [TestMethod]
+        public void TestRotated90()
+        {
+            var x = Cell.Empty;
+            var o = Cell.New;
+            var a = Cell.New.SetDoors("NET", Door.TwoWay);
+            var b = Cell.New.SetDoors("SWB", Door.TwoWay);
+
+            var cells1 = new Cell[,]
+            {
+                { x, o, o, a },
+                { o, o, x, o },
+                { b, o, x, o },
+            };
+
+            var c = Cell.New.SetDoors("NWB", Door.TwoWay);
+            var d = Cell.New.SetDoors("SET", Door.TwoWay);
+
+            var cells2 = new Cell[,]
+            {
+                { c, o, x },
+                { o, o, o },
+                { x, x, o },
+                { o, o, d },
+            };
+
+            var template1 = new RoomTemplate(1, "Test1", cells1).Copy();
+            var template2 = new RoomTemplate(2, "Test2", cells2).Copy();
+            Assert.IsTrue(template2.CellValuesAreEqual(template1.Rotated90()));
+        }
+
+        [TestMethod]
+        public void TestRotated180()
+        {
+            var x = Cell.Empty;
+            var o = Cell.New;
+            var a = Cell.New.SetDoors("NET", Door.TwoWay);
+            var b = Cell.New.SetDoors("SWB", Door.TwoWay);
+
+            var cells1 = new Cell[,]
+            {
+                { x, o, o, a },
+                { o, o, x, o },
+                { b, o, x, o },
+            };
+
+            var c = Cell.New.SetDoors("NEB", Door.TwoWay);
+            var d = Cell.New.SetDoors("SWT", Door.TwoWay);
+
+            var cells2 = new Cell[,]
+            {
+                { o, x, o, c },
+                { o, x, o, o },
+                { d, o, o, x },
+            };
+
+            var template1 = new RoomTemplate(1, "Test1", cells1).Copy();
+            var template2 = new RoomTemplate(2, "Test2", cells2).Copy();
+            Assert.IsTrue(template2.CellValuesAreEqual(template1.Rotated180()));
+        }
+
+        [TestMethod]
+        public void TestRotated270()
+        {
+            var x = Cell.Empty;
+            var o = Cell.New;
+            var a = Cell.New.SetDoors("NET", Door.TwoWay);
+            var b = Cell.New.SetDoors("SWB", Door.TwoWay);
+
+            var cells1 = new Cell[,]
+            {
+                { x, o, o, a },
+                { o, o, x, o },
+                { b, o, x, o },
+            };
+
+            var c = Cell.New.SetDoors("NWT", Door.TwoWay);
+            var d = Cell.New.SetDoors("SEB", Door.TwoWay);
+
+            var cells2 = new Cell[,]
+            {
+                { c, o, o },
+                { o, x, x },
+                { o, o, o },
+                { x, o, d },
+            };
+
+            var template1 = new RoomTemplate(1, "Test1", cells1).Copy();
+            var template2 = new RoomTemplate(2, "Test2", cells2).Copy();
+            Assert.IsTrue(template2.CellValuesAreEqual(template1.Rotated270()));
+        }
+
+        [TestMethod]
+        public void TestMirroredHorizontally()
+        {
+            var x = Cell.Empty;
+            var o = Cell.New;
+            var a = Cell.New.SetDoors("NET", Door.TwoWay);
+            var b = Cell.New.SetDoors("SWB", Door.TwoWay);
+
+            var cells1 = new Cell[,]
+            {
+                { x, o, o, a },
+                { o, o, x, o },
+                { b, o, x, o },
+            };
+
+            var c = Cell.New.SetDoors("NWT", Door.TwoWay);
+            var d = Cell.New.SetDoors("SEB", Door.TwoWay);
+
+            var cells2 = new Cell[,]
+            {
+                { c, o, o, x },
+                { o, x, o, o },
+                { o, x, o, d },
+            };
+
+            var template1 = new RoomTemplate(1, "Test1", cells1).Copy();
+            var template2 = new RoomTemplate(2, "Test2", cells2).Copy();
+            Assert.IsTrue(template2.CellValuesAreEqual(template1.MirroredHorizontally()));
+        }
+
+        [TestMethod]
+        public void TestMirroredVertically()
+        {
+            var x = Cell.Empty;
+            var o = Cell.New;
+            var a = Cell.New.SetDoors("NET", Door.TwoWay);
+            var b = Cell.New.SetDoors("SWB", Door.TwoWay);
+
+            var cells1 = new Cell[,]
+            {
+                { x, o, o, a },
+                { o, o, x, o },
+                { b, o, x, o },
+            };
+
+            var c = Cell.New.SetDoors("NWB", Door.TwoWay);
+            var d = Cell.New.SetDoors("SET", Door.TwoWay);
+
+            var cells2 = new Cell[,]
+            {
+                { c, o, x, o },
+                { o, o, x, o },
+                { x, o, o, d },
+            };
+
+            var template1 = new RoomTemplate(1, "Test1", cells1).Copy();
+            var template2 = new RoomTemplate(2, "Test2", cells2).Copy();
+            Assert.IsTrue(template2.CellValuesAreEqual(template1.MirroredVertically()));
         }
     }
 }
