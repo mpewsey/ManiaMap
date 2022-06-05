@@ -227,12 +227,12 @@ namespace MPewsey.ManiaMap.Drawing
                         var east = cells.GetOrDefault(i, j + 1);
 
                         // Get the wall or door tiles
-                        var topTile = GetTile(room, position, DoorDirection.Top, cell.TopDoor, null, "TopDoor", null);
-                        var bottomTile = GetTile(room, position, DoorDirection.Bottom, cell.BottomDoor, null, "BottomDoor", null);
-                        var northTile = GetTile(room, position, DoorDirection.North, cell.NorthDoor, north, "NorthDoor", "NorthWall");
-                        var southTile = GetTile(room, position, DoorDirection.South, cell.SouthDoor, south, "SouthDoor", "SouthWall");
-                        var westTile = GetTile(room, position, DoorDirection.West, cell.WestDoor, west, "WestDoor", "WestWall");
-                        var eastTile = GetTile(room, position, DoorDirection.East, cell.EastDoor, east, "EastDoor", "EastWall");
+                        var topTile = GetTile(room, position, DoorDirection.Top, cell, null, "TopDoor", null);
+                        var bottomTile = GetTile(room, position, DoorDirection.Bottom, cell, null, "BottomDoor", null);
+                        var northTile = GetTile(room, position, DoorDirection.North, cell, north, "NorthDoor", "NorthWall");
+                        var southTile = GetTile(room, position, DoorDirection.South, cell, south, "SouthDoor", "SouthWall");
+                        var westTile = GetTile(room, position, DoorDirection.West, cell, west, "WestDoor", "WestWall");
+                        var eastTile = GetTile(room, position, DoorDirection.East, cell, east, "EastDoor", "EastWall");
 
                         // Add cell background fill
                         image.DrawImage(cellTile, point, 1);
@@ -271,15 +271,15 @@ namespace MPewsey.ManiaMap.Drawing
         /// <param name="room">The room.</param>
         /// <param name="position">The local coordinate.</param>
         /// <param name="direction">The door direction.</param>
-        /// <param name="door">The door.</param>
+        /// <param name="cell">The cell.</param>
         /// <param name="neighbor">The neighbor cell in the door direction. The neighbor can be null.</param>
         /// <param name="doorName">The door map tile name.</param>
         /// <param name="wallName">The wall map tile name. If null, the wall tile will not be used.</param>
         /// <returns></returns>
         private Image GetTile(Room room, Vector2DInt position, DoorDirection direction,
-            Door door, Cell neighbor, string doorName, string wallName)
+            Cell cell, Cell neighbor, string doorName, string wallName)
         {
-            if (door != null && DoorExists(room, position, direction))
+            if (cell.GetDoor(direction) != null && DoorExists(room, position, direction))
                 return Tiles[doorName];
             if (neighbor == null && wallName != null)
                 return Tiles[wallName];
