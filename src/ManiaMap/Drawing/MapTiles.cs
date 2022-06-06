@@ -26,23 +26,23 @@ namespace MPewsey.ManiaMap.Drawing
         /// <summary>
         /// Returns a dictionary of default map tiles.
         /// </summary>
-        public static Dictionary<string, Image> GetDefaultTiles()
+        public static Dictionary<MapTileType, Image> GetDefaultTiles()
         {
             const string path = "MPewsey.ManiaMap.Drawing.MapTiles.Default.";
 
-            return new Dictionary<string, Image>
+            return new Dictionary<MapTileType, Image>
             {
-                { "SouthDoor", LoadTile(path + "SouthDoor.png") },
-                { "NorthDoor", LoadTile(path + "NorthDoor.png") },
-                { "WestDoor", LoadTile(path + "WestDoor.png") },
-                { "EastDoor", LoadTile(path + "EastDoor.png") },
-                { "SouthWall", LoadTile(path + "SouthWall.png") },
-                { "NorthWall", LoadTile(path + "NorthWall.png") },
-                { "WestWall", LoadTile(path + "WestWall.png") },
-                { "EastWall", LoadTile(path + "EastWall.png") },
-                { "TopDoor", LoadTile(path + "TopDoor.png") },
-                { "BottomDoor", LoadTile(path + "BottomDoor.png") },
-                { "Grid", LoadTile(path + "Grid.png") },
+                { MapTileType.SouthDoor, LoadTile(path + "SouthDoor.png") },
+                { MapTileType.NorthDoor, LoadTile(path + "NorthDoor.png") },
+                { MapTileType.WestDoor, LoadTile(path + "WestDoor.png") },
+                { MapTileType.EastDoor, LoadTile(path + "EastDoor.png") },
+                { MapTileType.SouthWall, LoadTile(path + "SouthWall.png") },
+                { MapTileType.NorthWall, LoadTile(path + "NorthWall.png") },
+                { MapTileType.WestWall, LoadTile(path + "WestWall.png") },
+                { MapTileType.EastWall, LoadTile(path + "EastWall.png") },
+                { MapTileType.TopDoor, LoadTile(path + "TopDoor.png") },
+                { MapTileType.BottomDoor, LoadTile(path + "BottomDoor.png") },
+                { MapTileType.Grid, LoadTile(path + "Grid.png") },
             };
         }
     }
