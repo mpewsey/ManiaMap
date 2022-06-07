@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace MPewsey.ManiaMap.Samples
 {
@@ -61,6 +62,31 @@ namespace MPewsey.ManiaMap.Samples
             }
 
             return templateGroups;
+        }
+
+        /// <summary>
+        /// Generates the big layout using default parameters and returns the results.
+        /// </summary>
+        /// <param name="seed">The random seed.</param>
+        public static GenerationPipeline.Results Generate(int seed)
+        {
+            var random = new RandomSeed(seed);
+            var graph = GraphLibrary.BigGraph();
+            var templateGroups = BigLayoutTemplateGroups();
+            var collectableGroups = new CollectableGroups();
+            collectableGroups.Add("Default", Enumerable.Range(0, 10));
+
+            var inputs = new Dictionary<string, object>
+            {
+                { "LayoutId", 1 },
+                { "LayoutGraph", graph },
+                { "TemplateGroups", templateGroups },
+                { "CollectableGroups", collectableGroups },
+                { "RandomSeed", random },
+            };
+
+            var pipeline = GenerationPipeline.CreateDefaultPipeline();
+            return pipeline.Generate(inputs);
         }
     }
 }
