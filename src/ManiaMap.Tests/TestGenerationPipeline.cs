@@ -1,31 +1,20 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 
 namespace MPewsey.ManiaMap.Tests
 {
     [TestClass]
     public class TestGenerationPipeline
     {
-        [TestMethod]
-        public void TestDefaultPipelineGeneration()
+        [DataTestMethod]
+        [DataRow(12345)]
+        [DataRow(12355)]
+        [DataRow(12365)]
+        [DataRow(12375)]
+        [DataRow(12385)]
+        [DataRow(123456789)]
+        public void TestDefaultPipelineGeneration(int seed)
         {
-            var random = new RandomSeed(12345);
-            var graph = Samples.GraphLibrary.BigGraph();
-            var templateGroups = Samples.BigLayoutSample.BigLayoutTemplateGroups();
-            var collectableGroups = new CollectableGroups();
-            collectableGroups.Add("Default", new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
-
-            var inputs = new Dictionary<string, object>
-            {
-                { "LayoutId", 1 },
-                { "LayoutGraph", graph },
-                { "TemplateGroups", templateGroups },
-                { "CollectableGroups", collectableGroups },
-                { "RandomSeed", random },
-            };
-
-            var pipeline = GenerationPipeline.CreateDefaultPipeline();
-            var results = pipeline.Generate(inputs);
+            var results = Samples.BigLayoutSample.Generate(seed);
             Assert.IsTrue(results.Success);
             Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
         }
@@ -33,23 +22,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestSaveAndLoadPrettyXml()
         {
-            var random = new RandomSeed(12345);
-            var graph = Samples.GraphLibrary.BigGraph();
-            var templateGroups = Samples.BigLayoutSample.BigLayoutTemplateGroups();
-            var collectableGroups = new CollectableGroups();
-            collectableGroups.Add("Default", new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
-
-            var inputs = new Dictionary<string, object>
-            {
-                { "LayoutId", 1 },
-                { "LayoutGraph", graph },
-                { "TemplateGroups", templateGroups },
-                { "CollectableGroups", collectableGroups },
-                { "RandomSeed", random },
-            };
-
-            var pipeline = GenerationPipeline.CreateDefaultPipeline();
-            var results = pipeline.Generate(inputs);
+            var results = Samples.BigLayoutSample.Generate(12345);
             Assert.IsTrue(results.Success);
             Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
             var layout = (Layout)results.Outputs["Layout"];
@@ -62,23 +35,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestSaveAndLoadXml()
         {
-            var random = new RandomSeed(12345);
-            var graph = Samples.GraphLibrary.BigGraph();
-            var templateGroups = Samples.BigLayoutSample.BigLayoutTemplateGroups();
-            var collectableGroups = new CollectableGroups();
-            collectableGroups.Add("Default", new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
-
-            var inputs = new Dictionary<string, object>
-            {
-                { "LayoutId", 1 },
-                { "LayoutGraph", graph },
-                { "TemplateGroups", templateGroups },
-                { "CollectableGroups", collectableGroups },
-                { "RandomSeed", random },
-            };
-
-            var pipeline = GenerationPipeline.CreateDefaultPipeline();
-            var results = pipeline.Generate(inputs);
+            var results = Samples.BigLayoutSample.Generate(12345);
             Assert.IsTrue(results.Success);
             Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
             var layout = (Layout)results.Outputs["Layout"];
