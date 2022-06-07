@@ -76,8 +76,8 @@ var NAVTREEINDEX =
 "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#a6192266af2b43e7e406be4899c3abea8",
 "class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#ac0fd81226c45223c13a782c688d43f33",
 "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a7f188045e328920bb08707d17336fc6d",
-"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a73e599dd3ea9a2697baf83aab02b8938",
-"struct_m_pewsey_1_1_mania_map_1_1_template_pair.html#a7a7d40e121af038b438579a6be072be8"
+"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a734422bcfe81434f67ad0baaca90deb3",
+"struct_m_pewsey_1_1_mania_map_1_1_template_pair.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

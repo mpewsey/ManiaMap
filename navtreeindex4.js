@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a734422bcfe81434f67ad0baaca90deb3":[9,0,0,0,2,2,6],
+"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a73e599dd3ea9a2697baf83aab02b8938":[9,0,0,0,2,2,2],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a73e599dd3ea9a2697baf83aab02b8938":[8,0,0,0,2,2,2],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a76a0a8f65c5bbc6bbfd509fb1c78e9d6":[8,0,0,0,2,2,8],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a76a0a8f65c5bbc6bbfd509fb1c78e9d6":[9,0,0,0,2,2,8],
@@ -25,8 +27,8 @@ var NAVTREEINDEX4 =
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_miscellaneous.html#a9567f11246cdebe94a924e7962f184fe":[8,0,0,0,2,3,1,3],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_miscellaneous.html#ab16147b6a2009b22a5955f3c5ccadd8c":[9,0,0,0,2,3,1,4],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_miscellaneous.html#ab16147b6a2009b22a5955f3c5ccadd8c":[8,0,0,0,2,3,1,4],
-"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_rectangles.html":[8,0,0,0,2,3,2],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_rectangles.html":[9,0,0,0,2,3,2],
+"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_rectangles.html":[8,0,0,0,2,3,2],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_rectangles.html#a031e481415310e925d6f6fcfae1b3f1c":[8,0,0,0,2,3,2,4],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_rectangles.html#a031e481415310e925d6f6fcfae1b3f1c":[9,0,0,0,2,3,2,4],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_rectangles.html#a48d06106c782f83496195356456c9344":[8,0,0,0,2,3,2,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "struct_m_pewsey_1_1_mania_map_1_1_room_pair.html#aa1d599fbbe94783d3c90993a352c27f3":[8,0,0,0,36,1],
 "struct_m_pewsey_1_1_mania_map_1_1_room_pair.html#ab12d28cd7cabf571faeb9ba552864080":[9,0,0,0,36,0],
 "struct_m_pewsey_1_1_mania_map_1_1_room_pair.html#ab12d28cd7cabf571faeb9ba552864080":[8,0,0,0,36,0],
-"struct_m_pewsey_1_1_mania_map_1_1_template_pair.html":[8,0,0,0,41],
-"struct_m_pewsey_1_1_mania_map_1_1_template_pair.html":[9,0,0,0,41],
-"struct_m_pewsey_1_1_mania_map_1_1_template_pair.html#a7a7d40e121af038b438579a6be072be8":[8,0,0,0,41,1]
+"struct_m_pewsey_1_1_mania_map_1_1_template_pair.html":[8,0,0,0,41]
 };
