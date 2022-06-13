@@ -2,6 +2,7 @@
 
 ## v2.0.0
 * Change cell implementation.
+* Fix room template mirror and rotation error.
 
 ## v1.5.0
 * Changed the way that collectable spots are implemented. Unique ID's must now be unique to the room, not to the cell. This breaks compatibility with previous versions.
