@@ -37,16 +37,6 @@ var NAVTREE =
     [ "Layout Graph Selector Example", "index.html#autotoc_md13", null ],
     [ "Layout Graph Randomizer Example", "index.html#autotoc_md14", null ],
     [ "Generation Pipeline Example", "index.html#autotoc_md15", null ],
-    [ "Changelog", "md__github_workspace__c_h_a_n_g_e_l_o_g.html", [
-      [ "v2.0.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md17", null ],
-      [ "v1.5.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md18", null ],
-      [ "v1.4.1", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md19", null ],
-      [ "v1.4.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md20", null ],
-      [ "v1.3.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md21", null ],
-      [ "v1.2.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md22", null ],
-      [ "v1.1.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md23", null ],
-      [ "v1.0.0", "md__github_workspace__c_h_a_n_g_e_l_o_g.html#autotoc_md24", null ]
-    ] ],
     [ "Packages", "namespaces.html", [
       [ "Packages", "namespaces.html", "namespaces_dup" ],
       [ "Package Functions", "namespacemembers.html", [
@@ -77,7 +67,7 @@ var NAVTREEINDEX =
 "class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#ac0fd81226c45223c13a782c688d43f33",
 "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a7f188045e328920bb08707d17336fc6d",
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a734422bcfe81434f67ad0baaca90deb3",
-"struct_m_pewsey_1_1_mania_map_1_1_template_pair.html"
+"struct_m_pewsey_1_1_mania_map_1_1_uid.html#a290a5a34439678ba103690cab94f5e26"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
