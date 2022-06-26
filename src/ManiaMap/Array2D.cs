@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Text;
 
@@ -149,6 +150,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         /// <param name="row">The row index.</param>
         /// <param name="column">The column index.</param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool IndexExists(int row, int column)
         {
             return (uint)row < Rows && (uint)column < Columns;
@@ -159,6 +161,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         /// <param name="row">The row index.</param>
         /// <param name="column">The column index.</param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private int Index(int row, int column)
         {
             return row * Columns + column;
