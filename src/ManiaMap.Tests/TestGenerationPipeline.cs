@@ -36,6 +36,19 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
+        public void TestLoadXmlString()
+        {
+            var results = Samples.BigLayoutSample.Generate(12345);
+            Assert.IsTrue(results.Success);
+            Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
+            var layout = (Layout)results.Outputs["Layout"];
+
+            var xml = Serialization.GetPrettyXmlString(layout);
+            var copy = Serialization.LoadXmlString<Layout>(xml);
+            Assert.AreEqual(layout.Id, copy.Id);
+        }
+
+        [TestMethod]
         public void TestSaveAndLoadPrettyXml()
         {
             var results = Samples.BigLayoutSample.Generate(12345);

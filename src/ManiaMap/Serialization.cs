@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
 using System.Xml;
 
 namespace MPewsey.ManiaMap
@@ -97,7 +98,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Loads an object from a byte array using the DataContractSerializer.
         /// </summary>
-        /// <param name="bytes"></param>
+        /// <param name="bytes">The byte array.</param>
         public static T LoadXml<T>(byte[] bytes)
         {
             var serializer = new DataContractSerializer(typeof(T));
@@ -106,6 +107,15 @@ namespace MPewsey.ManiaMap
             {
                 return (T)serializer.ReadObject(stream);
             }
+        }
+
+        /// <summary>
+        /// Loads an object from an XML string using the DataContractSerializer.
+        /// </summary>
+        /// <param name="xml">The XML string.</param>
+        public static T LoadXmlString<T>(string xml)
+        {
+            return LoadXml<T>(Encoding.UTF8.GetBytes(xml));
         }
     }
 }
