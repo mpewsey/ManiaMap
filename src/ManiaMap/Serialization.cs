@@ -10,6 +10,43 @@ namespace MPewsey.ManiaMap
     public static class Serialization
     {
         /// <summary>
+        /// Returns a new instance of XML writer settings for pretty printing.
+        /// </summary>
+        private static XmlWriterSettings PrettyXmlWriterSettings()
+        {
+            return new XmlWriterSettings
+            {
+                Indent = true,
+                IndentChars = "\t",
+                NewLineChars = "\n",
+            };
+        }
+
+        /// <summary>
+        /// Returns the pretty XML string for the object.
+        /// </summary>
+        /// <param name="graph">The object for serialization.</param>
+        public static string GetPrettyXmlString<T>(T graph)
+        {
+            var serializer = new DataContractSerializer(typeof(T));
+
+            using (var stream = new MemoryStream())
+            {
+                using (var writer = XmlWriter.Create(stream, PrettyXmlWriterSettings()))
+                {
+                    serializer.WriteObject(writer, graph);
+                }
+
+                stream.Seek(0, SeekOrigin.Begin);
+
+                using (var reader = new StreamReader(stream))
+                {
+                    return reader.ReadToEnd();
+                }
+            }
+        }
+
+        /// <summary>
         /// Saves the object to the file path using the DataContractSerializer.
         /// The saved file includes tabs and new lines.
         /// </summary>
@@ -18,16 +55,10 @@ namespace MPewsey.ManiaMap
         public static void SavePrettyXml<T>(string path, T graph)
         {
             var serializer = new DataContractSerializer(typeof(T));
-            var settings = new XmlWriterSettings
-            {
-                Indent = true,
-                IndentChars = "\t",
-                NewLineChars = "\n",
-            };
 
             using (var stream = File.Create(path))
             {
-                using (var writer = XmlWriter.Create(stream, settings))
+                using (var writer = XmlWriter.Create(stream, PrettyXmlWriterSettings()))
                 {
                     serializer.WriteObject(writer, graph);
                 }

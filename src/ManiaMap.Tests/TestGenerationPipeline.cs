@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
 
 namespace MPewsey.ManiaMap.Tests
 {
@@ -17,6 +18,21 @@ namespace MPewsey.ManiaMap.Tests
             var results = Samples.BigLayoutSample.Generate(seed);
             Assert.IsTrue(results.Success);
             Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
+        }
+
+        [TestMethod]
+        public void TestGetPrettyXmlString()
+        {
+            var results = Samples.BigLayoutSample.Generate(12345);
+            Assert.IsTrue(results.Success);
+            Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
+            var layout = (Layout)results.Outputs["Layout"];
+            var path = "BigLayoutPrettyPrint.xml";
+            Serialization.SavePrettyXml(path, layout);
+
+            var text1 = File.ReadAllText(path);
+            var text2 = Serialization.GetPrettyXmlString(layout);
+            Assert.AreEqual(text1, text2);
         }
 
         [TestMethod]
