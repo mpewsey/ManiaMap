@@ -12,7 +12,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a new instance of XML writer settings for pretty printing.
         /// </summary>
-        private static XmlWriterSettings PrettyXmlWriterSettings()
+        public static XmlWriterSettings PrettyXmlWriterSettings()
         {
             return new XmlWriterSettings
             {
