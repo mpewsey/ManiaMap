@@ -27,13 +27,14 @@ namespace MPewsey.ManiaMap
         /// Returns the pretty XML string for the object.
         /// </summary>
         /// <param name="graph">The object for serialization.</param>
-        public static string GetPrettyXmlString<T>(T graph)
+        /// <param name="settings">The XML writer settings.</param>
+        public static string GetXmlString<T>(T graph, XmlWriterSettings settings)
         {
             var serializer = new DataContractSerializer(typeof(T));
 
             using (var stream = new MemoryStream())
             {
-                using (var writer = XmlWriter.Create(stream, PrettyXmlWriterSettings()))
+                using (var writer = XmlWriter.Create(stream, settings))
                 {
                     serializer.WriteObject(writer, graph);
                 }
@@ -48,6 +49,15 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns the pretty XML string for the object.
+        /// </summary>
+        /// <param name="graph">The object for serialization.</param>
+        public static string GetPrettyXmlString<T>(T graph)
+        {
+            return GetXmlString(graph, PrettyXmlWriterSettings());
+        }
+
+        /// <summary>
         /// Saves the object to the file path using the DataContractSerializer.
         /// The saved file includes tabs and new lines.
         /// </summary>
@@ -55,15 +65,7 @@ namespace MPewsey.ManiaMap
         /// <param name="graph">The object for serialization.</param>
         public static void SavePrettyXml<T>(string path, T graph)
         {
-            var serializer = new DataContractSerializer(typeof(T));
-
-            using (var stream = File.Create(path))
-            {
-                using (var writer = XmlWriter.Create(stream, PrettyXmlWriterSettings()))
-                {
-                    serializer.WriteObject(writer, graph);
-                }
-            }
+            SaveXml(path, graph, PrettyXmlWriterSettings());
         }
 
         /// <summary>
@@ -78,6 +80,25 @@ namespace MPewsey.ManiaMap
             using (var stream = File.Create(path))
             {
                 serializer.WriteObject(stream, graph);
+            }
+        }
+
+        /// <summary>
+        /// Saves the object to the file path using the DataContractSerializer.
+        /// </summary>
+        /// <param name="path">The save file path.</param>
+        /// <param name="graph">The object for serialization.</param>
+        /// <param name="settings">The XML writer settings.</param>
+        public static void SaveXml<T>(string path, T graph, XmlWriterSettings settings)
+        {
+            var serializer = new DataContractSerializer(typeof(T));
+
+            using (var stream = File.Create(path))
+            {
+                using (var writer = XmlWriter.Create(stream, settings))
+                {
+                    serializer.WriteObject(writer, graph);
+                }
             }
         }
 
