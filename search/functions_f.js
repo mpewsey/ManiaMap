@@ -2,7 +2,7 @@ var searchData=
 [
   ['saveimages_0',['SaveImages',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a5d73e9a59699dda5b96cf5a59d1a177d',1,'MPewsey::ManiaMap::Drawing::LayoutMap']]],
   ['saveprettyxml_3c_20t_20_3e_1',['SavePrettyXml&lt; T &gt;',['../class_m_pewsey_1_1_mania_map_1_1_serialization.html#a7145ad5abd17aab39fac2ed44781687a',1,'MPewsey::ManiaMap::Serialization']]],
-  ['savexml_3c_20t_20_3e_2',['SaveXml&lt; T &gt;',['../class_m_pewsey_1_1_mania_map_1_1_serialization.html#ad4924b1da1ba72c78697c5dbd16592e3',1,'MPewsey::ManiaMap::Serialization']]],
+  ['savexml_3c_20t_20_3e_2',['SaveXml&lt; T &gt;',['../class_m_pewsey_1_1_mania_map_1_1_serialization.html#ad4924b1da1ba72c78697c5dbd16592e3',1,'MPewsey.ManiaMap.Serialization.SaveXml&lt; T &gt;(string path, T graph)'],['../class_m_pewsey_1_1_mania_map_1_1_serialization.html#accb62dfd29f8fc0199b600ae0d8dda66',1,'MPewsey.ManiaMap.Serialization.SaveXml&lt; T &gt;(string path, T graph, XmlWriterSettings settings)']]],
   ['searchcelldistances_3',['SearchCellDistances',['../class_m_pewsey_1_1_mania_map_1_1_cell_distance_search.html#a7145c8a8d911a1f76a2ad290220f15d1',1,'MPewsey::ManiaMap::CellDistanceSearch']]],
   ['searchneighbors_4',['SearchNeighbors',['../class_m_pewsey_1_1_mania_map_1_1_graph_cluster_search.html#a46342db4220ac6cb8e4c78637338e352',1,'MPewsey::ManiaMap::GraphClusterSearch']]],
   ['setcode_5',['SetCode',['../class_m_pewsey_1_1_mania_map_1_1_door.html#aca3fe7bd086df7071be545d5a67fcc7d',1,'MPewsey::ManiaMap::Door']]],

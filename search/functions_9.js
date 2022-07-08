@@ -16,6 +16,7 @@ var searchData=
   ['lettertemplategroups_13',['LetterTemplateGroups',['../class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a734422bcfe81434f67ad0baaca90deb3',1,'MPewsey::ManiaMap::Samples::ManiaMapSample']]],
   ['loadtile_14',['LoadTile',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_map_tiles.html#af2540330a4091473cc4596315ef46763',1,'MPewsey::ManiaMap::Drawing::MapTiles']]],
   ['loadxml_3c_20t_20_3e_15',['LoadXml&lt; T &gt;',['../class_m_pewsey_1_1_mania_map_1_1_serialization.html#aabed96dd1d7ad18f35770ddfc0637bf9',1,'MPewsey.ManiaMap.Serialization.LoadXml&lt; T &gt;(string path)'],['../class_m_pewsey_1_1_mania_map_1_1_serialization.html#a373a063efdfa5e6c122c9ce1a3d4fb19',1,'MPewsey.ManiaMap.Serialization.LoadXml&lt; T &gt;(byte[] bytes)']]],
-  ['loopgraph_16',['LoopGraph',['../class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#a06206416ebb982056e107e93b28c762e',1,'MPewsey::ManiaMap::Samples::GraphLibrary']]],
-  ['ltemplate_17',['LTemplate',['../class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_miscellaneous.html#a6948fae06e475642d9fc86bd8625a4ee',1,'MPewsey::ManiaMap::Samples::TemplateLibrary::Miscellaneous']]]
+  ['loadxmlstring_3c_20t_20_3e_16',['LoadXmlString&lt; T &gt;',['../class_m_pewsey_1_1_mania_map_1_1_serialization.html#a3ff382899cd63db03587396259780840',1,'MPewsey::ManiaMap::Serialization']]],
+  ['loopgraph_17',['LoopGraph',['../class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#a06206416ebb982056e107e93b28c762e',1,'MPewsey::ManiaMap::Samples::GraphLibrary']]],
+  ['ltemplate_18',['LTemplate',['../class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_miscellaneous.html#a6948fae06e475642d9fc86bd8625a4ee',1,'MPewsey::ManiaMap::Samples::TemplateLibrary::Miscellaneous']]]
 ];
