@@ -14,7 +14,7 @@
     <RepositoryUrl>https://github.com/mpewsey/ManiaMap</RepositoryUrl>
     <PackageTags>procedural-generation;roguelike;metroidvania;videogames</PackageTags>
     <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
-	<VersionPrefix>2.0.0</VersionPrefix>
+	<VersionPrefix>2.0.1</VersionPrefix>
 	<Configurations>Debug;Release;Unity</Configurations>
 	<PackageProjectUrl>https://mpewsey.github.io/ManiaMap/</PackageProjectUrl>
   </PropertyGroup>
