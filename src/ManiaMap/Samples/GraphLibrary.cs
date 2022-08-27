@@ -192,5 +192,31 @@ namespace MPewsey.ManiaMap.Samples
 
             return graph;
         }
+
+        /// <summary>
+        /// Returns a simple ring graph with required directed edges.
+        /// </summary>
+        public static LayoutGraph DirectedRingGraph()
+        {
+            var graph = new LayoutGraph(6, "DirectedRingGraph");
+
+            graph.AddEdge(0, 1).SetDirection(EdgeDirection.ForwardFixed).SetRoomChance(1).SetRequireRoom(true);
+            graph.AddEdge(1, 2);
+            graph.AddEdge(2, 3);
+            graph.AddEdge(3, 4);
+            graph.AddEdge(0, 4).SetDirection(EdgeDirection.ReverseFixed).SetRoomChance(1).SetRequireRoom(true);
+
+            foreach (var edge in graph.GetEdges())
+            {
+                edge.TemplateGroup = "Edges";
+            }
+
+            foreach (var node in graph.GetNodes())
+            {
+                node.TemplateGroup = "Nodes";
+            }
+
+            return graph;
+        }
     }
 }

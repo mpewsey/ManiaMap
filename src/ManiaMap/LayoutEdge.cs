@@ -57,12 +57,20 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 7)]
         public float RoomChance { get; set; }
 
-        /// <inheritdoc>
+        /// <summary>
+        /// If true, in order to form a valid layout, a room must be added for this edge
+        /// if the room chance is satisfied. Otherwise, the room may be skipped if adding
+        /// an edge for the room fails.
+        /// </summary>
         [DataMember(Order = 8)]
-        public Color Color { get; set; } = Color.MidnightBlue;
+        public bool RequireRoom { get; set; }
 
         /// <inheritdoc>
         [DataMember(Order = 9)]
+        public Color Color { get; set; } = Color.MidnightBlue;
+
+        /// <inheritdoc>
+        [DataMember(Order = 10)]
         public string TemplateGroup { get; set; }
 
         /// <inheritdoc>
@@ -205,6 +213,16 @@ namespace MPewsey.ManiaMap
         public LayoutEdge SetRoomChance(float chance)
         {
             RoomChance = chance;
+            return this;
+        }
+
+        /// <summary>
+        /// Sets whether a room is required for the edge and returns the edge.
+        /// </summary>
+        /// <param name="value">Whether a room is required for the edge.</param>
+        public LayoutEdge SetRequireRoom(bool value)
+        {
+            RequireRoom = value;
             return this;
         }
 

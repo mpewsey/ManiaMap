@@ -252,6 +252,14 @@ namespace MPewsey.ManiaMap
             var addedBackEdgeRoom = addBackEdgeRoom && AddRoom(backEdge, backNode.RoomId, backEdge.DoorCode, backEdge.Direction);
             var addedAheadEdgeRoom = addAheadEdgeRoom && AddRoom(aheadEdge, aheadNode.RoomId, aheadEdge.DoorCode, LayoutEdge.ReverseEdgeDirection(aheadEdge.Direction));
 
+            // If a back edge room is required and was not added, abort.
+            if (!addedBackEdgeRoom && addBackEdgeRoom && backEdge.RequireRoom)
+                return false;
+
+            // If an ahead edge room is required and was not added, abort.
+            if (!addedAheadEdgeRoom && addAheadEdgeRoom && aheadEdge.RequireRoom)
+                return false;
+
             // Try to insert the node room.
             var backRoomId = addedBackEdgeRoom ? backEdge.RoomId : backNode.RoomId;
             var aheadRoomId = addedAheadEdgeRoom ? aheadEdge.RoomId : aheadNode.RoomId;
@@ -283,6 +291,10 @@ namespace MPewsey.ManiaMap
 
             // Try to add a room for the edge.
             var addedEdgeRoom = addEdgeRoom && AddRoom(edge, fromNode.RoomId, edge.DoorCode, edge.Direction);
+
+            // If an edge room is required and was not added, abort.
+            if (!addedEdgeRoom && addEdgeRoom && edge.RequireRoom)
+                return false;
 
             // Try to add a room for the to node.
             var fromRoomId = addedEdgeRoom ? edge.RoomId : fromNode.RoomId;
