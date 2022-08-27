@@ -217,6 +217,16 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Sets whether a room is required for the edge and returns the edge.
+        /// </summary>
+        /// <param name="value">Whether a room is required for the edge.</param>
+        public LayoutEdge SetRequireRoom(bool value)
+        {
+            RequireRoom = value;
+            return this;
+        }
+
+        /// <summary>
         /// Sets the Z value of the edge and returns the edge.
         /// </summary>
         /// <param name="z">The z value.</param>

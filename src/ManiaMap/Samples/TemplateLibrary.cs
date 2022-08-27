@@ -187,6 +187,22 @@
 
                 return new RoomTemplate(102, "Square3x3", cells).Copy();
             }
+
+            /// <summary>
+            /// Returns a 1x1 square template with two way doors in all planar directions, except
+            /// the north, which has a one way exit.
+            /// </summary>
+            public static RoomTemplate Square1x1NorthExitTemplate()
+            {
+                var o = Cell.New.SetDoors("WES", Door.OneWayEntrance).SetDoors("N", Door.OneWayExit);
+
+                var cells = new Cell[,]
+                {
+                    { o },
+                };
+
+                return new RoomTemplate(103, "Square1x1NorthExitTemplate", cells);
+            }
         }
 
         /// <summary>

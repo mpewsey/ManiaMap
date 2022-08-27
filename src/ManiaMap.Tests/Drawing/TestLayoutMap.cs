@@ -119,5 +119,24 @@ namespace MPewsey.ManiaMap.Drawing.Tests
             var map = new LayoutMap();
             map.SaveImages("BigLayoutMap.png", layout);
         }
+
+        [TestMethod]
+        public void TestDirectedRingLayout()
+        {
+            var graph = Samples.GraphLibrary.DirectedRingGraph();
+
+            var templateGroups = new TemplateGroups();
+            templateGroups.Add("Nodes", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
+            templateGroups.Add("Edges", Samples.TemplateLibrary.Squares.Square1x1NorthExitTemplate().AllVariations());
+
+            var generator = new LayoutGenerator();
+            var random = new RandomSeed(12345);
+            var layout = generator.Generate(1, graph, templateGroups, random);
+
+            Assert.IsNotNull(layout);
+
+            var map = new LayoutMap();
+            map.SaveImages("DirectedRingLayout.png", layout);
+        }
     }
 }

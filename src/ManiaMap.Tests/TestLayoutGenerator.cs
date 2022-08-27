@@ -161,5 +161,30 @@ namespace MPewsey.ManiaMap.Tests
             var layout = generator.Generate(1, graph, templateGroups, random);
             Assert.IsNotNull(layout);
         }
+
+        [TestMethod]
+        public void TestDirectedRingLayout()
+        {
+            var graph = Samples.GraphLibrary.DirectedRingGraph();
+
+            var templateGroups = new TemplateGroups();
+            templateGroups.Add("Nodes", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
+            templateGroups.Add("Edges", Samples.TemplateLibrary.Squares.Square1x1NorthExitTemplate().AllVariations());
+
+            var generator = new LayoutGenerator();
+            var random = new RandomSeed(12345);
+            var layout = generator.Generate(1, graph, templateGroups, random);
+
+            Assert.IsNotNull(layout);
+
+            Console.WriteLine("Rooms:");
+            Console.WriteLine(string.Join("\n", layout.Rooms.Values));
+
+            Console.WriteLine("\nDoor Connections:");
+            Console.WriteLine(string.Join("\n", layout.DoorConnections));
+
+            Assert.AreEqual(graph.NodeCount + 2, layout.Rooms.Count);
+            Assert.AreEqual(graph.EdgeCount + 2, layout.DoorConnections.Count);
+        }
     }
 }
