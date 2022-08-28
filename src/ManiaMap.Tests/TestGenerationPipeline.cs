@@ -89,7 +89,7 @@ namespace MPewsey.ManiaMap.Tests
             random.NextBytes(key);
 
             Serialization.SaveEncryptedXml(path, layout, key);
-            Console.WriteLine(Serialization.DecryptFile(path, key).Replace("><", ">\n<"));
+            Console.WriteLine(Serialization.DecryptTextFile(path, key).Replace("><", ">\n<"));
             var copy = Serialization.LoadEncryptedXml<Layout>(path, key);
             Assert.AreEqual(layout.Id, copy.Id);
         }
