@@ -1,5 +1,11 @@
 var NAVTREEINDEX5 =
 {
+"struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html":[9,0,0,0,17],
+"struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html#a2fec8a09e3e53fae0051288f4d9c8921":[8,0,0,0,17,1],
+"struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html#a2fec8a09e3e53fae0051288f4d9c8921":[9,0,0,0,17,1],
+"struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html#a3bffbdf622f9778818c2b4a872fd6ce0":[8,0,0,0,17,0],
+"struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html#a3bffbdf622f9778818c2b4a872fd6ce0":[9,0,0,0,17,0],
+"struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html#a421409bcd4bbb06eaafba21fd0371467":[9,0,0,0,17,2],
 "struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html#a421409bcd4bbb06eaafba21fd0371467":[8,0,0,0,17,2],
 "struct_m_pewsey_1_1_mania_map_1_1_room_pair.html":[8,0,0,0,36],
 "struct_m_pewsey_1_1_mania_map_1_1_room_pair.html":[9,0,0,0,36],
