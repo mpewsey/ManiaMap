@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.IO;
 
 namespace MPewsey.ManiaMap.Tests
@@ -71,6 +72,25 @@ namespace MPewsey.ManiaMap.Tests
             var path = "BigLayout.xml";
             Serialization.SaveXml(path, layout);
             var copy = Serialization.LoadXml<Layout>(path);
+            Assert.AreEqual(layout.Id, copy.Id);
+        }
+
+        [TestMethod]
+        public void TestSaveAndLoadEncryptedXml()
+        {
+            var results = Samples.BigLayoutSample.Generate(12345);
+            Assert.IsTrue(results.Success);
+            Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
+            var layout = (Layout)results.Outputs["Layout"];
+            var path = "BigLayout.sav";
+
+            var key = new byte[32];
+            var random = new Random(12345);
+            random.NextBytes(key);
+
+            Serialization.SaveEncryptedXml(path, layout, key);
+            Console.WriteLine(Serialization.DecryptFile(path, key).Replace("><", ">\n<"));
+            var copy = Serialization.LoadEncryptedXml<Layout>(path, key);
             Assert.AreEqual(layout.Id, copy.Id);
         }
     }

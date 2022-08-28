@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Runtime.Serialization;
+using System.Security.Cryptography;
 using System.Text;
 using System.Xml;
 
@@ -137,6 +138,72 @@ namespace MPewsey.ManiaMap
         public static T LoadXmlString<T>(string xml)
         {
             return LoadXml<T>(Encoding.UTF8.GetBytes(xml));
+        }
+
+        /// <summary>
+        /// Returns the decrypted text for the file at the specified path.
+        /// </summary>
+        /// <param name="path">The fil path.</param>
+        /// <param name="key">The secret key.</param>
+        public static string DecryptFile(string path, byte[] key)
+        {
+            using (var stream = File.OpenRead(path))
+            using (var algorithm = Aes.Create())
+            {
+                var iv = new byte[algorithm.IV.Length];
+                stream.Read(iv, 0, iv.Length);
+
+                using (var encryptor = algorithm.CreateDecryptor(key, iv))
+                using (var crypto = new CryptoStream(stream, encryptor, CryptoStreamMode.Read))
+                using (var reader = new StreamReader(crypto))
+                {
+                    return reader.ReadToEnd();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Serializes and encrypts and object to the specified file.
+        /// </summary>
+        /// <param name="path">The file path.</param>
+        /// <param name="graph">The object.</param>
+        /// <param name="key">The private key.</param>
+        public static void SaveEncryptedXml<T>(string path, T graph, byte[] key)
+        {
+            var serializer = new DataContractSerializer(typeof(T));
+
+            using (var stream = File.Create(path))
+            using (var algorithm = Aes.Create())
+            using (var encryptor = algorithm.CreateEncryptor(key, algorithm.IV))
+            using (var crypto = new CryptoStream(stream, encryptor, CryptoStreamMode.Write))
+            {
+                stream.Write(algorithm.IV, 0, algorithm.IV.Length);
+                serializer.WriteObject(crypto, graph);
+            }
+        }
+
+        /// <summary>
+        /// Decrypts and deserializes an object from the specified file.
+        /// </summary>
+        /// <param name="path">The file path.</param>
+        /// <param name="graph">The object.</param>
+        /// <param name="key">The private key.</param>
+        public static T LoadEncryptedXml<T>(string path, byte[] key)
+        {
+            var serializer = new DataContractSerializer(typeof(T));
+
+            using (var stream = File.OpenRead(path))
+            using (var algorithm = Aes.Create())
+            {
+                var iv = new byte[algorithm.IV.Length];
+                stream.Read(iv, 0, iv.Length);
+
+                using (var encryptor = algorithm.CreateDecryptor(key, iv))
+                using (var crypto = new CryptoStream(stream, encryptor, CryptoStreamMode.Read))
+                {
+                    return (T)serializer.ReadObject(crypto);
+                }
+            }
         }
     }
 }
