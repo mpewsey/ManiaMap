@@ -213,7 +213,7 @@ namespace MPewsey.ManiaMap.Drawing
                             continue;
 
                         // If room state is defined and is not visible, go to next cell.
-                        if (roomState != null && !roomState.VisibleIndexes.Contains(position))
+                        if (roomState != null && !roomState.CellIsVisible(position))
                             continue;
 
                         // Calculate draw position

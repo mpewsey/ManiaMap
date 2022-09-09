@@ -92,10 +92,9 @@ namespace MPewsey.ManiaMap.Drawing.Tests
                 {
                     for (int j = 0; j < cells.Columns; j++)
                     {
-                        if (random.NextDouble() > 0.3)
-                        {
-                            roomState.VisibleIndexes.Add(new Vector2DInt(i, j));
-                        }
+                        var index = new Vector2DInt(i, j);
+                        var visibility = random.NextDouble() > 0.3;
+                        Assert.IsTrue(roomState.SetCellVisibility(index, visibility));
                     }
                 }
             }
