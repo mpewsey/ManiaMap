@@ -24,8 +24,17 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A dictionary of doors.
         /// </summary>
-        [DataMember(Order = 1)]
         public Dictionary<DoorDirection, Door> Doors { get; set; } = new Dictionary<DoorDirection, Door>();
+
+        /// <summary>
+        /// An enumerable of door and direction pairs.
+        /// </summary>
+        [DataMember(Order = 1)]
+        public IEnumerable<DoorDirectionPair> DoorDirectionPairs
+        {
+            get => Doors.Select(x => new DoorDirectionPair(x.Key, x.Value));
+            set => Doors = value.ToDictionary(x => x.Direction, x => x.Door);
+        }
 
         /// <summary>
         /// A dictionary of collectable group names by location ID.
