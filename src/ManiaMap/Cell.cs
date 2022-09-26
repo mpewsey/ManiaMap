@@ -30,17 +30,26 @@ namespace MPewsey.ManiaMap
         /// An enumerable of door and direction pairs.
         /// </summary>
         [DataMember(Order = 1)]
-        public IEnumerable<DoorDirectionPair> DoorDirectionPairs
+        public IEnumerable<DoorEntry> DoorEntries
         {
-            get => Doors.Select(x => new DoorDirectionPair(x.Key, x.Value));
+            get => Doors.Select(x => new DoorEntry(x.Key, x.Value));
             set => Doors = value.ToDictionary(x => x.Direction, x => x.Door);
         }
 
         /// <summary>
         /// A dictionary of collectable group names by location ID.
         /// </summary>
-        [DataMember(Order = 2)]
         public Dictionary<int, string> CollectableSpots { get; set; } = new Dictionary<int, string>();
+
+        /// <summary>
+        /// An enumerable of collectable spot groups and location ID's.
+        /// </summary>
+        [DataMember(Order = 2)]
+        public IEnumerable<CollectableEntry> CollectableSpotEntries
+        {
+            get => CollectableSpots.Select(x => new CollectableEntry(x.Key, x.Value));
+            set => CollectableSpots = value.ToDictionary(x => x.LocationId, x => x.Group);
+        }
 
         /// <summary>
         /// The west door. Set to null if no door exists.

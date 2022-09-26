@@ -23,6 +23,15 @@ namespace MPewsey.ManiaMap
         public Dictionary<Uid, RoomState> RoomStates { get; private set; } = new Dictionary<Uid, RoomState>();
 
         /// <summary>
+        /// An enumerable of room state values.
+        /// </summary>
+        public IEnumerable<RoomState> RoomStateEntries
+        {
+            get => RoomStates.Values;
+            set => RoomStates = value.ToDictionary(x => x.Id, x => x);
+        }
+
+        /// <summary>
         /// Initializes an object from a layout.
         /// </summary>
         /// <param name="layout">The layout.</param>

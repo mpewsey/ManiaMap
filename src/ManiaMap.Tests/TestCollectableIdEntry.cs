@@ -3,13 +3,13 @@
 namespace MPewsey.ManiaMap.Tests
 {
     [TestClass]
-    public class TestDoorDirectionPair
+    public class TestCollectableIdEntry
     {
         [TestMethod]
         public void TestToString()
         {
-            var obj = new DoorDirectionPair(DoorDirection.West, Door.TwoWay);
-            Assert.IsTrue(obj.ToString().StartsWith("DoorDirectionPair("));
+            var obj = new CollectableIdEntry(1, 2);
+            Assert.IsTrue(obj.ToString().StartsWith("CollectableIdEntry("));
         }
     }
 }

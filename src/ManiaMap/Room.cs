@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -49,8 +50,17 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A dictionary of collectable object ID's by location ID.
         /// </summary>
-        [DataMember(Order = 8)]
         public Dictionary<int, int> Collectables { get; private set; } = new Dictionary<int, int>();
+
+        /// <summary>
+        /// An enumerable of collectable ID and location ID's.
+        /// </summary>
+        [DataMember(Order = 8)]
+        public IEnumerable<CollectableIdEntry> CollectableIdEntries
+        {
+            get => Collectables.Select(x => new CollectableIdEntry(x.Key, x.Value));
+            set => Collectables = value.ToDictionary(x => x.LocationId, x => x.CollectableId);
+        }
 
         /// <summary>
         /// Initializes a room from a room source.
