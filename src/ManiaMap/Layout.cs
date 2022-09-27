@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -32,14 +33,32 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A dictionary of rooms in the layout by ID.
         /// </summary>
-        [DataMember(Order = 3)]
         public Dictionary<Uid, Room> Rooms { get; private set; } = new Dictionary<Uid, Room>();
+
+        /// <summary>
+        /// An enumerable of rooms.
+        /// </summary>
+        [DataMember(Order = 3)]
+        protected IEnumerable<Room> RoomEntries
+        {
+            get => Rooms.Values;
+            set => Rooms = value.ToDictionary(x => x.Id, x => x);
+        }
 
         /// <summary>
         /// A dictionary of door connections by room ID pairs.
         /// </summary>
-        [DataMember(Order = 4)]
         public Dictionary<RoomPair, DoorConnection> DoorConnections { get; private set; } = new Dictionary<RoomPair, DoorConnection>();
+
+        /// <summary>
+        /// An enumerable of door connections.
+        /// </summary>
+        [DataMember(Order = 4)]
+        protected IEnumerable<DoorConnection> DoorConnectionEntries
+        {
+            get => DoorConnections.Values;
+            set => DoorConnections = value.ToDictionary(x => new RoomPair(x.FromRoom, x.ToRoom), x => x);
+        }
 
         /// <summary>
         /// The current number of times the layout has been used as a base for another layout.
