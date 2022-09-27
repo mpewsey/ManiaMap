@@ -24,14 +24,32 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A set of acquired collectable location ID's.
         /// </summary>
-        [DataMember(Order = 3)]
         public HashSet<int> AcquiredCollectables { get; private set; } = new HashSet<int>();
+
+        /// <summary>
+        /// An enumerable of acquired collectable location ID's.
+        /// </summary>
+        [DataMember(Order = 3)]
+        protected IEnumerable<int> AcquiredCollectableIds
+        {
+            get => AcquiredCollectables;
+            set => AcquiredCollectables = new HashSet<int>(value);
+        }
 
         /// <summary>
         /// A set of flags that are set for a room.
         /// </summary>
-        [DataMember(Order = 4)]
         public HashSet<int> Flags { get; private set; } = new HashSet<int>();
+
+        /// <summary>
+        /// An enumerable of flags that are set for the room.
+        /// </summary>
+        [DataMember(Order = 4)]
+        protected IEnumerable<int> FlagIds
+        {
+            get => Flags;
+            set => Flags = new HashSet<int>(value);
+        }
 
         /// <summary>
         /// Initializes from a room.

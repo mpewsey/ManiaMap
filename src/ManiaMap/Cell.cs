@@ -30,7 +30,7 @@ namespace MPewsey.ManiaMap
         /// An enumerable of door and direction pairs.
         /// </summary>
         [DataMember(Order = 1)]
-        public IEnumerable<DoorEntry> DoorEntries
+        protected IEnumerable<DoorEntry> DoorEntries
         {
             get => Doors.Select(x => new DoorEntry(x.Key, x.Value));
             set => Doors = value.ToDictionary(x => x.Direction, x => x.Door);
@@ -45,7 +45,7 @@ namespace MPewsey.ManiaMap
         /// An enumerable of collectable spot groups and location ID's.
         /// </summary>
         [DataMember(Order = 2)]
-        public IEnumerable<CollectableEntry> CollectableSpotEntries
+        protected IEnumerable<CollectableEntry> CollectableSpotEntries
         {
             get => CollectableSpots.Select(x => new CollectableEntry(x.Key, x.Value));
             set => CollectableSpots = value.ToDictionary(x => x.LocationId, x => x.Group);

@@ -39,7 +39,7 @@ namespace MPewsey.ManiaMap
         /// An enumerable of rooms.
         /// </summary>
         [DataMember(Order = 3)]
-        public IEnumerable<Room> RoomEntries
+        protected IEnumerable<Room> RoomEntries
         {
             get => Rooms.Values;
             set => Rooms = value.ToDictionary(x => x.Id, x => x);
@@ -54,7 +54,7 @@ namespace MPewsey.ManiaMap
         /// An enumerable of door connections.
         /// </summary>
         [DataMember(Order = 4)]
-        public IEnumerable<DoorConnection> DoorConnectionEntries
+        protected IEnumerable<DoorConnection> DoorConnectionEntries
         {
             get => DoorConnections.Values;
             set => DoorConnections = value.ToDictionary(x => new RoomPair(x.FromRoom, x.ToRoom), x => x);

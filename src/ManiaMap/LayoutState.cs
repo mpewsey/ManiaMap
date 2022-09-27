@@ -25,7 +25,7 @@ namespace MPewsey.ManiaMap
         /// An enumerable of room state values.
         /// </summary>
         [DataMember(Order = 1)]
-        public IEnumerable<RoomState> RoomStateEntries
+        protected IEnumerable<RoomState> RoomStateEntries
         {
             get => RoomStates.Values;
             set => RoomStates = value.ToDictionary(x => x.Id, x => x);

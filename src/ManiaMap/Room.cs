@@ -56,7 +56,7 @@ namespace MPewsey.ManiaMap
         /// An enumerable of collectable ID and location ID's.
         /// </summary>
         [DataMember(Order = 8)]
-        public IEnumerable<CollectableIdEntry> CollectableIdEntries
+        protected IEnumerable<CollectableIdEntry> CollectableIdEntries
         {
             get => Collectables.Select(x => new CollectableIdEntry(x.Key, x.Value));
             set => Collectables = value.ToDictionary(x => x.LocationId, x => x.CollectableId);
