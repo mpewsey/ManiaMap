@@ -44,6 +44,6 @@ var searchData=
   ['graphcycledecomposer_41',['GraphCycleDecomposer',['../class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html',1,'MPewsey::ManiaMap']]],
   ['graphlibrary_42',['GraphLibrary',['../class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html',1,'MPewsey::ManiaMap::Samples']]],
   ['graphnotfullyconnectedexception_43',['GraphNotFullyConnectedException',['../class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_graph_not_fully_connected_exception.html',1,'MPewsey::ManiaMap::Exceptions']]],
-  ['group_44',['Group',['../struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a89100c293fdd139c875847c3f9da634c',1,'MPewsey.ManiaMap.Collectable.Group()'],['../class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a9c2acb46217c7b7a5953c1009d0a9bcb',1,'MPewsey.ManiaMap.CollectableSpot.Group()']]],
+  ['group_44',['Group',['../struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a89100c293fdd139c875847c3f9da634c',1,'MPewsey.ManiaMap.Collectable.Group()'],['../class_m_pewsey_1_1_mania_map_1_1_collectable_entry.html#aff8792c7feb60a7b0e5c75408ed34670',1,'MPewsey.ManiaMap.CollectableEntry.Group()'],['../class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a9c2acb46217c7b7a5953c1009d0a9bcb',1,'MPewsey.ManiaMap.CollectableSpot.Group()']]],
   ['groups_45',['Groups',['../class_m_pewsey_1_1_mania_map_1_1_item_groups.html#a85fe0b381eb73981ac89acce730cdb0a',1,'MPewsey::ManiaMap::ItemGroups']]]
 ];
