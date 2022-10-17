@@ -19,7 +19,7 @@ namespace MPewsey.ManiaMap
         /// An array of room cell visibilities.
         /// </summary>
         [DataMember(Order = 2)]
-        public Array2D<bool> VisibleCells { get; private set; }
+        public BitArray2D VisibleCells { get; private set; }
 
         /// <summary>
         /// A set of acquired collectable location ID's.
@@ -58,7 +58,7 @@ namespace MPewsey.ManiaMap
         public RoomState(Room room)
         {
             Id = room.Id;
-            VisibleCells = new Array2D<bool>(room.Template.Cells.Rows, room.Template.Cells.Columns);
+            VisibleCells = new BitArray2D(room.Template.Cells.Rows, room.Template.Cells.Columns);
         }
 
         /// <summary>
