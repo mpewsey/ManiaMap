@@ -16,6 +16,30 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
+        public void TestClear()
+        {
+            var array = new Array2D<int>(2, 3);
+
+            for (int i = 0; i < array.Rows; i++)
+            {
+                for (int j = 0; j < array.Columns; j++)
+                {
+                    array[i, j] = i + j;
+                }
+            }
+
+            array.Clear();
+
+            for (int i = 0; i < array.Rows; i++)
+            {
+                for (int j = 0; j < array.Columns; j++)
+                {
+                    Assert.AreEqual(0, array[i, j]);
+                }
+            }
+        }
+
+        [TestMethod]
         public void TestToString()
         {
             var result = new Array2D<int>(1, 2).ToString();
