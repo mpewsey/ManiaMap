@@ -13,5 +13,5 @@ var searchData=
   ['rooms_10',['Rooms',['../class_m_pewsey_1_1_mania_map_1_1_layout.html#a4b943cf73b963c2165e12368336bea67',1,'MPewsey::ManiaMap::Layout']]],
   ['roomstateentries_11',['RoomStateEntries',['../class_m_pewsey_1_1_mania_map_1_1_layout_state.html#a824afe4f78dc350868c51d26fe59ef2a',1,'MPewsey::ManiaMap::LayoutState']]],
   ['roomstates_12',['RoomStates',['../class_m_pewsey_1_1_mania_map_1_1_layout_state.html#af49a1a0b5872b7e5f370c5c13dbb39ba',1,'MPewsey::ManiaMap::LayoutState']]],
-  ['rows_13',['Rows',['../class_m_pewsey_1_1_mania_map_1_1_array2_d.html#a357d5f74c382dca4b2407a252695bf8c',1,'MPewsey::ManiaMap::Array2D']]]
+  ['rows_13',['Rows',['../class_m_pewsey_1_1_mania_map_1_1_array2_d.html#a357d5f74c382dca4b2407a252695bf8c',1,'MPewsey.ManiaMap.Array2D.Rows()'],['../class_m_pewsey_1_1_mania_map_1_1_bit_array2_d.html#a586dc00099a9df9a7affc63c0e55642f',1,'MPewsey.ManiaMap.BitArray2D.Rows()']]]
 ];

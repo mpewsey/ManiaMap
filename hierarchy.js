@@ -3,6 +3,7 @@ var hierarchy =
     [ "MPewsey.ManiaMap.Samples.TemplateLibrary.Angles", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_angles.html", null ],
     [ "MPewsey.ManiaMap.Array2D< T >", "class_m_pewsey_1_1_mania_map_1_1_array2_d.html", null ],
     [ "MPewsey.ManiaMap.Samples.BigLayoutSample", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_big_layout_sample.html", null ],
+    [ "MPewsey.ManiaMap.BitArray2D", "class_m_pewsey_1_1_mania_map_1_1_bit_array2_d.html", null ],
     [ "MPewsey.ManiaMap.Box", "class_m_pewsey_1_1_mania_map_1_1_box.html", null ],
     [ "MPewsey.ManiaMap.Cell", "class_m_pewsey_1_1_mania_map_1_1_cell.html", null ],
     [ "MPewsey.ManiaMap.CellDistanceSearch", "class_m_pewsey_1_1_mania_map_1_1_cell_distance_search.html", null ],

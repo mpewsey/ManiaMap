@@ -3,6 +3,7 @@ var class_m_pewsey_1_1_mania_map_1_1_array2_d =
     [ "Array2D", "class_m_pewsey_1_1_mania_map_1_1_array2_d.html#ab40152be5b87c03eb22284930a53616e", null ],
     [ "Array2D", "class_m_pewsey_1_1_mania_map_1_1_array2_d.html#a7fa393c9577231f1f000bca2ca03a5dc", null ],
     [ "Array2D", "class_m_pewsey_1_1_mania_map_1_1_array2_d.html#a33179afa91452ad38938ea7f0de4b876", null ],
+    [ "Clear", "class_m_pewsey_1_1_mania_map_1_1_array2_d.html#a9dec05f234077262a371969444579fe6", null ],
     [ "Fill", "class_m_pewsey_1_1_mania_map_1_1_array2_d.html#ab9677dc3dd4a19ed8f4bd7f5ec0645ac", null ],
     [ "FindIndex", "class_m_pewsey_1_1_mania_map_1_1_array2_d.html#a7fabfa557bb82f3b0dc9c47743b4fa3e", null ],
     [ "FlattenArray", "class_m_pewsey_1_1_mania_map_1_1_array2_d.html#a9851ec3fa3b6b6e6cf2f974d21afa411", null ],

@@ -4,6 +4,7 @@ var namespace_m_pewsey_1_1_mania_map =
     [ "Exceptions", "namespace_m_pewsey_1_1_mania_map_1_1_exceptions.html", "namespace_m_pewsey_1_1_mania_map_1_1_exceptions" ],
     [ "Samples", "namespace_m_pewsey_1_1_mania_map_1_1_samples.html", "namespace_m_pewsey_1_1_mania_map_1_1_samples" ],
     [ "Array2D", "class_m_pewsey_1_1_mania_map_1_1_array2_d.html", "class_m_pewsey_1_1_mania_map_1_1_array2_d" ],
+    [ "BitArray2D", "class_m_pewsey_1_1_mania_map_1_1_bit_array2_d.html", "class_m_pewsey_1_1_mania_map_1_1_bit_array2_d" ],
     [ "Box", "class_m_pewsey_1_1_mania_map_1_1_box.html", "class_m_pewsey_1_1_mania_map_1_1_box" ],
     [ "Cell", "class_m_pewsey_1_1_mania_map_1_1_cell.html", "class_m_pewsey_1_1_mania_map_1_1_cell" ],
     [ "CellDistanceSearch", "class_m_pewsey_1_1_mania_map_1_1_cell_distance_search.html", "class_m_pewsey_1_1_mania_map_1_1_cell_distance_search" ],
