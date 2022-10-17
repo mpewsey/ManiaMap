@@ -134,6 +134,14 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Sets the contents of the array to the default value.
+        /// </summary>
+        public void Clear()
+        {
+            System.Array.Clear(Array, 0, Array.Length);
+        }
+
+        /// <summary>
         /// Sets all elements of the array to the value.
         /// </summary>
         /// <param name="value">The fill value.</param>
