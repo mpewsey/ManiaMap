@@ -18,7 +18,7 @@
         /// <summary>
         /// The color of the room background tiles.
         /// </summary>
-        Color32 Color { get; set; }
+        Color4 Color { get; set; }
 
         /// <summary>
         /// The z (layer) coordinate.

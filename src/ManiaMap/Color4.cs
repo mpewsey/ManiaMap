@@ -4,10 +4,10 @@ using System.Runtime.Serialization;
 namespace MPewsey.ManiaMap
 {
     /// <summary>
-    /// A 32 bit color.
+    /// A 4 byte (32 bit) color.
     /// </summary>
     [DataContract]
-    public struct Color32 : IEquatable<Color32>
+    public struct Color4 : IEquatable<Color4>
     {
         /// <summary>
         /// The red channel.
@@ -40,7 +40,7 @@ namespace MPewsey.ManiaMap
         /// <param name="g">The green channel.</param>
         /// <param name="b">The blue channel.</param>
         /// <param name="a">The alpha channel.</param>
-        public Color32(byte r, byte g, byte b, byte a)
+        public Color4(byte r, byte g, byte b, byte a)
         {
             R = r;
             G = g;
@@ -55,10 +55,10 @@ namespace MPewsey.ManiaMap
 
         public override bool Equals(object obj)
         {
-            return obj is Color32 color && Equals(color);
+            return obj is Color4 color && Equals(color);
         }
 
-        public bool Equals(Color32 other)
+        public bool Equals(Color4 other)
         {
             return R == other.R &&
                    G == other.G &&
@@ -76,12 +76,12 @@ namespace MPewsey.ManiaMap
             return hashCode;
         }
 
-        public static bool operator ==(Color32 left, Color32 right)
+        public static bool operator ==(Color4 left, Color4 right)
         {
             return left.Equals(right);
         }
 
-        public static bool operator !=(Color32 left, Color32 right)
+        public static bool operator !=(Color4 left, Color4 right)
         {
             return !(left == right);
         }

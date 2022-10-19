@@ -38,7 +38,7 @@ namespace MPewsey.ManiaMap
         /// The room color.
         /// </summary>
         [DataMember(Order = 6)]
-        public Color32 Color { get; set; }
+        public Color4 Color { get; set; }
 
         /// <summary>
         /// The room template.

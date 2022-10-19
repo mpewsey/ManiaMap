@@ -25,7 +25,7 @@ namespace MPewsey.ManiaMap.Drawing
         /// <summary>
         /// The map background color.
         /// </summary>
-        public Color32 BackgroundColor { get; set; } = new Color32(0, 0, 0, 1);
+        public Color4 BackgroundColor { get; set; } = new Color4(0, 0, 0, 1);
 
         /// <summary>
         /// A dictionary of map tiles by name. The applicable tiles are superimposed at the cell location
@@ -65,7 +65,7 @@ namespace MPewsey.ManiaMap.Drawing
         /// <param name="padding">The padding around the layout. If null, the default property value will be used.</param>
         /// <param name="tiles">A dictionary of map tiles to use. If null, the default tiles will be used.</param>
         /// <param name="backgroundColor">The background color. If null, the default property value will be used.</param>
-        public LayoutMap(Padding? padding = null, Color32? backgroundColor = null,
+        public LayoutMap(Padding? padding = null, Color4? backgroundColor = null,
             Vector2DInt? tileSize = null, Dictionary<MapTileType, Image> tiles = null)
         {
             TileSize = tileSize ?? TileSize;
@@ -260,7 +260,7 @@ namespace MPewsey.ManiaMap.Drawing
         /// Converts a color to an ImageSharp color.
         /// </summary>
         /// <param name="color">The color.</param>
-        private static Color ConvertColor(Color32 color)
+        private static Color ConvertColor(Color4 color)
         {
             return Color.FromRgba(color.R, color.G, color.B, color.A);
         }

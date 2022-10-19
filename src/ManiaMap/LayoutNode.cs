@@ -37,7 +37,7 @@ namespace MPewsey.ManiaMap
 
         /// <inheritdoc>
         [DataMember(Order = 5)]
-        public Color32 Color { get; set; } = new Color32(25, 25, 112, 255);
+        public Color4 Color { get; set; } = new Color4(25, 25, 112, 255);
 
         /// <inheritdoc>
         public Uid RoomId { get => new Uid(Id); }
@@ -119,7 +119,7 @@ namespace MPewsey.ManiaMap
         /// Sets the color of the node and returns the node.
         /// </summary>
         /// <param name="value">The color.</param>
-        public LayoutNode SetColor(Color32 value)
+        public LayoutNode SetColor(Color4 value)
         {
             Color = value;
             return this;

@@ -66,7 +66,7 @@ namespace MPewsey.ManiaMap
 
         /// <inheritdoc>
         [DataMember(Order = 9)]
-        public Color32 Color { get; set; } = new Color32(25, 25, 112, 255);
+        public Color4 Color { get; set; } = new Color4(25, 25, 112, 255);
 
         /// <inheritdoc>
         [DataMember(Order = 10)]
@@ -239,7 +239,7 @@ namespace MPewsey.ManiaMap
         /// Sets the color of the edge and returns the edge.
         /// </summary>
         /// <param name="color">The color.</param>
-        public LayoutEdge SetColor(Color32 color)
+        public LayoutEdge SetColor(Color4 color)
         {
             Color = color;
             return this;
