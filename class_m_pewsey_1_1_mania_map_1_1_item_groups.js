@@ -7,5 +7,6 @@ var class_m_pewsey_1_1_mania_map_1_1_item_groups =
     [ "GetGroupIds", "class_m_pewsey_1_1_mania_map_1_1_item_groups.html#ad86b05e34fd347564e0c6d2cddbaf402", null ],
     [ "GetGroupItems", "class_m_pewsey_1_1_mania_map_1_1_item_groups.html#a605760fafdcf931252170e48b91d0e67", null ],
     [ "GetGroups", "class_m_pewsey_1_1_mania_map_1_1_item_groups.html#ac90c7ebafbf2381b3ff2f4a668433a51", null ],
+    [ "GroupEntries", "class_m_pewsey_1_1_mania_map_1_1_item_groups.html#ac233c0deadf77368e0259a54245a7364", null ],
     [ "Groups", "class_m_pewsey_1_1_mania_map_1_1_item_groups.html#a85fe0b381eb73981ac89acce730cdb0a", null ]
 ];

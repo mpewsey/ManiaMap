@@ -10,6 +10,7 @@ var searchData=
   ['collectableidentry_7',['CollectableIdEntry',['../class_m_pewsey_1_1_mania_map_1_1_collectable_id_entry.html',1,'MPewsey::ManiaMap']]],
   ['collectablespot_8',['CollectableSpot',['../class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html',1,'MPewsey::ManiaMap']]],
   ['collectablespotnotfoundexception_9',['CollectableSpotNotFoundException',['../class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_collectable_spot_not_found_exception.html',1,'MPewsey::ManiaMap::Exceptions']]],
-  ['configuration_10',['Configuration',['../class_m_pewsey_1_1_mania_map_1_1_configuration.html',1,'MPewsey::ManiaMap']]],
-  ['configurationspace_11',['ConfigurationSpace',['../class_m_pewsey_1_1_mania_map_1_1_configuration_space.html',1,'MPewsey::ManiaMap']]]
+  ['color4_10',['Color4',['../struct_m_pewsey_1_1_mania_map_1_1_color4.html',1,'MPewsey::ManiaMap']]],
+  ['configuration_11',['Configuration',['../class_m_pewsey_1_1_mania_map_1_1_configuration.html',1,'MPewsey::ManiaMap']]],
+  ['configurationspace_12',['ConfigurationSpace',['../class_m_pewsey_1_1_mania_map_1_1_configuration_space.html',1,'MPewsey::ManiaMap']]]
 ];

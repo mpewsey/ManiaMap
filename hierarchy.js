@@ -42,9 +42,11 @@ var hierarchy =
     ] ],
     [ "IEquatable", null, [
       [ "MPewsey.ManiaMap.Collectable", "struct_m_pewsey_1_1_mania_map_1_1_collectable.html", null ],
+      [ "MPewsey.ManiaMap.Color4", "struct_m_pewsey_1_1_mania_map_1_1_color4.html", null ],
       [ "MPewsey.ManiaMap.DoorPair", "struct_m_pewsey_1_1_mania_map_1_1_door_pair.html", null ],
       [ "MPewsey.ManiaMap.Drawing.Padding", "struct_m_pewsey_1_1_mania_map_1_1_drawing_1_1_padding.html", null ],
       [ "MPewsey.ManiaMap.EdgeIndexes", "struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html", null ],
+      [ "MPewsey.ManiaMap.RectangleInt", "struct_m_pewsey_1_1_mania_map_1_1_rectangle_int.html", null ],
       [ "MPewsey.ManiaMap.RoomPair", "struct_m_pewsey_1_1_mania_map_1_1_room_pair.html", null ],
       [ "MPewsey.ManiaMap.TemplatePair", "struct_m_pewsey_1_1_mania_map_1_1_template_pair.html", null ],
       [ "MPewsey.ManiaMap.Uid", "struct_m_pewsey_1_1_mania_map_1_1_uid.html", null ],
@@ -61,6 +63,7 @@ var hierarchy =
       [ "MPewsey.ManiaMap.LayoutEdge", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html", null ],
       [ "MPewsey.ManiaMap.LayoutNode", "class_m_pewsey_1_1_mania_map_1_1_layout_node.html", null ]
     ] ],
+    [ "MPewsey.ManiaMap.ItemGroup< TKey, TValue >", "class_m_pewsey_1_1_mania_map_1_1_item_group.html", null ],
     [ "MPewsey.ManiaMap.ItemGroups< TKey, TValue >", "class_m_pewsey_1_1_mania_map_1_1_item_groups.html", null ],
     [ "MPewsey.ManiaMap.ItemGroups< string, int >", "class_m_pewsey_1_1_mania_map_1_1_item_groups.html", [
       [ "MPewsey.ManiaMap.CollectableGroups", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html", null ]
@@ -75,6 +78,8 @@ var hierarchy =
     [ "MPewsey.ManiaMap.Samples.ManiaMapSample", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html", null ],
     [ "MPewsey.ManiaMap.Drawing.MapTiles", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_map_tiles.html", null ],
     [ "MPewsey.ManiaMap.Samples.TemplateLibrary.Miscellaneous", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_miscellaneous.html", null ],
+    [ "MPewsey.ManiaMap.NodeNeighbors", "class_m_pewsey_1_1_mania_map_1_1_node_neighbors.html", null ],
+    [ "MPewsey.ManiaMap.NodeVariations", "class_m_pewsey_1_1_mania_map_1_1_node_variations.html", null ],
     [ "MPewsey.ManiaMap.RandomSeed", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html", null ],
     [ "MPewsey.ManiaMap.Samples.TemplateLibrary.Rectangles", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_rectangles.html", null ],
     [ "MPewsey.ManiaMap.GenerationPipeline.Results", "class_m_pewsey_1_1_mania_map_1_1_generation_pipeline_1_1_results.html", null ],

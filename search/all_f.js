@@ -11,7 +11,7 @@ var searchData=
   ['serialization_8',['Serialization',['../class_m_pewsey_1_1_mania_map_1_1_serialization.html',1,'MPewsey::ManiaMap']]],
   ['setcellvisibility_9',['SetCellVisibility',['../class_m_pewsey_1_1_mania_map_1_1_room_state.html#a5e1b628f3cf7ee6014b4733c6877cd6b',1,'MPewsey.ManiaMap.RoomState.SetCellVisibility(Vector2DInt index, bool value)'],['../class_m_pewsey_1_1_mania_map_1_1_room_state.html#aefb0434f781152c5ddc8ffa7890bafc7',1,'MPewsey.ManiaMap.RoomState.SetCellVisibility(int row, int column, bool value)']]],
   ['setcode_10',['SetCode',['../class_m_pewsey_1_1_mania_map_1_1_door.html#aca3fe7bd086df7071be545d5a67fcc7d',1,'MPewsey::ManiaMap::Door']]],
-  ['setcolor_11',['SetColor',['../class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#aca4a556f4f4f1d74b547908d39b46c34',1,'MPewsey.ManiaMap.LayoutEdge.SetColor()'],['../class_m_pewsey_1_1_mania_map_1_1_layout_node.html#a191513f7a486b16effa7783c3c2c0260',1,'MPewsey.ManiaMap.LayoutNode.SetColor()']]],
+  ['setcolor_11',['SetColor',['../class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a9a47309d8ca464db79964ccbf47589ec',1,'MPewsey.ManiaMap.LayoutEdge.SetColor()'],['../class_m_pewsey_1_1_mania_map_1_1_layout_node.html#a00c40e3c83f6cb6186d39b4e729e88b3',1,'MPewsey.ManiaMap.LayoutNode.SetColor()']]],
   ['setdirection_12',['SetDirection',['../class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a2074973cb3471fad8e9c1476739c623b',1,'MPewsey::ManiaMap::LayoutEdge']]],
   ['setdoor_13',['SetDoor',['../class_m_pewsey_1_1_mania_map_1_1_cell.html#af0177bf70153b29d9fdec67238a13475',1,'MPewsey::ManiaMap::Cell']]],
   ['setdoorcode_14',['SetDoorCode',['../class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a3e257b9651135a6aa4ad663a6feef51b',1,'MPewsey::ManiaMap::LayoutEdge']]],

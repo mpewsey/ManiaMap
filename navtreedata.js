@@ -53,7 +53,7 @@ var NAVTREE =
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
-        [ "Properties", "functions_prop.html", null ]
+        [ "Properties", "functions_prop.html", "functions_prop" ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -65,11 +65,11 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_____docs_____8cs_source.html",
-"class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a280b9c77309a3ae992c15eb7b9d15b4d",
-"class_m_pewsey_1_1_mania_map_1_1_generation_pipeline.html#a2e5f1bc8e675d767cde267901a94ca48",
-"class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a762ecf78ad2e29371d1b59f8e6786526",
-"class_m_pewsey_1_1_mania_map_1_1_room_state.html#aefb0434f781152c5ddc8ffa7890bafc7",
-"interface_m_pewsey_1_1_mania_map_1_1_i_room_source.html#a9a125119bfe05d720e70d666dd2136cd"
+"class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html",
+"class_m_pewsey_1_1_mania_map_1_1_generation_pipeline.html",
+"class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a24be882ab3e6c5ee7bffc0bfa128600a",
+"class_m_pewsey_1_1_mania_map_1_1_random_seed.html#af95b540cc559e273693644e1160a56cd",
+"functions_func_s.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
