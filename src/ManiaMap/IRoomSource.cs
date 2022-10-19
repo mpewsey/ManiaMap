@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace MPewsey.ManiaMap
+﻿namespace MPewsey.ManiaMap
 {
     /// <summary>
     /// An interface for objects that may be made into Room.
@@ -20,7 +18,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The color of the room background tiles.
         /// </summary>
-        Color Color { get; set; }
+        Color4 Color { get; set; }
 
         /// <summary>
         /// The z (layer) coordinate.

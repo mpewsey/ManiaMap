@@ -26,26 +26,62 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A dictionary of nodes by ID.
         /// </summary>
-        [DataMember(Order = 3)]
         private Dictionary<int, LayoutNode> Nodes { get; set; } = new Dictionary<int, LayoutNode>();
+
+        /// <summary>
+        /// An enumerable of layout nodes.
+        /// </summary>
+        [DataMember(Order = 3)]
+        protected IEnumerable<LayoutNode> LayoutNodes
+        {
+            get => Nodes.Values;
+            set => Nodes = value.ToDictionary(x => x.Id, x => x);
+        }
 
         /// <summary>
         /// A dictionary of nodes by from and to node ID's.
         /// </summary>
-        [DataMember(Order = 4)]
         private Dictionary<EdgeIndexes, LayoutEdge> Edges { get; set; } = new Dictionary<EdgeIndexes, LayoutEdge>();
+
+        /// <summary>
+        /// An enumerable of layout edges.
+        /// </summary>
+        [DataMember(Order = 4)]
+        protected IEnumerable<LayoutEdge> LayoutEdges
+        {
+            get => Edges.Values;
+            set => Edges = value.ToDictionary(x => new EdgeIndexes(x.FromNode, x.ToNode), x => x);
+        }
 
         /// <summary>
         /// A dictionary of neighboring nodes by node ID.
         /// </summary>
-        [DataMember(Order = 5)]
         private Dictionary<int, List<int>> Neighbors { get; set; } = new Dictionary<int, List<int>>();
+
+        /// <summary>
+        /// An enumerable of node neighbor groups.
+        /// </summary>
+        [DataMember(Order = 5)]
+        protected IEnumerable<NodeNeighbors> NodeNeighbors
+        {
+            get => Neighbors.Select(x => new NodeNeighbors(x.Key, x.Value));
+            set => Neighbors = value.ToDictionary(x => x.Id, x => x.Neighbors);
+        }
 
         /// <summary>
         /// A dictionary of node variation groups.
         /// </summary>
-        [DataMember(Order = 6)]
         private Dictionary<string, List<int>> NodeVariations { get; set; } = new Dictionary<string, List<int>>();
+
+        /// <summary>
+        /// An enumerable of node variations.
+        /// </summary>
+        [DataMember(Order = 6)]
+        protected IEnumerable<NodeVariations> VariationGroups
+        {
+            get => NodeVariations.Select(x => new NodeVariations(x.Key, x.Value));
+            set => NodeVariations = value.ToDictionary(x => x.GroupName, x => x.Variations);
+        }
 
         /// <summary>
         /// The number of nodes in the graph.

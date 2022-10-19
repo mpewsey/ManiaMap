@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Runtime.Serialization;
 
@@ -39,7 +38,7 @@ namespace MPewsey.ManiaMap
         /// The room color.
         /// </summary>
         [DataMember(Order = 6)]
-        public Color Color { get; set; }
+        public Color4 Color { get; set; }
 
         /// <summary>
         /// The room template.

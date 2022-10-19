@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Runtime.Serialization;
 
@@ -270,10 +269,10 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns the rectangular bounds of the layout.
         /// </summary>
-        public Rectangle GetBounds()
+        public RectangleInt GetBounds()
         {
             if (Rooms.Count == 0)
-                return new Rectangle();
+                return new RectangleInt();
 
             var minX = int.MaxValue;
             var minY = int.MaxValue;
@@ -288,7 +287,7 @@ namespace MPewsey.ManiaMap
                 maxY = Math.Max(maxY, room.Position.Y + room.Template.Cells.Columns);
             }
 
-            return new Rectangle(minY, minX, maxY - minY, maxX - minX);
+            return new RectangleInt(minY, minX, maxY - minY, maxX - minX);
         }
     }
 }
