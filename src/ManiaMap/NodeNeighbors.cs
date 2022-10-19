@@ -18,8 +18,17 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A list of neighbor ID's.
         /// </summary>
-        [DataMember(Order = 2)]
         public List<int> Neighbors { get; set; }
+
+        /// <summary>
+        /// An enumerable of neighbor ID's.
+        /// </summary>
+        [DataMember(Order = 2)]
+        protected IEnumerable<int> NeighborIds
+        {
+            get => Neighbors;
+            set => Neighbors = new List<int>(value);
+        }
 
         /// <summary>
         /// Initializes a new object.

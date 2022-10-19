@@ -18,8 +18,17 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A list of member ID's in the variation.
         /// </summary>
-        [DataMember(Order = 2)]
         public List<int> Variations { get; set; }
+
+        /// <summary>
+        /// An enumerable of member ID's in the variation.
+        /// </summary>
+        [DataMember(Order = 2)]
+        protected IEnumerable<int> VariationIds
+        {
+            get => Variations;
+            set => Variations = new List<int>(value);
+        }
 
         /// <summary>
         /// Initializes a new object.

@@ -20,8 +20,17 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A list of items.
         /// </summary>
-        [DataMember(Order = 2)]
         public List<TValue> Items { get; set; }
+
+        /// <summary>
+        /// An enumerable of items.
+        /// </summary>
+        [DataMember(Order = 2)]
+        protected IEnumerable<TValue> ItemEntries
+        {
+            get => Items;
+            set => Items = new List<TValue>(value);
+        }
 
         /// <summary>
         /// Initializes a new item group.
