@@ -253,5 +253,19 @@ namespace MPewsey.ManiaMap.Tests
             var graph = Samples.GraphLibrary.BigGraph();
             Assert.IsTrue(graph.IsValid());
         }
+
+        [TestMethod]
+        public void TestSaveAndLoad()
+        {
+            var graph = Samples.GraphLibrary.BigGraph();
+            graph.AddNodeVariation("Group1", new int[] { 1, 2, 3 });
+            graph.AddNodeVariation("Group2", new int[] { 5, 6, 7 });
+            var path = "BigLayoutGraph.xml";
+            Serialization.SaveXml("BigLayoutGraph.xml", graph);
+            var copy = Serialization.LoadXml<LayoutGraph>(path);
+            Assert.AreEqual(graph.Id, copy.Id);
+            Assert.AreEqual(graph.NodeCount, copy.NodeCount);
+            Assert.AreEqual(graph.EdgeCount, copy.EdgeCount);
+        }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 
 namespace MPewsey.ManiaMap.Samples
 {
@@ -165,13 +164,13 @@ namespace MPewsey.ManiaMap.Samples
                 node.TemplateGroup = "Rooms";
 
                 if (node.Id <= 10)
-                    node.Color = Color.Blue;
+                    node.Color = new Color32(0, 0, 255, 255);
                 else if (node.Id <= 18)
-                    node.Color = Color.Green;
+                    node.Color = new Color32(0, 255, 0, 255);
                 else if (node.Id <= 26)
-                    node.Color = Color.Purple;
+                    node.Color = new Color32(128, 0, 128, 255);
                 else if (node.Id <= 34)
-                    node.Color = Color.Red;
+                    node.Color = new Color32(255, 0, 0, 255);
             }
 
             foreach (var edge in graph.GetEdges())
@@ -181,13 +180,13 @@ namespace MPewsey.ManiaMap.Samples
                 var id = Math.Min(edge.FromNode, edge.ToNode);
 
                 if (id <= 10)
-                    edge.Color = Color.Blue;
+                    edge.Color = new Color32(0, 0, 255, 255);
                 else if (id <= 18)
-                    edge.Color = Color.Green;
+                    edge.Color = new Color32(0, 255, 0, 255);
                 else if (id <= 26)
-                    edge.Color = Color.Purple;
+                    edge.Color = new Color32(128, 0, 128, 255);
                 else if (id <= 34)
-                    edge.Color = Color.Red;
+                    edge.Color = new Color32(255, 0, 0, 255);
             }
 
             return graph;

@@ -41,5 +41,21 @@ namespace MPewsey.ManiaMap.Tests
             var group = new CollectableGroups();
             Assert.ThrowsException<InvalidNameException>(() => group.Add("", 1));
         }
+
+        [TestMethod]
+        public void TestSaveAndLoad()
+        {
+            var group = new CollectableGroups();
+            group.Add("Group1", new int[] { 1, 2, 3, 4 });
+            group.Add("Group2", new int[] { 5, 6, 7, 8 });
+            var path = "CollectableGroup.xml";
+            Serialization.SaveXml(path, group);
+            var copy = Serialization.LoadXml<CollectableGroups>(path);
+
+            foreach (var pair in group.GetGroups())
+            {
+                CollectionAssert.AreEqual(pair.Value, copy.Get(pair.Key));
+            }
+        }
     }
 }

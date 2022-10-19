@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MPewsey.ManiaMap.Exceptions;
-using System.Drawing;
 
 namespace MPewsey.ManiaMap.Tests
 {
@@ -18,8 +17,8 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestSetColor()
         {
-            var node = new LayoutNode(1).SetColor(Color.Red);
-            Assert.AreEqual(Color.Red, node.Color);
+            var node = new LayoutNode(1).SetColor(new Color32(255, 0, 0, 255));
+            Assert.AreEqual(new Color32(255, 0, 0, 255), node.Color);
         }
 
         [TestMethod]
