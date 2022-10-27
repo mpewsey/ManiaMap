@@ -10,6 +10,7 @@ var class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map =
     [ "GetDoorTileType", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#aca3090a32143cc63ba2a2929d1a855df", null ],
     [ "GetTile", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ab1b691fb311e432f5e7eb287aa92af8c", null ],
     [ "GetWallTileType", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a3e0c6b4119825a161cdd0e86d81267bf", null ],
+    [ "Initialize", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a5c928d647a5e4ae54d13defc98473faa", null ],
     [ "SaveImages", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a5d73e9a59699dda5b96cf5a59d1a177d", null ],
     [ "BackgroundColor", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#aa8a2ce3b1854e3b180f786c58031590e", null ],
     [ "Layout", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a026b14ff7a31024e39ae954ac0a1ae0b", null ],

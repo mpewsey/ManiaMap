@@ -7,6 +7,7 @@ var class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer =
     [ "FindNextChain", "class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a134655285cd5f8e5a3f3d7468760b0c7", null ],
     [ "FormSequentialChains", "class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a0a90f4cfa42df69b61c1d936c81c41de", null ],
     [ "GetChainEdges", "class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#accdab101c4567f850da7ad1ee2cab8d2", null ],
+    [ "Initialize", "class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#acb62e4e43c5053a59513f7f9e886a571", null ],
     [ "MarkNodes", "class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a16cfee1a7f2e53953a220489c6cbc663", null ],
     [ "OrderEdgeNodes", "class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a895089e6b69537074aaef44d73c254e5", null ],
     [ "RemoveDuplicateEdges", "class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a4805a057f584b3ec9c114af2a6130d79", null ],

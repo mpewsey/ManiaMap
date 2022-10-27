@@ -140,6 +140,9 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a13dc58bbf58cfc21addc123ad585b461"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_branch_decomposer.html#a13dc58bbf58cfc21addc123ad585b461">BranchSearch</a> (T node, T parent)</td></tr>
 <tr class="memdesc:a13dc58bbf58cfc21addc123ad585b461"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs depth first search for graph branches.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_branch_decomposer.html#a13dc58bbf58cfc21addc123ad585b461">More...</a><br /></td></tr>
 <tr class="separator:a13dc58bbf58cfc21addc123ad585b461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a063b5604b3ca408e2f750d09bf78ad29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_branch_decomposer.html#a063b5604b3ca408e2f750d09bf78ad29">Initialize</a> (Dictionary&lt; T, List&lt; T &gt; &gt; neighbors)</td></tr>
+<tr class="memdesc:a063b5604b3ca408e2f750d09bf78ad29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the decomposer's buffers.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_branch_decomposer.html#a063b5604b3ca408e2f750d09bf78ad29">More...</a><br /></td></tr>
+<tr class="separator:a063b5604b3ca408e2f750d09bf78ad29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73eda4b6a80754716442d953cb28f8b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_branch_decomposer.html#a73eda4b6a80754716442d953cb28f8b0">MarkTrunk</a> ()</td></tr>
 <tr class="memdesc:a73eda4b6a80754716442d953cb28f8b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks the trunk of the graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_branch_decomposer.html#a73eda4b6a80754716442d953cb28f8b0">More...</a><br /></td></tr>
 <tr class="separator:a73eda4b6a80754716442d953cb28f8b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -198,7 +201,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_graph_branch_decomposer_8cs_source.html#l00146">146</a> of file <a class="el" href="_graph_branch_decomposer_8cs_source.html">GraphBranchDecomposer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_graph_branch_decomposer_8cs_source.html#l00155">155</a> of file <a class="el" href="_graph_branch_decomposer_8cs_source.html">GraphBranchDecomposer.cs</a>.</p>
 
 </div>
 </div>
@@ -245,7 +248,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_graph_branch_decomposer_8cs_source.html#l00110">110</a> of file <a class="el" href="_graph_branch_decomposer_8cs_source.html">GraphBranchDecomposer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_graph_branch_decomposer_8cs_source.html#l00119">119</a> of file <a class="el" href="_graph_branch_decomposer_8cs_source.html">GraphBranchDecomposer.cs</a>.</p>
 
 </div>
 </div>
@@ -266,6 +269,42 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns a list of branches originating from the graph's cycles. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">neighbors</td><td>A dictionary of graph neighbors.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_graph_branch_decomposer_8cs_source.html#l00049">49</a> of file <a class="el" href="_graph_branch_decomposer_8cs_source.html">GraphBranchDecomposer.cs</a>.</p>
+
+</div>
+</div>
+<a id="a063b5604b3ca408e2f750d09bf78ad29" name="a063b5604b3ca408e2f750d09bf78ad29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a063b5604b3ca408e2f750d09bf78ad29">&#9670;&nbsp;</a></span>Initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_branch_decomposer.html">MPewsey.ManiaMap.GraphBranchDecomposer</a>&lt; T &gt;.Initialize </td>
+          <td>(</td>
+          <td class="paramtype">Dictionary&lt; T, List&lt; T &gt; &gt;&#160;</td>
+          <td class="paramname"><em>neighbors</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes the decomposer's buffers. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">neighbors</td><td>A dictionary of graph neighbors.</td></tr>
@@ -302,7 +341,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Marks the trunk of the graph. </p>
 
-<p class="definition">Definition at line <a class="el" href="_graph_branch_decomposer_8cs_source.html#l00059">59</a> of file <a class="el" href="_graph_branch_decomposer_8cs_source.html">GraphBranchDecomposer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_graph_branch_decomposer_8cs_source.html#l00068">68</a> of file <a class="el" href="_graph_branch_decomposer_8cs_source.html">GraphBranchDecomposer.cs</a>.</p>
 
 </div>
 </div>
@@ -329,7 +368,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_graph_branch_decomposer_8cs_source.html#l00083">83</a> of file <a class="el" href="_graph_branch_decomposer_8cs_source.html">GraphBranchDecomposer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_graph_branch_decomposer_8cs_source.html#l00092">92</a> of file <a class="el" href="_graph_branch_decomposer_8cs_source.html">GraphBranchDecomposer.cs</a>.</p>
 
 </div>
 </div>

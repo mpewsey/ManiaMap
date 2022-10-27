@@ -137,6 +137,9 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:aafc564a750f67e7a340092ae2a610086"><td class="memItemLeft" align="right" valign="top">List&lt; List&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#aafc564a750f67e7a340092ae2a610086">GetUniqueCycles</a> ()</td></tr>
 <tr class="memdesc:aafc564a750f67e7a340092ae2a610086"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new list with all unique cycles in the graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#aafc564a750f67e7a340092ae2a610086">More...</a><br /></td></tr>
 <tr class="separator:aafc564a750f67e7a340092ae2a610086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97d55d1fad0129842211b5d48ede16b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#a97d55d1fad0129842211b5d48ede16b0">Initialize</a> (Dictionary&lt; T, List&lt; T &gt; &gt; neighbors)</td></tr>
+<tr class="memdesc:a97d55d1fad0129842211b5d48ede16b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the decomposer's buffers.  <a href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html#a97d55d1fad0129842211b5d48ede16b0">More...</a><br /></td></tr>
+<tr class="separator:a97d55d1fad0129842211b5d48ede16b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >A class for finding cycles in a graph. The algorithm is based on [1]. </p>
@@ -197,7 +200,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_graph_cycle_decomposer_8cs_source.html#l00065">65</a> of file <a class="el" href="_graph_cycle_decomposer_8cs_source.html">GraphCycleDecomposer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_graph_cycle_decomposer_8cs_source.html#l00074">74</a> of file <a class="el" href="_graph_cycle_decomposer_8cs_source.html">GraphCycleDecomposer.cs</a>.</p>
 
 </div>
 </div>
@@ -225,7 +228,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_graph_cycle_decomposer_8cs_source.html#l00042">42</a> of file <a class="el" href="_graph_cycle_decomposer_8cs_source.html">GraphCycleDecomposer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_graph_cycle_decomposer_8cs_source.html#l00054">54</a> of file <a class="el" href="_graph_cycle_decomposer_8cs_source.html">GraphCycleDecomposer.cs</a>.</p>
 
 </div>
 </div>
@@ -254,7 +257,43 @@ References</h2>
 
 <p>Returns a new list with all unique cycles in the graph. </p>
 
-<p class="definition">Definition at line <a class="el" href="_graph_cycle_decomposer_8cs_source.html#l00109">109</a> of file <a class="el" href="_graph_cycle_decomposer_8cs_source.html">GraphCycleDecomposer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_graph_cycle_decomposer_8cs_source.html#l00118">118</a> of file <a class="el" href="_graph_cycle_decomposer_8cs_source.html">GraphCycleDecomposer.cs</a>.</p>
+
+</div>
+</div>
+<a id="a97d55d1fad0129842211b5d48ede16b0" name="a97d55d1fad0129842211b5d48ede16b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97d55d1fad0129842211b5d48ede16b0">&#9670;&nbsp;</a></span>Initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html">MPewsey.ManiaMap.GraphCycleDecomposer</a>&lt; T &gt;.Initialize </td>
+          <td>(</td>
+          <td class="paramtype">Dictionary&lt; T, List&lt; T &gt; &gt;&#160;</td>
+          <td class="paramname"><em>neighbors</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes the decomposer's buffers. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">neighbors</td><td>A dictionary of graph neighbors.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_graph_cycle_decomposer_8cs_source.html#l00041">41</a> of file <a class="el" href="_graph_cycle_decomposer_8cs_source.html">GraphCycleDecomposer.cs</a>.</p>
 
 </div>
 </div>
