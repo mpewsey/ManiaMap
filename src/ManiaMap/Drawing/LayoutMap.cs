@@ -121,16 +121,26 @@ namespace MPewsey.ManiaMap.Drawing
         }
 
         /// <summary>
+        /// Initializes the object's buffers.
+        /// </summary>
+        /// <param name="layout">The room layout.</param>
+        /// <param name="state">The room layout state.</param>
+        private void Initialize(Layout layout, LayoutState state)
+        {
+            Layout = layout;
+            LayoutState = state;
+            LayoutBounds = Layout.GetBounds();
+            RoomDoors = Layout.GetRoomDoors();
+        }
+
+        /// <summary>
         /// Returns a dictionary of map layer images by z (layer) value.
         /// </summary>
         /// <param name="layout">The room layout.</param>
         /// <param name="state">The room layout state.</param>
         public Dictionary<int, Image> CreateImages(Layout layout, LayoutState state = null)
         {
-            Layout = layout;
-            LayoutState = state;
-            LayoutBounds = Layout.GetBounds();
-            RoomDoors = Layout.GetRoomDoors();
+            Initialize(layout, state);
 
             var width = TileSize.X * (Padding.Left + Padding.Right + LayoutBounds.Width);
             var height = TileSize.Y * (Padding.Top + Padding.Bottom + LayoutBounds.Height);
@@ -208,7 +218,7 @@ namespace MPewsey.ManiaMap.Drawing
                         var cell = cells[i, j];
                         var position = new Vector2DInt(i, j);
 
-                        // If cell it empty, go to next cell.
+                        // If cell is empty, go to next cell.
                         if (cell == null)
                             continue;
 

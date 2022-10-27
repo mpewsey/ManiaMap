@@ -29,16 +29,26 @@ namespace MPewsey.ManiaMap
         private HashSet<int> Marked { get; set; }
 
         /// <summary>
+        /// Initializes the decomposer's buffers.
+        /// </summary>
+        /// <param name="graph">The layout graph.</param>
+        /// <param name="maxBranchLength">The maximum branch chain length.</param>
+        private void Initialize(LayoutGraph graph, int maxBranchLength)
+        {
+            Graph = graph;
+            MaxBranchLength = maxBranchLength;
+            Chains = new List<List<LayoutEdge>>();
+            Marked = new HashSet<int>();
+        }
+
+        /// <summary>
         /// Returns a new list of chains for the graph.
         /// </summary>
         /// <param name="graph">The layout graph.</param>
         /// <param name="maxBranchLength">The maximum branch chain length. Branch chains exceeding this length will be split. Negative and zero values will be ignored.</param>
         public List<List<LayoutEdge>> FindChains(LayoutGraph graph, int maxBranchLength = -1)
         {
-            Graph = graph;
-            MaxBranchLength = maxBranchLength;
-            Chains = new List<List<LayoutEdge>>();
-            Marked = new HashSet<int>();
+            Initialize(graph, maxBranchLength);
 
             AddCycleChains();
             AddBranchChains();

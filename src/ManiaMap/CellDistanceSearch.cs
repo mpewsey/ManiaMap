@@ -16,6 +16,17 @@
         private Array2D<int> Distances { get; set; }
 
         /// <summary>
+        /// Initializes the search's buffers.
+        /// </summary>
+        /// <param name="cells">An array of cells.</param>
+        private void Initialize(Array2D<Cell> cells)
+        {
+            Cells = cells;
+            Distances = new Array2D<int>(cells.Rows, cells.Columns);
+            Distances.Fill(-1);
+        }
+
+        /// <summary>
         /// Returns an array of distances from the specified index to each cell.
         /// Values of -1 indicate that the index does not exist.
         /// </summary>
@@ -23,9 +34,7 @@
         /// <param name="index">The index for which distances will be calculated.</param>
         public Array2D<int> FindCellDistances(Array2D<Cell> cells, Vector2DInt index)
         {
-            Cells = cells;
-            Distances = new Array2D<int>(cells.Rows, cells.Columns);
-            Distances.Fill(-1);
+            Initialize(cells);
             SearchCellDistances(index, 0);
             return Distances;
         }
@@ -45,11 +54,11 @@
             if (current >= 0 && current <= distance)
                 return;
 
-            Distances[index.X, index.Y] = distance;
-            SearchCellDistances(new Vector2DInt(index.X - 1, index.Y), distance + 1);
-            SearchCellDistances(new Vector2DInt(index.X, index.Y - 1), distance + 1);
-            SearchCellDistances(new Vector2DInt(index.X, index.Y + 1), distance + 1);
-            SearchCellDistances(new Vector2DInt(index.X + 1, index.Y), distance + 1);
+            Distances[index.X, index.Y] = distance++;
+            SearchCellDistances(new Vector2DInt(index.X - 1, index.Y), distance);
+            SearchCellDistances(new Vector2DInt(index.X, index.Y - 1), distance);
+            SearchCellDistances(new Vector2DInt(index.X, index.Y + 1), distance);
+            SearchCellDistances(new Vector2DInt(index.X + 1, index.Y), distance);
         }
     }
 }

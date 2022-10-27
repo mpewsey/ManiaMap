@@ -24,6 +24,18 @@ namespace MPewsey.ManiaMap
         private Dictionary<T, List<T>> Neighbors { get; set; }
 
         /// <summary>
+        /// Initializes the search buffers.
+        /// </summary>
+        /// <param name="neighbors">A dictionary of room neighbors.</param>
+        /// <param name="maxDepth">The maximum depth for which neighbors will be returned.</param>
+        private void Initialize(Dictionary<T, List<T>> neighbors, int maxDepth)
+        {
+            MaxDepth = maxDepth;
+            Neighbors = neighbors;
+            Marked = new HashSet<T>();
+        }
+
+        /// <summary>
         /// Returns a set of neighbors of the room up to the max depth.
         /// </summary>
         /// <param name="neighbors">A dictionary of room neighbors.</param>
@@ -31,9 +43,7 @@ namespace MPewsey.ManiaMap
         /// <param name="maxDepth">The maximum depth for which neighbors will be returned.</param>
         public HashSet<T> FindCluster(Dictionary<T, List<T>> neighbors, T room, int maxDepth)
         {
-            MaxDepth = maxDepth;
-            Neighbors = neighbors;
-            Marked = new HashSet<T>();
+            Initialize(neighbors, maxDepth);
             SearchNeighbors(room, 0);
             return Marked;
         }
@@ -45,9 +55,7 @@ namespace MPewsey.ManiaMap
         /// <param name="maxDepth">The maximum depth for which neighbors will be returned.</param>
         public Dictionary<T, HashSet<T>> FindClusters(Dictionary<T, List<T>> neighbors, int maxDepth)
         {
-            MaxDepth = maxDepth;
-            Neighbors = neighbors;
-            Marked = new HashSet<T>();
+            Initialize(neighbors, maxDepth);
             var dict = new Dictionary<T, HashSet<T>>(neighbors.Count);
 
             foreach (var room in neighbors.Keys)

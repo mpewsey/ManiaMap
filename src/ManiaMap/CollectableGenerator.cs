@@ -97,6 +97,21 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Initializes the generator's buffers.
+        /// </summary>
+        /// <param name="layout">The layout.</param>
+        /// <param name="collectableGroups">The collectable groups.</param>
+        /// <param name="randomSeed">The random seed.</param>
+        private void Initialize(Layout layout, CollectableGroups collectableGroups, RandomSeed randomSeed)
+        {
+            Layout = layout;
+            CollectableGroups = collectableGroups;
+            RandomSeed = randomSeed;
+            Distances = new Dictionary<RoomTemplate, Dictionary<Vector2DInt, Array2D<int>>>();
+            Clusters = Layout.FindClusters(1);
+        }
+
+        /// <summary>
         /// Adds collectables to the layout.
         /// </summary>
         /// <param name="layout">The layout.</param>
@@ -104,11 +119,7 @@ namespace MPewsey.ManiaMap
         /// <param name="randomSeed">The random seed.</param>
         public void Generate(Layout layout, CollectableGroups collectableGroups, RandomSeed randomSeed)
         {
-            Layout = layout;
-            CollectableGroups = collectableGroups;
-            RandomSeed = randomSeed;
-            Distances = new Dictionary<RoomTemplate, Dictionary<Vector2DInt, Array2D<int>>>();
-            Clusters = Layout.FindClusters(1);
+            Initialize(layout, collectableGroups, randomSeed);
 
             AddCollectableSpots();
             AssignDoorWeights();

@@ -31,15 +31,24 @@ namespace MPewsey.ManiaMap
         private List<List<T>> Branches { get; set; }
 
         /// <summary>
-        /// Returns a list of branches originating from the graph's cycles.
+        /// Initializes the decomposer's buffers.
         /// </summary>
         /// <param name="neighbors">A dictionary of graph neighbors.</param>
-        public List<List<T>> FindBranches(Dictionary<T, List<T>> neighbors)
+        private void Initialize(Dictionary<T, List<T>> neighbors)
         {
             Neighbors = neighbors;
             Parents = new Dictionary<T, T>(neighbors.Count);
             Marked = new HashSet<T>();
             Branches = new List<List<T>>();
+        }
+
+        /// <summary>
+        /// Returns a list of branches originating from the graph's cycles.
+        /// </summary>
+        /// <param name="neighbors">A dictionary of graph neighbors.</param>
+        public List<List<T>> FindBranches(Dictionary<T, List<T>> neighbors)
+        {
+            Initialize(neighbors);
             MarkTrunk();
 
             // Search for branches beginning at each trunk node.
