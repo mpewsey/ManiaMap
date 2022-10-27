@@ -35,16 +35,25 @@ namespace MPewsey.ManiaMap
         private Dictionary<T, int> Colors { get; set; }
 
         /// <summary>
+        /// Initializes the decomposer's buffers.
+        /// </summary>
+        /// <param name="neighbors">A dictionary of graph neighbors.</param>
+        private void Initialize(Dictionary<T, List<T>> neighbors)
+        {
+            Neighbors = neighbors;
+            Cycles = new List<List<T>>();
+            Parents = new Dictionary<T, T>(neighbors.Count);
+            Colors = new Dictionary<T, int>(neighbors.Count);
+        }
+
+        /// <summary>
         /// Returns lists of all combinations of unique node cycles in the graph
         /// using depth first search.
         /// </summary>
         /// <param name="neighbors">A dictionary of graph neighbors.</param>
         public List<List<T>> FindCycles(Dictionary<T, List<T>> neighbors)
         {
-            Neighbors = neighbors;
-            Cycles = new List<List<T>>();
-            Parents = new Dictionary<T, T>(neighbors.Count);
-            Colors = new Dictionary<T, int>(neighbors.Count);
+            Initialize(neighbors);
 
             // Run searches from every node to accumulate complete set of cycles.
             foreach (var node in neighbors.Keys.OrderBy(x => x))

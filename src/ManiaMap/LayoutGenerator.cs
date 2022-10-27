@@ -102,6 +102,21 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Initializes the generator.
+        /// </summary>
+        /// <param name="graph">The layout graph.</param>
+        /// <param name="templateGroups">The template groups.</param>
+        /// <param name="randomSeed">The random seed.</param>
+        private void Initialize(LayoutGraph graph, TemplateGroups templateGroups, RandomSeed randomSeed)
+        {
+            Graph = graph;
+            TemplateGroups = templateGroups;
+            RandomSeed = randomSeed;
+            Validate();
+            ConfigurationSpaces = templateGroups.GetConfigurationSpaces();
+        }
+
+        /// <summary>
         /// Generates and returns a new layout.
         /// </summary>
         /// <param name="layoutId">The layout ID.</param>
@@ -110,11 +125,7 @@ namespace MPewsey.ManiaMap
         /// <param name="randomSeed">The random seed.</param>
         public Layout Generate(int layoutId, LayoutGraph graph, TemplateGroups templateGroups, RandomSeed randomSeed)
         {
-            Graph = graph;
-            TemplateGroups = templateGroups;
-            RandomSeed = randomSeed;
-            Validate();
-            ConfigurationSpaces = templateGroups.GetConfigurationSpaces();
+            Initialize(graph, templateGroups, randomSeed);
 
             int chain = 0;
             var allowableRebases = AllowableRebases(chain);
@@ -135,8 +146,7 @@ namespace MPewsey.ManiaMap
                 if (Layout.Rebases > allowableRebases)
                 {
                     layouts.Pop();
-                    chain--;
-                    allowableRebases = AllowableRebases(chain);
+                    allowableRebases = AllowableRebases(chain--);
                     continue;
                 }
 
@@ -146,8 +156,7 @@ namespace MPewsey.ManiaMap
                 if (AddChain(chains[chain]))
                 {
                     layouts.Push(Layout);
-                    chain++;
-                    allowableRebases = AllowableRebases(chain);
+                    allowableRebases = AllowableRebases(chain++);
                 }
             }
 
