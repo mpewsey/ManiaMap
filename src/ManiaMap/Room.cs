@@ -82,5 +82,17 @@ namespace MPewsey.ManiaMap
         {
             return $"Room(Id = {Id}, Name = {Name}, Position = {Position}, Template = {Template})";
         }
+
+        /// <summary>
+        /// Returns true if the range intersects the room.
+        /// </summary>
+        /// <param name="min">The minimum values of the range.</param>
+        /// <param name="max">The maximum values of the range.</param>
+        public bool Intersects(Vector3DInt min, Vector3DInt max)
+        {
+            return Position.Z >= min.Z
+                && Position.Z <= max.Z
+                && Template.Intersects(min - Position, max - Position);
+        }
     }
 }

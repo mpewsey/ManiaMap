@@ -123,25 +123,39 @@ namespace MPewsey.ManiaMap
         /// <param name="max">The maximum values of the range.</param>
         public bool Intersects(Vector3DInt min, Vector3DInt max)
         {
+            return RoomsIntersect(min, max)
+                || ShaftsIntersect(min, max);
+        }
+
+        /// <summary>
+        /// Returns true if the range intersects the rooms of the layout.
+        /// </summary>
+        /// <param name="min">The minimum values of the range.</param>
+        /// <param name="max">The maximum values of the range.</param>
+        private bool RoomsIntersect(Vector3DInt min, Vector3DInt max)
+        {
             foreach (var room in Rooms.Values)
             {
-                if (room.Position.Z >= min.Z && room.Position.Z <= max.Z)
-                {
-                    if (room.Template.Intersects(min - room.Position, max - room.Position))
-                    {
-                        return true;
-                    }
-                }
+                if (room.Intersects(min, max))
+                    return true;
             }
 
+            return false;
+        }
+
+        /// <summary>
+        /// Returns true if the range intersects the shafts of the layout.
+        /// </summary>
+        /// <param name="min">The minimum values of the range.</param>
+        /// <param name="max">The maximum values of the range.</param>
+        private bool ShaftsIntersect(Vector3DInt min, Vector3DInt max)
+        {
             foreach (var connection in DoorConnections.Values)
             {
                 var shaft = connection.Shaft;
 
                 if (shaft != null && shaft.Intersects(min, max))
-                {
                     return true;
-                }
             }
 
             return false;
@@ -162,28 +176,43 @@ namespace MPewsey.ManiaMap
         /// Returns true if the template intersects the layout.
         /// </summary>
         /// <param name="template">The room template.</param>
-        /// <param name="position">The position of the room.</param>
+        /// <param name="position">The position of the template.</param>
         public bool Intersects(RoomTemplate template, Vector3DInt position)
+        {
+            return RoomsIntersect(template, position)
+                || ShaftsIntersect(template, position);
+        }
+
+        /// <summary>
+        /// Returns true if the template intersects the rooms in the layout.
+        /// </summary>
+        /// <param name="template">The room template.</param>
+        /// <param name="position">The position of the template.</param>
+        private bool RoomsIntersect(RoomTemplate template, Vector3DInt position)
         {
             foreach (var room in Rooms.Values)
             {
-                if (room.Position.Z == position.Z)
-                {
-                    if (template.Intersects(room.Template, room.Position - position))
-                    {
-                        return true;
-                    }
-                }
+                if (room.Position.Z == position.Z
+                    && template.Intersects(room.Template, room.Position - position))
+                    return true;
             }
 
+            return false;
+        }
+
+        /// <summary>
+        /// Returns true if the template intersects the shafts in the layout.
+        /// </summary>
+        /// <param name="template">The room template.</param>
+        /// <param name="position">The position of the template.</param>
+        private bool ShaftsIntersect(RoomTemplate template, Vector3DInt position)
+        {
             foreach (var connection in DoorConnections.Values)
             {
                 var shaft = connection.Shaft;
 
                 if (shaft != null && shaft.Intersects(template, position))
-                {
                     return true;
-                }
             }
 
             return false;
