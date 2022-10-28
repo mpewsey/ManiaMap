@@ -130,7 +130,7 @@ namespace MPewsey.ManiaMap
             int chain = 0;
             var allowableRebases = AllowableRebases(chain);
             var chains = Graph.FindChains(MaxBranchLength);
-            var layouts = new Stack<Layout>();
+            var layouts = new Stack<Layout>(chains.Count);
             layouts.Push(new Layout(layoutId, graph.Name, randomSeed));
 
             while (layouts.Count > 0)
