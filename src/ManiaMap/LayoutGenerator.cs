@@ -146,7 +146,7 @@ namespace MPewsey.ManiaMap
                 if (Layout.Rebases > allowableRebases)
                 {
                     layouts.Pop();
-                    allowableRebases = AllowableRebases(chain--);
+                    allowableRebases = AllowableRebases(--chain);
                     continue;
                 }
 
@@ -156,7 +156,7 @@ namespace MPewsey.ManiaMap
                 if (AddChain(chains[chain]))
                 {
                     layouts.Push(Layout);
-                    allowableRebases = AllowableRebases(chain++);
+                    allowableRebases = AllowableRebases(++chain);
                 }
             }
 
