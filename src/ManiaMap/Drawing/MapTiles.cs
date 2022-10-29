@@ -10,11 +10,6 @@ namespace MPewsey.ManiaMap.Drawing
     public static class MapTiles
     {
         /// <summary>
-        /// The path to the map tiles directory.
-        /// </summary>
-        private const string MapTilePath = "MPewsey.ManiaMap.Drawing.MapTiles.";
-
-        /// <summary>
         /// Loads the map tile from resources at the specified path.
         /// </summary>
         /// <param name="path">The resource path.</param>
@@ -31,11 +26,20 @@ namespace MPewsey.ManiaMap.Drawing
         /// <summary>
         /// Returns a dictionary of default map tiles.
         /// </summary>
-        public static Dictionary<MapTileType, Image> GetDefaultTiles()
+        public static Dictionary<string, Image> GetDefaultTiles()
         {
-            const string path = MapTilePath + "Default.";
+            return GetTiles("Default");
+        }
 
-            return new Dictionary<MapTileType, Image>
+        /// <summary>
+        /// Returns a dictionary of built-in map tiles.
+        /// </summary>
+        /// <param name="folder">The name of the folder within the map tiles directory.</param>
+        private static Dictionary<string, Image> GetTiles(string folder)
+        {
+            var path = "MPewsey.ManiaMap.Drawing.MapTiles." + folder + ".";
+
+            return new Dictionary<string, Image>
             {
                 { MapTileType.SouthDoor, LoadTile(path + "SouthDoor.png") },
                 { MapTileType.NorthDoor, LoadTile(path + "NorthDoor.png") },

@@ -210,7 +210,7 @@
             /// </summary>
             public static RoomTemplate Square1x1SavePointTemplate()
             {
-                var a = Cell.New.SetDoors("NWSE", Door.TwoWay).SetSavePoint(true);
+                var a = Cell.New.SetDoors("NWSE", Door.TwoWay).AddFeature(MapTileType.SavePoint);
 
                 var cells = new Cell[,]
                 {
