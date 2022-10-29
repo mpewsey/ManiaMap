@@ -106,6 +106,14 @@ namespace MPewsey.ManiaMap
             Features = new List<string>(other.Features);
         }
 
+        [OnDeserialized]
+        private void OnDeserialized(StreamingContext context)
+        {
+            Doors = Doors ?? new Dictionary<DoorDirection, Door>();
+            CollectableSpots = CollectableSpots ?? new Dictionary<int, string>();
+            Features = Features ?? new List<string>();
+        }
+
         /// <summary>
         /// Returns a new copy of the cell.
         /// </summary>
