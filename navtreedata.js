@@ -66,11 +66,11 @@ var NAVTREEINDEX =
 [
 "_____docs_____8cs_source.html",
 "class_m_pewsey_1_1_mania_map_1_1_collectable_entry.html#a0c310d4a0a0613de8f7073e619cba6ef",
-"class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_chain_order_exception.html",
-"class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#ab6d1585f93e92ac5492dac662bd3e65a",
-"class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a671e94bbaafcfe0cd8ffee834859924a",
-"class_m_pewsey_1_1_mania_map_1_1_template_groups.html#aa714a714a9fd71bd1d006557e9dea514",
-"struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int.html#a368b1b42d69b10a628e5a1ffeac146fb"
+"class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_id_exception.html",
+"class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#ac8018be356582feceb26234259469048",
+"class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a3f7b8e44d67ed65205b54dad758d0d0e",
+"class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a3a1528bf66bd2d03155bbc1a0f3cb03f",
+"struct_m_pewsey_1_1_mania_map_1_1_vector3_d_int.html#ac2ec10ab46f36d0af809211e1bc0963c"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

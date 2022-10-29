@@ -77,6 +77,7 @@ var hierarchy =
     [ "MPewsey.ManiaMap.LayoutState", "class_m_pewsey_1_1_mania_map_1_1_layout_state.html", null ],
     [ "MPewsey.ManiaMap.Samples.ManiaMapSample", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html", null ],
     [ "MPewsey.ManiaMap.Drawing.MapTiles", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_map_tiles.html", null ],
+    [ "MPewsey.ManiaMap.MapTileType", "class_m_pewsey_1_1_mania_map_1_1_map_tile_type.html", null ],
     [ "MPewsey.ManiaMap.Samples.TemplateLibrary.Miscellaneous", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_miscellaneous.html", null ],
     [ "MPewsey.ManiaMap.NodeNeighbors", "class_m_pewsey_1_1_mania_map_1_1_node_neighbors.html", null ],
     [ "MPewsey.ManiaMap.NodeVariations", "class_m_pewsey_1_1_mania_map_1_1_node_variations.html", null ],

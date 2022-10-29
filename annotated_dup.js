@@ -68,6 +68,7 @@ var annotated_dup =
         [ "LayoutGraphSelector", "class_m_pewsey_1_1_mania_map_1_1_layout_graph_selector.html", "class_m_pewsey_1_1_mania_map_1_1_layout_graph_selector" ],
         [ "LayoutNode", "class_m_pewsey_1_1_mania_map_1_1_layout_node.html", "class_m_pewsey_1_1_mania_map_1_1_layout_node" ],
         [ "LayoutState", "class_m_pewsey_1_1_mania_map_1_1_layout_state.html", "class_m_pewsey_1_1_mania_map_1_1_layout_state" ],
+        [ "MapTileType", "class_m_pewsey_1_1_mania_map_1_1_map_tile_type.html", "class_m_pewsey_1_1_mania_map_1_1_map_tile_type" ],
         [ "NodeNeighbors", "class_m_pewsey_1_1_mania_map_1_1_node_neighbors.html", "class_m_pewsey_1_1_mania_map_1_1_node_neighbors" ],
         [ "NodeVariations", "class_m_pewsey_1_1_mania_map_1_1_node_variations.html", "class_m_pewsey_1_1_mania_map_1_1_node_variations" ],
         [ "RandomSeed", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html", "class_m_pewsey_1_1_mania_map_1_1_random_seed" ],

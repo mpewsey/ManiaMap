@@ -44,6 +44,7 @@ var dir_c3494bb25e2299bf4310ea0990001e7f =
     [ "LayoutGraphSelector.cs", "_layout_graph_selector_8cs_source.html", null ],
     [ "LayoutNode.cs", "_layout_node_8cs_source.html", null ],
     [ "LayoutState.cs", "_layout_state_8cs_source.html", null ],
+    [ "MapTileType.cs", "_map_tile_type_8cs_source.html", null ],
     [ "NodeNeighbors.cs", "_node_neighbors_8cs_source.html", null ],
     [ "NodeVariations.cs", "_node_variations_8cs_source.html", null ],
     [ "RandomSeed.cs", "_random_seed_8cs_source.html", null ],
