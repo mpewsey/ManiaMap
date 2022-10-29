@@ -70,7 +70,7 @@ namespace MPewsey.ManiaMap
 
         /// <inheritdoc>
         [DataMember(Order = 10)]
-        public string TemplateGroup { get; set; }
+        public string TemplateGroup { get; set; } = "Default";
 
         /// <inheritdoc>
         public Uid RoomId { get => new Uid(FromNode, ToNode, 1); }

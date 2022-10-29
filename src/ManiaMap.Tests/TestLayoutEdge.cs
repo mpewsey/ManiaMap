@@ -46,8 +46,8 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestSetTemplateGroup()
         {
-            var edge = new LayoutEdge(1, 2).SetTemplateGroup("Default");
-            Assert.AreEqual("Default", edge.TemplateGroup);
+            var edge = new LayoutEdge(1, 2).SetTemplateGroup("Test");
+            Assert.AreEqual("Test", edge.TemplateGroup);
         }
 
         [TestMethod]
@@ -93,7 +93,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestNoTemplateGroupAssigned()
         {
-            var edge = new LayoutEdge(1, 2).SetRoomChance(1);
+            var edge = new LayoutEdge(1, 2).SetRoomChance(1).SetTemplateGroup(null);
             Assert.ThrowsException<NoTemplateGroupAssignedException>(() => edge.Validate());
         }
 
