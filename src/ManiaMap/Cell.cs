@@ -22,6 +22,12 @@ namespace MPewsey.ManiaMap
         public static Cell New => new Cell();
 
         /// <summary>
+        /// True if the cell contains a save point.
+        /// </summary>
+        [DataMember(Order = 1)]
+        public bool SavePoint { get; set; }
+
+        /// <summary>
         /// A dictionary of doors.
         /// </summary>
         public Dictionary<DoorDirection, Door> Doors { get; set; } = new Dictionary<DoorDirection, Door>();
@@ -29,7 +35,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// An enumerable of door and direction pairs.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 100)]
         protected IEnumerable<DoorEntry> DoorEntries
         {
             get => Doors.Select(x => new DoorEntry(x.Key, x.Value));
@@ -44,7 +50,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// An enumerable of collectable spot groups and location ID's.
         /// </summary>
-        [DataMember(Order = 2)]
+        [DataMember(Order = 101)]
         protected IEnumerable<CollectableEntry> CollectableSpotEntries
         {
             get => CollectableSpots.Select(x => new CollectableEntry(x.Key, x.Value));
@@ -95,6 +101,7 @@ namespace MPewsey.ManiaMap
         /// <param name="other">The cell to copy.</param>
         private Cell(Cell other)
         {
+            SavePoint = other.SavePoint;
             Doors = other.Doors.ToDictionary(x => x.Key, x => x.Value?.Copy());
             CollectableSpots = new Dictionary<int, string>(other.CollectableSpots);
         }
@@ -226,6 +233,16 @@ namespace MPewsey.ManiaMap
                 throw new DuplicateIdException($"Location ID already exists: {id}.");
 
             CollectableSpots.Add(id, group);
+            return this;
+        }
+
+        /// <summary>
+        /// Sets whether the cell has a save point and returns the cell.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        public Cell SetSavePoint(bool value)
+        {
+            SavePoint = value;
             return this;
         }
 

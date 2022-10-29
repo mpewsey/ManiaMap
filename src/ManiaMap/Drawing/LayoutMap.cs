@@ -111,9 +111,7 @@ namespace MPewsey.ManiaMap.Drawing
                 foreach (var door in doors)
                 {
                     if (door.Matches(position, direction))
-                    {
                         return true;
-                    }
                 }
             }
 
@@ -198,6 +196,8 @@ namespace MPewsey.ManiaMap.Drawing
         /// <param name="z">The z (layer) value used to render the layout.</param>
         private void DrawMapTiles(IImageProcessingContext image, int z)
         {
+            Tiles.TryGetValue(MapTileType.SavePoint, out Image saveTile);
+
             foreach (var room in Layout.Rooms.Values)
             {
                 // If room Z (layer) value is not equal, go to next room.
@@ -261,6 +261,8 @@ namespace MPewsey.ManiaMap.Drawing
                             image.DrawImage(topTile, point, 1);
                         if (bottomTile != null)
                             image.DrawImage(bottomTile, point, 1);
+                        if (cell.SavePoint && saveTile != null)
+                            image.DrawImage(saveTile, point, 1);
                     }
                 }
             }

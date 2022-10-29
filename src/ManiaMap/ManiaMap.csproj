@@ -35,6 +35,7 @@
     <None Remove="Drawing\MapTiles\Default\TopDoor.png" />
     <None Remove="Drawing\MapTiles\Default\WestDoor.png" />
     <None Remove="Drawing\MapTiles\Default\WestWall.png" />
+	<None Remove="Drawing\MapTiles\Default\SavePoint.png" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(Configuration)|$(Platform)'!='Unity|AnyCPU'">
@@ -49,6 +50,7 @@
     <EmbeddedResource Include="Drawing\MapTiles\Default\TopDoor.png" />
     <EmbeddedResource Include="Drawing\MapTiles\Default\WestDoor.png" />
     <EmbeddedResource Include="Drawing\MapTiles\Default\WestWall.png" />
+	<EmbeddedResource Include="Drawing\MapTiles\Default\SavePoint.png" />
   </ItemGroup>
 
 	<ItemGroup Condition="'$(Configuration)|$(Platform)'=='Unity|AnyCPU'">

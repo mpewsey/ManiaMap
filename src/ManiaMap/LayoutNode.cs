@@ -33,7 +33,7 @@ namespace MPewsey.ManiaMap
 
         /// <inheritdoc>
         [DataMember(Order = 4)]
-        public string TemplateGroup { get; set; }
+        public string TemplateGroup { get; set; } = "Default";
 
         /// <inheritdoc>
         [DataMember(Order = 5)]

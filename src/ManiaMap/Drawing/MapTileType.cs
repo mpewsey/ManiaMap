@@ -17,5 +17,6 @@
         SouthWall,
         EastWall,
         WestWall,
+        SavePoint,
     }
 }

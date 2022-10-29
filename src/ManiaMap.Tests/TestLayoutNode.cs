@@ -31,8 +31,8 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestSetTemplateGroup()
         {
-            var node = new LayoutNode(1).SetTemplateGroup("Default");
-            Assert.AreEqual("Default", node.TemplateGroup);
+            var node = new LayoutNode(1).SetTemplateGroup("Test");
+            Assert.AreEqual("Test", node.TemplateGroup);
         }
 
         [TestMethod]
@@ -50,7 +50,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestNoTemplateGroupAssigned()
         {
-            var node = new LayoutNode(1);
+            var node = new LayoutNode(1).SetTemplateGroup(null);
             Assert.ThrowsException<NoTemplateGroupAssignedException>(() => node.Validate());
         }
 

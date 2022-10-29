@@ -30,7 +30,7 @@ namespace MPewsey.ManiaMap.Tests
         {
             var from = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
             var to = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
-            var doors = from.AlignedDoors(to, new Vector2DInt(0, 0)).ToList();
+            var doors = from.AlignedDoors(to, new Vector2DInt(0, 0));
             var expected = new List<DoorPair>();
             CollectionAssert.AreEqual(expected, doors);
         }

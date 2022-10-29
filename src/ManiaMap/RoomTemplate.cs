@@ -152,9 +152,7 @@ namespace MPewsey.ManiaMap
                 foreach (var id in cell.CollectableSpots.Keys)
                 {
                     if (!ids.Add(id))
-                    {
                         return false;
-                    }
                 }
             }
 
@@ -377,9 +375,7 @@ namespace MPewsey.ManiaMap
                     for (int j = jStart; j < jStop; j++)
                     {
                         if (Cells[i, j] != null)
-                        {
                             return true;
-                        }
                     }
                 }
             }
@@ -418,21 +414,22 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns an enumerable of doors aligning with a template at the specified offset.
+        /// Returns a list of doors aligning with a template at the specified offset
+        /// when the templates are not in the same plane.
         /// </summary>
         /// <param name="other">The other room template.</param>
         /// <param name="offset">The offset of the other template from this one.</param>
-        public IEnumerable<DoorPair> AlignedDoors(RoomTemplate other, Vector2DInt offset)
+        private List<DoorPair> ShaftAlignedDoors(RoomTemplate other, Vector2DInt offset)
         {
+            var result = new List<DoorPair>();
             var jStart = Math.Max(0, offset.Y - 1);
             var jStop = Math.Min(Cells.Columns, other.Cells.Columns + offset.Y + 1);
 
             if (jStart >= jStop)
-                yield break;
+                return result;
 
             var iStart = Math.Max(0, offset.X - 1);
             var iStop = Math.Min(Cells.Rows, other.Cells.Rows + offset.X + 1);
-            var intersects = Intersects(other, offset);
 
             for (int i = iStart; i < iStop; i++)
             {
@@ -443,69 +440,109 @@ namespace MPewsey.ManiaMap
                     if (cell == null)
                         continue;
 
-                    var x = i - offset.X;
-                    var y = j - offset.Y;
+                    var index1 = new Vector2DInt(i, j);
+                    var index2 = index1 - offset;
+                    var vert = other.Cells.GetOrDefault(index2.X, index2.Y);
 
-                    if (intersects)
+                    if (cell.TopDoorAligns(vert))
                     {
-                        var top = other.Cells.GetOrDefault(x, y);
-
-                        if (cell.TopDoorAligns(top))
-                        {
-                            var door1 = new DoorPosition(new Vector2DInt(i, j), DoorDirection.Top, cell.TopDoor);
-                            var door2 = new DoorPosition(new Vector2DInt(x, y), DoorDirection.Bottom, top.BottomDoor);
-                            yield return new DoorPair(door1, door2);
-                        }
-
-                        var bottom = other.Cells.GetOrDefault(x, y);
-
-                        if (cell.BottomDoorAligns(bottom))
-                        {
-                            var door1 = new DoorPosition(new Vector2DInt(i, j), DoorDirection.Bottom, cell.BottomDoor);
-                            var door2 = new DoorPosition(new Vector2DInt(x, y), DoorDirection.Top, bottom.TopDoor);
-                            yield return new DoorPair(door1, door2);
-                        }
+                        var door1 = new DoorPosition(index1, DoorDirection.Top, cell.TopDoor);
+                        var door2 = new DoorPosition(index2, DoorDirection.Bottom, vert.BottomDoor);
+                        result.Add(new DoorPair(door1, door2));
                     }
-                    else
+
+                    if (cell.BottomDoorAligns(vert))
                     {
-                        var west = other.Cells.GetOrDefault(x, y - 1);
-
-                        if (cell.WestDoorAligns(west))
-                        {
-                            var door1 = new DoorPosition(new Vector2DInt(i, j), DoorDirection.West, cell.WestDoor);
-                            var door2 = new DoorPosition(new Vector2DInt(x, y - 1), DoorDirection.East, west.EastDoor);
-                            yield return new DoorPair(door1, door2);
-                        }
-
-                        var north = other.Cells.GetOrDefault(x - 1, y);
-
-                        if (cell.NorthDoorAligns(north))
-                        {
-                            var door1 = new DoorPosition(new Vector2DInt(i, j), DoorDirection.North, cell.NorthDoor);
-                            var door2 = new DoorPosition(new Vector2DInt(x - 1, y), DoorDirection.South, north.SouthDoor);
-                            yield return new DoorPair(door1, door2);
-                        }
-
-                        var east = other.Cells.GetOrDefault(x, y + 1);
-
-                        if (cell.EastDoorAligns(east))
-                        {
-                            var door1 = new DoorPosition(new Vector2DInt(i, j), DoorDirection.East, cell.EastDoor);
-                            var door2 = new DoorPosition(new Vector2DInt(x, y + 1), DoorDirection.West, east.WestDoor);
-                            yield return new DoorPair(door1, door2);
-                        }
-
-                        var south = other.Cells.GetOrDefault(x + 1, y);
-
-                        if (cell.SouthDoorAligns(south))
-                        {
-                            var door1 = new DoorPosition(new Vector2DInt(i, j), DoorDirection.South, cell.SouthDoor);
-                            var door2 = new DoorPosition(new Vector2DInt(x + 1, y), DoorDirection.North, south.NorthDoor);
-                            yield return new DoorPair(door1, door2);
-                        }
+                        var door1 = new DoorPosition(index1, DoorDirection.Bottom, cell.BottomDoor);
+                        var door2 = new DoorPosition(index2, DoorDirection.Top, vert.TopDoor);
+                        result.Add(new DoorPair(door1, door2));
                     }
                 }
             }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Returns a list of doors aligning with a template at the specified offset
+        /// when the templates are in the same plane.
+        /// </summary>
+        /// <param name="other">The other room template.</param>
+        /// <param name="offset">The offset of the other template from this one.</param>
+        private List<DoorPair> PlaneAlignedDoors(RoomTemplate other, Vector2DInt offset)
+        {
+            var result = new List<DoorPair>();
+            var jStart = Math.Max(0, offset.Y - 1);
+            var jStop = Math.Min(Cells.Columns, other.Cells.Columns + offset.Y + 1);
+
+            if (jStart >= jStop)
+                return result;
+
+            var iStart = Math.Max(0, offset.X - 1);
+            var iStop = Math.Min(Cells.Rows, other.Cells.Rows + offset.X + 1);
+
+            for (int i = iStart; i < iStop; i++)
+            {
+                for (int j = jStart; j < jStop; j++)
+                {
+                    var cell = Cells[i, j];
+
+                    if (cell == null)
+                        continue;
+
+                    var index = new Vector2DInt(i, j);
+                    var x = i - offset.X;
+                    var y = j - offset.Y;
+
+                    var west = other.Cells.GetOrDefault(x, y - 1);
+                    var north = other.Cells.GetOrDefault(x - 1, y);
+                    var east = other.Cells.GetOrDefault(x, y + 1);
+                    var south = other.Cells.GetOrDefault(x + 1, y);
+
+                    if (cell.WestDoorAligns(west))
+                    {
+                        var door1 = new DoorPosition(index, DoorDirection.West, cell.WestDoor);
+                        var door2 = new DoorPosition(new Vector2DInt(x, y - 1), DoorDirection.East, west.EastDoor);
+                        result.Add(new DoorPair(door1, door2));
+                    }
+
+                    if (cell.NorthDoorAligns(north))
+                    {
+                        var door1 = new DoorPosition(index, DoorDirection.North, cell.NorthDoor);
+                        var door2 = new DoorPosition(new Vector2DInt(x - 1, y), DoorDirection.South, north.SouthDoor);
+                        result.Add(new DoorPair(door1, door2));
+                    }
+
+                    if (cell.EastDoorAligns(east))
+                    {
+                        var door1 = new DoorPosition(index, DoorDirection.East, cell.EastDoor);
+                        var door2 = new DoorPosition(new Vector2DInt(x, y + 1), DoorDirection.West, east.WestDoor);
+                        result.Add(new DoorPair(door1, door2));
+                    }
+
+                    if (cell.SouthDoorAligns(south))
+                    {
+                        var door1 = new DoorPosition(index, DoorDirection.South, cell.SouthDoor);
+                        var door2 = new DoorPosition(new Vector2DInt(x + 1, y), DoorDirection.North, south.NorthDoor);
+                        result.Add(new DoorPair(door1, door2));
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Returns a list of doors aligning with a template at the specified offset.
+        /// </summary>
+        /// <param name="other">The other room template.</param>
+        /// <param name="offset">The offset of the other template from this one.</param>
+        public List<DoorPair> AlignedDoors(RoomTemplate other, Vector2DInt offset)
+        {
+            if (Intersects(other, offset))
+                return ShaftAlignedDoors(other, offset);
+
+            return PlaneAlignedDoors(other, offset);
         }
     }
 }

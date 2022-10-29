@@ -203,6 +203,22 @@
 
                 return new RoomTemplate(103, "Square1x1NorthExitTemplate", cells);
             }
+
+            /// <summary>
+            /// Returns a 1x1 square template with doors in all planar directions
+            /// and a save point.
+            /// </summary>
+            public static RoomTemplate Square1x1SavePointTemplate()
+            {
+                var a = Cell.New.SetDoors("NWSE", Door.TwoWay).SetSavePoint(true);
+
+                var cells = new Cell[,]
+                {
+                    { a },
+                };
+
+                return new RoomTemplate(104, "Square1x1SavePoint", cells).Copy();
+            }
         }
 
         /// <summary>

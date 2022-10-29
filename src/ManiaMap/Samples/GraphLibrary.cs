@@ -20,11 +20,6 @@ namespace MPewsey.ManiaMap.Samples
             graph.AddEdge(0, 4);
             graph.AddEdge(0, 5);
 
-            foreach (var node in graph.GetNodes())
-            {
-                node.TemplateGroup = "Default";
-            }
-
             return graph;
         }
 
@@ -45,11 +40,6 @@ namespace MPewsey.ManiaMap.Samples
             graph.AddEdge(5, 6);
             graph.AddEdge(6, 7);
             graph.AddEdge(7, 3);
-
-            foreach (var node in graph.GetNodes())
-            {
-                node.TemplateGroup = "Default";
-            }
 
             return graph;
         }
@@ -76,11 +66,6 @@ namespace MPewsey.ManiaMap.Samples
             graph.AddEdge(11, 13);
             graph.AddEdge(12, 13);
 
-            foreach (var node in graph.GetNodes())
-            {
-                node.TemplateGroup = "Default";
-            }
-
             return graph;
         }
 
@@ -106,11 +91,6 @@ namespace MPewsey.ManiaMap.Samples
             graph.AddEdge(5, 6);
             graph.AddEdge(6, 7);
             graph.AddEdge(7, 3);
-
-            foreach (var node in graph.GetNodes())
-            {
-                node.TemplateGroup = "Default";
-            }
 
             return graph;
         }
@@ -166,7 +146,7 @@ namespace MPewsey.ManiaMap.Samples
                 if (node.Id <= 10)
                     node.Color = new Color4(0, 0, 255, 255);
                 else if (node.Id <= 18)
-                    node.Color = new Color4(0, 255, 0, 255);
+                    node.Color = new Color4(34, 139, 34, 255);
                 else if (node.Id <= 26)
                     node.Color = new Color4(128, 0, 128, 255);
                 else if (node.Id <= 34)
@@ -182,13 +162,14 @@ namespace MPewsey.ManiaMap.Samples
                 if (id <= 10)
                     edge.Color = new Color4(0, 0, 255, 255);
                 else if (id <= 18)
-                    edge.Color = new Color4(0, 255, 0, 255);
+                    edge.Color = new Color4(34, 139, 34, 255);
                 else if (id <= 26)
                     edge.Color = new Color4(128, 0, 128, 255);
                 else if (id <= 34)
                     edge.Color = new Color4(255, 0, 0, 255);
             }
 
+            graph.GetNode(5).SetTemplateGroup("SavePoint");
             return graph;
         }
 

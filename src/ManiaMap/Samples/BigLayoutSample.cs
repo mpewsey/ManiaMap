@@ -61,6 +61,9 @@ namespace MPewsey.ManiaMap.Samples
                 }
             }
 
+            var savePoint = TemplateLibrary.Squares.Square1x1SavePointTemplate();
+            templateGroups.Add("SavePoint", savePoint);
+
             return templateGroups;
         }
 
