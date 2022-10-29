@@ -15,6 +15,7 @@ var namespace_m_pewsey_1_1_mania_map_1_1_drawing =
       [ "NorthWall", "namespace_m_pewsey_1_1_mania_map_1_1_drawing.html#af8cd03028acae7761aaa2df81d6d0a15a939ea161025caf98034d572cda7fe6cc", null ],
       [ "SouthWall", "namespace_m_pewsey_1_1_mania_map_1_1_drawing.html#af8cd03028acae7761aaa2df81d6d0a15a6b67b6130cdd739b82456d8e3146ee77", null ],
       [ "EastWall", "namespace_m_pewsey_1_1_mania_map_1_1_drawing.html#af8cd03028acae7761aaa2df81d6d0a15a218b4d80084c77532b1f60fd5fc35b7c", null ],
-      [ "WestWall", "namespace_m_pewsey_1_1_mania_map_1_1_drawing.html#af8cd03028acae7761aaa2df81d6d0a15ab5b9b3c008cc3563d36fbad7e8406465", null ]
+      [ "WestWall", "namespace_m_pewsey_1_1_mania_map_1_1_drawing.html#af8cd03028acae7761aaa2df81d6d0a15ab5b9b3c008cc3563d36fbad7e8406465", null ],
+      [ "SavePoint", "namespace_m_pewsey_1_1_mania_map_1_1_drawing.html#af8cd03028acae7761aaa2df81d6d0a15af3dabd9b8094fbb474efcd2bce6f55be", null ]
     ] ]
 ];

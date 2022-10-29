@@ -17,6 +17,7 @@ var class_m_pewsey_1_1_mania_map_1_1_cell =
     [ "Rotated90", "class_m_pewsey_1_1_mania_map_1_1_cell.html#aa7c20348912701fee6810ae78bf5290c", null ],
     [ "SetDoor", "class_m_pewsey_1_1_mania_map_1_1_cell.html#af0177bf70153b29d9fdec67238a13475", null ],
     [ "SetDoors", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a30d08ef844ba323dd76b981a7e278f3f", null ],
+    [ "SetSavePoint", "class_m_pewsey_1_1_mania_map_1_1_cell.html#ac9eb4e4c954c53255906fbde79140ec2", null ],
     [ "SouthDoorAligns", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a9debb06e02c8f00ae6367492323bc257", null ],
     [ "TopDoorAligns", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a914eb22beea54a5c4f15c440ebfb210c", null ],
     [ "ValuesAreEqual", "class_m_pewsey_1_1_mania_map_1_1_cell.html#ac02a26a98fa40e1d2d6bb697c85b1a87", null ],
@@ -31,6 +32,7 @@ var class_m_pewsey_1_1_mania_map_1_1_cell =
     [ "Empty", "class_m_pewsey_1_1_mania_map_1_1_cell.html#adce545f0d632f7f62c50be3be2264994", null ],
     [ "New", "class_m_pewsey_1_1_mania_map_1_1_cell.html#ae1cfb373ea02c2749468d7d7568da662", null ],
     [ "NorthDoor", "class_m_pewsey_1_1_mania_map_1_1_cell.html#af47830af94a2c6c1469cabad9ab79d91", null ],
+    [ "SavePoint", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a310498b72add3b187705edb5d16065b6", null ],
     [ "SouthDoor", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a2ee96a8b821c4fcd0f508d327bd6bf88", null ],
     [ "TopDoor", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a86498fe37730190c4d74645e305b6f94", null ],
     [ "WestDoor", "class_m_pewsey_1_1_mania_map_1_1_cell.html#acfc9b9128085eaeac7adc8e9a1495efb", null ]

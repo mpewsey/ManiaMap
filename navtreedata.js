@@ -65,11 +65,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_____docs_____8cs_source.html",
-"class_m_pewsey_1_1_mania_map_1_1_collectable_entry.html#aff8792c7feb60a7b0e5c75408ed34670",
-"class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_no_doors_exist_exception.html",
-"class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#af2c8c853b3882318040620463f354bdf",
-"class_m_pewsey_1_1_mania_map_1_1_random_seed.html#ac775b1e2219d299d7897b520564fdef6",
-"functions_func.html"
+"class_m_pewsey_1_1_mania_map_1_1_collectable_entry.html#a0c310d4a0a0613de8f7073e619cba6ef",
+"class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_chain_order_exception.html",
+"class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#ab6d1585f93e92ac5492dac662bd3e65a",
+"class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a671e94bbaafcfe0cd8ffee834859924a",
+"class_m_pewsey_1_1_mania_map_1_1_template_groups.html#aa714a714a9fd71bd1d006557e9dea514",
+"struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int.html#a368b1b42d69b10a628e5a1ffeac146fb"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

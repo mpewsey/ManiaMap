@@ -1,6 +1,7 @@
 var class_m_pewsey_1_1_mania_map_1_1_room =
 [
     [ "Room", "class_m_pewsey_1_1_mania_map_1_1_room.html#a3cc75e3299591113dd95fc968c82e8a9", null ],
+    [ "Intersects", "class_m_pewsey_1_1_mania_map_1_1_room.html#aaf4b8665c420c92e0172085cf746dc06", null ],
     [ "CollectableIdEntries", "class_m_pewsey_1_1_mania_map_1_1_room.html#a9ae8bed683140b98934fea27d273d53c", null ],
     [ "Collectables", "class_m_pewsey_1_1_mania_map_1_1_room.html#a25745a229d5ae0c482392f569bd1e969", null ],
     [ "Color", "class_m_pewsey_1_1_mania_map_1_1_room.html#a9e3cb95c811f45eb8b242df14428ef9f", null ],
