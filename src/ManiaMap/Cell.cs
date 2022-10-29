@@ -22,12 +22,6 @@ namespace MPewsey.ManiaMap
         public static Cell New => new Cell();
 
         /// <summary>
-        /// True if the cell contains a save point.
-        /// </summary>
-        [DataMember(Order = 1)]
-        public bool SavePoint { get; set; }
-
-        /// <summary>
         /// A dictionary of doors.
         /// </summary>
         public Dictionary<DoorDirection, Door> Doors { get; set; } = new Dictionary<DoorDirection, Door>();
@@ -35,7 +29,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// An enumerable of door and direction pairs.
         /// </summary>
-        [DataMember(Order = 100)]
+        [DataMember(Order = 1)]
         protected IEnumerable<DoorEntry> DoorEntries
         {
             get => Doors.Select(x => new DoorEntry(x.Key, x.Value));
@@ -50,12 +44,18 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// An enumerable of collectable spot groups and location ID's.
         /// </summary>
-        [DataMember(Order = 101)]
+        [DataMember(Order = 2)]
         protected IEnumerable<CollectableEntry> CollectableSpotEntries
         {
             get => CollectableSpots.Select(x => new CollectableEntry(x.Key, x.Value));
             set => CollectableSpots = value.ToDictionary(x => x.LocationId, x => x.Group);
         }
+
+        /// <summary>
+        /// A list of feature names.
+        /// </summary>
+        [DataMember(Order = 3)]
+        public List<string> Features { get; set; } = new List<string>();
 
         /// <summary>
         /// The west door. Set to null if no door exists.
@@ -101,9 +101,17 @@ namespace MPewsey.ManiaMap
         /// <param name="other">The cell to copy.</param>
         private Cell(Cell other)
         {
-            SavePoint = other.SavePoint;
             Doors = other.Doors.ToDictionary(x => x.Key, x => x.Value?.Copy());
             CollectableSpots = new Dictionary<int, string>(other.CollectableSpots);
+            Features = new List<string>(other.Features);
+        }
+
+        [OnDeserialized]
+        private void OnDeserialized(StreamingContext context)
+        {
+            Doors = Doors ?? new Dictionary<DoorDirection, Door>();
+            CollectableSpots = CollectableSpots ?? new Dictionary<int, string>();
+            Features = Features ?? new List<string>();
         }
 
         /// <summary>
@@ -237,12 +245,15 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Sets whether the cell has a save point and returns the cell.
+        /// Adds the name to the feature list if it doesn't already exist. Returns the cell.
         /// </summary>
-        /// <param name="value">The value.</param>
-        public Cell SetSavePoint(bool value)
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public Cell AddFeature(string name)
         {
-            SavePoint = value;
+            if (!Features.Contains(name))
+                Features.Add(name);
+
             return this;
         }
 

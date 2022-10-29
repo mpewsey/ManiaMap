@@ -1,7 +1,6 @@
 ﻿using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
-using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -34,8 +33,11 @@ namespace MPewsey.ManiaMap.Drawing
         /// * "NorthDoor", "TopDoor", etc. - Tiles used when there is a door in that direction.
         /// * "NorthWall", "TopWall", etc. - Tiles used when there is a wall in that direction.
         /// * "Grid" (Optional) - If specified, used to fill the background before any tiles are drawn.
+        /// 
+        /// Features assigned to cells will also be checked against this dictionary and drawn
+        /// if the tile exists.
         /// </summary>
-        public Dictionary<MapTileType, Image> Tiles { get; set; }
+        public Dictionary<string, Image> Tiles { get; set; }
 
         /// <summary>
         /// The room layout.
@@ -66,7 +68,7 @@ namespace MPewsey.ManiaMap.Drawing
         /// <param name="tiles">A dictionary of map tiles to use. If null, the default tiles will be used.</param>
         /// <param name="backgroundColor">The background color. If null, the default property value will be used.</param>
         public LayoutMap(Padding? padding = null, Color4? backgroundColor = null,
-            Vector2DInt? tileSize = null, Dictionary<MapTileType, Image> tiles = null)
+            Vector2DInt? tileSize = null, Dictionary<string, Image> tiles = null)
         {
             TileSize = tileSize ?? TileSize;
             Padding = padding ?? Padding;
@@ -196,8 +198,6 @@ namespace MPewsey.ManiaMap.Drawing
         /// <param name="z">The z (layer) value used to render the layout.</param>
         private void DrawMapTiles(IImageProcessingContext image, int z)
         {
-            Tiles.TryGetValue(MapTileType.SavePoint, out Image saveTile);
-
             foreach (var room in Layout.Rooms.Values)
             {
                 // If room Z (layer) value is not equal, go to next room.
@@ -261,9 +261,26 @@ namespace MPewsey.ManiaMap.Drawing
                             image.DrawImage(topTile, point, 1);
                         if (bottomTile != null)
                             image.DrawImage(bottomTile, point, 1);
-                        if (cell.SavePoint && saveTile != null)
-                            image.DrawImage(saveTile, point, 1);
+
+                        DrawFeatureTiles(image, cell, point);
                     }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Draws any feature map tiles assigned to the cell.
+        /// </summary>
+        /// <param name="image">The image context.</param>
+        /// <param name="cell">The cell.</param>
+        /// <param name="point">The tile position.</param>
+        private void DrawFeatureTiles(IImageProcessingContext image, Cell cell, Point point)
+        {
+            foreach (var tileName in cell.Features)
+            {
+                if (Tiles.TryGetValue(tileName, out Image tile))
+                {
+                    image.DrawImage(tile, point, 1);
                 }
             }
         }
@@ -290,65 +307,14 @@ namespace MPewsey.ManiaMap.Drawing
         private Image GetTile(Room room, Cell cell, Cell neighbor, Vector2DInt position, DoorDirection direction)
         {
             if (cell.GetDoor(direction) != null && DoorExists(room, position, direction))
-                return Tiles[GetDoorTileType(direction)];
+                return Tiles[MapTileType.GetDoorTileType(direction)];
 
-            var wallType = GetWallTileType(direction);
+            var wallType = MapTileType.GetWallTileType(direction);
 
             if (wallType != MapTileType.None && neighbor == null)
                 return Tiles[wallType];
 
             return null;
-        }
-
-        /// <summary>
-        /// Returns the door tile type corresponding to the direction.
-        /// </summary>
-        /// <param name="direction">The direction.</param>
-        /// <exception cref="ArgumentException">Raised if the direction is not handled.</exception>
-        private static MapTileType GetDoorTileType(DoorDirection direction)
-        {
-            switch (direction)
-            {
-                case DoorDirection.North:
-                    return MapTileType.NorthDoor;
-                case DoorDirection.South:
-                    return MapTileType.SouthDoor;
-                case DoorDirection.East:
-                    return MapTileType.EastDoor;
-                case DoorDirection.West:
-                    return MapTileType.WestDoor;
-                case DoorDirection.Top:
-                    return MapTileType.TopDoor;
-                case DoorDirection.Bottom:
-                    return MapTileType.BottomDoor;
-                default:
-                    throw new ArgumentException($"Unhandled direction: {direction}.");
-            }
-        }
-
-        /// <summary>
-        /// Returns the wall tile type corresponding to the direction.
-        /// </summary>
-        /// <param name="direction">The direction.</param>
-        /// <exception cref="ArgumentException">Raised if the direction is not handled.</exception>
-        private static MapTileType GetWallTileType(DoorDirection direction)
-        {
-            switch (direction)
-            {
-                case DoorDirection.North:
-                    return MapTileType.NorthWall;
-                case DoorDirection.South:
-                    return MapTileType.SouthWall;
-                case DoorDirection.East:
-                    return MapTileType.EastWall;
-                case DoorDirection.West:
-                    return MapTileType.WestWall;
-                case DoorDirection.Top:
-                case DoorDirection.Bottom:
-                    return MapTileType.None;
-                default:
-                    throw new ArgumentException($"Unhandled direction: {direction}.");
-            }
         }
     }
 }
