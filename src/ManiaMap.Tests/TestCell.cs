@@ -87,6 +87,14 @@ namespace MPewsey.ManiaMap.Tests
             var cell9 = Cell.New.SetDoors("N", Door.TwoWay);
             var cell10 = Cell.New;
             Assert.IsFalse(Cell.ValuesAreEqual(cell9, cell10));
+
+            var cell11 = Cell.New.SetDoors("N", Door.TwoWay).AddFeature("SavePoint");
+            var cell12 = Cell.New.SetDoors("N", Door.TwoWay);
+            Assert.IsFalse(Cell.ValuesAreEqual(cell11, cell12));
+
+            var cell13 = Cell.New.SetDoors("N", Door.TwoWay).AddFeature("SavePoint");
+            var cell14 = Cell.New.SetDoors("N", Door.TwoWay).AddFeature("Boss");
+            Assert.IsFalse(Cell.ValuesAreEqual(cell13, cell14));
         }
     }
 }
