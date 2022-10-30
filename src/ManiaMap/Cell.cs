@@ -337,6 +337,7 @@ namespace MPewsey.ManiaMap
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
                 CollectableSpots = new Dictionary<int, string>(CollectableSpots),
+                Features = new List<string>(Features),
             };
         }
 
@@ -354,6 +355,7 @@ namespace MPewsey.ManiaMap
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
                 CollectableSpots = new Dictionary<int, string>(CollectableSpots),
+                Features = new List<string>(Features),
             };
         }
 
@@ -371,6 +373,7 @@ namespace MPewsey.ManiaMap
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
                 CollectableSpots = new Dictionary<int, string>(CollectableSpots),
+                Features = new List<string>(Features),
             };
         }
 
@@ -388,6 +391,7 @@ namespace MPewsey.ManiaMap
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
                 CollectableSpots = new Dictionary<int, string>(CollectableSpots),
+                Features = new List<string>(Features),
             };
         }
 
@@ -405,6 +409,7 @@ namespace MPewsey.ManiaMap
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
                 CollectableSpots = new Dictionary<int, string>(CollectableSpots),
+                Features = new List<string>(Features),
             };
         }
 
@@ -430,23 +435,29 @@ namespace MPewsey.ManiaMap
         /// <param name="other">The other cell.</param>
         public bool ValuesAreEqual(Cell other)
         {
-            if (Doors.Count != other.Doors.Count || CollectableSpots.Count != other.CollectableSpots.Count)
+            if (Doors.Count != other.Doors.Count
+                || CollectableSpots.Count != other.CollectableSpots.Count
+                || Features.Count != other.Features.Count)
                 return false;
 
             foreach (var pair in other.Doors)
             {
-                if (!Doors.TryGetValue(pair.Key, out Door value) || !Door.ValuesAreEqual(pair.Value, value))
-                {
+                if (!Doors.TryGetValue(pair.Key, out Door value)
+                    || !Door.ValuesAreEqual(pair.Value, value))
                     return false;
-                }
             }
 
             foreach (var pair in other.CollectableSpots)
             {
-                if (!CollectableSpots.TryGetValue(pair.Key, out string value) || pair.Value != value)
-                {
+                if (!CollectableSpots.TryGetValue(pair.Key, out string value)
+                    || pair.Value != value)
                     return false;
-                }
+            }
+
+            for (int i = 0; i < Features.Count; i++)
+            {
+                if (Features[i] != other.Features[i])
+                    return false;
             }
 
             return true;
