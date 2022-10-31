@@ -22,12 +22,12 @@ namespace MPewsey.ManiaMap
         public Dictionary<Uid, RoomState> RoomStates { get; private set; } = new Dictionary<Uid, RoomState>();
 
         /// <summary>
-        /// An enumerable of room state values.
+        /// An array of room states.
         /// </summary>
         [DataMember(Order = 1)]
-        protected IEnumerable<RoomState> RoomStateEntries
+        public RoomState[] RoomStatesArray
         {
-            get => RoomStates.Values;
+            get => RoomStates.Values.ToArray();
             set => RoomStates = value.ToDictionary(x => x.Id, x => x);
         }
 

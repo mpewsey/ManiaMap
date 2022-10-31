@@ -35,12 +35,12 @@ namespace MPewsey.ManiaMap
         public Dictionary<Uid, Room> Rooms { get; private set; } = new Dictionary<Uid, Room>();
 
         /// <summary>
-        /// An enumerable of rooms.
+        /// An array of rooms.
         /// </summary>
-        [DataMember(Order = 3)]
-        protected IEnumerable<Room> RoomEntries
+        [DataMember(Order = 3, Name = "Rooms")]
+        public Room[] RoomArray
         {
-            get => Rooms.Values;
+            get => Rooms.Values.ToArray();
             set => Rooms = value.ToDictionary(x => x.Id, x => x);
         }
 
@@ -50,12 +50,12 @@ namespace MPewsey.ManiaMap
         public Dictionary<RoomPair, DoorConnection> DoorConnections { get; private set; } = new Dictionary<RoomPair, DoorConnection>();
 
         /// <summary>
-        /// An enumerable of door connections.
+        /// An array of door connections.
         /// </summary>
-        [DataMember(Order = 4)]
-        protected IEnumerable<DoorConnection> DoorConnectionEntries
+        [DataMember(Order = 4, Name = "DoorConnections")]
+        protected DoorConnection[] DoorConnectionArray
         {
-            get => DoorConnections.Values;
+            get => DoorConnections.Values.ToArray();
             set => DoorConnections = value.ToDictionary(x => new RoomPair(x.FromRoom, x.ToRoom), x => x);
         }
 

@@ -3,7 +3,7 @@
 namespace MPewsey.ManiaMap.Tests
 {
     [TestClass]
-    public class TestColor32
+    public class TestColor4
     {
         [TestMethod]
         public void TestToString()

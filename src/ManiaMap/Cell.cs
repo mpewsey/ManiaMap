@@ -24,32 +24,14 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A dictionary of doors.
         /// </summary>
-        public Dictionary<DoorDirection, Door> Doors { get; set; } = new Dictionary<DoorDirection, Door>();
-
-        /// <summary>
-        /// An enumerable of door and direction pairs.
-        /// </summary>
         [DataMember(Order = 1)]
-        protected IEnumerable<DoorEntry> DoorEntries
-        {
-            get => Doors.Select(x => new DoorEntry(x.Key, x.Value));
-            set => Doors = value.ToDictionary(x => x.Direction, x => x.Door);
-        }
+        public DataContractDictionary<DoorDirection, Door> Doors { get; set; } = new DataContractDictionary<DoorDirection, Door>();
 
         /// <summary>
         /// A dictionary of collectable group names by location ID.
         /// </summary>
-        public Dictionary<int, string> CollectableSpots { get; set; } = new Dictionary<int, string>();
-
-        /// <summary>
-        /// An enumerable of collectable spot groups and location ID's.
-        /// </summary>
         [DataMember(Order = 2)]
-        protected IEnumerable<CollectableEntry> CollectableSpotEntries
-        {
-            get => CollectableSpots.Select(x => new CollectableEntry(x.Key, x.Value));
-            set => CollectableSpots = value.ToDictionary(x => x.LocationId, x => x.Group);
-        }
+        public DataContractDictionary<int, string> CollectableSpots { get; set; } = new DataContractDictionary<int, string>();
 
         /// <summary>
         /// A list of feature names.
@@ -102,16 +84,8 @@ namespace MPewsey.ManiaMap
         private Cell(Cell other)
         {
             Doors = other.Doors.ToDictionary(x => x.Key, x => x.Value?.Copy());
-            CollectableSpots = new Dictionary<int, string>(other.CollectableSpots);
+            CollectableSpots = new DataContractDictionary<int, string>(other.CollectableSpots);
             Features = new List<string>(other.Features);
-        }
-
-        [OnDeserialized]
-        private void OnDeserialized(StreamingContext context)
-        {
-            Doors = Doors ?? new Dictionary<DoorDirection, Door>();
-            CollectableSpots = CollectableSpots ?? new Dictionary<int, string>();
-            Features = Features ?? new List<string>();
         }
 
         /// <summary>
@@ -336,7 +310,7 @@ namespace MPewsey.ManiaMap
                 NorthDoor = WestDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableSpots = new Dictionary<int, string>(CollectableSpots),
+                CollectableSpots = new DataContractDictionary<int, string>(CollectableSpots),
                 Features = new List<string>(Features),
             };
         }
@@ -354,7 +328,7 @@ namespace MPewsey.ManiaMap
                 WestDoor = EastDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableSpots = new Dictionary<int, string>(CollectableSpots),
+                CollectableSpots = new DataContractDictionary<int, string>(CollectableSpots),
                 Features = new List<string>(Features),
             };
         }
@@ -372,7 +346,7 @@ namespace MPewsey.ManiaMap
                 SouthDoor = WestDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableSpots = new Dictionary<int, string>(CollectableSpots),
+                CollectableSpots = new DataContractDictionary<int, string>(CollectableSpots),
                 Features = new List<string>(Features),
             };
         }
@@ -390,7 +364,7 @@ namespace MPewsey.ManiaMap
                 EastDoor = EastDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableSpots = new Dictionary<int, string>(CollectableSpots),
+                CollectableSpots = new DataContractDictionary<int, string>(CollectableSpots),
                 Features = new List<string>(Features),
             };
         }
@@ -408,7 +382,7 @@ namespace MPewsey.ManiaMap
                 EastDoor = WestDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableSpots = new Dictionary<int, string>(CollectableSpots),
+                CollectableSpots = new DataContractDictionary<int, string>(CollectableSpots),
                 Features = new List<string>(Features),
             };
         }

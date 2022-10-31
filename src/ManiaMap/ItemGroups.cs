@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -15,17 +14,8 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A dictionary of items by group.
         /// </summary>
-        protected Dictionary<TKey, List<TValue>> Groups { get; set; } = new Dictionary<TKey, List<TValue>>();
-
-        /// <summary>
-        /// An enumerable of item group entries.
-        /// </summary>
         [DataMember(Order = 1)]
-        protected IEnumerable<ItemGroup<TKey, TValue>> GroupEntries
-        {
-            get => Groups.Select(x => new ItemGroup<TKey, TValue>(x.Key, x.Value));
-            set => Groups = value.ToDictionary(x => x.GroupId, x => x.Items);
-        }
+        protected DataContractDictionary<TKey, List<TValue>> Groups { get; set; } = new DataContractDictionary<TKey, List<TValue>>();
 
         /// <summary>
         /// Returns an enumerable of group key-value pairs.

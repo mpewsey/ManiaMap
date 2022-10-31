@@ -29,12 +29,12 @@ namespace MPewsey.ManiaMap
         private Dictionary<int, LayoutNode> Nodes { get; set; } = new Dictionary<int, LayoutNode>();
 
         /// <summary>
-        /// An enumerable of layout nodes.
+        /// An array of layout nodes.
         /// </summary>
-        [DataMember(Order = 3)]
-        protected IEnumerable<LayoutNode> LayoutNodes
+        [DataMember(Order = 3, Name = "Nodes")]
+        public LayoutNode[] NodesArray
         {
-            get => Nodes.Values;
+            get => Nodes.Values.ToArray();
             set => Nodes = value.ToDictionary(x => x.Id, x => x);
         }
 
@@ -44,44 +44,26 @@ namespace MPewsey.ManiaMap
         private Dictionary<EdgeIndexes, LayoutEdge> Edges { get; set; } = new Dictionary<EdgeIndexes, LayoutEdge>();
 
         /// <summary>
-        /// An enumerable of layout edges.
+        /// An array of layout edges.
         /// </summary>
-        [DataMember(Order = 4)]
-        protected IEnumerable<LayoutEdge> LayoutEdges
+        [DataMember(Order = 4, Name = "Edges")]
+        public LayoutEdge[] EdgesArray
         {
-            get => Edges.Values;
+            get => Edges.Values.ToArray();
             set => Edges = value.ToDictionary(x => new EdgeIndexes(x.FromNode, x.ToNode), x => x);
         }
 
         /// <summary>
         /// A dictionary of neighboring nodes by node ID.
         /// </summary>
-        private Dictionary<int, List<int>> Neighbors { get; set; } = new Dictionary<int, List<int>>();
-
-        /// <summary>
-        /// An enumerable of node neighbor groups.
-        /// </summary>
         [DataMember(Order = 5)]
-        protected IEnumerable<NodeNeighbors> NodeNeighbors
-        {
-            get => Neighbors.Select(x => new NodeNeighbors(x.Key, x.Value));
-            set => Neighbors = value.ToDictionary(x => x.Id, x => x.Neighbors);
-        }
+        private DataContractDictionary<int, List<int>> Neighbors { get; set; } = new DataContractDictionary<int, List<int>>();
 
         /// <summary>
         /// A dictionary of node variation groups.
         /// </summary>
-        private Dictionary<string, List<int>> NodeVariations { get; set; } = new Dictionary<string, List<int>>();
-
-        /// <summary>
-        /// An enumerable of node variations.
-        /// </summary>
         [DataMember(Order = 6)]
-        protected IEnumerable<NodeVariations> VariationGroups
-        {
-            get => NodeVariations.Select(x => new NodeVariations(x.Key, x.Value));
-            set => NodeVariations = value.ToDictionary(x => x.GroupName, x => x.Variations);
-        }
+        private DataContractDictionary<string, List<int>> NodeVariations { get; set; } = new DataContractDictionary<string, List<int>>();
 
         /// <summary>
         /// The number of nodes in the graph.
@@ -476,7 +458,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public List<List<int>> FindCycles()
         {
-            return new GraphCycleDecomposer<int>().FindCycles(Neighbors);
+            return new GraphCycleDecomposer<int>().FindCycles(Neighbors.Dictionary);
         }
 
         /// <summary>
@@ -484,7 +466,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public List<List<int>> FindBranches()
         {
-            return new GraphBranchDecomposer<int>().FindBranches(Neighbors);
+            return new GraphBranchDecomposer<int>().FindBranches(Neighbors.Dictionary);
         }
 
         /// <summary>
@@ -503,7 +485,7 @@ namespace MPewsey.ManiaMap
         /// <param name="maxDepth">The maximum depth for which neighbors will be returned.</param>
         public HashSet<int> FindCluster(int node, int maxDepth)
         {
-            return new GraphClusterSearch<int>().FindCluster(Neighbors, node, maxDepth);
+            return new GraphClusterSearch<int>().FindCluster(Neighbors.Dictionary, node, maxDepth);
         }
 
         /// <summary>
@@ -512,7 +494,7 @@ namespace MPewsey.ManiaMap
         /// <param name="maxDepth">The maximum depth for which neighbors will be returned.</param>
         public Dictionary<int, HashSet<int>> FindClusters(int maxDepth)
         {
-            return new GraphClusterSearch<int>().FindClusters(Neighbors, maxDepth);
+            return new GraphClusterSearch<int>().FindClusters(Neighbors.Dictionary, maxDepth);
         }
 
         /// <summary>
