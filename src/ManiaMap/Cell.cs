@@ -98,14 +98,8 @@ namespace MPewsey.ManiaMap
 
         public override string ToString()
         {
-            var strings = new List<string>(Doors.Count);
-
-            foreach (var door in Doors.OrderBy(x => x.Key))
-            {
-                strings.Add($"{door.Key}Door = {door.Value}");
-            }
-
-            return $"Cell({string.Join(", ", strings)})";
+            var doors = Doors.OrderBy(x => x.Key).Select(x => $"{x.Key}{x.Value}");
+            return $"Cell(Doors = [{string.Join(", ", doors)}], Features = [{string.Join(", ", Features)}])";
         }
 
         /// <summary>

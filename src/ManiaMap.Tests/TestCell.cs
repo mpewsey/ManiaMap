@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MPewsey.ManiaMap.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,8 +12,10 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestToString()
         {
-            var cell = Cell.New.SetDoors("N", Door.TwoWay);
-            Assert.IsTrue(cell.ToString().StartsWith("Cell(NorthDoor = "));
+            var cell = Cell.New.SetDoors("N", Door.TwoWay).AddFeature("SavePoint");
+            var str = cell.ToString();
+            Console.WriteLine(str);
+            Assert.IsTrue(str.StartsWith("Cell("));
         }
 
         [TestMethod]
