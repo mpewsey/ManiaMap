@@ -1,5 +1,4 @@
-﻿using MPewsey.ManiaMap.Collections;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
@@ -7,7 +6,7 @@ namespace MPewsey.ManiaMap
     /// Represents a room in a Layout.
     /// </summary>
     [DataContract]
-    public class Room
+    public class Room : IKey<Uid>
     {
         /// <summary>
         /// The room ID.
@@ -50,6 +49,9 @@ namespace MPewsey.ManiaMap
         /// </summary>
         [DataMember(Order = 8)]
         public DataContractDictionary<int, int> Collectables { get; private set; } = new DataContractDictionary<int, int>();
+
+        /// <inheritdoc/>
+        public Uid Key => Id;
 
         /// <summary>
         /// Initializes a room from a room source.

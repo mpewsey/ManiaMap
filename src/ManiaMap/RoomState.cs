@@ -1,5 +1,4 @@
-﻿using MPewsey.ManiaMap.Collections;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
@@ -7,7 +6,7 @@ namespace MPewsey.ManiaMap
     /// Stores the state of a Room in a Layout.
     /// </summary>
     [DataContract]
-    public class RoomState
+    public class RoomState : IKey<Uid>
     {
         /// <summary>
         /// The ID of the corresponding room.
@@ -32,6 +31,9 @@ namespace MPewsey.ManiaMap
         /// </summary>
         [DataMember(Order = 4)]
         public DataContractHashSet<int> Flags { get; private set; } = new DataContractHashSet<int>();
+
+        /// <inheritdoc/>
+        public Uid Key => Id;
 
         /// <summary>
         /// Initializes from a room.

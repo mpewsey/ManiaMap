@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace MPewsey.ManiaMap.Collections
+namespace MPewsey.ManiaMap
 {
     /// <summary>
     /// A hash set that is data contract serializable.
@@ -13,8 +13,7 @@ namespace MPewsey.ManiaMap.Collections
         /// <summary>
         /// The underlying hash set.
         /// </summary>
-        [IgnoreDataMember] // See Array
-        public HashSet<T> HashSet { get; private set; }
+        public HashSet<T> HashSet { get; private set; } = new HashSet<T>();
 
         /// <summary>
         /// An array of hash set entries.
@@ -27,7 +26,7 @@ namespace MPewsey.ManiaMap.Collections
         /// </summary>
         public DataContractHashSet()
         {
-            HashSet = new HashSet<T>();
+
         }
 
         /// <summary>

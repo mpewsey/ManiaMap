@@ -15,7 +15,7 @@ namespace MPewsey.ManiaMap
     /// ```
     /// </summary>
     [DataContract]
-    public class LayoutNode : IRoomSource
+    public class LayoutNode : IRoomSource, IKey<int>
     {
         /// <summary>
         /// The unique node ID.
@@ -23,24 +23,27 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 1)]
         public int Id { get; set; }
 
-        /// <inheritdoc>
+        /// <inheritdoc/>
         [DataMember(Order = 2)]
         public string Name { get; set; } = string.Empty;
 
-        /// <inheritdoc>
+        /// <inheritdoc/>
         [DataMember(Order = 3)]
         public int Z { get; set; }
 
-        /// <inheritdoc>
+        /// <inheritdoc/>
         [DataMember(Order = 4)]
         public string TemplateGroup { get; set; } = "Default";
 
-        /// <inheritdoc>
+        /// <inheritdoc/>
         [DataMember(Order = 5)]
         public Color4 Color { get; set; } = new Color4(25, 25, 112, 255);
 
-        /// <inheritdoc>
+        /// <inheritdoc/>
         public Uid RoomId { get => new Uid(Id); }
+
+        /// <inheritdoc/>
+        public int Key => Id;
 
         /// <summary>
         /// Initializes an empty node from ID.

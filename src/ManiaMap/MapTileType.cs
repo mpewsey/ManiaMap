@@ -7,18 +7,69 @@ namespace MPewsey.ManiaMap
     /// </summary>
     public static class MapTileType
     {
+        /// <summary>
+        /// Returns null, the value of no tile.
+        /// </summary>
         public static string None { get; } = null;
+
+        /// <summary>
+        /// The name of the grid tile.
+        /// </summary>
         public static string Grid { get; } = "Grid";
+
+        /// <summary>
+        /// The name of the north door tile.
+        /// </summary>
         public static string NorthDoor { get; } = "NorthDoor";
+
+        /// <summary>
+        /// The name of the south door tile.
+        /// </summary>
         public static string SouthDoor { get; } = "SouthDoor";
+
+        /// <summary>
+        /// The name of the east door tile.
+        /// </summary>
         public static string EastDoor { get; } = "EastDoor";
+
+        /// <summary>
+        /// The name of the west door tile.
+        /// </summary>
         public static string WestDoor { get; } = "WestDoor";
+
+        /// <summary>
+        /// The name of the top door tile.
+        /// </summary>
         public static string TopDoor { get; } = "TopDoor";
+
+        /// <summary>
+        /// The name of the bottom door tile.
+        /// </summary>
         public static string BottomDoor { get; } = "BottomDoor";
+
+        /// <summary>
+        /// The name of the north wall tile.
+        /// </summary>
         public static string NorthWall { get; } = "NorthWall";
+
+        /// <summary>
+        /// The name of the south wall tile.
+        /// </summary>
         public static string SouthWall { get; } = "SouthWall";
+
+        /// <summary>
+        /// The name of the east wall tile.
+        /// </summary>
         public static string EastWall { get; } = "EastWall";
+
+        /// <summary>
+        /// The name of the west wall tile.
+        /// </summary>
         public static string WestWall { get; } = "WestWall";
+
+        /// <summary>
+        /// The name of the save point tile.
+        /// </summary>
         public static string SavePoint { get; } = "SavePoint";
 
         /// <summary>

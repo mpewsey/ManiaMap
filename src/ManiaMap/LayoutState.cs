@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -19,18 +18,8 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A dictionary of room states by ID.
         /// </summary>
-        [IgnoreDataMember] // See RoomStatesArray
-        public Dictionary<Uid, RoomState> RoomStates { get; private set; } = new Dictionary<Uid, RoomState>();
-
-        /// <summary>
-        /// An array of room states.
-        /// </summary>
-        [DataMember(Order = 1, Name = "RoomStates")]
-        public RoomState[] RoomStatesArray
-        {
-            get => RoomStates.Values.ToArray();
-            set => RoomStates = value.ToDictionary(x => x.Id, x => x);
-        }
+        [DataMember(Order = 1)]
+        public DataContractValueDictionary<Uid, RoomState> RoomStates { get; private set; } = new DataContractValueDictionary<Uid, RoomState>();
 
         /// <summary>
         /// Initializes an object from a layout.

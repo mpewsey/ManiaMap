@@ -6,7 +6,7 @@ namespace MPewsey.ManiaMap
     /// Represents a door connection between two Room.
     /// </summary>
     [DataContract]
-    public class DoorConnection
+    public class DoorConnection : IKey<RoomPair>
     {
         /// <summary>
         /// The from room ID.
@@ -37,6 +37,9 @@ namespace MPewsey.ManiaMap
         /// </summary>
         [DataMember(Order = 5)]
         public Box Shaft { get; private set; }
+
+        /// <inheritdoc/>
+        public RoomPair Key => new RoomPair(FromRoom, ToRoom);
 
         /// <summary>
         /// Initializes a door connection from two rooms, two door positions, and an optional shaft.

@@ -16,9 +16,9 @@ namespace MPewsey.ManiaMap
     /// ```
     /// </summary>
     [DataContract]
-    public class LayoutEdge : IRoomSource
+    public class LayoutEdge : IRoomSource, IKey<EdgeIndexes>
     {
-        /// <inheritdoc>
+        /// <inheritdoc/>
         [DataMember(Order = 1)]
         public string Name { get; set; } = string.Empty;
 
@@ -46,7 +46,7 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 5)]
         public int DoorCode { get; set; }
 
-        /// <inheritdoc>
+        /// <inheritdoc/>
         [DataMember(Order = 6)]
         public int Z { get; set; }
 
@@ -64,16 +64,19 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 8)]
         public bool RequireRoom { get; set; }
 
-        /// <inheritdoc>
+        /// <inheritdoc/>
         [DataMember(Order = 9)]
         public Color4 Color { get; set; } = new Color4(25, 25, 112, 255);
 
-        /// <inheritdoc>
+        /// <inheritdoc/>
         [DataMember(Order = 10)]
         public string TemplateGroup { get; set; } = "Default";
 
-        /// <inheritdoc>
+        /// <inheritdoc/>
         public Uid RoomId { get => new Uid(FromNode, ToNode, 1); }
+
+        /// <inheritdoc/>
+        public EdgeIndexes Key => new EdgeIndexes(FromNode, ToNode);
 
         /// <summary>
         /// Initializes an edge with the from node and to node ID's.

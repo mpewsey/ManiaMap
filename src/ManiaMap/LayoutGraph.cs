@@ -1,5 +1,4 @@
-﻿using MPewsey.ManiaMap.Collections;
-using MPewsey.ManiaMap.Exceptions;
+﻿using MPewsey.ManiaMap.Exceptions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -27,34 +26,14 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A dictionary of nodes by ID.
         /// </summary>
-        [IgnoreDataMember] // See NodesArray
-        private Dictionary<int, LayoutNode> Nodes { get; set; } = new Dictionary<int, LayoutNode>();
-
-        /// <summary>
-        /// An array of layout nodes.
-        /// </summary>
-        [DataMember(Order = 3, Name = "Nodes")]
-        public LayoutNode[] NodesArray
-        {
-            get => Nodes.Values.ToArray();
-            set => Nodes = value.ToDictionary(x => x.Id, x => x);
-        }
+        [DataMember(Order = 3)]
+        private DataContractValueDictionary<int, LayoutNode> Nodes { get; set; } = new DataContractValueDictionary<int, LayoutNode>();
 
         /// <summary>
         /// A dictionary of nodes by from and to node ID's.
         /// </summary>
-        [IgnoreDataMember] // See EdgesArray
-        private Dictionary<EdgeIndexes, LayoutEdge> Edges { get; set; } = new Dictionary<EdgeIndexes, LayoutEdge>();
-
-        /// <summary>
-        /// An array of layout edges.
-        /// </summary>
-        [DataMember(Order = 4, Name = "Edges")]
-        public LayoutEdge[] EdgesArray
-        {
-            get => Edges.Values.ToArray();
-            set => Edges = value.ToDictionary(x => new EdgeIndexes(x.FromNode, x.ToNode), x => x);
-        }
+        [DataMember(Order = 4)]
+        private DataContractValueDictionary<EdgeIndexes, LayoutEdge> Edges { get; set; } = new DataContractValueDictionary<EdgeIndexes, LayoutEdge>();
 
         /// <summary>
         /// A dictionary of neighboring nodes by node ID.
