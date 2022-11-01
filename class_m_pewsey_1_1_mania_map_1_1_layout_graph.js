@@ -20,6 +20,7 @@ var class_m_pewsey_1_1_mania_map_1_1_layout_graph =
     [ "GetNeighbors", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a5b83ea4b4abee8eb69da202dd7fe89ed", null ],
     [ "GetNode", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a60f5f3e6d7254be2bc8c8aa2427bfc10", null ],
     [ "GetNodes", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a6f18f5fb2e2bc95d408a85dcfde4df32", null ],
+    [ "GetNodeVariations", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#ae6df528e1b5b4af2fe6707e4f3072120", null ],
     [ "GetNodeVariations", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a7f188045e328920bb08707d17336fc6d", null ],
     [ "GetVariation", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a55f890fc8dcdaaeaec5d023677b423b7", null ],
     [ "IsFullyConnected", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aa67b977ab2d12555faa47abd30f71bc0", null ],
@@ -33,15 +34,11 @@ var class_m_pewsey_1_1_mania_map_1_1_layout_graph =
     [ "TryGetEdge", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a6ca8f3d1e74355a916a14dcec44e53ff", null ],
     [ "Validate", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#ac3237a4cd118ccd9e07158718d240992", null ],
     [ "EdgeCount", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a313ed7c273a9e390ddba9a0ddaf78d5b", null ],
-    [ "Edges", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aacef134e5829933f88e4f8e817a6942f", null ],
+    [ "Edges", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#ada11e339cf44bd73cecee400687b2158", null ],
     [ "Id", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#af3b95e8cad22acd3f8b096c276bd6d89", null ],
-    [ "LayoutEdges", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#acd46047e0cc814284c4ba33620477672", null ],
-    [ "LayoutNodes", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#af138d27a29cda0ba4b36021eeef94001", null ],
     [ "Name", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a5c36518110182a0ba6d3a18dd8e3c62d", null ],
-    [ "Neighbors", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a62420f72349ca9e168421a0bd4956ec2", null ],
+    [ "Neighbors", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a601c865df21f9f62f166c0a5ab15f6ea", null ],
     [ "NodeCount", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a3670442090f5a1910da23275ef123d8c", null ],
-    [ "NodeNeighbors", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a57a7aa760f6123836fcef1926f260a56", null ],
-    [ "Nodes", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a68a3d089ce8e518830d665874abb8e57", null ],
-    [ "NodeVariations", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a437208393b6ebd20a9c821861b959178", null ],
-    [ "VariationGroups", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aa6c1c162c89ffcbeaa5eb7f0b3dd2a2d", null ]
+    [ "Nodes", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a8e1b6392d979e2d233971af7ebce1b4f", null ],
+    [ "NodeVariations", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aa8aea3707357b9a3dfeaa02b0df92a90", null ]
 ];

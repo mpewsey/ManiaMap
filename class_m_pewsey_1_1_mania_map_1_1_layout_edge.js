@@ -23,6 +23,7 @@ var class_m_pewsey_1_1_mania_map_1_1_layout_edge =
     [ "Direction", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#ae079b96d8012792dc60139c09a0e126d", null ],
     [ "DoorCode", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#aaf11208ba7ea493fd9fd0b12c115963d", null ],
     [ "FromNode", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#ae7fbcc389a7501ef4a2ee75ea929c24b", null ],
+    [ "Key", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a0bedf4693184a21059a7376b0bebbc43", null ],
     [ "Name", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a7c646ec4edae0af91cf513a7be9e8041", null ],
     [ "RequireRoom", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a17c6e64104eb8815ff516ae86ba5b757", null ],
     [ "RoomChance", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a655c9c8b55f00a46e720cbff6336e867", null ],

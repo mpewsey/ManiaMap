@@ -11,5 +11,6 @@ var class_m_pewsey_1_1_mania_map_1_1_serialization =
     [ "SaveEncryptedXml< T >", "class_m_pewsey_1_1_mania_map_1_1_serialization.html#a53016044abd340bebdb2df71cb4f5363", null ],
     [ "SavePrettyXml< T >", "class_m_pewsey_1_1_mania_map_1_1_serialization.html#a7145ad5abd17aab39fac2ed44781687a", null ],
     [ "SaveXml< T >", "class_m_pewsey_1_1_mania_map_1_1_serialization.html#ad4924b1da1ba72c78697c5dbd16592e3", null ],
-    [ "SaveXml< T >", "class_m_pewsey_1_1_mania_map_1_1_serialization.html#accb62dfd29f8fc0199b600ae0d8dda66", null ]
+    [ "SaveXml< T >", "class_m_pewsey_1_1_mania_map_1_1_serialization.html#accb62dfd29f8fc0199b600ae0d8dda66", null ],
+    [ "Namespace", "class_m_pewsey_1_1_mania_map_1_1_serialization.html#a273da5f141bc31facfa4a0f03ceca00a", null ]
 ];

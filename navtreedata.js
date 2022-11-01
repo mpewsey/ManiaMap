@@ -65,12 +65,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_____docs_____8cs_source.html",
-"class_m_pewsey_1_1_mania_map_1_1_collectable_entry.html#a0c310d4a0a0613de8f7073e619cba6ef",
-"class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_id_exception.html",
-"class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#ac8018be356582feceb26234259469048",
-"class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a3f7b8e44d67ed65205b54dad758d0d0e",
-"class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a3a1528bf66bd2d03155bbc1a0f3cb03f",
-"struct_m_pewsey_1_1_mania_map_1_1_vector3_d_int.html#ac2ec10ab46f36d0af809211e1bc0963c"
+"class_m_pewsey_1_1_mania_map_1_1_collections_1_1_array2_d.html#a1a70066f22cde9899b9d2d55238333ef",
+"class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ab1b691fb311e432f5e7eb287aa92af8c",
+"class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a6d3ebd592add2e0e935cb758343ac596",
+"class_m_pewsey_1_1_mania_map_1_1_map_tile_type.html#aa8ba64eb499f9f1691d7a7061f2a1749",
+"class_m_pewsey_1_1_mania_map_1_1_serialization.html#a53016044abd340bebdb2df71cb4f5363",
+"struct_m_pewsey_1_1_mania_map_1_1_room_pair.html#ab12d28cd7cabf571faeb9ba552864080"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

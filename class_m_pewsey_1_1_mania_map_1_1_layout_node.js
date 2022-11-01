@@ -11,6 +11,7 @@ var class_m_pewsey_1_1_mania_map_1_1_layout_node =
     [ "Validate", "class_m_pewsey_1_1_mania_map_1_1_layout_node.html#a02f412ee2f6cb3f8c4cb5224f418084a", null ],
     [ "Color", "class_m_pewsey_1_1_mania_map_1_1_layout_node.html#a7e9635a3fc52886860dfd69c321bb455", null ],
     [ "Id", "class_m_pewsey_1_1_mania_map_1_1_layout_node.html#a39a359f3d0a4891434f352b8a7325331", null ],
+    [ "Key", "class_m_pewsey_1_1_mania_map_1_1_layout_node.html#ac3662816e16d6108c0dffd7be94a40eb", null ],
     [ "Name", "class_m_pewsey_1_1_mania_map_1_1_layout_node.html#a36c97cf9b664e6b9760031f666eb1867", null ],
     [ "RoomId", "class_m_pewsey_1_1_mania_map_1_1_layout_node.html#a84b56344fb45508adc16600fc8111995", null ],
     [ "TemplateGroup", "class_m_pewsey_1_1_mania_map_1_1_layout_node.html#a923ea6343d1866790998fdadc6986a80", null ],

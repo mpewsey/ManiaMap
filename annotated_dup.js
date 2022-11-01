@@ -2,6 +2,16 @@ var annotated_dup =
 [
     [ "MPewsey", "namespace_m_pewsey.html", [
       [ "ManiaMap", "namespace_m_pewsey_1_1_mania_map.html", [
+        [ "Collections", "namespace_m_pewsey_1_1_mania_map_1_1_collections.html", [
+          [ "Array2D", "class_m_pewsey_1_1_mania_map_1_1_collections_1_1_array2_d.html", "class_m_pewsey_1_1_mania_map_1_1_collections_1_1_array2_d" ],
+          [ "BaseDataContractDictionary", "class_m_pewsey_1_1_mania_map_1_1_collections_1_1_base_data_contract_dictionary.html", "class_m_pewsey_1_1_mania_map_1_1_collections_1_1_base_data_contract_dictionary" ],
+          [ "BitArray2D", "class_m_pewsey_1_1_mania_map_1_1_collections_1_1_bit_array2_d.html", "class_m_pewsey_1_1_mania_map_1_1_collections_1_1_bit_array2_d" ],
+          [ "DataContractDictionary", "class_m_pewsey_1_1_mania_map_1_1_collections_1_1_data_contract_dictionary.html", "class_m_pewsey_1_1_mania_map_1_1_collections_1_1_data_contract_dictionary" ],
+          [ "DataContractHashSet", "class_m_pewsey_1_1_mania_map_1_1_collections_1_1_data_contract_hash_set.html", "class_m_pewsey_1_1_mania_map_1_1_collections_1_1_data_contract_hash_set" ],
+          [ "DataContractValueDictionary", "class_m_pewsey_1_1_mania_map_1_1_collections_1_1_data_contract_value_dictionary.html", "class_m_pewsey_1_1_mania_map_1_1_collections_1_1_data_contract_value_dictionary" ],
+          [ "IKey", "interface_m_pewsey_1_1_mania_map_1_1_collections_1_1_i_key.html", "interface_m_pewsey_1_1_mania_map_1_1_collections_1_1_i_key" ],
+          [ "KeyValue", "struct_m_pewsey_1_1_mania_map_1_1_collections_1_1_key_value.html", "struct_m_pewsey_1_1_mania_map_1_1_collections_1_1_key_value" ]
+        ] ],
         [ "Drawing", "namespace_m_pewsey_1_1_mania_map_1_1_drawing.html", [
           [ "LayoutMap", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map" ],
           [ "MapTiles", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_map_tiles.html", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_map_tiles" ],
@@ -31,23 +41,18 @@ var annotated_dup =
             [ "Squares", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares" ]
           ] ]
         ] ],
-        [ "Array2D", "class_m_pewsey_1_1_mania_map_1_1_array2_d.html", "class_m_pewsey_1_1_mania_map_1_1_array2_d" ],
-        [ "BitArray2D", "class_m_pewsey_1_1_mania_map_1_1_bit_array2_d.html", "class_m_pewsey_1_1_mania_map_1_1_bit_array2_d" ],
         [ "Box", "class_m_pewsey_1_1_mania_map_1_1_box.html", "class_m_pewsey_1_1_mania_map_1_1_box" ],
         [ "Cell", "class_m_pewsey_1_1_mania_map_1_1_cell.html", "class_m_pewsey_1_1_mania_map_1_1_cell" ],
         [ "CellDistanceSearch", "class_m_pewsey_1_1_mania_map_1_1_cell_distance_search.html", "class_m_pewsey_1_1_mania_map_1_1_cell_distance_search" ],
         [ "Collectable", "struct_m_pewsey_1_1_mania_map_1_1_collectable.html", "struct_m_pewsey_1_1_mania_map_1_1_collectable" ],
-        [ "CollectableEntry", "class_m_pewsey_1_1_mania_map_1_1_collectable_entry.html", "class_m_pewsey_1_1_mania_map_1_1_collectable_entry" ],
         [ "CollectableGenerator", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html", "class_m_pewsey_1_1_mania_map_1_1_collectable_generator" ],
         [ "CollectableGroups", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups" ],
-        [ "CollectableIdEntry", "class_m_pewsey_1_1_mania_map_1_1_collectable_id_entry.html", "class_m_pewsey_1_1_mania_map_1_1_collectable_id_entry" ],
         [ "CollectableSpot", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot" ],
         [ "Color4", "struct_m_pewsey_1_1_mania_map_1_1_color4.html", "struct_m_pewsey_1_1_mania_map_1_1_color4" ],
         [ "Configuration", "class_m_pewsey_1_1_mania_map_1_1_configuration.html", "class_m_pewsey_1_1_mania_map_1_1_configuration" ],
         [ "ConfigurationSpace", "class_m_pewsey_1_1_mania_map_1_1_configuration_space.html", "class_m_pewsey_1_1_mania_map_1_1_configuration_space" ],
         [ "Door", "class_m_pewsey_1_1_mania_map_1_1_door.html", "class_m_pewsey_1_1_mania_map_1_1_door" ],
         [ "DoorConnection", "class_m_pewsey_1_1_mania_map_1_1_door_connection.html", "class_m_pewsey_1_1_mania_map_1_1_door_connection" ],
-        [ "DoorEntry", "class_m_pewsey_1_1_mania_map_1_1_door_entry.html", "class_m_pewsey_1_1_mania_map_1_1_door_entry" ],
         [ "DoorPair", "struct_m_pewsey_1_1_mania_map_1_1_door_pair.html", "struct_m_pewsey_1_1_mania_map_1_1_door_pair" ],
         [ "DoorPosition", "class_m_pewsey_1_1_mania_map_1_1_door_position.html", "class_m_pewsey_1_1_mania_map_1_1_door_position" ],
         [ "EdgeIndexes", "struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html", "struct_m_pewsey_1_1_mania_map_1_1_edge_indexes" ],
@@ -58,7 +63,6 @@ var annotated_dup =
         [ "GraphCycleDecomposer", "class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html", "class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer" ],
         [ "IGenerationStep", "interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html", "interface_m_pewsey_1_1_mania_map_1_1_i_generation_step" ],
         [ "IRoomSource", "interface_m_pewsey_1_1_mania_map_1_1_i_room_source.html", "interface_m_pewsey_1_1_mania_map_1_1_i_room_source" ],
-        [ "ItemGroup", "class_m_pewsey_1_1_mania_map_1_1_item_group.html", "class_m_pewsey_1_1_mania_map_1_1_item_group" ],
         [ "ItemGroups", "class_m_pewsey_1_1_mania_map_1_1_item_groups.html", "class_m_pewsey_1_1_mania_map_1_1_item_groups" ],
         [ "Layout", "class_m_pewsey_1_1_mania_map_1_1_layout.html", "class_m_pewsey_1_1_mania_map_1_1_layout" ],
         [ "LayoutEdge", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html", "class_m_pewsey_1_1_mania_map_1_1_layout_edge" ],
@@ -69,8 +73,6 @@ var annotated_dup =
         [ "LayoutNode", "class_m_pewsey_1_1_mania_map_1_1_layout_node.html", "class_m_pewsey_1_1_mania_map_1_1_layout_node" ],
         [ "LayoutState", "class_m_pewsey_1_1_mania_map_1_1_layout_state.html", "class_m_pewsey_1_1_mania_map_1_1_layout_state" ],
         [ "MapTileType", "class_m_pewsey_1_1_mania_map_1_1_map_tile_type.html", "class_m_pewsey_1_1_mania_map_1_1_map_tile_type" ],
-        [ "NodeNeighbors", "class_m_pewsey_1_1_mania_map_1_1_node_neighbors.html", "class_m_pewsey_1_1_mania_map_1_1_node_neighbors" ],
-        [ "NodeVariations", "class_m_pewsey_1_1_mania_map_1_1_node_variations.html", "class_m_pewsey_1_1_mania_map_1_1_node_variations" ],
         [ "RandomSeed", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html", "class_m_pewsey_1_1_mania_map_1_1_random_seed" ],
         [ "RectangleInt", "struct_m_pewsey_1_1_mania_map_1_1_rectangle_int.html", "struct_m_pewsey_1_1_mania_map_1_1_rectangle_int" ],
         [ "Room", "class_m_pewsey_1_1_mania_map_1_1_room.html", "class_m_pewsey_1_1_mania_map_1_1_room" ],

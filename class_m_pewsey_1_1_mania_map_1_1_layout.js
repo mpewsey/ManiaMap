@@ -16,12 +16,10 @@ var class_m_pewsey_1_1_mania_map_1_1_layout =
     [ "RoomsIntersect", "class_m_pewsey_1_1_mania_map_1_1_layout.html#a25f4f942c265e36290c9722d3d781a40", null ],
     [ "ShaftsIntersect", "class_m_pewsey_1_1_mania_map_1_1_layout.html#ac23f3e2c6ab7fae461013dca6e899b25", null ],
     [ "ShaftsIntersect", "class_m_pewsey_1_1_mania_map_1_1_layout.html#a9c191b480e57b47d5d098b6cbaaabfda", null ],
-    [ "DoorConnectionEntries", "class_m_pewsey_1_1_mania_map_1_1_layout.html#ab68468bf61501e7228840971fb152b8c", null ],
-    [ "DoorConnections", "class_m_pewsey_1_1_mania_map_1_1_layout.html#a3af40a1a6e4f376c2dcc15b4d8fc0a10", null ],
+    [ "DoorConnections", "class_m_pewsey_1_1_mania_map_1_1_layout.html#a1f02cb983e08f547bd6b5c79cf1fbdf3", null ],
     [ "Id", "class_m_pewsey_1_1_mania_map_1_1_layout.html#ab2bc5fa3da2350423973144b235379e2", null ],
     [ "Name", "class_m_pewsey_1_1_mania_map_1_1_layout.html#ad4ceb4a888532e75ef0af82504677bdc", null ],
     [ "Rebases", "class_m_pewsey_1_1_mania_map_1_1_layout.html#ab0abe021b1520817ea40f2b1b6276b12", null ],
-    [ "RoomEntries", "class_m_pewsey_1_1_mania_map_1_1_layout.html#af644f2e15bd17925e67d133886c36c8a", null ],
-    [ "Rooms", "class_m_pewsey_1_1_mania_map_1_1_layout.html#a4b943cf73b963c2165e12368336bea67", null ],
+    [ "Rooms", "class_m_pewsey_1_1_mania_map_1_1_layout.html#abf1621cb41ca88cd28b831982da1e158", null ],
     [ "Seed", "class_m_pewsey_1_1_mania_map_1_1_layout.html#ad5b4a4aa2b811ae5be1799b4b03fcccd", null ]
 ];

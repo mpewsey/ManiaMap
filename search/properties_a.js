@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['marked_0',['Marked',['../class_m_pewsey_1_1_mania_map_1_1_graph_branch_decomposer.html#ad33d8ced52e04b65abc9d95ef8cccebe',1,'MPewsey.ManiaMap.GraphBranchDecomposer.Marked()'],['../class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#a17b27df77ce61c79b858e2972e1f4fcf',1,'MPewsey.ManiaMap.GraphChainDecomposer.Marked()'],['../class_m_pewsey_1_1_mania_map_1_1_graph_cluster_search.html#a6babac7e44f70f6b4e5a58fcd52fd96b',1,'MPewsey.ManiaMap.GraphClusterSearch.Marked()']]],
-  ['max_1',['Max',['../class_m_pewsey_1_1_mania_map_1_1_box.html#ae7af41fc1aaaa1892d3ffe31e0d1e4dd',1,'MPewsey::ManiaMap::Box']]],
-  ['maxbranchlength_2',['MaxBranchLength',['../class_m_pewsey_1_1_mania_map_1_1_graph_chain_decomposer.html#aae26b651c1caf4720e3405279a67e85c',1,'MPewsey.ManiaMap.GraphChainDecomposer.MaxBranchLength()'],['../class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#aa5f9c9629326de0aac1566d13cb7a47c',1,'MPewsey.ManiaMap.LayoutGenerator.MaxBranchLength()']]],
-  ['maxdepth_3',['MaxDepth',['../class_m_pewsey_1_1_mania_map_1_1_graph_cluster_search.html#ae8fb1f107618a4e095d710f33797824c',1,'MPewsey::ManiaMap::GraphClusterSearch']]],
-  ['maxrebases_4',['MaxRebases',['../class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a24be882ab3e6c5ee7bffc0bfa128600a',1,'MPewsey::ManiaMap::LayoutGenerator']]],
-  ['min_5',['Min',['../class_m_pewsey_1_1_mania_map_1_1_box.html#a49205173f3c461bfd775e58c19f1b0d9',1,'MPewsey::ManiaMap::Box']]]
+  ['layout_0',['Layout',['../class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#aeb9e6527d7c170daecb841b0e44a80fd',1,'MPewsey.ManiaMap.CollectableGenerator.Layout()'],['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a026b14ff7a31024e39ae954ac0a1ae0b',1,'MPewsey.ManiaMap.Drawing.LayoutMap.Layout()'],['../class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a264c0ebacd3ca68699d05a4875ddea93',1,'MPewsey.ManiaMap.LayoutGenerator.Layout()']]],
+  ['layoutbounds_1',['LayoutBounds',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a2bc7699ed88b0bb745aa854365036727',1,'MPewsey::ManiaMap::Drawing::LayoutMap']]],
+  ['layoutstate_2',['LayoutState',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#aeb576508009b43b1aaae901271621133',1,'MPewsey::ManiaMap::Drawing::LayoutMap']]],
+  ['left_3',['Left',['../struct_m_pewsey_1_1_mania_map_1_1_drawing_1_1_padding.html#ad0dfb74b5b5a68e71bb81008e8db005c',1,'MPewsey::ManiaMap::Drawing::Padding']]]
 ];
