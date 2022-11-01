@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.ManiaMap.Collections;
 using MPewsey.ManiaMap.Exceptions;
 using System.Collections.Generic;
 using System.Linq;

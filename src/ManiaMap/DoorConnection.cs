@@ -1,41 +1,42 @@
-﻿using System.Runtime.Serialization;
+﻿using MPewsey.ManiaMap.Collections;
+using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
     /// <summary>
     /// Represents a door connection between two Room.
     /// </summary>
-    [DataContract]
+    [DataContract(Namespace = Serialization.Namespace)]
     public class DoorConnection : IKey<RoomPair>
     {
         /// <summary>
         /// The from room ID.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, IsRequired = true)]
         public Uid FromRoom { get; private set; }
 
         /// <summary>
         /// The to room ID.
         /// </summary>
-        [DataMember(Order = 2)]
+        [DataMember(Order = 2, IsRequired = true)]
         public Uid ToRoom { get; private set; }
 
         /// <summary>
         /// The from door position.
         /// </summary>
-        [DataMember(Order = 3)]
+        [DataMember(Order = 3, IsRequired = true)]
         public DoorPosition FromDoor { get; private set; }
 
         /// <summary>
         /// The to door position.
         /// </summary>
-        [DataMember(Order = 4)]
+        [DataMember(Order = 4, IsRequired = true)]
         public DoorPosition ToDoor { get; private set; }
 
         /// <summary>
         /// The shaft (if any) connecting the two rooms.
         /// </summary>
-        [DataMember(Order = 5)]
+        [DataMember(Order = 5, IsRequired = true)]
         public Box Shaft { get; private set; }
 
         /// <inheritdoc/>

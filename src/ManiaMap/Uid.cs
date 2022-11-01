@@ -6,25 +6,25 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A structure for representing a unique ID consisting of 3 integers.
     /// </summary>
-    [DataContract]
+    [DataContract(Namespace = Serialization.Namespace)]
     public struct Uid : IEquatable<Uid>, IComparable<Uid>
     {
         /// <summary>
         /// The first ID value.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, IsRequired = true)]
         public int Value1 { get; private set; }
 
         /// <summary>
         /// The second ID value.
         /// </summary>
-        [DataMember(Order = 2)]
+        [DataMember(Order = 2, IsRequired = true)]
         public int Value2 { get; private set; }
 
         /// <summary>
         /// The third ID value.
         /// </summary>
-        [DataMember(Order = 3)]
+        [DataMember(Order = 3, IsRequired = true)]
         public int Value3 { get; private set; }
 
         /// <summary>

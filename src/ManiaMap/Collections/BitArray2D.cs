@@ -3,12 +3,12 @@ using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Collections
 {
     /// <summary>
     /// An 2D array of bits.
     /// </summary>
-    [DataContract]
+    [DataContract(Namespace = Serialization.Namespace)]
     public class BitArray2D
     {
         /// <summary>
@@ -19,19 +19,19 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The number of rows in the array.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, IsRequired = true)]
         public int Rows { get; private set; }
 
         /// <summary>
         /// The number of columns in the array.
         /// </summary>
-        [DataMember(Order = 2)]
+        [DataMember(Order = 2, IsRequired = true)]
         public int Columns { get; private set; }
 
         /// <summary>
         /// A flat array of data chunks.
         /// </summary>
-        [DataMember(Order = 3)]
+        [DataMember(Order = 3, IsRequired = true)]
         public int[] Array { get; private set; } = System.Array.Empty<int>();
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace MPewsey.ManiaMap
                     throw new IndexOutOfRangeException($"Index out of range: ({row}, {column}).");
 
                 var index = Index(row, column);
-                return (Array[index.X] & (1 << index.Y)) != 0;
+                return (Array[index.X] & 1 << index.Y) != 0;
             }
             set
             {

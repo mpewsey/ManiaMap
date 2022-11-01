@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Collections
 {
     /// <summary>
     /// The base class for dictionaries with custom data contract serialization.
     /// </summary>
-    [DataContract(Name = "BaseDataContractDictionary")]
+    [DataContract(Name = "BaseDataContractDictionary", Namespace = Serialization.Namespace)]
     public abstract class BaseDataContractDictionary<TKey, TValue> : ICollection<KeyValuePair<TKey, TValue>>, IEnumerable<KeyValuePair<TKey, TValue>>, IEnumerable, IDictionary<TKey, TValue>, IReadOnlyCollection<KeyValuePair<TKey, TValue>>, IReadOnlyDictionary<TKey, TValue>, ICollection, IDictionary
     {
         /// <summary>

@@ -12,6 +12,11 @@ namespace MPewsey.ManiaMap
     public static class Serialization
     {
         /// <summary>
+        /// The data contract namespace.
+        /// </summary>
+        public const string Namespace = "http://github.com/mpewsey/ManiaMap";
+
+        /// <summary>
         /// Returns a new instance of XML writer settings for pretty printing.
         /// </summary>
         public static XmlWriterSettings PrettyXmlWriterSettings()

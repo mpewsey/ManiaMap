@@ -7,7 +7,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A class for creating groups of RoomTemplate.
     /// </summary>
-    [DataContract]
+    [DataContract(Namespace = Serialization.Namespace)]
     public class TemplateGroups : ItemGroups<string, RoomTemplate>
     {
         public override string ToString()

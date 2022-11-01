@@ -1,23 +1,23 @@
 ﻿using System.Runtime.Serialization;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Collections
 {
     /// <summary>
     /// A serializable key value pair.
     /// </summary>
-    [DataContract(Name = "KeyValue")]
+    [DataContract(Name = "KeyValue", Namespace = Serialization.Namespace)]
     public struct KeyValue<TKey, TValue>
     {
         /// <summary>
         /// The key.
         /// </summary>
-        [DataMember(Order = 1, Name = "Key")]
+        [DataMember(Order = 1, Name = "Key", IsRequired = true)]
         public TKey Key { get; private set; }
 
         /// <summary>
         /// The value.
         /// </summary>
-        [DataMember(Order = 2, Name = "Value")]
+        [DataMember(Order = 2, Name = "Value", IsRequired = true)]
         public TValue Value { get; private set; }
 
         /// <summary>

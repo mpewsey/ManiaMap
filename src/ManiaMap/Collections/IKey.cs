@@ -1,4 +1,4 @@
-﻿namespace MPewsey.ManiaMap
+﻿namespace MPewsey.ManiaMap.Collections
 {
     /// <summary>
     /// An interface requiring a unique key.

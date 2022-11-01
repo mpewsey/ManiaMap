@@ -6,7 +6,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A 3D vector with integer values.
     /// </summary>
-    [DataContract]
+    [DataContract(Namespace = Serialization.Namespace)]
     public struct Vector3DInt : IEquatable<Vector3DInt>
     {
         /// <summary>
@@ -17,19 +17,19 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The x value.
         /// </summary>
-        [DataMember(Order = 0)]
+        [DataMember(Order = 0, IsRequired = true)]
         public int X { get; private set; }
 
         /// <summary>
         /// The y value.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, IsRequired = true)]
         public int Y { get; private set; }
 
         /// <summary>
         /// The z value.
         /// </summary>
-        [DataMember(Order = 2)]
+        [DataMember(Order = 2, IsRequired = true)]
         public int Z { get; private set; }
 
         /// <summary>

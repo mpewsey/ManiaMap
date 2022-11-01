@@ -4,30 +4,30 @@ using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Collections
 {
     /// <summary>
     /// A 2D array that can be serialized.
     /// </summary>
-    [DataContract(Name = "Array2D")]
+    [DataContract(Name = "Array2D", Namespace = Serialization.Namespace)]
     public class Array2D<T>
     {
         /// <summary>
         /// The number of rows in the array.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, IsRequired = true)]
         public int Rows { get; private set; }
 
         /// <summary>
         /// The number of columns in the array.
         /// </summary>
-        [DataMember(Order = 2)]
+        [DataMember(Order = 2, IsRequired = true)]
         public int Columns { get; private set; }
 
         /// <summary>
         /// The underlying flat array.
         /// </summary>
-        [DataMember(Order = 3)]
+        [DataMember(Order = 3, IsRequired = true)]
         public T[] Array { get; private set; } = System.Array.Empty<T>();
 
         /// <summary>

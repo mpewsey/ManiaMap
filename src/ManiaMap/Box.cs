@@ -5,19 +5,19 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A class representing a box in 3D space. The box is defined by integer coordinate ranges.
     /// </summary>
-    [DataContract]
+    [DataContract(Namespace = Serialization.Namespace)]
     public class Box
     {
         /// <summary>
         /// The minimum index range of the box.
         /// </summary>
-        [DataMember(Order = 0)]
+        [DataMember(Order = 0, IsRequired = true)]
         public Vector3DInt Min { get; private set; }
 
         /// <summary>
         /// The maximum index range of the box.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, IsRequired = true)]
         public Vector3DInt Max { get; private set; }
 
         /// <summary>

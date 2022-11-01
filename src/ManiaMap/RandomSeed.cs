@@ -12,31 +12,31 @@ namespace MPewsey.ManiaMap
     /// * [1] Rossetta Code. Subtractive generator. Retrieved April 12, 2022, from https://rosettacode.org/wiki/Subtractive_generator.
     /// * [2] Microsoft Corporation. Reference Source .NET Framework 4.8. Retrieved April 12, 2022, from https://referencesource.microsoft.com/#mscorlib/system/random.cs,bb77e610694e64ca.
     /// </summary>
-    [DataContract]
+    [DataContract(Namespace = Serialization.Namespace)]
     public class RandomSeed
     {
         /// <summary>
         /// The random seed.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, IsRequired = true)]
         public int Seed { get; private set; }
 
         /// <summary>
         /// The first position of the randomizer.
         /// </summary>
-        [DataMember(Order = 2)]
+        [DataMember(Order = 2, IsRequired = true)]
         private int Position1 { get; set; }
 
         /// <summary>
         /// The second position of the randomizer.
         /// </summary>
-        [DataMember(Order = 3)]
+        [DataMember(Order = 3, IsRequired = true)]
         private int Position2 { get; set; }
 
         /// <summary>
         /// An array of previous seeds.
         /// </summary>
-        [DataMember(Order = 4)]
+        [DataMember(Order = 4, IsRequired = true)]
         private int[] Seeds { get; set; } = new int[56];
 
         /// <summary>

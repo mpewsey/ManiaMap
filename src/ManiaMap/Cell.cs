@@ -1,4 +1,5 @@
-﻿using MPewsey.ManiaMap.Exceptions;
+﻿using MPewsey.ManiaMap.Collections;
+using MPewsey.ManiaMap.Exceptions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -8,7 +9,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A RoomTemplate cell element with references to door connections for that cell.
     /// </summary>
-    [DataContract]
+    [DataContract(Namespace = Serialization.Namespace)]
     public class Cell
     {
         /// <summary>
@@ -24,19 +25,19 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A dictionary of doors.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, IsRequired = true)]
         public DataContractDictionary<DoorDirection, Door> Doors { get; set; } = new DataContractDictionary<DoorDirection, Door>();
 
         /// <summary>
         /// A dictionary of collectable group names by location ID.
         /// </summary>
-        [DataMember(Order = 2)]
+        [DataMember(Order = 2, IsRequired = true)]
         public DataContractDictionary<int, string> CollectableSpots { get; set; } = new DataContractDictionary<int, string>();
 
         /// <summary>
         /// A list of feature names.
         /// </summary>
-        [DataMember(Order = 3)]
+        [DataMember(Order = 3, IsRequired = true)]
         public List<string> Features { get; set; } = new List<string>();
 
         /// <summary>

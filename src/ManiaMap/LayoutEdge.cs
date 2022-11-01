@@ -1,4 +1,5 @@
-﻿using MPewsey.ManiaMap.Exceptions;
+﻿using MPewsey.ManiaMap.Collections;
+using MPewsey.ManiaMap.Exceptions;
 using System;
 using System.Runtime.Serialization;
 
@@ -15,45 +16,45 @@ namespace MPewsey.ManiaMap
     /// graph.AddEdge(1, 2).SetName("Edge1").SetTemplateGroup("Default");
     /// ```
     /// </summary>
-    [DataContract]
+    [DataContract(Namespace = Serialization.Namespace)]
     public class LayoutEdge : IRoomSource, IKey<EdgeIndexes>
     {
         /// <inheritdoc/>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, IsRequired = true)]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
         /// The from node ID.
         /// </summary>
-        [DataMember(Order = 2)]
+        [DataMember(Order = 2, IsRequired = true)]
         public int FromNode { get; private set; }
 
         /// <summary>
         /// The to node ID.
         /// </summary>
-        [DataMember(Order = 3)]
+        [DataMember(Order = 3, IsRequired = true)]
         public int ToNode { get; private set; }
 
         /// <summary>
         /// The edge direction.
         /// </summary>
-        [DataMember(Order = 4)]
+        [DataMember(Order = 4, IsRequired = true)]
         public EdgeDirection Direction { get; set; }
 
         /// <summary>
         /// The matching door code.
         /// </summary>
-        [DataMember(Order = 5)]
+        [DataMember(Order = 5, IsRequired = true)]
         public int DoorCode { get; set; }
 
         /// <inheritdoc/>
-        [DataMember(Order = 6)]
+        [DataMember(Order = 6, IsRequired = true)]
         public int Z { get; set; }
 
         /// <summary>
         /// The chance that a room will be created from the edge. The value should be between 0 and 1.
         /// </summary>
-        [DataMember(Order = 7)]
+        [DataMember(Order = 7, IsRequired = true)]
         public float RoomChance { get; set; }
 
         /// <summary>
@@ -61,15 +62,15 @@ namespace MPewsey.ManiaMap
         /// if the room chance is satisfied. Otherwise, the room may be skipped if adding
         /// an edge for the room fails.
         /// </summary>
-        [DataMember(Order = 8)]
+        [DataMember(Order = 8, IsRequired = true)]
         public bool RequireRoom { get; set; }
 
         /// <inheritdoc/>
-        [DataMember(Order = 9)]
+        [DataMember(Order = 9, IsRequired = true)]
         public Color4 Color { get; set; } = new Color4(25, 25, 112, 255);
 
         /// <inheritdoc/>
-        [DataMember(Order = 10)]
+        [DataMember(Order = 10, IsRequired = true)]
         public string TemplateGroup { get; set; } = "Default";
 
         /// <inheritdoc/>

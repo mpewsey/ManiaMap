@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Collections
 {
     /// <summary>
     /// A dictionary that is data contract serializable.
     /// </summary>
-    [DataContract(Name = "DataContractDictionary")]
+    [DataContract(Name = "DataContractDictionary", Namespace = Serialization.Namespace)]
     public class DataContractDictionary<TKey, TValue> : BaseDataContractDictionary<TKey, TValue>
     {
         /// <summary>
         /// An array of key value pairs.
         /// </summary>
-        [DataMember(Order = 1, Name = "Dictionary")]
+        [DataMember(Order = 1, Name = "Dictionary", IsRequired = true)]
         public KeyValue<TKey, TValue>[] KeyValueArray { get => GetKeyValueArray(); set => SetDictionary(value); }
 
         /// <summary>

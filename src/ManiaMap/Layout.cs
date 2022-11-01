@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MPewsey.ManiaMap.Collections;
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -7,37 +8,37 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// Represents a room layout consisting of Room and DoorConnection.
     /// </summary>
-    [DataContract]
+    [DataContract(Namespace = Serialization.Namespace)]
     public class Layout
     {
         /// <summary>
         /// The unique ID.
         /// </summary>
-        [DataMember(Order = 0)]
+        [DataMember(Order = 0, IsRequired = true)]
         public int Id { get; private set; }
 
         /// <summary>
         /// The name of the layout.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, IsRequired = true)]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
         /// The random seed used to generate the layout.
         /// </summary>
-        [DataMember(Order = 2)]
+        [DataMember(Order = 2, IsRequired = true)]
         public RandomSeed Seed { get; private set; }
 
         /// <summary>
         /// A dictionary of rooms in the layout by ID.
         /// </summary>
-        [DataMember(Order = 3)]
+        [DataMember(Order = 3, IsRequired = true)]
         public DataContractValueDictionary<Uid, Room> Rooms { get; private set; } = new DataContractValueDictionary<Uid, Room>();
 
         /// <summary>
         /// A dictionary of door connections by room ID pairs.
         /// </summary>
-        [DataMember(Order = 4)]
+        [DataMember(Order = 4, IsRequired = true)]
         public DataContractValueDictionary<RoomPair, DoorConnection> DoorConnections { get; private set; } = new DataContractValueDictionary<RoomPair, DoorConnection>();
 
         /// <summary>

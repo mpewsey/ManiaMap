@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MPewsey.ManiaMap.Tests
+namespace MPewsey.ManiaMap.Collections.Tests
 {
     [TestClass]
     public class TestKeyValue

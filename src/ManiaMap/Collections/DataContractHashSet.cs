@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Collections
 {
     /// <summary>
     /// A hash set that is data contract serializable.
     /// </summary>
-    [DataContract(Name = "DataContractHashSet")]
+    [DataContract(Name = "DataContractHashSet", Namespace = Serialization.Namespace)]
     public class DataContractHashSet<T> : ICollection<T>, IEnumerable<T>, IEnumerable, IReadOnlyCollection<T>, ISet<T>
     {
         /// <summary>
@@ -18,7 +18,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// An array of hash set entries.
         /// </summary>
-        [DataMember(Order = 1, Name = "HashSet")]
+        [DataMember(Order = 1, Name = "HashSet", IsRequired = true)]
         public T[] Array { get => GetArray(); set => HashSet = new HashSet<T>(value); }
 
         /// <summary>

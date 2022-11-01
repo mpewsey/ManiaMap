@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using MPewsey.ManiaMap.Collections;
+using System.Linq;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -6,19 +7,19 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// Contains the states of a Layout.
     /// </summary>
-    [DataContract]
+    [DataContract(Namespace = Serialization.Namespace)]
     public class LayoutState
     {
         /// <summary>
         /// The ID of the corresponding layout.
         /// </summary>
-        [DataMember(Order = 0)]
+        [DataMember(Order = 0, IsRequired = true)]
         public int Id { get; private set; }
 
         /// <summary>
         /// A dictionary of room states by ID.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, IsRequired = true)]
         public DataContractValueDictionary<Uid, RoomState> RoomStates { get; private set; } = new DataContractValueDictionary<Uid, RoomState>();
 
         /// <summary>

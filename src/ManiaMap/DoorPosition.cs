@@ -5,25 +5,25 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A class referencing a Door and its local position within a Room.
     /// </summary>
-    [DataContract]
+    [DataContract(Namespace = Serialization.Namespace)]
     public class DoorPosition
     {
         /// <summary>
         /// The local door position.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, IsRequired = true)]
         public Vector2DInt Position { get; private set; }
 
         /// <summary>
         /// The door direction.
         /// </summary>
-        [DataMember(Order = 3)]
+        [DataMember(Order = 3, IsRequired = true)]
         public DoorDirection Direction { get; private set; }
 
         /// <summary>
         /// The referenced door.
         /// </summary>
-        [DataMember(Order = 4)]
+        [DataMember(Order = 4, IsRequired = true)]
         public Door Door { get; set; }
 
         /// <summary>

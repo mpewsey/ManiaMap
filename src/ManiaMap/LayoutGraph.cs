@@ -1,4 +1,5 @@
-﻿using MPewsey.ManiaMap.Exceptions;
+﻿using MPewsey.ManiaMap.Collections;
+using MPewsey.ManiaMap.Exceptions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -8,43 +9,43 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// Represents a graph consisting of LayoutNode and LayoutEdge.
     /// </summary>
-    [DataContract]
+    [DataContract(Namespace = Serialization.Namespace)]
     public class LayoutGraph
     {
         /// <summary>
         /// The graph ID.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, IsRequired = true)]
         public int Id { get; private set; }
 
         /// <summary>
         /// The graph name.
         /// </summary>
-        [DataMember(Order = 2)]
+        [DataMember(Order = 2, IsRequired = true)]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
         /// A dictionary of nodes by ID.
         /// </summary>
-        [DataMember(Order = 3)]
+        [DataMember(Order = 3, IsRequired = true)]
         private DataContractValueDictionary<int, LayoutNode> Nodes { get; set; } = new DataContractValueDictionary<int, LayoutNode>();
 
         /// <summary>
         /// A dictionary of nodes by from and to node ID's.
         /// </summary>
-        [DataMember(Order = 4)]
+        [DataMember(Order = 4, IsRequired = true)]
         private DataContractValueDictionary<EdgeIndexes, LayoutEdge> Edges { get; set; } = new DataContractValueDictionary<EdgeIndexes, LayoutEdge>();
 
         /// <summary>
         /// A dictionary of neighboring nodes by node ID.
         /// </summary>
-        [DataMember(Order = 5)]
+        [DataMember(Order = 5, IsRequired = true)]
         private DataContractDictionary<int, List<int>> Neighbors { get; set; } = new DataContractDictionary<int, List<int>>();
 
         /// <summary>
         /// A dictionary of node variation groups.
         /// </summary>
-        [DataMember(Order = 6)]
+        [DataMember(Order = 6, IsRequired = true)]
         private DataContractDictionary<string, List<int>> NodeVariations { get; set; } = new DataContractDictionary<string, List<int>>();
 
         /// <summary>

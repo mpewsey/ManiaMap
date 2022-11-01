@@ -6,7 +6,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// Represents a possible door in a RoomTemplate.
     /// </summary>
-    [DataContract]
+    [DataContract(Namespace = Serialization.Namespace)]
     public class Door
     {
         /// <summary>
@@ -37,13 +37,13 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The door type.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, IsRequired = true)]
         public DoorType Type { get; set; }
 
         /// <summary>
         /// The door code required for matching two doors.
         /// </summary>
-        [DataMember(Order = 2)]
+        [DataMember(Order = 2, IsRequired = true)]
         public int Code { get; set; }
 
         /// <summary>

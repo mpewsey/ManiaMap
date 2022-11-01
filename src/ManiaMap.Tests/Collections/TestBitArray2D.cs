@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace MPewsey.ManiaMap.Tests
+namespace MPewsey.ManiaMap.Collections.Tests
 {
     [TestClass]
     public class TestBitArray2D

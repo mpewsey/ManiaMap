@@ -8,7 +8,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A class for creating groups of collectables.
     /// </summary>
-    [DataContract]
+    [DataContract(Namespace = Serialization.Namespace)]
     public class CollectableGroups : ItemGroups<string, int>
     {
         public override string ToString()
