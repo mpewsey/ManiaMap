@@ -8,7 +8,7 @@ namespace MPewsey.ManiaMap
     /// </summary>
     /// <typeparam name="TKey">The group key type.</typeparam>
     /// <typeparam name="TValue">The item value type.</typeparam>
-    [DataContract]
+    [DataContract(Name = "ItemGroups")]
     public abstract class ItemGroups<TKey, TValue>
     {
         /// <summary>

@@ -32,6 +32,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A dictionary of rooms in the layout by ID.
         /// </summary>
+        [IgnoreDataMember] // See RoomArray
         public Dictionary<Uid, Room> Rooms { get; private set; } = new Dictionary<Uid, Room>();
 
         /// <summary>
@@ -47,6 +48,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A dictionary of door connections by room ID pairs.
         /// </summary>
+        [IgnoreDataMember] // See DoorConnectionArray
         public Dictionary<RoomPair, DoorConnection> DoorConnections { get; private set; } = new Dictionary<RoomPair, DoorConnection>();
 
         /// <summary>
@@ -62,6 +64,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The current number of times the layout has been used as a base for another layout.
         /// </summary>
+        [IgnoreDataMember]
         public int Rebases { get; private set; }
 
         /// <summary>

@@ -19,12 +19,13 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A dictionary of room states by ID.
         /// </summary>
+        [IgnoreDataMember] // See RoomStatesArray
         public Dictionary<Uid, RoomState> RoomStates { get; private set; } = new Dictionary<Uid, RoomState>();
 
         /// <summary>
         /// An array of room states.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, Name = "RoomStates")]
         public RoomState[] RoomStatesArray
         {
             get => RoomStates.Values.ToArray();

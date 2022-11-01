@@ -6,14 +6,29 @@ namespace MPewsey.ManiaMap.Tests
     public class TestLayoutState
     {
         [TestMethod]
-        public void TestSaveAndLoadXml()
+        public void TestSaveAndLoadManiaMapXml()
         {
             var path = "ManiaMapLayoutState.xml";
             var layout = Samples.ManiaMapSample.ManiaMapLayout();
-            var layoutState = new LayoutState(layout);
-            Serialization.SaveXml(path, layoutState);
+            var state = new LayoutState(layout);
+            Serialization.SaveXml(path, state);
             var copy = Serialization.LoadXml<LayoutState>(path);
-            Assert.AreEqual(layoutState.Id, copy.Id);
+            Assert.AreEqual(state.Id, copy.Id);
+            Assert.AreEqual(state.RoomStates.Count, copy.RoomStates.Count);
+        }
+
+        [TestMethod]
+        public void TestSaveAndLoadBigLayoutXml()
+        {
+            var path = "BigLayoutState.xml";
+            var results = Samples.BigLayoutSample.Generate(12345);
+            Assert.IsTrue(results.Success);
+            var layout = (Layout)results.Outputs["Layout"];
+            var state = new LayoutState(layout);
+            Serialization.SaveXml(path, state);
+            var copy = Serialization.LoadXml<LayoutState>(path);
+            Assert.AreEqual(state.Id, copy.Id);
+            Assert.AreEqual(state.RoomStates.Count, copy.RoomStates.Count);
         }
     }
 }

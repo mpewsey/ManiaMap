@@ -9,7 +9,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A 2D array that can be serialized.
     /// </summary>
-    [DataContract]
+    [DataContract(Name = "Array2D")]
     public class Array2D<T>
     {
         /// <summary>
