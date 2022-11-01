@@ -26,6 +26,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A dictionary of nodes by ID.
         /// </summary>
+        [IgnoreDataMember] // See NodesArray
         private Dictionary<int, LayoutNode> Nodes { get; set; } = new Dictionary<int, LayoutNode>();
 
         /// <summary>
@@ -41,6 +42,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A dictionary of nodes by from and to node ID's.
         /// </summary>
+        [IgnoreDataMember] // See EdgesArray
         private Dictionary<EdgeIndexes, LayoutEdge> Edges { get; set; } = new Dictionary<EdgeIndexes, LayoutEdge>();
 
         /// <summary>
@@ -150,6 +152,14 @@ namespace MPewsey.ManiaMap
         public IReadOnlyList<int> GetNodeVariations(string group)
         {
             return NodeVariations[group];
+        }
+
+        /// <summary>
+        /// Returns an enumerable of variation groups and their associated nodes.
+        /// </summary>
+        public IEnumerable<KeyValuePair<string, List<int>>> GetNodeVariations()
+        {
+            return NodeVariations;
         }
 
         /// <summary>

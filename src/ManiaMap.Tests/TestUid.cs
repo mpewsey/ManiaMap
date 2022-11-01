@@ -6,6 +6,16 @@ namespace MPewsey.ManiaMap.Tests
     public class TestUid
     {
         [TestMethod]
+        public void TestSaveAndLoad()
+        {
+            var path = "Uid.xml";
+            var id = new Uid(1, 2, 3);
+            Serialization.SaveXml(path, id);
+            var copy = Serialization.LoadXml<Uid>(path);
+            Assert.AreEqual(id, copy);
+        }
+
+        [TestMethod]
         public void TestEqualsOperator()
         {
             var x = new Uid(1, 2, 3);

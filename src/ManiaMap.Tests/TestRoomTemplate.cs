@@ -10,6 +10,19 @@ namespace MPewsey.ManiaMap.Tests
     public class TestRoomTemplate
     {
         [TestMethod]
+        public void TestSaveAndLoad()
+        {
+            var path = "RoomTemplate.xml";
+            var template = new RoomTemplate(1, "Test", new Array2D<Cell>(2, 3));
+            Serialization.SaveXml(path, template);
+            var copy = Serialization.LoadXml<RoomTemplate>(path);
+            Assert.AreEqual(template.Id, copy.Id);
+            Assert.AreEqual(template.Name, copy.Name);
+            Assert.AreEqual(template.Cells.Rows, copy.Cells.Rows);
+            Assert.AreEqual(template.Cells.Columns, copy.Cells.Columns);
+        }
+
+        [TestMethod]
         public void TestDoesNotIntersect()
         {
             var from = Samples.TemplateLibrary.Miscellaneous.PlusTemplate();

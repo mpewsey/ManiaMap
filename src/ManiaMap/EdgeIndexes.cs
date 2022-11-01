@@ -1,24 +1,20 @@
 ﻿using System;
-using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
     /// <summary>
     /// A pair of edge node indexes.
     /// </summary>
-    [DataContract]
     public struct EdgeIndexes : IEquatable<EdgeIndexes>, IComparable<EdgeIndexes>
     {
         /// <summary>
         /// The from node index.
         /// </summary>
-        [DataMember(Order = 1)]
         public int FromIndex { get; set; }
 
         /// <summary>
         /// The two node index.
         /// </summary>
-        [DataMember(Order = 2)]
         public int ToIndex { get; set; }
 
         /// <summary>

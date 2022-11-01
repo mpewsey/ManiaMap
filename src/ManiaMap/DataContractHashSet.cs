@@ -44,10 +44,7 @@ namespace MPewsey.ManiaMap
         /// <param name="set">The hash set.</param>
         public static implicit operator DataContractHashSet<T>(HashSet<T> set)
         {
-            if (set == null)
-                return null;
-
-            return new DataContractHashSet<T> { HashSet = set };
+            return set == null ? null : new DataContractHashSet<T> { HashSet = set };
         }
 
         /// <summary>

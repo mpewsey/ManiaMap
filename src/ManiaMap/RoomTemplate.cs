@@ -255,21 +255,7 @@ namespace MPewsey.ManiaMap
         /// <param name="other">The other room template.</param>
         public bool CellValuesAreEqual(RoomTemplate other)
         {
-            if (Cells.Rows != other.Cells.Rows || Cells.Columns != other.Cells.Columns)
-                return false;
-
-            for (int i = 0; i < Cells.Rows; i++)
-            {
-                for (int j = 0; j < Cells.Columns; j++)
-                {
-                    if (!Cell.ValuesAreEqual(Cells[i, j], other.Cells[i, j]))
-                    {
-                        return false;
-                    }
-                }
-            }
-
-            return true;
+            return Cells.ValuesAreEqual(other.Cells, Cell.ValuesAreEqual);
         }
 
         /// <summary>

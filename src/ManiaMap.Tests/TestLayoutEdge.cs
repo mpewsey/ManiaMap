@@ -7,6 +7,26 @@ namespace MPewsey.ManiaMap.Tests
     public class TestLayoutEdge
     {
         [TestMethod]
+        public void TestSaveAndLoad()
+        {
+            var path = "LayoutEdge.xml";
+            var edge = new LayoutEdge(1, 2);
+            Serialization.SaveXml(path, edge);
+            var copy = Serialization.LoadXml<LayoutEdge>(path);
+            Assert.AreEqual(edge.Name, copy.Name);
+            Assert.AreEqual(edge.FromNode, copy.FromNode);
+            Assert.AreEqual(edge.ToNode, copy.ToNode);
+            Assert.AreEqual(edge.Direction, copy.Direction);
+            Assert.AreEqual(edge.DoorCode, copy.DoorCode);
+            Assert.AreEqual(edge.Z, copy.Z);
+            Assert.AreEqual(edge.RoomChance, copy.RoomChance);
+            Assert.AreEqual(edge.RequireRoom, copy.RequireRoom);
+            Assert.AreEqual(edge.Color, copy.Color);
+            Assert.AreEqual(edge.TemplateGroup, copy.TemplateGroup);
+            Assert.AreEqual(edge.RoomId, copy.RoomId);
+        }
+
+        [TestMethod]
         public void TestToString()
         {
             var edge = new LayoutEdge(1, 2);

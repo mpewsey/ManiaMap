@@ -154,6 +154,44 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns true if the values in the arrays are equal.
+        /// </summary>
+        /// <param name="x">The first array.</param>
+        /// <param name="y">The second array.</param>
+        /// <param name="comparer">The equality comparer.</param>
+        public static bool ValuesAreEqual(Array2D<T> x, Array2D<T> y, Func<T, T, bool> comparer)
+        {
+            if (x == y)
+                return true;
+
+            if (x == null || y == null)
+                return false;
+
+            return x.ValuesAreEqual(y, comparer);
+        }
+
+        /// <summary>
+        /// Returns true if the values in the arrays are equal.
+        /// </summary>
+        /// <param name="other">The other array.</param>
+        /// <param name="comparer">The element equality comparer.</param>
+        public bool ValuesAreEqual(Array2D<T> other, Func<T, T, bool> comparer)
+        {
+            if (Rows != other.Rows
+                || Columns != other.Columns
+                || Array.Length != other.Array.Length)
+                return false;
+
+            for (int i = 0; i < Array.Length; i++)
+            {
+                if (!comparer.Invoke(Array[i], other.Array[i]))
+                    return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
         /// Returns true if the index exists.
         /// </summary>
         /// <param name="row">The row index.</param>

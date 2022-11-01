@@ -54,10 +54,7 @@ namespace MPewsey.ManiaMap
         /// <param name="dict">The dictionary.</param>
         public static implicit operator DataContractDictionary<TKey, TValue>(Dictionary<TKey, TValue> dict)
         {
-            if (dict == null)
-                return null;
-
-            return new DataContractDictionary<TKey, TValue> { Dictionary = dict };
+            return dict == null ? null : new DataContractDictionary<TKey, TValue> { Dictionary = dict };
         }
 
         /// <summary>
@@ -190,7 +187,7 @@ namespace MPewsey.ManiaMap
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return ((System.Collections.IEnumerable)Dictionary).GetEnumerator();
+            return ((IEnumerable)Dictionary).GetEnumerator();
         }
 
         IDictionaryEnumerator IDictionary.GetEnumerator()

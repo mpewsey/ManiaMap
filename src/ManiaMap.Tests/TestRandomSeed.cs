@@ -8,6 +8,21 @@ namespace MPewsey.ManiaMap.Tests
     public class TestRandomSeed
     {
         [TestMethod]
+        public void TestSaveAndLoad()
+        {
+            var path = "RandomSeed.xml";
+            var seed = new RandomSeed(12345);
+            Serialization.SaveXml(path, seed);
+            var copy = Serialization.LoadXml<RandomSeed>(path);
+            Assert.AreEqual(seed.Seed, copy.Seed);
+
+            for (int i = 0; i < 1000; i++)
+            {
+                Assert.AreEqual(seed.Next(), copy.Next());
+            }
+        }
+
+        [TestMethod]
         public void TestCumSum()
         {
             var values = new double[] { 1, 2, 3 };

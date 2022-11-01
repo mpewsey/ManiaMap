@@ -1,24 +1,20 @@
 ﻿using System;
-using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
     /// <summary>
     /// A structure containing two Room ID's.
     /// </summary>
-    [DataContract]
     public struct RoomPair : IEquatable<RoomPair>, IComparable<RoomPair>
     {
         /// <summary>
         /// The from room ID.
         /// </summary>
-        [DataMember(Order = 1)]
         public Uid FromRoom { get; private set; }
 
         /// <summary>
         /// The to room ID.
         /// </summary>
-        [DataMember(Order = 2)]
         public Uid ToRoom { get; private set; }
 
         /// <summary>

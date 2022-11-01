@@ -6,6 +6,17 @@ namespace MPewsey.ManiaMap.Tests
     public class TestBox
     {
         [TestMethod]
+        public void TestSaveAndLoad()
+        {
+            var path = "Box.xml";
+            var box = new Box(new Vector3DInt(1, 2, 3), new Vector3DInt(4, 5, 6));
+            Serialization.SaveXml(path, box);
+            var copy = Serialization.LoadXml<Box>(path);
+            Assert.AreEqual(box.Min, copy.Min);
+            Assert.AreEqual(box.Max, copy.Max);
+        }
+
+        [TestMethod]
         public void TestTemplateDoesNotIntersect()
         {
             var ring = Samples.TemplateLibrary.Miscellaneous.RingTemplate();
