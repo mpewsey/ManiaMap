@@ -18,8 +18,7 @@ namespace MPewsey.ManiaMap.Tests
             var copy = Serialization.LoadXml<RoomTemplate>(path);
             Assert.AreEqual(template.Id, copy.Id);
             Assert.AreEqual(template.Name, copy.Name);
-            Assert.AreEqual(template.Cells.Rows, copy.Cells.Rows);
-            Assert.AreEqual(template.Cells.Columns, copy.Cells.Columns);
+            Assert.IsTrue(template.CellValuesAreEqual(copy));
         }
 
         [TestMethod]
