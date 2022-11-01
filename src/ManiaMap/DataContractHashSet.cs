@@ -70,7 +70,7 @@ namespace MPewsey.ManiaMap
 
         public bool IsReadOnly => ((ICollection<T>)HashSet).IsReadOnly;
 
-        public void Add(T item)
+        void ICollection<T>.Add(T item)
         {
             ((ICollection<T>)HashSet).Add(item);
         }
@@ -150,7 +150,7 @@ namespace MPewsey.ManiaMap
             ((ISet<T>)HashSet).UnionWith(other);
         }
 
-        bool ISet<T>.Add(T item)
+        public bool Add(T item)
         {
             return ((ISet<T>)HashSet).Add(item);
         }
