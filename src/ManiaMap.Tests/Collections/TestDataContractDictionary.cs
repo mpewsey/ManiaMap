@@ -40,6 +40,20 @@ namespace MPewsey.ManiaMap.Collections.Tests
         }
 
         [TestMethod]
+        public void TestCollectionKeys()
+        {
+            IDictionary dict = new DataContractDictionary<int, int>
+            {
+                { 1, 2 },
+            };
+
+            foreach (var value in dict.Keys)
+            {
+                Assert.AreEqual(1, value);
+            }
+        }
+
+        [TestMethod]
         public void TestKeys()
         {
             var dict = new DataContractDictionary<int, int>
