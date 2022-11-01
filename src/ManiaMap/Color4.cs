@@ -6,31 +6,31 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A 4 byte (32 bit) color.
     /// </summary>
-    [DataContract]
+    [DataContract(Namespace = Serialization.Namespace)]
     public struct Color4 : IEquatable<Color4>
     {
         /// <summary>
         /// The red channel.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, IsRequired = true)]
         public byte R { get; private set; }
 
         /// <summary>
         /// The green channel.
         /// </summary>
-        [DataMember(Order = 2)]
+        [DataMember(Order = 2, IsRequired = true)]
         public byte G { get; private set; }
 
         /// <summary>
         /// The blue channel.
         /// </summary>
-        [DataMember(Order = 3)]
+        [DataMember(Order = 3, IsRequired = true)]
         public byte B { get; private set; }
 
         /// <summary>
         /// The alpha channel.
         /// </summary>
-        [DataMember(Order = 4)]
+        [DataMember(Order = 4, IsRequired = true)]
         public byte A { get; private set; }
 
         /// <summary>

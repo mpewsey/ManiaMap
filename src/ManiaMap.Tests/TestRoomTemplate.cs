@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.ManiaMap.Collections;
 using MPewsey.ManiaMap.Exceptions;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,18 @@ namespace MPewsey.ManiaMap.Tests
     [TestClass]
     public class TestRoomTemplate
     {
+        [TestMethod]
+        public void TestSaveAndLoad()
+        {
+            var path = "RoomTemplate.xml";
+            var template = new RoomTemplate(1, "Test", new Array2D<Cell>(2, 3));
+            Serialization.SaveXml(path, template);
+            var copy = Serialization.LoadXml<RoomTemplate>(path);
+            Assert.AreEqual(template.Id, copy.Id);
+            Assert.AreEqual(template.Name, copy.Name);
+            Assert.IsTrue(template.CellValuesAreEqual(copy));
+        }
+
         [TestMethod]
         public void TestDoesNotIntersect()
         {

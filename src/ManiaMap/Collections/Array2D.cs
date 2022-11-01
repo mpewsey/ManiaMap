@@ -1,32 +1,33 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Collections
 {
     /// <summary>
     /// A 2D array that can be serialized.
     /// </summary>
-    [DataContract]
+    [DataContract(Name = "Array2D", Namespace = Serialization.Namespace)]
     public class Array2D<T>
     {
         /// <summary>
         /// The number of rows in the array.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, IsRequired = true)]
         public int Rows { get; private set; }
 
         /// <summary>
         /// The number of columns in the array.
         /// </summary>
-        [DataMember(Order = 2)]
+        [DataMember(Order = 2, IsRequired = true)]
         public int Columns { get; private set; }
 
         /// <summary>
         /// The underlying flat array.
         /// </summary>
-        [DataMember(Order = 3)]
+        [DataMember(Order = 3, IsRequired = true)]
         public T[] Array { get; private set; } = System.Array.Empty<T>();
 
         /// <summary>
@@ -151,6 +152,63 @@ namespace MPewsey.ManiaMap
             {
                 Array[i] = value;
             }
+        }
+
+        /// <summary>
+        /// Returns true if the values in the arrays of equal based on the default comparer.
+        /// </summary>
+        /// <param name="x">The first array.</param>
+        /// <param name="y">The second array.</param>
+        public static bool ValuesAreEqual(Array2D<T> x, Array2D<T> y)
+        {
+            return ValuesAreEqual(x, y, EqualityComparer<T>.Default.Equals);
+        }
+
+        /// <summary>
+        /// Returns true if the values in the arrays are equal.
+        /// </summary>
+        /// <param name="x">The first array.</param>
+        /// <param name="y">The second array.</param>
+        /// <param name="comparer">The equality comparer.</param>
+        public static bool ValuesAreEqual(Array2D<T> x, Array2D<T> y, Func<T, T, bool> comparer)
+        {
+            if (x == y)
+                return true;
+
+            if (x == null || y == null)
+                return false;
+
+            return x.ValuesAreEqual(y, comparer);
+        }
+
+        /// <summary>
+        /// Returns true if the values in the arrays are equal based on the default comparer.
+        /// </summary>
+        /// <param name="other">The other array.</param>
+        public bool ValuesAreEqual(Array2D<T> other)
+        {
+            return ValuesAreEqual(other, EqualityComparer<T>.Default.Equals);
+        }
+
+        /// <summary>
+        /// Returns true if the values in the arrays are equal.
+        /// </summary>
+        /// <param name="other">The other array.</param>
+        /// <param name="comparer">The element equality comparer.</param>
+        public bool ValuesAreEqual(Array2D<T> other, Func<T, T, bool> comparer)
+        {
+            if (Rows != other.Rows
+                || Columns != other.Columns
+                || Array.Length != other.Array.Length)
+                return false;
+
+            for (int i = 0; i < Array.Length; i++)
+            {
+                if (!comparer.Invoke(Array[i], other.Array[i]))
+                    return false;
+            }
+
+            return true;
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
-﻿using MPewsey.ManiaMap.Exceptions;
+﻿using MPewsey.ManiaMap.Collections;
+using MPewsey.ManiaMap.Exceptions;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -14,33 +15,36 @@ namespace MPewsey.ManiaMap
     /// graph.AddNode(1).SetName("Node1").SetTemplateGroup("Default");
     /// ```
     /// </summary>
-    [DataContract]
-    public class LayoutNode : IRoomSource
+    [DataContract(Namespace = Serialization.Namespace)]
+    public class LayoutNode : IRoomSource, IKey<int>
     {
         /// <summary>
         /// The unique node ID.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, IsRequired = true)]
         public int Id { get; set; }
 
-        /// <inheritdoc>
-        [DataMember(Order = 2)]
+        /// <inheritdoc/>
+        [DataMember(Order = 2, IsRequired = true)]
         public string Name { get; set; } = string.Empty;
 
-        /// <inheritdoc>
-        [DataMember(Order = 3)]
+        /// <inheritdoc/>
+        [DataMember(Order = 3, IsRequired = true)]
         public int Z { get; set; }
 
-        /// <inheritdoc>
-        [DataMember(Order = 4)]
+        /// <inheritdoc/>
+        [DataMember(Order = 4, IsRequired = true)]
         public string TemplateGroup { get; set; } = "Default";
 
-        /// <inheritdoc>
-        [DataMember(Order = 5)]
+        /// <inheritdoc/>
+        [DataMember(Order = 5, IsRequired = true)]
         public Color4 Color { get; set; } = new Color4(25, 25, 112, 255);
 
-        /// <inheritdoc>
+        /// <inheritdoc/>
         public Uid RoomId { get => new Uid(Id); }
+
+        /// <inheritdoc/>
+        public int Key => Id;
 
         /// <summary>
         /// Initializes an empty node from ID.

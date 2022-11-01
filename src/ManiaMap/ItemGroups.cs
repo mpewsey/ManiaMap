@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using MPewsey.ManiaMap.Collections;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -9,23 +9,14 @@ namespace MPewsey.ManiaMap
     /// </summary>
     /// <typeparam name="TKey">The group key type.</typeparam>
     /// <typeparam name="TValue">The item value type.</typeparam>
-    [DataContract]
+    [DataContract(Name = "ItemGroups", Namespace = Serialization.Namespace)]
     public abstract class ItemGroups<TKey, TValue>
     {
         /// <summary>
         /// A dictionary of items by group.
         /// </summary>
-        protected Dictionary<TKey, List<TValue>> Groups { get; set; } = new Dictionary<TKey, List<TValue>>();
-
-        /// <summary>
-        /// An enumerable of item group entries.
-        /// </summary>
-        [DataMember(Order = 1)]
-        protected IEnumerable<ItemGroup<TKey, TValue>> GroupEntries
-        {
-            get => Groups.Select(x => new ItemGroup<TKey, TValue>(x.Key, x.Value));
-            set => Groups = value.ToDictionary(x => x.GroupId, x => x.Items);
-        }
+        [DataMember(Order = 1, IsRequired = true)]
+        protected DataContractDictionary<TKey, List<TValue>> Groups { get; set; } = new DataContractDictionary<TKey, List<TValue>>();
 
         /// <summary>
         /// Returns an enumerable of group key-value pairs.

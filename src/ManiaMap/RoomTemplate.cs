@@ -1,4 +1,5 @@
-﻿using MPewsey.ManiaMap.Exceptions;
+﻿using MPewsey.ManiaMap.Collections;
+using MPewsey.ManiaMap.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// Contains information for the geometry and properties of a Room in a Layout.
     /// </summary>
-    [DataContract(IsReference = true)]
+    [DataContract(Namespace = Serialization.Namespace, IsReference = true)]
     public class RoomTemplate
     {
         /// <summary>
@@ -255,21 +256,7 @@ namespace MPewsey.ManiaMap
         /// <param name="other">The other room template.</param>
         public bool CellValuesAreEqual(RoomTemplate other)
         {
-            if (Cells.Rows != other.Cells.Rows || Cells.Columns != other.Cells.Columns)
-                return false;
-
-            for (int i = 0; i < Cells.Rows; i++)
-            {
-                for (int j = 0; j < Cells.Columns; j++)
-                {
-                    if (!Cell.ValuesAreEqual(Cells[i, j], other.Cells[i, j]))
-                    {
-                        return false;
-                    }
-                }
-            }
-
-            return true;
+            return Cells.ValuesAreEqual(other.Cells, Cell.ValuesAreEqual);
         }
 
         /// <summary>

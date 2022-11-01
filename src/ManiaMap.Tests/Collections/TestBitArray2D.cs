@@ -1,11 +1,26 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace MPewsey.ManiaMap.Tests
+namespace MPewsey.ManiaMap.Collections.Tests
 {
     [TestClass]
     public class TestBitArray2D
     {
+        [TestMethod]
+        public void TestSaveAndLoad()
+        {
+            var path = "BitArray2D.xml";
+            var array = new BitArray2D(10, 20);
+            array[1, 1] = true;
+            array[2, 2] = true;
+            array[9, 15] = true;
+            Serialization.SaveXml(path, array);
+            var copy = Serialization.LoadXml<BitArray2D>(path);
+            Assert.AreEqual(array.Rows, copy.Rows);
+            Assert.AreEqual(array.Columns, copy.Columns);
+            CollectionAssert.AreEqual(array.Array, copy.Array);
+        }
+
         [TestMethod]
         public void TestEmptyInitializer()
         {

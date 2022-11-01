@@ -10,6 +10,44 @@ namespace MPewsey.ManiaMap.Tests
     public class TestLayoutGraph
     {
         [TestMethod]
+        public void TestSaveAndLoad()
+        {
+            var path = "LayoutGraphSaveAndLoad.xml";
+            var graph = Samples.GraphLibrary.BigGraph();
+            graph.AddNodeVariation("Variation1", new int[] { 1, 2, 3 });
+            Serialization.SaveXml(path, graph);
+            var copy = Serialization.LoadXml<LayoutGraph>(path);
+            Assert.AreEqual(graph.Id, copy.Id);
+            Assert.AreEqual(graph.Name, copy.Name);
+            Assert.AreEqual(graph.NodeCount, copy.NodeCount);
+            Assert.AreEqual(graph.EdgeCount, copy.EdgeCount);
+
+            CollectionAssert.AreEquivalent(
+                graph.GetNodes().Select(x => x.Id).ToList(),
+                copy.GetNodes().Select(x => x.Id).ToList());
+
+            CollectionAssert.AreEquivalent(
+                graph.GetEdges().Select(x => new EdgeIndexes(x.FromNode, x.ToNode)).ToList(),
+                copy.GetEdges().Select(x => new EdgeIndexes(x.FromNode, x.ToNode)).ToList());
+
+            foreach (var node in graph.GetNodes())
+            {
+                CollectionAssert.AreEqual(
+                    graph.GetNeighbors(node.Id).ToList(),
+                    copy.GetNeighbors(node.Id).ToList());
+            }
+
+            var dict1 = new Dictionary<string, List<int>>(graph.GetNodeVariations());
+            var dict2 = new Dictionary<string, List<int>>(copy.GetNodeVariations());
+            Assert.AreEqual(dict1.Count, dict2.Count);
+
+            foreach (var pair in dict1)
+            {
+                CollectionAssert.AreEqual(pair.Value, dict2[pair.Key]);
+            }
+        }
+
+        [TestMethod]
         public void TestAddEdge()
         {
             var graph = new LayoutGraph(1, "Test");
@@ -252,20 +290,6 @@ namespace MPewsey.ManiaMap.Tests
         {
             var graph = Samples.GraphLibrary.BigGraph();
             Assert.IsTrue(graph.IsValid());
-        }
-
-        [TestMethod]
-        public void TestSaveAndLoad()
-        {
-            var graph = Samples.GraphLibrary.BigGraph();
-            graph.AddNodeVariation("Group1", new int[] { 1, 2, 3 });
-            graph.AddNodeVariation("Group2", new int[] { 5, 6, 7 });
-            var path = "BigLayoutGraph.xml";
-            Serialization.SaveXml("BigLayoutGraph.xml", graph);
-            var copy = Serialization.LoadXml<LayoutGraph>(path);
-            Assert.AreEqual(graph.Id, copy.Id);
-            Assert.AreEqual(graph.NodeCount, copy.NodeCount);
-            Assert.AreEqual(graph.EdgeCount, copy.EdgeCount);
         }
     }
 }

@@ -6,6 +6,16 @@ namespace MPewsey.ManiaMap.Tests
     public class TestVector3DInt
     {
         [TestMethod]
+        public void TestSaveAndLoad()
+        {
+            var path = "Vector3DInt.xml";
+            var v = new Vector3DInt(1, 2, 3);
+            Serialization.SaveXml(path, v);
+            var copy = Serialization.LoadXml<Vector3DInt>(path);
+            Assert.AreEqual(v, copy);
+        }
+
+        [TestMethod]
         public void TestEqualsOperator()
         {
             var x = new Vector3DInt(1, 2, 3);

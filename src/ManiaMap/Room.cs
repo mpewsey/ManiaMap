@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using MPewsey.ManiaMap.Collections;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -7,59 +6,53 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// Represents a room in a Layout.
     /// </summary>
-    [DataContract]
-    public class Room
+    [DataContract(Namespace = Serialization.Namespace)]
+    public class Room : IKey<Uid>
     {
         /// <summary>
         /// The room ID.
         /// </summary>
-        [DataMember(Order = 0)]
+        [DataMember(Order = 0, IsRequired = true)]
         public Uid Id { get; private set; }
 
         /// <summary>
         /// The room name.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, IsRequired = true)]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
         /// The position of the room.
         /// </summary>
-        [DataMember(Order = 2)]
+        [DataMember(Order = 2, IsRequired = true)]
         public Vector3DInt Position { get; set; }
 
         /// <summary>
         /// The random seed of the room that may be used for room specific generation.
         /// </summary>
-        [DataMember(Order = 5)]
+        [DataMember(Order = 5, IsRequired = true)]
         public int Seed { get; set; }
 
         /// <summary>
         /// The room color.
         /// </summary>
-        [DataMember(Order = 6)]
+        [DataMember(Order = 6, IsRequired = true)]
         public Color4 Color { get; set; }
 
         /// <summary>
         /// The room template.
         /// </summary>
-        [DataMember(Order = 7)]
+        [DataMember(Order = 7, IsRequired = true)]
         public RoomTemplate Template { get; private set; }
 
         /// <summary>
         /// A dictionary of collectable object ID's by location ID.
         /// </summary>
-        public Dictionary<int, int> Collectables { get; private set; } = new Dictionary<int, int>();
+        [DataMember(Order = 8, IsRequired = true)]
+        public DataContractDictionary<int, int> Collectables { get; private set; } = new DataContractDictionary<int, int>();
 
-        /// <summary>
-        /// An enumerable of collectable ID and location ID's.
-        /// </summary>
-        [DataMember(Order = 8)]
-        protected IEnumerable<CollectableIdEntry> CollectableIdEntries
-        {
-            get => Collectables.Select(x => new CollectableIdEntry(x.Key, x.Value));
-            set => Collectables = value.ToDictionary(x => x.LocationId, x => x.CollectableId);
-        }
+        /// <inheritdoc/>
+        public Uid Key => Id;
 
         /// <summary>
         /// Initializes a room from a room source.

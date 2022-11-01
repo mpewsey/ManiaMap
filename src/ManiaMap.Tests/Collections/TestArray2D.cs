@@ -1,11 +1,30 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace MPewsey.ManiaMap.Tests
+namespace MPewsey.ManiaMap.Collections.Tests
 {
     [TestClass]
     public class TestArray2D
     {
+        [TestMethod]
+        public void TestSaveAndLoad()
+        {
+            var path = "Array2D.xml";
+            Array2D<int> array = new int[,]
+            {
+                { 1, 2, 3 },
+                { 4, 5, 6 },
+                { 7, 8, 9 },
+                { 10, 11, 12 },
+            };
+
+            Serialization.SaveXml(path, array);
+            var copy = Serialization.LoadXml<Array2D<int>>(path);
+            Assert.AreEqual(array.Rows, copy.Rows);
+            Assert.AreEqual(array.Columns, copy.Columns);
+            CollectionAssert.AreEqual(array.Array, copy.Array);
+        }
+
         [TestMethod]
         public void TestEmptyInitializer()
         {
@@ -256,6 +275,38 @@ namespace MPewsey.ManiaMap.Tests
             }
 
             Assert.AreEqual(new Vector2DInt(-1, -1), array.FindIndex(x => x == -1));
+        }
+
+        [TestMethod]
+        public void TestValuesAreEqual()
+        {
+            Array2D<int> array1 = new int[,]
+            {
+                { 1, 2, 3, 4, 5 },
+                { 6, 7, 8, 9, 10 },
+                { 11, 12, 13, 14, 15 },
+            };
+
+            Array2D<int> array2 = new int[,]
+            {
+                { 1, 2, 3, 4, 5 },
+                { 6, 7, 8, 9, 10 },
+                { 11, 12, 13, 14, 15 },
+            };
+
+            Array2D<int> array3 = new int[,]
+            {
+                { 1, 2, 3, 4, 5 },
+                { 6, 7, 8, 9, 10 },
+                { 11, 12, 13, 14, 100 },
+            };
+
+            Assert.IsTrue(Array2D<int>.ValuesAreEqual(array1, array2));
+            Assert.IsTrue(Array2D<int>.ValuesAreEqual(array1, array1));
+            Assert.IsTrue(array1.ValuesAreEqual(array2));
+            Assert.IsFalse(Array2D<int>.ValuesAreEqual(array1, null));
+            Assert.IsFalse(Array2D<int>.ValuesAreEqual(array1, array3));
+            Assert.IsFalse(array1.ValuesAreEqual(array3));
         }
     }
 }

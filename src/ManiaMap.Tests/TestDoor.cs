@@ -9,6 +9,16 @@ namespace MPewsey.ManiaMap.Tests
     public class TestDoor
     {
         [TestMethod]
+        public void TestSaveAndLoad()
+        {
+            var path = "Door.xml";
+            var door = Door.OneWayEntrance.SetCode(100);
+            Serialization.SaveXml(path, door);
+            var copy = Serialization.LoadXml<Door>(path);
+            Assert.IsTrue(door.ValuesAreEqual(copy));
+        }
+
+        [TestMethod]
         public void TestSetCode()
         {
             var door = Door.TwoWay.SetCode(100);

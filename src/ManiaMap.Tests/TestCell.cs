@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MPewsey.ManiaMap.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,10 +10,22 @@ namespace MPewsey.ManiaMap.Tests
     public class TestCell
     {
         [TestMethod]
+        public void TestSaveAndLoad()
+        {
+            var path = "Cell.xml";
+            var cell = Cell.New.SetDoors("NWSETB", Door.TwoWay).AddFeature("SavePoint").AddFeature("Boss").AddCollectableSpot(1, "Test");
+            Serialization.SaveXml(path, cell);
+            var copy = Serialization.LoadXml<Cell>(path);
+            Assert.IsTrue(cell.ValuesAreEqual(copy));
+        }
+
+        [TestMethod]
         public void TestToString()
         {
-            var cell = Cell.New.SetDoors("N", Door.TwoWay);
-            Assert.IsTrue(cell.ToString().StartsWith("Cell(NorthDoor = "));
+            var cell = Cell.New.SetDoors("N", Door.TwoWay).AddFeature("SavePoint");
+            var str = cell.ToString();
+            Console.WriteLine(str);
+            Assert.IsTrue(str.StartsWith("Cell("));
         }
 
         [TestMethod]

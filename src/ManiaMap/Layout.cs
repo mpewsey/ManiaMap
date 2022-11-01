@@ -1,6 +1,6 @@
-﻿using System;
+﻿using MPewsey.ManiaMap.Collections;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -8,56 +8,38 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// Represents a room layout consisting of Room and DoorConnection.
     /// </summary>
-    [DataContract]
+    [DataContract(Namespace = Serialization.Namespace)]
     public class Layout
     {
         /// <summary>
         /// The unique ID.
         /// </summary>
-        [DataMember(Order = 0)]
+        [DataMember(Order = 0, IsRequired = true)]
         public int Id { get; private set; }
 
         /// <summary>
         /// The name of the layout.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, IsRequired = true)]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
         /// The random seed used to generate the layout.
         /// </summary>
-        [DataMember(Order = 2)]
+        [DataMember(Order = 2, IsRequired = true)]
         public RandomSeed Seed { get; private set; }
 
         /// <summary>
         /// A dictionary of rooms in the layout by ID.
         /// </summary>
-        public Dictionary<Uid, Room> Rooms { get; private set; } = new Dictionary<Uid, Room>();
-
-        /// <summary>
-        /// An enumerable of rooms.
-        /// </summary>
-        [DataMember(Order = 3)]
-        protected IEnumerable<Room> RoomEntries
-        {
-            get => Rooms.Values;
-            set => Rooms = value.ToDictionary(x => x.Id, x => x);
-        }
+        [DataMember(Order = 3, IsRequired = true)]
+        public DataContractValueDictionary<Uid, Room> Rooms { get; private set; } = new DataContractValueDictionary<Uid, Room>();
 
         /// <summary>
         /// A dictionary of door connections by room ID pairs.
         /// </summary>
-        public Dictionary<RoomPair, DoorConnection> DoorConnections { get; private set; } = new Dictionary<RoomPair, DoorConnection>();
-
-        /// <summary>
-        /// An enumerable of door connections.
-        /// </summary>
-        [DataMember(Order = 4)]
-        protected IEnumerable<DoorConnection> DoorConnectionEntries
-        {
-            get => DoorConnections.Values;
-            set => DoorConnections = value.ToDictionary(x => new RoomPair(x.FromRoom, x.ToRoom), x => x);
-        }
+        [DataMember(Order = 4, IsRequired = true)]
+        public DataContractValueDictionary<RoomPair, DoorConnection> DoorConnections { get; private set; } = new DataContractValueDictionary<RoomPair, DoorConnection>();
 
         /// <summary>
         /// The current number of times the layout has been used as a base for another layout.

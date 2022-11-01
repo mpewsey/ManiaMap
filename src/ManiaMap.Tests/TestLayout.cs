@@ -15,19 +15,39 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
-        public void TestSaveAndLoadXml()
+        public void TestSaveAndLoadManiaMapLayoutXml()
         {
             var path = "ManiaMapLayout.xml";
             var layout = Samples.ManiaMapSample.ManiaMapLayout();
             Serialization.SaveXml(path, layout);
             var copy = Serialization.LoadXml<Layout>(path);
+            Assert.AreEqual(layout.Id, copy.Id);
+            Assert.AreEqual(layout.Name, copy.Name);
             Assert.AreEqual(layout.Seed.Seed, copy.Seed.Seed);
+            Assert.AreEqual(layout.Rooms.Count, copy.Rooms.Count);
+            Assert.AreEqual(layout.DoorConnections.Count, copy.DoorConnections.Count);
+        }
+
+        [TestMethod]
+        public void TestSaveAndLoadBigLaoutXml()
+        {
+            var path = "Layout.xml";
+            var results = Samples.BigLayoutSample.Generate(12345);
+            Assert.IsTrue(results.Success);
+            var layout = (Layout)results.Outputs["Layout"];
+            Serialization.SaveXml(path, layout);
+            var copy = Serialization.LoadXml<Layout>(path);
+            Assert.AreEqual(layout.Id, copy.Id);
+            Assert.AreEqual(layout.Name, copy.Name);
+            Assert.AreEqual(layout.Seed.Seed, copy.Seed.Seed);
+            Assert.AreEqual(layout.Rooms.Count, copy.Rooms.Count);
+            Assert.AreEqual(layout.DoorConnections.Count, copy.DoorConnections.Count);
         }
 
         [TestMethod]
         public void TestSaveAndLoadXmlBytes()
         {
-            var path = "ManiaMapLayout.xml";
+            var path = "ManiaMapLayoutBytes.xml";
             var layout = Samples.ManiaMapSample.ManiaMapLayout();
             Serialization.SaveXml(path, layout);
             var bytes = File.ReadAllBytes(path);

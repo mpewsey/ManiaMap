@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using MPewsey.ManiaMap.Collections;
 using System.Linq;
 using System.Runtime.Serialization;
 
@@ -7,29 +7,20 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// Contains the states of a Layout.
     /// </summary>
-    [DataContract]
+    [DataContract(Namespace = Serialization.Namespace)]
     public class LayoutState
     {
         /// <summary>
         /// The ID of the corresponding layout.
         /// </summary>
-        [DataMember(Order = 0)]
+        [DataMember(Order = 0, IsRequired = true)]
         public int Id { get; private set; }
 
         /// <summary>
         /// A dictionary of room states by ID.
         /// </summary>
-        public Dictionary<Uid, RoomState> RoomStates { get; private set; } = new Dictionary<Uid, RoomState>();
-
-        /// <summary>
-        /// An enumerable of room state values.
-        /// </summary>
-        [DataMember(Order = 1)]
-        protected IEnumerable<RoomState> RoomStateEntries
-        {
-            get => RoomStates.Values;
-            set => RoomStates = value.ToDictionary(x => x.Id, x => x);
-        }
+        [DataMember(Order = 1, IsRequired = true)]
+        public DataContractValueDictionary<Uid, RoomState> RoomStates { get; private set; } = new DataContractValueDictionary<Uid, RoomState>();
 
         /// <summary>
         /// Initializes an object from a layout.

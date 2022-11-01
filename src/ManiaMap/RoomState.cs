@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using MPewsey.ManiaMap.Collections;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -6,50 +6,35 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// Stores the state of a Room in a Layout.
     /// </summary>
-    [DataContract]
-    public class RoomState
+    [DataContract(Namespace = Serialization.Namespace)]
+    public class RoomState : IKey<Uid>
     {
         /// <summary>
         /// The ID of the corresponding room.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, IsRequired = true)]
         public Uid Id { get; private set; }
 
         /// <summary>
         /// An array of room cell visibilities.
         /// </summary>
-        [DataMember(Order = 2)]
+        [DataMember(Order = 2, IsRequired = true)]
         public BitArray2D VisibleCells { get; private set; }
 
         /// <summary>
         /// A set of acquired collectable location ID's.
         /// </summary>
-        public HashSet<int> AcquiredCollectables { get; private set; } = new HashSet<int>();
-
-        /// <summary>
-        /// An enumerable of acquired collectable location ID's.
-        /// </summary>
-        [DataMember(Order = 3)]
-        protected IEnumerable<int> AcquiredCollectableIds
-        {
-            get => AcquiredCollectables;
-            set => AcquiredCollectables = new HashSet<int>(value);
-        }
+        [DataMember(Order = 3, IsRequired = true)]
+        public DataContractHashSet<int> AcquiredCollectables { get; private set; } = new DataContractHashSet<int>();
 
         /// <summary>
         /// A set of flags that are set for a room.
         /// </summary>
-        public HashSet<int> Flags { get; private set; } = new HashSet<int>();
+        [DataMember(Order = 4, IsRequired = true)]
+        public DataContractHashSet<int> Flags { get; private set; } = new DataContractHashSet<int>();
 
-        /// <summary>
-        /// An enumerable of flags that are set for the room.
-        /// </summary>
-        [DataMember(Order = 4)]
-        protected IEnumerable<int> FlagIds
-        {
-            get => Flags;
-            set => Flags = new HashSet<int>(value);
-        }
+        /// <inheritdoc/>
+        public Uid Key => Id;
 
         /// <summary>
         /// Initializes from a room.

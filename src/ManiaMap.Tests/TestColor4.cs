@@ -3,8 +3,18 @@
 namespace MPewsey.ManiaMap.Tests
 {
     [TestClass]
-    public class TestColor32
+    public class TestColor4
     {
+        [TestMethod]
+        public void TestSaveAndLoad()
+        {
+            var path = "Color4.xml";
+            var color = new Color4(1, 2, 3, 4);
+            Serialization.SaveXml(path, color);
+            var copy = Serialization.LoadXml<Color4>(path);
+            Assert.AreEqual(color, copy);
+        }
+
         [TestMethod]
         public void TestToString()
         {

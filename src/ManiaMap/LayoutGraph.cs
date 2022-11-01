@@ -1,4 +1,5 @@
-﻿using MPewsey.ManiaMap.Exceptions;
+﻿using MPewsey.ManiaMap.Collections;
+using MPewsey.ManiaMap.Exceptions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -8,80 +9,44 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// Represents a graph consisting of LayoutNode and LayoutEdge.
     /// </summary>
-    [DataContract]
+    [DataContract(Namespace = Serialization.Namespace)]
     public class LayoutGraph
     {
         /// <summary>
         /// The graph ID.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, IsRequired = true)]
         public int Id { get; private set; }
 
         /// <summary>
         /// The graph name.
         /// </summary>
-        [DataMember(Order = 2)]
+        [DataMember(Order = 2, IsRequired = true)]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
         /// A dictionary of nodes by ID.
         /// </summary>
-        private Dictionary<int, LayoutNode> Nodes { get; set; } = new Dictionary<int, LayoutNode>();
-
-        /// <summary>
-        /// An enumerable of layout nodes.
-        /// </summary>
-        [DataMember(Order = 3)]
-        protected IEnumerable<LayoutNode> LayoutNodes
-        {
-            get => Nodes.Values;
-            set => Nodes = value.ToDictionary(x => x.Id, x => x);
-        }
+        [DataMember(Order = 3, IsRequired = true)]
+        private DataContractValueDictionary<int, LayoutNode> Nodes { get; set; } = new DataContractValueDictionary<int, LayoutNode>();
 
         /// <summary>
         /// A dictionary of nodes by from and to node ID's.
         /// </summary>
-        private Dictionary<EdgeIndexes, LayoutEdge> Edges { get; set; } = new Dictionary<EdgeIndexes, LayoutEdge>();
-
-        /// <summary>
-        /// An enumerable of layout edges.
-        /// </summary>
-        [DataMember(Order = 4)]
-        protected IEnumerable<LayoutEdge> LayoutEdges
-        {
-            get => Edges.Values;
-            set => Edges = value.ToDictionary(x => new EdgeIndexes(x.FromNode, x.ToNode), x => x);
-        }
+        [DataMember(Order = 4, IsRequired = true)]
+        private DataContractValueDictionary<EdgeIndexes, LayoutEdge> Edges { get; set; } = new DataContractValueDictionary<EdgeIndexes, LayoutEdge>();
 
         /// <summary>
         /// A dictionary of neighboring nodes by node ID.
         /// </summary>
-        private Dictionary<int, List<int>> Neighbors { get; set; } = new Dictionary<int, List<int>>();
-
-        /// <summary>
-        /// An enumerable of node neighbor groups.
-        /// </summary>
-        [DataMember(Order = 5)]
-        protected IEnumerable<NodeNeighbors> NodeNeighbors
-        {
-            get => Neighbors.Select(x => new NodeNeighbors(x.Key, x.Value));
-            set => Neighbors = value.ToDictionary(x => x.Id, x => x.Neighbors);
-        }
+        [DataMember(Order = 5, IsRequired = true)]
+        private DataContractDictionary<int, List<int>> Neighbors { get; set; } = new DataContractDictionary<int, List<int>>();
 
         /// <summary>
         /// A dictionary of node variation groups.
         /// </summary>
-        private Dictionary<string, List<int>> NodeVariations { get; set; } = new Dictionary<string, List<int>>();
-
-        /// <summary>
-        /// An enumerable of node variations.
-        /// </summary>
-        [DataMember(Order = 6)]
-        protected IEnumerable<NodeVariations> VariationGroups
-        {
-            get => NodeVariations.Select(x => new NodeVariations(x.Key, x.Value));
-            set => NodeVariations = value.ToDictionary(x => x.GroupName, x => x.Variations);
-        }
+        [DataMember(Order = 6, IsRequired = true)]
+        private DataContractDictionary<string, List<int>> NodeVariations { get; set; } = new DataContractDictionary<string, List<int>>();
 
         /// <summary>
         /// The number of nodes in the graph.
@@ -168,6 +133,14 @@ namespace MPewsey.ManiaMap
         public IReadOnlyList<int> GetNodeVariations(string group)
         {
             return NodeVariations[group];
+        }
+
+        /// <summary>
+        /// Returns an enumerable of variation groups and their associated nodes.
+        /// </summary>
+        public IEnumerable<KeyValuePair<string, List<int>>> GetNodeVariations()
+        {
+            return NodeVariations;
         }
 
         /// <summary>
@@ -476,7 +449,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public List<List<int>> FindCycles()
         {
-            return new GraphCycleDecomposer<int>().FindCycles(Neighbors);
+            return new GraphCycleDecomposer<int>().FindCycles(Neighbors.Dictionary);
         }
 
         /// <summary>
@@ -484,7 +457,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public List<List<int>> FindBranches()
         {
-            return new GraphBranchDecomposer<int>().FindBranches(Neighbors);
+            return new GraphBranchDecomposer<int>().FindBranches(Neighbors.Dictionary);
         }
 
         /// <summary>
@@ -503,7 +476,7 @@ namespace MPewsey.ManiaMap
         /// <param name="maxDepth">The maximum depth for which neighbors will be returned.</param>
         public HashSet<int> FindCluster(int node, int maxDepth)
         {
-            return new GraphClusterSearch<int>().FindCluster(Neighbors, node, maxDepth);
+            return new GraphClusterSearch<int>().FindCluster(Neighbors.Dictionary, node, maxDepth);
         }
 
         /// <summary>
@@ -512,7 +485,7 @@ namespace MPewsey.ManiaMap
         /// <param name="maxDepth">The maximum depth for which neighbors will be returned.</param>
         public Dictionary<int, HashSet<int>> FindClusters(int maxDepth)
         {
-            return new GraphClusterSearch<int>().FindClusters(Neighbors, maxDepth);
+            return new GraphClusterSearch<int>().FindClusters(Neighbors.Dictionary, maxDepth);
         }
 
         /// <summary>
