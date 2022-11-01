@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
 
 namespace MPewsey.ManiaMap.Tests
 {
@@ -301,10 +300,12 @@ namespace MPewsey.ManiaMap.Tests
                 { 11, 12, 13, 14, 100 },
             };
 
-            Assert.IsTrue(Array2D<int>.ValuesAreEqual(array1, array2, EqualityComparer<int>.Default.Equals));
-            Assert.IsTrue(Array2D<int>.ValuesAreEqual(array1, array1, EqualityComparer<int>.Default.Equals));
-            Assert.IsFalse(Array2D<int>.ValuesAreEqual(array1, null, EqualityComparer<int>.Default.Equals));
-            Assert.IsFalse(Array2D<int>.ValuesAreEqual(array1, array3, EqualityComparer<int>.Default.Equals));
+            Assert.IsTrue(Array2D<int>.ValuesAreEqual(array1, array2));
+            Assert.IsTrue(Array2D<int>.ValuesAreEqual(array1, array1));
+            Assert.IsTrue(array1.ValuesAreEqual(array2));
+            Assert.IsFalse(Array2D<int>.ValuesAreEqual(array1, null));
+            Assert.IsFalse(Array2D<int>.ValuesAreEqual(array1, array3));
+            Assert.IsFalse(array1.ValuesAreEqual(array3));
         }
     }
 }

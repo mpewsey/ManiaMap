@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Text;
@@ -154,6 +155,16 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns true if the values in the arrays of equal based on the default comparer.
+        /// </summary>
+        /// <param name="x">The first array.</param>
+        /// <param name="y">The second array.</param>
+        public static bool ValuesAreEqual(Array2D<T> x, Array2D<T> y)
+        {
+            return ValuesAreEqual(x, y, EqualityComparer<T>.Default.Equals);
+        }
+
+        /// <summary>
         /// Returns true if the values in the arrays are equal.
         /// </summary>
         /// <param name="x">The first array.</param>
@@ -168,6 +179,15 @@ namespace MPewsey.ManiaMap
                 return false;
 
             return x.ValuesAreEqual(y, comparer);
+        }
+
+        /// <summary>
+        /// Returns true if the values in the arrays are equal based on the default comparer.
+        /// </summary>
+        /// <param name="other">The other array.</param>
+        public bool ValuesAreEqual(Array2D<T> other)
+        {
+            return ValuesAreEqual(other, EqualityComparer<T>.Default.Equals);
         }
 
         /// <summary>
