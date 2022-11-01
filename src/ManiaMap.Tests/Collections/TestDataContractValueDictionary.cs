@@ -21,5 +21,13 @@ namespace MPewsey.ManiaMap.Collections.Tests
             CollectionAssert.AreEquivalent(dict.Keys.ToList(), copy.Keys.ToList());
             CollectionAssert.AreEquivalent(dict.Values.Select(x => x.Id).ToList(), copy.Values.Select(x => x.Id).ToList());
         }
+
+        [TestMethod]
+        public void TestInitializers()
+        {
+            var dict = new DataContractValueDictionary<int, LayoutNode>(10);
+            dict = new DataContractValueDictionary<int, LayoutNode>(dict);
+            Assert.AreEqual(0, dict.Count);
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MPewsey.ManiaMap.Collections.Tests
@@ -14,6 +15,32 @@ namespace MPewsey.ManiaMap.Collections.Tests
             Serialization.SaveXml(path, set);
             var copy = Serialization.LoadXml<DataContractHashSet<int>>(path);
             CollectionAssert.AreEquivalent(set.ToList(), copy.ToList());
+        }
+
+        [TestMethod]
+        public void TestDictionaryCast()
+        {
+            DataContractHashSet<int> set = new HashSet<int>();
+            Assert.AreEqual(0, set.Count);
+        }
+
+        [TestMethod]
+        public void TestCollectionAdd()
+        {
+            ICollection<int> set = new DataContractHashSet<int>();
+            set.Add(1);
+            Assert.AreEqual(1, set.Count);
+        }
+
+        [TestMethod]
+        public void TestEnumerator()
+        {
+            IEnumerable<int> set = new DataContractHashSet<int> { 1 };
+
+            foreach (var value in set)
+            {
+                Assert.AreEqual(1, value);
+            }
         }
 
         [TestMethod]
