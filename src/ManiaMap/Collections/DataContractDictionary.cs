@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Collections
 {
     /// <summary>
     /// A dictionary that is data contract serializable.
@@ -14,13 +14,14 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The underlying dictionary.
         /// </summary>
+        [IgnoreDataMember] // See KeyValueArray
         public Dictionary<TKey, TValue> Dictionary { get; private set; }
 
         /// <summary>
         /// An array of key value pairs.
         /// </summary>
         [DataMember(Order = 1, Name = "Dictionary")]
-        public KeyValue<TKey, TValue>[] Array { get => GetArray(); set => SetDictionary(value); }
+        public KeyValue<TKey, TValue>[] KeyValueArray { get => GetKeyValueArray(); set => SetDictionary(value); }
 
         /// <summary>
         /// Initializes a new empty dictionary.
@@ -60,10 +61,10 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a new array of key value pairs for the dictionary.
         /// </summary>
-        private KeyValue<TKey, TValue>[] GetArray()
+        private KeyValue<TKey, TValue>[] GetKeyValueArray()
         {
             if (Dictionary.Count == 0)
-                return System.Array.Empty<KeyValue<TKey, TValue>>();
+                return Array.Empty<KeyValue<TKey, TValue>>();
 
             int i = 0;
             var array = new KeyValue<TKey, TValue>[Dictionary.Count];

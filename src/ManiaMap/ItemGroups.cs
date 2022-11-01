@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using MPewsey.ManiaMap.Collections;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
