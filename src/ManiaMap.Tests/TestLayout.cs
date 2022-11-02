@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MPewsey.ManiaMap.Serialization;
+using System;
 using System.IO;
 using System.Linq;
 
@@ -55,6 +56,28 @@ namespace MPewsey.ManiaMap.Tests
             var layout = (Layout)results.Outputs["Layout"];
             JsonSerialization.SaveJson(path, layout);
             var copy = JsonSerialization.LoadJson<Layout>(path);
+            Assert.AreEqual(layout.Id, copy.Id);
+            Assert.AreEqual(layout.Name, copy.Name);
+            Assert.AreEqual(layout.Seed.Seed, copy.Seed.Seed);
+            Assert.AreEqual(layout.Rooms.Count, copy.Rooms.Count);
+            Assert.AreEqual(layout.DoorConnections.Count, copy.DoorConnections.Count);
+            Assert.AreEqual(layout.Templates.Count, copy.Templates.Count);
+        }
+
+        [TestMethod]
+        public void TestSaveAndLoadEncryptedJson()
+        {
+            var path = "LayoutJson.sav";
+            var results = Samples.BigLayoutSample.Generate(12345);
+            Assert.IsTrue(results.Success);
+            var layout = (Layout)results.Outputs["Layout"];
+
+            var key = new byte[32];
+            var random = new Random(12345);
+            random.NextBytes(key);
+
+            JsonSerialization.SaveEncryptedJson(path, layout, key);
+            var copy = JsonSerialization.LoadEncryptedJson<Layout>(path, key);
             Assert.AreEqual(layout.Id, copy.Id);
             Assert.AreEqual(layout.Name, copy.Name);
             Assert.AreEqual(layout.Seed.Seed, copy.Seed.Seed);

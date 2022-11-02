@@ -94,7 +94,7 @@ namespace MPewsey.ManiaMap.Serialization
         /// <param name="path">The file path.</param>
         /// <param name="graph">The object graph.</param>
         /// <param name="key">The secret key.</param>
-        public static void SaveEncryptedXml<T>(string path, T graph, byte[] key)
+        public static void SaveEncryptedJson<T>(string path, T graph, byte[] key)
         {
             var serializer = new DataContractJsonSerializer(typeof(T));
 
@@ -109,7 +109,7 @@ namespace MPewsey.ManiaMap.Serialization
         /// </summary>
         /// <param name="path">The file path.</param>
         /// <param name="key">The secret key.</param>
-        public static T LoadEncryptedXml<T>(string path, byte[] key)
+        public static T LoadEncryptedJson<T>(string path, byte[] key)
         {
             var serializer = new DataContractJsonSerializer(typeof(T));
 
