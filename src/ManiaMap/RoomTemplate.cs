@@ -11,27 +11,32 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// Contains information for the geometry and properties of a Room in a Layout.
     /// </summary>
-    [DataContract(Namespace = XmlSerialization.Namespace, IsReference = true)]
-    public class RoomTemplate
+    [DataContract(Namespace = XmlSerialization.Namespace)]
+    public class RoomTemplate : IDataContractValueDictionaryValue<int>
     {
         /// <summary>
         /// The unique ID.
         /// </summary>
-        [DataMember(Order = 1)]
+        [DataMember(Order = 1, IsRequired = true)]
         public int Id { get; private set; }
 
         /// <summary>
         /// The template name.
         /// </summary>
-        [DataMember(Order = 2)]
+        [DataMember(Order = 2, IsRequired = true)]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
         /// An array of cells in the template. The shape and contents of this array define the geometry
         /// and properties of the room.
         /// </summary>
-        [DataMember(Order = 3)]
+        [DataMember(Order = 3, IsRequired = true)]
         public Array2D<Cell> Cells { get; private set; }
+
+        /// <summary>
+        /// The unique key.
+        /// </summary>
+        public int Key => Id;
 
         /// <summary>
         /// Initializes a room template.

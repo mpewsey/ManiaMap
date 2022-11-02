@@ -30,7 +30,7 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
-        public void TestSaveAndLoadBigLaoutXml()
+        public void TestSaveAndLoadBigLayoutXml()
         {
             var path = "Layout.xml";
             var results = Samples.BigLayoutSample.Generate(12345);
@@ -43,6 +43,24 @@ namespace MPewsey.ManiaMap.Tests
             Assert.AreEqual(layout.Seed.Seed, copy.Seed.Seed);
             Assert.AreEqual(layout.Rooms.Count, copy.Rooms.Count);
             Assert.AreEqual(layout.DoorConnections.Count, copy.DoorConnections.Count);
+            Assert.AreEqual(layout.Templates.Count, copy.Templates.Count);
+        }
+
+        [TestMethod]
+        public void TestSaveAndLoadBigLayoutJson()
+        {
+            var path = "Layout.json";
+            var results = Samples.BigLayoutSample.Generate(12345);
+            Assert.IsTrue(results.Success);
+            var layout = (Layout)results.Outputs["Layout"];
+            JsonSerialization.SaveJson(path, layout);
+            var copy = JsonSerialization.LoadJson<Layout>(path);
+            Assert.AreEqual(layout.Id, copy.Id);
+            Assert.AreEqual(layout.Name, copy.Name);
+            Assert.AreEqual(layout.Seed.Seed, copy.Seed.Seed);
+            Assert.AreEqual(layout.Rooms.Count, copy.Rooms.Count);
+            Assert.AreEqual(layout.DoorConnections.Count, copy.DoorConnections.Count);
+            Assert.AreEqual(layout.Templates.Count, copy.Templates.Count);
         }
 
         [TestMethod]

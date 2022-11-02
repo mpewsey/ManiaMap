@@ -43,9 +43,21 @@ namespace MPewsey.ManiaMap
         public DataContractValueDictionary<RoomPair, DoorConnection> DoorConnections { get; private set; } = new DataContractValueDictionary<RoomPair, DoorConnection>();
 
         /// <summary>
+        /// A dictionary of room templates in the layout by ID.
+        /// </summary>
+        [DataMember(Order = 5, IsRequired = true)]
+        public DataContractValueDictionary<int, RoomTemplate> Templates { get; private set; } = new DataContractValueDictionary<int, RoomTemplate>();
+
+        /// <summary>
         /// The current number of times the layout has been used as a base for another layout.
         /// </summary>
         public int Rebases { get; private set; }
+
+        [OnDeserialized]
+        private void OnDeserialized(StreamingContext context)
+        {
+            AssignRoomTemplates();
+        }
 
         /// <summary>
         /// Initializes an empty layout.
@@ -66,14 +78,39 @@ namespace MPewsey.ManiaMap
             Id = baseLayout.Id;
             Name = baseLayout.Name;
             Seed = baseLayout.Seed;
-            Rooms = new Dictionary<Uid, Room>(baseLayout.Rooms);
-            DoorConnections = new Dictionary<RoomPair, DoorConnection>(baseLayout.DoorConnections);
+            Rooms = new DataContractValueDictionary<Uid, Room>(baseLayout.Rooms);
+            DoorConnections = new DataContractValueDictionary<RoomPair, DoorConnection>(baseLayout.DoorConnections);
             baseLayout.Rebases++;
+            PopulateTemplates();
         }
 
         public override string ToString()
         {
             return $"Layout(Name = {Name}, Seed = {Seed})";
+        }
+
+        /// <summary>
+        /// Populates the templates dictionary based on the current rooms.
+        /// </summary>
+        public void PopulateTemplates()
+        {
+            Templates.Clear();
+
+            foreach (var room in Rooms.Values)
+            {
+                Templates[room.Template.Id] = room.Template;
+            }
+        }
+
+        /// <summary>
+        /// Sets the templates of the rooms based on their stored template ID's.
+        /// </summary>
+        private void AssignRoomTemplates()
+        {
+            foreach (var room in Rooms.Values)
+            {
+                room.SetTemplate(Templates.Dictionary);
+            }
         }
 
         /// <summary>

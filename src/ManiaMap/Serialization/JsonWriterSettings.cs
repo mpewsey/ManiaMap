@@ -30,7 +30,7 @@ namespace MPewsey.ManiaMap.Serialization
             return new JsonWriterSettings
             {
                 Indent = true,
-                IndentCharacters = "\t",
+                IndentCharacters = "  ",
             };
         }
     }

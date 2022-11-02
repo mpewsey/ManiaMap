@@ -1,5 +1,6 @@
 ﻿using MPewsey.ManiaMap.Collections;
 using MPewsey.ManiaMap.Serialization;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -34,17 +35,27 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 5, IsRequired = true)]
         public int Seed { get; set; }
 
+        private int _templateId;
         /// <summary>
-        /// The room color.
+        /// The template ID.
         /// </summary>
         [DataMember(Order = 6, IsRequired = true)]
-        public Color4 Color { get; set; }
+        public int TemplateId
+        {
+            get => Template != null ? Template.Id : _templateId;
+            private set => _templateId = value;
+        }
 
         /// <summary>
         /// The room template.
         /// </summary>
-        [DataMember(Order = 7, IsRequired = true)]
         public RoomTemplate Template { get; private set; }
+
+        /// <summary>
+        /// The room color.
+        /// </summary>
+        [DataMember(Order = 7, IsRequired = true)]
+        public Color4 Color { get; set; }
 
         /// <summary>
         /// A dictionary of collectable object ID's by location ID.
@@ -87,6 +98,17 @@ namespace MPewsey.ManiaMap
             return Position.Z >= min.Z
                 && Position.Z <= max.Z
                 && Template.Intersects(min - Position, max - Position);
+        }
+
+        /// <summary>
+        /// Sets the room template based on the current template ID.
+        /// </summary>
+        /// <param name="templates">A dictionary of room templates.</param>
+        public void SetTemplate(Dictionary<int, RoomTemplate> templates)
+        {
+            var template = templates[TemplateId];
+            TemplateId = template.Id;
+            Template = template;
         }
     }
 }

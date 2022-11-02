@@ -22,7 +22,7 @@ namespace MPewsey.ManiaMap.Tests
             Assert.AreEqual(room.Position, copy.Position);
             Assert.AreEqual(room.Seed, copy.Seed);
             Assert.AreEqual(room.Color, copy.Color);
-            Assert.AreEqual(room.Template.Id, copy.Template.Id);
+            Assert.AreEqual(room.TemplateId, copy.TemplateId);
             Assert.AreEqual(room.Collectables.Count, copy.Collectables.Count);
 
             foreach (var pair in room.Collectables)
