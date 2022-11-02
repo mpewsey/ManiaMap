@@ -8,7 +8,7 @@ namespace MPewsey.ManiaMap
     /// Stores the state of a Room in a Layout.
     /// </summary>
     [DataContract(Namespace = XmlSerialization.Namespace)]
-    public class RoomState : IKey<Uid>
+    public class RoomState : IDataContractValueDictionaryValue<Uid>
     {
         /// <summary>
         /// The ID of the corresponding room.

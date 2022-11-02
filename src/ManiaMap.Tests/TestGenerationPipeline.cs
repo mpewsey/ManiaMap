@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MPewsey.ManiaMap.Serialization;
 using System;
-using System.IO;
 
 namespace MPewsey.ManiaMap.Tests
 {
@@ -62,7 +61,7 @@ namespace MPewsey.ManiaMap.Tests
             random.NextBytes(key);
 
             XmlSerialization.SaveEncryptedXml(path, layout, key);
-            Console.WriteLine(Encryption.DecryptTextFile(path, key).Replace("><", ">\n<"));
+            Console.WriteLine(Cryptography.DecryptTextFile(path, key).Replace("><", ">\n<"));
             var copy = XmlSerialization.LoadEncryptedXml<Layout>(path, key);
             Assert.AreEqual(layout.Id, copy.Id);
         }

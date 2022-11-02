@@ -8,7 +8,7 @@ namespace MPewsey.ManiaMap
     /// Represents a door connection between two Room.
     /// </summary>
     [DataContract(Namespace = XmlSerialization.Namespace)]
-    public class DoorConnection : IKey<RoomPair>
+    public class DoorConnection : IDataContractValueDictionaryValue<RoomPair>
     {
         /// <summary>
         /// The from room ID.

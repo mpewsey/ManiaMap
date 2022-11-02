@@ -17,7 +17,7 @@ namespace MPewsey.ManiaMap
     /// ```
     /// </summary>
     [DataContract(Namespace = XmlSerialization.Namespace)]
-    public class LayoutNode : IRoomSource, IKey<int>
+    public class LayoutNode : IRoomSource, IDataContractValueDictionaryValue<int>
     {
         /// <summary>
         /// The unique node ID.

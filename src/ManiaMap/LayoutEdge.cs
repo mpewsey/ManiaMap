@@ -18,7 +18,7 @@ namespace MPewsey.ManiaMap
     /// ```
     /// </summary>
     [DataContract(Namespace = XmlSerialization.Namespace)]
-    public class LayoutEdge : IRoomSource, IKey<EdgeIndexes>
+    public class LayoutEdge : IRoomSource, IDataContractValueDictionaryValue<EdgeIndexes>
     {
         /// <inheritdoc/>
         [DataMember(Order = 1, IsRequired = true)]

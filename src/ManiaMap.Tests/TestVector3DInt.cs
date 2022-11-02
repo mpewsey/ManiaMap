@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MPewsey.ManiaMap.Serialization;
+using System;
 
 namespace MPewsey.ManiaMap.Tests
 {
@@ -13,6 +14,16 @@ namespace MPewsey.ManiaMap.Tests
             var v = new Vector3DInt(1, 2, 3);
             XmlSerialization.SaveXml(path, v);
             var copy = XmlSerialization.LoadXml<Vector3DInt>(path);
+            Assert.AreEqual(v, copy);
+        }
+
+        [TestMethod]
+        public void TestGetJsonString()
+        {
+            var v = new Vector3DInt(1, 2, 3);
+            var str = JsonSerialization.GetJsonString(v);
+            Console.WriteLine(str);
+            var copy = JsonSerialization.LoadJsonString<Vector3DInt>(str);
             Assert.AreEqual(v, copy);
         }
 

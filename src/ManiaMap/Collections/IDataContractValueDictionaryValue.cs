@@ -1,9 +1,9 @@
 ﻿namespace MPewsey.ManiaMap.Collections
 {
     /// <summary>
-    /// An interface requiring a unique key.
+    /// An interface for values of the DataContractValueDictionary.
     /// </summary>
-    public interface IKey<T>
+    public interface IDataContractValueDictionaryValue<T>
     {
         /// <summary>
         /// The unique key.
