@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MPewsey.ManiaMap.Exceptions;
+using MPewsey.ManiaMap.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,8 @@ namespace MPewsey.ManiaMap.Tests
             var path = "LayoutGraphSaveAndLoad.xml";
             var graph = Samples.GraphLibrary.BigGraph();
             graph.AddNodeVariation("Variation1", new int[] { 1, 2, 3 });
-            Serialization.SaveXml(path, graph);
-            var copy = Serialization.LoadXml<LayoutGraph>(path);
+            XmlSerialization.SaveXml(path, graph);
+            var copy = XmlSerialization.LoadXml<LayoutGraph>(path);
             Assert.AreEqual(graph.Id, copy.Id);
             Assert.AreEqual(graph.Name, copy.Name);
             Assert.AreEqual(graph.NodeCount, copy.NodeCount);
@@ -100,8 +101,8 @@ namespace MPewsey.ManiaMap.Tests
         {
             var path = "LayoutGraph.xml";
             var graph = Samples.GraphLibrary.GeekGraph();
-            Serialization.SaveXml(path, graph);
-            var copy = Serialization.LoadXml<LayoutGraph>(path);
+            XmlSerialization.SaveXml(path, graph);
+            var copy = XmlSerialization.LoadXml<LayoutGraph>(path);
             Assert.AreEqual(graph.Id, copy.Id);
         }
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MPewsey.ManiaMap.Collections;
 using MPewsey.ManiaMap.Exceptions;
+using MPewsey.ManiaMap.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,8 @@ namespace MPewsey.ManiaMap.Tests
         {
             var path = "RoomTemplate.xml";
             var template = new RoomTemplate(1, "Test", new Array2D<Cell>(2, 3));
-            Serialization.SaveXml(path, template);
-            var copy = Serialization.LoadXml<RoomTemplate>(path);
+            XmlSerialization.SaveXml(path, template);
+            var copy = XmlSerialization.LoadXml<RoomTemplate>(path);
             Assert.AreEqual(template.Id, copy.Id);
             Assert.AreEqual(template.Name, copy.Name);
             Assert.IsTrue(template.CellValuesAreEqual(copy));
@@ -269,16 +270,6 @@ namespace MPewsey.ManiaMap.Tests
         {
             var template = Samples.TemplateLibrary.Squares.Square3x3Template();
             Assert.IsTrue(template.IsValid());
-        }
-
-        [TestMethod]
-        public void TestSaveAndLoadPrettyXml()
-        {
-            var path = "Angle3x4PrettyPrint.xml";
-            var template = Samples.TemplateLibrary.Angles.Angle3x4();
-            Serialization.SavePrettyXml(path, template);
-            var copy = Serialization.LoadXml<RoomTemplate>(path);
-            Assert.AreEqual(template.Id, copy.Id);
         }
 
         [TestMethod]

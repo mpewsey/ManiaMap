@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MPewsey.ManiaMap.Exceptions;
+using MPewsey.ManiaMap.Serialization;
 
 namespace MPewsey.ManiaMap.Tests
 {
@@ -11,8 +12,8 @@ namespace MPewsey.ManiaMap.Tests
         {
             var path = "LayoutEdge.xml";
             var edge = new LayoutEdge(1, 2);
-            Serialization.SaveXml(path, edge);
-            var copy = Serialization.LoadXml<LayoutEdge>(path);
+            XmlSerialization.SaveXml(path, edge);
+            var copy = XmlSerialization.LoadXml<LayoutEdge>(path);
             Assert.AreEqual(edge.Name, copy.Name);
             Assert.AreEqual(edge.FromNode, copy.FromNode);
             Assert.AreEqual(edge.ToNode, copy.ToNode);

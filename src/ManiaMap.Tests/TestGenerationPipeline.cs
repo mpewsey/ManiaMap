@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.ManiaMap.Serialization;
 using System;
 using System.IO;
 
@@ -22,21 +23,6 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
-        public void TestGetPrettyXmlString()
-        {
-            var results = Samples.BigLayoutSample.Generate(12345);
-            Assert.IsTrue(results.Success);
-            Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
-            var layout = (Layout)results.Outputs["Layout"];
-            var path = "BigLayoutPrettyPrint.xml";
-            Serialization.SavePrettyXml(path, layout);
-
-            var text1 = File.ReadAllText(path);
-            var text2 = Serialization.GetPrettyXmlString(layout);
-            Assert.AreEqual(text1, text2);
-        }
-
-        [TestMethod]
         public void TestLoadXmlString()
         {
             var results = Samples.BigLayoutSample.Generate(12345);
@@ -44,21 +30,8 @@ namespace MPewsey.ManiaMap.Tests
             Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
             var layout = (Layout)results.Outputs["Layout"];
 
-            var xml = Serialization.GetPrettyXmlString(layout);
-            var copy = Serialization.LoadXmlString<Layout>(xml);
-            Assert.AreEqual(layout.Id, copy.Id);
-        }
-
-        [TestMethod]
-        public void TestSaveAndLoadPrettyXml()
-        {
-            var results = Samples.BigLayoutSample.Generate(12345);
-            Assert.IsTrue(results.Success);
-            Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
-            var layout = (Layout)results.Outputs["Layout"];
-            var path = "BigLayoutPrettyPrint.xml";
-            Serialization.SavePrettyXml(path, layout);
-            var copy = Serialization.LoadXml<Layout>(path);
+            var xml = XmlSerialization.GetXmlString(layout);
+            var copy = XmlSerialization.LoadXmlString<Layout>(xml);
             Assert.AreEqual(layout.Id, copy.Id);
         }
 
@@ -70,8 +43,8 @@ namespace MPewsey.ManiaMap.Tests
             Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
             var layout = (Layout)results.Outputs["Layout"];
             var path = "BigLayout.xml";
-            Serialization.SaveXml(path, layout);
-            var copy = Serialization.LoadXml<Layout>(path);
+            XmlSerialization.SaveXml(path, layout);
+            var copy = XmlSerialization.LoadXml<Layout>(path);
             Assert.AreEqual(layout.Id, copy.Id);
         }
 
@@ -88,9 +61,9 @@ namespace MPewsey.ManiaMap.Tests
             var random = new Random(12345);
             random.NextBytes(key);
 
-            Serialization.SaveEncryptedXml(path, layout, key);
-            Console.WriteLine(Serialization.DecryptTextFile(path, key).Replace("><", ">\n<"));
-            var copy = Serialization.LoadEncryptedXml<Layout>(path, key);
+            XmlSerialization.SaveEncryptedXml(path, layout, key);
+            Console.WriteLine(Encryption.DecryptTextFile(path, key).Replace("><", ">\n<"));
+            var copy = XmlSerialization.LoadEncryptedXml<Layout>(path, key);
             Assert.AreEqual(layout.Id, copy.Id);
         }
     }

@@ -1,5 +1,6 @@
 ﻿using MPewsey.ManiaMap.Collections;
 using MPewsey.ManiaMap.Exceptions;
+using MPewsey.ManiaMap.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// Contains information for the geometry and properties of a Room in a Layout.
     /// </summary>
-    [DataContract(Namespace = Serialization.Namespace, IsReference = true)]
+    [DataContract(Namespace = XmlSerialization.Namespace, IsReference = true)]
     public class RoomTemplate
     {
         /// <summary>

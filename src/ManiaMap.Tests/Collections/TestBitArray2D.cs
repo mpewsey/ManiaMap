@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.ManiaMap.Serialization;
 using System;
 
 namespace MPewsey.ManiaMap.Collections.Tests
@@ -14,8 +15,8 @@ namespace MPewsey.ManiaMap.Collections.Tests
             array[1, 1] = true;
             array[2, 2] = true;
             array[9, 15] = true;
-            Serialization.SaveXml(path, array);
-            var copy = Serialization.LoadXml<BitArray2D>(path);
+            XmlSerialization.SaveXml(path, array);
+            var copy = XmlSerialization.LoadXml<BitArray2D>(path);
             Assert.AreEqual(array.Rows, copy.Rows);
             Assert.AreEqual(array.Columns, copy.Columns);
             CollectionAssert.AreEqual(array.Array, copy.Array);

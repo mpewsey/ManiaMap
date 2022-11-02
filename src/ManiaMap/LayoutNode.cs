@@ -1,5 +1,6 @@
 ﻿using MPewsey.ManiaMap.Collections;
 using MPewsey.ManiaMap.Exceptions;
+using MPewsey.ManiaMap.Serialization;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -15,7 +16,7 @@ namespace MPewsey.ManiaMap
     /// graph.AddNode(1).SetName("Node1").SetTemplateGroup("Default");
     /// ```
     /// </summary>
-    [DataContract(Namespace = Serialization.Namespace)]
+    [DataContract(Namespace = XmlSerialization.Namespace)]
     public class LayoutNode : IRoomSource, IKey<int>
     {
         /// <summary>

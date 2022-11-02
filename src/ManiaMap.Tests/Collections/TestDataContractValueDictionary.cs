@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.ManiaMap.Serialization;
 using System.Linq;
 
 namespace MPewsey.ManiaMap.Collections.Tests
@@ -16,8 +17,8 @@ namespace MPewsey.ManiaMap.Collections.Tests
                 { 3, new LayoutNode(3) },
             };
 
-            Serialization.SaveXml(path, dict);
-            var copy = Serialization.LoadXml<DataContractValueDictionary<int, LayoutNode>>(path);
+            XmlSerialization.SaveXml(path, dict);
+            var copy = XmlSerialization.LoadXml<DataContractValueDictionary<int, LayoutNode>>(path);
             CollectionAssert.AreEquivalent(dict.Keys.ToList(), copy.Keys.ToList());
             CollectionAssert.AreEquivalent(dict.Values.Select(x => x.Id).ToList(), copy.Values.Select(x => x.Id).ToList());
         }

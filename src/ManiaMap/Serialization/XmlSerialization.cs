@@ -4,12 +4,12 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Xml;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Serialization
 {
     /// <summary>
     /// Contains methods for serializing objects.
     /// </summary>
-    public static class Serialization
+    public static class XmlSerialization
     {
         /// <summary>
         /// The data contract namespace.
@@ -34,9 +34,10 @@ namespace MPewsey.ManiaMap
         /// </summary>
         /// <param name="graph">The object for serialization.</param>
         /// <param name="settings">The XML writer settings.</param>
-        public static string GetXmlString<T>(T graph, XmlWriterSettings settings)
+        public static string GetXmlString<T>(T graph, XmlWriterSettings settings = null)
         {
             var serializer = new DataContractSerializer(typeof(T));
+            settings = settings ?? PrettyXmlWriterSettings();
 
             using (var stream = new MemoryStream())
             {
@@ -55,26 +56,6 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns the pretty XML string for the object.
-        /// </summary>
-        /// <param name="graph">The object for serialization.</param>
-        public static string GetPrettyXmlString<T>(T graph)
-        {
-            return GetXmlString(graph, PrettyXmlWriterSettings());
-        }
-
-        /// <summary>
-        /// Saves the object to the file path using the DataContractSerializer.
-        /// The saved file includes tabs and new lines.
-        /// </summary>
-        /// <param name="path">The save file path.</param>
-        /// <param name="graph">The object for serialization.</param>
-        public static void SavePrettyXml<T>(string path, T graph)
-        {
-            SaveXml(path, graph, PrettyXmlWriterSettings());
-        }
-
-        /// <summary>
         /// Saves the object to the file path using the DataContractSerializer.
         /// </summary>
         /// <param name="path">The save file path.</param>
@@ -86,25 +67,6 @@ namespace MPewsey.ManiaMap
             using (var stream = File.Create(path))
             {
                 serializer.WriteObject(stream, graph);
-            }
-        }
-
-        /// <summary>
-        /// Saves the object to the file path using the DataContractSerializer.
-        /// </summary>
-        /// <param name="path">The save file path.</param>
-        /// <param name="graph">The object for serialization.</param>
-        /// <param name="settings">The XML writer settings.</param>
-        public static void SaveXml<T>(string path, T graph, XmlWriterSettings settings)
-        {
-            var serializer = new DataContractSerializer(typeof(T));
-
-            using (var stream = File.Create(path))
-            {
-                using (var writer = XmlWriter.Create(stream, settings))
-                {
-                    serializer.WriteObject(writer, graph);
-                }
             }
         }
 
@@ -143,28 +105,6 @@ namespace MPewsey.ManiaMap
         public static T LoadXmlString<T>(string xml)
         {
             return LoadXml<T>(Encoding.UTF8.GetBytes(xml));
-        }
-
-        /// <summary>
-        /// Returns the decrypted text for the file at the specified path.
-        /// </summary>
-        /// <param name="path">The file path.</param>
-        /// <param name="key">The secret key.</param>
-        public static string DecryptTextFile(string path, byte[] key)
-        {
-            using (var stream = File.OpenRead(path))
-            using (var algorithm = Aes.Create())
-            {
-                var iv = new byte[algorithm.IV.Length];
-                stream.Read(iv, 0, iv.Length);
-
-                using (var encryptor = algorithm.CreateDecryptor(key, iv))
-                using (var crypto = new CryptoStream(stream, encryptor, CryptoStreamMode.Read))
-                using (var reader = new StreamReader(crypto))
-                {
-                    return reader.ReadToEnd();
-                }
-            }
         }
 
         /// <summary>

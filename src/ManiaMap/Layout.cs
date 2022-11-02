@@ -1,4 +1,5 @@
 ﻿using MPewsey.ManiaMap.Collections;
+using MPewsey.ManiaMap.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
@@ -8,7 +9,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// Represents a room layout consisting of Room and DoorConnection.
     /// </summary>
-    [DataContract(Namespace = Serialization.Namespace)]
+    [DataContract(Namespace = XmlSerialization.Namespace)]
     public class Layout
     {
         /// <summary>

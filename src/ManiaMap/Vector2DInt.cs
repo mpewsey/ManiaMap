@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MPewsey.ManiaMap.Serialization;
+using System;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -6,7 +7,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A 2D vector with integer values.
     /// </summary>
-    [DataContract(Namespace = Serialization.Namespace)]
+    [DataContract(Namespace = XmlSerialization.Namespace)]
     public struct Vector2DInt : IEquatable<Vector2DInt>
     {
         /// <summary>

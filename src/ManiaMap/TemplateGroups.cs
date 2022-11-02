@@ -1,4 +1,5 @@
 ﻿using MPewsey.ManiaMap.Exceptions;
+using MPewsey.ManiaMap.Serialization;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -7,7 +8,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A class for creating groups of RoomTemplate.
     /// </summary>
-    [DataContract(Namespace = Serialization.Namespace)]
+    [DataContract(Namespace = XmlSerialization.Namespace)]
     public class TemplateGroups : ItemGroups<string, RoomTemplate>
     {
         public override string ToString()

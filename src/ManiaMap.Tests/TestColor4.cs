@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.ManiaMap.Serialization;
 
 namespace MPewsey.ManiaMap.Tests
 {
@@ -10,8 +11,8 @@ namespace MPewsey.ManiaMap.Tests
         {
             var path = "Color4.xml";
             var color = new Color4(1, 2, 3, 4);
-            Serialization.SaveXml(path, color);
-            var copy = Serialization.LoadXml<Color4>(path);
+            XmlSerialization.SaveXml(path, color);
+            var copy = XmlSerialization.LoadXml<Color4>(path);
             Assert.AreEqual(color, copy);
         }
 

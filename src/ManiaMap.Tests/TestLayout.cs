@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.ManiaMap.Serialization;
 using System.IO;
 using System.Linq;
 
@@ -19,8 +20,8 @@ namespace MPewsey.ManiaMap.Tests
         {
             var path = "ManiaMapLayout.xml";
             var layout = Samples.ManiaMapSample.ManiaMapLayout();
-            Serialization.SaveXml(path, layout);
-            var copy = Serialization.LoadXml<Layout>(path);
+            XmlSerialization.SaveXml(path, layout);
+            var copy = XmlSerialization.LoadXml<Layout>(path);
             Assert.AreEqual(layout.Id, copy.Id);
             Assert.AreEqual(layout.Name, copy.Name);
             Assert.AreEqual(layout.Seed.Seed, copy.Seed.Seed);
@@ -35,8 +36,8 @@ namespace MPewsey.ManiaMap.Tests
             var results = Samples.BigLayoutSample.Generate(12345);
             Assert.IsTrue(results.Success);
             var layout = (Layout)results.Outputs["Layout"];
-            Serialization.SaveXml(path, layout);
-            var copy = Serialization.LoadXml<Layout>(path);
+            XmlSerialization.SaveXml(path, layout);
+            var copy = XmlSerialization.LoadXml<Layout>(path);
             Assert.AreEqual(layout.Id, copy.Id);
             Assert.AreEqual(layout.Name, copy.Name);
             Assert.AreEqual(layout.Seed.Seed, copy.Seed.Seed);
@@ -49,19 +50,9 @@ namespace MPewsey.ManiaMap.Tests
         {
             var path = "ManiaMapLayoutBytes.xml";
             var layout = Samples.ManiaMapSample.ManiaMapLayout();
-            Serialization.SaveXml(path, layout);
+            XmlSerialization.SaveXml(path, layout);
             var bytes = File.ReadAllBytes(path);
-            var copy = Serialization.LoadXml<Layout>(bytes);
-            Assert.AreEqual(layout.Seed.Seed, copy.Seed.Seed);
-        }
-
-        [TestMethod]
-        public void TestSaveAndLoadPrettyXml()
-        {
-            var path = "ManiaMapLayoutPrettyPrint.xml";
-            var layout = Samples.ManiaMapSample.ManiaMapLayout();
-            Serialization.SavePrettyXml(path, layout);
-            var copy = Serialization.LoadXml<Layout>(path);
+            var copy = XmlSerialization.LoadXml<Layout>(bytes);
             Assert.AreEqual(layout.Seed.Seed, copy.Seed.Seed);
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MPewsey.ManiaMap.Serialization;
+using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
@@ -9,7 +10,7 @@ namespace MPewsey.ManiaMap.Collections
     /// <summary>
     /// A 2D array that can be serialized.
     /// </summary>
-    [DataContract(Name = "Array2D", Namespace = Serialization.Namespace)]
+    [DataContract(Name = "Array2D", Namespace = XmlSerialization.Namespace)]
     public class Array2D<T>
     {
         /// <summary>

@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MPewsey.ManiaMap.Collections;
 using MPewsey.ManiaMap.Exceptions;
+using MPewsey.ManiaMap.Serialization;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -39,8 +40,8 @@ namespace MPewsey.ManiaMap.Tests
         {
             var path = "TemplateGroups.xml";
             var templateGroups = Samples.ManiaMapSample.LetterTemplateGroups();
-            Serialization.SaveXml(path, templateGroups);
-            var copy = Serialization.LoadXml<TemplateGroups>(path);
+            XmlSerialization.SaveXml(path, templateGroups);
+            var copy = XmlSerialization.LoadXml<TemplateGroups>(path);
             CollectionAssert.AreEquivalent(templateGroups.GetGroupIds().ToList(), copy.GetGroupIds().ToList());
 
             foreach (var pair in templateGroups.GetGroups())

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.ManiaMap.Serialization;
 using System.Linq;
 
 namespace MPewsey.ManiaMap.Tests
@@ -15,8 +16,8 @@ namespace MPewsey.ManiaMap.Tests
             var layout = (Layout)results.Outputs["Layout"];
             var room = layout.Rooms.Values.First();
             var state = new RoomState(room);
-            Serialization.SaveXml(path, state);
-            var copy = Serialization.LoadXml<RoomState>(path);
+            XmlSerialization.SaveXml(path, state);
+            var copy = XmlSerialization.LoadXml<RoomState>(path);
             Assert.AreEqual(state.Id, copy.Id);
             Assert.AreEqual(state.VisibleCells.Rows, copy.VisibleCells.Rows);
             Assert.AreEqual(state.VisibleCells.Columns, copy.VisibleCells.Columns);

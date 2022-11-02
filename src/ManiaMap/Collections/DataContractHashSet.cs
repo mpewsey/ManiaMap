@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using MPewsey.ManiaMap.Serialization;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -7,7 +8,7 @@ namespace MPewsey.ManiaMap.Collections
     /// <summary>
     /// A hash set that is data contract serializable.
     /// </summary>
-    [DataContract(Name = "DataContractHashSet", Namespace = Serialization.Namespace)]
+    [DataContract(Name = "DataContractHashSet", Namespace = XmlSerialization.Namespace)]
     public class DataContractHashSet<T> : ICollection<T>, IEnumerable<T>, IEnumerable, IReadOnlyCollection<T>, ISet<T>
     {
         /// <summary>

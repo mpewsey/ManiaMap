@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MPewsey.ManiaMap.Serialization;
+using System;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -6,7 +7,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A structure for representing a unique ID consisting of 3 integers.
     /// </summary>
-    [DataContract(Namespace = Serialization.Namespace)]
+    [DataContract(Namespace = XmlSerialization.Namespace)]
     public struct Uid : IEquatable<Uid>, IComparable<Uid>
     {
         /// <summary>

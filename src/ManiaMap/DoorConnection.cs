@@ -1,4 +1,5 @@
 ﻿using MPewsey.ManiaMap.Collections;
+using MPewsey.ManiaMap.Serialization;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -6,7 +7,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// Represents a door connection between two Room.
     /// </summary>
-    [DataContract(Namespace = Serialization.Namespace)]
+    [DataContract(Namespace = XmlSerialization.Namespace)]
     public class DoorConnection : IKey<RoomPair>
     {
         /// <summary>
