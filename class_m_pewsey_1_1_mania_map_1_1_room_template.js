@@ -27,5 +27,6 @@ var class_m_pewsey_1_1_mania_map_1_1_room_template =
     [ "ValuesAreEqual", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a1aacbf34b2b20731c8d77da664b5d06a", null ],
     [ "Cells", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#affa7d3379fb478ac22833f4b3beda41f", null ],
     [ "Id", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#ab73713569a11fc7f754657d564ee5039", null ],
+    [ "Key", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#ad42b0c14be81fc748af2d89d4ea2d661", null ],
     [ "Name", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a648da978fb28c0cbeda81b08bc9c8422", null ]
 ];

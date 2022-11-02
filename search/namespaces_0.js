@@ -5,5 +5,6 @@ var searchData=
   ['exceptions_2',['Exceptions',['../namespace_m_pewsey_1_1_mania_map_1_1_exceptions.html',1,'MPewsey::ManiaMap']]],
   ['maniamap_3',['ManiaMap',['../namespace_m_pewsey_1_1_mania_map.html',1,'MPewsey']]],
   ['mpewsey_4',['MPewsey',['../namespace_m_pewsey.html',1,'']]],
-  ['samples_5',['Samples',['../namespace_m_pewsey_1_1_mania_map_1_1_samples.html',1,'MPewsey::ManiaMap']]]
+  ['samples_5',['Samples',['../namespace_m_pewsey_1_1_mania_map_1_1_samples.html',1,'MPewsey::ManiaMap']]],
+  ['serialization_6',['Serialization',['../namespace_m_pewsey_1_1_mania_map_1_1_serialization.html',1,'MPewsey::ManiaMap']]]
 ];

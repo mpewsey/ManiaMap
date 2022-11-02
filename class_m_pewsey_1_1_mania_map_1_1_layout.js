@@ -2,6 +2,7 @@ var class_m_pewsey_1_1_mania_map_1_1_layout =
 [
     [ "Layout", "class_m_pewsey_1_1_mania_map_1_1_layout.html#a588f26b067800d49b6b6ca0e349afc5b", null ],
     [ "Layout", "class_m_pewsey_1_1_mania_map_1_1_layout.html#ab89eb62709f502ea2f6dcc56a6b12672", null ],
+    [ "AssignRoomTemplates", "class_m_pewsey_1_1_mania_map_1_1_layout.html#a049a45437ff63ac3c483b3e79185c7fd", null ],
     [ "FindCluster", "class_m_pewsey_1_1_mania_map_1_1_layout.html#a14e01e9c3afc4bac88254f4b7046f3e5", null ],
     [ "FindClusters", "class_m_pewsey_1_1_mania_map_1_1_layout.html#ab576176e51a749d62b3dccff2983cd13", null ],
     [ "GetBounds", "class_m_pewsey_1_1_mania_map_1_1_layout.html#a75f408b7dfa5a9af9f539958d8cb1e1c", null ],
@@ -10,6 +11,7 @@ var class_m_pewsey_1_1_mania_map_1_1_layout =
     [ "Intersects", "class_m_pewsey_1_1_mania_map_1_1_layout.html#a3efeeaa130b8d06671bd20861162dd12", null ],
     [ "Intersects", "class_m_pewsey_1_1_mania_map_1_1_layout.html#a491faff0c240ff52279f971b481e058f", null ],
     [ "Intersects", "class_m_pewsey_1_1_mania_map_1_1_layout.html#a789fb987f39d67b43db1feb9f302a4bb", null ],
+    [ "PopulateTemplates", "class_m_pewsey_1_1_mania_map_1_1_layout.html#a518da601ccef8d68dc16f9cfc0f6730f", null ],
     [ "RemoveDoorConnection", "class_m_pewsey_1_1_mania_map_1_1_layout.html#a77df98644b700e8cd44b21d0e7ca978d", null ],
     [ "RoomAdjacencies", "class_m_pewsey_1_1_mania_map_1_1_layout.html#a02f95094eb318a0631163e05ae631648", null ],
     [ "RoomsIntersect", "class_m_pewsey_1_1_mania_map_1_1_layout.html#ab5dc335599a143289f4fef53eeed5d40", null ],
@@ -21,5 +23,6 @@ var class_m_pewsey_1_1_mania_map_1_1_layout =
     [ "Name", "class_m_pewsey_1_1_mania_map_1_1_layout.html#ad4ceb4a888532e75ef0af82504677bdc", null ],
     [ "Rebases", "class_m_pewsey_1_1_mania_map_1_1_layout.html#ab0abe021b1520817ea40f2b1b6276b12", null ],
     [ "Rooms", "class_m_pewsey_1_1_mania_map_1_1_layout.html#abf1621cb41ca88cd28b831982da1e158", null ],
-    [ "Seed", "class_m_pewsey_1_1_mania_map_1_1_layout.html#ad5b4a4aa2b811ae5be1799b4b03fcccd", null ]
+    [ "Seed", "class_m_pewsey_1_1_mania_map_1_1_layout.html#ad5b4a4aa2b811ae5be1799b4b03fcccd", null ],
+    [ "Templates", "class_m_pewsey_1_1_mania_map_1_1_layout.html#aa1dfc35119aee2c91fe1a26556056958", null ]
 ];

@@ -7,6 +7,6 @@ var dir_498675cb1b347cdc5fce9bf29494f732 =
     [ "DataContractDictionary.cs", "_data_contract_dictionary_8cs_source.html", null ],
     [ "DataContractHashSet.cs", "_data_contract_hash_set_8cs_source.html", null ],
     [ "DataContractValueDictionary.cs", "_data_contract_value_dictionary_8cs_source.html", null ],
-    [ "IKey.cs", "_i_key_8cs_source.html", null ],
+    [ "IDataContractValueDictionaryValue.cs", "_i_data_contract_value_dictionary_value_8cs_source.html", null ],
     [ "KeyValue.cs", "_key_value_8cs_source.html", null ]
 ];

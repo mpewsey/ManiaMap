@@ -5,5 +5,6 @@ var searchData=
   ['edgecount_2',['EdgeCount',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a313ed7c273a9e390ddba9a0ddaf78d5b',1,'MPewsey::ManiaMap::LayoutGraph']]],
   ['edgedirection_3',['EdgeDirection',['../class_m_pewsey_1_1_mania_map_1_1_configuration.html#aee2cfb3c790e8ecde5adba37b8121762',1,'MPewsey::ManiaMap::Configuration']]],
   ['edges_4',['Edges',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#ada11e339cf44bd73cecee400687b2158',1,'MPewsey::ManiaMap::LayoutGraph']]],
-  ['empty_5',['Empty',['../class_m_pewsey_1_1_mania_map_1_1_cell.html#adce545f0d632f7f62c50be3be2264994',1,'MPewsey::ManiaMap::Cell']]]
+  ['empty_5',['Empty',['../class_m_pewsey_1_1_mania_map_1_1_cell.html#adce545f0d632f7f62c50be3be2264994',1,'MPewsey::ManiaMap::Cell']]],
+  ['encoding_6',['Encoding',['../class_m_pewsey_1_1_mania_map_1_1_serialization_1_1_json_writer_settings.html#a0ba1788f89e25581311799c344996a21',1,'MPewsey::ManiaMap::Serialization::JsonWriterSettings']]]
 ];

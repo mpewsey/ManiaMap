@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['igenerationstep_0',['IGenerationStep',['../interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html',1,'MPewsey::ManiaMap']]],
-  ['ikey_1',['IKey',['../interface_m_pewsey_1_1_mania_map_1_1_collections_1_1_i_key.html',1,'MPewsey::ManiaMap::Collections']]],
-  ['ikey_3c_20edgeindexes_20_3e_2',['IKey&lt; EdgeIndexes &gt;',['../interface_m_pewsey_1_1_mania_map_1_1_collections_1_1_i_key.html',1,'MPewsey::ManiaMap::Collections']]],
-  ['ikey_3c_20int_20_3e_3',['IKey&lt; int &gt;',['../interface_m_pewsey_1_1_mania_map_1_1_collections_1_1_i_key.html',1,'MPewsey::ManiaMap::Collections']]],
-  ['ikey_3c_20roompair_20_3e_4',['IKey&lt; RoomPair &gt;',['../interface_m_pewsey_1_1_mania_map_1_1_collections_1_1_i_key.html',1,'MPewsey::ManiaMap::Collections']]],
-  ['ikey_3c_20uid_20_3e_5',['IKey&lt; Uid &gt;',['../interface_m_pewsey_1_1_mania_map_1_1_collections_1_1_i_key.html',1,'MPewsey::ManiaMap::Collections']]],
+  ['idatacontractvaluedictionaryvalue_0',['IDataContractValueDictionaryValue',['../interface_m_pewsey_1_1_mania_map_1_1_collections_1_1_i_data_contract_value_dictionary_value.html',1,'MPewsey::ManiaMap::Collections']]],
+  ['idatacontractvaluedictionaryvalue_3c_20edgeindexes_20_3e_1',['IDataContractValueDictionaryValue&lt; EdgeIndexes &gt;',['../interface_m_pewsey_1_1_mania_map_1_1_collections_1_1_i_data_contract_value_dictionary_value.html',1,'MPewsey::ManiaMap::Collections']]],
+  ['idatacontractvaluedictionaryvalue_3c_20int_20_3e_2',['IDataContractValueDictionaryValue&lt; int &gt;',['../interface_m_pewsey_1_1_mania_map_1_1_collections_1_1_i_data_contract_value_dictionary_value.html',1,'MPewsey::ManiaMap::Collections']]],
+  ['idatacontractvaluedictionaryvalue_3c_20roompair_20_3e_3',['IDataContractValueDictionaryValue&lt; RoomPair &gt;',['../interface_m_pewsey_1_1_mania_map_1_1_collections_1_1_i_data_contract_value_dictionary_value.html',1,'MPewsey::ManiaMap::Collections']]],
+  ['idatacontractvaluedictionaryvalue_3c_20uid_20_3e_4',['IDataContractValueDictionaryValue&lt; Uid &gt;',['../interface_m_pewsey_1_1_mania_map_1_1_collections_1_1_i_data_contract_value_dictionary_value.html',1,'MPewsey::ManiaMap::Collections']]],
+  ['igenerationstep_5',['IGenerationStep',['../interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html',1,'MPewsey::ManiaMap']]],
   ['invalidchainorderexception_6',['InvalidChainOrderException',['../class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_chain_order_exception.html',1,'MPewsey::ManiaMap::Exceptions']]],
   ['invalididexception_7',['InvalidIdException',['../class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_id_exception.html',1,'MPewsey::ManiaMap::Exceptions']]],
   ['invalidnameexception_8',['InvalidNameException',['../class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_name_exception.html',1,'MPewsey::ManiaMap::Exceptions']]],

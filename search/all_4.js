@@ -9,5 +9,7 @@ var searchData=
   ['edgeindexes_6',['EdgeIndexes',['../struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html#a3bffbdf622f9778818c2b4a872fd6ce0',1,'MPewsey.ManiaMap.EdgeIndexes.EdgeIndexes()'],['../struct_m_pewsey_1_1_mania_map_1_1_edge_indexes.html',1,'MPewsey.ManiaMap.EdgeIndexes']]],
   ['edges_7',['Edges',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#ada11e339cf44bd73cecee400687b2158',1,'MPewsey::ManiaMap::LayoutGraph']]],
   ['empty_8',['Empty',['../class_m_pewsey_1_1_mania_map_1_1_cell.html#adce545f0d632f7f62c50be3be2264994',1,'MPewsey::ManiaMap::Cell']]],
-  ['emptygraphexception_9',['EmptyGraphException',['../class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_empty_graph_exception.html',1,'MPewsey::ManiaMap::Exceptions']]]
+  ['emptygraphexception_9',['EmptyGraphException',['../class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_empty_graph_exception.html',1,'MPewsey::ManiaMap::Exceptions']]],
+  ['encoding_10',['Encoding',['../class_m_pewsey_1_1_mania_map_1_1_serialization_1_1_json_writer_settings.html#a0ba1788f89e25581311799c344996a21',1,'MPewsey::ManiaMap::Serialization::JsonWriterSettings']]],
+  ['encrypttostream_3c_20t_20_3e_11',['EncryptToStream&lt; T &gt;',['../class_m_pewsey_1_1_mania_map_1_1_serialization_1_1_cryptography.html#a10984e2846b8b97a5d01d122dc0c2908',1,'MPewsey::ManiaMap::Serialization::Cryptography']]]
 ];

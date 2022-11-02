@@ -65,12 +65,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_____docs_____8cs_source.html",
-"class_m_pewsey_1_1_mania_map_1_1_collections_1_1_array2_d.html#a1a70066f22cde9899b9d2d55238333ef",
-"class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ab1b691fb311e432f5e7eb287aa92af8c",
-"class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a6d3ebd592add2e0e935cb758343ac596",
-"class_m_pewsey_1_1_mania_map_1_1_map_tile_type.html#aa8ba64eb499f9f1691d7a7061f2a1749",
-"class_m_pewsey_1_1_mania_map_1_1_serialization.html#a53016044abd340bebdb2df71cb4f5363",
-"struct_m_pewsey_1_1_mania_map_1_1_room_pair.html#ab12d28cd7cabf571faeb9ba552864080"
+"class_m_pewsey_1_1_mania_map_1_1_collections_1_1_array2_d.html",
+"class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#aafa07179639549563186c52b9edcca5a",
+"class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a459e70544c3ba9c578a991206768e859",
+"class_m_pewsey_1_1_mania_map_1_1_map_tile_type.html#a5ce27adba85c413daf51803b4d14aa7e",
+"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html#a9f7f9d5b8f122ca4367f1f761c38ad68",
+"struct_m_pewsey_1_1_mania_map_1_1_door_pair.html#a8b8c07e4ca4c720863d2d959f7ed8c72"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

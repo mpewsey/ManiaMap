@@ -23,13 +23,13 @@ var searchData=
   ['getgroupids_20',['GetGroupIds',['../class_m_pewsey_1_1_mania_map_1_1_item_groups.html#ad86b05e34fd347564e0c6d2cddbaf402',1,'MPewsey::ManiaMap::ItemGroups']]],
   ['getgroupitems_21',['GetGroupItems',['../class_m_pewsey_1_1_mania_map_1_1_item_groups.html#a605760fafdcf931252170e48b91d0e67',1,'MPewsey::ManiaMap::ItemGroups']]],
   ['getgroups_22',['GetGroups',['../class_m_pewsey_1_1_mania_map_1_1_item_groups.html#ac90c7ebafbf2381b3ff2f4a668433a51',1,'MPewsey::ManiaMap::ItemGroups']]],
-  ['getkeyvaluearray_23',['GetKeyValueArray',['../class_m_pewsey_1_1_mania_map_1_1_collections_1_1_data_contract_dictionary.html#a543311a4fd2b013b727f924dbb6c48a9',1,'MPewsey::ManiaMap::Collections::DataContractDictionary']]],
-  ['getneighbors_24',['GetNeighbors',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a5b83ea4b4abee8eb69da202dd7fe89ed',1,'MPewsey::ManiaMap::LayoutGraph']]],
-  ['getnode_25',['GetNode',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a60f5f3e6d7254be2bc8c8aa2427bfc10',1,'MPewsey::ManiaMap::LayoutGraph']]],
-  ['getnodes_26',['GetNodes',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a6f18f5fb2e2bc95d408a85dcfde4df32',1,'MPewsey::ManiaMap::LayoutGraph']]],
-  ['getnodevariations_27',['GetNodeVariations',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a7f188045e328920bb08707d17336fc6d',1,'MPewsey.ManiaMap.LayoutGraph.GetNodeVariations(string group)'],['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#ae6df528e1b5b4af2fe6707e4f3072120',1,'MPewsey.ManiaMap.LayoutGraph.GetNodeVariations()']]],
-  ['getordefault_28',['GetOrDefault',['../class_m_pewsey_1_1_mania_map_1_1_collections_1_1_array2_d.html#ae7b7aee509099c7c58244568a53baca9',1,'MPewsey.ManiaMap.Collections.Array2D.GetOrDefault()'],['../class_m_pewsey_1_1_mania_map_1_1_collections_1_1_bit_array2_d.html#a9e7e9128b14a7cdf8349b4170110e10c',1,'MPewsey.ManiaMap.Collections.BitArray2D.GetOrDefault()']]],
-  ['getprettyxmlstring_3c_20t_20_3e_29',['GetPrettyXmlString&lt; T &gt;',['../class_m_pewsey_1_1_mania_map_1_1_serialization.html#a17b9ca5025e1d2d00f9ec276480763c5',1,'MPewsey::ManiaMap::Serialization']]],
+  ['getjsonstring_3c_20t_20_3e_23',['GetJsonString&lt; T &gt;',['../class_m_pewsey_1_1_mania_map_1_1_serialization_1_1_json_serialization.html#a2707a96edbe6f0d117a115d2e93ad121',1,'MPewsey::ManiaMap::Serialization::JsonSerialization']]],
+  ['getkeyvaluearray_24',['GetKeyValueArray',['../class_m_pewsey_1_1_mania_map_1_1_collections_1_1_data_contract_dictionary.html#a543311a4fd2b013b727f924dbb6c48a9',1,'MPewsey::ManiaMap::Collections::DataContractDictionary']]],
+  ['getneighbors_25',['GetNeighbors',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a5b83ea4b4abee8eb69da202dd7fe89ed',1,'MPewsey::ManiaMap::LayoutGraph']]],
+  ['getnode_26',['GetNode',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a60f5f3e6d7254be2bc8c8aa2427bfc10',1,'MPewsey::ManiaMap::LayoutGraph']]],
+  ['getnodes_27',['GetNodes',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a6f18f5fb2e2bc95d408a85dcfde4df32',1,'MPewsey::ManiaMap::LayoutGraph']]],
+  ['getnodevariations_28',['GetNodeVariations',['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a7f188045e328920bb08707d17336fc6d',1,'MPewsey.ManiaMap.LayoutGraph.GetNodeVariations(string group)'],['../class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#ae6df528e1b5b4af2fe6707e4f3072120',1,'MPewsey.ManiaMap.LayoutGraph.GetNodeVariations()']]],
+  ['getordefault_29',['GetOrDefault',['../class_m_pewsey_1_1_mania_map_1_1_collections_1_1_bit_array2_d.html#a9e7e9128b14a7cdf8349b4170110e10c',1,'MPewsey.ManiaMap.Collections.BitArray2D.GetOrDefault()'],['../class_m_pewsey_1_1_mania_map_1_1_collections_1_1_array2_d.html#ae7b7aee509099c7c58244568a53baca9',1,'MPewsey.ManiaMap.Collections.Array2D.GetOrDefault()']]],
   ['getroomdoors_30',['GetRoomDoors',['../class_m_pewsey_1_1_mania_map_1_1_layout.html#ab4db5d2f41d6b13468432a3e10dbe149',1,'MPewsey::ManiaMap::Layout']]],
   ['gettemplates_31',['GetTemplates',['../class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a762ecf78ad2e29371d1b59f8e6786526',1,'MPewsey.ManiaMap.LayoutGenerator.GetTemplates()'],['../class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a8985ee30b76ed60744002525506fa62c',1,'MPewsey.ManiaMap.TemplateGroups.GetTemplates()']]],
   ['gettile_32',['GetTile',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ab1b691fb311e432f5e7eb287aa92af8c',1,'MPewsey::ManiaMap::Drawing::LayoutMap']]],
@@ -40,5 +40,5 @@ var searchData=
   ['getwalltiletype_37',['GetWallTileType',['../class_m_pewsey_1_1_mania_map_1_1_map_tile_type.html#a82cc0555856eb07f1e58e110adbc0d95',1,'MPewsey::ManiaMap::MapTileType']]],
   ['getweight_38',['GetWeight',['../class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a04c6a2ac134a116e821e510cf1e729f5',1,'MPewsey::ManiaMap::CollectableSpot']]],
   ['getweights_39',['GetWeights',['../class_m_pewsey_1_1_mania_map_1_1_collectable_generator.html#a6087a8d87c8c653abf88005304bca099',1,'MPewsey::ManiaMap::CollectableGenerator']]],
-  ['getxmlstring_3c_20t_20_3e_40',['GetXmlString&lt; T &gt;',['../class_m_pewsey_1_1_mania_map_1_1_serialization.html#a8555c04b2505ee7dda91021f076836d6',1,'MPewsey::ManiaMap::Serialization']]]
+  ['getxmlstring_3c_20t_20_3e_40',['GetXmlString&lt; T &gt;',['../class_m_pewsey_1_1_mania_map_1_1_serialization_1_1_xml_serialization.html#a8da29ff34999d9ad94a76ed63de84e14',1,'MPewsey::ManiaMap::Serialization::XmlSerialization']]]
 ];

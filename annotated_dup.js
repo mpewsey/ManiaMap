@@ -9,7 +9,7 @@ var annotated_dup =
           [ "DataContractDictionary", "class_m_pewsey_1_1_mania_map_1_1_collections_1_1_data_contract_dictionary.html", "class_m_pewsey_1_1_mania_map_1_1_collections_1_1_data_contract_dictionary" ],
           [ "DataContractHashSet", "class_m_pewsey_1_1_mania_map_1_1_collections_1_1_data_contract_hash_set.html", "class_m_pewsey_1_1_mania_map_1_1_collections_1_1_data_contract_hash_set" ],
           [ "DataContractValueDictionary", "class_m_pewsey_1_1_mania_map_1_1_collections_1_1_data_contract_value_dictionary.html", "class_m_pewsey_1_1_mania_map_1_1_collections_1_1_data_contract_value_dictionary" ],
-          [ "IKey", "interface_m_pewsey_1_1_mania_map_1_1_collections_1_1_i_key.html", "interface_m_pewsey_1_1_mania_map_1_1_collections_1_1_i_key" ],
+          [ "IDataContractValueDictionaryValue", "interface_m_pewsey_1_1_mania_map_1_1_collections_1_1_i_data_contract_value_dictionary_value.html", "interface_m_pewsey_1_1_mania_map_1_1_collections_1_1_i_data_contract_value_dictionary_value" ],
           [ "KeyValue", "struct_m_pewsey_1_1_mania_map_1_1_collections_1_1_key_value.html", "struct_m_pewsey_1_1_mania_map_1_1_collections_1_1_key_value" ]
         ] ],
         [ "Drawing", "namespace_m_pewsey_1_1_mania_map_1_1_drawing.html", [
@@ -40,6 +40,12 @@ var annotated_dup =
             [ "Rectangles", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_rectangles.html", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_rectangles" ],
             [ "Squares", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares" ]
           ] ]
+        ] ],
+        [ "Serialization", "namespace_m_pewsey_1_1_mania_map_1_1_serialization.html", [
+          [ "Cryptography", "class_m_pewsey_1_1_mania_map_1_1_serialization_1_1_cryptography.html", "class_m_pewsey_1_1_mania_map_1_1_serialization_1_1_cryptography" ],
+          [ "JsonSerialization", "class_m_pewsey_1_1_mania_map_1_1_serialization_1_1_json_serialization.html", "class_m_pewsey_1_1_mania_map_1_1_serialization_1_1_json_serialization" ],
+          [ "JsonWriterSettings", "class_m_pewsey_1_1_mania_map_1_1_serialization_1_1_json_writer_settings.html", "class_m_pewsey_1_1_mania_map_1_1_serialization_1_1_json_writer_settings" ],
+          [ "XmlSerialization", "class_m_pewsey_1_1_mania_map_1_1_serialization_1_1_xml_serialization.html", "class_m_pewsey_1_1_mania_map_1_1_serialization_1_1_xml_serialization" ]
         ] ],
         [ "Box", "class_m_pewsey_1_1_mania_map_1_1_box.html", "class_m_pewsey_1_1_mania_map_1_1_box" ],
         [ "Cell", "class_m_pewsey_1_1_mania_map_1_1_cell.html", "class_m_pewsey_1_1_mania_map_1_1_cell" ],
@@ -79,7 +85,6 @@ var annotated_dup =
         [ "RoomPair", "struct_m_pewsey_1_1_mania_map_1_1_room_pair.html", "struct_m_pewsey_1_1_mania_map_1_1_room_pair" ],
         [ "RoomState", "class_m_pewsey_1_1_mania_map_1_1_room_state.html", "class_m_pewsey_1_1_mania_map_1_1_room_state" ],
         [ "RoomTemplate", "class_m_pewsey_1_1_mania_map_1_1_room_template.html", "class_m_pewsey_1_1_mania_map_1_1_room_template" ],
-        [ "Serialization", "class_m_pewsey_1_1_mania_map_1_1_serialization.html", "class_m_pewsey_1_1_mania_map_1_1_serialization" ],
         [ "TemplateGroups", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html", "class_m_pewsey_1_1_mania_map_1_1_template_groups" ],
         [ "TemplatePair", "struct_m_pewsey_1_1_mania_map_1_1_template_pair.html", "struct_m_pewsey_1_1_mania_map_1_1_template_pair" ],
         [ "Uid", "struct_m_pewsey_1_1_mania_map_1_1_uid.html", "struct_m_pewsey_1_1_mania_map_1_1_uid" ],
