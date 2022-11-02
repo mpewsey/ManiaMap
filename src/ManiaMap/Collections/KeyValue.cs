@@ -1,11 +1,12 @@
-﻿using System.Runtime.Serialization;
+﻿using MPewsey.ManiaMap.Serialization;
+using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap.Collections
 {
     /// <summary>
     /// A serializable key value pair.
     /// </summary>
-    [DataContract(Name = "KeyValue", Namespace = Serialization.Namespace)]
+    [DataContract(Name = "KeyValue", Namespace = XmlSerialization.Namespace)]
     public struct KeyValue<TKey, TValue>
     {
         /// <summary>

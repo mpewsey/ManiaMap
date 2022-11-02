@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MPewsey.ManiaMap.Exceptions;
+using MPewsey.ManiaMap.Serialization;
 
 namespace MPewsey.ManiaMap.Tests
 {
@@ -11,8 +12,8 @@ namespace MPewsey.ManiaMap.Tests
         {
             var path = "LayoutNode.xml";
             var node = new LayoutNode(100);
-            Serialization.SaveXml(path, node);
-            var copy = Serialization.LoadXml<LayoutNode>(path);
+            XmlSerialization.SaveXml(path, node);
+            var copy = XmlSerialization.LoadXml<LayoutNode>(path);
             Assert.AreEqual(node.Id, copy.Id);
             Assert.AreEqual(node.Name, copy.Name);
             Assert.AreEqual(node.Z, copy.Z);

@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MPewsey.ManiaMap.Exceptions;
+using MPewsey.ManiaMap.Serialization;
 using System.Collections.Generic;
 
 namespace MPewsey.ManiaMap.Tests
@@ -49,8 +50,8 @@ namespace MPewsey.ManiaMap.Tests
             group.Add("Group1", new int[] { 1, 2, 3, 4 });
             group.Add("Group2", new int[] { 5, 6, 7, 8 });
             var path = "CollectableGroup.xml";
-            Serialization.SaveXml(path, group);
-            var copy = Serialization.LoadXml<CollectableGroups>(path);
+            XmlSerialization.SaveXml(path, group);
+            var copy = XmlSerialization.LoadXml<CollectableGroups>(path);
 
             foreach (var pair in group.GetGroups())
             {

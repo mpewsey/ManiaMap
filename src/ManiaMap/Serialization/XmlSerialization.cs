@@ -1,15 +1,14 @@
 ﻿using System.IO;
 using System.Runtime.Serialization;
-using System.Security.Cryptography;
 using System.Text;
 using System.Xml;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Serialization
 {
     /// <summary>
-    /// Contains methods for serializing objects.
+    /// Contains methods for serializing objects to and from XML.
     /// </summary>
-    public static class Serialization
+    public static class XmlSerialization
     {
         /// <summary>
         /// The data contract namespace.
@@ -33,10 +32,11 @@ namespace MPewsey.ManiaMap
         /// Returns the pretty XML string for the object.
         /// </summary>
         /// <param name="graph">The object for serialization.</param>
-        /// <param name="settings">The XML writer settings.</param>
-        public static string GetXmlString<T>(T graph, XmlWriterSettings settings)
+        /// <param name="settings">The XML writer settings. Pretty print used if none specified.</param>
+        public static string GetXmlString<T>(T graph, XmlWriterSettings settings = null)
         {
             var serializer = new DataContractSerializer(typeof(T));
+            settings = settings ?? PrettyXmlWriterSettings();
 
             using (var stream = new MemoryStream())
             {
@@ -55,26 +55,6 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns the pretty XML string for the object.
-        /// </summary>
-        /// <param name="graph">The object for serialization.</param>
-        public static string GetPrettyXmlString<T>(T graph)
-        {
-            return GetXmlString(graph, PrettyXmlWriterSettings());
-        }
-
-        /// <summary>
-        /// Saves the object to the file path using the DataContractSerializer.
-        /// The saved file includes tabs and new lines.
-        /// </summary>
-        /// <param name="path">The save file path.</param>
-        /// <param name="graph">The object for serialization.</param>
-        public static void SavePrettyXml<T>(string path, T graph)
-        {
-            SaveXml(path, graph, PrettyXmlWriterSettings());
-        }
-
-        /// <summary>
         /// Saves the object to the file path using the DataContractSerializer.
         /// </summary>
         /// <param name="path">The save file path.</param>
@@ -86,25 +66,6 @@ namespace MPewsey.ManiaMap
             using (var stream = File.Create(path))
             {
                 serializer.WriteObject(stream, graph);
-            }
-        }
-
-        /// <summary>
-        /// Saves the object to the file path using the DataContractSerializer.
-        /// </summary>
-        /// <param name="path">The save file path.</param>
-        /// <param name="graph">The object for serialization.</param>
-        /// <param name="settings">The XML writer settings.</param>
-        public static void SaveXml<T>(string path, T graph, XmlWriterSettings settings)
-        {
-            var serializer = new DataContractSerializer(typeof(T));
-
-            using (var stream = File.Create(path))
-            {
-                using (var writer = XmlWriter.Create(stream, settings))
-                {
-                    serializer.WriteObject(writer, graph);
-                }
             }
         }
 
@@ -146,28 +107,6 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns the decrypted text for the file at the specified path.
-        /// </summary>
-        /// <param name="path">The file path.</param>
-        /// <param name="key">The secret key.</param>
-        public static string DecryptTextFile(string path, byte[] key)
-        {
-            using (var stream = File.OpenRead(path))
-            using (var algorithm = Aes.Create())
-            {
-                var iv = new byte[algorithm.IV.Length];
-                stream.Read(iv, 0, iv.Length);
-
-                using (var encryptor = algorithm.CreateDecryptor(key, iv))
-                using (var crypto = new CryptoStream(stream, encryptor, CryptoStreamMode.Read))
-                using (var reader = new StreamReader(crypto))
-                {
-                    return reader.ReadToEnd();
-                }
-            }
-        }
-
-        /// <summary>
         /// Serializes and encrypts and object to the specified file.
         /// </summary>
         /// <param name="path">The file path.</param>
@@ -178,12 +117,8 @@ namespace MPewsey.ManiaMap
             var serializer = new DataContractSerializer(typeof(T));
 
             using (var stream = File.Create(path))
-            using (var algorithm = Aes.Create())
-            using (var encryptor = algorithm.CreateEncryptor(key, algorithm.IV))
-            using (var crypto = new CryptoStream(stream, encryptor, CryptoStreamMode.Write))
             {
-                stream.Write(algorithm.IV, 0, algorithm.IV.Length);
-                serializer.WriteObject(crypto, graph);
+                Cryptography.EncryptToStream(stream, serializer, graph, key);
             }
         }
 
@@ -191,23 +126,14 @@ namespace MPewsey.ManiaMap
         /// Decrypts and deserializes an object from the specified file.
         /// </summary>
         /// <param name="path">The file path.</param>
-        /// <param name="graph">The object.</param>
         /// <param name="key">The private key.</param>
         public static T LoadEncryptedXml<T>(string path, byte[] key)
         {
             var serializer = new DataContractSerializer(typeof(T));
 
             using (var stream = File.OpenRead(path))
-            using (var algorithm = Aes.Create())
             {
-                var iv = new byte[algorithm.IV.Length];
-                stream.Read(iv, 0, iv.Length);
-
-                using (var decryptor = algorithm.CreateDecryptor(key, iv))
-                using (var crypto = new CryptoStream(stream, decryptor, CryptoStreamMode.Read))
-                {
-                    return (T)serializer.ReadObject(crypto);
-                }
+                return Cryptography.DecryptFromStream<T>(stream, serializer, key);
             }
         }
     }

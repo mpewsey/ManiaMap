@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MPewsey.ManiaMap.Serialization;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
@@ -8,7 +9,7 @@ namespace MPewsey.ManiaMap.Collections
     /// <summary>
     /// The base class for dictionaries with custom data contract serialization.
     /// </summary>
-    [DataContract(Name = "BaseDataContractDictionary", Namespace = Serialization.Namespace)]
+    [DataContract(Name = "BaseDataContractDictionary", Namespace = XmlSerialization.Namespace)]
     public abstract class BaseDataContractDictionary<TKey, TValue> : ICollection<KeyValuePair<TKey, TValue>>, IEnumerable<KeyValuePair<TKey, TValue>>, IEnumerable, IDictionary<TKey, TValue>, IReadOnlyCollection<KeyValuePair<TKey, TValue>>, IReadOnlyDictionary<TKey, TValue>, ICollection, IDictionary
     {
         /// <summary>

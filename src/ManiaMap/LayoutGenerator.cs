@@ -139,7 +139,7 @@ namespace MPewsey.ManiaMap
 
                 // If all chains have been added, return the layout.
                 if (chain >= chains.Count)
-                    return Layout;
+                    return new Layout(Layout);
 
                 // If layout has been used as a base more than the maximum allowable count,
                 // remove the layout and backtrack.

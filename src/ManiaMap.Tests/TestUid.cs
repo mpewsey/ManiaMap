@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.ManiaMap.Serialization;
 
 namespace MPewsey.ManiaMap.Tests
 {
@@ -10,8 +11,8 @@ namespace MPewsey.ManiaMap.Tests
         {
             var path = "Uid.xml";
             var id = new Uid(1, 2, 3);
-            Serialization.SaveXml(path, id);
-            var copy = Serialization.LoadXml<Uid>(path);
+            XmlSerialization.SaveXml(path, id);
+            var copy = XmlSerialization.LoadXml<Uid>(path);
             Assert.AreEqual(id, copy);
         }
 

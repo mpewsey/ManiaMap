@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using MPewsey.ManiaMap.Serialization;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap.Collections
@@ -6,8 +7,8 @@ namespace MPewsey.ManiaMap.Collections
     /// <summary>
     /// A dictionary whose values are data contract serializable.
     /// </summary>
-    [DataContract(Name = "DataContractValueDictionary", Namespace = Serialization.Namespace)]
-    public class DataContractValueDictionary<TKey, TValue> : BaseDataContractDictionary<TKey, TValue> where TValue : IKey<TKey>
+    [DataContract(Name = "DataContractValueDictionary", Namespace = XmlSerialization.Namespace)]
+    public class DataContractValueDictionary<TKey, TValue> : BaseDataContractDictionary<TKey, TValue> where TValue : IDataContractValueDictionaryValue<TKey>
     {
         /// <summary>
         /// An array of dictionary values.
@@ -76,7 +77,7 @@ namespace MPewsey.ManiaMap.Collections
 
             foreach (var value in array)
             {
-                Dictionary.Add(value.Key, value);
+                Dictionary.Add(((IDataContractValueDictionaryValue<TKey>)value).Key, value);
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.ManiaMap.Serialization;
 using System;
 using System.Collections.Generic;
 
@@ -12,8 +13,8 @@ namespace MPewsey.ManiaMap.Tests
         {
             var path = "RandomSeed.xml";
             var seed = new RandomSeed(12345);
-            Serialization.SaveXml(path, seed);
-            var copy = Serialization.LoadXml<RandomSeed>(path);
+            XmlSerialization.SaveXml(path, seed);
+            var copy = XmlSerialization.LoadXml<RandomSeed>(path);
             Assert.AreEqual(seed.Seed, copy.Seed);
 
             for (int i = 0; i < 1000; i++)

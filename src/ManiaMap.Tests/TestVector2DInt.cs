@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.ManiaMap.Serialization;
 
 namespace MPewsey.ManiaMap.Tests
 {
@@ -10,8 +11,8 @@ namespace MPewsey.ManiaMap.Tests
         {
             var path = "Vector2DInt.xml";
             var v = new Vector2DInt(1, 2);
-            Serialization.SaveXml(path, v);
-            var copy = Serialization.LoadXml<Vector2DInt>(path);
+            XmlSerialization.SaveXml(path, v);
+            var copy = XmlSerialization.LoadXml<Vector2DInt>(path);
             Assert.AreEqual(v, copy);
         }
 

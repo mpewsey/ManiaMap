@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MPewsey.ManiaMap.Exceptions;
+using MPewsey.ManiaMap.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +15,8 @@ namespace MPewsey.ManiaMap.Tests
         {
             var path = "Cell.xml";
             var cell = Cell.New.SetDoors("NWSETB", Door.TwoWay).AddFeature("SavePoint").AddFeature("Boss").AddCollectableSpot(1, "Test");
-            Serialization.SaveXml(path, cell);
-            var copy = Serialization.LoadXml<Cell>(path);
+            XmlSerialization.SaveXml(path, cell);
+            var copy = XmlSerialization.LoadXml<Cell>(path);
             Assert.IsTrue(cell.ValuesAreEqual(copy));
         }
 

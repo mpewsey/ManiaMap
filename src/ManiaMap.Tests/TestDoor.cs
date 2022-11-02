@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.ManiaMap.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,8 @@ namespace MPewsey.ManiaMap.Tests
         {
             var path = "Door.xml";
             var door = Door.OneWayEntrance.SetCode(100);
-            Serialization.SaveXml(path, door);
-            var copy = Serialization.LoadXml<Door>(path);
+            XmlSerialization.SaveXml(path, door);
+            var copy = XmlSerialization.LoadXml<Door>(path);
             Assert.IsTrue(door.ValuesAreEqual(copy));
         }
 

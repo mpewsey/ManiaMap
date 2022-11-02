@@ -1,11 +1,12 @@
-﻿using System.Runtime.Serialization;
+﻿using MPewsey.ManiaMap.Serialization;
+using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
 {
     /// <summary>
     /// A class representing a box in 3D space. The box is defined by integer coordinate ranges.
     /// </summary>
-    [DataContract(Namespace = Serialization.Namespace)]
+    [DataContract(Namespace = XmlSerialization.Namespace)]
     public class Box
     {
         /// <summary>

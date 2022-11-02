@@ -1,4 +1,5 @@
 ﻿using MPewsey.ManiaMap.Exceptions;
+using MPewsey.ManiaMap.Serialization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -8,7 +9,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A class for creating groups of collectables.
     /// </summary>
-    [DataContract(Namespace = Serialization.Namespace)]
+    [DataContract(Namespace = XmlSerialization.Namespace)]
     public class CollectableGroups : ItemGroups<string, int>
     {
         public override string ToString()

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.ManiaMap.Serialization;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -12,8 +13,8 @@ namespace MPewsey.ManiaMap.Collections.Tests
         {
             var path = "DataContractHashSet.xml";
             var set = new DataContractHashSet<int> { 1, 2, 3 };
-            Serialization.SaveXml(path, set);
-            var copy = Serialization.LoadXml<DataContractHashSet<int>>(path);
+            XmlSerialization.SaveXml(path, set);
+            var copy = XmlSerialization.LoadXml<DataContractHashSet<int>>(path);
             CollectionAssert.AreEquivalent(set.ToList(), copy.ToList());
         }
 

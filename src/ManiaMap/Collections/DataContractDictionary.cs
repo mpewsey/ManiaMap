@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MPewsey.ManiaMap.Serialization;
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -7,7 +8,7 @@ namespace MPewsey.ManiaMap.Collections
     /// <summary>
     /// A dictionary that is data contract serializable.
     /// </summary>
-    [DataContract(Name = "DataContractDictionary", Namespace = Serialization.Namespace)]
+    [DataContract(Name = "DataContractDictionary", Namespace = XmlSerialization.Namespace)]
     public class DataContractDictionary<TKey, TValue> : BaseDataContractDictionary<TKey, TValue>
     {
         /// <summary>

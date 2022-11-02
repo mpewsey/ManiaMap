@@ -1,5 +1,6 @@
 ﻿using MPewsey.ManiaMap.Collections;
 using MPewsey.ManiaMap.Exceptions;
+using MPewsey.ManiaMap.Serialization;
 using System;
 using System.Runtime.Serialization;
 
@@ -16,8 +17,8 @@ namespace MPewsey.ManiaMap
     /// graph.AddEdge(1, 2).SetName("Edge1").SetTemplateGroup("Default");
     /// ```
     /// </summary>
-    [DataContract(Namespace = Serialization.Namespace)]
-    public class LayoutEdge : IRoomSource, IKey<EdgeIndexes>
+    [DataContract(Namespace = XmlSerialization.Namespace)]
+    public class LayoutEdge : IRoomSource, IDataContractValueDictionaryValue<EdgeIndexes>
     {
         /// <inheritdoc/>
         [DataMember(Order = 1, IsRequired = true)]
