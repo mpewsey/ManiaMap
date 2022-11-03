@@ -50,6 +50,16 @@ namespace MPewsey.ManiaMap
         private DataContractDictionary<string, List<int>> NodeVariations { get; set; } = new DataContractDictionary<string, List<int>>();
 
         /// <summary>
+        /// A readonly dictionary of nodes.
+        /// </summary>
+        public IReadOnlyDictionary<int, LayoutNode> NodeDictionary => Nodes;
+
+        /// <summary>
+        /// A readonly dictionary of edges.
+        /// </summary>
+        public IReadOnlyDictionary<EdgeIndexes, LayoutEdge> EdgeDictionary => Edges;
+
+        /// <summary>
         /// The number of nodes in the graph.
         /// </summary>
         public int NodeCount => Nodes.Count;
