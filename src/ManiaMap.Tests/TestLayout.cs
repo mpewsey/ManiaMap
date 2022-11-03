@@ -98,6 +98,16 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
+        public void TestGetRoomConnections()
+        {
+            var result = Samples.BigLayoutSample.Generate(12345);
+            Assert.IsTrue(result.Success);
+            var layout = (Layout)result.Outputs["Layout"];
+            var connections = layout.GetRoomConnections();
+            Assert.AreEqual(layout.Rooms.Count, connections.Count);
+        }
+
+        [TestMethod]
         public void TestGetDoorConnection()
         {
             var layout = Samples.ManiaMapSample.ManiaMapLayout();
