@@ -104,7 +104,7 @@ namespace MPewsey.ManiaMap.Collections
         /// </summary>
         public string ToArrayString()
         {
-            var size = 2 + ChunkSize * Array.Length + 4 * Rows;
+            var size = 2 + Rows * Columns + 4 * Rows;
             var builder = new StringBuilder(size);
             builder.Append('[');
 
