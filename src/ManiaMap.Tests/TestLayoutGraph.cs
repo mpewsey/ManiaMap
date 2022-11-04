@@ -49,6 +49,24 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
+        public void TestNodeDictionary()
+        {
+            var graph = new LayoutGraph(1, "Test");
+            graph.AddNode(1);
+            graph.AddNode(2);
+            Assert.AreEqual(2, graph.NodeDictionary.Count);
+        }
+
+        [TestMethod]
+        public void TestEdgeDictionary()
+        {
+            var graph = new LayoutGraph(1, "Test");
+            graph.AddEdge(1, 2);
+            graph.AddEdge(2, 3);
+            Assert.AreEqual(2, graph.EdgeDictionary.Count);
+        }
+
+        [TestMethod]
         public void TestAddEdge()
         {
             var graph = new LayoutGraph(1, "Test");

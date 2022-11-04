@@ -451,14 +451,9 @@ namespace MPewsey.ManiaMap
             var toRoom = Layout.Rooms[toRoomId];
             var fromDoor = config.FromDoor;
             var toDoor = config.ToDoor;
+            Box shaft = null;
 
-            if (Math.Abs(fromRoom.Position.Z - toRoom.Position.Z) <= 1)
-            {
-                // Rooms do not require shaft connection. Simply add the door connection.
-                var connection = new DoorConnection(fromRoom, toRoom, fromDoor, toDoor);
-                Layout.DoorConnections.Add(new RoomPair(fromRoomId, toRoomId), connection);
-            }
-            else
+            if (Math.Abs(fromRoom.Position.Z - toRoom.Position.Z) > 1)
             {
                 // Shaft is required.
                 var position = fromDoor.Position + fromRoom.Position;
@@ -471,11 +466,11 @@ namespace MPewsey.ManiaMap
                 if (Layout.Intersects(min, max))
                     return false;
 
-                var shaft = new Box(min, max);
-                var connection = new DoorConnection(fromRoom, toRoom, fromDoor, toDoor, shaft);
-                Layout.DoorConnections.Add(new RoomPair(fromRoomId, toRoomId), connection);
+                shaft = new Box(min, max);
             }
 
+            var connection = new DoorConnection(fromRoom, toRoom, fromDoor, toDoor, shaft);
+            Layout.DoorConnections.Add(new RoomPair(fromRoomId, toRoomId), connection);
             return true;
         }
     }

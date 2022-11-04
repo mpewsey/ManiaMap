@@ -44,6 +44,11 @@ namespace MPewsey.ManiaMap
         public RoomPair Key => new RoomPair(FromRoom, ToRoom);
 
         /// <summary>
+        /// The edge direction.
+        /// </summary>
+        public EdgeDirection EdgeDirection => Door.GetEdgeDirection(FromDoor.Door.Type, ToDoor.Door.Type);
+
+        /// <summary>
         /// Initializes a door connection from two rooms, two door positions, and an optional shaft.
         /// </summary>
         /// <param name="fromRoom">The from room.</param>

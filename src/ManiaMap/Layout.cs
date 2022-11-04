@@ -267,6 +267,34 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Returns a dictionary of door connections by room ID.
+        /// </summary>
+        public Dictionary<Uid, List<DoorConnection>> GetRoomConnections()
+        {
+            var dict = new Dictionary<Uid, List<DoorConnection>>(Rooms.Count);
+
+            foreach (var connection in DoorConnections.Values)
+            {
+                if (!dict.TryGetValue(connection.FromRoom, out var fromConnections))
+                {
+                    fromConnections = new List<DoorConnection>();
+                    dict.Add(connection.FromRoom, fromConnections);
+                }
+
+                if (!dict.TryGetValue(connection.ToRoom, out var toConnections))
+                {
+                    toConnections = new List<DoorConnection>();
+                    dict.Add(connection.ToRoom, toConnections);
+                }
+
+                fromConnections.Add(connection);
+                toConnections.Add(connection);
+            }
+
+            return dict;
+        }
+
+        /// <summary>
         /// Returns a new dictionary of neighbor rooms in the layout.
         /// </summary>
         public Dictionary<Uid, List<Uid>> RoomAdjacencies()
