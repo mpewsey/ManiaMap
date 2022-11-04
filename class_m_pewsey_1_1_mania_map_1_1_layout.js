@@ -7,6 +7,7 @@ var class_m_pewsey_1_1_mania_map_1_1_layout =
     [ "FindClusters", "class_m_pewsey_1_1_mania_map_1_1_layout.html#ab576176e51a749d62b3dccff2983cd13", null ],
     [ "GetBounds", "class_m_pewsey_1_1_mania_map_1_1_layout.html#a75f408b7dfa5a9af9f539958d8cb1e1c", null ],
     [ "GetDoorConnection", "class_m_pewsey_1_1_mania_map_1_1_layout.html#a6689dcd718161a15fb77e66b19301563", null ],
+    [ "GetRoomConnections", "class_m_pewsey_1_1_mania_map_1_1_layout.html#ab8a16a014b62c8239585d215139d3202", null ],
     [ "GetRoomDoors", "class_m_pewsey_1_1_mania_map_1_1_layout.html#ab4db5d2f41d6b13468432a3e10dbe149", null ],
     [ "Intersects", "class_m_pewsey_1_1_mania_map_1_1_layout.html#a3efeeaa130b8d06671bd20861162dd12", null ],
     [ "Intersects", "class_m_pewsey_1_1_mania_map_1_1_layout.html#a491faff0c240ff52279f971b481e058f", null ],

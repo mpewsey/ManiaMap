@@ -1,5 +1,13 @@
 var NAVTREEINDEX6 =
 {
+"struct_m_pewsey_1_1_mania_map_1_1_color4.html#abd92fc16a93279d66603d3300fb0b18b":[9,0,0,0,12,1],
+"struct_m_pewsey_1_1_mania_map_1_1_color4.html#abd92fc16a93279d66603d3300fb0b18b":[8,0,0,0,12,1],
+"struct_m_pewsey_1_1_mania_map_1_1_color4.html#adb445028956f09be0ebb6c7fde592dd2":[8,0,0,0,12,0],
+"struct_m_pewsey_1_1_mania_map_1_1_color4.html#adb445028956f09be0ebb6c7fde592dd2":[9,0,0,0,12,0],
+"struct_m_pewsey_1_1_mania_map_1_1_door_pair.html":[8,0,0,0,17],
+"struct_m_pewsey_1_1_mania_map_1_1_door_pair.html":[9,0,0,0,17],
+"struct_m_pewsey_1_1_mania_map_1_1_door_pair.html#a1ad8ffae160e537a51ca6bef6dd9250c":[8,0,0,0,17,1],
+"struct_m_pewsey_1_1_mania_map_1_1_door_pair.html#a1ad8ffae160e537a51ca6bef6dd9250c":[9,0,0,0,17,1],
 "struct_m_pewsey_1_1_mania_map_1_1_door_pair.html#a8b8c07e4ca4c720863d2d959f7ed8c72":[9,0,0,0,17,0],
 "struct_m_pewsey_1_1_mania_map_1_1_door_pair.html#a8b8c07e4ca4c720863d2d959f7ed8c72":[8,0,0,0,17,0],
 "struct_m_pewsey_1_1_mania_map_1_1_door_pair.html#aee3a2bb43cd949e7ff1662c8c586ab29":[8,0,0,0,17,2],

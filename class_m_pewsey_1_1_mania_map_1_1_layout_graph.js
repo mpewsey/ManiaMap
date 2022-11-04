@@ -34,11 +34,13 @@ var class_m_pewsey_1_1_mania_map_1_1_layout_graph =
     [ "TryGetEdge", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a6ca8f3d1e74355a916a14dcec44e53ff", null ],
     [ "Validate", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#ac3237a4cd118ccd9e07158718d240992", null ],
     [ "EdgeCount", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a313ed7c273a9e390ddba9a0ddaf78d5b", null ],
+    [ "EdgeDictionary", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a548f9afb766961476586e6e8e21a32c0", null ],
     [ "Edges", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#ada11e339cf44bd73cecee400687b2158", null ],
     [ "Id", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#af3b95e8cad22acd3f8b096c276bd6d89", null ],
     [ "Name", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a5c36518110182a0ba6d3a18dd8e3c62d", null ],
     [ "Neighbors", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a601c865df21f9f62f166c0a5ab15f6ea", null ],
     [ "NodeCount", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a3670442090f5a1910da23275ef123d8c", null ],
+    [ "NodeDictionary", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a9d0c111a70171fd3aac74cccb4998951", null ],
     [ "Nodes", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#a8e1b6392d979e2d233971af7ebce1b4f", null ],
     [ "NodeVariations", "class_m_pewsey_1_1_mania_map_1_1_layout_graph.html#aa8aea3707357b9a3dfeaa02b0df92a90", null ]
 ];
