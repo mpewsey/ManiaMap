@@ -17,15 +17,15 @@ namespace MPewsey.ManiaMap.Collections
         /// </summary>
         public Dictionary<TKey, TValue> Dictionary { get; protected set; } = new Dictionary<TKey, TValue>();
 
-        public TValue this[TKey key] { get => ((IDictionary<TKey, TValue>)Dictionary)[key]; set => ((IDictionary<TKey, TValue>)Dictionary)[key] = value; }
+        public TValue this[TKey key] { get => Dictionary[key]; set => Dictionary[key] = value; }
 
-        public int Count => ((ICollection<KeyValuePair<TKey, TValue>>)Dictionary).Count;
+        public int Count => Dictionary.Count;
 
         public bool IsReadOnly => ((ICollection<KeyValuePair<TKey, TValue>>)Dictionary).IsReadOnly;
 
-        public ICollection<TKey> Keys => ((IDictionary<TKey, TValue>)Dictionary).Keys;
+        public ICollection<TKey> Keys => Dictionary.Keys;
 
-        public ICollection<TValue> Values => ((IDictionary<TKey, TValue>)Dictionary).Values;
+        public ICollection<TValue> Values => Dictionary.Values;
 
         public bool IsSynchronized => ((ICollection)Dictionary).IsSynchronized;
 
@@ -42,12 +42,12 @@ namespace MPewsey.ManiaMap.Collections
 
         public void Add(TKey key, TValue value)
         {
-            ((IDictionary<TKey, TValue>)Dictionary).Add(key, value);
+            Dictionary.Add(key, value);
         }
 
         public void Clear()
         {
-            ((ICollection<KeyValuePair<TKey, TValue>>)Dictionary).Clear();
+            Dictionary.Clear();
         }
 
         public bool Contains(KeyValuePair<TKey, TValue> item)
@@ -57,7 +57,7 @@ namespace MPewsey.ManiaMap.Collections
 
         public bool ContainsKey(TKey key)
         {
-            return ((IDictionary<TKey, TValue>)Dictionary).ContainsKey(key);
+            return Dictionary.ContainsKey(key);
         }
 
         public void CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex)
@@ -72,7 +72,7 @@ namespace MPewsey.ManiaMap.Collections
 
         public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator()
         {
-            return ((IEnumerable<KeyValuePair<TKey, TValue>>)Dictionary).GetEnumerator();
+            return Dictionary.GetEnumerator();
         }
 
         public bool Remove(KeyValuePair<TKey, TValue> item)
@@ -82,12 +82,12 @@ namespace MPewsey.ManiaMap.Collections
 
         public bool Remove(TKey key)
         {
-            return ((IDictionary<TKey, TValue>)Dictionary).Remove(key);
+            return Dictionary.Remove(key);
         }
 
         public bool TryGetValue(TKey key, out TValue value)
         {
-            return ((IDictionary<TKey, TValue>)Dictionary).TryGetValue(key, out value);
+            return Dictionary.TryGetValue(key, out value);
         }
 
         IEnumerator IEnumerable.GetEnumerator()

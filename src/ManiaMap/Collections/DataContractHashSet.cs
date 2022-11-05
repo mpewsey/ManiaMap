@@ -67,7 +67,7 @@ namespace MPewsey.ManiaMap.Collections
             return array;
         }
 
-        public int Count => ((ICollection<T>)HashSet).Count;
+        public int Count => HashSet.Count;
 
         public bool IsReadOnly => ((ICollection<T>)HashSet).IsReadOnly;
 
@@ -78,82 +78,82 @@ namespace MPewsey.ManiaMap.Collections
 
         public void Clear()
         {
-            ((ICollection<T>)HashSet).Clear();
+            HashSet.Clear();
         }
 
         public bool Contains(T item)
         {
-            return ((ICollection<T>)HashSet).Contains(item);
+            return HashSet.Contains(item);
         }
 
         public void CopyTo(T[] array, int arrayIndex)
         {
-            ((ICollection<T>)HashSet).CopyTo(array, arrayIndex);
+            HashSet.CopyTo(array, arrayIndex);
         }
 
         public void ExceptWith(IEnumerable<T> other)
         {
-            ((ISet<T>)HashSet).ExceptWith(other);
+            HashSet.ExceptWith(other);
         }
 
         public IEnumerator<T> GetEnumerator()
         {
-            return ((IEnumerable<T>)HashSet).GetEnumerator();
+            return HashSet.GetEnumerator();
         }
 
         public void IntersectWith(IEnumerable<T> other)
         {
-            ((ISet<T>)HashSet).IntersectWith(other);
+            HashSet.IntersectWith(other);
         }
 
         public bool IsProperSubsetOf(IEnumerable<T> other)
         {
-            return ((ISet<T>)HashSet).IsProperSubsetOf(other);
+            return HashSet.IsProperSubsetOf(other);
         }
 
         public bool IsProperSupersetOf(IEnumerable<T> other)
         {
-            return ((ISet<T>)HashSet).IsProperSupersetOf(other);
+            return HashSet.IsProperSupersetOf(other);
         }
 
         public bool IsSubsetOf(IEnumerable<T> other)
         {
-            return ((ISet<T>)HashSet).IsSubsetOf(other);
+            return HashSet.IsSubsetOf(other);
         }
 
         public bool IsSupersetOf(IEnumerable<T> other)
         {
-            return ((ISet<T>)HashSet).IsSupersetOf(other);
+            return HashSet.IsSupersetOf(other);
         }
 
         public bool Overlaps(IEnumerable<T> other)
         {
-            return ((ISet<T>)HashSet).Overlaps(other);
+            return HashSet.Overlaps(other);
         }
 
         public bool Remove(T item)
         {
-            return ((ICollection<T>)HashSet).Remove(item);
+            return HashSet.Remove(item);
         }
 
         public bool SetEquals(IEnumerable<T> other)
         {
-            return ((ISet<T>)HashSet).SetEquals(other);
+            return HashSet.SetEquals(other);
         }
 
         public void SymmetricExceptWith(IEnumerable<T> other)
         {
-            ((ISet<T>)HashSet).SymmetricExceptWith(other);
+            HashSet.SymmetricExceptWith(other);
         }
 
         public void UnionWith(IEnumerable<T> other)
         {
-            ((ISet<T>)HashSet).UnionWith(other);
+            HashSet.UnionWith(other);
         }
 
         public bool Add(T item)
         {
-            return ((ISet<T>)HashSet).Add(item);
+            return HashSet.Add(item);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
