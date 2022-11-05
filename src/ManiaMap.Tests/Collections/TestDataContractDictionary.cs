@@ -41,20 +41,6 @@ namespace MPewsey.ManiaMap.Collections.Tests
         }
 
         [TestMethod]
-        public void TestCollectionKeys()
-        {
-            IDictionary dict = new DataContractDictionary<int, int>
-            {
-                { 1, 2 },
-            };
-
-            foreach (var value in dict.Keys)
-            {
-                Assert.AreEqual(1, value);
-            }
-        }
-
-        [TestMethod]
         public void TestKeys()
         {
             var dict = new DataContractDictionary<int, int>
@@ -163,14 +149,6 @@ namespace MPewsey.ManiaMap.Collections.Tests
         }
 
         [TestMethod]
-        public void TestObjectKey()
-        {
-            IDictionary dict = new DataContractDictionary<int, int>();
-            dict[1] = 2;
-            Assert.AreEqual(2, dict[1]);
-        }
-
-        [TestMethod]
         public void TestIsSynchronized()
         {
             var dict = new DataContractDictionary<int, int>();
@@ -182,13 +160,6 @@ namespace MPewsey.ManiaMap.Collections.Tests
         {
             var dict = new DataContractDictionary<int, int>();
             Assert.IsNotNull(dict.SyncRoot);
-        }
-
-        [TestMethod]
-        public void TestIsFixedSize()
-        {
-            var dict = new DataContractDictionary<int, int>();
-            Assert.IsFalse(dict.IsFixedSize);
         }
 
         [TestMethod]
@@ -235,36 +206,6 @@ namespace MPewsey.ManiaMap.Collections.Tests
         }
 
         [TestMethod]
-        public void TestDictionaryValues()
-        {
-            IDictionary dict = new DataContractDictionary<int, int>
-            {
-                { 1, 2 },
-            };
-
-            foreach (var value in dict.Values)
-            {
-                Assert.AreEqual(2, value);
-            }
-        }
-
-        [TestMethod]
-        public void TestDictionaryAdd()
-        {
-            IDictionary dict = new DataContractDictionary<int, int>();
-            dict.Add(1, 2);
-            Assert.AreEqual(1, dict.Count);
-        }
-
-        [TestMethod]
-        public void TestDictionaryContains()
-        {
-            IDictionary dict = new DataContractDictionary<int, int>();
-            dict.Add(1, 2);
-            Assert.IsTrue(dict.Contains(1));
-        }
-
-        [TestMethod]
         public void TestCollectionCopyTo()
         {
             var dict = new DataContractDictionary<int, int>
@@ -288,35 +229,9 @@ namespace MPewsey.ManiaMap.Collections.Tests
         }
 
         [TestMethod]
-        public void TestRemoveObject()
-        {
-            IDictionary dict = new DataContractDictionary<int, int>
-            {
-                { 1, 2 },
-            };
-
-            dict.Remove(1);
-            Assert.AreEqual(0, dict.Count);
-        }
-
-        [TestMethod]
         public void TestGetEnumerator()
         {
             IEnumerable dict = new DataContractDictionary<int, int>
-            {
-                { 1, 2 },
-            };
-
-            foreach (var value in dict)
-            {
-                Assert.IsNotNull(value);
-            }
-        }
-
-        [TestMethod]
-        public void TestGetDictionaryEnumerator()
-        {
-            IDictionary dict = new DataContractDictionary<int, int>
             {
                 { 1, 2 },
             };

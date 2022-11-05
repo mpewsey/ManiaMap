@@ -10,7 +10,7 @@ namespace MPewsey.ManiaMap.Collections
     /// The base class for dictionaries with custom data contract serialization.
     /// </summary>
     [DataContract(Name = "BaseDataContractDictionary", Namespace = XmlSerialization.Namespace)]
-    public abstract class BaseDataContractDictionary<TKey, TValue> : ICollection<KeyValuePair<TKey, TValue>>, IEnumerable<KeyValuePair<TKey, TValue>>, IEnumerable, IDictionary<TKey, TValue>, IReadOnlyCollection<KeyValuePair<TKey, TValue>>, IReadOnlyDictionary<TKey, TValue>, ICollection, IDictionary
+    public abstract class BaseDataContractDictionary<TKey, TValue> : ICollection<KeyValuePair<TKey, TValue>>, IEnumerable<KeyValuePair<TKey, TValue>>, IEnumerable, IDictionary<TKey, TValue>, IReadOnlyCollection<KeyValuePair<TKey, TValue>>, IReadOnlyDictionary<TKey, TValue>, ICollection
     {
         /// <summary>
         /// The underlying dictionary.
@@ -18,7 +18,6 @@ namespace MPewsey.ManiaMap.Collections
         public Dictionary<TKey, TValue> Dictionary { get; protected set; } = new Dictionary<TKey, TValue>();
 
         public TValue this[TKey key] { get => ((IDictionary<TKey, TValue>)Dictionary)[key]; set => ((IDictionary<TKey, TValue>)Dictionary)[key] = value; }
-        public object this[object key] { get => ((IDictionary)Dictionary)[key]; set => ((IDictionary)Dictionary)[key] = value; }
 
         public int Count => ((ICollection<KeyValuePair<TKey, TValue>>)Dictionary).Count;
 
@@ -32,15 +31,9 @@ namespace MPewsey.ManiaMap.Collections
 
         public object SyncRoot => ((ICollection)Dictionary).SyncRoot;
 
-        public bool IsFixedSize => ((IDictionary)Dictionary).IsFixedSize;
-
         IEnumerable<TKey> IReadOnlyDictionary<TKey, TValue>.Keys => ((IReadOnlyDictionary<TKey, TValue>)Dictionary).Keys;
 
-        ICollection IDictionary.Keys => ((IDictionary)Dictionary).Keys;
-
         IEnumerable<TValue> IReadOnlyDictionary<TKey, TValue>.Values => ((IReadOnlyDictionary<TKey, TValue>)Dictionary).Values;
-
-        ICollection IDictionary.Values => ((IDictionary)Dictionary).Values;
 
         public void Add(KeyValuePair<TKey, TValue> item)
         {
@@ -52,11 +45,6 @@ namespace MPewsey.ManiaMap.Collections
             ((IDictionary<TKey, TValue>)Dictionary).Add(key, value);
         }
 
-        public void Add(object key, object value)
-        {
-            ((IDictionary)Dictionary).Add(key, value);
-        }
-
         public void Clear()
         {
             ((ICollection<KeyValuePair<TKey, TValue>>)Dictionary).Clear();
@@ -65,11 +53,6 @@ namespace MPewsey.ManiaMap.Collections
         public bool Contains(KeyValuePair<TKey, TValue> item)
         {
             return ((ICollection<KeyValuePair<TKey, TValue>>)Dictionary).Contains(item);
-        }
-
-        public bool Contains(object key)
-        {
-            return ((IDictionary)Dictionary).Contains(key);
         }
 
         public bool ContainsKey(TKey key)
@@ -102,11 +85,6 @@ namespace MPewsey.ManiaMap.Collections
             return ((IDictionary<TKey, TValue>)Dictionary).Remove(key);
         }
 
-        public void Remove(object key)
-        {
-            ((IDictionary)Dictionary).Remove(key);
-        }
-
         public bool TryGetValue(TKey key, out TValue value)
         {
             return ((IDictionary<TKey, TValue>)Dictionary).TryGetValue(key, out value);
@@ -115,11 +93,6 @@ namespace MPewsey.ManiaMap.Collections
         IEnumerator IEnumerable.GetEnumerator()
         {
             return ((IEnumerable)Dictionary).GetEnumerator();
-        }
-
-        IDictionaryEnumerator IDictionary.GetEnumerator()
-        {
-            return ((IDictionary)Dictionary).GetEnumerator();
         }
     }
 }

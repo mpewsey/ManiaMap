@@ -1,6 +1,8 @@
-﻿using MPewsey.ManiaMap.Exceptions;
+﻿using MPewsey.ManiaMap.Collections;
+using MPewsey.ManiaMap.Exceptions;
 using MPewsey.ManiaMap.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -9,25 +11,63 @@ namespace MPewsey.ManiaMap
     /// A class for creating groups of RoomTemplate.
     /// </summary>
     [DataContract(Namespace = XmlSerialization.Namespace)]
-    public class TemplateGroups : ItemGroups<string, RoomTemplate>
+    public class TemplateGroups
     {
+        /// <summary>
+        /// A dictionary of templates by group name.
+        /// </summary>
+        [DataMember(Order = 1, IsRequired = true)]
+        private DataContractDictionary<string, List<RoomTemplate>> Groups { get; set; } = new DataContractDictionary<string, List<RoomTemplate>>();
+
+        /// <summary>
+        /// A readonly dictionary of templates by group name.
+        /// </summary>
+        public IReadOnlyDictionary<string, List<RoomTemplate>> GroupsDictionary => Groups;
+
         public override string ToString()
         {
             return $"TemplateGroups(Groups.Count = {Groups.Count})";
         }
 
-        /// <inheritdoc/>
-        public override void Add(string group, RoomTemplate value)
+        /// <summary>
+        /// Adds a room template to the group.
+        /// </summary>
+        /// <param name="group">The group name.</param>
+        /// <param name="template">The room template.</param>
+        public void Add(string group, RoomTemplate template)
         {
             ValidateGroupName(group);
-            base.Add(group, value);
+
+            if (!Groups.TryGetValue(group, out List<RoomTemplate> templates))
+            {
+                templates = new List<RoomTemplate>();
+                Groups.Add(group, templates);
+            }
+
+            if (!templates.Contains(template))
+                templates.Add(template);
         }
 
-        /// <inheritdoc/>
-        public override void Add(string group, IEnumerable<RoomTemplate> values)
+        /// <summary>
+        /// Adds a range of room templates to the group.
+        /// </summary>
+        /// <param name="group">The </param>
+        /// <param name="values"></param>
+        public void Add(string group, IEnumerable<RoomTemplate> templates)
         {
             ValidateGroupName(group);
-            base.Add(group, values);
+
+            if (!Groups.TryGetValue(group, out List<RoomTemplate> entries))
+            {
+                entries = new List<RoomTemplate>();
+                Groups.Add(group, entries);
+            }
+
+            foreach (var template in templates)
+            {
+                if (!entries.Contains(template))
+                    entries.Add(template);
+            }
         }
 
         /// <summary>
@@ -46,7 +86,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public void Validate()
         {
-            foreach (var template in GetAllItems())
+            foreach (var template in GetAllTemplates())
             {
                 template.Validate();
             }
@@ -75,9 +115,9 @@ namespace MPewsey.ManiaMap
         {
             var spaces = new Dictionary<TemplatePair, ConfigurationSpace>();
 
-            foreach (var from in GetAllItems())
+            foreach (var from in GetAllTemplates())
             {
-                foreach (var to in GetAllItems())
+                foreach (var to in GetAllTemplates())
                 {
                     var pair = new TemplatePair(from, to);
 
@@ -89,6 +129,20 @@ namespace MPewsey.ManiaMap
             }
 
             return spaces;
+        }
+
+        /// <summary>
+        /// Returns an enumerable of all templates in all groups.
+        /// </summary>
+        public IEnumerable<RoomTemplate> GetAllTemplates()
+        {
+            foreach (var pair in Groups.OrderBy(x => x.Key))
+            {
+                foreach (var template in pair.Value)
+                {
+                    yield return template;
+                }
+            }
         }
     }
 }
