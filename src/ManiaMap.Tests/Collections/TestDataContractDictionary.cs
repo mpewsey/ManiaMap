@@ -163,13 +163,6 @@ namespace MPewsey.ManiaMap.Collections.Tests
         }
 
         [TestMethod]
-        public void TestIsFixedSize()
-        {
-            var dict = new DataContractDictionary<int, int>();
-            Assert.IsFalse(dict.IsFixedSize);
-        }
-
-        [TestMethod]
         public void TestReadOnlyEnumerable()
         {
             IReadOnlyDictionary<int, int> dict = new DataContractDictionary<int, int>

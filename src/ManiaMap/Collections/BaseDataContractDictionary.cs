@@ -31,8 +31,6 @@ namespace MPewsey.ManiaMap.Collections
 
         public object SyncRoot => ((ICollection)Dictionary).SyncRoot;
 
-        public bool IsFixedSize => ((IDictionary)Dictionary).IsFixedSize;
-
         IEnumerable<TKey> IReadOnlyDictionary<TKey, TValue>.Keys => ((IReadOnlyDictionary<TKey, TValue>)Dictionary).Keys;
 
         IEnumerable<TValue> IReadOnlyDictionary<TKey, TValue>.Values => ((IReadOnlyDictionary<TKey, TValue>)Dictionary).Values;
@@ -47,11 +45,6 @@ namespace MPewsey.ManiaMap.Collections
             ((IDictionary<TKey, TValue>)Dictionary).Add(key, value);
         }
 
-        public void Add(object key, object value)
-        {
-            ((IDictionary)Dictionary).Add(key, value);
-        }
-
         public void Clear()
         {
             ((ICollection<KeyValuePair<TKey, TValue>>)Dictionary).Clear();
@@ -60,11 +53,6 @@ namespace MPewsey.ManiaMap.Collections
         public bool Contains(KeyValuePair<TKey, TValue> item)
         {
             return ((ICollection<KeyValuePair<TKey, TValue>>)Dictionary).Contains(item);
-        }
-
-        public bool Contains(object key)
-        {
-            return ((IDictionary)Dictionary).Contains(key);
         }
 
         public bool ContainsKey(TKey key)
@@ -95,11 +83,6 @@ namespace MPewsey.ManiaMap.Collections
         public bool Remove(TKey key)
         {
             return ((IDictionary<TKey, TValue>)Dictionary).Remove(key);
-        }
-
-        public void Remove(object key)
-        {
-            ((IDictionary)Dictionary).Remove(key);
         }
 
         public bool TryGetValue(TKey key, out TValue value)
