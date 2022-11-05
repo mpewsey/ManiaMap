@@ -77,7 +77,7 @@ namespace MPewsey.ManiaMap.Collections
 
             foreach (var value in array)
             {
-                Dictionary.Add(((IDataContractValueDictionaryValue<TKey>)value).Key, value);
+                Dictionary.Add(value.Key, value);
             }
         }
     }
