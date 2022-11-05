@@ -1,4 +1,5 @@
-﻿using MPewsey.ManiaMap.Exceptions;
+﻿using MPewsey.ManiaMap.Collections;
+using MPewsey.ManiaMap.Exceptions;
 using MPewsey.ManiaMap.Serialization;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,25 +11,58 @@ namespace MPewsey.ManiaMap
     /// A class for creating groups of collectables.
     /// </summary>
     [DataContract(Namespace = XmlSerialization.Namespace)]
-    public class CollectableGroups : ItemGroups<string, int>
+    public class CollectableGroups
     {
+        /// <summary>
+        /// A dictionary of collectables by group name.
+        /// </summary>
+        [DataMember(Order = 1, IsRequired = true)]
+        private DataContractDictionary<string, List<int>> Groups { get; set; } = new DataContractDictionary<string, List<int>>();
+
+        /// <summary>
+        /// A readonly dictionary of collectables by group name.
+        /// </summary>
+        public IReadOnlyDictionary<string, List<int>> GroupsDictionary => Groups;
+
         public override string ToString()
         {
             return $"CollectableGroups(Groups.Count = {Groups.Count})";
         }
 
-        /// <inheritdoc/>
-        public override void Add(string group, int value)
+        /// <summary>
+        /// Adds a collectable to a group.
+        /// </summary>
+        /// <param name="group">The group name.</param>
+        /// <param name="collectable">The collectable ID.</param>
+        public void Add(string group, int collectable)
         {
             ValidateGroupName(group);
-            base.Add(group, value);
+
+            if (!Groups.TryGetValue(group, out List<int> collectables))
+            {
+                collectables = new List<int>();
+                Groups.Add(group, collectables);
+            }
+
+            collectables.Add(collectable);
         }
 
-        /// <inheritdoc/>
-        public override void Add(string group, IEnumerable<int> values)
+        /// <summary>
+        /// Adds a range of collectables to a group.
+        /// </summary>
+        /// <param name="group">The group name.</param>
+        /// <param name="collectables">The collectable ID's.</param>
+        public void Add(string group, IEnumerable<int> collectables)
         {
             ValidateGroupName(group);
-            base.Add(group, values);
+
+            if (!Groups.TryGetValue(group, out List<int> entries))
+            {
+                entries = new List<int>();
+                Groups.Add(group, entries);
+            }
+
+            entries.AddRange(collectables);
         }
 
         /// <summary>
