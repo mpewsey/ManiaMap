@@ -31,7 +31,6 @@ var dir_c3494bb25e2299bf4310ea0990001e7f =
     [ "GraphCycleDecomposer.cs", "_graph_cycle_decomposer_8cs_source.html", null ],
     [ "IGenerationStep.cs", "_i_generation_step_8cs_source.html", null ],
     [ "IRoomSource.cs", "_i_room_source_8cs_source.html", null ],
-    [ "ItemGroups.cs", "_item_groups_8cs_source.html", null ],
     [ "Layout.cs", "_layout_8cs_source.html", null ],
     [ "LayoutEdge.cs", "_layout_edge_8cs_source.html", null ],
     [ "LayoutGenerator.cs", "_layout_generator_8cs_source.html", null ],

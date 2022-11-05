@@ -7,6 +7,7 @@ var hierarchy =
     [ "MPewsey.ManiaMap.Box", "class_m_pewsey_1_1_mania_map_1_1_box.html", null ],
     [ "MPewsey.ManiaMap.Cell", "class_m_pewsey_1_1_mania_map_1_1_cell.html", null ],
     [ "MPewsey.ManiaMap.CellDistanceSearch", "class_m_pewsey_1_1_mania_map_1_1_cell_distance_search.html", null ],
+    [ "MPewsey.ManiaMap.CollectableGroups", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html", null ],
     [ "MPewsey.ManiaMap.CollectableSpot", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html", null ],
     [ "MPewsey.ManiaMap.Configuration", "class_m_pewsey_1_1_mania_map_1_1_configuration.html", null ],
     [ "MPewsey.ManiaMap.ConfigurationSpace", "class_m_pewsey_1_1_mania_map_1_1_configuration_space.html", null ],
@@ -61,7 +62,6 @@ var hierarchy =
       [ "MPewsey.ManiaMap.RoomState", "class_m_pewsey_1_1_mania_map_1_1_room_state.html", null ]
     ] ],
     [ "IDictionary", null, [
-      [ "MPewsey.ManiaMap.Collections.BaseDataContractDictionary< TKey, TValue >", "class_m_pewsey_1_1_mania_map_1_1_collections_1_1_base_data_contract_dictionary.html", null ],
       [ "MPewsey.ManiaMap.Collections.BaseDataContractDictionary< TKey, TValue >", "class_m_pewsey_1_1_mania_map_1_1_collections_1_1_base_data_contract_dictionary.html", null ]
     ] ],
     [ "IEnumerable", null, [
@@ -103,13 +103,6 @@ var hierarchy =
     [ "ISet", null, [
       [ "MPewsey.ManiaMap.Collections.DataContractHashSet< T >", "class_m_pewsey_1_1_mania_map_1_1_collections_1_1_data_contract_hash_set.html", null ]
     ] ],
-    [ "MPewsey.ManiaMap.ItemGroups< TKey, TValue >", "class_m_pewsey_1_1_mania_map_1_1_item_groups.html", null ],
-    [ "MPewsey.ManiaMap.ItemGroups< string, int >", "class_m_pewsey_1_1_mania_map_1_1_item_groups.html", [
-      [ "MPewsey.ManiaMap.CollectableGroups", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html", null ]
-    ] ],
-    [ "MPewsey.ManiaMap.ItemGroups< string, RoomTemplate >", "class_m_pewsey_1_1_mania_map_1_1_item_groups.html", [
-      [ "MPewsey.ManiaMap.TemplateGroups", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html", null ]
-    ] ],
     [ "MPewsey.ManiaMap.Serialization.JsonSerialization", "class_m_pewsey_1_1_mania_map_1_1_serialization_1_1_json_serialization.html", null ],
     [ "MPewsey.ManiaMap.Serialization.JsonWriterSettings", "class_m_pewsey_1_1_mania_map_1_1_serialization_1_1_json_writer_settings.html", null ],
     [ "MPewsey.ManiaMap.Collections.KeyValue< TKey, TValue >", "struct_m_pewsey_1_1_mania_map_1_1_collections_1_1_key_value.html", null ],
@@ -125,6 +118,7 @@ var hierarchy =
     [ "MPewsey.ManiaMap.Samples.TemplateLibrary.Rectangles", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_rectangles.html", null ],
     [ "MPewsey.ManiaMap.GenerationPipeline.Results", "class_m_pewsey_1_1_mania_map_1_1_generation_pipeline_1_1_results.html", null ],
     [ "MPewsey.ManiaMap.Samples.TemplateLibrary.Squares", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html", null ],
+    [ "MPewsey.ManiaMap.TemplateGroups", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html", null ],
     [ "MPewsey.ManiaMap.Samples.TemplateLibrary", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library.html", null ],
     [ "MPewsey.ManiaMap.Serialization.XmlSerialization", "class_m_pewsey_1_1_mania_map_1_1_serialization_1_1_xml_serialization.html", null ]
 ];

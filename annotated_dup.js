@@ -69,7 +69,6 @@ var annotated_dup =
         [ "GraphCycleDecomposer", "class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer.html", "class_m_pewsey_1_1_mania_map_1_1_graph_cycle_decomposer" ],
         [ "IGenerationStep", "interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html", "interface_m_pewsey_1_1_mania_map_1_1_i_generation_step" ],
         [ "IRoomSource", "interface_m_pewsey_1_1_mania_map_1_1_i_room_source.html", "interface_m_pewsey_1_1_mania_map_1_1_i_room_source" ],
-        [ "ItemGroups", "class_m_pewsey_1_1_mania_map_1_1_item_groups.html", "class_m_pewsey_1_1_mania_map_1_1_item_groups" ],
         [ "Layout", "class_m_pewsey_1_1_mania_map_1_1_layout.html", "class_m_pewsey_1_1_mania_map_1_1_layout" ],
         [ "LayoutEdge", "class_m_pewsey_1_1_mania_map_1_1_layout_edge.html", "class_m_pewsey_1_1_mania_map_1_1_layout_edge" ],
         [ "LayoutGenerator", "class_m_pewsey_1_1_mania_map_1_1_layout_generator.html", "class_m_pewsey_1_1_mania_map_1_1_layout_generator" ],
