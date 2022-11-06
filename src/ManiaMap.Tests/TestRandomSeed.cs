@@ -287,5 +287,12 @@ namespace MPewsey.ManiaMap.Tests
                 Assert.AreEqual(seed.Next(), copy.Next());
             }
         }
+
+        [TestMethod]
+        public void TestEmptyCumSum()
+        {
+            var array = Array.Empty<double>();
+            CollectionAssert.AreEqual(array, RandomSeed.CumSum(array));
+        }
     }
 }
