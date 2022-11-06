@@ -286,19 +286,22 @@ $(document).ready(function(){initNavTree('_random_seed_8cs_source.html',''); ini
 <div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
 <div class="line"><a id="l00276" name="l00276"></a><span class="lineno"><a class="line" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#aed714072bbac96903c364b0845d84311">  276</a></span>        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">double</span>[] <a class="code hl_function" href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#aed714072bbac96903c364b0845d84311">CumSum</a>(IList&lt;double&gt; values)</div>
 <div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        {</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>            <span class="keywordtype">double</span> total = 0;</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>            var totals = <span class="keyword">new</span> <span class="keywordtype">double</span>[values.Count];</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>            <span class="keywordflow">if</span> (values.Count == 0)</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>                <span class="keywordflow">return</span> Array.Empty&lt;<span class="keywordtype">double</span>&gt;();</div>
 <div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span> </div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; totals.Length; i++)</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>            {</div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>                total += values[i];</div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>                totals[i] = total;</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>            }</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>            <span class="keywordflow">return</span> totals;</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        }</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    }</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>}</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>            <span class="keywordtype">double</span> total = 0;</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>            var totals = <span class="keyword">new</span> <span class="keywordtype">double</span>[values.Count];</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; totals.Length; i++)</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>            {</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>                total += values[i];</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>                totals[i] = total;</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>            }</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>            <span class="keywordflow">return</span> totals;</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        }</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    }</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>}</div>
 <div class="ttc" id="aclass_m_pewsey_1_1_mania_map_1_1_random_seed_html"><div class="ttname"><a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html">MPewsey.ManiaMap.RandomSeed</a></div><div class="ttdoc">A class for performing pseudo-random number generation.</div><div class="ttdef"><b>Definition:</b> <a href="_random_seed_8cs_source.html#l00017">RandomSeed.cs:18</a></div></div>
 <div class="ttc" id="aclass_m_pewsey_1_1_mania_map_1_1_random_seed_html_a02eaa4d27e579642488ce571261222df"><div class="ttname"><a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a02eaa4d27e579642488ce571261222df">MPewsey.ManiaMap.RandomSeed.RandomSeed</a></div><div class="ttdeci">RandomSeed(int seed)</div><div class="ttdoc">Initializes a new random seed.</div><div class="ttdef"><b>Definition:</b> <a href="_random_seed_8cs_source.html#l00055">RandomSeed.cs:55</a></div></div>
 <div class="ttc" id="aclass_m_pewsey_1_1_mania_map_1_1_random_seed_html_a080be621bac1156040a24bb3f988d74a"><div class="ttname"><a href="class_m_pewsey_1_1_mania_map_1_1_random_seed.html#a080be621bac1156040a24bb3f988d74a">MPewsey.ManiaMap.RandomSeed.NextDouble</a></div><div class="ttdeci">double NextDouble(double minValue, double maxValue)</div><div class="ttdoc">Returns a random double on the interval [minValue, maxValue).</div><div class="ttdef"><b>Definition:</b> <a href="_random_seed_8cs_source.html#l00203">RandomSeed.cs:203</a></div></div>

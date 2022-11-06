@@ -14,6 +14,7 @@ var hierarchy =
     [ "MPewsey.ManiaMap.Serialization.Cryptography", "class_m_pewsey_1_1_mania_map_1_1_serialization_1_1_cryptography.html", null ],
     [ "MPewsey.ManiaMap.Door", "class_m_pewsey_1_1_mania_map_1_1_door.html", null ],
     [ "MPewsey.ManiaMap.DoorPosition", "class_m_pewsey_1_1_mania_map_1_1_door_position.html", null ],
+    [ "MPewsey.ManiaMap.TemplateGroups.Entry", "class_m_pewsey_1_1_mania_map_1_1_template_groups_1_1_entry.html", null ],
     [ "Exception", null, [
       [ "MPewsey.ManiaMap.Exceptions.CellsNotFullyConnectedException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_cells_not_fully_connected_exception.html", null ],
       [ "MPewsey.ManiaMap.Exceptions.CollectableSpotNotFoundException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_collectable_spot_not_found_exception.html", null ],
