@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MPewsey.ManiaMap.Serialization;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -132,6 +133,33 @@ namespace MPewsey.ManiaMap.Tests
             var layout = Samples.ManiaMapSample.ManiaMapLayout();
             var connection = layout.DoorConnections.Values.First();
             Assert.IsTrue(layout.RemoveDoorConnection(connection.FromRoom, connection.ToRoom));
+        }
+
+        [TestMethod]
+        public void TestGenerateConstrainedLayout()
+        {
+            var seed = new RandomSeed(12345);
+            var graph = Samples.GraphLibrary.BigGraph();
+            var groups = Samples.BigLayoutSample.BigLayoutTemplateGroups();
+            var collectables = new CollectableGroups();
+
+            foreach (var entry in groups.GetGroup("Rooms"))
+            {
+                entry.MinQuantity = 2;
+            }
+
+            var dict = new Dictionary<string, object>
+            {
+                { "LayoutId", 1 },
+                { "LayoutGraph", graph },
+                { "TemplateGroups", groups },
+                { "CollectableGroups", collectables },
+                { "RandomSeed", seed },
+            };
+
+            var pipeline = GenerationPipeline.CreateDefaultPipeline();
+            var results = pipeline.Generate(dict);
+            Assert.IsTrue(results.Success);
         }
     }
 }

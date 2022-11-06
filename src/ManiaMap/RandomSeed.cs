@@ -275,6 +275,9 @@ namespace MPewsey.ManiaMap
         /// <param name="values">An list of values.</param>
         public static double[] CumSum(IList<double> values)
         {
+            if (values.Count == 0)
+                return Array.Empty<double>();
+
             double total = 0;
             var totals = new double[values.Count];
 
