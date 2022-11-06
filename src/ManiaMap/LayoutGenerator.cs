@@ -109,10 +109,12 @@ namespace MPewsey.ManiaMap
         /// <param name="randomSeed">The random seed.</param>
         private void Initialize(LayoutGraph graph, TemplateGroups templateGroups, RandomSeed randomSeed)
         {
+            graph.Validate();
+            templateGroups.Validate();
+
             Graph = graph;
             TemplateGroups = templateGroups;
             RandomSeed = randomSeed;
-            Validate();
             ConfigurationSpaces = templateGroups.GetConfigurationSpaces();
         }
 
@@ -130,22 +132,31 @@ namespace MPewsey.ManiaMap
             int chain = 0;
             var allowableRebases = AllowableRebases(chain);
             var chains = Graph.FindChains(MaxBranchLength);
-            var layouts = new Stack<Layout>(chains.Count);
-            layouts.Push(new Layout(layoutId, graph.Name, randomSeed));
+            var layouts = new List<Layout>(chains.Count) { new Layout(layoutId, graph.Name, randomSeed) };
 
             while (layouts.Count > 0)
             {
-                Layout = layouts.Peek();
+                Layout = layouts[layouts.Count - 1];
 
-                // If all chains have been added, return the layout.
+                // If all chains have been added, validate the layout.
                 if (chain >= chains.Count)
-                    return new Layout(Layout);
+                {
+                    // If layout is complete, return the layout.
+                    if (Layout.IsComplete(TemplateGroups))
+                        return new Layout(Layout);
+
+                    // If layout is not complete, start over.
+                    chain = 0;
+                    allowableRebases = AllowableRebases(chain);
+                    layouts.RemoveRange(1, layouts.Count - 1);
+                    continue;
+                }
 
                 // If layout has been used as a base more than the maximum allowable count,
                 // remove the layout and backtrack.
                 if (Layout.Rebases > allowableRebases)
                 {
-                    layouts.Pop();
+                    layouts.RemoveAt(layouts.Count - 1);
                     allowableRebases = AllowableRebases(--chain);
                     continue;
                 }
@@ -155,21 +166,12 @@ namespace MPewsey.ManiaMap
 
                 if (AddChain(chains[chain]))
                 {
-                    layouts.Push(Layout);
+                    layouts.Add(Layout);
                     allowableRebases = AllowableRebases(++chain);
                 }
             }
 
             return null;
-        }
-
-        /// <summary>
-        /// Validates the generator input and throws exceptions accordingly.
-        /// </summary>
-        private void Validate()
-        {
-            Graph.Validate();
-            TemplateGroups.Validate();
         }
 
         /// <summary>
@@ -194,14 +196,24 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns a new shuffled list of room templates for the groups.
+        /// Returns a new shuffled list of template group entries for the group.
         /// </summary>
         /// <param name="group">The template group name.</param>
-        private List<RoomTemplate> GetTemplates(string group)
+        private List<TemplateGroups.Entry> GetTemplateGroupEntries(string group)
         {
-            var templates = TemplateGroups.GetTemplates(group);
-            RandomSeed.Shuffle(templates);
-            return templates;
+            var entries = TemplateGroups.GetGroup(group);
+            var result = new List<TemplateGroups.Entry>(entries.Count);
+
+            foreach (var entry in entries)
+            {
+                var count = Layout.GetTemplateCount(entry);
+
+                if (count < entry.MaxQuantity)
+                    result.Add(entry);
+            }
+
+            RandomSeed.Shuffle(result);
+            return result;
         }
 
         /// <summary>
@@ -317,10 +329,11 @@ namespace MPewsey.ManiaMap
         private bool AddFirstRoom(IRoomSource source)
         {
             // Get the first template and add it to the layout.
-            foreach (var template in GetTemplates(source.TemplateGroup))
+            foreach (var entry in GetTemplateGroupEntries(source.TemplateGroup))
             {
-                var room = new Room(source, Vector2DInt.Zero, template, RandomSeed);
+                var room = new Room(source, Vector2DInt.Zero, entry.Template, RandomSeed);
                 Layout.Rooms.Add(room.Id, room);
+                Layout.IncreaseTemplateCount(entry);
                 return true;
             }
 
@@ -340,20 +353,20 @@ namespace MPewsey.ManiaMap
             var fromRoom = Layout.Rooms[fromRoomId];
             var z = source.Z - fromRoom.Position.Z;
 
-            foreach (var template in GetTemplates(source.TemplateGroup))
+            foreach (var entry in GetTemplateGroupEntries(source.TemplateGroup))
             {
-                foreach (var config in GetConfigurations(fromRoom.Template, template))
+                foreach (var config in GetConfigurations(fromRoom.Template, entry.Template))
                 {
                     var position = config.Position + fromRoom.Position;
 
                     // Check if the configuration can be added to the layout. If not, try the next one.
                     if (!config.Matches(z, code, direction))
                         continue;
-                    if (Layout.Intersects(template, position, source.Z))
+                    if (Layout.Intersects(entry.Template, position, source.Z))
                         continue;
 
                     // Add the room to the layout.
-                    var room = new Room(source, position, template, RandomSeed);
+                    var room = new Room(source, position, entry.Template, RandomSeed);
                     Layout.Rooms.Add(room.Id, room);
 
                     // Try to create a door connection between the rooms.
@@ -364,6 +377,7 @@ namespace MPewsey.ManiaMap
                         continue;
                     }
 
+                    Layout.IncreaseTemplateCount(entry);
                     return true;
                 }
             }
@@ -390,19 +404,19 @@ namespace MPewsey.ManiaMap
             var z1 = source.Z - backRoom.Position.Z;
             var z2 = aheadRoom.Position.Z - source.Z;
 
-            foreach (var template in GetTemplates(source.TemplateGroup))
+            foreach (var entry in GetTemplateGroupEntries(source.TemplateGroup))
             {
-                foreach (var config1 in GetConfigurations(backRoom.Template, template))
+                foreach (var config1 in GetConfigurations(backRoom.Template, entry.Template))
                 {
                     var position = config1.Position + backRoom.Position;
 
                     // Check if the configuration can be added to the layout. If not, try the next one.
                     if (!config1.Matches(z1, backCode, backDirection))
                         continue;
-                    if (Layout.Intersects(template, position, source.Z))
+                    if (Layout.Intersects(entry.Template, position, source.Z))
                         continue;
 
-                    foreach (var config2 in GetConfigurations(template, aheadRoom.Template))
+                    foreach (var config2 in GetConfigurations(entry.Template, aheadRoom.Template))
                     {
                         var offset = aheadRoom.Position - position;
 
@@ -410,7 +424,7 @@ namespace MPewsey.ManiaMap
                         if (!config2.Matches(offset, z2, aheadCode, aheadDirection))
                             continue;
 
-                        var room = new Room(source, position, template, RandomSeed);
+                        var room = new Room(source, position, entry.Template, RandomSeed);
                         Layout.Rooms.Add(room.Id, room);
 
                         // Try to create a door connection between the rooms.
@@ -430,6 +444,7 @@ namespace MPewsey.ManiaMap
                             continue;
                         }
 
+                        Layout.IncreaseTemplateCount(entry);
                         return true;
                     }
                 }

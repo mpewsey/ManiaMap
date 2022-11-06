@@ -27,10 +27,10 @@ namespace MPewsey.ManiaMap.Tests
             var groups = new TemplateGroups();
 
             groups.Add("Group1", template1);
-            CollectionAssert.AreEquivalent(expected1, groups.GroupsDictionary["Group1"]);
+            CollectionAssert.AreEquivalent(expected1, groups.GroupsDictionary["Group1"].Select(x => x.Template).ToList());
 
             groups.Add("Group2", expected1);
-            CollectionAssert.AreEquivalent(expected1, groups.GroupsDictionary["Group2"]);
+            CollectionAssert.AreEquivalent(expected1, groups.GroupsDictionary["Group2"].Select(x => x.Template).ToList());
         }
 
         [TestMethod]
@@ -44,8 +44,8 @@ namespace MPewsey.ManiaMap.Tests
 
             foreach (var pair in groups.GroupsDictionary)
             {
-                var x = pair.Value.Select(x => x.Id).ToList();
-                var y = copy.GroupsDictionary[pair.Key].Select(x => x.Id).ToList();
+                var x = pair.Value.Select(x => x.Template.Id).ToList();
+                var y = copy.GroupsDictionary[pair.Key].Select(x => x.Template.Id).ToList();
                 CollectionAssert.AreEquivalent(x, y);
             }
         }

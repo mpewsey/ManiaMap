@@ -53,6 +53,11 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public int Rebases { get; private set; }
 
+        /// <summary>
+        /// A dictionary of counts by template group entry.
+        /// </summary>
+        private Dictionary<TemplateGroups.Entry, int> TemplateCounts { get; } = new Dictionary<TemplateGroups.Entry, int>();
+
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
         {
@@ -80,13 +85,48 @@ namespace MPewsey.ManiaMap
             Seed = baseLayout.Seed;
             Rooms = new DataContractValueDictionary<Uid, Room>(baseLayout.Rooms);
             DoorConnections = new DataContractValueDictionary<RoomPair, DoorConnection>(baseLayout.DoorConnections);
-            baseLayout.Rebases++;
+            TemplateCounts = new Dictionary<TemplateGroups.Entry, int>(baseLayout.TemplateCounts);
             PopulateTemplates();
+            baseLayout.Rebases++;
         }
 
         public override string ToString()
         {
-            return $"Layout(Name = {Name}, Seed = {Seed})";
+            return $"Layout(Id = {Id}, Name = {Name}, Seed = {Seed})";
+        }
+
+        /// <summary>
+        /// Returns true if all template constraints are satisfied.
+        /// </summary>
+        /// <param name="groups">The template groups.</param>
+        public bool IsComplete(TemplateGroups groups)
+        {
+            foreach (var entry in groups.GetAllEntries())
+            {
+                if (!entry.QuantitySatisfied(GetTemplateCount(entry)))
+                    return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Returns the count for the specified template group entry.
+        /// </summary>
+        /// <param name="entry">The template group entry.</param>
+        public int GetTemplateCount(TemplateGroups.Entry entry)
+        {
+            TemplateCounts.TryGetValue(entry, out int count);
+            return count;
+        }
+
+        /// <summary>
+        /// Increases the count by 1 for the template group entry.
+        /// </summary>
+        /// <param name="entry">The template group entry.</param>
+        public void IncreaseTemplateCount(TemplateGroups.Entry entry)
+        {
+            TemplateCounts[entry] = GetTemplateCount(entry) + 1;
         }
 
         /// <summary>
