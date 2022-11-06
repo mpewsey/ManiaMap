@@ -192,7 +192,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A template group entry, consisting of a RoomTemplate and usage constaints.
         /// </summary>
-        [DataContract(Namespace = XmlSerialization.Namespace)]
+        [DataContract(Name = "TemplateGroupsEntry", Namespace = XmlSerialization.Namespace)]
         public class Entry
         {
             /// <summary>
