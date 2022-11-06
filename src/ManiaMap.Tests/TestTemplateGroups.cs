@@ -57,5 +57,26 @@ namespace MPewsey.ManiaMap.Tests
             var template = new RoomTemplate(1, "Test", new Array2D<Cell>());
             Assert.ThrowsException<InvalidNameException>(() => group.Add("", template));
         }
+
+        [TestMethod]
+        public void TestAddEntry()
+        {
+            var group = new TemplateGroups();
+            var template = new RoomTemplate(1, "Test", new Array2D<Cell>());
+            var entry = new TemplateGroups.Entry(template, 1, 2);
+            group.Add("Test", entry);
+            Assert.AreEqual(1, group.GroupsDictionary.Count);
+        }
+
+        [TestMethod]
+        public void TestConsolidateTemplate()
+        {
+            var template1 = new RoomTemplate(1, "Test", new Array2D<Cell>());
+            var template2 = new RoomTemplate(1, "Test", new Array2D<Cell>());
+            var entry = new TemplateGroups.Entry(template1, 1, 2);
+            Assert.AreEqual(template1, entry.Template);
+            entry.ConsolidateTemplate(template2);
+            Assert.AreEqual(template2, entry.Template);
+        }
     }
 }
