@@ -20,7 +20,7 @@ This package allows for the creation of procedurally generated metroidvania styl
 * Rendering of generated layouts to image files using built-in or custom map tiles.
 * Procedural distribution of collectables throughout layout.
 * Supports gradual map discovery through cell filters.
-* Persistence of layout and layout state data through serialization.
+* Persistence of layout and layout state data through JSON and XML.
 * Works with Windows, Mac, and Linux.
 
 ## Game Engine Support
