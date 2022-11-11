@@ -56,14 +56,8 @@ namespace MPewsey.ManiaMap.Collections
             if (HashSet.Count == 0)
                 return System.Array.Empty<T>();
 
-            int i = 0;
             var array = new T[HashSet.Count];
-
-            foreach (var value in HashSet)
-            {
-                array[i++] = value;
-            }
-
+            CopyTo(array, 0);
             return array;
         }
 
