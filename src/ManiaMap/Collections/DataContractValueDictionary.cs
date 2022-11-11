@@ -56,14 +56,8 @@ namespace MPewsey.ManiaMap.Collections
         /// </summary>
         private TValue[] GetValuesArray()
         {
-            int i = 0;
             var array = new TValue[Dictionary.Count];
-
-            foreach (var value in Dictionary.Values)
-            {
-                array[i++] = value;
-            }
-
+            Dictionary.Values.CopyTo(array, 0);
             return array;
         }
 
