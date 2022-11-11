@@ -56,6 +56,9 @@ namespace MPewsey.ManiaMap.Collections
         /// </summary>
         private TValue[] GetValuesArray()
         {
+            if (Dictionary.Count == 0)
+                return System.Array.Empty<TValue>();
+            
             var array = new TValue[Dictionary.Count];
             Dictionary.Values.CopyTo(array, 0);
             return array;
