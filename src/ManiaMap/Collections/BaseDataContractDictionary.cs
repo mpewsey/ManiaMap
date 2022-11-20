@@ -70,7 +70,12 @@ namespace MPewsey.ManiaMap.Collections
             ((ICollection)Dictionary).CopyTo(array, index);
         }
 
-        public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator()
+        public Dictionary<TKey, TValue>.Enumerator GetEnumerator()
+        {
+            return Dictionary.GetEnumerator();
+        }
+
+        IEnumerator<KeyValuePair<TKey, TValue>> IEnumerable<KeyValuePair<TKey, TValue>>.GetEnumerator()
         {
             return Dictionary.GetEnumerator();
         }
