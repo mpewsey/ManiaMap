@@ -34,6 +34,17 @@ namespace MPewsey.ManiaMap.Collections.Tests
         }
 
         [TestMethod]
+        public void TestStructEnumerator()
+        {
+            var set = new DataContractHashSet<int> { 1 };
+
+            foreach (var value in set)
+            {
+                Assert.AreEqual(1, value);
+            }
+        }
+
+        [TestMethod]
         public void TestEnumerator()
         {
             IEnumerable<int> set = new DataContractHashSet<int> { 1 };

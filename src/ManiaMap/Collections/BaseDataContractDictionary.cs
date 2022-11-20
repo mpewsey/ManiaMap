@@ -23,9 +23,13 @@ namespace MPewsey.ManiaMap.Collections
 
         public bool IsReadOnly => ((ICollection<KeyValuePair<TKey, TValue>>)Dictionary).IsReadOnly;
 
-        public ICollection<TKey> Keys => Dictionary.Keys;
+        public Dictionary<TKey, TValue>.KeyCollection Keys => Dictionary.Keys;
 
-        public ICollection<TValue> Values => Dictionary.Values;
+        ICollection<TKey> IDictionary<TKey, TValue>.Keys => Dictionary.Keys;
+
+        public Dictionary<TKey, TValue>.ValueCollection Values => Dictionary.Values;
+
+        ICollection<TValue> IDictionary<TKey, TValue>.Values => Dictionary.Values;
 
         public bool IsSynchronized => ((ICollection)Dictionary).IsSynchronized;
 
@@ -70,7 +74,12 @@ namespace MPewsey.ManiaMap.Collections
             ((ICollection)Dictionary).CopyTo(array, index);
         }
 
-        public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator()
+        public Dictionary<TKey, TValue>.Enumerator GetEnumerator()
+        {
+            return Dictionary.GetEnumerator();
+        }
+
+        IEnumerator<KeyValuePair<TKey, TValue>> IEnumerable<KeyValuePair<TKey, TValue>>.GetEnumerator()
         {
             return Dictionary.GetEnumerator();
         }
