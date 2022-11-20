@@ -433,7 +433,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns an enumerable of all nodes in the graph.
         /// </summary>
-        public IEnumerable<LayoutNode> GetNodes()
+        public Dictionary<int, LayoutNode>.ValueCollection GetNodes()
         {
             return Nodes.Values;
         }
@@ -441,7 +441,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns an enumerable of all edges in the graph.
         /// </summary>
-        public IEnumerable<LayoutEdge> GetEdges()
+        public Dictionary<EdgeIndexes, LayoutEdge>.ValueCollection GetEdges()
         {
             return Edges.Values;
         }
