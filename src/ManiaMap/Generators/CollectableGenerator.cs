@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Generators
 {
     /// <summary>
     /// A class for distributing collectables throughout a Layout.
@@ -87,14 +87,14 @@ namespace MPewsey.ManiaMap
         /// * %RandomSeed - The random seed.
         /// </summary>
         /// <param name="result">The pipeline results.</param>
-        public void ApplyStep(GenerationPipeline.Results results)
+        public bool ApplyStep(GenerationPipeline.Results results)
         {
             var layout = results.GetArgument<Layout>("Layout");
             var collectableGroups = results.GetArgument<CollectableGroups>("CollectableGroups");
             var randomSeed = results.GetArgument<RandomSeed>("RandomSeed");
 
             Generate(layout, collectableGroups, randomSeed);
-            results.Success = true;
+            return true;
         }
 
         /// <summary>

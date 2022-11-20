@@ -3,7 +3,7 @@ using MPewsey.ManiaMap.Exceptions;
 using MPewsey.ManiaMap.Serialization;
 using System.Runtime.Serialization;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Graphs
 {
     /// <summary>
     /// A node in a LayoutGraph.

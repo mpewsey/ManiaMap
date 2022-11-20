@@ -1,7 +1,8 @@
-﻿using System;
+﻿using MPewsey.ManiaMap.Graphs;
+using System;
 using System.Collections.Generic;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Generators
 {
     /// <summary>
     /// A class for drawing a random LayoutGraph from multiple.
@@ -19,13 +20,13 @@ namespace MPewsey.ManiaMap
         /// * %LayoutGraph - The drawn layout graph.
         /// </summary>
         /// <param name="results">The pipeline results.</param>
-        public void ApplyStep(GenerationPipeline.Results results)
+        public bool ApplyStep(GenerationPipeline.Results results)
         {
             var randomSeed = results.GetArgument<RandomSeed>("RandomSeed");
             var layouts = results.GetArgument<object>("LayoutGraphs");
 
             results.Outputs["LayoutGraph"] = DrawSelection(layouts, randomSeed);
-            results.Success = true;
+            return true;
         }
 
         /// <summary>

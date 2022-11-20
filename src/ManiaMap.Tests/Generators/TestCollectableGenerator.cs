@@ -2,7 +2,7 @@
 using MPewsey.ManiaMap.Exceptions;
 using System.Collections.Generic;
 
-namespace MPewsey.ManiaMap.Tests
+namespace MPewsey.ManiaMap.Generators.Tests
 {
     [TestClass]
     public class TestCollectableGenerator

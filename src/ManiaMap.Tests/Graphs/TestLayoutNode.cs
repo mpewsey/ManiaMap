@@ -2,7 +2,7 @@
 using MPewsey.ManiaMap.Exceptions;
 using MPewsey.ManiaMap.Serialization;
 
-namespace MPewsey.ManiaMap.Tests
+namespace MPewsey.ManiaMap.Graphs.Tests
 {
     [TestClass]
     public class TestLayoutNode

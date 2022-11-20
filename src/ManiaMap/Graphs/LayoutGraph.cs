@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Graphs
 {
     /// <summary>
     /// Represents a graph consisting of LayoutNode and LayoutEdge.

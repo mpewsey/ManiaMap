@@ -1,8 +1,9 @@
 ﻿using MPewsey.ManiaMap.Exceptions;
+using MPewsey.ManiaMap.Graphs;
 using System;
 using System.Collections.Generic;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Generators
 {
     /// <summary>
     /// A class for generator room Layout based on various RoomTemplate and a LayoutGraph.
@@ -118,7 +119,7 @@ namespace MPewsey.ManiaMap
         /// * %Layout - The generated layout.
         /// </summary>
         /// <param name="results">The pipeline results.</param>
-        public void ApplyStep(GenerationPipeline.Results results)
+        public bool ApplyStep(GenerationPipeline.Results results)
         {
             var layoutId = results.GetArgument<int>("LayoutId");
             var graph = results.GetArgument<LayoutGraph>("LayoutGraph");
@@ -127,7 +128,7 @@ namespace MPewsey.ManiaMap
 
             var layout = Generate(layoutId, graph, templateGroups, randomSeed);
             results.Outputs["Layout"] = layout;
-            results.Success = layout != null;
+            return layout != null;
         }
 
         /// <summary>

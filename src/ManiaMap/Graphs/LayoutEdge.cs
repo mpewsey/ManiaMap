@@ -4,7 +4,7 @@ using MPewsey.ManiaMap.Serialization;
 using System;
 using System.Runtime.Serialization;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Graphs
 {
     /// <summary>
     /// Represents an edge connecting two nodes of a LayoutGraph.
@@ -161,7 +161,7 @@ namespace MPewsey.ManiaMap
         /// <param name="value">A random value between 0 and 1 to check against.</param>
         public bool RoomChanceSatisfied(double value)
         {
-            return RoomChance >= 1 || (RoomChance > 0 && value <= RoomChance);
+            return RoomChance >= 1 || RoomChance > 0 && value <= RoomChance;
         }
 
         /// <summary>

@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace MPewsey.ManiaMap.Tests
+namespace MPewsey.ManiaMap.Generators.Tests
 {
     [TestClass]
     public class TestLayoutGraphRandomizer
@@ -21,8 +21,7 @@ namespace MPewsey.ManiaMap.Tests
 
             var randomizer = new LayoutGraphRandomizer();
             var results = new GenerationPipeline.Results(input);
-            randomizer.ApplyStep(results);
-            Assert.IsTrue(results.Success);
+            Assert.IsTrue(randomizer.ApplyStep(results));
             Assert.IsTrue(results.Outputs.ContainsKey("LayoutGraph"));
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MPewsey.ManiaMap.Graphs;
+using System;
 
 namespace MPewsey.ManiaMap.Samples
 {

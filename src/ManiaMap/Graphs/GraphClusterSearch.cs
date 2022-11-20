@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Graphs
 {
     /// <summary>
     /// A class for searching for neighbors in a graph up to a specified depth.

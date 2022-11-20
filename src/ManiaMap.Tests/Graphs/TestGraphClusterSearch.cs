@@ -1,11 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.ManiaMap.Generators;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MPewsey.ManiaMap.Tests
+namespace MPewsey.ManiaMap.Graphs.Tests
 {
     [TestClass]
-    public class TestClusterSearch
+    public class TestGraphClusterSearch
     {
         [TestMethod]
         public void TestFindClusterOfGeekGraph()

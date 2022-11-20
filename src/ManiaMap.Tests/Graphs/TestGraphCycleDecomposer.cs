@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MPewsey.ManiaMap.Tests
+namespace MPewsey.ManiaMap.Graphs.Tests
 {
     [TestClass]
     public class TestGraphCycleDecomposer

@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MPewsey.ManiaMap.Tests
+namespace MPewsey.ManiaMap.Graphs.Tests
 {
     [TestClass]
     public class TestEdgeIndexes

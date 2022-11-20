@@ -1,4 +1,6 @@
-﻿namespace MPewsey.ManiaMap
+﻿using MPewsey.ManiaMap.Graphs;
+
+namespace MPewsey.ManiaMap.Generators
 {
     /// <summary>
     /// A class for generating randomized variations in a LayoutGraph.
@@ -16,13 +18,13 @@
         /// * %LayoutGraph - The randomized layout graph.
         /// </summary>
         /// <param name="results">The pipeline results.</param>
-        public void ApplyStep(GenerationPipeline.Results results)
+        public bool ApplyStep(GenerationPipeline.Results results)
         {
             var randomSeed = results.GetArgument<RandomSeed>("RandomSeed");
             var graph = results.GetArgument<LayoutGraph>("LayoutGraph");
 
             results.Outputs["LayoutGraph"] = RandomizeGraph(graph, randomSeed);
-            results.Success = true;
+            return true;
         }
 
         /// <summary>

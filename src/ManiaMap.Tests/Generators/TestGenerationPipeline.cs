@@ -2,7 +2,7 @@
 using MPewsey.ManiaMap.Serialization;
 using System;
 
-namespace MPewsey.ManiaMap.Tests
+namespace MPewsey.ManiaMap.Generators.Tests
 {
     [TestClass]
     public class TestGenerationPipeline

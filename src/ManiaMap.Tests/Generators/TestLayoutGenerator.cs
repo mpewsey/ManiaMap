@@ -3,7 +3,7 @@ using MPewsey.ManiaMap.Exceptions;
 using System;
 using System.Linq;
 
-namespace MPewsey.ManiaMap.Tests
+namespace MPewsey.ManiaMap.Generators.Tests
 {
     [TestClass]
     public class TestLayoutGenerator

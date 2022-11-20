@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MPewsey.ManiaMap.Tests
+namespace MPewsey.ManiaMap.Graphs.Tests
 {
     [TestClass]
     public class TestGraphChainDecomposer

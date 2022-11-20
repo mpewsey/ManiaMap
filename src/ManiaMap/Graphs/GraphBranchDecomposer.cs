@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Graphs
 {
     /// <summary>
     /// A class for decomposing the branches of a graph into chains.

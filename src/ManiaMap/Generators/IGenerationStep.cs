@@ -1,4 +1,4 @@
-﻿namespace MPewsey.ManiaMap
+﻿namespace MPewsey.ManiaMap.Generators
 {
     /// <summary>
     /// An interface for creating a step of the GenerationPipeline.
@@ -10,6 +10,6 @@
         /// Artifacts should be written to the results output dictionary.
         /// </summary>
         /// <param name="results">The generation pipeline results.</param>
-        void ApplyStep(GenerationPipeline.Results results);
+        bool ApplyStep(GenerationPipeline.Results results);
     }
 }

@@ -1,8 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.ManiaMap.Graphs;
 using System;
 using System.Collections.Generic;
 
-namespace MPewsey.ManiaMap.Tests
+namespace MPewsey.ManiaMap.Generators.Tests
 {
     [TestClass]
     public class TestLayoutGraphSelector
@@ -27,8 +28,7 @@ namespace MPewsey.ManiaMap.Tests
 
             var selector = new LayoutGraphSelector();
             var results = new GenerationPipeline.Results(input);
-            selector.ApplyStep(results);
-            Assert.IsTrue(results.Success);
+            Assert.IsTrue(selector.ApplyStep(results));
             Assert.AreEqual(1, results.Outputs.Count);
             Assert.IsTrue(results.Outputs.ContainsKey("LayoutGraph"));
         }
@@ -53,8 +53,7 @@ namespace MPewsey.ManiaMap.Tests
 
             var selector = new LayoutGraphSelector();
             var results = new GenerationPipeline.Results(input);
-            selector.ApplyStep(results);
-            Assert.IsTrue(results.Success);
+            Assert.IsTrue(selector.ApplyStep(results));
             Assert.AreEqual(1, results.Outputs.Count);
             Assert.IsTrue(results.Outputs.ContainsKey("LayoutGraph"));
         }

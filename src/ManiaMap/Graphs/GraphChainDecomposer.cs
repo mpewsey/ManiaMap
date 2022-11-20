@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Graphs
 {
     /// <summary>
     /// A class for finding chains of a LayoutGraph.

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MPewsey.ManiaMap
+namespace MPewsey.ManiaMap.Graphs
 {
     /// <summary>
     /// A pair of edge node indexes.
