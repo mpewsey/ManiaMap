@@ -41,7 +41,7 @@ namespace MPewsey.ManiaMap.Collections.Tests
         }
 
         [TestMethod]
-        public void TestKeys()
+        public void TestStructKeys()
         {
             var dict = new DataContractDictionary<int, int>
             {
@@ -54,9 +54,35 @@ namespace MPewsey.ManiaMap.Collections.Tests
         }
 
         [TestMethod]
-        public void TestValues()
+        public void TestStructValues()
         {
             var dict = new DataContractDictionary<int, int>
+            {
+                { 1, 2 },
+                { 3, 4 },
+            };
+
+            var expected = new int[] { 2, 4 };
+            CollectionAssert.AreEquivalent(expected, dict.Values.ToList());
+        }
+
+        [TestMethod]
+        public void TestKeys()
+        {
+            IDictionary<int, int> dict = new DataContractDictionary<int, int>
+            {
+                { 1, 2 },
+                { 3, 4 },
+            };
+
+            var expected = new int[] { 1, 3 };
+            CollectionAssert.AreEquivalent(expected, dict.Keys.ToList());
+        }
+
+        [TestMethod]
+        public void TestValues()
+        {
+            IDictionary<int, int> dict = new DataContractDictionary<int, int>
             {
                 { 1, 2 },
                 { 3, 4 },
