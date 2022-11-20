@@ -329,9 +329,9 @@ namespace MPewsey.ManiaMap.Collections
             {
                 for (int j = 0; j < Columns; j++)
                 {
-                    var k = rotation.Rows - 1 - i;
-                    var l = rotation.Columns - 1 - j;
-                    rotation[k, l] = this[i, j];
+                    var m = rotation.Rows - 1 - i;
+                    var n = rotation.Columns - 1 - j;
+                    rotation[m, n] = this[i, j];
                 }
             }
 
