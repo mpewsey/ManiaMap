@@ -90,7 +90,12 @@ namespace MPewsey.ManiaMap.Collections
             HashSet.ExceptWith(other);
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public HashSet<T>.Enumerator GetEnumerator()
+        {
+            return HashSet.GetEnumerator();
+        }
+
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
         {
             return HashSet.GetEnumerator();
         }
