@@ -59,6 +59,25 @@ namespace MPewsey.ManiaMap
         private Layout Layout { get; set; }
 
         /// <summary>
+        /// The allowable number of layout rebases for the current chain.
+        /// </summary>
+        private int AllowableRebases { get; set; } = 1;
+
+        private int _chainIndex;
+        /// <summary>
+        /// The current chain index.
+        /// </summary>
+        private int ChainIndex
+        {
+            get => _chainIndex;
+            set
+            {
+                _chainIndex = value;
+                SetAllowableRebases(value);
+            }
+        }
+
+        /// <summary>
         /// Initializes the generator.
         /// </summary>
         /// <param name="maxRebases">The maximum number of times that a sub layout can be used as a base before it is discarded.</param>
@@ -74,6 +93,16 @@ namespace MPewsey.ManiaMap
         public override string ToString()
         {
             return $"LayoutGenerator(MaxRebases = {MaxRebases}, RebaseDecayRate = {RebaseDecayRate}, MaxBranchLength = {MaxBranchLength})";
+        }
+
+        /// <summary>
+        /// Sets the allowable number of rebases for the specified chain index.
+        /// </summary>
+        /// <param name="chain">The chain index.</param>
+        private void SetAllowableRebases(int chain)
+        {
+            var value = (int)Math.Ceiling(MaxRebases * Math.Exp(-chain * RebaseDecayRate));
+            AllowableRebases = Math.Max(value, 1);
         }
 
         /// <summary>
@@ -116,6 +145,7 @@ namespace MPewsey.ManiaMap
             TemplateGroups = templateGroups;
             RandomSeed = randomSeed;
             ConfigurationSpaces = templateGroups.GetConfigurationSpaces();
+            ChainIndex = 0;
         }
 
         /// <summary>
@@ -129,59 +159,49 @@ namespace MPewsey.ManiaMap
         {
             Initialize(graph, templateGroups, randomSeed);
 
-            int chain = 0;
-            var allowableRebases = AllowableRebases(chain);
             var chains = Graph.FindChains(MaxBranchLength);
-            var layouts = new List<Layout>(chains.Count) { new Layout(layoutId, graph.Name, randomSeed) };
+            var baseLayout = new Layout(layoutId, graph.Name, randomSeed);
+            var layouts = new Stack<Layout>(chains.Count);
+            layouts.Push(baseLayout);
 
             while (layouts.Count > 0)
             {
-                Layout = layouts[layouts.Count - 1];
+                Layout = layouts.Peek();
 
                 // If all chains have been added, validate the layout.
-                if (chain >= chains.Count)
+                if (ChainIndex >= chains.Count)
                 {
                     // If layout is complete, return the layout.
                     if (Layout.IsComplete(TemplateGroups))
                         return new Layout(Layout);
 
                     // If layout is not complete, start over.
-                    chain = 0;
-                    allowableRebases = AllowableRebases(chain);
-                    layouts.RemoveRange(1, layouts.Count - 1);
+                    ChainIndex = 0;
+                    layouts.Clear();
+                    layouts.Push(baseLayout);
                     continue;
                 }
 
                 // If layout has been used as a base more than the maximum allowable count,
                 // remove the layout and backtrack.
-                if (Layout.Rebases > allowableRebases)
+                if (Layout.Rebases > AllowableRebases)
                 {
-                    layouts.RemoveAt(layouts.Count - 1);
-                    allowableRebases = AllowableRebases(--chain);
+                    layouts.Pop();
+                    ChainIndex--;
                     continue;
                 }
 
                 // Create a new layout and try to add the next chain.
                 Layout = new Layout(Layout);
 
-                if (AddChain(chains[chain]))
+                if (AddChain(chains[ChainIndex]))
                 {
-                    layouts.Add(Layout);
-                    allowableRebases = AllowableRebases(++chain);
+                    layouts.Push(Layout);
+                    ChainIndex++;
                 }
             }
 
             return null;
-        }
-
-        /// <summary>
-        /// Returns the allowable number of rebases for the chain index.
-        /// </summary>
-        /// <param name="chain">The chain index.</param>
-        private int AllowableRebases(int chain)
-        {
-            var value = (int)Math.Ceiling(MaxRebases * Math.Exp(-chain * RebaseDecayRate));
-            return Math.Max(value, 1);
         }
 
         /// <summary>
