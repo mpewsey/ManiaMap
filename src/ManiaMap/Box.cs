@@ -40,8 +40,8 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns true if the room template intersects the Box.
         /// </summary>
-        /// <param name="template"></param>
-        /// <param name="position"></param>
+        /// <param name="template">The room template.</param>
+        /// <param name="position">The template position.</param>
         public bool Intersects(RoomTemplate template, Vector3DInt position)
         {
             return position.Z >= Min.Z
