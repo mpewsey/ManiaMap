@@ -134,6 +134,12 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
+<tr class="memitem:a39c8d75548ac3849452deb1fc7a34e83"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a39c8d75548ac3849452deb1fc7a34e83">AllowableRebases</a> = 1<code> [getset]</code></td></tr>
+<tr class="memdesc:a39c8d75548ac3849452deb1fc7a34e83"><td class="mdescLeft">&#160;</td><td class="mdescRight">The allowable number of layout rebases for the current chain.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a39c8d75548ac3849452deb1fc7a34e83">More...</a><br /></td></tr>
+<tr class="separator:a39c8d75548ac3849452deb1fc7a34e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15ebaf962b59d4fcef6b1b01bbbbf108"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a15ebaf962b59d4fcef6b1b01bbbbf108">ChainIndex</a><code> [getset]</code></td></tr>
+<tr class="memdesc:a15ebaf962b59d4fcef6b1b01bbbbf108"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current chain index.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a15ebaf962b59d4fcef6b1b01bbbbf108">More...</a><br /></td></tr>
+<tr class="separator:a15ebaf962b59d4fcef6b1b01bbbbf108"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf7c4f21a0336831d908a815693965cd"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_template_pair.html">TemplatePair</a>, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_configuration_space.html">ConfigurationSpace</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#abf7c4f21a0336831d908a815693965cd">ConfigurationSpaces</a><code> [getset]</code></td></tr>
 <tr class="memdesc:abf7c4f21a0336831d908a815693965cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">A dictionary of configuration spaces by template pair.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#abf7c4f21a0336831d908a815693965cd">More...</a><br /></td></tr>
 <tr class="separator:abf7c4f21a0336831d908a815693965cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,9 +182,6 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a5738851351a54a0de8b24a572699adfc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a5738851351a54a0de8b24a572699adfc">AddRooms</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> edge)</td></tr>
 <tr class="memdesc:a5738851351a54a0de8b24a572699adfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to add the rooms for the edge to the layout. Returns true if successful.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a5738851351a54a0de8b24a572699adfc">More...</a><br /></td></tr>
 <tr class="separator:a5738851351a54a0de8b24a572699adfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd70622238ffda1681d35b06342fe59a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#acd70622238ffda1681d35b06342fe59a">AllowableRebases</a> (int chain)</td></tr>
-<tr class="memdesc:acd70622238ffda1681d35b06342fe59a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the allowable number of rebases for the chain index.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#acd70622238ffda1681d35b06342fe59a">More...</a><br /></td></tr>
-<tr class="separator:acd70622238ffda1681d35b06342fe59a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f25f33be4ea12b2dbbb689fbf9069ec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a2f25f33be4ea12b2dbbb689fbf9069ec">CanInsertRoom</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> backEdge, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> aheadEdge)</td></tr>
 <tr class="memdesc:a2f25f33be4ea12b2dbbb689fbf9069ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the middle node for the edges can be inserted between existing rooms.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#a2f25f33be4ea12b2dbbb689fbf9069ec">More...</a><br /></td></tr>
 <tr class="separator:a2f25f33be4ea12b2dbbb689fbf9069ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -197,9 +200,14 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:ab0609d29da4589ec6efa6687ae8551ec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#ab0609d29da4589ec6efa6687ae8551ec">InsertRooms</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> backEdge, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_edge.html">LayoutEdge</a> aheadEdge)</td></tr>
 <tr class="memdesc:ab0609d29da4589ec6efa6687ae8551ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attemps to insert the rooms for the edges into the layout. Returns true if successful.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#ab0609d29da4589ec6efa6687ae8551ec">More...</a><br /></td></tr>
 <tr class="separator:ab0609d29da4589ec6efa6687ae8551ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9e10fa247155d9c7bd0d3c7fd87bc70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#ae9e10fa247155d9c7bd0d3c7fd87bc70">SetAllowableRebases</a> (int chain)</td></tr>
+<tr class="memdesc:ae9e10fa247155d9c7bd0d3c7fd87bc70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the allowable number of rebases for the specified chain index.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#ae9e10fa247155d9c7bd0d3c7fd87bc70">More...</a><br /></td></tr>
+<tr class="separator:ae9e10fa247155d9c7bd0d3c7fd87bc70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:ad1d6bf74b51666c4a0dbc6aca95cded1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#ad1d6bf74b51666c4a0dbc6aca95cded1">_chainIndex</a></td></tr>
+<tr class="separator:ad1d6bf74b51666c4a0dbc6aca95cded1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8a6dc189e32dc543653be95af0e3cb0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#ae8a6dc189e32dc543653be95af0e3cb0">_maxRebases</a></td></tr>
 <tr class="separator:ae8a6dc189e32dc543653be95af0e3cb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad679607b75ac51ddfc36c394ed04b50c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout_generator.html#ad679607b75ac51ddfc36c394ed04b50c">_rebaseDecayRate</a></td></tr>
@@ -258,7 +266,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00067">67</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00086">86</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -295,7 +303,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00223">223</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00243">243</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -349,7 +357,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00463">463</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00483">483</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -385,7 +393,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00329">329</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00349">349</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -446,7 +454,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00350">350</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00370">370</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -488,43 +496,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00298">298</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
-
-</div>
-</div>
-<a id="acd70622238ffda1681d35b06342fe59a" name="acd70622238ffda1681d35b06342fe59a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd70622238ffda1681d35b06342fe59a">&#9670;&nbsp;</a></span>AllowableRebases()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int MPewsey.ManiaMap.LayoutGenerator.AllowableRebases </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>chain</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the allowable number of rebases for the chain index. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">chain</td><td>The chain index.</td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00181">181</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00318">318</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -563,7 +535,7 @@ References</h2>
 
 <p>Implements <a class="el" href="interface_m_pewsey_1_1_mania_map_1_1_i_generation_step.html#a0f12642a8f7cc1274cff4e0f806f1d43">MPewsey.ManiaMap.IGenerationStep</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00092">92</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00121">121</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -610,7 +582,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00250">250</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00270">270</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -663,7 +635,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00128">128</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00158">158</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -710,7 +682,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00192">192</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00212">212</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -746,7 +718,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00202">202</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00222">222</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -800,7 +772,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00110">110</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00139">139</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -882,7 +854,7 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00398">398</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00418">418</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -929,7 +901,43 @@ References</h2>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00264">264</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00284">284</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+
+</div>
+</div>
+<a id="ae9e10fa247155d9c7bd0d3c7fd87bc70" name="ae9e10fa247155d9c7bd0d3c7fd87bc70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9e10fa247155d9c7bd0d3c7fd87bc70">&#9670;&nbsp;</a></span>SetAllowableRebases()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MPewsey.ManiaMap.LayoutGenerator.SetAllowableRebases </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>chain</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the allowable number of rebases for the specified chain index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chain</td><td>The chain index.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00102">102</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
@@ -948,11 +956,35 @@ References</h2>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00074">74</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00093">93</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad1d6bf74b51666c4a0dbc6aca95cded1" name="ad1d6bf74b51666c4a0dbc6aca95cded1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1d6bf74b51666c4a0dbc6aca95cded1">&#9670;&nbsp;</a></span>_chainIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MPewsey.ManiaMap.LayoutGenerator._chainIndex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00066">66</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+
+</div>
+</div>
 <a id="ae8a6dc189e32dc543653be95af0e3cb0" name="ae8a6dc189e32dc543653be95af0e3cb0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae8a6dc189e32dc543653be95af0e3cb0">&#9670;&nbsp;</a></span>_maxRebases</h2>
 
@@ -1002,6 +1034,58 @@ References</h2>
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
+<a id="a39c8d75548ac3849452deb1fc7a34e83" name="a39c8d75548ac3849452deb1fc7a34e83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39c8d75548ac3849452deb1fc7a34e83">&#9670;&nbsp;</a></span>AllowableRebases</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MPewsey.ManiaMap.LayoutGenerator.AllowableRebases = 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The allowable number of layout rebases for the current chain. </p>
+
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00064">64</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+
+</div>
+</div>
+<a id="a15ebaf962b59d4fcef6b1b01bbbbf108" name="a15ebaf962b59d4fcef6b1b01bbbbf108"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15ebaf962b59d4fcef6b1b01bbbbf108">&#9670;&nbsp;</a></span>ChainIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MPewsey.ManiaMap.LayoutGenerator.ChainIndex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The current chain index. </p>
+
+<p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00070">70</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
+
+</div>
+</div>
 <a id="abf7c4f21a0336831d908a815693965cd" name="abf7c4f21a0336831d908a815693965cd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abf7c4f21a0336831d908a815693965cd">&#9670;&nbsp;</a></span>ConfigurationSpaces</h2>
 

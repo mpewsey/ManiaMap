@@ -1,5 +1,9 @@
 var NAVTREEINDEX5 =
 {
+"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html#a76d56c84e43e58625963ff1bf9469b9a":[9,0,0,0,3,3,3,0],
+"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html#a76d56c84e43e58625963ff1bf9469b9a":[8,0,0,0,3,3,3,0],
+"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html#a9b7ad53ec79613d1e2468d287fa5dc88":[8,0,0,0,3,3,3,3],
+"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html#a9b7ad53ec79613d1e2468d287fa5dc88":[9,0,0,0,3,3,3,3],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html#a9f7f9d5b8f122ca4367f1f761c38ad68":[8,0,0,0,3,3,3,2],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html#a9f7f9d5b8f122ca4367f1f761c38ad68":[9,0,0,0,3,3,3,2],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html#ac2e3bb3bede0190ee8a0138a2beb5659":[8,0,0,0,3,3,3,1],
@@ -245,9 +249,5 @@ var NAVTREEINDEX5 =
 "namespace_m_pewsey_1_1_mania_map_1_1_exceptions.html":[8,0,0,0,2],
 "namespace_m_pewsey_1_1_mania_map_1_1_samples.html":[8,0,0,0,3],
 "namespace_m_pewsey_1_1_mania_map_1_1_serialization.html":[8,0,0,0,4],
-"namespacemembers.html":[8,1,0],
-"namespacemembers_enum.html":[8,1,1],
-"namespaces.html":[8,0],
-"pages.html":[],
-"struct_m_pewsey_1_1_mania_map_1_1_collectable.html":[8,0,0,0,8]
+"namespacemembers.html":[8,1,0]
 };

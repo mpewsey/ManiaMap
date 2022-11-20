@@ -1,5 +1,9 @@
 var NAVTREEINDEX6 =
 {
+"namespacemembers_enum.html":[8,1,1],
+"namespaces.html":[8,0],
+"pages.html":[],
+"struct_m_pewsey_1_1_mania_map_1_1_collectable.html":[8,0,0,0,8],
 "struct_m_pewsey_1_1_mania_map_1_1_collectable.html":[9,0,0,0,8],
 "struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a132fec379b4d13dec961d0ffd1df5a56":[8,0,0,0,8,0],
 "struct_m_pewsey_1_1_mania_map_1_1_collectable.html#a132fec379b4d13dec961d0ffd1df5a56":[9,0,0,0,8,0],
