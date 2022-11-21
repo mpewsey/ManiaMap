@@ -144,16 +144,14 @@ namespace MPewsey.ManiaMap
         /// <returns></returns>
         public int Next()
         {
-            var i = WrapIndex(Position1 + 1);
-            var j = WrapIndex(Position2 + 1);
-            var next = Mod(Seeds[i] - Seeds[j]);
+            Position1 = WrapIndex(Position1 + 1);
+            Position2 = WrapIndex(Position2 + 1);
+            var next = Mod(Seeds[Position1] - Seeds[Position2]);
 
             if (next == int.MaxValue)
                 next--;
 
-            Seeds[i] = next;
-            Position1 = i;
-            Position2 = j;
+            Seeds[Position1] = next;
             return next;
         }
 
@@ -260,9 +258,7 @@ namespace MPewsey.ManiaMap
                 for (int i = 0; i < totals.Length; i++)
                 {
                     if (value <= totals[i] && totals[i] > 0)
-                    {
                         return i;
-                    }
                 }
             }
 
