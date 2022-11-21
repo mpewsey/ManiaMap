@@ -144,14 +144,16 @@ namespace MPewsey.ManiaMap
         /// <returns></returns>
         public int Next()
         {
-            Position1 = WrapIndex(Position1 + 1);
-            Position2 = WrapIndex(Position2 + 1);
-            var next = Mod(Seeds[Position1] - Seeds[Position2]);
+            var i = WrapIndex(Position1 + 1);
+            var j = WrapIndex(Position2 + 1);
+            var next = Mod(Seeds[i] - Seeds[j]);
 
             if (next == int.MaxValue)
                 next--;
 
-            Seeds[Position1] = next;
+            Seeds[i] = next;
+            Position1 = i;
+            Position2 = j;
             return next;
         }
 
