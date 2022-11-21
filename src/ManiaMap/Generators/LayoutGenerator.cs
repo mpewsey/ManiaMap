@@ -158,6 +158,7 @@ namespace MPewsey.ManiaMap.Generators
         /// <param name="randomSeed">The random seed.</param>
         public Layout Generate(int layoutId, LayoutGraph graph, TemplateGroups templateGroups, RandomSeed randomSeed)
         {
+            GenerationLogger.Log("Running layout generator...");
             Initialize(graph, templateGroups, randomSeed);
 
             var chains = Graph.FindChains(MaxBranchLength);
@@ -174,12 +175,17 @@ namespace MPewsey.ManiaMap.Generators
                 {
                     // If layout is complete, return the layout.
                     if (Layout.IsComplete(TemplateGroups))
-                        return new Layout(Layout);
+                    {
+                        Layout = new Layout(Layout);
+                        GenerationLogger.Log("Layout generator complete.");
+                        return Layout;
+                    }
 
                     // If layout is not complete, start over.
                     ChainIndex = 0;
                     layouts.Clear();
                     layouts.Push(baseLayout);
+                    GenerationLogger.Log("Layout constraints not satisfied. Restarting...");
                     continue;
                 }
 
@@ -189,6 +195,7 @@ namespace MPewsey.ManiaMap.Generators
                 {
                     layouts.Pop();
                     ChainIndex--;
+                    GenerationLogger.Log("Rebase count exceeded. Backtracking...");
                     continue;
                 }
 
@@ -199,9 +206,11 @@ namespace MPewsey.ManiaMap.Generators
                 {
                     layouts.Push(Layout);
                     ChainIndex++;
+                    GenerationLogger.Log($"Added chain {ChainIndex} / {chains.Count}...");
                 }
             }
 
+            GenerationLogger.Log("Layout generator failed.");
             return null;
         }
 

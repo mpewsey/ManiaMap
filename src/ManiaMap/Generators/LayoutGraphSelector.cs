@@ -36,8 +36,13 @@ namespace MPewsey.ManiaMap.Generators
         /// <param name="randomSeed">The random seed.</param>
         public LayoutGraph DrawSelection(IList<LayoutGraph> graphs, RandomSeed randomSeed)
         {
+            GenerationLogger.Log("Running layout graph list selector...");
+
             var index = randomSeed.Next(0, graphs.Count);
-            return graphs[index].Copy();
+            var result = graphs[index].Copy();
+
+            GenerationLogger.Log("Layout graph selector complete.");
+            return result;
         }
 
         /// <summary>
@@ -47,8 +52,13 @@ namespace MPewsey.ManiaMap.Generators
         /// <param name="randomSeed">The random seed.</param>
         public LayoutGraph DrawSelection(IList<Func<LayoutGraph>> functions, RandomSeed randomSeed)
         {
+            GenerationLogger.Log("Applying layout graph delegate list selector...");
+
             var index = randomSeed.Next(0, functions.Count);
-            return functions[index].Invoke().Copy();
+            var result = functions[index].Invoke().Copy();
+
+            GenerationLogger.Log("Layout graph selector complete.");
+            return result;
         }
 
         /// <summary>
@@ -59,6 +69,8 @@ namespace MPewsey.ManiaMap.Generators
         /// <exception cref="ArgumentException">Raised if the type of `graphs` is not handled.</exception>
         public LayoutGraph DrawSelection(object graphs, RandomSeed randomSeed)
         {
+            GenerationLogger.Log("Running layout graph selector...");
+
             switch (graphs)
             {
                 case IList<LayoutGraph> list:

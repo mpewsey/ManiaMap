@@ -16,6 +16,9 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [DataRow(123456789)]
         public void TestDefaultPipelineGeneration(int seed)
         {
+            GenerationLogger.RemoveAllListeners();
+            GenerationLogger.AddListener(Console.WriteLine);
+
             var results = Samples.BigLayoutSample.Generate(seed);
             Assert.IsTrue(results.Success);
             Assert.IsTrue(results.Outputs.ContainsKey("Layout"));

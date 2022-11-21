@@ -42,15 +42,20 @@ namespace MPewsey.ManiaMap.Generators
         /// <param name="inputs">A dictionary of generator inputs.</param>
         public Results Generate(Dictionary<string, object> inputs)
         {
+            GenerationLogger.Log("Running generation pipeline...");
             var results = new Results(inputs);
 
             foreach (var step in Steps)
             {
                 if (!step.ApplyStep(results))
+                {
+                    GenerationLogger.Log("Generation pipeline failed.");
                     return results;
+                }
             }
 
             results.Success = true;
+            GenerationLogger.Log("Generation pipeline complete.");
             return results;
         }
 

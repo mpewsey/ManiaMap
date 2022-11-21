@@ -11,6 +11,9 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestHyperSquareCrossLayout()
         {
+            GenerationLogger.RemoveAllListeners();
+            GenerationLogger.AddListener(Console.WriteLine);
+
             var graph = Samples.GraphLibrary.CrossGraph();
 
             var templateGroups = new TemplateGroups();
@@ -35,6 +38,9 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestHyperSquareStackedLoopLayout()
         {
+            GenerationLogger.RemoveAllListeners();
+            GenerationLogger.AddListener(Console.WriteLine);
+
             var graph = Samples.GraphLibrary.StackedLoopGraph();
 
             var templateGroups = new TemplateGroups();
@@ -59,6 +65,9 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestLLoopLayout()
         {
+            GenerationLogger.RemoveAllListeners();
+            GenerationLogger.AddListener(Console.WriteLine);
+
             var graph = Samples.GraphLibrary.LoopGraph();
 
             var templateGroups = new TemplateGroups();
@@ -85,6 +94,9 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestHyperSquareGeekLayout()
         {
+            GenerationLogger.RemoveAllListeners();
+            GenerationLogger.AddListener(Console.WriteLine);
+
             var graph = Samples.GraphLibrary.GeekGraph();
 
             var templateGroups = new TemplateGroups();
@@ -123,6 +135,9 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestManiaMapLayout()
         {
+            GenerationLogger.RemoveAllListeners();
+            GenerationLogger.AddListener(Console.WriteLine);
+
             var layout = Samples.ManiaMapSample.ManiaMapLayout();
 
             Assert.IsNotNull(layout);
@@ -154,6 +169,9 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [DataRow(123456789)]
         public void TestBigLayout(int seed)
         {
+            GenerationLogger.RemoveAllListeners();
+            GenerationLogger.AddListener(Console.WriteLine);
+
             var random = new RandomSeed(seed);
             var graph = Samples.GraphLibrary.BigGraph();
             var templateGroups = Samples.BigLayoutSample.BigLayoutTemplateGroups();
@@ -165,6 +183,9 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestDirectedRingLayout()
         {
+            GenerationLogger.RemoveAllListeners();
+            GenerationLogger.AddListener(Console.WriteLine);
+
             var graph = Samples.GraphLibrary.DirectedRingGraph();
 
             var templateGroups = new TemplateGroups();

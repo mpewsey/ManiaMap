@@ -120,6 +120,7 @@ namespace MPewsey.ManiaMap.Generators
         /// <param name="randomSeed">The random seed.</param>
         public void Generate(Layout layout, CollectableGroups collectableGroups, RandomSeed randomSeed)
         {
+            GenerationLogger.Log("Running collectable generator...");
             Initialize(layout, collectableGroups, randomSeed);
 
             AddCollectableSpots();
@@ -130,6 +131,8 @@ namespace MPewsey.ManiaMap.Generators
             {
                 AddCollectable(collectable.Group, collectable.Id);
             }
+
+            GenerationLogger.Log("Collectable generator complete.");
         }
 
         /// <summary>
