@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['b_0',['B',['../struct_m_pewsey_1_1_mania_map_1_1_color4.html#a19dcd48fe3e6cfabaf4efc136e170701',1,'MPewsey::ManiaMap::Color4']]],
+  ['b_0',['B',['../struct_m_pewsey_1_1_mania_map_1_1_color4.html#a19dcd48fe3e6cfabaf4efc136e170701',1,'MPewsey.ManiaMap.Color4.B()'],['../struct_m_pewsey_1_1_mania_map_1_1_uid.html#ae25774a905aaceddd182625a32b20bb9',1,'MPewsey.ManiaMap.Uid.B()']]],
   ['backgroundcolor_1',['BackgroundColor',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#aa8a2ce3b1854e3b180f786c58031590e',1,'MPewsey::ManiaMap::Drawing::LayoutMap']]],
   ['basedatacontractdictionary_2',['BaseDataContractDictionary',['../class_m_pewsey_1_1_mania_map_1_1_collections_1_1_base_data_contract_dictionary.html',1,'MPewsey::ManiaMap::Collections']]],
   ['biggraph_3',['BigGraph',['../class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#a390075d9339df2ab15fa75722d475c6b',1,'MPewsey::ManiaMap::Samples::GraphLibrary']]],
