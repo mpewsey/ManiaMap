@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MPewsey.ManiaMap.Collections;
 
-namespace MPewsey.ManiaMap.Tests
+namespace MPewsey.ManiaMap.Collections.Tests
 {
     [TestClass]
     public class TestCellDistanceSearch

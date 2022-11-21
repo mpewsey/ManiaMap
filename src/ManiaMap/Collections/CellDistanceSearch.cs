@@ -1,6 +1,4 @@
-﻿using MPewsey.ManiaMap.Collections;
-
-namespace MPewsey.ManiaMap
+﻿namespace MPewsey.ManiaMap.Collections
 {
     /// <summary>
     /// A class for calculating distances between cells.
