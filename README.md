@@ -188,3 +188,19 @@ pipeline = new GenerationPipeline(new LayoutGenerator(), new CollectableGenerato
 var results = pipeline.Generate(args);
 var layout = (Layout)results.Outputs["Layout"];
 ```
+
+## Generation Logger Example
+
+The generators include logging messages that can be subscribed to by adding a delegate to the `GenerationLogger`, as shown in the below example.
+
+```GenerationLogger.cs
+// Have the messages printed to the console.
+GenerationLogger.AddListener(Console.WriteLine);
+
+// Or added to a list.
+var messages = new List<string>();
+GenerationLogger.AddListener(messages.Add);
+
+// Make sure to have your objects unsubscribe from the event to prevent memory leaks.
+GenerationLogger.RemoveListener(messages.Add);
+```
