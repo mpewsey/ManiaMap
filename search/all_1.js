@@ -12,6 +12,6 @@ var searchData=
   ['bottomdoor_9',['BottomDoor',['../class_m_pewsey_1_1_mania_map_1_1_cell.html#adf1d4b7e0f25c085a1c9b590fd8dc138',1,'MPewsey.ManiaMap.Cell.BottomDoor()'],['../class_m_pewsey_1_1_mania_map_1_1_map_tile_type.html#ab4f829ce5524771eec949da2d6fb33c0',1,'MPewsey.ManiaMap.MapTileType.BottomDoor()']]],
   ['bottomdooraligns_10',['BottomDoorAligns',['../class_m_pewsey_1_1_mania_map_1_1_cell.html#ae4f9f27bdb64cbe5e0e730f2429480dd',1,'MPewsey::ManiaMap::Cell']]],
   ['box_11',['Box',['../class_m_pewsey_1_1_mania_map_1_1_box.html#a4d5c2bb472b3f1435cfe26ee8f6e5526',1,'MPewsey.ManiaMap.Box.Box()'],['../class_m_pewsey_1_1_mania_map_1_1_box.html',1,'MPewsey.ManiaMap.Box']]],
-  ['branches_12',['Branches',['../class_m_pewsey_1_1_mania_map_1_1_graph_branch_decomposer.html#a7db6833bb0072d3ab234401026067aa8',1,'MPewsey::ManiaMap::GraphBranchDecomposer']]],
-  ['branchsearch_13',['BranchSearch',['../class_m_pewsey_1_1_mania_map_1_1_graph_branch_decomposer.html#a13dc58bbf58cfc21addc123ad585b461',1,'MPewsey::ManiaMap::GraphBranchDecomposer']]]
+  ['branches_12',['Branches',['../class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html#a816fd762b238804b57287f7555c19528',1,'MPewsey::ManiaMap::Graphs::GraphBranchDecomposer']]],
+  ['branchsearch_13',['BranchSearch',['../class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html#af97ddcd47a233ec2c7333d5f55db29db',1,'MPewsey::ManiaMap::Graphs::GraphBranchDecomposer']]]
 ];

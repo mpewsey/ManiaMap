@@ -53,7 +53,8 @@ var NAVTREE =
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
-        [ "Properties", "functions_prop.html", "functions_prop" ]
+        [ "Properties", "functions_prop.html", "functions_prop" ],
+        [ "Events", "functions_evnt.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -65,12 +66,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_____docs_____8cs_source.html",
-"class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#aab69e750b87004adf88a4ab015d71624",
-"class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a776adcdf4858829919cb342108c797f6",
-"class_m_pewsey_1_1_mania_map_1_1_layout_edge.html#a4d7e3b0197f0f37585f884209f79bed7",
-"class_m_pewsey_1_1_mania_map_1_1_map_tile_type.html#a446525d679c4236bf79e1fa04f1bb4ad",
-"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html#a76d56c84e43e58625963ff1bf9469b9a",
-"namespacemembers_enum.html"
+"class_m_pewsey_1_1_mania_map_1_1_collections_1_1_array2_d.html#ae73f434744344138279b9d54a186f320",
+"class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_id_exception.html",
+"class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_cycle_decomposer.html#a87d5f813a010f30f5da37c41fb92c1b8",
+"class_m_pewsey_1_1_mania_map_1_1_layout.html#ad5b4a4aa2b811ae5be1799b4b03fcccd",
+"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_miscellaneous.html#a9567f11246cdebe94a924e7962f184fe",
+"namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839ba601560b94fbb188919dd1d36c8ab70a4"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
