@@ -1,0 +1,15 @@
+﻿namespace MPewsey.ManiaMap.Generators
+{
+    /// <summary>
+    /// An interface for creating a step of the GenerationPipeline.
+    /// </summary>
+    public interface IGenerationStep
+    {
+        /// <summary>
+        /// Performs the generation operations for this step.
+        /// Artifacts should be written to the results output dictionary.
+        /// </summary>
+        /// <param name="results">The generation pipeline results.</param>
+        bool ApplyStep(GenerationPipeline.Results results);
+    }
+}

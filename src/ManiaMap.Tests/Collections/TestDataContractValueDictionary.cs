@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.ManiaMap.Graphs;
 using MPewsey.ManiaMap.Serialization;
 using System.Linq;
 

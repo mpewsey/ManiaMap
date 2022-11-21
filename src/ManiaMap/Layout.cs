@@ -1,4 +1,5 @@
 ﻿using MPewsey.ManiaMap.Collections;
+using MPewsey.ManiaMap.Graphs;
 using MPewsey.ManiaMap.Serialization;
 using System;
 using System.Collections.Generic;

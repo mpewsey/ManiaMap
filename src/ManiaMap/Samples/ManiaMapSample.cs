@@ -1,4 +1,7 @@
-﻿namespace MPewsey.ManiaMap.Samples
+﻿using MPewsey.ManiaMap.Generators;
+using MPewsey.ManiaMap.Graphs;
+
+namespace MPewsey.ManiaMap.Samples
 {
     /// <summary>
     /// Contains methods for the Mania Map sample.

@@ -66,9 +66,12 @@ namespace MPewsey.ManiaMap.Collections
         /// <param name="array">The built-in 2D array.</param>
         public Array2D(T[,] array)
         {
-            Rows = array.GetLength(0);
-            Columns = array.GetLength(1);
-            Array = FlattenArray(array);
+            if (array.Length > 0)
+            {
+                Rows = array.GetLength(0);
+                Columns = array.GetLength(1);
+                Array = FlattenArray(array);
+            }
         }
 
         /// <summary>

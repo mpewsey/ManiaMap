@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using MPewsey.ManiaMap.Generators;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MPewsey.ManiaMap.Samples
