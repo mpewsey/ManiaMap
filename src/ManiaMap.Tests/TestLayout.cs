@@ -27,7 +27,7 @@ namespace MPewsey.ManiaMap.Tests
             var copy = XmlSerialization.LoadXml<Layout>(path);
             Assert.AreEqual(layout.Id, copy.Id);
             Assert.AreEqual(layout.Name, copy.Name);
-            Assert.AreEqual(layout.Seed.Seed, copy.Seed.Seed);
+            Assert.AreEqual(layout.Seed, copy.Seed);
             Assert.AreEqual(layout.Rooms.Count, copy.Rooms.Count);
             Assert.AreEqual(layout.DoorConnections.Count, copy.DoorConnections.Count);
         }
@@ -43,7 +43,7 @@ namespace MPewsey.ManiaMap.Tests
             var copy = XmlSerialization.LoadXml<Layout>(path);
             Assert.AreEqual(layout.Id, copy.Id);
             Assert.AreEqual(layout.Name, copy.Name);
-            Assert.AreEqual(layout.Seed.Seed, copy.Seed.Seed);
+            Assert.AreEqual(layout.Seed, copy.Seed);
             Assert.AreEqual(layout.Rooms.Count, copy.Rooms.Count);
             Assert.AreEqual(layout.DoorConnections.Count, copy.DoorConnections.Count);
             Assert.AreEqual(layout.Templates.Count, copy.Templates.Count);
@@ -60,7 +60,7 @@ namespace MPewsey.ManiaMap.Tests
             var copy = JsonSerialization.LoadJson<Layout>(path);
             Assert.AreEqual(layout.Id, copy.Id);
             Assert.AreEqual(layout.Name, copy.Name);
-            Assert.AreEqual(layout.Seed.Seed, copy.Seed.Seed);
+            Assert.AreEqual(layout.Seed, copy.Seed);
             Assert.AreEqual(layout.Rooms.Count, copy.Rooms.Count);
             Assert.AreEqual(layout.DoorConnections.Count, copy.DoorConnections.Count);
             Assert.AreEqual(layout.Templates.Count, copy.Templates.Count);
@@ -82,7 +82,7 @@ namespace MPewsey.ManiaMap.Tests
             var copy = JsonSerialization.LoadEncryptedJson<Layout>(path, key);
             Assert.AreEqual(layout.Id, copy.Id);
             Assert.AreEqual(layout.Name, copy.Name);
-            Assert.AreEqual(layout.Seed.Seed, copy.Seed.Seed);
+            Assert.AreEqual(layout.Seed, copy.Seed);
             Assert.AreEqual(layout.Rooms.Count, copy.Rooms.Count);
             Assert.AreEqual(layout.DoorConnections.Count, copy.DoorConnections.Count);
             Assert.AreEqual(layout.Templates.Count, copy.Templates.Count);
@@ -96,7 +96,7 @@ namespace MPewsey.ManiaMap.Tests
             XmlSerialization.SaveXml(path, layout);
             var bytes = File.ReadAllBytes(path);
             var copy = XmlSerialization.LoadXml<Layout>(bytes);
-            Assert.AreEqual(layout.Seed.Seed, copy.Seed.Seed);
+            Assert.AreEqual(layout.Seed, copy.Seed);
         }
 
         [TestMethod]
