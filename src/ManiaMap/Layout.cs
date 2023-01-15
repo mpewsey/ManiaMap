@@ -29,7 +29,7 @@ namespace MPewsey.ManiaMap
         /// The random seed used to generate the layout.
         /// </summary>
         [DataMember(Order = 2, IsRequired = true)]
-        public RandomSeed Seed { get; private set; }
+        public int Seed { get; private set; }
 
         /// <summary>
         /// A dictionary of rooms in the layout by ID.
@@ -72,7 +72,7 @@ namespace MPewsey.ManiaMap
         {
             Id = id;
             Name = name;
-            Seed = seed;
+            Seed = seed.Seed;
         }
 
         /// <summary>
