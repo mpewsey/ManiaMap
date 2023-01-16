@@ -30,7 +30,7 @@ namespace MPewsey.ManiaMap.Generators.Tests
             var results = Samples.BigLayoutSample.Generate(12345);
             Assert.IsTrue(results.Success);
             Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
-            var layout = (Layout)results.Outputs["Layout"];
+            var layout = results.GetOutput<Layout>("Layout");
 
             var xml = XmlSerialization.GetXmlString(layout);
             var copy = XmlSerialization.LoadXmlString<Layout>(xml);
@@ -43,7 +43,7 @@ namespace MPewsey.ManiaMap.Generators.Tests
             var results = Samples.BigLayoutSample.Generate(12345);
             Assert.IsTrue(results.Success);
             Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
-            var layout = (Layout)results.Outputs["Layout"];
+            var layout = results.GetOutput<Layout>("Layout");
             var path = "BigLayout.xml";
             XmlSerialization.SaveXml(path, layout);
             var copy = XmlSerialization.LoadXml<Layout>(path);
@@ -56,7 +56,7 @@ namespace MPewsey.ManiaMap.Generators.Tests
             var results = Samples.BigLayoutSample.Generate(12345);
             Assert.IsTrue(results.Success);
             Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
-            var layout = (Layout)results.Outputs["Layout"];
+            var layout = results.GetOutput<Layout>("Layout");
             var path = "BigLayout.sav";
 
             var key = new byte[32];

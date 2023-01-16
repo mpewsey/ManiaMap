@@ -13,7 +13,7 @@ namespace MPewsey.ManiaMap.Tests
             var path = "RoomState.xml";
             var results = Samples.BigLayoutSample.Generate(12345);
             Assert.IsTrue(results.Success);
-            var layout = (Layout)results.Outputs["Layout"];
+            var layout = results.GetOutput<Layout>("Layout");
             var room = layout.Rooms.Values.First();
             var state = new RoomState(room);
             XmlSerialization.SaveXml(path, state);

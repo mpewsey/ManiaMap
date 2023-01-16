@@ -14,7 +14,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestToString()
         {
-            var layout = new Layout(1, "TestLayout", new RandomSeed(12345));
+            var layout = new Layout(1, "TestLayout", 12345);
             Assert.IsTrue(layout.ToString().StartsWith("Layout("));
         }
 
@@ -38,7 +38,7 @@ namespace MPewsey.ManiaMap.Tests
             var path = "Layout.xml";
             var results = Samples.BigLayoutSample.Generate(12345);
             Assert.IsTrue(results.Success);
-            var layout = (Layout)results.Outputs["Layout"];
+            var layout = results.GetOutput<Layout>("Layout");
             XmlSerialization.SaveXml(path, layout);
             var copy = XmlSerialization.LoadXml<Layout>(path);
             Assert.AreEqual(layout.Id, copy.Id);
@@ -55,7 +55,7 @@ namespace MPewsey.ManiaMap.Tests
             var path = "Layout.json";
             var results = Samples.BigLayoutSample.Generate(12345);
             Assert.IsTrue(results.Success);
-            var layout = (Layout)results.Outputs["Layout"];
+            var layout = results.GetOutput<Layout>("Layout");
             JsonSerialization.SaveJson(path, layout);
             var copy = JsonSerialization.LoadJson<Layout>(path);
             Assert.AreEqual(layout.Id, copy.Id);
@@ -72,7 +72,7 @@ namespace MPewsey.ManiaMap.Tests
             var path = "LayoutJson.sav";
             var results = Samples.BigLayoutSample.Generate(12345);
             Assert.IsTrue(results.Success);
-            var layout = (Layout)results.Outputs["Layout"];
+            var layout = results.GetOutput<Layout>("Layout");
 
             var key = new byte[32];
             var random = new Random(12345);
@@ -102,9 +102,9 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestGetRoomConnections()
         {
-            var result = Samples.BigLayoutSample.Generate(12345);
-            Assert.IsTrue(result.Success);
-            var layout = (Layout)result.Outputs["Layout"];
+            var results = Samples.BigLayoutSample.Generate(12345);
+            Assert.IsTrue(results.Success);
+            var layout = results.GetOutput<Layout>("Layout");
             var connections = layout.GetRoomConnections();
             Assert.AreEqual(layout.Rooms.Count, connections.Count);
         }

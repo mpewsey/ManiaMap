@@ -24,8 +24,7 @@ namespace MPewsey.ManiaMap.Generators
         {
             var randomSeed = results.GetArgument<RandomSeed>("RandomSeed");
             var layouts = results.GetArgument<object>("LayoutGraphs");
-
-            results.Outputs["LayoutGraph"] = DrawSelection(layouts, randomSeed);
+            results.SetOutput("LayoutGraph", DrawSelection(layouts, randomSeed));
             return true;
         }
 
