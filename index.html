@@ -253,7 +253,7 @@ Generation Pipeline Example</h1>
 <div class="line">pipeline = new GenerationPipeline(new LayoutGenerator(), new CollectableGenerator());</div>
 <div class="line"> </div>
 <div class="line">var results = pipeline.Generate(args);</div>
-<div class="line">var layout = (Layout)results.Outputs[&quot;Layout&quot;];</div>
+<div class="line">var layout = results.GetOutput&lt;Layout&gt;(&quot;Layout&quot;);</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md17"></a>
 Generation Logger Example</h1>
 <p >The generators include logging messages that can be subscribed to by adding a delegate to the <code>GenerationLogger</code>, as shown in the below example.</p>
