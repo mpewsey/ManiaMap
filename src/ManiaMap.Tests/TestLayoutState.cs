@@ -24,7 +24,7 @@ namespace MPewsey.ManiaMap.Tests
             var path = "BigLayoutState.xml";
             var results = Samples.BigLayoutSample.Generate(12345);
             Assert.IsTrue(results.Success);
-            var layout = (Layout)results.Outputs["Layout"];
+            var layout = results.GetOutput<Layout>("Layout");
             var state = new LayoutState(layout);
             XmlSerialization.SaveXml(path, state);
             var copy = XmlSerialization.LoadXml<LayoutState>(path);

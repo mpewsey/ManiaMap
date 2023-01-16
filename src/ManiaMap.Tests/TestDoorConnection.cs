@@ -10,7 +10,7 @@ namespace MPewsey.ManiaMap.Tests
         {
             var results = Samples.BigLayoutSample.Generate(12345);
             Assert.IsTrue(results.Success);
-            var layout = (Layout)results.Outputs["Layout"];
+            var layout = results.GetOutput<Layout>("Layout");
 
             foreach (var connection in layout.DoorConnections.Values)
             {

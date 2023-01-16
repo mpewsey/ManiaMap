@@ -18,7 +18,7 @@ namespace MPewsey.ManiaMap.Generators
         /// <param name="steps">The generation steps in order.</param>
         public GenerationPipeline(params IGenerationStep[] steps)
         {
-            Steps.AddRange(steps);
+            Steps = new List<IGenerationStep>(steps);
         }
 
         /// <summary>
@@ -98,6 +98,25 @@ namespace MPewsey.ManiaMap.Generators
                 if (Outputs.TryGetValue(key, out var value))
                     return (T)value;
                 return (T)Inputs[key];
+            }
+
+            /// <summary>
+            /// Returns the output for the specified key.
+            /// </summary>
+            /// <param name="key">The output key.</param>
+            public T GetOutput<T>(string key)
+            {
+                return (T)Outputs[key];
+            }
+
+            /// <summary>
+            /// Sets the output to the outputs dictionary.
+            /// </summary>
+            /// <param name="key">The output key.</param>
+            /// <param name="value">The output value.</param>
+            public void SetOutput<T>(string key, T value)
+            {
+                Outputs[key] = value;
             }
         }
     }

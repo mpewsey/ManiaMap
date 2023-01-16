@@ -186,7 +186,7 @@ var pipeline = GenerationPipeline.CreateDefaultPipeline();
 pipeline = new GenerationPipeline(new LayoutGenerator(), new CollectableGenerator());
 
 var results = pipeline.Generate(args);
-var layout = (Layout)results.Outputs["Layout"];
+var layout = results.GetOutput<Layout>("Layout");
 ```
 
 ## Generation Logger Example

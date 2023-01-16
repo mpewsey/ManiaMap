@@ -68,11 +68,11 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Initializes an empty layout.
         /// </summary>
-        public Layout(int id, string name, RandomSeed seed)
+        public Layout(int id, string name, int seed)
         {
             Id = id;
             Name = name;
-            Seed = seed.Seed;
+            Seed = seed;
         }
 
         /// <summary>

@@ -127,7 +127,7 @@ namespace MPewsey.ManiaMap.Generators
             var randomSeed = results.GetArgument<RandomSeed>("RandomSeed");
 
             var layout = Generate(layoutId, graph, templateGroups, randomSeed);
-            results.Outputs["Layout"] = layout;
+            results.SetOutput("Layout", layout);
             return layout != null;
         }
 
@@ -162,7 +162,7 @@ namespace MPewsey.ManiaMap.Generators
             Initialize(graph, templateGroups, randomSeed);
 
             var chains = Graph.FindChains(MaxBranchLength);
-            var baseLayout = new Layout(layoutId, graph.Name, randomSeed);
+            var baseLayout = new Layout(layoutId, graph.Name, randomSeed.Seed);
             var layouts = new Stack<Layout>(chains.Count);
             layouts.Push(baseLayout);
 
