@@ -161,7 +161,8 @@ namespace MPewsey.ManiaMap.Graphs
         /// <param name="value">A random value between 0 and 1 to check against.</param>
         public bool RoomChanceSatisfied(double value)
         {
-            return RoomChance >= 1 || RoomChance > 0 && value <= RoomChance;
+            return RoomChance >= 1
+                || (RoomChance > 0 && value <= RoomChance);
         }
 
         /// <summary>
