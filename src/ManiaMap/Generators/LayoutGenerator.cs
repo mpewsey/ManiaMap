@@ -1,4 +1,5 @@
-﻿using MPewsey.ManiaMap.Exceptions;
+﻿using MPewsey.Common.Mathematics;
+using MPewsey.ManiaMap.Exceptions;
 using MPewsey.ManiaMap.Graphs;
 using System;
 using System.Collections.Generic;
@@ -387,7 +388,7 @@ namespace MPewsey.ManiaMap.Generators
             {
                 foreach (var config in GetConfigurations(fromRoom.Template, entry.Template))
                 {
-                    var position = config.Position + fromRoom.Position;
+                    var position = config.Position + (Vector2DInt)fromRoom.Position;
 
                     // Check if the configuration can be added to the layout. If not, try the next one.
                     if (!config.Matches(z, code, direction))
@@ -438,7 +439,7 @@ namespace MPewsey.ManiaMap.Generators
             {
                 foreach (var config1 in GetConfigurations(backRoom.Template, entry.Template))
                 {
-                    var position = config1.Position + backRoom.Position;
+                    var position = config1.Position + (Vector2DInt)backRoom.Position;
 
                     // Check if the configuration can be added to the layout. If not, try the next one.
                     if (!config1.Matches(z1, backCode, backDirection))
@@ -448,7 +449,7 @@ namespace MPewsey.ManiaMap.Generators
 
                     foreach (var config2 in GetConfigurations(entry.Template, aheadRoom.Template))
                     {
-                        var offset = aheadRoom.Position - position;
+                        var offset = (Vector2DInt)aheadRoom.Position - position;
 
                         // Check if the configuration can be added to the layout. If not, try the next one.
                         if (!config2.Matches(offset, z2, aheadCode, aheadDirection))
@@ -501,7 +502,7 @@ namespace MPewsey.ManiaMap.Generators
             if (Math.Abs(fromRoom.Position.Z - toRoom.Position.Z) > 1)
             {
                 // Shaft is required.
-                var position = fromDoor.Position + fromRoom.Position;
+                var position = fromDoor.Position + (Vector2DInt)fromRoom.Position;
                 var zMin = Math.Min(fromRoom.Position.Z, toRoom.Position.Z) + 1;
                 var zMax = Math.Max(fromRoom.Position.Z, toRoom.Position.Z) - 1;
                 var min = new Vector3DInt(position.X, position.Y, zMin);

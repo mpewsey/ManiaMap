@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MPewsey.ManiaMap.Serialization;
+using MPewsey.Common.Serialization;
 using System;
 
 namespace MPewsey.ManiaMap.Generators.Tests

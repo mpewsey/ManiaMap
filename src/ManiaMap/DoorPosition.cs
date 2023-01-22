@@ -1,4 +1,4 @@
-﻿using MPewsey.ManiaMap.Serialization;
+﻿using MPewsey.Common.Mathematics;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -6,7 +6,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A class referencing a Door and its local position within a Room.
     /// </summary>
-    [DataContract(Namespace = XmlSerialization.Namespace)]
+    [DataContract(Namespace = Constants.DataContractNamespace)]
     public class DoorPosition
     {
         /// <summary>

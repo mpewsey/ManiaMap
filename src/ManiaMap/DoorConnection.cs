@@ -1,5 +1,5 @@
-﻿using MPewsey.ManiaMap.Collections;
-using MPewsey.ManiaMap.Serialization;
+﻿using MPewsey.Common.Collections;
+using MPewsey.Common.Mathematics;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -7,7 +7,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// Represents a door connection between two Room.
     /// </summary>
-    [DataContract(Namespace = XmlSerialization.Namespace)]
+    [DataContract(Namespace = Constants.DataContractNamespace)]
     public class DoorConnection : IDataContractValueDictionaryValue<RoomPair>
     {
         /// <summary>

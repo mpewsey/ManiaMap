@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using MPewsey.Common.Mathematics;
+using System.Collections.Generic;
 
 namespace MPewsey.ManiaMap
 {

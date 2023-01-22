@@ -1,4 +1,5 @@
-﻿using MPewsey.ManiaMap.Collections;
+﻿using MPewsey.Common.Collections;
+using MPewsey.Common.Mathematics;
 using MPewsey.ManiaMap.Exceptions;
 using System;
 using System.Collections.Generic;

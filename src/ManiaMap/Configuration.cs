@@ -1,4 +1,6 @@
-﻿namespace MPewsey.ManiaMap
+﻿using MPewsey.Common.Mathematics;
+
+namespace MPewsey.ManiaMap
 {
     /// <summary>
     /// A configuration where two RoomTemplate can be joined.
