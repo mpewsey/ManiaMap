@@ -1,4 +1,5 @@
-﻿using MPewsey.ManiaMap.Graphs;
+﻿using MPewsey.Common.Random;
+using MPewsey.ManiaMap.Graphs;
 
 namespace MPewsey.ManiaMap.Generators
 {

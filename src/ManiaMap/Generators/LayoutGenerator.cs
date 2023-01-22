@@ -1,4 +1,5 @@
 ﻿using MPewsey.Common.Mathematics;
+using MPewsey.Common.Random;
 using MPewsey.ManiaMap.Exceptions;
 using MPewsey.ManiaMap.Graphs;
 using System;

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.Common.Random;
 using MPewsey.ManiaMap.Generators;
 using System.Collections.Generic;
 using System.Linq;
