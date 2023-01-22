@@ -300,8 +300,8 @@ namespace MPewsey.ManiaMap.Generators
             var aheadNode = Graph.GetNode(aheadEdge.ToNode);
 
             // Try to add edge rooms.
-            var addBackEdgeRoom = backEdge.RoomChanceSatisfied(RandomSeed.NextDouble());
-            var addAheadEdgeRoom = aheadEdge.RoomChanceSatisfied(RandomSeed.NextDouble());
+            var addBackEdgeRoom = RandomSeed.ChanceSatisfied(backEdge.RoomChance);
+            var addAheadEdgeRoom = RandomSeed.ChanceSatisfied(aheadEdge.RoomChance);
             var addedBackEdgeRoom = addBackEdgeRoom && AddRoom(backEdge, backNode.RoomId, backEdge.DoorCode, backEdge.Direction);
             var addedAheadEdgeRoom = addAheadEdgeRoom && AddRoom(aheadEdge, aheadNode.RoomId, aheadEdge.DoorCode, LayoutEdge.ReverseEdgeDirection(aheadEdge.Direction));
 
@@ -333,7 +333,7 @@ namespace MPewsey.ManiaMap.Generators
             var toNode = Graph.GetNode(edge.ToNode);
             var fromRoomExists = Layout.Rooms.ContainsKey(fromNode.RoomId);
             var toRoomExists = Layout.Rooms.ContainsKey(toNode.RoomId);
-            var addEdgeRoom = edge.RoomChanceSatisfied(RandomSeed.NextDouble());
+            var addEdgeRoom = RandomSeed.ChanceSatisfied(edge.RoomChance);
 
             if (toRoomExists)
                 throw new InvalidChainOrderException("To Node Exists. Chains are not properly ordered.");

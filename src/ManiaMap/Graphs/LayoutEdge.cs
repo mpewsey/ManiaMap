@@ -155,16 +155,6 @@ namespace MPewsey.ManiaMap.Graphs
         }
 
         /// <summary>
-        /// Returns true if the room chance is satisfied.
-        /// </summary>
-        /// <param name="value">A random value between 0 and 1 to check against.</param>
-        public bool RoomChanceSatisfied(double value)
-        {
-            return RoomChance >= 1
-                || (RoomChance > 0 && value <= RoomChance);
-        }
-
-        /// <summary>
         /// Returns the symbol string for the edge.
         /// 
         /// For instance, an edge with a forward flexible edge direction from node 1 to 2
