@@ -127,7 +127,7 @@ generator.Generate(layout, collectableGroups, seed);
 
 ## Layout Graph Selector Example
 
-The layout graph selector draws a random layout graph from a supplied list. This is useful when used as an early step in a `GenerationPipeline`.
+The layout graph selector draws a random layout graph from a supplied list. This is useful when used as an early step in a `Pipeline`.
 
 ```LayoutGraphSelector.cs
 // Create a list of graphs from which to draw.
@@ -180,10 +180,10 @@ var args = new Dictionary<string, object>
 };
 
 // Use the default pipeline
-var pipeline = GenerationPipeline.CreateDefaultPipeline();
+var pipeline = PipelineBuilder.CreateDefaultPipeline();
 
 // Or create your own
-pipeline = new GenerationPipeline(new LayoutGenerator(), new CollectableGenerator());
+pipeline = new Pipeline(new LayoutGenerator(), new CollectableGenerator());
 
 var results = pipeline.Generate(args);
 var layout = results.GetOutput<Layout>("Layout");
