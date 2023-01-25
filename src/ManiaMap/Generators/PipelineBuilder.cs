@@ -8,7 +8,11 @@ namespace MPewsey.ManiaMap.Generators
     public static class PipelineBuilder
     {
         /// <summary>
-        /// Creates the default layout generation pipeline.
+        /// Returns a new pipeline with common default generators in the following order:
+        /// 
+        /// 1. LayoutGraphRandomizer
+        /// 2. LayoutGenerator
+        /// 3. CollectableGenerator
         /// </summary>
         public static Pipeline CreateDefaultPipeline()
         {
