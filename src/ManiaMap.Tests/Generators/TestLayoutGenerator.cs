@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.Common.Logging;
 using MPewsey.Common.Random;
 using MPewsey.ManiaMap.Exceptions;
 using System;
@@ -12,8 +13,8 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestHyperSquareCrossLayout()
         {
-            GenerationLogger.RemoveAllListeners();
-            GenerationLogger.AddListener(Console.WriteLine);
+            Logger.RemoveAllListeners();
+            Logger.AddListener(Console.WriteLine);
 
             var graph = Samples.GraphLibrary.CrossGraph();
 
@@ -39,8 +40,8 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestHyperSquareStackedLoopLayout()
         {
-            GenerationLogger.RemoveAllListeners();
-            GenerationLogger.AddListener(Console.WriteLine);
+            Logger.RemoveAllListeners();
+            Logger.AddListener(Console.WriteLine);
 
             var graph = Samples.GraphLibrary.StackedLoopGraph();
 
@@ -66,8 +67,8 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestLLoopLayout()
         {
-            GenerationLogger.RemoveAllListeners();
-            GenerationLogger.AddListener(Console.WriteLine);
+            Logger.RemoveAllListeners();
+            Logger.AddListener(Console.WriteLine);
 
             var graph = Samples.GraphLibrary.LoopGraph();
 
@@ -95,8 +96,8 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestHyperSquareGeekLayout()
         {
-            GenerationLogger.RemoveAllListeners();
-            GenerationLogger.AddListener(Console.WriteLine);
+            Logger.RemoveAllListeners();
+            Logger.AddListener(Console.WriteLine);
 
             var graph = Samples.GraphLibrary.GeekGraph();
 
@@ -136,8 +137,8 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestManiaMapLayout()
         {
-            GenerationLogger.RemoveAllListeners();
-            GenerationLogger.AddListener(Console.WriteLine);
+            Logger.RemoveAllListeners();
+            Logger.AddListener(Console.WriteLine);
 
             var layout = Samples.ManiaMapSample.ManiaMapLayout();
 
@@ -170,8 +171,8 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [DataRow(123456789)]
         public void TestBigLayout(int seed)
         {
-            GenerationLogger.RemoveAllListeners();
-            GenerationLogger.AddListener(Console.WriteLine);
+            Logger.RemoveAllListeners();
+            Logger.AddListener(Console.WriteLine);
 
             var random = new RandomSeed(seed);
             var graph = Samples.GraphLibrary.BigGraph();
@@ -184,8 +185,8 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestDirectedRingLayout()
         {
-            GenerationLogger.RemoveAllListeners();
-            GenerationLogger.AddListener(Console.WriteLine);
+            Logger.RemoveAllListeners();
+            Logger.AddListener(Console.WriteLine);
 
             var graph = Samples.GraphLibrary.DirectedRingGraph();
 

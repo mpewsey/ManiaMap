@@ -159,7 +159,7 @@ namespace MPewsey.ManiaMap.Tests
                 { "RandomSeed", seed },
             };
 
-            var pipeline = GenerationPipeline.CreateDefaultPipeline();
+            var pipeline = PipelineBuilder.CreateDefaultPipeline();
             var results = pipeline.Generate(dict);
             Assert.IsTrue(results.Success);
         }

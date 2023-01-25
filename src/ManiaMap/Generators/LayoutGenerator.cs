@@ -1,4 +1,6 @@
-﻿using MPewsey.Common.Mathematics;
+﻿using MPewsey.Common.Logging;
+using MPewsey.Common.Mathematics;
+using MPewsey.Common.Pipelines;
 using MPewsey.Common.Random;
 using MPewsey.ManiaMap.Exceptions;
 using MPewsey.ManiaMap.Graphs;
@@ -16,7 +18,7 @@ namespace MPewsey.ManiaMap.Generators
     /// ----------
     /// * [1] Nepožitek, Ondřej. (2019, January 13). Dungeon Generator (Part 2) – Implementation. Retrieved February 8, 2022, from https://ondra.nepozitek.cz/blog/238/dungeon-generator-part-2-implementation/
     /// </summary>
-    public class LayoutGenerator : IGenerationStep
+    public class LayoutGenerator : IPipelineStep
     {
         private int _maxRebases;
         /// <summary>
@@ -121,7 +123,7 @@ namespace MPewsey.ManiaMap.Generators
         /// * %Layout - The generated layout.
         /// </summary>
         /// <param name="results">The pipeline results.</param>
-        public bool ApplyStep(GenerationPipeline.Results results)
+        public bool ApplyStep(PipelineResults results)
         {
             var layoutId = results.GetArgument<int>("LayoutId");
             var graph = results.GetArgument<LayoutGraph>("LayoutGraph");
@@ -160,7 +162,7 @@ namespace MPewsey.ManiaMap.Generators
         /// <param name="randomSeed">The random seed.</param>
         public Layout Generate(int layoutId, LayoutGraph graph, TemplateGroups templateGroups, RandomSeed randomSeed)
         {
-            GenerationLogger.Log("Running layout generator...");
+            Logger.Log("Running layout generator...");
             Initialize(graph, templateGroups, randomSeed);
 
             var chains = Graph.FindChains(MaxBranchLength);
@@ -179,7 +181,7 @@ namespace MPewsey.ManiaMap.Generators
                     if (Layout.IsComplete(TemplateGroups))
                     {
                         Layout = new Layout(Layout);
-                        GenerationLogger.Log("Layout generator complete.");
+                        Logger.Log("Layout generator complete.");
                         return Layout;
                     }
 
@@ -187,7 +189,7 @@ namespace MPewsey.ManiaMap.Generators
                     ChainIndex = 0;
                     layouts.Clear();
                     layouts.Push(baseLayout);
-                    GenerationLogger.Log("Layout constraints not satisfied. Restarting...");
+                    Logger.Log("Layout constraints not satisfied. Restarting...");
                     continue;
                 }
 
@@ -197,7 +199,7 @@ namespace MPewsey.ManiaMap.Generators
                 {
                     layouts.Pop();
                     ChainIndex--;
-                    GenerationLogger.Log("Rebase count exceeded. Backtracking...");
+                    Logger.Log("Rebase count exceeded. Backtracking...");
                     continue;
                 }
 
@@ -208,11 +210,11 @@ namespace MPewsey.ManiaMap.Generators
                 {
                     layouts.Push(Layout);
                     ChainIndex++;
-                    GenerationLogger.Log($"Added chain {ChainIndex} / {chains.Count}...");
+                    Logger.Log($"Added chain {ChainIndex} / {chains.Count}...");
                 }
             }
 
-            GenerationLogger.Log("Layout generator failed.");
+            Logger.Log("Layout generator failed.");
             return null;
         }
 
