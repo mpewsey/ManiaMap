@@ -6,7 +6,6 @@ var class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge =
     [ "IsValid", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html#a0056fcd3a1dabf3698215f21afc95b32", null ],
     [ "Reverse", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html#acc96a13cb49eaee267d0fc059e6575c5", null ],
     [ "ReverseEdgeDirection", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html#a81f7130c1e875afa62693d253104f53c", null ],
-    [ "RoomChanceSatisfied", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html#a597d30dcb89ee4dce7698190311528c5", null ],
     [ "SetColor", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html#a3174a43b11c882a96dfa129ed4598fca", null ],
     [ "SetDirection", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html#a4fee757f1fe9fcaee604b1879391f1cf", null ],
     [ "SetDoorCode", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html#a3b1bb739b8b8656915ad05026332ecab", null ],

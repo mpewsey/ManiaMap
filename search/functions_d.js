@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['operator_20array2d_3c_20t_20_3e_0',['operator Array2D&lt; T &gt;',['../class_m_pewsey_1_1_mania_map_1_1_collections_1_1_array2_d.html#a1c81fe4affcbaad6ee5366e47c421418',1,'MPewsey::ManiaMap::Collections::Array2D']]],
-  ['operator_20datacontractdictionary_3c_20tkey_2c_20tvalue_20_3e_1',['operator DataContractDictionary&lt; TKey, TValue &gt;',['../class_m_pewsey_1_1_mania_map_1_1_collections_1_1_data_contract_dictionary.html#a4acd3274176f3d35084da1af44b53437',1,'MPewsey::ManiaMap::Collections::DataContractDictionary']]],
-  ['operator_20datacontracthashset_3c_20t_20_3e_2',['operator DataContractHashSet&lt; T &gt;',['../class_m_pewsey_1_1_mania_map_1_1_collections_1_1_data_contract_hash_set.html#a7356d364178163b79afe08297f49ae2f',1,'MPewsey::ManiaMap::Collections::DataContractHashSet']]],
-  ['operator_20datacontractvaluedictionary_3c_20tkey_2c_20tvalue_20_3e_3',['operator DataContractValueDictionary&lt; TKey, TValue &gt;',['../class_m_pewsey_1_1_mania_map_1_1_collections_1_1_data_contract_value_dictionary.html#a4e79a3ceadc325abd59c239c5727f97a',1,'MPewsey::ManiaMap::Collections::DataContractValueDictionary']]],
-  ['orderedgenodes_4',['OrderEdgeNodes',['../class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_chain_decomposer.html#ab9e1763f244d60e9993980db5ca22dc5',1,'MPewsey::ManiaMap::Graphs::GraphChainDecomposer']]]
+  ['padding_0',['Padding',['../struct_m_pewsey_1_1_mania_map_1_1_drawing_1_1_padding.html#af6d7094b6d60060d47019ca897af787a',1,'MPewsey.ManiaMap.Drawing.Padding.Padding(int padding)'],['../struct_m_pewsey_1_1_mania_map_1_1_drawing_1_1_padding.html#a7bbd654dafaa0db67f04058c40c1c9d3',1,'MPewsey.ManiaMap.Drawing.Padding.Padding(int left, int top, int right, int bottom)']]],
+  ['planealigneddoors_1',['PlaneAlignedDoors',['../class_m_pewsey_1_1_mania_map_1_1_room_template.html#ac8ce4c3ed02f9b2d8e57cb9a8046c962',1,'MPewsey::ManiaMap::RoomTemplate']]],
+  ['plustemplate_2',['PlusTemplate',['../class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_miscellaneous.html#a546a7dd16f40a16c24a2e43399982403',1,'MPewsey::ManiaMap::Samples::TemplateLibrary::Miscellaneous']]],
+  ['populatetemplates_3',['PopulateTemplates',['../class_m_pewsey_1_1_mania_map_1_1_layout.html#a518da601ccef8d68dc16f9cfc0f6730f',1,'MPewsey::ManiaMap::Layout']]]
 ];

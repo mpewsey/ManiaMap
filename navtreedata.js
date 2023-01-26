@@ -25,20 +25,20 @@
 var NAVTREE =
 [
   [ "ManiaMap", "index.html", [
-    [ "About", "index.html#autotoc_md5", null ],
-    [ "Features", "index.html#autotoc_md6", null ],
-    [ "Game Engine Support", "index.html#autotoc_md7", null ],
-    [ "Layout Generator Example", "index.html#autotoc_md8", [
-      [ "Step 1: Create Room Templates", "index.html#autotoc_md9", null ],
-      [ "Step 2: Assign Room Templates to Template Groups", "index.html#autotoc_md10", null ],
-      [ "Step 3: Create a Layout Graph", "index.html#autotoc_md11", null ],
-      [ "Step 4: Run the Layout Generator", "index.html#autotoc_md12", null ]
+    [ "About", "index.html#autotoc_md4", null ],
+    [ "Features", "index.html#autotoc_md5", null ],
+    [ "Game Engine Support", "index.html#autotoc_md6", null ],
+    [ "Layout Generator Example", "index.html#autotoc_md7", [
+      [ "Step 1: Create Room Templates", "index.html#autotoc_md8", null ],
+      [ "Step 2: Assign Room Templates to Template Groups", "index.html#autotoc_md9", null ],
+      [ "Step 3: Create a Layout Graph", "index.html#autotoc_md10", null ],
+      [ "Step 4: Run the Layout Generator", "index.html#autotoc_md11", null ]
     ] ],
-    [ "Collectable Generator Example", "index.html#autotoc_md13", null ],
-    [ "Layout Graph Selector Example", "index.html#autotoc_md14", null ],
-    [ "Layout Graph Randomizer Example", "index.html#autotoc_md15", null ],
-    [ "Generation Pipeline Example", "index.html#autotoc_md16", null ],
-    [ "Generation Logger Example", "index.html#autotoc_md17", null ],
+    [ "Collectable Generator Example", "index.html#autotoc_md12", null ],
+    [ "Layout Graph Selector Example", "index.html#autotoc_md13", null ],
+    [ "Layout Graph Randomizer Example", "index.html#autotoc_md14", null ],
+    [ "Generation Pipeline Example", "index.html#autotoc_md15", null ],
+    [ "Generation Logger Example", "index.html#autotoc_md16", null ],
     [ "Packages", "namespaces.html", [
       [ "Packages", "namespaces.html", "namespaces_dup" ],
       [ "Package Functions", "namespacemembers.html", [
@@ -53,9 +53,7 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", null ],
-        [ "Properties", "functions_prop.html", "functions_prop" ],
-        [ "Events", "functions_evnt.html", null ]
+        [ "Properties", "functions_prop.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -67,12 +65,11 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_____docs_____8cs_source.html",
-"class_m_pewsey_1_1_mania_map_1_1_collections_1_1_array2_d.html#ae73f434744344138279b9d54a186f320",
-"class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_invalid_id_exception.html",
-"class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_cycle_decomposer.html#a76a00f9789d51ca53c2ae7dae66b43eb",
-"class_m_pewsey_1_1_mania_map_1_1_layout.html#abf1621cb41ca88cd28b831982da1e158",
-"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_miscellaneous.html#a546a7dd16f40a16c24a2e43399982403",
-"namespace_m_pewsey.html"
+"class_m_pewsey_1_1_mania_map_1_1_door_connection.html#a3953d3fab75953633d4489296e619bb3",
+"class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_chain_decomposer.html#a461b397e0a65d1c2b989639cce0a6af6",
+"class_m_pewsey_1_1_mania_map_1_1_layout.html#a1f02cb983e08f547bd6b5c79cf1fbdf3",
+"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_miscellaneous.html#a1ab8a0dbeae88869321a64823214e488",
+"struct_m_pewsey_1_1_mania_map_1_1_rectangle_int.html#a3b8d15675e8885cde7707ae2ba8cc0c3"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

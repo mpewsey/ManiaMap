@@ -1,12 +1,10 @@
 var dir_c3494bb25e2299bf4310ea0990001e7f =
 [
-    [ "Collections", "dir_498675cb1b347cdc5fce9bf29494f732.html", "dir_498675cb1b347cdc5fce9bf29494f732" ],
     [ "Drawing", "dir_e29a52a7ce48aacacba2ae39510be046.html", "dir_e29a52a7ce48aacacba2ae39510be046" ],
     [ "Exceptions", "dir_f6bc70aa840ea92fb92ef71daa07b304.html", "dir_f6bc70aa840ea92fb92ef71daa07b304" ],
     [ "Generators", "dir_242489492c9a77849c4097834c34864f.html", "dir_242489492c9a77849c4097834c34864f" ],
     [ "Graphs", "dir_2a060dab1ff6fac3c6b961712f6081a9.html", "dir_2a060dab1ff6fac3c6b961712f6081a9" ],
     [ "Samples", "dir_cd574c43519a0dc23b891ea5f5de7339.html", "dir_cd574c43519a0dc23b891ea5f5de7339" ],
-    [ "Serialization", "dir_6f264f0054ecfc50cf6599fcd7391e71.html", "dir_6f264f0054ecfc50cf6599fcd7391e71" ],
     [ "__Docs__.cs", "_____docs_____8cs_source.html", null ],
     [ "Box.cs", "_box_8cs_source.html", null ],
     [ "Cell.cs", "_cell_8cs_source.html", null ],
@@ -16,6 +14,7 @@ var dir_c3494bb25e2299bf4310ea0990001e7f =
     [ "Color4.cs", "_color4_8cs_source.html", null ],
     [ "Configuration.cs", "_configuration_8cs_source.html", null ],
     [ "ConfigurationSpace.cs", "_configuration_space_8cs_source.html", null ],
+    [ "Constants.cs", "_constants_8cs_source.html", null ],
     [ "Door.cs", "_door_8cs_source.html", null ],
     [ "DoorConnection.cs", "_door_connection_8cs_source.html", null ],
     [ "DoorDirection.cs", "_door_direction_8cs_source.html", null ],
@@ -27,7 +26,6 @@ var dir_c3494bb25e2299bf4310ea0990001e7f =
     [ "Layout.cs", "_layout_8cs_source.html", null ],
     [ "LayoutState.cs", "_layout_state_8cs_source.html", null ],
     [ "MapTileType.cs", "_map_tile_type_8cs_source.html", null ],
-    [ "RandomSeed.cs", "_random_seed_8cs_source.html", null ],
     [ "RectangleInt.cs", "_rectangle_int_8cs_source.html", null ],
     [ "Room.cs", "_room_8cs_source.html", null ],
     [ "RoomPair.cs", "_room_pair_8cs_source.html", null ],
@@ -35,7 +33,5 @@ var dir_c3494bb25e2299bf4310ea0990001e7f =
     [ "RoomTemplate.cs", "_room_template_8cs_source.html", null ],
     [ "TemplateGroups.cs", "_template_groups_8cs_source.html", null ],
     [ "TemplatePair.cs", "_template_pair_8cs_source.html", null ],
-    [ "Uid.cs", "_uid_8cs_source.html", null ],
-    [ "Vector2DInt.cs", "_vector2_d_int_8cs_source.html", null ],
-    [ "Vector3DInt.cs", "_vector3_d_int_8cs_source.html", null ]
+    [ "Uid.cs", "_uid_8cs_source.html", null ]
 ];

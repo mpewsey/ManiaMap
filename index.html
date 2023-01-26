@@ -100,11 +100,11 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p ><a class="anchor" id="md__github_workspace_README"></a> <a href="https://github.com/mpewsey/ManiaMap/actions/workflows/tests.yml"><img src="https://github.com/mpewsey/ManiaMap/actions/workflows/tests.yml/badge.svg?event=push" alt="Tests" style="pointer-events: none;" class="inline"/></a> <a href="https://mpewsey.github.io/ManiaMap"><img src="https://github.com/mpewsey/ManiaMap/actions/workflows/docs.yml/badge.svg?event=push" alt="Docs" style="pointer-events: none;" class="inline"/></a> <a href="https://codecov.io/gh/mpewsey/ManiaMap"><img src="https://codecov.io/gh/mpewsey/ManiaMap/branch/main/graph/badge.svg?token=Q1LDU83FAQ" alt="codecov" style="pointer-events: none;" class="inline"/></a> <img src="https://img.shields.io/badge/.NET%20Standard-2.0-blue" alt=".NET Standard" class="inline"/> <a href="https://www.nuget.org/packages/MPewsey.ManiaMap/"><img src="https://img.shields.io/nuget/v/MPewsey.ManiaMap?label=NuGet" alt="NuGet" class="inline"/></a></p>
-<h1><a class="anchor" id="autotoc_md5"></a>
+<h1><a class="anchor" id="autotoc_md4"></a>
 About</h1>
 <p >This package allows for the creation of procedurally generated metroidvania style layouts from user-defined level layout graphs and room templates. The resulting layouts can be used in games, such as those of the rouge-like genre, and to render maps, such as that shown below.</p>
 <p ><img src="https://user-images.githubusercontent.com/23442063/158001876-cb3962a8-9826-44e9-bb19-a5779e3f99d6.png" alt="BigMap" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md6"></a>
+<h1><a class="anchor" id="autotoc_md5"></a>
 Features</h1>
 <ul>
 <li>Single and multi-layer 2D room layout generation.</li>
@@ -116,15 +116,15 @@ Features</h1>
 <li>Persistence of layout and layout state data through JSON and XML.</li>
 <li>Works with Windows, Mac, and Linux.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md7"></a>
+<h1><a class="anchor" id="autotoc_md6"></a>
 Game Engine Support</h1>
 <ul>
 <li>Unity: <a href="https://github.com/mpewsey/ManiaMap.Unity">ManiaMap.Unity</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md8"></a>
+<h1><a class="anchor" id="autotoc_md7"></a>
 Layout Generator Example</h1>
 <p >The following subsections outline how to use the <code>LayoutGenerator</code> class to generate a room layout.</p>
-<h2><a class="anchor" id="autotoc_md9"></a>
+<h2><a class="anchor" id="autotoc_md8"></a>
 Step 1: Create Room Templates</h2>
 <p >The generator creates rooms by pulling from user-defined room templates. Room templates consist of a 2D array of cells, that may be empty (a null value) or filled. Each cell includes the possible door connections (north, south, east, west, top, and/or bottom) that can be made from that cell to other rooms. Furthermore, each door includes a door code, which requires a match in another template for a connection to be made, as well as a traversal type, such the door being one-way or two-way.</p>
 <p >Depending on how much variety you want to be included in your layout, one or more templates are required by the generator. The following code provides an example for the creation of a simple 3x3 square room template. In it, a series of cells are created and have doors set to them via directional characters ("N" = North, "S" = South, etc.). The cells are then assigned to a 2D array to create the geometry of the layout. Finally, these cells are passed to the <code>RoomTemplate</code> initializer, along with a unique ID, to create the room template.</p>
@@ -147,13 +147,13 @@ Step 1: Create Room Templates</h2>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line">var roomTemplate = new RoomTemplate(id: 1, name: &quot;Square&quot;, cells);</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md10"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md9"></a>
 Step 2: Assign Room Templates to Template Groups</h2>
 <p >Once some room template have been defined, they must be added to one or more room template groups, which can be referenced by name later. This is accomplished by simply adding them to a <code>TemplateGroups</code> object:</p>
 <div class="fragment"><div class="line">{TemplateGroups.cs} </div>
 <div class="line">var templateGroups = new TemplateGroups();</div>
 <div class="line">templateGroups.Add(&quot;Default&quot;, roomTemplate);</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md11"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md10"></a>
 Step 3: Create a Layout Graph</h2>
 <p >To provide a designed feel to generated layouts, the generator uses a room layout graph as the basis for generating layouts. The layout graph consists of nodes, representing rooms, and edges, representing door connections between rooms. Ultimately, the layout graph contains information to help guide the features of a room layout. Each graph element can be assigned one or more room template groups (created in Step 2) from which room templates can be drawn for that location. Z (layer) values can also be assigned to elements to create a multi-level room layout. In addition, properties such as names and colors can be assigned that will be passed on to the generated rooms, allowing for their use elsewhere in a game or other application.</p>
 <p >In the below example, the graph shown in the image is created by adding edges to a graph. In the process, the nodes, representing rooms, are automatically created. Afterwards, the code loops over all of the created nodes and assigns a "Default" template group to them, from which room templates will be drawn by the generator.</p>
@@ -173,7 +173,7 @@ Step 3: Create a Layout Graph</h2>
 <div class="line">    node.TemplateGroup = &quot;Default&quot;;</div>
 <div class="line">}</div>
 </div><!-- fragment --><p ><img src="https://user-images.githubusercontent.com/23442063/153694050-f653f3df-8170-4a2e-bd05-8f35083ccfef.png" alt="Example Layout Graph" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md12"></a>
+<h2><a class="anchor" id="autotoc_md11"></a>
 Step 4: Run the Layout Generator</h2>
 <p >To create repeatable layouts, a random seed is used by the layout generator. To generate a room layout, simply select a seed and pass your layout graph and room template groups to the <code>LayoutGenerator</code>, as shown below. In the example, a map of the layout is also rendered and saved using the <code>LayoutMap</code> class. For this instance, the default built-in tiles are used. However, custom tiles can also be specified by the user.</p>
 <div class="fragment"><div class="line">{LayoutGenerator.cs} </div>
@@ -185,7 +185,7 @@ Step 4: Run the Layout Generator</h2>
 <div class="line">var map = new LayoutMap();</div>
 <div class="line">map.SaveImage(&quot;Map.png&quot;, layout);</div>
 </div><!-- fragment --><p ><img src="https://user-images.githubusercontent.com/23442063/153345310-25def719-c5a7-43c5-95ca-9e2e09493e54.png" alt="Map" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md13"></a>
+<h1><a class="anchor" id="autotoc_md12"></a>
 Collectable Generator Example</h1>
 <p >The collectable generator distributes collectables throughout a layout.</p>
 <div class="fragment"><div class="line">{CollectableGenerator.cs} </div>
@@ -199,9 +199,9 @@ Collectable Generator Example</h1>
 <div class="line">collectableGroups.Add(&quot;Group2&quot;, new int[] { 6, 7, 7, 8, 8, 9, 10 });</div>
 <div class="line"> </div>
 <div class="line">generator.Generate(layout, collectableGroups, seed);</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md14"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md13"></a>
 Layout Graph Selector Example</h1>
-<p >The layout graph selector draws a random layout graph from a supplied list. This is useful when used as an early step in a <code>GenerationPipeline</code>.</p>
+<p >The layout graph selector draws a random layout graph from a supplied list. This is useful when used as an early step in a <code>Pipeline</code>.</p>
 <div class="fragment"><div class="line">{LayoutGraphSelector.cs} </div>
 <div class="line">// Create a list of graphs from which to draw.</div>
 <div class="line">var graphs = new List&lt;LayoutGraph&gt;</div>
@@ -214,7 +214,7 @@ Layout Graph Selector Example</h1>
 <div class="line">var seed = new RandomSeed(12345);</div>
 <div class="line">var selector = new LayoutGraphSelector();</div>
 <div class="line">var graph = selector.DrawSelection(graphs, seed);</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md15"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md14"></a>
 Layout Graph Randomizer Example</h1>
 <p >The layout graph randomizer generates variations of a layout graph based on user-defined swappable nodes.</p>
 <div class="fragment"><div class="line">{LayoutGraphRandomizer.cs} </div>
@@ -232,7 +232,7 @@ Layout Graph Randomizer Example</h1>
 <div class="line">// Create a randomizer and create a new graph variation.</div>
 <div class="line">var randomizer = new LayoutGraphRandomizer();</div>
 <div class="line">var graphVariation = randomizer.RandomizeGraph(graph, seed);</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md16"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md15"></a>
 Generation Pipeline Example</h1>
 <p >The generation pipeline provides a way for multiple generation steps to be chained together. This is often easier than making manual calls to each generation step.</p>
 <div class="fragment"><div class="line">{GeneratorPipeline.cs} </div>
@@ -247,26 +247,26 @@ Generation Pipeline Example</h1>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line">// Use the default pipeline</div>
-<div class="line">var pipeline = GenerationPipeline.CreateDefaultPipeline();</div>
+<div class="line">var pipeline = PipelineBuilder.CreateDefaultPipeline();</div>
 <div class="line"> </div>
 <div class="line">// Or create your own</div>
-<div class="line">pipeline = new GenerationPipeline(new LayoutGenerator(), new CollectableGenerator());</div>
+<div class="line">pipeline = new Pipeline(new LayoutGenerator(), new CollectableGenerator());</div>
 <div class="line"> </div>
 <div class="line">var results = pipeline.Generate(args);</div>
 <div class="line">var layout = results.GetOutput&lt;Layout&gt;(&quot;Layout&quot;);</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md17"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md16"></a>
 Generation Logger Example</h1>
-<p >The generators include logging messages that can be subscribed to by adding a delegate to the <code>GenerationLogger</code>, as shown in the below example.</p>
-<div class="fragment"><div class="line">{GenerationLogger.cs} </div>
+<p >The generators include logging messages that can be subscribed to by adding a delegate to the <code>Logger</code>, as shown in the below example.</p>
+<div class="fragment"><div class="line">{Logger.cs} </div>
 <div class="line">// Have the messages printed to the console.</div>
-<div class="line">GenerationLogger.AddListener(Console.WriteLine);</div>
+<div class="line">Logger.AddListener(Console.WriteLine);</div>
 <div class="line"> </div>
 <div class="line">// Or added to a list.</div>
 <div class="line">var messages = new List&lt;string&gt;();</div>
-<div class="line">GenerationLogger.AddListener(messages.Add);</div>
+<div class="line">Logger.AddListener(messages.Add);</div>
 <div class="line"> </div>
 <div class="line">// Make sure to have your objects unsubscribe from the event to prevent memory leaks.</div>
-<div class="line">GenerationLogger.RemoveListener(messages.Add);</div>
+<div class="line">Logger.RemoveListener(messages.Add);</div>
 </div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->

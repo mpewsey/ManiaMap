@@ -1,12 +1,10 @@
 var namespace_m_pewsey_1_1_mania_map =
 [
-    [ "Collections", "namespace_m_pewsey_1_1_mania_map_1_1_collections.html", "namespace_m_pewsey_1_1_mania_map_1_1_collections" ],
     [ "Drawing", "namespace_m_pewsey_1_1_mania_map_1_1_drawing.html", "namespace_m_pewsey_1_1_mania_map_1_1_drawing" ],
     [ "Exceptions", "namespace_m_pewsey_1_1_mania_map_1_1_exceptions.html", "namespace_m_pewsey_1_1_mania_map_1_1_exceptions" ],
     [ "Generators", "namespace_m_pewsey_1_1_mania_map_1_1_generators.html", "namespace_m_pewsey_1_1_mania_map_1_1_generators" ],
     [ "Graphs", "namespace_m_pewsey_1_1_mania_map_1_1_graphs.html", "namespace_m_pewsey_1_1_mania_map_1_1_graphs" ],
     [ "Samples", "namespace_m_pewsey_1_1_mania_map_1_1_samples.html", "namespace_m_pewsey_1_1_mania_map_1_1_samples" ],
-    [ "Serialization", "namespace_m_pewsey_1_1_mania_map_1_1_serialization.html", "namespace_m_pewsey_1_1_mania_map_1_1_serialization" ],
     [ "Box", "class_m_pewsey_1_1_mania_map_1_1_box.html", "class_m_pewsey_1_1_mania_map_1_1_box" ],
     [ "Cell", "class_m_pewsey_1_1_mania_map_1_1_cell.html", "class_m_pewsey_1_1_mania_map_1_1_cell" ],
     [ "Collectable", "struct_m_pewsey_1_1_mania_map_1_1_collectable.html", "struct_m_pewsey_1_1_mania_map_1_1_collectable" ],
@@ -23,7 +21,6 @@ var namespace_m_pewsey_1_1_mania_map =
     [ "Layout", "class_m_pewsey_1_1_mania_map_1_1_layout.html", "class_m_pewsey_1_1_mania_map_1_1_layout" ],
     [ "LayoutState", "class_m_pewsey_1_1_mania_map_1_1_layout_state.html", "class_m_pewsey_1_1_mania_map_1_1_layout_state" ],
     [ "MapTileType", "class_m_pewsey_1_1_mania_map_1_1_map_tile_type.html", "class_m_pewsey_1_1_mania_map_1_1_map_tile_type" ],
-    [ "RandomSeed", "class_m_pewsey_1_1_mania_map_1_1_random_seed.html", "class_m_pewsey_1_1_mania_map_1_1_random_seed" ],
     [ "RectangleInt", "struct_m_pewsey_1_1_mania_map_1_1_rectangle_int.html", "struct_m_pewsey_1_1_mania_map_1_1_rectangle_int" ],
     [ "Room", "class_m_pewsey_1_1_mania_map_1_1_room.html", "class_m_pewsey_1_1_mania_map_1_1_room" ],
     [ "RoomPair", "struct_m_pewsey_1_1_mania_map_1_1_room_pair.html", "struct_m_pewsey_1_1_mania_map_1_1_room_pair" ],
@@ -32,8 +29,6 @@ var namespace_m_pewsey_1_1_mania_map =
     [ "TemplateGroups", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html", "class_m_pewsey_1_1_mania_map_1_1_template_groups" ],
     [ "TemplatePair", "struct_m_pewsey_1_1_mania_map_1_1_template_pair.html", "struct_m_pewsey_1_1_mania_map_1_1_template_pair" ],
     [ "Uid", "struct_m_pewsey_1_1_mania_map_1_1_uid.html", "struct_m_pewsey_1_1_mania_map_1_1_uid" ],
-    [ "Vector2DInt", "struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int.html", "struct_m_pewsey_1_1_mania_map_1_1_vector2_d_int" ],
-    [ "Vector3DInt", "struct_m_pewsey_1_1_mania_map_1_1_vector3_d_int.html", "struct_m_pewsey_1_1_mania_map_1_1_vector3_d_int" ],
     [ "DoorDirection", "namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839b", [
       [ "North", "namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839ba601560b94fbb188919dd1d36c8ab70a4", null ],
       [ "South", "namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839ba263d7b2cf53802c9ed127b718c0bf9fd", null ],

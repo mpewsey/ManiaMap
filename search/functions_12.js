@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['toarraystring_0',['ToArrayString',['../class_m_pewsey_1_1_mania_map_1_1_collections_1_1_array2_d.html#a952fb01e81a1aefddca63d5d75cbf655',1,'MPewsey.ManiaMap.Collections.Array2D.ToArrayString()'],['../class_m_pewsey_1_1_mania_map_1_1_collections_1_1_bit_array2_d.html#ac0ffb8d4812df2958f2534d6b36c3479',1,'MPewsey.ManiaMap.Collections.BitArray2D.ToArrayString()']]],
-  ['topdooraligns_1',['TopDoorAligns',['../class_m_pewsey_1_1_mania_map_1_1_cell.html#a914eb22beea54a5c4f15c440ebfb210c',1,'MPewsey::ManiaMap::Cell']]],
-  ['tosymbolstring_2',['ToSymbolString',['../class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html#a563b6eb97f4f268e2e80960d7315b39b',1,'MPewsey::ManiaMap::Graphs::LayoutEdge']]],
-  ['trygetedge_3',['TryGetEdge',['../class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_graph.html#a636d31e44844c6ff3d853b15716ffce1',1,'MPewsey::ManiaMap::Graphs::LayoutGraph']]]
+  ['uid_0',['Uid',['../struct_m_pewsey_1_1_mania_map_1_1_uid.html#a8d990868a4700dcabbf858b0122be7b6',1,'MPewsey.ManiaMap.Uid.Uid(int a)'],['../struct_m_pewsey_1_1_mania_map_1_1_uid.html#af6a8c438daf1506e892d628052b32735',1,'MPewsey.ManiaMap.Uid.Uid(int a, int b)'],['../struct_m_pewsey_1_1_mania_map_1_1_uid.html#a60ee6f6a00733cdb21f729e131a521e2',1,'MPewsey.ManiaMap.Uid.Uid(int a, int b, int c)']]],
+  ['uniquevariations_1',['UniqueVariations',['../class_m_pewsey_1_1_mania_map_1_1_room_template.html#a82d8b02c9b6f1bbc75aeb97096f2834e',1,'MPewsey::ManiaMap::RoomTemplate']]],
+  ['updateneighborweights_2',['UpdateNeighborWeights',['../class_m_pewsey_1_1_mania_map_1_1_generators_1_1_collectable_generator.html#ad0d74a707433c5de9210b7c3b67671be',1,'MPewsey::ManiaMap::Generators::CollectableGenerator']]]
 ];
