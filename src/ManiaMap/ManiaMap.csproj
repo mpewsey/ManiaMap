@@ -17,6 +17,7 @@
 	<VersionPrefix>3.0.0</VersionPrefix>
 	<Configurations>Debug;Release;Unity</Configurations>
 	<PackageProjectUrl>https://mpewsey.github.io/ManiaMap/</PackageProjectUrl>
+	<GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unity|AnyCPU'">
