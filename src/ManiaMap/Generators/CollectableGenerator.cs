@@ -1,4 +1,8 @@
-﻿using MPewsey.ManiaMap.Collections;
+﻿using MPewsey.Common.Collections;
+using MPewsey.Common.Logging;
+using MPewsey.Common.Mathematics;
+using MPewsey.Common.Pipelines;
+using MPewsey.Common.Random;
 using MPewsey.ManiaMap.Exceptions;
 using System;
 using System.Collections.Generic;
@@ -13,7 +17,7 @@ namespace MPewsey.ManiaMap.Generators
     /// ----------
     /// * [1] Pewsey, Matt (2022, April 19). An Approach to Randomly Distributing Game Collectables. Retrieved April 19, 2022, from https://mpewsey.github.io/2022/04/19/collectable-distribution-algorithm.html.
     /// </summary>
-    public class CollectableGenerator : IGenerationStep
+    public class CollectableGenerator : IPipelineStep
     {
         /// <summary>
         /// The initial neighbor weight.
@@ -87,7 +91,7 @@ namespace MPewsey.ManiaMap.Generators
         /// * %RandomSeed - The random seed.
         /// </summary>
         /// <param name="result">The pipeline results.</param>
-        public bool ApplyStep(GenerationPipeline.Results results)
+        public bool ApplyStep(PipelineResults results)
         {
             var layout = results.GetArgument<Layout>("Layout");
             var collectableGroups = results.GetArgument<CollectableGroups>("CollectableGroups");
@@ -120,7 +124,7 @@ namespace MPewsey.ManiaMap.Generators
         /// <param name="randomSeed">The random seed.</param>
         public void Generate(Layout layout, CollectableGroups collectableGroups, RandomSeed randomSeed)
         {
-            GenerationLogger.Log("Running collectable generator...");
+            Logger.Log("Running collectable generator...");
             Initialize(layout, collectableGroups, randomSeed);
 
             AddCollectableSpots();
@@ -132,7 +136,7 @@ namespace MPewsey.ManiaMap.Generators
                 AddCollectable(collectable.Group, collectable.Id);
             }
 
-            GenerationLogger.Log("Collectable generator complete.");
+            Logger.Log("Collectable generator complete.");
         }
 
         /// <summary>

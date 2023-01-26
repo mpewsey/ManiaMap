@@ -1,11 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MPewsey.ManiaMap.Serialization;
+using MPewsey.Common.Logging;
+using MPewsey.Common.Serialization;
 using System;
 
 namespace MPewsey.ManiaMap.Generators.Tests
 {
     [TestClass]
-    public class TestGenerationPipeline
+    public class TestPipelineBuilder
     {
         [DataTestMethod]
         [DataRow(12345)]
@@ -16,8 +17,8 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [DataRow(123456789)]
         public void TestDefaultPipelineGeneration(int seed)
         {
-            GenerationLogger.RemoveAllListeners();
-            GenerationLogger.AddListener(Console.WriteLine);
+            Logger.RemoveAllListeners();
+            Logger.AddListener(Console.WriteLine);
 
             var results = Samples.BigLayoutSample.Generate(seed);
             Assert.IsTrue(results.Success);

@@ -1,5 +1,4 @@
-﻿using MPewsey.ManiaMap.Collections;
-using MPewsey.ManiaMap.Serialization;
+﻿using MPewsey.Common.Collections;
 using System.Linq;
 using System.Runtime.Serialization;
 
@@ -8,7 +7,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// Contains the states of a Layout.
     /// </summary>
-    [DataContract(Namespace = XmlSerialization.Namespace)]
+    [DataContract(Namespace = Constants.DataContractNamespace)]
     public class LayoutState
     {
         /// <summary>

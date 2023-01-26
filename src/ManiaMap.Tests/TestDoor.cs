@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.Common.Serialization;
 using MPewsey.ManiaMap.Graphs;
-using MPewsey.ManiaMap.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;

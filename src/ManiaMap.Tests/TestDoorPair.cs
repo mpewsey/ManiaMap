@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.Common.Mathematics;
 
 namespace MPewsey.ManiaMap.Tests
 {

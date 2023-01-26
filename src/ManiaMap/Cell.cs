@@ -1,6 +1,5 @@
-﻿using MPewsey.ManiaMap.Collections;
+﻿using MPewsey.Common.Collections;
 using MPewsey.ManiaMap.Exceptions;
-using MPewsey.ManiaMap.Serialization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -10,7 +9,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A RoomTemplate cell element with references to door connections for that cell.
     /// </summary>
-    [DataContract(Namespace = XmlSerialization.Namespace)]
+    [DataContract(Namespace = Constants.DataContractNamespace)]
     public class Cell
     {
         /// <summary>

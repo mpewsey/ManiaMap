@@ -1,4 +1,6 @@
-﻿using MPewsey.ManiaMap.Generators;
+﻿using MPewsey.Common.Pipelines;
+using MPewsey.Common.Random;
+using MPewsey.ManiaMap.Generators;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -69,7 +71,7 @@ namespace MPewsey.ManiaMap.Samples
         /// Generates the big layout using default parameters and returns the results.
         /// </summary>
         /// <param name="seed">The random seed.</param>
-        public static GenerationPipeline.Results Generate(int seed)
+        public static PipelineResults Generate(int seed)
         {
             var random = new RandomSeed(seed);
             var graph = GraphLibrary.BigGraph();
@@ -86,7 +88,7 @@ namespace MPewsey.ManiaMap.Samples
                 { "RandomSeed", random },
             };
 
-            var pipeline = GenerationPipeline.CreateDefaultPipeline();
+            var pipeline = PipelineBuilder.CreateDefaultPipeline();
             return pipeline.Generate(inputs);
         }
     }

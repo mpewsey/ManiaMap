@@ -1,6 +1,5 @@
-﻿using MPewsey.ManiaMap.Collections;
+﻿using MPewsey.Common.Collections;
 using MPewsey.ManiaMap.Exceptions;
-using MPewsey.ManiaMap.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +10,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A class for creating groups of RoomTemplate.
     /// </summary>
-    [DataContract(Namespace = XmlSerialization.Namespace)]
+    [DataContract(Namespace = Constants.DataContractNamespace)]
     public class TemplateGroups
     {
         /// <summary>
@@ -192,7 +191,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A template group entry, consisting of a RoomTemplate and usage constaints.
         /// </summary>
-        [DataContract(Name = "TemplateGroupsEntry", Namespace = XmlSerialization.Namespace)]
+        [DataContract(Name = "TemplateGroupsEntry", Namespace = Constants.DataContractNamespace)]
         public class Entry
         {
             /// <summary>

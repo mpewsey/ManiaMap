@@ -1,6 +1,6 @@
-﻿using MPewsey.ManiaMap.Collections;
+﻿using MPewsey.Common.Collections;
+using MPewsey.Common.Mathematics;
 using MPewsey.ManiaMap.Exceptions;
-using MPewsey.ManiaMap.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// Contains information for the geometry and properties of a Room in a Layout.
     /// </summary>
-    [DataContract(Namespace = XmlSerialization.Namespace)]
+    [DataContract(Namespace = Constants.DataContractNamespace)]
     public class RoomTemplate : IDataContractValueDictionaryValue<int>
     {
         /// <summary>
@@ -204,7 +204,7 @@ namespace MPewsey.ManiaMap
         /// <param name="index">The index for which distances will be calculated.</param>
         public Array2D<int> FindCellDistances(Vector2DInt index)
         {
-            return new CellDistanceSearch().FindCellDistances(Cells, index);
+            return new Array2DDistanceSearch<Cell>().FindDistances(Cells, index.X, index.Y);
         }
 
         /// <summary>

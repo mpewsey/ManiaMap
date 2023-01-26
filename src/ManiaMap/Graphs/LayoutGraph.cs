@@ -1,6 +1,6 @@
-﻿using MPewsey.ManiaMap.Collections;
+﻿using MPewsey.Common.Collections;
+using MPewsey.Common.Random;
 using MPewsey.ManiaMap.Exceptions;
-using MPewsey.ManiaMap.Serialization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -10,7 +10,7 @@ namespace MPewsey.ManiaMap.Graphs
     /// <summary>
     /// Represents a graph consisting of LayoutNode and LayoutEdge.
     /// </summary>
-    [DataContract(Namespace = XmlSerialization.Namespace)]
+    [DataContract(Namespace = Constants.DataContractNamespace)]
     public class LayoutGraph
     {
         /// <summary>

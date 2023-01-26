@@ -1,6 +1,5 @@
-﻿using MPewsey.ManiaMap.Collections;
+﻿using MPewsey.Common.Collections;
 using MPewsey.ManiaMap.Exceptions;
-using MPewsey.ManiaMap.Serialization;
 using System;
 using System.Runtime.Serialization;
 
@@ -17,7 +16,7 @@ namespace MPewsey.ManiaMap.Graphs
     /// graph.AddEdge(1, 2).SetName("Edge1").SetTemplateGroup("Default");
     /// ```
     /// </summary>
-    [DataContract(Namespace = XmlSerialization.Namespace)]
+    [DataContract(Namespace = Constants.DataContractNamespace)]
     public class LayoutEdge : IRoomSource, IDataContractValueDictionaryValue<EdgeIndexes>
     {
         /// <inheritdoc/>
@@ -153,16 +152,6 @@ namespace MPewsey.ManiaMap.Graphs
         public bool IsValid()
         {
             return RoomChance <= 0 || !string.IsNullOrWhiteSpace(TemplateGroup);
-        }
-
-        /// <summary>
-        /// Returns true if the room chance is satisfied.
-        /// </summary>
-        /// <param name="value">A random value between 0 and 1 to check against.</param>
-        public bool RoomChanceSatisfied(double value)
-        {
-            return RoomChance >= 1
-                || (RoomChance > 0 && value <= RoomChance);
         }
 
         /// <summary>

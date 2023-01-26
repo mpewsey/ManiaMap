@@ -1,5 +1,6 @@
-﻿using MPewsey.ManiaMap.Collections;
-using MPewsey.ManiaMap.Serialization;
+﻿using MPewsey.Common.Collections;
+using MPewsey.Common.Mathematics;
+using MPewsey.Common.Random;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -8,7 +9,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// Represents a room in a Layout.
     /// </summary>
-    [DataContract(Namespace = XmlSerialization.Namespace)]
+    [DataContract(Namespace = Constants.DataContractNamespace)]
     public class Room : IDataContractValueDictionaryValue<Uid>
     {
         /// <summary>
@@ -97,7 +98,7 @@ namespace MPewsey.ManiaMap
         {
             return Position.Z >= min.Z
                 && Position.Z <= max.Z
-                && Template.Intersects(min - Position, max - Position);
+                && Template.Intersects((Vector2DInt)(min - Position), (Vector2DInt)(max - Position));
         }
 
         /// <summary>

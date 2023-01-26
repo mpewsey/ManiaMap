@@ -1,4 +1,8 @@
-﻿using MPewsey.ManiaMap.Exceptions;
+﻿using MPewsey.Common.Logging;
+using MPewsey.Common.Mathematics;
+using MPewsey.Common.Pipelines;
+using MPewsey.Common.Random;
+using MPewsey.ManiaMap.Exceptions;
 using MPewsey.ManiaMap.Graphs;
 using System;
 using System.Collections.Generic;
@@ -14,7 +18,7 @@ namespace MPewsey.ManiaMap.Generators
     /// ----------
     /// * [1] Nepožitek, Ondřej. (2019, January 13). Dungeon Generator (Part 2) – Implementation. Retrieved February 8, 2022, from https://ondra.nepozitek.cz/blog/238/dungeon-generator-part-2-implementation/
     /// </summary>
-    public class LayoutGenerator : IGenerationStep
+    public class LayoutGenerator : IPipelineStep
     {
         private int _maxRebases;
         /// <summary>
@@ -119,7 +123,7 @@ namespace MPewsey.ManiaMap.Generators
         /// * %Layout - The generated layout.
         /// </summary>
         /// <param name="results">The pipeline results.</param>
-        public bool ApplyStep(GenerationPipeline.Results results)
+        public bool ApplyStep(PipelineResults results)
         {
             var layoutId = results.GetArgument<int>("LayoutId");
             var graph = results.GetArgument<LayoutGraph>("LayoutGraph");
@@ -158,7 +162,7 @@ namespace MPewsey.ManiaMap.Generators
         /// <param name="randomSeed">The random seed.</param>
         public Layout Generate(int layoutId, LayoutGraph graph, TemplateGroups templateGroups, RandomSeed randomSeed)
         {
-            GenerationLogger.Log("Running layout generator...");
+            Logger.Log("Running layout generator...");
             Initialize(graph, templateGroups, randomSeed);
 
             var chains = Graph.FindChains(MaxBranchLength);
@@ -177,7 +181,7 @@ namespace MPewsey.ManiaMap.Generators
                     if (Layout.IsComplete(TemplateGroups))
                     {
                         Layout = new Layout(Layout);
-                        GenerationLogger.Log("Layout generator complete.");
+                        Logger.Log("Layout generator complete.");
                         return Layout;
                     }
 
@@ -185,7 +189,7 @@ namespace MPewsey.ManiaMap.Generators
                     ChainIndex = 0;
                     layouts.Clear();
                     layouts.Push(baseLayout);
-                    GenerationLogger.Log("Layout constraints not satisfied. Restarting...");
+                    Logger.Log("Layout constraints not satisfied. Restarting...");
                     continue;
                 }
 
@@ -195,7 +199,7 @@ namespace MPewsey.ManiaMap.Generators
                 {
                     layouts.Pop();
                     ChainIndex--;
-                    GenerationLogger.Log("Rebase count exceeded. Backtracking...");
+                    Logger.Log("Rebase count exceeded. Backtracking...");
                     continue;
                 }
 
@@ -206,11 +210,11 @@ namespace MPewsey.ManiaMap.Generators
                 {
                     layouts.Push(Layout);
                     ChainIndex++;
-                    GenerationLogger.Log($"Added chain {ChainIndex} / {chains.Count}...");
+                    Logger.Log($"Added chain {ChainIndex} / {chains.Count}...");
                 }
             }
 
-            GenerationLogger.Log("Layout generator failed.");
+            Logger.Log("Layout generator failed.");
             return null;
         }
 
@@ -298,8 +302,8 @@ namespace MPewsey.ManiaMap.Generators
             var aheadNode = Graph.GetNode(aheadEdge.ToNode);
 
             // Try to add edge rooms.
-            var addBackEdgeRoom = backEdge.RoomChanceSatisfied(RandomSeed.NextDouble());
-            var addAheadEdgeRoom = aheadEdge.RoomChanceSatisfied(RandomSeed.NextDouble());
+            var addBackEdgeRoom = RandomSeed.ChanceSatisfied(backEdge.RoomChance);
+            var addAheadEdgeRoom = RandomSeed.ChanceSatisfied(aheadEdge.RoomChance);
             var addedBackEdgeRoom = addBackEdgeRoom && AddRoom(backEdge, backNode.RoomId, backEdge.DoorCode, backEdge.Direction);
             var addedAheadEdgeRoom = addAheadEdgeRoom && AddRoom(aheadEdge, aheadNode.RoomId, aheadEdge.DoorCode, LayoutEdge.ReverseEdgeDirection(aheadEdge.Direction));
 
@@ -331,7 +335,7 @@ namespace MPewsey.ManiaMap.Generators
             var toNode = Graph.GetNode(edge.ToNode);
             var fromRoomExists = Layout.Rooms.ContainsKey(fromNode.RoomId);
             var toRoomExists = Layout.Rooms.ContainsKey(toNode.RoomId);
-            var addEdgeRoom = edge.RoomChanceSatisfied(RandomSeed.NextDouble());
+            var addEdgeRoom = RandomSeed.ChanceSatisfied(edge.RoomChance);
 
             if (toRoomExists)
                 throw new InvalidChainOrderException("To Node Exists. Chains are not properly ordered.");
@@ -387,7 +391,7 @@ namespace MPewsey.ManiaMap.Generators
             {
                 foreach (var config in GetConfigurations(fromRoom.Template, entry.Template))
                 {
-                    var position = config.Position + fromRoom.Position;
+                    var position = config.Position + (Vector2DInt)fromRoom.Position;
 
                     // Check if the configuration can be added to the layout. If not, try the next one.
                     if (!config.Matches(z, code, direction))
@@ -438,7 +442,7 @@ namespace MPewsey.ManiaMap.Generators
             {
                 foreach (var config1 in GetConfigurations(backRoom.Template, entry.Template))
                 {
-                    var position = config1.Position + backRoom.Position;
+                    var position = config1.Position + (Vector2DInt)backRoom.Position;
 
                     // Check if the configuration can be added to the layout. If not, try the next one.
                     if (!config1.Matches(z1, backCode, backDirection))
@@ -448,7 +452,7 @@ namespace MPewsey.ManiaMap.Generators
 
                     foreach (var config2 in GetConfigurations(entry.Template, aheadRoom.Template))
                     {
-                        var offset = aheadRoom.Position - position;
+                        var offset = (Vector2DInt)aheadRoom.Position - position;
 
                         // Check if the configuration can be added to the layout. If not, try the next one.
                         if (!config2.Matches(offset, z2, aheadCode, aheadDirection))
@@ -501,7 +505,7 @@ namespace MPewsey.ManiaMap.Generators
             if (Math.Abs(fromRoom.Position.Z - toRoom.Position.Z) > 1)
             {
                 // Shaft is required.
-                var position = fromDoor.Position + fromRoom.Position;
+                var position = fromDoor.Position + (Vector2DInt)fromRoom.Position;
                 var zMin = Math.Min(fromRoom.Position.Z, toRoom.Position.Z) + 1;
                 var zMax = Math.Max(fromRoom.Position.Z, toRoom.Position.Z) - 1;
                 var min = new Vector3DInt(position.X, position.Y, zMin);

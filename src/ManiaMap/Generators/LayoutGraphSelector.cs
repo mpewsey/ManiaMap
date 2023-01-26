@@ -1,4 +1,7 @@
-﻿using MPewsey.ManiaMap.Graphs;
+﻿using MPewsey.Common.Logging;
+using MPewsey.Common.Pipelines;
+using MPewsey.Common.Random;
+using MPewsey.ManiaMap.Graphs;
 using System;
 using System.Collections.Generic;
 
@@ -7,7 +10,7 @@ namespace MPewsey.ManiaMap.Generators
     /// <summary>
     /// A class for drawing a random LayoutGraph from multiple.
     /// </summary>
-    public class LayoutGraphSelector : IGenerationStep
+    public class LayoutGraphSelector : IPipelineStep
     {
         /// <summary>
         /// Draws a random layout graph and adds a copy to the results output dictionary.
@@ -20,7 +23,7 @@ namespace MPewsey.ManiaMap.Generators
         /// * %LayoutGraph - The drawn layout graph.
         /// </summary>
         /// <param name="results">The pipeline results.</param>
-        public bool ApplyStep(GenerationPipeline.Results results)
+        public bool ApplyStep(PipelineResults results)
         {
             var randomSeed = results.GetArgument<RandomSeed>("RandomSeed");
             var layouts = results.GetArgument<object>("LayoutGraphs");
@@ -35,12 +38,10 @@ namespace MPewsey.ManiaMap.Generators
         /// <param name="randomSeed">The random seed.</param>
         public LayoutGraph DrawSelection(IList<LayoutGraph> graphs, RandomSeed randomSeed)
         {
-            GenerationLogger.Log("Running layout graph list selector...");
-
+            Logger.Log("Running layout graph list selector...");
             var index = randomSeed.Next(0, graphs.Count);
             var result = graphs[index].Copy();
-
-            GenerationLogger.Log("Layout graph selector complete.");
+            Logger.Log("Layout graph selector complete.");
             return result;
         }
 
@@ -51,12 +52,10 @@ namespace MPewsey.ManiaMap.Generators
         /// <param name="randomSeed">The random seed.</param>
         public LayoutGraph DrawSelection(IList<Func<LayoutGraph>> functions, RandomSeed randomSeed)
         {
-            GenerationLogger.Log("Applying layout graph delegate list selector...");
-
+            Logger.Log("Applying layout graph delegate list selector...");
             var index = randomSeed.Next(0, functions.Count);
             var result = functions[index].Invoke().Copy();
-
-            GenerationLogger.Log("Layout graph selector complete.");
+            Logger.Log("Layout graph selector complete.");
             return result;
         }
 
@@ -68,7 +67,7 @@ namespace MPewsey.ManiaMap.Generators
         /// <exception cref="ArgumentException">Raised if the type of `graphs` is not handled.</exception>
         public LayoutGraph DrawSelection(object graphs, RandomSeed randomSeed)
         {
-            GenerationLogger.Log("Running layout graph selector...");
+            Logger.Log("Running layout graph selector...");
 
             switch (graphs)
             {

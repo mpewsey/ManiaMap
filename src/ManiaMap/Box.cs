@@ -1,4 +1,4 @@
-﻿using MPewsey.ManiaMap.Serialization;
+﻿using MPewsey.Common.Mathematics;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -6,7 +6,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A class representing a box in 3D space. The box is defined by integer coordinate ranges.
     /// </summary>
-    [DataContract(Namespace = XmlSerialization.Namespace)]
+    [DataContract(Namespace = Constants.DataContractNamespace)]
     public class Box
     {
         /// <summary>
@@ -46,7 +46,7 @@ namespace MPewsey.ManiaMap
         {
             return position.Z >= Min.Z
                 && position.Z <= Max.Z
-                && template.Intersects(Min - position, Max - position);
+                && template.Intersects((Vector2DInt)(Min - position), (Vector2DInt)(Max - position));
         }
 
         /// <summary>

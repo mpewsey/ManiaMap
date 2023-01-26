@@ -1,4 +1,5 @@
-﻿using SixLabors.ImageSharp;
+﻿using MPewsey.Common.Mathematics;
+using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 using System.Collections.Generic;

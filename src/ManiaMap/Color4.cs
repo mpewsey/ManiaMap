@@ -1,5 +1,4 @@
-﻿using MPewsey.ManiaMap.Serialization;
-using System;
+﻿using System;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -7,7 +6,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// A 4 byte (32 bit) color.
     /// </summary>
-    [DataContract(Namespace = XmlSerialization.Namespace)]
+    [DataContract(Namespace = Constants.DataContractNamespace)]
     public struct Color4 : IEquatable<Color4>
     {
         /// <summary>

@@ -1,5 +1,4 @@
-﻿using MPewsey.ManiaMap.Serialization;
-using System;
+﻿using System;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -7,7 +6,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// Represents a possible door in a RoomTemplate.
     /// </summary>
-    [DataContract(Namespace = XmlSerialization.Namespace)]
+    [DataContract(Namespace = Constants.DataContractNamespace)]
     public class Door
     {
         /// <summary>

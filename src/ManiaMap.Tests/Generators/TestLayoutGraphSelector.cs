@@ -1,4 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.Common.Pipelines;
+using MPewsey.Common.Random;
 using MPewsey.ManiaMap.Graphs;
 using System;
 using System.Collections.Generic;
@@ -27,7 +29,7 @@ namespace MPewsey.ManiaMap.Generators.Tests
             };
 
             var selector = new LayoutGraphSelector();
-            var results = new GenerationPipeline.Results(input);
+            var results = new PipelineResults(input);
             Assert.IsTrue(selector.ApplyStep(results));
             Assert.AreEqual(1, results.Outputs.Count);
             Assert.IsTrue(results.Outputs.ContainsKey("LayoutGraph"));
@@ -52,7 +54,7 @@ namespace MPewsey.ManiaMap.Generators.Tests
             };
 
             var selector = new LayoutGraphSelector();
-            var results = new GenerationPipeline.Results(input);
+            var results = new PipelineResults(input);
             Assert.IsTrue(selector.ApplyStep(results));
             Assert.AreEqual(1, results.Outputs.Count);
             Assert.IsTrue(results.Outputs.ContainsKey("LayoutGraph"));

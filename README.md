@@ -127,7 +127,7 @@ generator.Generate(layout, collectableGroups, seed);
 
 ## Layout Graph Selector Example
 
-The layout graph selector draws a random layout graph from a supplied list. This is useful when used as an early step in a `GenerationPipeline`.
+The layout graph selector draws a random layout graph from a supplied list. This is useful when used as an early step in a `Pipeline`.
 
 ```LayoutGraphSelector.cs
 // Create a list of graphs from which to draw.
@@ -180,10 +180,10 @@ var args = new Dictionary<string, object>
 };
 
 // Use the default pipeline
-var pipeline = GenerationPipeline.CreateDefaultPipeline();
+var pipeline = PipelineBuilder.CreateDefaultPipeline();
 
 // Or create your own
-pipeline = new GenerationPipeline(new LayoutGenerator(), new CollectableGenerator());
+pipeline = new Pipeline(new LayoutGenerator(), new CollectableGenerator());
 
 var results = pipeline.Generate(args);
 var layout = results.GetOutput<Layout>("Layout");
@@ -191,16 +191,16 @@ var layout = results.GetOutput<Layout>("Layout");
 
 ## Generation Logger Example
 
-The generators include logging messages that can be subscribed to by adding a delegate to the `GenerationLogger`, as shown in the below example.
+The generators include logging messages that can be subscribed to by adding a delegate to the `Logger`, as shown in the below example.
 
-```GenerationLogger.cs
+```Logger.cs
 // Have the messages printed to the console.
-GenerationLogger.AddListener(Console.WriteLine);
+Logger.AddListener(Console.WriteLine);
 
 // Or added to a list.
 var messages = new List<string>();
-GenerationLogger.AddListener(messages.Add);
+Logger.AddListener(messages.Add);
 
 // Make sure to have your objects unsubscribe from the event to prevent memory leaks.
-GenerationLogger.RemoveListener(messages.Add);
+Logger.RemoveListener(messages.Add);
 ```

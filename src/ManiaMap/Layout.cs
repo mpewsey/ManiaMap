@@ -1,6 +1,6 @@
-﻿using MPewsey.ManiaMap.Collections;
+﻿using MPewsey.Common.Collections;
+using MPewsey.Common.Mathematics;
 using MPewsey.ManiaMap.Graphs;
-using MPewsey.ManiaMap.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
@@ -10,7 +10,7 @@ namespace MPewsey.ManiaMap
     /// <summary>
     /// Represents a room layout consisting of Room and DoorConnection.
     /// </summary>
-    [DataContract(Namespace = XmlSerialization.Namespace)]
+    [DataContract(Namespace = Constants.DataContractNamespace)]
     public class Layout
     {
         /// <summary>
@@ -253,8 +253,9 @@ namespace MPewsey.ManiaMap
         {
             foreach (var room in Rooms.Values)
             {
-                if (room.Position.Z == position.Z
-                    && template.Intersects(room.Template, room.Position - position))
+                var delta = room.Position - position;
+
+                if (delta.Z == 0 && template.Intersects(room.Template, (Vector2DInt)delta))
                     return true;
             }
 

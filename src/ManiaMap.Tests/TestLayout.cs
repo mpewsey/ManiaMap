@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.Common.Random;
+using MPewsey.Common.Serialization;
 using MPewsey.ManiaMap.Generators;
-using MPewsey.ManiaMap.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -158,7 +159,7 @@ namespace MPewsey.ManiaMap.Tests
                 { "RandomSeed", seed },
             };
 
-            var pipeline = GenerationPipeline.CreateDefaultPipeline();
+            var pipeline = PipelineBuilder.CreateDefaultPipeline();
             var results = pipeline.Generate(dict);
             Assert.IsTrue(results.Success);
         }
