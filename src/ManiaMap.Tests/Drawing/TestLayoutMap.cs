@@ -71,6 +71,43 @@ namespace MPewsey.ManiaMap.Drawing.Tests
         }
 
         [TestMethod]
+        public void TestSaveFilteredVisibleLLoopLayoutImages()
+        {
+            var graph = Samples.GraphLibrary.LoopGraph();
+
+            var templateGroups = new TemplateGroups();
+            var template = Samples.TemplateLibrary.Miscellaneous.LTemplate();
+            templateGroups.Add("Default", template.UniqueVariations());
+
+            var generator = new LayoutGenerator();
+            var random = new RandomSeed(12345);
+            var layout = generator.Generate(1, graph, templateGroups, random);
+
+            Assert.IsNotNull(layout);
+
+            var layoutState = new LayoutState(layout);
+
+            foreach (var roomState in layoutState.RoomStates.Values)
+            {
+                roomState.IsVisible = true;
+                var cells = layout.Rooms[roomState.Id].Template.Cells;
+
+                for (int i = 0; i < cells.Rows; i++)
+                {
+                    for (int j = 0; j < cells.Columns; j++)
+                    {
+                        var index = new Vector2DInt(i, j);
+                        var visibility = random.ChanceSatisfied(0.5);
+                        Assert.IsTrue(roomState.SetCellVisibility(index, visibility));
+                    }
+                }
+            }
+
+            var map = new LayoutMap();
+            map.SaveImages("FilteredVisibleLLoopMap.png", layout, layoutState);
+        }
+
+        [TestMethod]
         public void TestSaveFilteredLLoopLayoutImages()
         {
             var graph = Samples.GraphLibrary.LoopGraph();
@@ -96,7 +133,7 @@ namespace MPewsey.ManiaMap.Drawing.Tests
                     for (int j = 0; j < cells.Columns; j++)
                     {
                         var index = new Vector2DInt(i, j);
-                        var visibility = random.NextDouble() > 0.3;
+                        var visibility = random.ChanceSatisfied(0.5);
                         Assert.IsTrue(roomState.SetCellVisibility(index, visibility));
                     }
                 }

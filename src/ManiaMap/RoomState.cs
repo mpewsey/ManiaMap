@@ -17,21 +17,27 @@ namespace MPewsey.ManiaMap
         public Uid Id { get; private set; }
 
         /// <summary>
-        /// An array of room cell visibilities.
+        /// If true, all cells of the room will be visible without the individual cells being marked visible.
         /// </summary>
         [DataMember(Order = 2, IsRequired = true)]
+        public bool IsVisible { get; set; }
+
+        /// <summary>
+        /// An array of room cell visibilities.
+        /// </summary>
+        [DataMember(Order = 3, IsRequired = true)]
         public BitArray2D VisibleCells { get; private set; }
 
         /// <summary>
         /// A set of acquired collectable location ID's.
         /// </summary>
-        [DataMember(Order = 3, IsRequired = true)]
+        [DataMember(Order = 4, IsRequired = true)]
         public DataContractHashSet<int> AcquiredCollectables { get; private set; } = new DataContractHashSet<int>();
 
         /// <summary>
         /// A set of flags that are set for a room.
         /// </summary>
-        [DataMember(Order = 4, IsRequired = true)]
+        [DataMember(Order = 5, IsRequired = true)]
         public DataContractHashSet<int> Flags { get; private set; } = new DataContractHashSet<int>();
 
         /// <inheritdoc/>

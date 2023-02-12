@@ -19,6 +19,7 @@ namespace MPewsey.ManiaMap.Tests
             XmlSerialization.SaveXml(path, state);
             var copy = XmlSerialization.LoadXml<RoomState>(path);
             Assert.AreEqual(state.Id, copy.Id);
+            Assert.AreEqual(state.IsVisible, copy.IsVisible);
             Assert.AreEqual(state.VisibleCells.Rows, copy.VisibleCells.Rows);
             Assert.AreEqual(state.VisibleCells.Columns, copy.VisibleCells.Columns);
             CollectionAssert.AreEqual(state.VisibleCells.Array, copy.VisibleCells.Array);
