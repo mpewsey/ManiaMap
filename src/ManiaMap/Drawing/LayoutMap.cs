@@ -25,7 +25,12 @@ namespace MPewsey.ManiaMap.Drawing
         /// <summary>
         /// The map background color.
         /// </summary>
-        public Color4 BackgroundColor { get; set; } = new Color4(0, 0, 0, 1);
+        public Color4 BackgroundColor { get; set; } = new Color4(0, 0, 0, 255);
+
+        /// <summary>
+        /// The room color if visible.
+        /// </summary>
+        public Color4 RoomColor { get; set; } = new Color4(75, 75, 75, 255);
 
         /// <summary>
         /// A dictionary of map tiles by name. The applicable tiles are superimposed at the cell location
@@ -64,16 +69,18 @@ namespace MPewsey.ManiaMap.Drawing
         /// <summary>
         /// Initializes the settings.
         /// </summary>
-        /// <param name="tileSize">The tile size. If null, the default property value will be used.</param>
         /// <param name="padding">The padding around the layout. If null, the default property value will be used.</param>
-        /// <param name="tiles">A dictionary of map tiles to use. If null, the default tiles will be used.</param>
         /// <param name="backgroundColor">The background color. If null, the default property value will be used.</param>
-        public LayoutMap(Padding? padding = null, Color4? backgroundColor = null,
+        /// <param name="roomColor">The room color if visible. If null, the default property value will be used.</param>
+        /// <param name="tileSize">The tile size. If null, the default property value will be used.</param>
+        /// <param name="tiles">A dictionary of map tiles to use. If null, the default tiles will be used.</param>
+        public LayoutMap(Padding? padding = null, Color4? backgroundColor = null, Color4? roomColor = null,
             Vector2DInt? tileSize = null, Dictionary<string, Image> tiles = null)
         {
             TileSize = tileSize ?? TileSize;
             Padding = padding ?? Padding;
             BackgroundColor = backgroundColor ?? BackgroundColor;
+            RoomColor = roomColor ?? RoomColor;
             Tiles = tiles ?? MapTiles.GetDefaultTiles();
         }
 
@@ -199,6 +206,9 @@ namespace MPewsey.ManiaMap.Drawing
         /// <param name="z">The z (layer) value used to render the layout.</param>
         private void DrawMapTiles(IImageProcessingContext image, int z)
         {
+            var roomTile = new Image<Rgba32>(TileSize.X, TileSize.Y);
+            roomTile.Mutate(x => x.BackgroundColor(ConvertColor(RoomColor)));
+
             foreach (var room in Layout.Rooms.Values)
             {
                 // If room Z (layer) value is not equal, go to next room.
@@ -224,7 +234,7 @@ namespace MPewsey.ManiaMap.Drawing
                             continue;
 
                         // If room state is defined and is not visible, go to next cell.
-                        if (roomState != null && !roomState.CellIsVisible(position))
+                        if (roomState != null && !roomState.IsVisible && !roomState.CellIsVisible(position))
                             continue;
 
                         // Calculate draw position
@@ -247,7 +257,10 @@ namespace MPewsey.ManiaMap.Drawing
                         var eastTile = GetTile(room, cell, east, position, DoorDirection.East);
 
                         // Add cell background fill
-                        image.DrawImage(cellTile, point, 1);
+                        if (roomState != null && roomState.IsVisible)
+                            image.DrawImage(roomTile, point, 1);
+                        if (roomState == null || roomState.CellIsVisible(position))
+                            image.DrawImage(cellTile, point, 1);
 
                         // Superimpose applicable map tiles
                         if (northTile != null)
