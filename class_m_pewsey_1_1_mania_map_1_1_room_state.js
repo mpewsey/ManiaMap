@@ -8,6 +8,7 @@ var class_m_pewsey_1_1_mania_map_1_1_room_state =
     [ "AcquiredCollectables", "class_m_pewsey_1_1_mania_map_1_1_room_state.html#a1ef8dea120af00bed02b4894deeb52a6", null ],
     [ "Flags", "class_m_pewsey_1_1_mania_map_1_1_room_state.html#ac78a104d70762f9a32f04bccacce5a98", null ],
     [ "Id", "class_m_pewsey_1_1_mania_map_1_1_room_state.html#a068ab1998bd58222f81def619f59b2f7", null ],
+    [ "IsVisible", "class_m_pewsey_1_1_mania_map_1_1_room_state.html#a09eec8e9869a117913b76bd4b2b975a0", null ],
     [ "Key", "class_m_pewsey_1_1_mania_map_1_1_room_state.html#a8a799a777967fdd4e0786ede335361f2", null ],
     [ "VisibleCells", "class_m_pewsey_1_1_mania_map_1_1_room_state.html#aba53e9767975394f73e0662e11d73189", null ]
 ];
