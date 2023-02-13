@@ -257,10 +257,8 @@ namespace MPewsey.ManiaMap.Drawing
                         var eastTile = GetTile(room, cell, east, position, DoorDirection.East);
 
                         // Add cell background fill
-                        if (roomState != null && roomState.IsVisible)
-                            image.DrawImage(roomTile, point, 1);
-                        if (roomState == null || roomState.CellIsVisible(position))
-                            image.DrawImage(cellTile, point, 1);
+                        var tile = roomState == null || roomState.CellIsVisible(position) ? cellTile : roomTile;
+                        image.DrawImage(tile, point, 1);
 
                         // Superimpose applicable map tiles
                         if (northTile != null)
