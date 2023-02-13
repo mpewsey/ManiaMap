@@ -50,7 +50,8 @@ namespace MPewsey.ManiaMap
         public RoomState(Room room)
         {
             Id = room.Id;
-            VisibleCells = new BitArray2D(room.Template.Cells.Rows, room.Template.Cells.Columns);
+            var cells = room.Template.Cells;
+            VisibleCells = new BitArray2D(cells.Rows, cells.Columns);
         }
 
         /// <summary>
