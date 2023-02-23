@@ -33,6 +33,11 @@ namespace MPewsey.ManiaMap.Drawing
         public Color4 RoomColor { get; set; } = new Color4(75, 75, 75, 255);
 
         /// <summary>
+        /// If true, doors will be displayed on the map. Otherwise, only walls will be displayed.
+        /// </summary>
+        public bool ShowDoors { get; set; } = true;
+
+        /// <summary>
         /// A dictionary of map tiles by name. The applicable tiles are superimposed at the cell location
         /// when the map is drawn. The following names are used internally:
         /// 
@@ -71,12 +76,14 @@ namespace MPewsey.ManiaMap.Drawing
         /// </summary>
         /// <param name="padding">The padding around the layout. If null, the default property value will be used.</param>
         /// <param name="backgroundColor">The background color. If null, the default property value will be used.</param>
+        /// <param name="showDoors">If true, doors will be displayed on the map. Otherwise, only walls will be displayed.</param>
         /// <param name="roomColor">The room color if visible. If null, the default property value will be used.</param>
         /// <param name="tileSize">The tile size. If null, the default property value will be used.</param>
         /// <param name="tiles">A dictionary of map tiles to use. If null, the default tiles will be used.</param>
         public LayoutMap(Padding? padding = null, Color4? backgroundColor = null, Color4? roomColor = null,
-            Vector2DInt? tileSize = null, Dictionary<string, Image> tiles = null)
+            bool showDoors = true, Vector2DInt? tileSize = null, Dictionary<string, Image> tiles = null)
         {
+            ShowDoors = showDoors;
             TileSize = tileSize ?? TileSize;
             Padding = padding ?? Padding;
             BackgroundColor = backgroundColor ?? BackgroundColor;
@@ -315,10 +322,9 @@ namespace MPewsey.ManiaMap.Drawing
         /// <param name="neighbor">The neighbor cell in the door direction. The neighbor can be null.</param>
         /// <param name="position">The local coordinate.</param>
         /// <param name="direction">The door direction.</param>
-        /// <returns></returns>
         private Image GetTile(Room room, Cell cell, Cell neighbor, Vector2DInt position, DoorDirection direction)
         {
-            if (cell.GetDoor(direction) != null && DoorExists(room, position, direction))
+            if (ShowDoors && cell.GetDoor(direction) != null && DoorExists(room, position, direction))
                 return Tiles[MapTileType.GetDoorTileType(direction)];
 
             var wallType = MapTileType.GetWallTileType(direction);

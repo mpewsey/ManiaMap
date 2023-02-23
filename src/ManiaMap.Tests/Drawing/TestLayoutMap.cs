@@ -45,6 +45,24 @@ namespace MPewsey.ManiaMap.Drawing.Tests
         }
 
         [TestMethod]
+        public void TestSaveHyperSquareStackedLoopLayoutWithoutDoorsImages()
+        {
+            var graph = Samples.GraphLibrary.StackedLoopGraph();
+
+            var templateGroups = new TemplateGroups();
+            templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
+
+            var generator = new LayoutGenerator();
+            var random = new RandomSeed(12345);
+            var layout = generator.Generate(1, graph, templateGroups, random);
+
+            Assert.IsNotNull(layout);
+
+            var map = new LayoutMap(showDoors: false);
+            map.SaveImages("HyperSquareMapNoDoors.png", layout);
+        }
+
+        [TestMethod]
         public void TestSaveLLoopLayoutImages()
         {
             var graph = Samples.GraphLibrary.LoopGraph();
@@ -61,6 +79,25 @@ namespace MPewsey.ManiaMap.Drawing.Tests
 
             var map = new LayoutMap();
             map.SaveImages("LLoopMap.png", layout);
+        }
+
+        [TestMethod]
+        public void TestSaveLLoopLayoutWithoutDoorsImages()
+        {
+            var graph = Samples.GraphLibrary.LoopGraph();
+
+            var templateGroups = new TemplateGroups();
+            var template = Samples.TemplateLibrary.Miscellaneous.LTemplate();
+            templateGroups.Add("Default", template.UniqueVariations());
+
+            var generator = new LayoutGenerator();
+            var random = new RandomSeed(12345);
+            var layout = generator.Generate(1, graph, templateGroups, random);
+
+            Assert.IsNotNull(layout);
+
+            var map = new LayoutMap(showDoors: false);
+            map.SaveImages("LLoopMapNoDoors.png", layout);
         }
 
         [TestMethod]
