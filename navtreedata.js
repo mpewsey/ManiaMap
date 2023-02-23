@@ -66,10 +66,10 @@ var NAVTREEINDEX =
 [
 "_____docs_____8cs_source.html",
 "class_m_pewsey_1_1_mania_map_1_1_door_connection.html#a3953d3fab75953633d4489296e619bb3",
-"class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_chain_decomposer.html#a4014e1505f44a41d0b14b70482cc02d7",
-"class_m_pewsey_1_1_mania_map_1_1_layout.html#a14e01e9c3afc4bac88254f4b7046f3e5",
-"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_angles.html#a8693d39d6017ccfea6ad1afe950e7a69",
-"struct_m_pewsey_1_1_mania_map_1_1_rectangle_int.html#a0407b58d589552b50dcc54361c26bce0"
+"class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_chain_decomposer.html#a0ec2d842efa3c7690f527995e6890e7b",
+"class_m_pewsey_1_1_mania_map_1_1_layout.html#a049a45437ff63ac3c483b3e79185c7fd",
+"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_angles.html",
+"struct_m_pewsey_1_1_mania_map_1_1_rectangle_int.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

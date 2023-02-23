@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_angles.html":[10,0,0,0,4,3,0],
+"class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_angles.html":[9,0,0,0,4,3,0],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_angles.html#a8693d39d6017ccfea6ad1afe950e7a69":[10,0,0,0,4,3,0,0],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_angles.html#a8693d39d6017ccfea6ad1afe950e7a69":[9,0,0,0,4,3,0,0],
 "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_miscellaneous.html":[10,0,0,0,4,3,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "struct_m_pewsey_1_1_mania_map_1_1_graphs_1_1_edge_indexes.html#ae495f0ff443edb0f8105196e437e250e":[9,0,0,0,3,0,1],
 "struct_m_pewsey_1_1_mania_map_1_1_graphs_1_1_edge_indexes.html#afa240700ab17643e5a86303d9596de4d":[10,0,0,0,3,0,2],
 "struct_m_pewsey_1_1_mania_map_1_1_graphs_1_1_edge_indexes.html#afa240700ab17643e5a86303d9596de4d":[9,0,0,0,3,0,2],
-"struct_m_pewsey_1_1_mania_map_1_1_rectangle_int.html":[10,0,0,0,21],
-"struct_m_pewsey_1_1_mania_map_1_1_rectangle_int.html":[9,0,0,0,21],
-"struct_m_pewsey_1_1_mania_map_1_1_rectangle_int.html#a0407b58d589552b50dcc54361c26bce0":[10,0,0,0,21,1]
+"struct_m_pewsey_1_1_mania_map_1_1_rectangle_int.html":[10,0,0,0,21]
 };
