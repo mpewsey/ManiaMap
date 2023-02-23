@@ -50,7 +50,6 @@ namespace MPewsey.ManiaMap
         /// </summary>
         /// <param name="position">The local door position.</param>
         /// <param name="direction">The door direction.</param>
-        /// <returns></returns>
         public bool Matches(Vector2DInt position, DoorDirection direction)
         {
             return Position == position && Direction == direction;

@@ -217,7 +217,6 @@ namespace MPewsey.ManiaMap
         /// Adds the name to the feature list if it doesn't already exist. Returns the cell.
         /// </summary>
         /// <param name="name"></param>
-        /// <returns></returns>
         public Cell AddFeature(string name)
         {
             if (!Features.Contains(name))

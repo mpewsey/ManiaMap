@@ -56,7 +56,6 @@
             /// <summary>
             /// Returns a template in the shape of a "+" with doors at each point.
             /// </summary>
-            /// <returns></returns>
             public static RoomTemplate PlusTemplate()
             {
                 var x = Cell.Empty;
