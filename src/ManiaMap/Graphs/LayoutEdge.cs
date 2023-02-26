@@ -162,9 +162,9 @@ namespace MPewsey.ManiaMap.Graphs
         /// 
         /// Edge directions are drawn as:
         /// 
-        /// * "<=>" : Two way
-        /// * "=>" and "<=" : One way flexible in the arrow direction.
-        /// * "->" and "<-" : One way fixed in the arrow direction.
+        /// * "&lt;=&gt;" : Two way
+        /// * "=&gt;" and "&lt;=" : One way flexible in the arrow direction.
+        /// * "-&gt;" and "&lt;-" : One way fixed in the arrow direction.
         /// 
         /// Basically, the "=", with its two lines, signals that the edge can go both directions
         /// given the conditions are met, whereas the "-", with its one line, signals that
