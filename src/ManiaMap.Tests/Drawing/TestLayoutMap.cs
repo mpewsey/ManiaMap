@@ -63,6 +63,42 @@ namespace MPewsey.ManiaMap.Drawing.Tests
         }
 
         [TestMethod]
+        public void TestSaveHyperSquareStackedLoopLayoutIntralayerDoorsImages()
+        {
+            var graph = Samples.GraphLibrary.StackedLoopGraph();
+
+            var templateGroups = new TemplateGroups();
+            templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
+
+            var generator = new LayoutGenerator();
+            var random = new RandomSeed(12345);
+            var layout = generator.Generate(1, graph, templateGroups, random);
+
+            Assert.IsNotNull(layout);
+
+            var map = new LayoutMap(doorDrawMode: DoorDrawMode.IntralayerDoors);
+            map.SaveImages("HyperSquareMapIntralayerDoors.png", layout);
+        }
+
+        [TestMethod]
+        public void TestSaveHyperSquareStackedLoopLayoutInterlayerDoorsImages()
+        {
+            var graph = Samples.GraphLibrary.StackedLoopGraph();
+
+            var templateGroups = new TemplateGroups();
+            templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
+
+            var generator = new LayoutGenerator();
+            var random = new RandomSeed(12345);
+            var layout = generator.Generate(1, graph, templateGroups, random);
+
+            Assert.IsNotNull(layout);
+
+            var map = new LayoutMap(doorDrawMode: DoorDrawMode.InterlayerDoors);
+            map.SaveImages("HyperSquareMapInterlayerDoors.png", layout);
+        }
+
+        [TestMethod]
         public void TestSaveLLoopLayoutImages()
         {
             var graph = Samples.GraphLibrary.LoopGraph();
