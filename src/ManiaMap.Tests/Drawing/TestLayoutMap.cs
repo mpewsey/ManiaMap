@@ -58,7 +58,7 @@ namespace MPewsey.ManiaMap.Drawing.Tests
 
             Assert.IsNotNull(layout);
 
-            var map = new LayoutMap(showDoors: false);
+            var map = new LayoutMap(doorDrawMode: DoorDrawMode.None);
             map.SaveImages("HyperSquareMapNoDoors.png", layout);
         }
 
@@ -96,7 +96,7 @@ namespace MPewsey.ManiaMap.Drawing.Tests
 
             Assert.IsNotNull(layout);
 
-            var map = new LayoutMap(showDoors: false);
+            var map = new LayoutMap(doorDrawMode: DoorDrawMode.None);
             map.SaveImages("LLoopMapNoDoors.png", layout);
         }
 

@@ -249,5 +249,28 @@ namespace MPewsey.ManiaMap
                     throw new ArgumentException($"Unhandled Door Type: {to}.");
             }
         }
+
+        /// <summary>
+        /// Returns true if the door direction should be drawn for the specified draw mode.
+        /// </summary>
+        /// <param name="drawMode">The door draw mode.</param>
+        /// <param name="direction">The door direction.</param>
+        /// <exception cref="ArgumentException">Raised if the draw mode is not handled.</exception>
+        public static bool ShowDoor(DoorDrawMode drawMode, DoorDirection direction)
+        {
+            switch (drawMode)
+            {
+                case DoorDrawMode.None:
+                    return false;
+                case DoorDrawMode.AllDoors:
+                    return true;
+                case DoorDrawMode.IntralayerDoors:
+                    return direction != DoorDirection.Top && direction != DoorDirection.Bottom;
+                case DoorDrawMode.InterlayerDoors:
+                    return direction == DoorDirection.Top || direction == DoorDirection.Bottom;
+                default:
+                    throw new ArgumentException($"Unhandled draw mode: {drawMode}.");
+            }
+        }
     }
 }
