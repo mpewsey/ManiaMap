@@ -18,6 +18,7 @@ var dir_c3494bb25e2299bf4310ea0990001e7f =
     [ "Door.cs", "_door_8cs_source.html", null ],
     [ "DoorConnection.cs", "_door_connection_8cs_source.html", null ],
     [ "DoorDirection.cs", "_door_direction_8cs_source.html", null ],
+    [ "DoorDrawMode.cs", "_door_draw_mode_8cs_source.html", null ],
     [ "DoorPair.cs", "_door_pair_8cs_source.html", null ],
     [ "DoorPosition.cs", "_door_position_8cs_source.html", null ],
     [ "DoorType.cs", "_door_type_8cs_source.html", null ],

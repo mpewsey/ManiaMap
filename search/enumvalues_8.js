@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['west_0',['West',['../namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839babf495fc048d8d44b7f32536df5cf3930',1,'MPewsey::ManiaMap']]]
+  ['south_0',['South',['../namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839ba263d7b2cf53802c9ed127b718c0bf9fd',1,'MPewsey::ManiaMap']]]
 ];

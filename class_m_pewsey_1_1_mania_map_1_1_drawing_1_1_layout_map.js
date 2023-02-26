@@ -1,6 +1,6 @@
 var class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map =
 [
-    [ "LayoutMap", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a2a6dba0a5f062cdc1b051a02a76cff2e", null ],
+    [ "LayoutMap", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ad2e7996289b6a507e18187fb5b36bf78", null ],
     [ "ConvertColor", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ac6c0ec9abeadcc79cd76aa0857a36fbd", null ],
     [ "CreateImages", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ac4cac57b08d7d2a359b7774ecda67046", null ],
     [ "DoorExists", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#adad40db20badadf38917ba2a57a8c9f7", null ],
@@ -12,13 +12,13 @@ var class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map =
     [ "Initialize", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a5c928d647a5e4ae54d13defc98473faa", null ],
     [ "SaveImages", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a5d73e9a59699dda5b96cf5a59d1a177d", null ],
     [ "BackgroundColor", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#aa8a2ce3b1854e3b180f786c58031590e", null ],
+    [ "DoorDrawMode", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#aa01e3a229f5a29b89bd26e0258dae481", null ],
     [ "Layout", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a026b14ff7a31024e39ae954ac0a1ae0b", null ],
     [ "LayoutBounds", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a2bc7699ed88b0bb745aa854365036727", null ],
     [ "LayoutState", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#aeb576508009b43b1aaae901271621133", null ],
     [ "Padding", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a776adcdf4858829919cb342108c797f6", null ],
     [ "RoomColor", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ada2d596a3307b5fce74bdf22c63d84c3", null ],
     [ "RoomDoors", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#aa500f371022d1e58d583fbc5db979cb0", null ],
-    [ "ShowDoors", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a0dddb1bedebd28f4f99de2e320359e30", null ],
     [ "Tiles", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a698f03c8e1e4bf4041453f894f04f2a6", null ],
     [ "TileSize", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ae1e79b9279663f6f8c6610d9f90e73ec", null ]
 ];

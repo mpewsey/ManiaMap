@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['onewayentrance_0',['OneWayEntrance',['../namespace_m_pewsey_1_1_mania_map.html#a419070e26de8251aeeaa0578ad0d9fb1a7e7bc5c6cfbba7c332249031c74166e1',1,'MPewsey::ManiaMap']]],
-  ['onewayexit_1',['OneWayExit',['../namespace_m_pewsey_1_1_mania_map.html#a419070e26de8251aeeaa0578ad0d9fb1ad09ccd18fca9e14fe1ea5fbf34b32bef',1,'MPewsey::ManiaMap']]]
+  ['interlayerdoors_0',['InterlayerDoors',['../namespace_m_pewsey_1_1_mania_map.html#a25ff7350332c29cab1ad7ee1443213f1aeaa41fb992258e21c5c7ce98670402dd',1,'MPewsey::ManiaMap']]],
+  ['intralayerdoors_1',['IntralayerDoors',['../namespace_m_pewsey_1_1_mania_map.html#a25ff7350332c29cab1ad7ee1443213f1a41ba8fd15a38e30528c107363905c611',1,'MPewsey::ManiaMap']]]
 ];

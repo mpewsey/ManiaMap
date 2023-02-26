@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['reversefixed_0',['ReverseFixed',['../namespace_m_pewsey_1_1_mania_map.html#a9c2e1ae4c3e288513d42b9fd13ecc256a14ecd297ea1fa9fe6e49a90757b0e0a6',1,'MPewsey::ManiaMap']]],
-  ['reverseflexible_1',['ReverseFlexible',['../namespace_m_pewsey_1_1_mania_map.html#a9c2e1ae4c3e288513d42b9fd13ecc256a9c8395158e4b321f673f521c6810f931',1,'MPewsey::ManiaMap']]]
+  ['none_0',['None',['../namespace_m_pewsey_1_1_mania_map.html#a25ff7350332c29cab1ad7ee1443213f1a6adf97f83acf6453d4a6a4b1070f3754',1,'MPewsey::ManiaMap']]],
+  ['north_1',['North',['../namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839ba601560b94fbb188919dd1d36c8ab70a4',1,'MPewsey::ManiaMap']]]
 ];

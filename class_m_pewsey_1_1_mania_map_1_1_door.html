@@ -138,6 +138,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a673291c615ce2b24f520a6027fb5d839"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a9c2e1ae4c3e288513d42b9fd13ecc256">EdgeDirection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_door.html#a673291c615ce2b24f520a6027fb5d839">GetEdgeDirection</a> (<a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a419070e26de8251aeeaa0578ad0d9fb1">DoorType</a> from, <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a419070e26de8251aeeaa0578ad0d9fb1">DoorType</a> to)</td></tr>
 <tr class="memdesc:a673291c615ce2b24f520a6027fb5d839"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the edge direction corresponding to the door type combination.  <a href="class_m_pewsey_1_1_mania_map_1_1_door.html#a673291c615ce2b24f520a6027fb5d839">More...</a><br /></td></tr>
 <tr class="separator:a673291c615ce2b24f520a6027fb5d839"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63934219a2c7a87b7880ef3da6554570"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_door.html#a63934219a2c7a87b7880ef3da6554570">ShowDoor</a> (<a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a25ff7350332c29cab1ad7ee1443213f1">DoorDrawMode</a> drawMode, <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839b">DoorDirection</a> direction)</td></tr>
+<tr class="memdesc:a63934219a2c7a87b7880ef3da6554570"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the door direction should be drawn for the specified draw mode.  <a href="class_m_pewsey_1_1_mania_map_1_1_door.html#a63934219a2c7a87b7880ef3da6554570">More...</a><br /></td></tr>
+<tr class="separator:a63934219a2c7a87b7880ef3da6554570"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36d8b41df0a264c4d8482102c38956d3"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_door.html#a36d8b41df0a264c4d8482102c38956d3">ValuesAreEqual</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_door.html">Door</a> x, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_door.html">Door</a> y)</td></tr>
 <tr class="memdesc:a36d8b41df0a264c4d8482102c38956d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the two doors have matching values.  <a href="class_m_pewsey_1_1_mania_map_1_1_door.html#a36d8b41df0a264c4d8482102c38956d3">More...</a><br /></td></tr>
 <tr class="separator:a36d8b41df0a264c4d8482102c38956d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -483,6 +486,59 @@ Static Private Member Functions</h2></td></tr>
 <p>Sets the door code and returns the door. </p>
 
 <p class="definition">Definition at line <a class="el" href="_door_8cs_source.html#l00084">84</a> of file <a class="el" href="_door_8cs_source.html">Door.cs</a>.</p>
+
+</div>
+</div>
+<a id="a63934219a2c7a87b7880ef3da6554570" name="a63934219a2c7a87b7880ef3da6554570"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63934219a2c7a87b7880ef3da6554570">&#9670;&nbsp;</a></span>ShowDoor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool MPewsey.ManiaMap.Door.ShowDoor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a25ff7350332c29cab1ad7ee1443213f1">DoorDrawMode</a>&#160;</td>
+          <td class="paramname"><em>drawMode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839b">DoorDirection</a>&#160;</td>
+          <td class="paramname"><em>direction</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns true if the door direction should be drawn for the specified draw mode. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">drawMode</td><td>The door draw mode.</td></tr>
+    <tr><td class="paramname">direction</td><td>The door direction.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentException</td><td>Raised if the draw mode is not handled.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_door_8cs_source.html#l00259">259</a> of file <a class="el" href="_door_8cs_source.html">Door.cs</a>.</p>
 
 </div>
 </div>

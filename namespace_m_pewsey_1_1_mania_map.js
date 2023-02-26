@@ -37,6 +37,12 @@ var namespace_m_pewsey_1_1_mania_map =
       [ "Top", "namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839baa4ffdcf0dc1f31b9acaf295d75b51d00", null ],
       [ "Bottom", "namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839ba2ad9d63b69c4a10a5cc9cad923133bc4", null ]
     ] ],
+    [ "DoorDrawMode", "namespace_m_pewsey_1_1_mania_map.html#a25ff7350332c29cab1ad7ee1443213f1", [
+      [ "None", "namespace_m_pewsey_1_1_mania_map.html#a25ff7350332c29cab1ad7ee1443213f1a6adf97f83acf6453d4a6a4b1070f3754", null ],
+      [ "AllDoors", "namespace_m_pewsey_1_1_mania_map.html#a25ff7350332c29cab1ad7ee1443213f1aa1dc3cd73764338aa51d6986d040313f", null ],
+      [ "IntralayerDoors", "namespace_m_pewsey_1_1_mania_map.html#a25ff7350332c29cab1ad7ee1443213f1a41ba8fd15a38e30528c107363905c611", null ],
+      [ "InterlayerDoors", "namespace_m_pewsey_1_1_mania_map.html#a25ff7350332c29cab1ad7ee1443213f1aeaa41fb992258e21c5c7ce98670402dd", null ]
+    ] ],
     [ "DoorType", "namespace_m_pewsey_1_1_mania_map.html#a419070e26de8251aeeaa0578ad0d9fb1", [
       [ "TwoWay", "namespace_m_pewsey_1_1_mania_map.html#a419070e26de8251aeeaa0578ad0d9fb1a6c267346f8ebb889610a5a90838be815", null ],
       [ "TwoWayExit", "namespace_m_pewsey_1_1_mania_map.html#a419070e26de8251aeeaa0578ad0d9fb1a6702dfb7e514e7c80853b55569b98163", null ],

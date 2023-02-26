@@ -217,6 +217,13 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:a22aaa4fa70bb48a4f47478417a2e839b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The door direction.  <a href="namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839b">More...</a><br /></td></tr>
 <tr class="separator:a22aaa4fa70bb48a4f47478417a2e839b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25ff7350332c29cab1ad7ee1443213f1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a25ff7350332c29cab1ad7ee1443213f1">DoorDrawMode</a> { <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a25ff7350332c29cab1ad7ee1443213f1a6adf97f83acf6453d4a6a4b1070f3754">None</a>
+, <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a25ff7350332c29cab1ad7ee1443213f1aa1dc3cd73764338aa51d6986d040313f">AllDoors</a>
+, <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a25ff7350332c29cab1ad7ee1443213f1a41ba8fd15a38e30528c107363905c611">IntralayerDoors</a>
+, <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a25ff7350332c29cab1ad7ee1443213f1aeaa41fb992258e21c5c7ce98670402dd">InterlayerDoors</a>
+ }</td></tr>
+<tr class="memdesc:a25ff7350332c29cab1ad7ee1443213f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">An option controlling which doors are drawn on maps.  <a href="namespace_m_pewsey_1_1_mania_map.html#a25ff7350332c29cab1ad7ee1443213f1">More...</a><br /></td></tr>
+<tr class="separator:a25ff7350332c29cab1ad7ee1443213f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a419070e26de8251aeeaa0578ad0d9fb1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a419070e26de8251aeeaa0578ad0d9fb1">DoorType</a> { <br />
 &#160;&#160;<a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a419070e26de8251aeeaa0578ad0d9fb1a6c267346f8ebb889610a5a90838be815">TwoWay</a>
 , <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a419070e26de8251aeeaa0578ad0d9fb1a6702dfb7e514e7c80853b55569b98163">TwoWayExit</a>
@@ -272,6 +279,34 @@ Enumerations</h2></td></tr>
 </table>
 
 <p class="definition">Definition at line <a class="el" href="_door_direction_8cs_source.html#l00006">6</a> of file <a class="el" href="_door_direction_8cs_source.html">DoorDirection.cs</a>.</p>
+
+</div>
+</div>
+<a id="a25ff7350332c29cab1ad7ee1443213f1" name="a25ff7350332c29cab1ad7ee1443213f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25ff7350332c29cab1ad7ee1443213f1">&#9670;&nbsp;</a></span>DoorDrawMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a25ff7350332c29cab1ad7ee1443213f1">MPewsey.ManiaMap.DoorDrawMode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>An option controlling which doors are drawn on maps. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a25ff7350332c29cab1ad7ee1443213f1a6adf97f83acf6453d4a6a4b1070f3754" name="a25ff7350332c29cab1ad7ee1443213f1a6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"><p >No doors are displayed. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a25ff7350332c29cab1ad7ee1443213f1aa1dc3cd73764338aa51d6986d040313f" name="a25ff7350332c29cab1ad7ee1443213f1aa1dc3cd73764338aa51d6986d040313f"></a>AllDoors&#160;</td><td class="fielddoc"><p >All doors are displayed. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a25ff7350332c29cab1ad7ee1443213f1a41ba8fd15a38e30528c107363905c611" name="a25ff7350332c29cab1ad7ee1443213f1a41ba8fd15a38e30528c107363905c611"></a>IntralayerDoors&#160;</td><td class="fielddoc"><p >All doors within a layer are displayed. Any doors between layers are not displayed. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a25ff7350332c29cab1ad7ee1443213f1aeaa41fb992258e21c5c7ce98670402dd" name="a25ff7350332c29cab1ad7ee1443213f1aeaa41fb992258e21c5c7ce98670402dd"></a>InterlayerDoors&#160;</td><td class="fielddoc"><p >All doors between layers are displayed. Any doors within a layer are not displayed. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_door_draw_mode_8cs_source.html#l00006">6</a> of file <a class="el" href="_door_draw_mode_8cs_source.html">DoorDrawMode.cs</a>.</p>
 
 </div>
 </div>
