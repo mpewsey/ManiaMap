@@ -57,7 +57,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A dictionary of counts by template group entry.
         /// </summary>
-        private Dictionary<TemplateGroups.Entry, int> TemplateCounts { get; } = new Dictionary<TemplateGroups.Entry, int>();
+        private Dictionary<TemplateGroupsEntry, int> TemplateCounts { get; } = new Dictionary<TemplateGroupsEntry, int>();
 
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
@@ -86,7 +86,7 @@ namespace MPewsey.ManiaMap
             Seed = baseLayout.Seed;
             Rooms = new DataContractValueDictionary<Uid, Room>(baseLayout.Rooms);
             DoorConnections = new DataContractValueDictionary<RoomPair, DoorConnection>(baseLayout.DoorConnections);
-            TemplateCounts = new Dictionary<TemplateGroups.Entry, int>(baseLayout.TemplateCounts);
+            TemplateCounts = new Dictionary<TemplateGroupsEntry, int>(baseLayout.TemplateCounts);
             PopulateTemplates();
             baseLayout.Rebases++;
         }
@@ -115,7 +115,7 @@ namespace MPewsey.ManiaMap
         /// Returns the count for the specified template group entry.
         /// </summary>
         /// <param name="entry">The template group entry.</param>
-        public int GetTemplateCount(TemplateGroups.Entry entry)
+        public int GetTemplateCount(TemplateGroupsEntry entry)
         {
             TemplateCounts.TryGetValue(entry, out int count);
             return count;
@@ -125,7 +125,7 @@ namespace MPewsey.ManiaMap
         /// Increases the count by 1 for the template group entry.
         /// </summary>
         /// <param name="entry">The template group entry.</param>
-        public void IncreaseTemplateCount(TemplateGroups.Entry entry)
+        public void IncreaseTemplateCount(TemplateGroupsEntry entry)
         {
             TemplateCounts[entry] = GetTemplateCount(entry) + 1;
         }

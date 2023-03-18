@@ -233,10 +233,10 @@ namespace MPewsey.ManiaMap.Generators
         /// Returns a new shuffled list of template group entries for the group.
         /// </summary>
         /// <param name="group">The template group name.</param>
-        private List<TemplateGroups.Entry> GetTemplateGroupEntries(string group)
+        private List<TemplateGroupsEntry> GetTemplateGroupEntries(string group)
         {
             var entries = TemplateGroups.GetGroup(group);
-            var result = new List<TemplateGroups.Entry>(entries.Count);
+            var result = new List<TemplateGroupsEntry>(entries.Count);
 
             foreach (var entry in entries)
             {
