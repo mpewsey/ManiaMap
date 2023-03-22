@@ -325,13 +325,25 @@ namespace MPewsey.ManiaMap.Drawing
         private Image GetTile(Room room, Cell cell, Cell neighbor, Vector2DInt position, DoorDirection direction)
         {
             if (Door.ShowDoor(DoorDrawMode, direction) && cell.GetDoor(direction) != null && DoorExists(room, position, direction))
-                return Tiles[MapTileType.GetDoorTileType(direction)];
+                return GetMapTile(MapTileType.GetDoorTileType(direction));
 
-            var wallType = MapTileType.GetWallTileType(direction);
+            if (neighbor == null)
+                return GetMapTile(MapTileType.GetWallTileType(direction));
 
-            if (wallType != MapTileType.None && neighbor == null)
-                return Tiles[wallType];
+            return null;
+        }
 
+        /// <summary>
+        /// Returns the map tile for the specified tile name if it exists in the tiles dictionary.
+        /// Returns null if the name does not exist.
+        /// </summary>
+        /// <param name="name">The tile name.</param>
+        private Image GetMapTile(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                return null;
+            if (Tiles.TryGetValue(name, out Image tile))
+                return tile;
             return null;
         }
     }
