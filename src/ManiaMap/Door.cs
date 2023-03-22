@@ -41,15 +41,15 @@ namespace MPewsey.ManiaMap
         public DoorType Type { get; set; }
 
         /// <summary>
-        /// The door code required for matching two doors.
+        /// The door code for matching two doors.
         /// </summary>
         [DataMember(Order = 2, IsRequired = true)]
-        public int Code { get; set; }
+        public DoorCode Code { get; set; }
 
         /// <summary>
         /// Initializes a new door.
         /// </summary>
-        public Door(DoorType type, int code = 0)
+        public Door(DoorType type, DoorCode code = DoorCode.None)
         {
             Type = type;
             Code = code;
@@ -81,7 +81,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Sets the door code and returns the door.
         /// </summary>
-        public Door SetCode(int code)
+        public Door SetCode(DoorCode code)
         {
             Code = code;
             return this;
@@ -114,7 +114,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public bool Aligns(Door other)
         {
-            return Code == other.Code && DoorTypesAlign(Type, other.Type);
+            return DoorCodesAlign(Code, other.Code) && DoorTypesAlign(Type, other.Type);
         }
 
         /// <summary>
@@ -271,6 +271,16 @@ namespace MPewsey.ManiaMap
                 default:
                     throw new ArgumentException($"Unhandled draw mode: {drawMode}.");
             }
+        }
+
+        /// <summary>
+        /// Returns true if the door codes are equal or intersect.
+        /// </summary>
+        /// <param name="code1">The first door code.</param>
+        /// <param name="code2">The second door code.</param>
+        public static bool DoorCodesAlign(DoorCode code1, DoorCode code2)
+        {
+            return code1 == code2 || (code1 & code2) != DoorCode.None;
         }
     }
 }

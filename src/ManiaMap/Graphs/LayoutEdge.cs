@@ -45,7 +45,7 @@ namespace MPewsey.ManiaMap.Graphs
         /// The matching door code.
         /// </summary>
         [DataMember(Order = 5, IsRequired = true)]
-        public int DoorCode { get; set; }
+        public DoorCode DoorCode { get; set; }
 
         /// <inheritdoc/>
         [DataMember(Order = 6, IsRequired = true)]
@@ -254,7 +254,7 @@ namespace MPewsey.ManiaMap.Graphs
         /// Sets the door code of the edge and returns the edge.
         /// </summary>
         /// <param name="doorCode">The matching door code.</param>
-        public LayoutEdge SetDoorCode(int doorCode)
+        public LayoutEdge SetDoorCode(DoorCode doorCode)
         {
             DoorCode = doorCode;
             return this;

@@ -53,8 +53,8 @@ namespace MPewsey.ManiaMap.Graphs.Tests
         [TestMethod]
         public void TestSetDoorCode()
         {
-            var edge = new LayoutEdge(1, 2).SetDoorCode(1);
-            Assert.AreEqual(1, edge.DoorCode);
+            var edge = new LayoutEdge(1, 2).SetDoorCode(DoorCode.A);
+            Assert.AreEqual(DoorCode.A, edge.DoorCode);
         }
 
         [TestMethod]

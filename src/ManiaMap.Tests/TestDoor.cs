@@ -14,7 +14,7 @@ namespace MPewsey.ManiaMap.Tests
         public void TestSaveAndLoad()
         {
             var path = "Door.xml";
-            var door = Door.OneWayEntrance.SetCode(100);
+            var door = Door.OneWayEntrance.SetCode(DoorCode.A);
             XmlSerialization.SaveXml(path, door);
             var copy = XmlSerialization.LoadXml<Door>(path);
             Assert.IsTrue(door.ValuesAreEqual(copy));
@@ -23,8 +23,8 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestSetCode()
         {
-            var door = Door.TwoWay.SetCode(100);
-            Assert.AreEqual(100, door.Code);
+            var door = Door.TwoWay.SetCode(DoorCode.A);
+            Assert.AreEqual(DoorCode.A, door.Code);
         }
 
         [TestMethod]
@@ -113,7 +113,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestCopy()
         {
-            var door = new Door(DoorType.OneWayExit, 10);
+            var door = new Door(DoorType.OneWayExit, DoorCode.A);
             var copy = door.Copy();
 
             foreach (var property in door.GetType().GetProperties())

@@ -233,10 +233,10 @@ namespace MPewsey.ManiaMap.Generators
         /// Returns a new shuffled list of template group entries for the group.
         /// </summary>
         /// <param name="group">The template group name.</param>
-        private List<TemplateGroups.Entry> GetTemplateGroupEntries(string group)
+        private List<TemplateGroupsEntry> GetTemplateGroupEntries(string group)
         {
             var entries = TemplateGroups.GetGroup(group);
-            var result = new List<TemplateGroups.Entry>(entries.Count);
+            var result = new List<TemplateGroupsEntry>(entries.Count);
 
             foreach (var entry in entries)
             {
@@ -382,7 +382,7 @@ namespace MPewsey.ManiaMap.Generators
         /// <param name="code">The door code.</param>
         /// <param name="direction">The edge direction.</param>
         private bool AddRoom(IRoomSource source,
-            Uid fromRoomId, int code, EdgeDirection direction)
+            Uid fromRoomId, DoorCode code, EdgeDirection direction)
         {
             var fromRoom = Layout.Rooms[fromRoomId];
             var z = source.Z - fromRoom.Position.Z;
@@ -430,8 +430,8 @@ namespace MPewsey.ManiaMap.Generators
         /// <param name="aheadCode">The ahead door code.</param>
         /// <param name="aheadDirection">The ahead edge direction.</param>
         private bool InsertRoom(IRoomSource source,
-            Uid backRoomId, int backCode, EdgeDirection backDirection,
-            Uid aheadRoomId, int aheadCode, EdgeDirection aheadDirection)
+            Uid backRoomId, DoorCode backCode, EdgeDirection backDirection,
+            Uid aheadRoomId, DoorCode aheadCode, EdgeDirection aheadDirection)
         {
             var backRoom = Layout.Rooms[backRoomId];
             var aheadRoom = Layout.Rooms[aheadRoomId];

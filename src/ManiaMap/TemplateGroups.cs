@@ -1,6 +1,5 @@
 ﻿using MPewsey.Common.Collections;
 using MPewsey.ManiaMap.Exceptions;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -17,12 +16,12 @@ namespace MPewsey.ManiaMap
         /// A dictionary of templates by group name.
         /// </summary>
         [DataMember(Order = 1, IsRequired = true)]
-        private DataContractDictionary<string, List<Entry>> Groups { get; set; } = new DataContractDictionary<string, List<Entry>>();
+        private DataContractDictionary<string, List<TemplateGroupsEntry>> Groups { get; set; } = new DataContractDictionary<string, List<TemplateGroupsEntry>>();
 
         /// <summary>
         /// A readonly dictionary of templates by group name.
         /// </summary>
-        public IReadOnlyDictionary<string, List<Entry>> GroupsDictionary => Groups;
+        public IReadOnlyDictionary<string, List<TemplateGroupsEntry>> GroupsDictionary => Groups;
 
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
@@ -40,7 +39,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         private void ConsolidateTemplates()
         {
-            var entries = GetAllEntries().ToList();
+            var entries = GetAllEntries();
 
             for (int i = 0; i < entries.Count; i++)
             {
@@ -55,7 +54,7 @@ namespace MPewsey.ManiaMap
         /// Returns the group entries for the specified group name.
         /// </summary>
         /// <param name="group">The group name.</param>
-        public List<Entry> GetGroup(string group)
+        public List<TemplateGroupsEntry> GetGroup(string group)
         {
             ValidateGroupName(group);
             return Groups[group];
@@ -68,7 +67,7 @@ namespace MPewsey.ManiaMap
         /// <param name="template">The room template.</param>
         public void Add(string group, RoomTemplate template)
         {
-            Add(group, new Entry(template));
+            Add(group, new TemplateGroupsEntry(template));
         }
 
         /// <summary>
@@ -76,13 +75,13 @@ namespace MPewsey.ManiaMap
         /// </summary>
         /// <param name="group">The group name.</param>
         /// <param name="entry">The group entry.</param>
-        public void Add(string group, Entry entry)
+        public void Add(string group, TemplateGroupsEntry entry)
         {
             ValidateGroupName(group);
 
-            if (!Groups.TryGetValue(group, out List<Entry> entries))
+            if (!Groups.TryGetValue(group, out List<TemplateGroupsEntry> entries))
             {
-                entries = new List<Entry>();
+                entries = new List<TemplateGroupsEntry>();
                 Groups.Add(group, entries);
             }
 
@@ -96,7 +95,7 @@ namespace MPewsey.ManiaMap
         /// <param name="templates">An enumerable of templates.</param>
         public void Add(string group, IEnumerable<RoomTemplate> templates)
         {
-            Add(group, templates.Select(x => new Entry(x)));
+            Add(group, templates.Select(x => new TemplateGroupsEntry(x)));
         }
 
         /// <summary>
@@ -104,13 +103,13 @@ namespace MPewsey.ManiaMap
         /// </summary>
         /// <param name="group">The group name.</param>
         /// <param name="entries">An enumerable of entries.</param>
-        public void Add(string group, IEnumerable<Entry> entries)
+        public void Add(string group, IEnumerable<TemplateGroupsEntry> entries)
         {
             ValidateGroupName(group);
 
-            if (!Groups.TryGetValue(group, out List<Entry> collection))
+            if (!Groups.TryGetValue(group, out List<TemplateGroupsEntry> collection))
             {
-                collection = new List<Entry>();
+                collection = new List<TemplateGroupsEntry>();
                 Groups.Add(group, collection);
             }
 
@@ -161,17 +160,21 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
-        /// Returns an enumerable of all template group entries.
+        /// Returns a list of all template group entries.
         /// </summary>
-        public IEnumerable<Entry> GetAllEntries()
+        public List<TemplateGroupsEntry> GetAllEntries()
         {
+            var result = new List<TemplateGroupsEntry>();
+
             foreach (var pair in Groups.OrderBy(x => x.Key))
             {
                 foreach (var entry in pair.Value)
                 {
-                    yield return entry;
+                    result.Add(entry);
                 }
             }
+
+            return result;
         }
 
         /// <summary>
@@ -185,83 +188,6 @@ namespace MPewsey.ManiaMap
                 {
                     yield return entry.Template;
                 }
-            }
-        }
-
-        /// <summary>
-        /// A template group entry, consisting of a RoomTemplate and usage constaints.
-        /// </summary>
-        [DataContract(Name = "TemplateGroupsEntry", Namespace = Constants.DataContractNamespace)]
-        public class Entry
-        {
-            /// <summary>
-            /// The room template.
-            /// </summary>
-            [DataMember(Order = 1, IsRequired = true)]
-            public RoomTemplate Template { get; private set; }
-
-            private int _minQuantity;
-            /// <summary>
-            /// The minimum number of uses for the entry.
-            /// </summary>
-            [DataMember(Order = 3, IsRequired = true)]
-            public int MinQuantity
-            {
-                get => _minQuantity;
-                set => _minQuantity = Math.Max(value, 0);
-            }
-
-            private int _maxQuantity = int.MaxValue;
-            /// <summary>
-            /// The maximum number of uses for the entry.
-            /// </summary>
-            [DataMember(Order = 4, IsRequired = true)]
-            public int MaxQuantity
-            {
-                get => _maxQuantity;
-                set => _maxQuantity = Math.Max(value, 0);
-            }
-
-            /// <summary>
-            /// Intializes a new entry with no quantity contraints.
-            /// </summary>
-            /// <param name="template">The room template.</param>
-            public Entry(RoomTemplate template)
-            {
-                Template = template;
-            }
-
-            /// <summary>
-            /// Initializes a new entry with quantity constraints.
-            /// </summary>
-            /// <param name="template">The room template.</param>
-            /// <param name="minQuantity">The minimum number of uses for the entry.</param>
-            /// <param name="maxQuantity">The maximum number of uses for the entry.</param>
-            public Entry(RoomTemplate template, int minQuantity, int maxQuantity = int.MaxValue)
-            {
-                Template = template;
-                MinQuantity = minQuantity;
-                MaxQuantity = maxQuantity;
-            }
-
-            /// <summary>
-            /// Returns true if the constraint quantity is satisfied.
-            /// </summary>
-            /// <param name="count">The entry count.</param>
-            public bool QuantitySatisfied(int count)
-            {
-                return count >= MinQuantity && count <= MaxQuantity;
-            }
-
-            /// <summary>
-            /// If the specified room template has the same values as the current template,
-            /// sets it as the current template.
-            /// </summary>
-            /// <param name="other">The specified room template.</param>
-            public void ConsolidateTemplate(RoomTemplate other)
-            {
-                if (RoomTemplate.ValuesAreEqual(Template, other))
-                    Template = other;
             }
         }
     }
