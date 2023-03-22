@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['template_0',['Template',['../class_m_pewsey_1_1_mania_map_1_1_template_groups_1_1_entry.html#acc3cd45e08e9fa1aae9527385ffc3f65',1,'MPewsey.ManiaMap.TemplateGroups.Entry.Template()'],['../class_m_pewsey_1_1_mania_map_1_1_room.html#aa32384452e05acafe1bb148c6f5757b1',1,'MPewsey.ManiaMap.Room.Template()']]],
-  ['templatecounts_1',['TemplateCounts',['../class_m_pewsey_1_1_mania_map_1_1_layout.html#a2e62a1bf8fd45c1e439d836c3cf158e0',1,'MPewsey::ManiaMap::Layout']]],
+  ['template_0',['Template',['../class_m_pewsey_1_1_mania_map_1_1_template_groups_entry.html#addc714e276c6c119b6d2fba3207c7290',1,'MPewsey.ManiaMap.TemplateGroupsEntry.Template()'],['../class_m_pewsey_1_1_mania_map_1_1_room.html#aa32384452e05acafe1bb148c6f5757b1',1,'MPewsey.ManiaMap.Room.Template()']]],
+  ['templatecounts_1',['TemplateCounts',['../class_m_pewsey_1_1_mania_map_1_1_layout.html#a27475e714691282f53f7fe887df3c94b',1,'MPewsey::ManiaMap::Layout']]],
   ['templategroup_2',['TemplateGroup',['../class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html#af9d48e6d3bdb3d91ab2d1b630fb73d19',1,'MPewsey.ManiaMap.Graphs.LayoutEdge.TemplateGroup()'],['../class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_node.html#ad97b7bfb622da5f3bbf475753ba012cc',1,'MPewsey.ManiaMap.Graphs.LayoutNode.TemplateGroup()'],['../interface_m_pewsey_1_1_mania_map_1_1_i_room_source.html#ab870d585f95b5005174e7c3f2248d69b',1,'MPewsey.ManiaMap.IRoomSource.TemplateGroup()']]],
   ['templategroups_3',['TemplateGroups',['../class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a7b19a88d751f8a38fc7016fdb22da712',1,'MPewsey::ManiaMap::Generators::LayoutGenerator']]],
   ['templateid_4',['TemplateId',['../class_m_pewsey_1_1_mania_map_1_1_room.html#a311edc71383a763f6356859bfccf0939',1,'MPewsey::ManiaMap::Room']]],

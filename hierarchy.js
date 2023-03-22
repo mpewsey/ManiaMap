@@ -10,7 +10,6 @@ var hierarchy =
     [ "MPewsey.ManiaMap.ConfigurationSpace", "class_m_pewsey_1_1_mania_map_1_1_configuration_space.html", null ],
     [ "MPewsey.ManiaMap.Door", "class_m_pewsey_1_1_mania_map_1_1_door.html", null ],
     [ "MPewsey.ManiaMap.DoorPosition", "class_m_pewsey_1_1_mania_map_1_1_door_position.html", null ],
-    [ "MPewsey.ManiaMap.TemplateGroups.Entry", "class_m_pewsey_1_1_mania_map_1_1_template_groups_1_1_entry.html", null ],
     [ "Exception", null, [
       [ "MPewsey.ManiaMap.Exceptions.CellsNotFullyConnectedException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_cells_not_fully_connected_exception.html", null ],
       [ "MPewsey.ManiaMap.Exceptions.CollectableSpotNotFoundException", "class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_collectable_spot_not_found_exception.html", null ],
@@ -75,5 +74,6 @@ var hierarchy =
     [ "MPewsey.ManiaMap.Samples.TemplateLibrary.Rectangles", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_rectangles.html", null ],
     [ "MPewsey.ManiaMap.Samples.TemplateLibrary.Squares", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html", null ],
     [ "MPewsey.ManiaMap.TemplateGroups", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html", null ],
+    [ "MPewsey.ManiaMap.TemplateGroupsEntry", "class_m_pewsey_1_1_mania_map_1_1_template_groups_entry.html", null ],
     [ "MPewsey.ManiaMap.Samples.TemplateLibrary", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library.html", null ]
 ];

@@ -13,7 +13,7 @@ var searchData=
   ['color4_10',['Color4',['../struct_m_pewsey_1_1_mania_map_1_1_color4.html#adb445028956f09be0ebb6c7fde592dd2',1,'MPewsey::ManiaMap::Color4']]],
   ['configuration_11',['Configuration',['../class_m_pewsey_1_1_mania_map_1_1_configuration.html#a1e70c5e8cfc3443fb8fd8ce952541795',1,'MPewsey::ManiaMap::Configuration']]],
   ['configurationspace_12',['ConfigurationSpace',['../class_m_pewsey_1_1_mania_map_1_1_configuration_space.html#a3a8627a3b8ad767c3ca222de40cb7451',1,'MPewsey::ManiaMap::ConfigurationSpace']]],
-  ['consolidatetemplate_13',['ConsolidateTemplate',['../class_m_pewsey_1_1_mania_map_1_1_template_groups_1_1_entry.html#aa9a911cd8bf9178491778a26aceb4e63',1,'MPewsey::ManiaMap::TemplateGroups::Entry']]],
+  ['consolidatetemplate_13',['ConsolidateTemplate',['../class_m_pewsey_1_1_mania_map_1_1_template_groups_entry.html#a2bc913baabfa39676e6af2675dc1410d',1,'MPewsey::ManiaMap::TemplateGroupsEntry']]],
   ['consolidatetemplates_14',['ConsolidateTemplates',['../class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a9d5cb012bdc087a4d7e152142dbef595',1,'MPewsey::ManiaMap::TemplateGroups']]],
   ['containsdoor_15',['ContainsDoor',['../class_m_pewsey_1_1_mania_map_1_1_door_connection.html#a3953d3fab75953633d4489296e619bb3',1,'MPewsey::ManiaMap::DoorConnection']]],
   ['convertcolor_16',['ConvertColor',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ac6c0ec9abeadcc79cd76aa0857a36fbd',1,'MPewsey::ManiaMap::Drawing::LayoutMap']]],

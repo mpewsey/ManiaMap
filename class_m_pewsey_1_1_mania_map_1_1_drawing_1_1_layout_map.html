@@ -173,6 +173,9 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a50411116b00e86e094fdf1a7bc48bcf0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a50411116b00e86e094fdf1a7bc48bcf0">DrawMapTiles</a> (IImageProcessingContext image, int z)</td></tr>
 <tr class="memdesc:a50411116b00e86e094fdf1a7bc48bcf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the room map tiles onto the image context.  <a href="class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a50411116b00e86e094fdf1a7bc48bcf0">More...</a><br /></td></tr>
 <tr class="separator:a50411116b00e86e094fdf1a7bc48bcf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55f5c20629e02da09f40ed88ee887bd2"><td class="memItemLeft" align="right" valign="top">Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a55f5c20629e02da09f40ed88ee887bd2">GetMapTile</a> (string name)</td></tr>
+<tr class="memdesc:a55f5c20629e02da09f40ed88ee887bd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the map tile for the specified tile name if it exists in the tiles dictionary. Returns null if the name does not exist.  <a href="class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a55f5c20629e02da09f40ed88ee887bd2">More...</a><br /></td></tr>
+<tr class="separator:a55f5c20629e02da09f40ed88ee887bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1b691fb311e432f5e7eb287aa92af8c"><td class="memItemLeft" align="right" valign="top">Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ab1b691fb311e432f5e7eb287aa92af8c">GetTile</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room.html">Room</a> room, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_cell.html">Cell</a> cell, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_cell.html">Cell</a> neighbor, Vector2DInt position, <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a22aaa4fa70bb48a4f47478417a2e839b">DoorDirection</a> direction)</td></tr>
 <tr class="memdesc:ab1b691fb311e432f5e7eb287aa92af8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the map tile corresponding to the wall or door location. Returns null if the tile has neither a wall or door.  <a href="class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ab1b691fb311e432f5e7eb287aa92af8c">More...</a><br /></td></tr>
 <tr class="separator:ab1b691fb311e432f5e7eb287aa92af8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -569,6 +572,42 @@ Static Private Member Functions</h2></td></tr>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_layout_map_8cs_source.html#l00214">214</a> of file <a class="el" href="_layout_map_8cs_source.html">LayoutMap.cs</a>.</p>
+
+</div>
+</div>
+<a id="a55f5c20629e02da09f40ed88ee887bd2" name="a55f5c20629e02da09f40ed88ee887bd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55f5c20629e02da09f40ed88ee887bd2">&#9670;&nbsp;</a></span>GetMapTile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Image MPewsey.ManiaMap.Drawing.LayoutMap.GetMapTile </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the map tile for the specified tile name if it exists in the tiles dictionary. Returns null if the name does not exist. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The tile name.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_layout_map_8cs_source.html#l00341">341</a> of file <a class="el" href="_layout_map_8cs_source.html">LayoutMap.cs</a>.</p>
 
 </div>
 </div>

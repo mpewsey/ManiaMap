@@ -70,6 +70,7 @@ var annotated_dup =
         [ "RoomState", "class_m_pewsey_1_1_mania_map_1_1_room_state.html", "class_m_pewsey_1_1_mania_map_1_1_room_state" ],
         [ "RoomTemplate", "class_m_pewsey_1_1_mania_map_1_1_room_template.html", "class_m_pewsey_1_1_mania_map_1_1_room_template" ],
         [ "TemplateGroups", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html", "class_m_pewsey_1_1_mania_map_1_1_template_groups" ],
+        [ "TemplateGroupsEntry", "class_m_pewsey_1_1_mania_map_1_1_template_groups_entry.html", "class_m_pewsey_1_1_mania_map_1_1_template_groups_entry" ],
         [ "TemplatePair", "struct_m_pewsey_1_1_mania_map_1_1_template_pair.html", "struct_m_pewsey_1_1_mania_map_1_1_template_pair" ],
         [ "Uid", "struct_m_pewsey_1_1_mania_map_1_1_uid.html", "struct_m_pewsey_1_1_mania_map_1_1_uid" ]
       ] ]

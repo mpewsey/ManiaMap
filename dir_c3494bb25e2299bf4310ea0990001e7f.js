@@ -16,6 +16,7 @@ var dir_c3494bb25e2299bf4310ea0990001e7f =
     [ "ConfigurationSpace.cs", "_configuration_space_8cs_source.html", null ],
     [ "Constants.cs", "_constants_8cs_source.html", null ],
     [ "Door.cs", "_door_8cs_source.html", null ],
+    [ "DoorCode.cs", "_door_code_8cs_source.html", null ],
     [ "DoorConnection.cs", "_door_connection_8cs_source.html", null ],
     [ "DoorDirection.cs", "_door_direction_8cs_source.html", null ],
     [ "DoorDrawMode.cs", "_door_draw_mode_8cs_source.html", null ],
@@ -33,6 +34,7 @@ var dir_c3494bb25e2299bf4310ea0990001e7f =
     [ "RoomState.cs", "_room_state_8cs_source.html", null ],
     [ "RoomTemplate.cs", "_room_template_8cs_source.html", null ],
     [ "TemplateGroups.cs", "_template_groups_8cs_source.html", null ],
+    [ "TemplateGroupsEntry.cs", "_template_groups_entry_8cs_source.html", null ],
     [ "TemplatePair.cs", "_template_pair_8cs_source.html", null ],
     [ "Uid.cs", "_uid_8cs_source.html", null ]
 ];
