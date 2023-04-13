@@ -416,11 +416,7 @@ namespace MPewsey.ManiaMap
         public float VisibleCellProgress(LayoutState layoutState)
         {
             var counts = VisibleCellCount(layoutState);
-
-            if (counts.Y > 0)
-                return counts.X / (float)counts.Y;
-
-            return 1;
+            return counts.Y > 0 ? counts.X / (float)counts.Y : 1;
         }
 
         /// <summary>
