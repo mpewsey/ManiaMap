@@ -162,7 +162,7 @@ namespace MPewsey.ManiaMap.Generators
         /// <param name="randomSeed">The random seed.</param>
         public Layout Generate(int layoutId, LayoutGraph graph, TemplateGroups templateGroups, RandomSeed randomSeed)
         {
-            Logger.Log("Running layout generator...");
+            Logger.Log("[Layout Generator] Running layout generator...");
             Initialize(graph, templateGroups, randomSeed);
 
             var chains = Graph.FindChains(MaxBranchLength);
@@ -181,7 +181,7 @@ namespace MPewsey.ManiaMap.Generators
                     if (Layout.IsComplete(TemplateGroups))
                     {
                         Layout = new Layout(Layout);
-                        Logger.Log("Layout generator complete.");
+                        Logger.Log("[Layout Generator] Layout generator complete.");
                         return Layout;
                     }
 
@@ -189,7 +189,7 @@ namespace MPewsey.ManiaMap.Generators
                     ChainIndex = 0;
                     layouts.Clear();
                     layouts.Push(baseLayout);
-                    Logger.Log("Layout constraints not satisfied. Restarting...");
+                    Logger.Log("[Layout Generator] Layout constraints not satisfied. Restarting...");
                     continue;
                 }
 
@@ -199,7 +199,7 @@ namespace MPewsey.ManiaMap.Generators
                 {
                     layouts.Pop();
                     ChainIndex--;
-                    Logger.Log("Rebase count exceeded. Backtracking...");
+                    Logger.Log("[Layout Generator] Rebase count exceeded. Backtracking...");
                     continue;
                 }
 
@@ -210,11 +210,11 @@ namespace MPewsey.ManiaMap.Generators
                 {
                     layouts.Push(Layout);
                     ChainIndex++;
-                    Logger.Log($"Added chain {ChainIndex} / {chains.Count}...");
+                    Logger.Log($"[Layout Generator] Added chain {ChainIndex} / {chains.Count}...");
                 }
             }
 
-            Logger.Log("Layout generator failed.");
+            Logger.Log("[Layout Generator] Layout generator failed.");
             return null;
         }
 

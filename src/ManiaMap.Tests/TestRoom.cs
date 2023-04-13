@@ -1,5 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.Common.Mathematics;
+using MPewsey.Common.Random;
 using MPewsey.Common.Serialization;
+using MPewsey.ManiaMap.Graphs;
 using System.Linq;
 
 namespace MPewsey.ManiaMap.Tests
@@ -29,6 +32,67 @@ namespace MPewsey.ManiaMap.Tests
             {
                 Assert.AreEqual(pair.Value, copy.Collectables[pair.Key]);
             }
+        }
+
+        [TestMethod]
+        public void TestVisibleCellCount()
+        {
+            var x = Cell.Empty;
+            var o = Cell.New;
+
+            var cells = new Cell[,]
+            {
+                { o, o, x },
+                { o, x, x },
+                { o, o, o },
+            };
+
+            var node = new LayoutNode(1).SetName("Test");
+            var seed = new RandomSeed(12345);
+            var template = new RoomTemplate(1, "Test", cells);
+            var room = new Room(node, Vector2DInt.Zero, template, seed);
+            var state = new RoomState(room);
+            var visibleCells = state.VisibleCells;
+
+            visibleCells[0, 0] = true;
+            visibleCells[0, 2] = true; // Cell does not exist here so should not contribute to count.
+            visibleCells[1, 0] = true;
+            visibleCells[2, 0] = true;
+
+            var cellCount = 6;
+            var visibleCount = 3;
+            var counts = room.VisibleCellCount(state);
+
+            Assert.AreEqual(visibleCount, counts.X);
+            Assert.AreEqual(cellCount, counts.Y);
+        }
+
+        [TestMethod]
+        public void TestVisibleCellProgress()
+        {
+            var x = Cell.Empty;
+            var o = Cell.New;
+
+            var cells = new Cell[,]
+            {
+                { o, o, x },
+                { o, x, x },
+                { o, o, o },
+            };
+
+            var node = new LayoutNode(1).SetName("Test");
+            var seed = new RandomSeed(12345);
+            var template = new RoomTemplate(1, "Test", cells);
+            var room = new Room(node, Vector2DInt.Zero, template, seed);
+            var state = new RoomState(room);
+            var visibleCells = state.VisibleCells;
+
+            visibleCells[0, 0] = true;
+            visibleCells[0, 2] = true; // Cell does not exist here so should not contribute to count.
+            visibleCells[1, 0] = true;
+            visibleCells[2, 0] = true;
+
+            Assert.AreEqual(0.5f, room.VisibleCellProgress(state));
         }
     }
 }

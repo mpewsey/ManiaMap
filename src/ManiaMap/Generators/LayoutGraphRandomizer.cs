@@ -36,9 +36,9 @@ namespace MPewsey.ManiaMap.Generators
         /// <param name="randomSeed">The random seed.</param>
         public LayoutGraph RandomizeGraph(LayoutGraph graph, RandomSeed randomSeed)
         {
-            Logger.Log("Running layout graph randomizer...");
+            Logger.Log("[Layout Graph Randomizer] Running layout graph randomizer...");
             var result = graph.GetVariation(randomSeed);
-            Logger.Log("Layout graph randomizer complete.");
+            Logger.Log("[Layout Graph Randomizer] Layout graph randomizer complete.");
             return result;
         }
     }

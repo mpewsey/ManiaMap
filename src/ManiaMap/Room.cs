@@ -111,5 +111,42 @@ namespace MPewsey.ManiaMap
             TemplateId = template.Id;
             Template = template;
         }
+
+        /// <summary>
+        /// Returns the ratio of visible cells over total cells.
+        /// </summary>
+        /// <param name="state">The room state.</param>
+        public float VisibleCellProgress(RoomState state)
+        {
+            var counts = VisibleCellCount(state);
+            return counts.Y > 0 ? counts.X / (float)counts.Y : 1;
+        }
+
+        /// <summary>
+        /// Returns a vector with of the visible cell count (X) and total cell count (Y).
+        /// </summary>
+        /// <param name="state">The room state.</param>
+        public Vector2DInt VisibleCellCount(RoomState state)
+        {
+            var cellCount = 0;
+            var visibleCount = 0;
+            var cells = Template.Cells;
+            var visibleCells = state.VisibleCells;
+
+            for (int i = 0; i < cells.Rows; i++)
+            {
+                for (int j = 0; j < cells.Columns; j++)
+                {
+                    if (cells[i, j] != null)
+                    {
+                        if (visibleCells[i, j])
+                            visibleCount++;
+                        cellCount++;
+                    }
+                }
+            }
+
+            return new Vector2DInt(visibleCount, cellCount);
+        }
     }
 }

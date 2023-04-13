@@ -408,5 +408,32 @@ namespace MPewsey.ManiaMap
 
             return new RectangleInt(minY, minX, maxY - minY, maxX - minX);
         }
+
+        /// <summary>
+        /// Returns the ratio of visible cells over total cells.
+        /// </summary>
+        /// <param name="layoutState">The layout state.</param>
+        public float VisibleCellProgress(LayoutState layoutState)
+        {
+            var counts = VisibleCellCount(layoutState);
+            return counts.Y > 0 ? counts.X / (float)counts.Y : 1;
+        }
+
+        /// <summary>
+        /// Returns a vector with of the visible cell count (X) and total cell count (Y).
+        /// </summary>
+        /// <param name="layoutState">The layout state.</param>
+        public Vector2DInt VisibleCellCount(LayoutState layoutState)
+        {
+            var counts = Vector2DInt.Zero;
+
+            foreach (var pair in Rooms)
+            {
+                var roomState = layoutState.RoomStates[pair.Key];
+                counts += pair.Value.VisibleCellCount(roomState);
+            }
+
+            return counts;
+        }
     }
 }
