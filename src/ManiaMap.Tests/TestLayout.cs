@@ -163,5 +163,62 @@ namespace MPewsey.ManiaMap.Tests
             var results = pipeline.Generate(dict);
             Assert.IsTrue(results.Success);
         }
+
+        [TestMethod]
+        public void TestVisibleCellCount()
+        {
+            var seed = new RandomSeed(12345);
+            var results = Samples.BigLayoutSample.Generate(12345);
+            var layout = results.GetOutput<Layout>("Layout");
+            var layoutState = new LayoutState(layout);
+
+            foreach (var roomState in layoutState.RoomStates.Values)
+            {
+                var visibleCells = roomState.VisibleCells;
+
+                for (int i = 0; i < visibleCells.Rows; i++)
+                {
+                    for (int j = 0; j < visibleCells.Columns; j++)
+                    {
+                        if (seed.ChanceSatisfied(0.5f))
+                            visibleCells[i, j] = true;
+                    }
+                }
+            }
+
+            var counts = layout.VisibleCellCount(layoutState);
+            Assert.IsTrue(counts.X > 0);
+            Assert.IsTrue(counts.Y > 0);
+            var progress = counts.X / (float)counts.Y;
+            Assert.IsTrue(progress >= 0.4f);
+            Assert.IsTrue(progress <= 0.6f);
+        }
+
+        [TestMethod]
+        public void TestVisibleCellProgress()
+        {
+            var seed = new RandomSeed(12345);
+            var results = Samples.BigLayoutSample.Generate(12345);
+            var layout = results.GetOutput<Layout>("Layout");
+            var layoutState = new LayoutState(layout);
+
+            foreach (var roomState in layoutState.RoomStates.Values)
+            {
+                var visibleCells = roomState.VisibleCells;
+
+                for (int i = 0; i < visibleCells.Rows; i++)
+                {
+                    for (int j = 0; j < visibleCells.Columns; j++)
+                    {
+                        if (seed.ChanceSatisfied(0.5f))
+                            visibleCells[i, j] = true;
+                    }
+                }
+            }
+
+            var progress = layout.VisibleCellProgress(layoutState);
+            Assert.IsTrue(progress >= 0.4f);
+            Assert.IsTrue(progress <= 0.6f);
+        }
     }
 }
