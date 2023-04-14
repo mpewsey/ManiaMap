@@ -2,6 +2,7 @@ var class_m_pewsey_1_1_mania_map_1_1_door_connection =
 [
     [ "DoorConnection", "class_m_pewsey_1_1_mania_map_1_1_door_connection.html#a22b42c9d1e82bcc3d1bd2427cb3b829d", null ],
     [ "ContainsDoor", "class_m_pewsey_1_1_mania_map_1_1_door_connection.html#a3953d3fab75953633d4489296e619bb3", null ],
+    [ "GetDoorPosition", "class_m_pewsey_1_1_mania_map_1_1_door_connection.html#a21c3a6ddbeefc50f3bea1c61db27db28", null ],
     [ "EdgeDirection", "class_m_pewsey_1_1_mania_map_1_1_door_connection.html#a51ae6cf0b5f879e93ecce2b39f82867f", null ],
     [ "FromDoor", "class_m_pewsey_1_1_mania_map_1_1_door_connection.html#afcab90683fe0bfc68173cd040885dff6", null ],
     [ "FromRoom", "class_m_pewsey_1_1_mania_map_1_1_door_connection.html#a6800467d7b7da387720cef82cdbf4757", null ],
