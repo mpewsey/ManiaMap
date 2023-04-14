@@ -82,5 +82,19 @@ namespace MPewsey.ManiaMap
             return (FromRoom == roomId && FromDoor.Matches(position, direction))
                 || (ToRoom == roomId && ToDoor.Matches(position, direction));
         }
+
+        /// <summary>
+        /// Returns the door position corresponding to the room ID.
+        /// Returns null if the door connection does not contain the room ID.
+        /// </summary>
+        /// <param name="roomId">The room ID.</param>
+        public DoorPosition GetDoorPosition(Uid roomId)
+        {
+            if (roomId == FromRoom)
+                return FromDoor;
+            if (roomId == ToRoom)
+                return ToDoor;
+            return null;
+        }
     }
 }
