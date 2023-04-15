@@ -105,13 +105,13 @@ namespace MPewsey.ManiaMap.Drawing
         /// <param name="state">The room layout state.</param>
         public void SaveImages(string path, Layout layout, LayoutState state = null)
         {
-            var ext = Path.GetExtension(path);
+            var extension = Path.GetExtension(path);
             var name = Path.ChangeExtension(path, null);
             var maps = CreateImages(layout, state);
 
             foreach (var pair in maps)
             {
-                pair.Value.Save($"{name}_Z={pair.Key}{ext}");
+                pair.Value.Save($"{name}_Z={pair.Key}{extension}");
             }
         }
 
