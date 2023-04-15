@@ -234,14 +234,16 @@ namespace MPewsey.ManiaMap.Drawing
                     for (int j = 0; j < cells.Columns; j++)
                     {
                         var cell = cells[i, j];
-                        var position = new Vector2DInt(i, j);
 
                         // If cell is empty, go to next cell.
                         if (cell == null)
                             continue;
 
+                        var position = new Vector2DInt(i, j);
+                        var isCompletelyVisible = roomState == null || roomState.CellIsVisible(position);
+
                         // If room state is defined and is not visible, go to next cell.
-                        if (roomState != null && !roomState.IsVisible && !roomState.CellIsVisible(position))
+                        if (!isCompletelyVisible && !roomState.IsVisible)
                             continue;
 
                         // Calculate draw position
@@ -264,7 +266,7 @@ namespace MPewsey.ManiaMap.Drawing
                         var eastTile = GetTile(room, cell, east, position, DoorDirection.East);
 
                         // Add cell background fill
-                        var tile = roomState == null || roomState.CellIsVisible(position) ? cellTile : roomTile;
+                        var tile = isCompletelyVisible ? cellTile : roomTile;
                         image.DrawImage(tile, point, 1);
 
                         // Superimpose applicable map tiles
@@ -281,7 +283,9 @@ namespace MPewsey.ManiaMap.Drawing
                         if (bottomTile != null)
                             image.DrawImage(bottomTile, point, 1);
 
-                        DrawFeatureTiles(image, cell, point);
+                        // Draw features only if the cell is completely visible
+                        if (isCompletelyVisible)
+                            DrawFeatureTiles(image, cell, point);
                     }
                 }
             }
