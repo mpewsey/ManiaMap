@@ -148,13 +148,13 @@ $(document).ready(function(){initNavTree('_layout_map_8cs_source.html',''); init
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a5d73e9a59699dda5b96cf5a59d1a177d">  106</a></span>        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a5d73e9a59699dda5b96cf5a59d1a177d">SaveImages</a>(<span class="keywordtype">string</span> path, <a class="code hl_class" href="class_m_pewsey_1_1_mania_map_1_1_layout.html">Layout</a> layout, <a class="code hl_class" href="class_m_pewsey_1_1_mania_map_1_1_layout_state.html">LayoutState</a> state = <span class="keyword">null</span>)</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        {</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            var ext = Path.GetExtension(path);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            var extension = Path.GetExtension(path);</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            var name = Path.ChangeExtension(path, <span class="keyword">null</span>);</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            var maps = <a class="code hl_function" href="class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ac4cac57b08d7d2a359b7774ecda67046">CreateImages</a>(layout, state);</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            <span class="keywordflow">foreach</span> (var pair <span class="keywordflow">in</span> maps)</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            {</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                pair.Value.Save($<span class="stringliteral">&quot;{name}_Z={pair.Key}{ext}&quot;</span>);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                pair.Value.Save($<span class="stringliteral">&quot;{name}_Z={pair.Key}{extension}&quot;</span>);</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            }</div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        }</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
