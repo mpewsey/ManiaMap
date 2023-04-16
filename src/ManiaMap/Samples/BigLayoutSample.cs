@@ -3,6 +3,8 @@ using MPewsey.Common.Random;
 using MPewsey.ManiaMap.Generators;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace MPewsey.ManiaMap.Samples
 {
@@ -71,7 +73,8 @@ namespace MPewsey.ManiaMap.Samples
         /// Generates the big layout using default parameters and returns the results.
         /// </summary>
         /// <param name="seed">The random seed.</param>
-        public static PipelineResults Generate(int seed)
+        /// <param name="cancellationToken">The cancellation token.</param>
+        public static PipelineResults Generate(int seed, CancellationToken cancellationToken = default)
         {
             var random = new RandomSeed(seed);
             var graph = GraphLibrary.BigGraph();
@@ -89,7 +92,33 @@ namespace MPewsey.ManiaMap.Samples
             };
 
             var pipeline = PipelineBuilder.CreateDefaultPipeline();
-            return pipeline.Generate(inputs);
+            return pipeline.Run(inputs, cancellationToken);
+        }
+
+        /// <summary>
+        /// Generates the big layout asynchronously using default parameters and returns the results.
+        /// </summary>
+        /// <param name="seed">The random seed.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        public static Task<PipelineResults> GenerateAsync(int seed, CancellationToken cancellationToken = default)
+        {
+            var random = new RandomSeed(seed);
+            var graph = GraphLibrary.BigGraph();
+            var templateGroups = BigLayoutTemplateGroups();
+            var collectableGroups = new CollectableGroups();
+            collectableGroups.Add("Default", Enumerable.Range(0, 10));
+
+            var inputs = new Dictionary<string, object>
+            {
+                { "LayoutId", 1 },
+                { "LayoutGraph", graph },
+                { "TemplateGroups", templateGroups },
+                { "CollectableGroups", collectableGroups },
+                { "RandomSeed", random },
+            };
+
+            var pipeline = PipelineBuilder.CreateDefaultPipeline();
+            return pipeline.RunAsync(inputs, cancellationToken);
         }
     }
 }

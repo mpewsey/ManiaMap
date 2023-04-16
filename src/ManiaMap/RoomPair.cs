@@ -28,22 +28,26 @@ namespace MPewsey.ManiaMap
             ToRoom = to;
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"RoomPair(FromRoom = {FromRoom}, ToRoom = {ToRoom})";
         }
 
+        /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             return obj is RoomPair pair && Equals(pair);
         }
 
+        /// <inheritdoc/>
         public bool Equals(RoomPair other)
         {
             return FromRoom.Equals(other.FromRoom) &&
                    ToRoom.Equals(other.ToRoom);
         }
 
+        /// <inheritdoc/>
         public override int GetHashCode()
         {
             int hashCode = -1486066407;
@@ -52,6 +56,7 @@ namespace MPewsey.ManiaMap
             return hashCode;
         }
 
+        /// <inheritdoc/>
         public int CompareTo(RoomPair other)
         {
             var comparison = FromRoom.CompareTo(other.FromRoom);
@@ -62,11 +67,13 @@ namespace MPewsey.ManiaMap
             return ToRoom.CompareTo(other.ToRoom);
         }
 
+        /// <inheritdoc/>
         public static bool operator ==(RoomPair left, RoomPair right)
         {
             return left.Equals(right);
         }
 
+        /// <inheritdoc/>
         public static bool operator !=(RoomPair left, RoomPair right)
         {
             return !(left == right);

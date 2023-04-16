@@ -35,6 +35,7 @@ namespace MPewsey.ManiaMap
             FindConfigurations();
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"ConfigurationSpace(FromTemplate = {FromTemplate}, ToTemplate = {ToTemplate})";

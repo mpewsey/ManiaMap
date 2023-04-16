@@ -7,6 +7,7 @@ namespace MPewsey.ManiaMap.Exceptions
     /// </summary>
     public class CellsNotFullyConnectedException : Exception
     {
+        /// <inheritdoc/>
         public CellsNotFullyConnectedException(string message) : base(message)
         {
 

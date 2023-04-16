@@ -6,6 +6,7 @@ using MPewsey.ManiaMap.Exceptions;
 using MPewsey.ManiaMap.Graphs;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace MPewsey.ManiaMap.Generators
 {
@@ -95,6 +96,7 @@ namespace MPewsey.ManiaMap.Generators
             MaxBranchLength = maxBranchLength;
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"LayoutGenerator(MaxRebases = {MaxRebases}, RebaseDecayRate = {RebaseDecayRate}, MaxBranchLength = {MaxBranchLength})";
@@ -123,14 +125,15 @@ namespace MPewsey.ManiaMap.Generators
         /// * %Layout - The generated layout.
         /// </summary>
         /// <param name="results">The pipeline results.</param>
-        public bool ApplyStep(PipelineResults results)
+        /// <param name="cancellationToken">The cancellation token.</param>
+        public bool ApplyStep(PipelineResults results, CancellationToken cancellationToken)
         {
             var layoutId = results.GetArgument<int>("LayoutId");
             var graph = results.GetArgument<LayoutGraph>("LayoutGraph");
             var templateGroups = results.GetArgument<TemplateGroups>("TemplateGroups");
             var randomSeed = results.GetArgument<RandomSeed>("RandomSeed");
 
-            var layout = Generate(layoutId, graph, templateGroups, randomSeed);
+            var layout = Generate(layoutId, graph, templateGroups, randomSeed, cancellationToken);
             results.SetOutput("Layout", layout);
             return layout != null;
         }
@@ -160,7 +163,9 @@ namespace MPewsey.ManiaMap.Generators
         /// <param name="graph">The layout graph.</param>
         /// <param name="templateGroups">The template groups.</param>
         /// <param name="randomSeed">The random seed.</param>
-        public Layout Generate(int layoutId, LayoutGraph graph, TemplateGroups templateGroups, RandomSeed randomSeed)
+        /// <param name="cancellationToken">The cancellation token.</param>
+        public Layout Generate(int layoutId, LayoutGraph graph, TemplateGroups templateGroups,
+            RandomSeed randomSeed, CancellationToken cancellationToken = default)
         {
             Logger.Log("[Layout Generator] Running layout generator...");
             Initialize(graph, templateGroups, randomSeed);
@@ -172,6 +177,13 @@ namespace MPewsey.ManiaMap.Generators
 
             while (layouts.Count > 0)
             {
+                // Check cancellation token.
+                if (cancellationToken.IsCancellationRequested)
+                {
+                    Logger.Log("[Layout Generator] Process cancelled.");
+                    return null;
+                }
+
                 Layout = layouts.Peek();
 
                 // If all chains have been added, validate the layout.
@@ -391,7 +403,7 @@ namespace MPewsey.ManiaMap.Generators
             {
                 foreach (var config in GetConfigurations(fromRoom.Template, entry.Template))
                 {
-                    var position = config.Position + (Vector2DInt)fromRoom.Position;
+                    var position = config.Position + fromRoom.Position.To2D();
 
                     // Check if the configuration can be added to the layout. If not, try the next one.
                     if (!config.Matches(z, code, direction))
@@ -442,7 +454,7 @@ namespace MPewsey.ManiaMap.Generators
             {
                 foreach (var config1 in GetConfigurations(backRoom.Template, entry.Template))
                 {
-                    var position = config1.Position + (Vector2DInt)backRoom.Position;
+                    var position = config1.Position + backRoom.Position.To2D();
 
                     // Check if the configuration can be added to the layout. If not, try the next one.
                     if (!config1.Matches(z1, backCode, backDirection))
@@ -452,7 +464,7 @@ namespace MPewsey.ManiaMap.Generators
 
                     foreach (var config2 in GetConfigurations(entry.Template, aheadRoom.Template))
                     {
-                        var offset = (Vector2DInt)aheadRoom.Position - position;
+                        var offset = aheadRoom.Position.To2D() - position;
 
                         // Check if the configuration can be added to the layout. If not, try the next one.
                         if (!config2.Matches(offset, z2, aheadCode, aheadDirection))
@@ -505,7 +517,7 @@ namespace MPewsey.ManiaMap.Generators
             if (Math.Abs(fromRoom.Position.Z - toRoom.Position.Z) > 1)
             {
                 // Shaft is required.
-                var position = fromDoor.Position + (Vector2DInt)fromRoom.Position;
+                var position = fromDoor.Position + fromRoom.Position.To2D();
                 var zMin = Math.Min(fromRoom.Position.Z, toRoom.Position.Z) + 1;
                 var zMax = Math.Max(fromRoom.Position.Z, toRoom.Position.Z) - 1;
                 var min = new Vector3DInt(position.X, position.Y, zMin);

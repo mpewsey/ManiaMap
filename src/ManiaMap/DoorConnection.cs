@@ -65,6 +65,7 @@ namespace MPewsey.ManiaMap
             Shaft = shaft;
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             var shaft = Shaft?.ToString() ?? "None";

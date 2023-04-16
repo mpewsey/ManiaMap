@@ -94,6 +94,7 @@ namespace MPewsey.ManiaMap.Graphs
             NodeVariations = other.NodeVariations.ToDictionary(x => x.Key, x => new List<int>(x.Value));
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"LayoutGraph(Id = {Id}, Name = {Name})";

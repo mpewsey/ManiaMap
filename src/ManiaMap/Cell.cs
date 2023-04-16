@@ -97,6 +97,7 @@ namespace MPewsey.ManiaMap
             return new Cell(this);
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             var doors = Doors.OrderBy(x => x.Key).Select(x => $"{x.Key}{x.Value}");

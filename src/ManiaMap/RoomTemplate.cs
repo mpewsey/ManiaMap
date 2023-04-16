@@ -67,6 +67,7 @@ namespace MPewsey.ManiaMap
             }
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"RoomTemplate(Id = {Id}, Name = {Name})";

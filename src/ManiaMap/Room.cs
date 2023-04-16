@@ -84,6 +84,7 @@ namespace MPewsey.ManiaMap
             Template = template;
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"Room(Id = {Id}, Name = {Name}, Position = {Position}, Template = {Template})";
@@ -98,7 +99,7 @@ namespace MPewsey.ManiaMap
         {
             return Position.Z >= min.Z
                 && Position.Z <= max.Z
-                && Template.Intersects((Vector2DInt)(min - Position), (Vector2DInt)(max - Position));
+                && Template.Intersects((min - Position).To2D(), (max - Position).To2D());
         }
 
         /// <summary>

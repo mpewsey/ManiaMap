@@ -91,6 +91,7 @@ namespace MPewsey.ManiaMap
             baseLayout.Rebases++;
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"Layout(Id = {Id}, Name = {Name}, Seed = {Seed})";
@@ -255,7 +256,7 @@ namespace MPewsey.ManiaMap
             {
                 var delta = room.Position - position;
 
-                if (delta.Z == 0 && template.Intersects(room.Template, (Vector2DInt)delta))
+                if (delta.Z == 0 && template.Intersects(room.Template, delta.To2D()))
                     return true;
             }
 

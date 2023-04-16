@@ -63,16 +63,19 @@ namespace MPewsey.ManiaMap
             C = c;
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"Uid({A}, {B}, {C})";
         }
 
+        /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             return obj is Uid uid && Equals(uid);
         }
 
+        /// <inheritdoc/>
         public bool Equals(Uid other)
         {
             return A == other.A &&
@@ -80,6 +83,7 @@ namespace MPewsey.ManiaMap
                    C == other.C;
         }
 
+        /// <inheritdoc/>
         public override int GetHashCode()
         {
             int hashCode = 29335732;
@@ -89,6 +93,7 @@ namespace MPewsey.ManiaMap
             return hashCode;
         }
 
+        /// <inheritdoc/>
         public int CompareTo(Uid other)
         {
             var comparison = A.CompareTo(other.A);
@@ -104,11 +109,13 @@ namespace MPewsey.ManiaMap
             return C.CompareTo(other.C);
         }
 
+        /// <inheritdoc/>
         public static bool operator ==(Uid left, Uid right)
         {
             return left.Equals(right);
         }
 
+        /// <inheritdoc/>
         public static bool operator !=(Uid left, Uid right)
         {
             return !(left == right);

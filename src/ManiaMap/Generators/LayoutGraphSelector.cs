@@ -4,6 +4,7 @@ using MPewsey.Common.Random;
 using MPewsey.ManiaMap.Graphs;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace MPewsey.ManiaMap.Generators
 {
@@ -23,7 +24,8 @@ namespace MPewsey.ManiaMap.Generators
         /// * %LayoutGraph - The drawn layout graph.
         /// </summary>
         /// <param name="results">The pipeline results.</param>
-        public bool ApplyStep(PipelineResults results)
+        /// <param name="cancellationToken">The cancellation token.</param>
+        public bool ApplyStep(PipelineResults results, CancellationToken cancellationToken)
         {
             var randomSeed = results.GetArgument<RandomSeed>("RandomSeed");
             var layouts = results.GetArgument<object>("LayoutGraphs");

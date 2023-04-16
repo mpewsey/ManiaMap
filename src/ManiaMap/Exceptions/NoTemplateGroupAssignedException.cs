@@ -7,6 +7,7 @@ namespace MPewsey.ManiaMap.Exceptions
     /// </summary>
     public class NoTemplateGroupAssignedException : Exception
     {
+        /// <inheritdoc/>
         public NoTemplateGroupAssignedException(string message) : base(message)
         {
 

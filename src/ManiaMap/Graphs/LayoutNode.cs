@@ -68,6 +68,7 @@ namespace MPewsey.ManiaMap.Graphs
             Color = other.Color;
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"LayoutNode(Id = {Id}, Name = {Name})";

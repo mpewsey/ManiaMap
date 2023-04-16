@@ -41,6 +41,7 @@ namespace MPewsey.ManiaMap
             EdgeDirection = Door.GetEdgeDirection(from.Door.Type, to.Door.Type);
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"Configuration(Position = {Position}, FromDoor = {FromDoor}, ToDoor = {ToDoor})";

@@ -53,6 +53,7 @@ namespace MPewsey.ManiaMap
             Group = group;
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"CollectableSpot(Room = {Room}, Position = {Position}, Id = {Id}, Group = {Group})";

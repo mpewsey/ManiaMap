@@ -29,6 +29,7 @@ namespace MPewsey.ManiaMap
             ConsolidateTemplates();
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"TemplateGroups(Groups.Count = {Groups.Count})";

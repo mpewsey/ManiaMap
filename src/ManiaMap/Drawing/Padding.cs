@@ -54,16 +54,19 @@ namespace MPewsey.ManiaMap.Drawing
             Bottom = bottom;
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"Padding(Left = {Left}, Top = {Top}, Right = {Right}, Bottom = {Bottom})";
         }
 
+        /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             return obj is Padding padding && Equals(padding);
         }
 
+        /// <inheritdoc/>
         public bool Equals(Padding other)
         {
             return Top == other.Top &&
@@ -72,6 +75,7 @@ namespace MPewsey.ManiaMap.Drawing
                    Right == other.Right;
         }
 
+        /// <inheritdoc/>
         public override int GetHashCode()
         {
             int hashCode = 920856443;
@@ -82,11 +86,13 @@ namespace MPewsey.ManiaMap.Drawing
             return hashCode;
         }
 
+        /// <inheritdoc/>
         public static bool operator ==(Padding left, Padding right)
         {
             return left.Equals(right);
         }
 
+        /// <inheritdoc/>
         public static bool operator !=(Padding left, Padding right)
         {
             return !(left == right);
