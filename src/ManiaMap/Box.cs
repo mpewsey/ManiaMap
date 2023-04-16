@@ -47,7 +47,7 @@ namespace MPewsey.ManiaMap
         {
             return position.Z >= Min.Z
                 && position.Z <= Max.Z
-                && template.Intersects((Vector2DInt)(Min - position), (Vector2DInt)(Max - position));
+                && template.Intersects((Min - position).To2D(), (Max - position).To2D());
         }
 
         /// <summary>
