@@ -23,6 +23,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         public IReadOnlyDictionary<string, List<int>> GroupsDictionary => Groups;
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"CollectableGroups(Groups.Count = {Groups.Count})";

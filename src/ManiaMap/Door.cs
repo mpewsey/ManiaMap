@@ -65,6 +65,7 @@ namespace MPewsey.ManiaMap
             Code = other.Code;
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"Door(Type = {Type}, Code = {Code})";

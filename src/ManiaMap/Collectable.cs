@@ -29,22 +29,26 @@ namespace MPewsey.ManiaMap
             Group = group;
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"Collectable(Id = {Id}, Group = {Group})";
         }
 
+        /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             return obj is Collectable collectable && Equals(collectable);
         }
 
+        /// <inheritdoc/>
         public bool Equals(Collectable other)
         {
             return Id == other.Id
                 && Group == other.Group;
         }
 
+        /// <inheritdoc/>
         public override int GetHashCode()
         {
             int hashCode = 84831244;
@@ -53,11 +57,13 @@ namespace MPewsey.ManiaMap
             return hashCode;
         }
 
+        /// <inheritdoc/>
         public static bool operator ==(Collectable left, Collectable right)
         {
             return left.Equals(right);
         }
 
+        /// <inheritdoc/>
         public static bool operator !=(Collectable left, Collectable right)
         {
             return !(left == right);

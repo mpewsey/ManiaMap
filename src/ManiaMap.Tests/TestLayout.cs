@@ -160,7 +160,7 @@ namespace MPewsey.ManiaMap.Tests
             };
 
             var pipeline = PipelineBuilder.CreateDefaultPipeline();
-            var results = pipeline.Generate(dict);
+            var results = pipeline.Run(dict);
             Assert.IsTrue(results.Success);
         }
 

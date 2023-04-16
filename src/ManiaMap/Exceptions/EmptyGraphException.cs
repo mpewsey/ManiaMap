@@ -7,6 +7,7 @@ namespace MPewsey.ManiaMap.Exceptions
     /// </summary>
     public class EmptyGraphException : Exception
     {
+        /// <inheritdoc/>
         public EmptyGraphException(string message) : base(message)
         {
 

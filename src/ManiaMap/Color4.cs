@@ -48,16 +48,19 @@ namespace MPewsey.ManiaMap
             A = a;
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"Color32(R = {R}, G = {G}, B = {B}, A = {A})";
         }
 
+        /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             return obj is Color4 color && Equals(color);
         }
 
+        /// <inheritdoc/>
         public bool Equals(Color4 other)
         {
             return R == other.R &&
@@ -66,6 +69,7 @@ namespace MPewsey.ManiaMap
                    A == other.A;
         }
 
+        /// <inheritdoc/>
         public override int GetHashCode()
         {
             int hashCode = 1960784236;
@@ -76,11 +80,13 @@ namespace MPewsey.ManiaMap
             return hashCode;
         }
 
+        /// <inheritdoc/>
         public static bool operator ==(Color4 left, Color4 right)
         {
             return left.Equals(right);
         }
 
+        /// <inheritdoc/>
         public static bool operator !=(Color4 left, Color4 right)
         {
             return !(left == right);

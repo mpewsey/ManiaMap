@@ -32,6 +32,7 @@ namespace MPewsey.ManiaMap
             Max = max;
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"Box(Min = {Min}, Max = {Max})";

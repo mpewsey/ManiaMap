@@ -107,6 +107,7 @@ namespace MPewsey.ManiaMap.Graphs
             TemplateGroup = other.TemplateGroup;
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"LayoutEdge(Name = {Name}, FromNode = {FromNode}, ToNode = {ToNode}, Direction = {Direction}, DoorCode = {DoorCode})";

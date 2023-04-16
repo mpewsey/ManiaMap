@@ -7,6 +7,7 @@ namespace MPewsey.ManiaMap.Exceptions
     /// </summary>
     public class UnhandledCaseException : Exception
     {
+        /// <inheritdoc/>
         public UnhandledCaseException(string message) : base(message)
         {
 

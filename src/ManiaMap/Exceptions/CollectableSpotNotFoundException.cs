@@ -7,6 +7,7 @@ namespace MPewsey.ManiaMap.Exceptions
     /// </summary>
     public class CollectableSpotNotFoundException : Exception
     {
+        /// <inheritdoc/>
         public CollectableSpotNotFoundException(string message) : base(message)
         {
 

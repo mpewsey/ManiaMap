@@ -40,6 +40,7 @@ namespace MPewsey.ManiaMap
             Door = door;
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"DoorPosition(Position = {Position}, Direction = {Direction}, Door = {Door})";

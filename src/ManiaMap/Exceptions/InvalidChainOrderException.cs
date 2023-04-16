@@ -7,6 +7,7 @@ namespace MPewsey.ManiaMap.Exceptions
     /// </summary>
     public class InvalidChainOrderException : Exception
     {
+        /// <inheritdoc/>
         public InvalidChainOrderException(string message) : base(message)
         {
 

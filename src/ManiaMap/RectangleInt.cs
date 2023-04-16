@@ -42,16 +42,19 @@ namespace MPewsey.ManiaMap
             Height = height;
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"RectangleInt(X = {X}, Y = {Y}, Width = {Width}, Height = {Height})";
         }
 
+        /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             return obj is RectangleInt rect && Equals(rect);
         }
 
+        /// <inheritdoc/>
         public bool Equals(RectangleInt other)
         {
             return X == other.X &&
@@ -60,6 +63,7 @@ namespace MPewsey.ManiaMap
                    Height == other.Height;
         }
 
+        /// <inheritdoc/>
         public override int GetHashCode()
         {
             int hashCode = 466501756;
@@ -70,11 +74,13 @@ namespace MPewsey.ManiaMap
             return hashCode;
         }
 
+        /// <inheritdoc/>
         public static bool operator ==(RectangleInt left, RectangleInt right)
         {
             return left.Equals(right);
         }
 
+        /// <inheritdoc/>
         public static bool operator !=(RectangleInt left, RectangleInt right)
         {
             return !(left == right);

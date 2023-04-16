@@ -2,10 +2,12 @@
 using MPewsey.Common.Logging;
 using MPewsey.Common.Random;
 using MPewsey.ManiaMap.Exceptions;
+using MPewsey.ManiaMap.Samples;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace MPewsey.ManiaMap.Generators.Tests
 {
@@ -202,6 +204,22 @@ namespace MPewsey.ManiaMap.Generators.Tests
             var templateGroups = Samples.BigLayoutSample.BigLayoutTemplateGroups();
             var generator = new LayoutGenerator();
             var layout = generator.Generate(1, graph, templateGroups, random);
+            Assert.IsNotNull(layout);
+        }
+
+        [DataTestMethod]
+        [DataRow(12345)]
+        [DataRow(12355)]
+        [DataRow(12365)]
+        [DataRow(12375)]
+        [DataRow(12385)]
+        [DataRow(123456789)]
+        public async Task TestBigLayoutAsync(int seed)
+        {
+            Logger.RemoveAllListeners();
+            Logger.AddListener(Console.WriteLine);
+            var results = await BigLayoutSample.GenerateAsync(seed);
+            var layout = results.GetOutput<Layout>("Layout");
             Assert.IsNotNull(layout);
         }
 

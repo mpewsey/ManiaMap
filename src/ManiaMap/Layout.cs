@@ -91,6 +91,7 @@ namespace MPewsey.ManiaMap
             baseLayout.Rebases++;
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"Layout(Id = {Id}, Name = {Name}, Seed = {Seed})";

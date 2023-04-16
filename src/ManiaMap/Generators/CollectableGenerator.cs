@@ -7,6 +7,7 @@ using MPewsey.ManiaMap.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 namespace MPewsey.ManiaMap.Generators
 {
@@ -77,6 +78,7 @@ namespace MPewsey.ManiaMap.Generators
             InitialNeighborWeight = initialNeighborWeight;
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"CollectableGenerator(DoorPower = {DoorPower}, NeighborPower = {NeighborPower}, InitialNeighborWeight = {InitialNeighborWeight})";
@@ -91,7 +93,8 @@ namespace MPewsey.ManiaMap.Generators
         /// * %RandomSeed - The random seed.
         /// </summary>
         /// <param name="results">The pipeline results.</param>
-        public bool ApplyStep(PipelineResults results)
+        /// <param name="cancellationToken">The cancellation token.</param>
+        public bool ApplyStep(PipelineResults results, CancellationToken cancellationToken)
         {
             var layout = results.GetArgument<Layout>("Layout");
             var collectableGroups = results.GetArgument<CollectableGroups>("CollectableGroups");

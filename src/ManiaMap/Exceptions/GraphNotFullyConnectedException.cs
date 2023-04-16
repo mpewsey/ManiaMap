@@ -7,6 +7,7 @@ namespace MPewsey.ManiaMap.Exceptions
     /// </summary>
     public class GraphNotFullyConnectedException : Exception
     {
+        /// <inheritdoc/>
         public GraphNotFullyConnectedException(string message) : base(message)
         {
 

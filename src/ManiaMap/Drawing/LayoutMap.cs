@@ -91,6 +91,7 @@ namespace MPewsey.ManiaMap.Drawing
             Tiles = tiles ?? MapTiles.GetDefaultTiles();
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"LayoutMap(TileSize = {TileSize}, Padding = {Padding})";

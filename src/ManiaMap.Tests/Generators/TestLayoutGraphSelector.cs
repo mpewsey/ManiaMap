@@ -4,6 +4,7 @@ using MPewsey.Common.Random;
 using MPewsey.ManiaMap.Graphs;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace MPewsey.ManiaMap.Generators.Tests
 {
@@ -30,7 +31,7 @@ namespace MPewsey.ManiaMap.Generators.Tests
 
             var selector = new LayoutGraphSelector();
             var results = new PipelineResults(input);
-            Assert.IsTrue(selector.ApplyStep(results));
+            Assert.IsTrue(selector.ApplyStep(results, CancellationToken.None));
             Assert.AreEqual(1, results.Outputs.Count);
             Assert.IsTrue(results.Outputs.ContainsKey("LayoutGraph"));
         }
@@ -55,7 +56,7 @@ namespace MPewsey.ManiaMap.Generators.Tests
 
             var selector = new LayoutGraphSelector();
             var results = new PipelineResults(input);
-            Assert.IsTrue(selector.ApplyStep(results));
+            Assert.IsTrue(selector.ApplyStep(results, CancellationToken.None));
             Assert.AreEqual(1, results.Outputs.Count);
             Assert.IsTrue(results.Outputs.ContainsKey("LayoutGraph"));
         }

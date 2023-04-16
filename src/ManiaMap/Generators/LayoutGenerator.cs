@@ -96,6 +96,7 @@ namespace MPewsey.ManiaMap.Generators
             MaxBranchLength = maxBranchLength;
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"LayoutGenerator(MaxRebases = {MaxRebases}, RebaseDecayRate = {RebaseDecayRate}, MaxBranchLength = {MaxBranchLength})";
@@ -124,14 +125,15 @@ namespace MPewsey.ManiaMap.Generators
         /// * %Layout - The generated layout.
         /// </summary>
         /// <param name="results">The pipeline results.</param>
-        public bool ApplyStep(PipelineResults results)
+        /// <param name="cancellationToken">The cancellation token.</param>
+        public bool ApplyStep(PipelineResults results, CancellationToken cancellationToken)
         {
             var layoutId = results.GetArgument<int>("LayoutId");
             var graph = results.GetArgument<LayoutGraph>("LayoutGraph");
             var templateGroups = results.GetArgument<TemplateGroups>("TemplateGroups");
             var randomSeed = results.GetArgument<RandomSeed>("RandomSeed");
 
-            var layout = Generate(layoutId, graph, templateGroups, randomSeed);
+            var layout = Generate(layoutId, graph, templateGroups, randomSeed, cancellationToken);
             results.SetOutput("Layout", layout);
             return layout != null;
         }

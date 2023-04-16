@@ -7,6 +7,7 @@ namespace MPewsey.ManiaMap.Exceptions
     /// </summary>
     public class DuplicateIdException : Exception
     {
+        /// <inheritdoc/>
         public DuplicateIdException(string message) : base(message)
         {
 

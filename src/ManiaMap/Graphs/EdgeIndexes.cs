@@ -28,22 +28,26 @@ namespace MPewsey.ManiaMap.Graphs
             ToIndex = to;
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"EdgeIndexes(FromIndex = {FromIndex}, ToIndex = {ToIndex})";
         }
 
+        /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             return obj is EdgeIndexes indexes && Equals(indexes);
         }
 
+        /// <inheritdoc/>
         public bool Equals(EdgeIndexes other)
         {
             return FromIndex == other.FromIndex &&
                    ToIndex == other.ToIndex;
         }
 
+        /// <inheritdoc/>
         public override int GetHashCode()
         {
             int hashCode = -1140728013;
@@ -52,6 +56,7 @@ namespace MPewsey.ManiaMap.Graphs
             return hashCode;
         }
 
+        /// <inheritdoc/>
         public int CompareTo(EdgeIndexes other)
         {
             var comparison = FromIndex.CompareTo(other.FromIndex);
@@ -62,11 +67,13 @@ namespace MPewsey.ManiaMap.Graphs
             return ToIndex.CompareTo(other.ToIndex);
         }
 
+        /// <inheritdoc/>
         public static bool operator ==(EdgeIndexes left, EdgeIndexes right)
         {
             return left.Equals(right);
         }
 
+        /// <inheritdoc/>
         public static bool operator !=(EdgeIndexes left, EdgeIndexes right)
         {
             return !(left == right);

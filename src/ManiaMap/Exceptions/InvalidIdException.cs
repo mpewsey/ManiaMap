@@ -7,6 +7,7 @@ namespace MPewsey.ManiaMap.Exceptions
     /// </summary>
     public class InvalidIdException : Exception
     {
+        /// <inheritdoc/>
         public InvalidIdException(string message) : base(message)
         {
 

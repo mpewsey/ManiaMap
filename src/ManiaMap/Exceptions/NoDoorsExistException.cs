@@ -7,6 +7,7 @@ namespace MPewsey.ManiaMap.Exceptions
     /// </summary>
     public class NoDoorsExistException : Exception
     {
+        /// <inheritdoc/>
         public NoDoorsExistException(string message) : base(message)
         {
 

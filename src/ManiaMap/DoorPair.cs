@@ -29,22 +29,26 @@ namespace MPewsey.ManiaMap
             ToDoor = to;
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"DoorPair(FromDoor = {FromDoor}, ToDoor = {ToDoor})";
         }
 
+        /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             return obj is DoorPair pair && Equals(pair);
         }
 
+        /// <inheritdoc/>
         public bool Equals(DoorPair other)
         {
             return EqualityComparer<DoorPosition>.Default.Equals(FromDoor, other.FromDoor) &&
                    EqualityComparer<DoorPosition>.Default.Equals(ToDoor, other.ToDoor);
         }
 
+        /// <inheritdoc/>
         public override int GetHashCode()
         {
             int hashCode = -1667591795;
@@ -53,11 +57,13 @@ namespace MPewsey.ManiaMap
             return hashCode;
         }
 
+        /// <inheritdoc/>
         public static bool operator ==(DoorPair left, DoorPair right)
         {
             return left.Equals(right);
         }
 
+        /// <inheritdoc/>
         public static bool operator !=(DoorPair left, DoorPair right)
         {
             return !(left == right);
