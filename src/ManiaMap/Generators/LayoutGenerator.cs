@@ -6,6 +6,7 @@ using MPewsey.ManiaMap.Exceptions;
 using MPewsey.ManiaMap.Graphs;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace MPewsey.ManiaMap.Generators
 {
@@ -160,7 +161,9 @@ namespace MPewsey.ManiaMap.Generators
         /// <param name="graph">The layout graph.</param>
         /// <param name="templateGroups">The template groups.</param>
         /// <param name="randomSeed">The random seed.</param>
-        public Layout Generate(int layoutId, LayoutGraph graph, TemplateGroups templateGroups, RandomSeed randomSeed)
+        /// <param name="cancellationToken">The cancellation token.</param>
+        public Layout Generate(int layoutId, LayoutGraph graph, TemplateGroups templateGroups,
+            RandomSeed randomSeed, CancellationToken cancellationToken = default)
         {
             Logger.Log("[Layout Generator] Running layout generator...");
             Initialize(graph, templateGroups, randomSeed);
@@ -172,6 +175,13 @@ namespace MPewsey.ManiaMap.Generators
 
             while (layouts.Count > 0)
             {
+                // Check cancellation token.
+                if (cancellationToken.IsCancellationRequested)
+                {
+                    Logger.Log("[Layout Generator] Process cancelled.");
+                    return null;
+                }
+
                 Layout = layouts.Peek();
 
                 // If all chains have been added, validate the layout.

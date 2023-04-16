@@ -90,13 +90,12 @@ namespace MPewsey.ManiaMap.Generators
         /// * %CollectableGroups - The collectable groups.
         /// * %RandomSeed - The random seed.
         /// </summary>
-        /// <param name="result">The pipeline results.</param>
+        /// <param name="results">The pipeline results.</param>
         public bool ApplyStep(PipelineResults results)
         {
             var layout = results.GetArgument<Layout>("Layout");
             var collectableGroups = results.GetArgument<CollectableGroups>("CollectableGroups");
             var randomSeed = results.GetArgument<RandomSeed>("RandomSeed");
-
             Generate(layout, collectableGroups, randomSeed);
             return true;
         }

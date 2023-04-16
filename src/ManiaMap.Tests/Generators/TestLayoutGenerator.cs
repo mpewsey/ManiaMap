@@ -3,13 +3,36 @@ using MPewsey.Common.Logging;
 using MPewsey.Common.Random;
 using MPewsey.ManiaMap.Exceptions;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 namespace MPewsey.ManiaMap.Generators.Tests
 {
     [TestClass]
     public class TestLayoutGenerator
     {
+        [TestMethod]
+        public void TestCancellationToken()
+        {
+            var log = new List<string>();
+            Logger.RemoveAllListeners();
+            Logger.AddListener(log.Add);
+            Logger.AddListener(Console.WriteLine);
+
+            var token = new CancellationTokenSource(20).Token;
+            var random = new RandomSeed(12345);
+            var graph = Samples.GraphLibrary.BigGraph();
+            var templateGroups = Samples.BigLayoutSample.BigLayoutTemplateGroups();
+            var generator = new LayoutGenerator();
+            var layout = generator.Generate(1, graph, templateGroups, random, token);
+
+            Logger.RemoveAllListeners();
+            Assert.IsTrue(log.Count > 0);
+            Assert.IsTrue(log[log.Count - 1].Contains("Process cancelled"));
+            Assert.IsNull(layout);
+        }
+
         [TestMethod]
         public void TestHyperSquareCrossLayout()
         {
