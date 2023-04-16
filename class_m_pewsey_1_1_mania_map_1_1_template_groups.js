@@ -9,6 +9,7 @@ var class_m_pewsey_1_1_mania_map_1_1_template_groups =
     [ "GetAllTemplates", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a213b90e7311a015eb9f65eb643c1144e", null ],
     [ "GetConfigurationSpaces", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#ac295b7efd68681aeafacc99dc16218aa", null ],
     [ "GetGroup", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#adf189af31216557bf6a043c60e501fda", null ],
+    [ "ToString", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#ab6e2c0e3d8161e96ec7cf3301e97a62c", null ],
     [ "Validate", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#ac2d7db03138ae9238599ca9409372798", null ],
     [ "ValidateGroupName", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a3a1528bf66bd2d03155bbc1a0f3cb03f", null ],
     [ "Groups", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#ac48ae347069e5ed42b9bb445e45f2bf0", null ],

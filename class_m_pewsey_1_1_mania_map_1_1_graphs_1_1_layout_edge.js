@@ -16,6 +16,7 @@ var class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge =
     [ "SetTemplateGroup", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html#a5467dea20c956f33cb5410aea2637635", null ],
     [ "SetZ", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html#a614ec0964bb5efbfc9c5e305a917fffa", null ],
     [ "SharesNode", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html#ac3f83718194207d383be13aaddbb711f", null ],
+    [ "ToString", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html#aa5a7dc8bd5f42654b8bdabc1f8b80cae", null ],
     [ "ToSymbolString", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html#a563b6eb97f4f268e2e80960d7315b39b", null ],
     [ "Validate", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html#a71da6a92cf13a82874359a92cf5efeaf", null ],
     [ "Color", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html#a78fc9157d4bf27842aaeb8616320421a", null ],

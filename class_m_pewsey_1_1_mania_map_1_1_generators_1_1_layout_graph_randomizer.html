@@ -114,9 +114,9 @@ Inheritance diagram for MPewsey.ManiaMap.Generators.LayoutGraphRandomizer:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a14de42f0768d20bd2bfa0493eae91418"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_graph_randomizer.html#a14de42f0768d20bd2bfa0493eae91418">ApplyStep</a> (PipelineResults results)</td></tr>
-<tr class="memdesc:a14de42f0768d20bd2bfa0493eae91418"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a randomized copy of a layout graph and adds it to the results output dictionary.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_graph_randomizer.html#a14de42f0768d20bd2bfa0493eae91418">More...</a><br /></td></tr>
-<tr class="separator:a14de42f0768d20bd2bfa0493eae91418"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a762e7b7ec618bbdd2a4d8a37a9acf14a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_graph_randomizer.html#a762e7b7ec618bbdd2a4d8a37a9acf14a">ApplyStep</a> (PipelineResults results, CancellationToken cancellationToken)</td></tr>
+<tr class="memdesc:a762e7b7ec618bbdd2a4d8a37a9acf14a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a randomized copy of a layout graph and adds it to the results output dictionary.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_graph_randomizer.html#a762e7b7ec618bbdd2a4d8a37a9acf14a">More...</a><br /></td></tr>
+<tr class="separator:a762e7b7ec618bbdd2a4d8a37a9acf14a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a844ff67bcaac2ff8e64e03c7c726a06a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_graph.html">LayoutGraph</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_graph_randomizer.html#a844ff67bcaac2ff8e64e03c7c726a06a">RandomizeGraph</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_graph.html">LayoutGraph</a> graph, RandomSeed randomSeed)</td></tr>
 <tr class="memdesc:a844ff67bcaac2ff8e64e03c7c726a06a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a randomized copy of the layout graph based on the available variations.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_graph_randomizer.html#a844ff67bcaac2ff8e64e03c7c726a06a">More...</a><br /></td></tr>
 <tr class="separator:a844ff67bcaac2ff8e64e03c7c726a06a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -124,10 +124,10 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >A class for generating randomized variations in a LayoutGraph. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_randomizer_8cs_source.html#l00011">11</a> of file <a class="el" href="_layout_graph_randomizer_8cs_source.html">LayoutGraphRandomizer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_randomizer_8cs_source.html#l00012">12</a> of file <a class="el" href="_layout_graph_randomizer_8cs_source.html">LayoutGraphRandomizer.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a14de42f0768d20bd2bfa0493eae91418" name="a14de42f0768d20bd2bfa0493eae91418"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14de42f0768d20bd2bfa0493eae91418">&#9670;&nbsp;</a></span>ApplyStep()</h2>
+<a id="a762e7b7ec618bbdd2a4d8a37a9acf14a" name="a762e7b7ec618bbdd2a4d8a37a9acf14a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a762e7b7ec618bbdd2a4d8a37a9acf14a">&#9670;&nbsp;</a></span>ApplyStep()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -136,8 +136,18 @@ Public Member Functions</h2></td></tr>
           <td class="memname">bool MPewsey.ManiaMap.Generators.LayoutGraphRandomizer.ApplyStep </td>
           <td>(</td>
           <td class="paramtype">PipelineResults&#160;</td>
-          <td class="paramname"><em>results</em></td><td>)</td>
+          <td class="paramname"><em>results</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">CancellationToken&#160;</td>
+          <td class="paramname"><em>cancellationToken</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -153,11 +163,12 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">results</td><td>The pipeline results.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>The cancellation token.</td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_randomizer_8cs_source.html#l00024">24</a> of file <a class="el" href="_layout_graph_randomizer_8cs_source.html">LayoutGraphRandomizer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_randomizer_8cs_source.html#l00026">26</a> of file <a class="el" href="_layout_graph_randomizer_8cs_source.html">LayoutGraphRandomizer.cs</a>.</p>
 
 </div>
 </div>
@@ -196,7 +207,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_randomizer_8cs_source.html#l00037">37</a> of file <a class="el" href="_layout_graph_randomizer_8cs_source.html">LayoutGraphRandomizer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_randomizer_8cs_source.html#l00039">39</a> of file <a class="el" href="_layout_graph_randomizer_8cs_source.html">LayoutGraphRandomizer.cs</a>.</p>
 
 </div>
 </div>

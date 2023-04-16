@@ -20,6 +20,7 @@ var class_m_pewsey_1_1_mania_map_1_1_cell =
     [ "SetDoors", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a30d08ef844ba323dd76b981a7e278f3f", null ],
     [ "SouthDoorAligns", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a9debb06e02c8f00ae6367492323bc257", null ],
     [ "TopDoorAligns", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a914eb22beea54a5c4f15c440ebfb210c", null ],
+    [ "ToString", "class_m_pewsey_1_1_mania_map_1_1_cell.html#a0d3cabb61b466028d810abfeb15c03eb", null ],
     [ "ValuesAreEqual", "class_m_pewsey_1_1_mania_map_1_1_cell.html#ac02a26a98fa40e1d2d6bb697c85b1a87", null ],
     [ "ValuesAreEqual", "class_m_pewsey_1_1_mania_map_1_1_cell.html#ae7b2c94ffdb8eeae474b510eb6348cc4", null ],
     [ "WestDoorAligns", "class_m_pewsey_1_1_mania_map_1_1_cell.html#af718903e779a35091dbaae0b00bda528", null ],

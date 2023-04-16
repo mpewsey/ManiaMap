@@ -114,9 +114,9 @@ Inheritance diagram for MPewsey.ManiaMap.Generators.LayoutGraphSelector:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa547679bcf94b5eba035edd6f6250aa5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_graph_selector.html#aa547679bcf94b5eba035edd6f6250aa5">ApplyStep</a> (PipelineResults results)</td></tr>
-<tr class="memdesc:aa547679bcf94b5eba035edd6f6250aa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a random layout graph and adds a copy to the results output dictionary.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_graph_selector.html#aa547679bcf94b5eba035edd6f6250aa5">More...</a><br /></td></tr>
-<tr class="separator:aa547679bcf94b5eba035edd6f6250aa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0a960e23190b4532a7bd79774a70c4a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_graph_selector.html#ab0a960e23190b4532a7bd79774a70c4a">ApplyStep</a> (PipelineResults results, CancellationToken cancellationToken)</td></tr>
+<tr class="memdesc:ab0a960e23190b4532a7bd79774a70c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a random layout graph and adds a copy to the results output dictionary.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_graph_selector.html#ab0a960e23190b4532a7bd79774a70c4a">More...</a><br /></td></tr>
+<tr class="separator:ab0a960e23190b4532a7bd79774a70c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43019aac6472976e3f51865231b4ffaa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_graph.html">LayoutGraph</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_graph_selector.html#a43019aac6472976e3f51865231b4ffaa">DrawSelection</a> (IList&lt; Func&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_graph.html">LayoutGraph</a> &gt; &gt; functions, RandomSeed randomSeed)</td></tr>
 <tr class="memdesc:a43019aac6472976e3f51865231b4ffaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a copy of a random layout graph from the list.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_graph_selector.html#a43019aac6472976e3f51865231b4ffaa">More...</a><br /></td></tr>
 <tr class="separator:a43019aac6472976e3f51865231b4ffaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,10 +130,10 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >A class for drawing a random LayoutGraph from multiple. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_selector_8cs_source.html#l00013">13</a> of file <a class="el" href="_layout_graph_selector_8cs_source.html">LayoutGraphSelector.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_selector_8cs_source.html#l00014">14</a> of file <a class="el" href="_layout_graph_selector_8cs_source.html">LayoutGraphSelector.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa547679bcf94b5eba035edd6f6250aa5" name="aa547679bcf94b5eba035edd6f6250aa5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa547679bcf94b5eba035edd6f6250aa5">&#9670;&nbsp;</a></span>ApplyStep()</h2>
+<a id="ab0a960e23190b4532a7bd79774a70c4a" name="ab0a960e23190b4532a7bd79774a70c4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0a960e23190b4532a7bd79774a70c4a">&#9670;&nbsp;</a></span>ApplyStep()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -142,8 +142,18 @@ Public Member Functions</h2></td></tr>
           <td class="memname">bool MPewsey.ManiaMap.Generators.LayoutGraphSelector.ApplyStep </td>
           <td>(</td>
           <td class="paramtype">PipelineResults&#160;</td>
-          <td class="paramname"><em>results</em></td><td>)</td>
+          <td class="paramname"><em>results</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">CancellationToken&#160;</td>
+          <td class="paramname"><em>cancellationToken</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -159,11 +169,12 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">results</td><td>The pipeline results.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>The cancellation token.</td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_selector_8cs_source.html#l00026">26</a> of file <a class="el" href="_layout_graph_selector_8cs_source.html">LayoutGraphSelector.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_selector_8cs_source.html#l00028">28</a> of file <a class="el" href="_layout_graph_selector_8cs_source.html">LayoutGraphSelector.cs</a>.</p>
 
 </div>
 </div>
@@ -202,7 +213,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_selector_8cs_source.html#l00053">53</a> of file <a class="el" href="_layout_graph_selector_8cs_source.html">LayoutGraphSelector.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_selector_8cs_source.html#l00055">55</a> of file <a class="el" href="_layout_graph_selector_8cs_source.html">LayoutGraphSelector.cs</a>.</p>
 
 </div>
 </div>
@@ -241,7 +252,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_selector_8cs_source.html#l00039">39</a> of file <a class="el" href="_layout_graph_selector_8cs_source.html">LayoutGraphSelector.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_selector_8cs_source.html#l00041">41</a> of file <a class="el" href="_layout_graph_selector_8cs_source.html">LayoutGraphSelector.cs</a>.</p>
 
 </div>
 </div>
@@ -286,7 +297,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_graph_selector_8cs_source.html#l00068">68</a> of file <a class="el" href="_layout_graph_selector_8cs_source.html">LayoutGraphSelector.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_graph_selector_8cs_source.html#l00070">70</a> of file <a class="el" href="_layout_graph_selector_8cs_source.html">LayoutGraphSelector.cs</a>.</p>
 
 </div>
 </div>

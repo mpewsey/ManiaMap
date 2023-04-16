@@ -5,7 +5,6 @@ var dir_c3494bb25e2299bf4310ea0990001e7f =
     [ "Generators", "dir_242489492c9a77849c4097834c34864f.html", "dir_242489492c9a77849c4097834c34864f" ],
     [ "Graphs", "dir_2a060dab1ff6fac3c6b961712f6081a9.html", "dir_2a060dab1ff6fac3c6b961712f6081a9" ],
     [ "Samples", "dir_cd574c43519a0dc23b891ea5f5de7339.html", "dir_cd574c43519a0dc23b891ea5f5de7339" ],
-    [ "__Docs__.cs", "_____docs_____8cs_source.html", null ],
     [ "Box.cs", "_box_8cs_source.html", null ],
     [ "Cell.cs", "_cell_8cs_source.html", null ],
     [ "Collectable.cs", "_collectable_8cs_source.html", null ],

@@ -21,6 +21,7 @@ var class_m_pewsey_1_1_mania_map_1_1_room_template =
     [ "Rotated270", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a6002fe409378d457f5f593714e17cf6a", null ],
     [ "Rotated90", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a318fbe2ff227459447a0a307b2be3736", null ],
     [ "ShaftAlignedDoors", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#aa754d7126c633349daf45d7af938033d", null ],
+    [ "ToString", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a2d0efb01b0b71d14b69aee1e6348373e", null ],
     [ "UniqueVariations", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a82d8b02c9b6f1bbc75aeb97096f2834e", null ],
     [ "Validate", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a6d558cfd7cee014fac5d9696ca90d700", null ],
     [ "ValuesAreEqual", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#aa915d2d02c6e358df1df3f375bbca315", null ],
