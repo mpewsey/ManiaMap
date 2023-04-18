@@ -185,7 +185,7 @@ var pipeline = PipelineBuilder.CreateDefaultPipeline();
 // Or create your own
 pipeline = new Pipeline(new LayoutGenerator(), new CollectableGenerator());
 
-var results = pipeline.Generate(args);
+var results = pipeline.Run(args);
 var layout = results.GetOutput<Layout>("Layout");
 ```
 
