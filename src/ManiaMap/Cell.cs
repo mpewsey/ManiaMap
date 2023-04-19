@@ -25,19 +25,19 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A dictionary of doors.
         /// </summary>
-        [DataMember(Order = 1, IsRequired = true)]
+        [DataMember(Order = 1)]
         public DataContractDictionary<DoorDirection, Door> Doors { get; set; } = new DataContractDictionary<DoorDirection, Door>();
 
         /// <summary>
         /// A dictionary of collectable group names by location ID.
         /// </summary>
-        [DataMember(Order = 2, IsRequired = true)]
+        [DataMember(Order = 2)]
         public DataContractDictionary<int, string> CollectableSpots { get; set; } = new DataContractDictionary<int, string>();
 
         /// <summary>
         /// A list of feature names.
         /// </summary>
-        [DataMember(Order = 3, IsRequired = true)]
+        [DataMember(Order = 3)]
         public List<string> Features { get; set; } = new List<string>();
 
         /// <summary>
@@ -69,6 +69,14 @@ namespace MPewsey.ManiaMap
         /// The bottom door. Set to null if no door exists.
         /// </summary>
         public Door BottomDoor { get => GetDoor(DoorDirection.Bottom); set => SetDoor(DoorDirection.Bottom, value); }
+
+        [OnDeserialized]
+        private void OnDeserialized(StreamingContext context)
+        {
+            Doors = Doors ?? new DataContractDictionary<DoorDirection, Door>();
+            CollectableSpots = CollectableSpots ?? new DataContractDictionary<int, string>();
+            Features = Features ?? new List<string>();
+        }
 
         /// <summary>
         /// Initializes a new cell.

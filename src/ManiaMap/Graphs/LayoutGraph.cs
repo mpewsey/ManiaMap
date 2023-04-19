@@ -16,37 +16,37 @@ namespace MPewsey.ManiaMap.Graphs
         /// <summary>
         /// The graph ID.
         /// </summary>
-        [DataMember(Order = 1, IsRequired = true)]
+        [DataMember(Order = 1)]
         public int Id { get; private set; }
 
         /// <summary>
         /// The graph name.
         /// </summary>
-        [DataMember(Order = 2, IsRequired = true)]
+        [DataMember(Order = 2)]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
         /// A dictionary of nodes by ID.
         /// </summary>
-        [DataMember(Order = 3, IsRequired = true)]
+        [DataMember(Order = 3)]
         private DataContractValueDictionary<int, LayoutNode> Nodes { get; set; } = new DataContractValueDictionary<int, LayoutNode>();
 
         /// <summary>
         /// A dictionary of nodes by from and to node ID's.
         /// </summary>
-        [DataMember(Order = 4, IsRequired = true)]
+        [DataMember(Order = 4)]
         private DataContractValueDictionary<EdgeIndexes, LayoutEdge> Edges { get; set; } = new DataContractValueDictionary<EdgeIndexes, LayoutEdge>();
 
         /// <summary>
         /// A dictionary of neighboring nodes by node ID.
         /// </summary>
-        [DataMember(Order = 5, IsRequired = true)]
+        [DataMember(Order = 5)]
         private DataContractDictionary<int, List<int>> Neighbors { get; set; } = new DataContractDictionary<int, List<int>>();
 
         /// <summary>
         /// A dictionary of node variation groups.
         /// </summary>
-        [DataMember(Order = 6, IsRequired = true)]
+        [DataMember(Order = 6)]
         private DataContractDictionary<string, List<int>> NodeVariations { get; set; } = new DataContractDictionary<string, List<int>>();
 
         /// <summary>
@@ -68,6 +68,16 @@ namespace MPewsey.ManiaMap.Graphs
         /// The number of edges in the graph.
         /// </summary>
         public int EdgeCount => Edges.Count;
+
+        /// <inheritdoc/>
+        [OnDeserialized]
+        private void OnDeserialized(StreamingContext context)
+        {
+            Nodes = Nodes ?? new DataContractValueDictionary<int, LayoutNode>();
+            Edges = Edges ?? new DataContractValueDictionary<EdgeIndexes, LayoutEdge>();
+            Neighbors = Neighbors ?? new DataContractDictionary<int, List<int>>();
+            NodeVariations = NodeVariations ?? new DataContractDictionary<string, List<int>>();
+        }
 
         /// <summary>
         /// Initializes a graph.
@@ -188,7 +198,7 @@ namespace MPewsey.ManiaMap.Graphs
         /// creates it and returns a new list.
         /// </summary>
         /// <param name="group">The group name.</param>
-        private List<int> FetchNodeVariations(string group)
+        private List<int> AcquireNodeVariations(string group)
         {
             if (!NodeVariations.TryGetValue(group, out var list))
             {
@@ -207,7 +217,7 @@ namespace MPewsey.ManiaMap.Graphs
         public void AddNodeVariation(string group, int id)
         {
             AddNode(id);
-            var variations = FetchNodeVariations(group);
+            var variations = AcquireNodeVariations(group);
 
             if (!variations.Contains(id))
                 variations.Add(id);
@@ -220,7 +230,7 @@ namespace MPewsey.ManiaMap.Graphs
         /// <param name="ids">The node ID's.</param>
         public void AddNodeVariation(string group, IEnumerable<int> ids)
         {
-            var variations = FetchNodeVariations(group);
+            var variations = AcquireNodeVariations(group);
 
             foreach (var id in ids)
             {
@@ -250,7 +260,7 @@ namespace MPewsey.ManiaMap.Graphs
         /// <param name="id">The node ID.</param>
         public void RemoveNodeVariation(string group, int id)
         {
-            FetchNodeVariations(group).Remove(id);
+            AcquireNodeVariations(group).Remove(id);
         }
 
         /// <summary>
@@ -260,7 +270,7 @@ namespace MPewsey.ManiaMap.Graphs
         /// <param name="ids">The node ID.</param>
         public void RemoveNodeVariation(string group, IEnumerable<int> ids)
         {
-            var variations = FetchNodeVariations(group);
+            var variations = AcquireNodeVariations(group);
 
             foreach (var id in ids)
             {

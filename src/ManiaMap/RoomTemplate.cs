@@ -17,26 +17,31 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The unique ID.
         /// </summary>
-        [DataMember(Order = 1, IsRequired = true)]
+        [DataMember(Order = 1)]
         public int Id { get; private set; }
 
         /// <summary>
         /// The template name.
         /// </summary>
-        [DataMember(Order = 2, IsRequired = true)]
+        [DataMember(Order = 2)]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
         /// An array of cells in the template. The shape and contents of this array define the geometry
         /// and properties of the room.
         /// </summary>
-        [DataMember(Order = 3, IsRequired = true)]
+        [DataMember(Order = 3)]
         public Array2D<Cell> Cells { get; private set; }
 
-        /// <summary>
-        /// The unique key.
-        /// </summary>
-        public int Key => Id;
+        /// <inheritdoc/>
+        int IDataContractValueDictionaryValue<int>.Key => Id;
+
+        /// <inheritdoc/>
+        [OnDeserialized]
+        private void OnDeserialized(StreamingContext context)
+        {
+            Cells = Cells ?? new Array2D<Cell>();
+        }
 
         /// <summary>
         /// Initializes a room template.

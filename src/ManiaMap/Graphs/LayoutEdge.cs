@@ -1,6 +1,7 @@
 ﻿using MPewsey.Common.Collections;
 using MPewsey.ManiaMap.Exceptions;
 using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap.Graphs
@@ -20,41 +21,41 @@ namespace MPewsey.ManiaMap.Graphs
     public class LayoutEdge : IRoomSource, IDataContractValueDictionaryValue<EdgeIndexes>
     {
         /// <inheritdoc/>
-        [DataMember(Order = 1, IsRequired = true)]
+        [DataMember(Order = 1)]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
         /// The from node ID.
         /// </summary>
-        [DataMember(Order = 2, IsRequired = true)]
+        [DataMember(Order = 2)]
         public int FromNode { get; private set; }
 
         /// <summary>
         /// The to node ID.
         /// </summary>
-        [DataMember(Order = 3, IsRequired = true)]
+        [DataMember(Order = 3)]
         public int ToNode { get; private set; }
 
         /// <summary>
         /// The edge direction.
         /// </summary>
-        [DataMember(Order = 4, IsRequired = true)]
+        [DataMember(Order = 4)]
         public EdgeDirection Direction { get; set; }
 
         /// <summary>
         /// The matching door code.
         /// </summary>
-        [DataMember(Order = 5, IsRequired = true)]
+        [DataMember(Order = 5)]
         public DoorCode DoorCode { get; set; }
 
         /// <inheritdoc/>
-        [DataMember(Order = 6, IsRequired = true)]
+        [DataMember(Order = 6)]
         public int Z { get; set; }
 
         /// <summary>
         /// The chance that a room will be created from the edge. The value should be between 0 and 1.
         /// </summary>
-        [DataMember(Order = 7, IsRequired = true)]
+        [DataMember(Order = 7)]
         public float RoomChance { get; set; }
 
         /// <summary>
@@ -62,22 +63,33 @@ namespace MPewsey.ManiaMap.Graphs
         /// if the room chance is satisfied. Otherwise, the room may be skipped if adding
         /// an edge for the room fails.
         /// </summary>
-        [DataMember(Order = 8, IsRequired = true)]
+        [DataMember(Order = 8)]
         public bool RequireRoom { get; set; }
 
         /// <inheritdoc/>
-        [DataMember(Order = 9, IsRequired = true)]
+        [DataMember(Order = 9)]
         public Color4 Color { get; set; } = new Color4(25, 25, 112, 255);
 
         /// <inheritdoc/>
-        [DataMember(Order = 10, IsRequired = true)]
+        [DataMember(Order = 10)]
         public string TemplateGroup { get; set; } = "Default";
+
+        /// <inheritdoc/>
+        [DataMember(Order = 11)]
+        public List<string> Tags { get; set; } = new List<string>();
 
         /// <inheritdoc/>
         public Uid RoomId { get => new Uid(FromNode, ToNode, 1); }
 
         /// <inheritdoc/>
-        public EdgeIndexes Key => new EdgeIndexes(FromNode, ToNode);
+        EdgeIndexes IDataContractValueDictionaryValue<EdgeIndexes>.Key => new EdgeIndexes(FromNode, ToNode);
+
+        /// <inheritdoc/>
+        [OnDeserialized]
+        private void OnDeserialized(StreamingContext context)
+        {
+            Tags = Tags ?? new List<string>();
+        }
 
         /// <summary>
         /// Initializes an edge with the from node and to node ID's.
@@ -105,6 +117,7 @@ namespace MPewsey.ManiaMap.Graphs
             RoomChance = other.RoomChance;
             Color = other.Color;
             TemplateGroup = other.TemplateGroup;
+            Tags = new List<string>(other.Tags);
         }
 
         /// <inheritdoc/>
@@ -135,6 +148,7 @@ namespace MPewsey.ManiaMap.Graphs
             RoomChance = other.RoomChance;
             Color = other.Color;
             TemplateGroup = other.TemplateGroup;
+            Tags = new List<string>(other.Tags);
         }
 
         /// <summary>
@@ -258,6 +272,17 @@ namespace MPewsey.ManiaMap.Graphs
         public LayoutEdge SetDoorCode(DoorCode doorCode)
         {
             DoorCode = doorCode;
+            return this;
+        }
+
+        /// <summary>
+        /// Adds the tag to the edge if it doesn't already exist and returns the edge.
+        /// </summary>
+        /// <param name="tag">The tag.</param>
+        public LayoutEdge AddTag(string tag)
+        {
+            if (!Tags.Contains(tag))
+                Tags.Add(tag);
             return this;
         }
 

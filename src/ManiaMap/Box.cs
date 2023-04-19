@@ -12,13 +12,13 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The minimum index range of the box.
         /// </summary>
-        [DataMember(Order = 0, IsRequired = true)]
+        [DataMember(Order = 0)]
         public Vector3DInt Min { get; private set; }
 
         /// <summary>
         /// The maximum index range of the box.
         /// </summary>
-        [DataMember(Order = 1, IsRequired = true)]
+        [DataMember(Order = 1)]
         public Vector3DInt Max { get; private set; }
 
         /// <summary>

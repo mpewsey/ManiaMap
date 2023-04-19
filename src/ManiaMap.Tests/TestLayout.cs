@@ -220,5 +220,26 @@ namespace MPewsey.ManiaMap.Tests
             Assert.IsTrue(progress >= 0.4f);
             Assert.IsTrue(progress <= 0.6f);
         }
+
+        [TestMethod]
+        public void TestFindRoomWithTag()
+        {
+            var results = Samples.BigLayoutSample.Generate(12345);
+            var layout = results.GetOutput<Layout>("Layout");
+            var room = layout.FindRoomWithTag("Origin");
+            Assert.IsNotNull(room);
+            Assert.AreEqual(new Uid(1), room.Id);
+        }
+
+        [TestMethod]
+        public void TestFindRoomsWithTag()
+        {
+            var results = Samples.BigLayoutSample.Generate(12345);
+            var layout = results.GetOutput<Layout>("Layout");
+            var rooms = layout.FindRoomsWithTag("Origin");
+            Assert.IsNotNull(rooms);
+            Assert.AreEqual(1, rooms.Count);
+            Assert.AreEqual(new Uid(1), rooms[0].Id);
+        }
     }
 }

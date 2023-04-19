@@ -13,35 +13,35 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The from room ID.
         /// </summary>
-        [DataMember(Order = 1, IsRequired = true)]
+        [DataMember(Order = 1)]
         public Uid FromRoom { get; private set; }
 
         /// <summary>
         /// The to room ID.
         /// </summary>
-        [DataMember(Order = 2, IsRequired = true)]
+        [DataMember(Order = 2)]
         public Uid ToRoom { get; private set; }
 
         /// <summary>
         /// The from door position.
         /// </summary>
-        [DataMember(Order = 3, IsRequired = true)]
+        [DataMember(Order = 3)]
         public DoorPosition FromDoor { get; private set; }
 
         /// <summary>
         /// The to door position.
         /// </summary>
-        [DataMember(Order = 4, IsRequired = true)]
+        [DataMember(Order = 4)]
         public DoorPosition ToDoor { get; private set; }
 
         /// <summary>
         /// The shaft (if any) connecting the two rooms.
         /// </summary>
-        [DataMember(Order = 5, IsRequired = true)]
+        [DataMember(Order = 5)]
         public Box Shaft { get; private set; }
 
         /// <inheritdoc/>
-        public RoomPair Key => new RoomPair(FromRoom, ToRoom);
+        RoomPair IDataContractValueDictionaryValue<RoomPair>.Key => new RoomPair(FromRoom, ToRoom);
 
         /// <summary>
         /// The edge direction.

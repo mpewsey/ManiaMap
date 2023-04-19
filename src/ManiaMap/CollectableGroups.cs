@@ -15,13 +15,20 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A dictionary of collectables by group name.
         /// </summary>
-        [DataMember(Order = 1, IsRequired = true)]
+        [DataMember(Order = 1)]
         private DataContractDictionary<string, List<int>> Groups { get; set; } = new DataContractDictionary<string, List<int>>();
 
         /// <summary>
         /// A readonly dictionary of collectables by group name.
         /// </summary>
         public IReadOnlyDictionary<string, List<int>> GroupsDictionary => Groups;
+
+        /// <inheritdoc/>
+        [OnDeserialized]
+        private void OnDeserialized(StreamingContext context)
+        {
+            Groups = Groups ?? new DataContractDictionary<string, List<int>>();
+        }
 
         /// <inheritdoc/>
         public override string ToString()

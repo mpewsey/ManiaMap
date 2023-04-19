@@ -12,25 +12,25 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The red channel.
         /// </summary>
-        [DataMember(Order = 1, IsRequired = true)]
+        [DataMember(Order = 1)]
         public byte R { get; private set; }
 
         /// <summary>
         /// The green channel.
         /// </summary>
-        [DataMember(Order = 2, IsRequired = true)]
+        [DataMember(Order = 2)]
         public byte G { get; private set; }
 
         /// <summary>
         /// The blue channel.
         /// </summary>
-        [DataMember(Order = 3, IsRequired = true)]
+        [DataMember(Order = 3)]
         public byte B { get; private set; }
 
         /// <summary>
         /// The alpha channel.
         /// </summary>
-        [DataMember(Order = 4, IsRequired = true)]
+        [DataMember(Order = 4)]
         public byte A { get; private set; }
 
         /// <summary>

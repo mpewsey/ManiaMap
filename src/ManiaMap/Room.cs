@@ -15,32 +15,32 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The room ID.
         /// </summary>
-        [DataMember(Order = 0, IsRequired = true)]
+        [DataMember(Order = 0)]
         public Uid Id { get; private set; }
 
         /// <summary>
         /// The room name.
         /// </summary>
-        [DataMember(Order = 1, IsRequired = true)]
+        [DataMember(Order = 1)]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
         /// The position of the room.
         /// </summary>
-        [DataMember(Order = 2, IsRequired = true)]
+        [DataMember(Order = 2)]
         public Vector3DInt Position { get; set; }
 
         /// <summary>
         /// The random seed of the room that may be used for room specific generation.
         /// </summary>
-        [DataMember(Order = 5, IsRequired = true)]
+        [DataMember(Order = 5)]
         public int Seed { get; set; }
 
         private int _templateId;
         /// <summary>
         /// The template ID.
         /// </summary>
-        [DataMember(Order = 6, IsRequired = true)]
+        [DataMember(Order = 6)]
         public int TemplateId
         {
             get => Template != null ? Template.Id : _templateId;
@@ -55,17 +55,31 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The room color.
         /// </summary>
-        [DataMember(Order = 7, IsRequired = true)]
+        [DataMember(Order = 7)]
         public Color4 Color { get; set; }
 
         /// <summary>
         /// A dictionary of collectable object ID's by location ID.
         /// </summary>
-        [DataMember(Order = 8, IsRequired = true)]
+        [DataMember(Order = 8)]
         public DataContractDictionary<int, int> Collectables { get; private set; } = new DataContractDictionary<int, int>();
 
+        /// <summary>
+        /// A list of tags.
+        /// </summary>
+        [DataMember(Order = 9)]
+        public List<string> Tags { get; private set; } = new List<string>();
+
         /// <inheritdoc/>
-        public Uid Key => Id;
+        [OnDeserialized]
+        private void OnDeserialized(StreamingContext context)
+        {
+            Collectables = Collectables ?? new DataContractDictionary<int, int>();
+            Tags = Tags ?? new List<string>();
+        }
+
+        /// <inheritdoc/>
+        Uid IDataContractValueDictionaryValue<Uid>.Key => Id;
 
         /// <summary>
         /// Initializes a room from a room source.
@@ -82,6 +96,7 @@ namespace MPewsey.ManiaMap
             Seed = random.Next();
             Color = source.Color;
             Template = template;
+            Tags = new List<string>(source.Tags);
         }
 
         /// <inheritdoc/>
