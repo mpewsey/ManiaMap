@@ -15,7 +15,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A dictionary of templates by group name.
         /// </summary>
-        [DataMember(Order = 1, IsRequired = true)]
+        [DataMember(Order = 1)]
         private DataContractDictionary<string, List<TemplateGroupsEntry>> Groups { get; set; } = new DataContractDictionary<string, List<TemplateGroupsEntry>>();
 
         /// <summary>
@@ -26,6 +26,7 @@ namespace MPewsey.ManiaMap
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
         {
+            Groups = Groups ?? new DataContractDictionary<string, List<TemplateGroupsEntry>>();
             ConsolidateTemplates();
         }
 

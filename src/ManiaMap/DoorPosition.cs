@@ -12,19 +12,19 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The local door position.
         /// </summary>
-        [DataMember(Order = 1, IsRequired = true)]
+        [DataMember(Order = 1)]
         public Vector2DInt Position { get; private set; }
 
         /// <summary>
         /// The door direction.
         /// </summary>
-        [DataMember(Order = 3, IsRequired = true)]
+        [DataMember(Order = 3)]
         public DoorDirection Direction { get; private set; }
 
         /// <summary>
         /// The referenced door.
         /// </summary>
-        [DataMember(Order = 4, IsRequired = true)]
+        [DataMember(Order = 4)]
         public Door Door { get; set; }
 
         /// <summary>

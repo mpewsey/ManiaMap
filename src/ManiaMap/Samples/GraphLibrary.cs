@@ -171,6 +171,7 @@ namespace MPewsey.ManiaMap.Samples
             }
 
             graph.GetNode(5).SetTemplateGroup("SavePoint");
+            graph.GetNode(1).AddTag("Origin");
             return graph;
         }
 

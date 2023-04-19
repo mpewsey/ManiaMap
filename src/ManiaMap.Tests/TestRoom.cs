@@ -27,6 +27,7 @@ namespace MPewsey.ManiaMap.Tests
             Assert.AreEqual(room.Color, copy.Color);
             Assert.AreEqual(room.TemplateId, copy.TemplateId);
             Assert.AreEqual(room.Collectables.Count, copy.Collectables.Count);
+            CollectionAssert.AreEqual(room.Tags, copy.Tags);
 
             foreach (var pair in room.Collectables)
             {

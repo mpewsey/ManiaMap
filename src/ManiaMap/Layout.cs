@@ -16,37 +16,37 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The unique ID.
         /// </summary>
-        [DataMember(Order = 0, IsRequired = true)]
+        [DataMember(Order = 0)]
         public int Id { get; private set; }
 
         /// <summary>
         /// The name of the layout.
         /// </summary>
-        [DataMember(Order = 1, IsRequired = true)]
+        [DataMember(Order = 1)]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
         /// The random seed used to generate the layout.
         /// </summary>
-        [DataMember(Order = 2, IsRequired = true)]
+        [DataMember(Order = 2)]
         public int Seed { get; private set; }
 
         /// <summary>
         /// A dictionary of rooms in the layout by ID.
         /// </summary>
-        [DataMember(Order = 3, IsRequired = true)]
+        [DataMember(Order = 3)]
         public DataContractValueDictionary<Uid, Room> Rooms { get; private set; } = new DataContractValueDictionary<Uid, Room>();
 
         /// <summary>
         /// A dictionary of door connections by room ID pairs.
         /// </summary>
-        [DataMember(Order = 4, IsRequired = true)]
+        [DataMember(Order = 4)]
         public DataContractValueDictionary<RoomPair, DoorConnection> DoorConnections { get; private set; } = new DataContractValueDictionary<RoomPair, DoorConnection>();
 
         /// <summary>
         /// A dictionary of room templates in the layout by ID.
         /// </summary>
-        [DataMember(Order = 5, IsRequired = true)]
+        [DataMember(Order = 5)]
         public DataContractValueDictionary<int, RoomTemplate> Templates { get; private set; } = new DataContractValueDictionary<int, RoomTemplate>();
 
         /// <summary>
@@ -62,6 +62,9 @@ namespace MPewsey.ManiaMap
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
         {
+            Rooms = Rooms ?? new DataContractValueDictionary<Uid, Room>();
+            DoorConnections = DoorConnections ?? new DataContractValueDictionary<RoomPair, DoorConnection>();
+            Templates = Templates ?? new DataContractValueDictionary<int, RoomTemplate>();
             AssignRoomTemplates();
         }
 
@@ -435,6 +438,48 @@ namespace MPewsey.ManiaMap
             }
 
             return counts;
+        }
+
+        /// <summary>
+        /// Returns the first room with the specified tag. Returns null if the tag doesn't exist.
+        /// </summary>
+        /// <param name="tag">The tag.</param>
+        public Room FindRoomWithTag(string tag)
+        {
+            foreach (var room in Rooms.Values)
+            {
+                if (room.Tags.Contains(tag))
+                    return room;
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Returns a list of all rooms with the specified tag.
+        /// </summary>
+        /// <param name="tag">The tag.</param>
+        public List<Room> FindRoomsWithTag(string tag)
+        {
+            var result = new List<Room>();
+            FindRoomsWithTag(tag, ref result);
+            return result;
+        }
+
+        /// <summary>
+        /// Populates the referenced list with all rooms with the specified tag.
+        /// </summary>
+        /// <param name="tag">The tag.</param>
+        /// <param name="results">The referenced results list.</param>
+        public void FindRoomsWithTag(string tag, ref List<Room> results)
+        {
+            results.Clear();
+
+            foreach (var room in Rooms.Values)
+            {
+                if (room.Tags.Contains(tag))
+                    results.Add(room);
+            }
         }
     }
 }

@@ -12,19 +12,19 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The first ID value.
         /// </summary>
-        [DataMember(Order = 1, IsRequired = true)]
+        [DataMember(Order = 1)]
         public int A { get; private set; }
 
         /// <summary>
         /// The second ID value.
         /// </summary>
-        [DataMember(Order = 2, IsRequired = true)]
+        [DataMember(Order = 2)]
         public int B { get; private set; }
 
         /// <summary>
         /// The third ID value.
         /// </summary>
-        [DataMember(Order = 3, IsRequired = true)]
+        [DataMember(Order = 3)]
         public int C { get; private set; }
 
         /// <summary>

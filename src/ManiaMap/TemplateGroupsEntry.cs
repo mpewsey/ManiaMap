@@ -13,14 +13,14 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The room template.
         /// </summary>
-        [DataMember(Order = 1, IsRequired = true)]
+        [DataMember(Order = 1)]
         public RoomTemplate Template { get; private set; }
 
         private int _minQuantity;
         /// <summary>
         /// The minimum number of uses for the entry.
         /// </summary>
-        [DataMember(Order = 3, IsRequired = true)]
+        [DataMember(Order = 3)]
         public int MinQuantity
         {
             get => _minQuantity;
@@ -31,7 +31,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The maximum number of uses for the entry.
         /// </summary>
-        [DataMember(Order = 4, IsRequired = true)]
+        [DataMember(Order = 4)]
         public int MaxQuantity
         {
             get => _maxQuantity;

@@ -1,5 +1,6 @@
 ﻿using MPewsey.Common.Collections;
 using MPewsey.ManiaMap.Exceptions;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap.Graphs
@@ -21,30 +22,41 @@ namespace MPewsey.ManiaMap.Graphs
         /// <summary>
         /// The unique node ID.
         /// </summary>
-        [DataMember(Order = 1, IsRequired = true)]
+        [DataMember(Order = 1)]
         public int Id { get; set; }
 
         /// <inheritdoc/>
-        [DataMember(Order = 2, IsRequired = true)]
+        [DataMember(Order = 2)]
         public string Name { get; set; } = string.Empty;
 
         /// <inheritdoc/>
-        [DataMember(Order = 3, IsRequired = true)]
+        [DataMember(Order = 3)]
         public int Z { get; set; }
 
         /// <inheritdoc/>
-        [DataMember(Order = 4, IsRequired = true)]
+        [DataMember(Order = 4)]
         public string TemplateGroup { get; set; } = "Default";
 
         /// <inheritdoc/>
-        [DataMember(Order = 5, IsRequired = true)]
+        [DataMember(Order = 5)]
         public Color4 Color { get; set; } = new Color4(25, 25, 112, 255);
+
+        /// <inheritdoc/>
+        [DataMember(Order = 6)]
+        public List<string> Tags { get; set; } = new List<string>();
 
         /// <inheritdoc/>
         public Uid RoomId { get => new Uid(Id); }
 
         /// <inheritdoc/>
-        public int Key => Id;
+        int IDataContractValueDictionaryValue<int>.Key => Id;
+
+        /// <inheritdoc/>
+        [OnDeserialized]
+        private void OnDeserialized(StreamingContext context)
+        {
+            Tags = Tags ?? new List<string>();
+        }
 
         /// <summary>
         /// Initializes an empty node from ID.
@@ -66,6 +78,7 @@ namespace MPewsey.ManiaMap.Graphs
             Z = other.Z;
             TemplateGroup = other.TemplateGroup;
             Color = other.Color;
+            Tags = new List<string>(other.Tags);
         }
 
         /// <inheritdoc/>
@@ -137,6 +150,17 @@ namespace MPewsey.ManiaMap.Graphs
         public LayoutNode SetTemplateGroup(string value)
         {
             TemplateGroup = value;
+            return this;
+        }
+
+        /// <summary>
+        /// Adds the tag to the node if it doesn't already exist and returns the node.
+        /// </summary>
+        /// <param name="tag">The tag.</param>
+        public LayoutNode AddTag(string tag)
+        {
+            if (!Tags.Contains(tag))
+                Tags.Add(tag);
             return this;
         }
     }

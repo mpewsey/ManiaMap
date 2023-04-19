@@ -20,6 +20,7 @@ namespace MPewsey.ManiaMap.Graphs.Tests
             Assert.AreEqual(node.TemplateGroup, copy.TemplateGroup);
             Assert.AreEqual(node.Color, copy.Color);
             Assert.AreEqual(node.RoomId, copy.RoomId);
+            CollectionAssert.AreEqual(node.Tags, copy.Tags);
         }
 
         [TestMethod]
@@ -52,6 +53,14 @@ namespace MPewsey.ManiaMap.Graphs.Tests
         }
 
         [TestMethod]
+        public void TestAddTag()
+        {
+            var node = new LayoutNode(1).AddTag("Tag1").AddTag("Tag2").AddTag("Tag1");
+            var expected = new string[] { "Tag1", "Tag2" };
+            CollectionAssert.AreEquivalent(expected, node.Tags);
+        }
+
+        [TestMethod]
         public void TestCopy()
         {
             var node = new LayoutNode(1);
@@ -59,8 +68,11 @@ namespace MPewsey.ManiaMap.Graphs.Tests
 
             foreach (var property in node.GetType().GetProperties())
             {
-                Assert.AreEqual(property.GetValue(node), property.GetValue(copy));
+                if (property.Name != "Tags")
+                    Assert.AreEqual(property.GetValue(node), property.GetValue(copy));
             }
+
+            CollectionAssert.AreEqual(node.Tags, copy.Tags);
         }
 
         [TestMethod]

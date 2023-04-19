@@ -13,35 +13,44 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The ID of the corresponding room.
         /// </summary>
-        [DataMember(Order = 1, IsRequired = true)]
+        [DataMember(Order = 1)]
         public Uid Id { get; private set; }
 
         /// <summary>
         /// If true, all cells of the room will be visible without the individual cells being marked visible.
         /// </summary>
-        [DataMember(Order = 2, IsRequired = true)]
+        [DataMember(Order = 2)]
         public bool IsVisible { get; set; }
 
         /// <summary>
         /// An array of room cell visibilities.
         /// </summary>
-        [DataMember(Order = 3, IsRequired = true)]
+        [DataMember(Order = 3)]
         public BitArray2D VisibleCells { get; private set; }
 
         /// <summary>
         /// A set of acquired collectable location ID's.
         /// </summary>
-        [DataMember(Order = 4, IsRequired = true)]
+        [DataMember(Order = 4)]
         public DataContractHashSet<int> AcquiredCollectables { get; private set; } = new DataContractHashSet<int>();
 
         /// <summary>
         /// A set of flags that are set for a room.
         /// </summary>
-        [DataMember(Order = 5, IsRequired = true)]
+        [DataMember(Order = 5)]
         public DataContractHashSet<int> Flags { get; private set; } = new DataContractHashSet<int>();
 
         /// <inheritdoc/>
-        public Uid Key => Id;
+        Uid IDataContractValueDictionaryValue<Uid>.Key => Id;
+
+        /// <inheritdoc/>
+        [OnDeserialized]
+        private void OnDeserialized(StreamingContext context)
+        {
+            VisibleCells = VisibleCells ?? new BitArray2D();
+            AcquiredCollectables = AcquiredCollectables ?? new DataContractHashSet<int>();
+            Flags = Flags ?? new DataContractHashSet<int>();
+        }
 
         /// <summary>
         /// Initializes from a room.

@@ -37,13 +37,13 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The door type.
         /// </summary>
-        [DataMember(Order = 1, IsRequired = true)]
+        [DataMember(Order = 1)]
         public DoorType Type { get; set; }
 
         /// <summary>
         /// The door code for matching two doors.
         /// </summary>
-        [DataMember(Order = 2, IsRequired = true)]
+        [DataMember(Order = 2)]
         public DoorCode Code { get; set; }
 
         /// <summary>
