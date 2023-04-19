@@ -99,6 +99,7 @@ $(document).ready(function(){initNavTree('class_m_pewsey_1_1_mania_map_1_1_room.
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#properties">Properties</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_m_pewsey_1_1_mania_map_1_1_room-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">MPewsey.ManiaMap.Room Class Reference</div></div>
@@ -145,8 +146,8 @@ Properties</h2></td></tr>
 <tr class="memitem:acaeaa6a6ea7328bf41ba363d5bd13f34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room.html#acaeaa6a6ea7328bf41ba363d5bd13f34">Id</a><code> [getprivate set]</code></td></tr>
 <tr class="memdesc:acaeaa6a6ea7328bf41ba363d5bd13f34"><td class="mdescLeft">&#160;</td><td class="mdescRight">The room ID.  <a href="class_m_pewsey_1_1_mania_map_1_1_room.html#acaeaa6a6ea7328bf41ba363d5bd13f34">More...</a><br /></td></tr>
 <tr class="separator:acaeaa6a6ea7328bf41ba363d5bd13f34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff9a75831e94a6a587e62dd6deb8547d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room.html#aff9a75831e94a6a587e62dd6deb8547d">Key</a><code> [get]</code></td></tr>
-<tr class="separator:aff9a75831e94a6a587e62dd6deb8547d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc02feb906ac8bcf738629fc33341030"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> IDataContractValueDictionaryValue&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> &gt;.&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room.html#abc02feb906ac8bcf738629fc33341030">Key</a><code> [get]</code></td></tr>
+<tr class="separator:abc02feb906ac8bcf738629fc33341030"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa415d83fbe2c0dbccee16a154fa5203c"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room.html#aa415d83fbe2c0dbccee16a154fa5203c">Name</a> = string.Empty<code> [getset]</code></td></tr>
 <tr class="memdesc:aa415d83fbe2c0dbccee16a154fa5203c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The room name.  <a href="class_m_pewsey_1_1_mania_map_1_1_room.html#aa415d83fbe2c0dbccee16a154fa5203c">More...</a><br /></td></tr>
 <tr class="separator:aa415d83fbe2c0dbccee16a154fa5203c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -156,12 +157,20 @@ Properties</h2></td></tr>
 <tr class="memitem:abbd8d893103a3425a4b332f737e26949"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room.html#abbd8d893103a3425a4b332f737e26949">Seed</a><code> [getset]</code></td></tr>
 <tr class="memdesc:abbd8d893103a3425a4b332f737e26949"><td class="mdescLeft">&#160;</td><td class="mdescRight">The random seed of the room that may be used for room specific generation.  <a href="class_m_pewsey_1_1_mania_map_1_1_room.html#abbd8d893103a3425a4b332f737e26949">More...</a><br /></td></tr>
 <tr class="separator:abbd8d893103a3425a4b332f737e26949"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5a3893f25cb9e7620e9364dc1a887ec"><td class="memItemLeft" align="right" valign="top">List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room.html#ac5a3893f25cb9e7620e9364dc1a887ec">Tags</a> = new List&lt;string&gt;()<code> [getprivate set]</code></td></tr>
+<tr class="memdesc:ac5a3893f25cb9e7620e9364dc1a887ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of tags.  <a href="class_m_pewsey_1_1_mania_map_1_1_room.html#ac5a3893f25cb9e7620e9364dc1a887ec">More...</a><br /></td></tr>
+<tr class="separator:ac5a3893f25cb9e7620e9364dc1a887ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa32384452e05acafe1bb148c6f5757b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html">RoomTemplate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room.html#aa32384452e05acafe1bb148c6f5757b1">Template</a><code> [getprivate set]</code></td></tr>
 <tr class="memdesc:aa32384452e05acafe1bb148c6f5757b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The room template.  <a href="class_m_pewsey_1_1_mania_map_1_1_room.html#aa32384452e05acafe1bb148c6f5757b1">More...</a><br /></td></tr>
 <tr class="separator:aa32384452e05acafe1bb148c6f5757b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a311edc71383a763f6356859bfccf0939"><td class="memItemLeft" align="right" valign="top">int?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room.html#a311edc71383a763f6356859bfccf0939">TemplateId</a><code> [getprivate set]</code></td></tr>
 <tr class="memdesc:a311edc71383a763f6356859bfccf0939"><td class="mdescLeft">&#160;</td><td class="mdescRight">The template ID.  <a href="class_m_pewsey_1_1_mania_map_1_1_room.html#a311edc71383a763f6356859bfccf0939">More...</a><br /></td></tr>
 <tr class="separator:a311edc71383a763f6356859bfccf0939"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a049a735237e79d53d55999ffc98a2bbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room.html#a049a735237e79d53d55999ffc98a2bbe">OnDeserialized</a> (StreamingContext context)</td></tr>
+<tr class="separator:a049a735237e79d53d55999ffc98a2bbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -222,7 +231,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_room_8cs_source.html#l00077">77</a> of file <a class="el" href="_room_8cs_source.html">Room.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_8cs_source.html#l00091">91</a> of file <a class="el" href="_room_8cs_source.html">Room.cs</a>.</p>
 
 </div>
 </div>
@@ -262,7 +271,37 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_room_8cs_source.html#l00098">98</a> of file <a class="el" href="_room_8cs_source.html">Room.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_8cs_source.html#l00113">113</a> of file <a class="el" href="_room_8cs_source.html">Room.cs</a>.</p>
+
+</div>
+</div>
+<a id="a049a735237e79d53d55999ffc98a2bbe" name="a049a735237e79d53d55999ffc98a2bbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a049a735237e79d53d55999ffc98a2bbe">&#9670;&nbsp;</a></span>OnDeserialized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MPewsey.ManiaMap.Room.OnDeserialized </td>
+          <td>(</td>
+          <td class="paramtype">StreamingContext&#160;</td>
+          <td class="paramname"><em>context</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p></p>
+
+<p class="definition">Definition at line <a class="el" href="_room_8cs_source.html#l00075">75</a> of file <a class="el" href="_room_8cs_source.html">Room.cs</a>.</p>
 
 </div>
 </div>
@@ -290,7 +329,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_room_8cs_source.html#l00109">109</a> of file <a class="el" href="_room_8cs_source.html">Room.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_8cs_source.html#l00124">124</a> of file <a class="el" href="_room_8cs_source.html">Room.cs</a>.</p>
 
 </div>
 </div>
@@ -311,7 +350,7 @@ Private Attributes</h2></td></tr>
 
 <p></p>
 
-<p class="definition">Definition at line <a class="el" href="_room_8cs_source.html#l00088">88</a> of file <a class="el" href="_room_8cs_source.html">Room.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_8cs_source.html#l00103">103</a> of file <a class="el" href="_room_8cs_source.html">Room.cs</a>.</p>
 
 </div>
 </div>
@@ -339,7 +378,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_room_8cs_source.html#l00130">130</a> of file <a class="el" href="_room_8cs_source.html">Room.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_8cs_source.html#l00145">145</a> of file <a class="el" href="_room_8cs_source.html">Room.cs</a>.</p>
 
 </div>
 </div>
@@ -367,7 +406,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_room_8cs_source.html#l00120">120</a> of file <a class="el" href="_room_8cs_source.html">Room.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_8cs_source.html#l00135">135</a> of file <a class="el" href="_room_8cs_source.html">Room.cs</a>.</p>
 
 </div>
 </div>
@@ -475,8 +514,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aff9a75831e94a6a587e62dd6deb8547d" name="aff9a75831e94a6a587e62dd6deb8547d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff9a75831e94a6a587e62dd6deb8547d">&#9670;&nbsp;</a></span>Key</h2>
+<a id="abc02feb906ac8bcf738629fc33341030" name="abc02feb906ac8bcf738629fc33341030"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc02feb906ac8bcf738629fc33341030">&#9670;&nbsp;</a></span>Key</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -485,19 +524,19 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> MPewsey.ManiaMap.Room.Key</td>
+          <td class="memname"><a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> IDataContractValueDictionaryValue&lt;<a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a>&gt;. MPewsey.ManiaMap.Room.Key</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p></p>
 
-<p class="definition">Definition at line <a class="el" href="_room_8cs_source.html#l00068">68</a> of file <a class="el" href="_room_8cs_source.html">Room.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_room_8cs_source.html#l00082">82</a> of file <a class="el" href="_room_8cs_source.html">Room.cs</a>.</p>
 
 </div>
 </div>
@@ -576,6 +615,32 @@ Private Attributes</h2></td></tr>
 <p>The random seed of the room that may be used for room specific generation. </p>
 
 <p class="definition">Definition at line <a class="el" href="_room_8cs_source.html#l00037">37</a> of file <a class="el" href="_room_8cs_source.html">Room.cs</a>.</p>
+
+</div>
+</div>
+<a id="ac5a3893f25cb9e7620e9364dc1a887ec" name="ac5a3893f25cb9e7620e9364dc1a887ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5a3893f25cb9e7620e9364dc1a887ec">&#9670;&nbsp;</a></span>Tags</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;string&gt; MPewsey.ManiaMap.Room.Tags = new List&lt;string&gt;()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A list of tags. </p>
+
+<p class="definition">Definition at line <a class="el" href="_room_8cs_source.html#l00071">71</a> of file <a class="el" href="_room_8cs_source.html">Room.cs</a>.</p>
 
 </div>
 </div>

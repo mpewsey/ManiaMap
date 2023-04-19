@@ -116,6 +116,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab576176e51a749d62b3dccff2983cd13"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a>, HashSet&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html#ab576176e51a749d62b3dccff2983cd13">FindClusters</a> (int maxDepth)</td></tr>
 <tr class="memdesc:ab576176e51a749d62b3dccff2983cd13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a dictionary of neighbors of all rooms up to the specified max depths. The rooms themselves are included in the results.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout.html#ab576176e51a749d62b3dccff2983cd13">More...</a><br /></td></tr>
 <tr class="separator:ab576176e51a749d62b3dccff2983cd13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35b43b5be98d997a2b97f12be91ab60f"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room.html">Room</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html#a35b43b5be98d997a2b97f12be91ab60f">FindRoomsWithTag</a> (string tag)</td></tr>
+<tr class="memdesc:a35b43b5be98d997a2b97f12be91ab60f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of all rooms with the specified tag.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout.html#a35b43b5be98d997a2b97f12be91ab60f">More...</a><br /></td></tr>
+<tr class="separator:a35b43b5be98d997a2b97f12be91ab60f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3b8a7ad0e2a8f41de80d95fb7df0e91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html#ab3b8a7ad0e2a8f41de80d95fb7df0e91">FindRoomsWithTag</a> (string tag, ref List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room.html">Room</a> &gt; results)</td></tr>
+<tr class="memdesc:ab3b8a7ad0e2a8f41de80d95fb7df0e91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populates the referenced list with all rooms with the specified tag.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout.html#ab3b8a7ad0e2a8f41de80d95fb7df0e91">More...</a><br /></td></tr>
+<tr class="separator:ab3b8a7ad0e2a8f41de80d95fb7df0e91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d28100d83c10f6d647f37c77b24b1b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room.html">Room</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html#a9d28100d83c10f6d647f37c77b24b1b0">FindRoomWithTag</a> (string tag)</td></tr>
+<tr class="memdesc:a9d28100d83c10f6d647f37c77b24b1b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the first room with the specified tag. Returns null if the tag doesn't exist.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout.html#a9d28100d83c10f6d647f37c77b24b1b0">More...</a><br /></td></tr>
+<tr class="separator:a9d28100d83c10f6d647f37c77b24b1b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75f408b7dfa5a9af9f539958d8cb1e1c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_rectangle_int.html">RectangleInt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html#a75f408b7dfa5a9af9f539958d8cb1e1c">GetBounds</a> ()</td></tr>
 <tr class="memdesc:a75f408b7dfa5a9af9f539958d8cb1e1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the rectangular bounds of the layout.  <a href="class_m_pewsey_1_1_mania_map_1_1_layout.html#a75f408b7dfa5a9af9f539958d8cb1e1c">More...</a><br /></td></tr>
 <tr class="separator:a75f408b7dfa5a9af9f539958d8cb1e1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -256,7 +265,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Initializes an empty layout. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00071">71</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00074">74</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -284,7 +293,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00082">82</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00085">85</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -314,7 +323,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Sets the templates of the rooms based on their stored template ID's. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00150">150</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00153">153</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -353,7 +362,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00374">374</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00377">377</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -381,7 +390,102 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00384">384</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00387">387</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+
+</div>
+</div>
+<a id="a35b43b5be98d997a2b97f12be91ab60f" name="a35b43b5be98d997a2b97f12be91ab60f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35b43b5be98d997a2b97f12be91ab60f">&#9670;&nbsp;</a></span>FindRoomsWithTag() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room.html">Room</a> &gt; MPewsey.ManiaMap.Layout.FindRoomsWithTag </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>tag</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a list of all rooms with the specified tag. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tag</td><td>The tag.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00462">462</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+
+</div>
+</div>
+<a id="ab3b8a7ad0e2a8f41de80d95fb7df0e91" name="ab3b8a7ad0e2a8f41de80d95fb7df0e91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3b8a7ad0e2a8f41de80d95fb7df0e91">&#9670;&nbsp;</a></span>FindRoomsWithTag() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MPewsey.ManiaMap.Layout.FindRoomsWithTag </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>tag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ref List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room.html">Room</a> &gt;&#160;</td>
+          <td class="paramname"><em>results</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Populates the referenced list with all rooms with the specified tag. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tag</td><td>The tag.</td></tr>
+    <tr><td class="paramname">results</td><td>The referenced results list.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00474">474</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+
+</div>
+</div>
+<a id="a9d28100d83c10f6d647f37c77b24b1b0" name="a9d28100d83c10f6d647f37c77b24b1b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d28100d83c10f6d647f37c77b24b1b0">&#9670;&nbsp;</a></span>FindRoomWithTag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room.html">Room</a> MPewsey.ManiaMap.Layout.FindRoomWithTag </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>tag</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the first room with the specified tag. Returns null if the tag doesn't exist. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tag</td><td>The tag.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00447">447</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -402,7 +506,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Returns the rectangular bounds of the layout. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00392">392</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00395">395</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -441,7 +545,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00163">163</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00166">166</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -462,7 +566,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Returns a dictionary of door connections by room ID. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00315">315</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00318">318</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -483,7 +587,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Returns a new dictionary of room doors by room ID. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00287">287</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00290">290</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -511,7 +615,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00119">119</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00122">122</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -539,7 +643,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00129">129</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00132">132</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -585,7 +689,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00232">232</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00235">235</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -624,7 +728,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00242">242</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00245">245</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -663,7 +767,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00186">186</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00189">189</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -691,7 +795,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00104">104</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00107">107</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -740,7 +844,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Populates the templates dictionary based on the current rooms. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00137">137</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00140">140</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -779,7 +883,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00175">175</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00178">178</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -800,7 +904,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Returns a new dictionary of neighbor rooms in the layout. </p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00343">343</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00346">346</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -847,7 +951,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00253">253</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00256">256</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -894,7 +998,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00197">197</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00200">200</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -941,7 +1045,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00271">271</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00274">274</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -988,7 +1092,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00213">213</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00216">216</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -1009,7 +1113,7 @@ Private Member Functions</h2></td></tr>
 
 <p></p>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00095">95</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00098">98</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -1037,7 +1141,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00427">427</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00430">430</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>
@@ -1065,7 +1169,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00417">417</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_layout_8cs_source.html#l00420">420</a> of file <a class="el" href="_layout_8cs_source.html">Layout.cs</a>.</p>
 
 </div>
 </div>

@@ -16,6 +16,7 @@ var class_m_pewsey_1_1_mania_map_1_1_room_template =
     [ "IsValid", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a94cca2a8dcbaf318447c8c92cccf01ce", null ],
     [ "MirroredHorizontally", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a73a58826fcdf90217a71dd6b9034868a", null ],
     [ "MirroredVertically", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a4e66bede8db336dd6b6778fb37a6e45d", null ],
+    [ "OnDeserialized", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a647b942bec262ff5a9790d27ba0322dc", null ],
     [ "PlaneAlignedDoors", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#ac8ce4c3ed02f9b2d8e57cb9a8046c962", null ],
     [ "Rotated180", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a72ac605cf663267a1eb00f73ae9f8167", null ],
     [ "Rotated270", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a6002fe409378d457f5f593714e17cf6a", null ],
@@ -28,6 +29,6 @@ var class_m_pewsey_1_1_mania_map_1_1_room_template =
     [ "ValuesAreEqual", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a1aacbf34b2b20731c8d77da664b5d06a", null ],
     [ "Cells", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#affa7d3379fb478ac22833f4b3beda41f", null ],
     [ "Id", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#ab73713569a11fc7f754657d564ee5039", null ],
-    [ "Key", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#ad42b0c14be81fc748af2d89d4ea2d661", null ],
+    [ "Key", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#ace86de9058920ac52324274a0d895fea", null ],
     [ "Name", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a648da978fb28c0cbeda81b08bc9c8422", null ]
 ];
