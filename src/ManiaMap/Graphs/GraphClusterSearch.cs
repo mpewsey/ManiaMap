@@ -75,11 +75,11 @@ namespace MPewsey.ManiaMap.Graphs
         /// <param name="depth">The current depth.</param>
         private void SearchNeighbors(T room, int depth)
         {
-            if (depth <= MaxDepth && Marked.Add(room))
+            if (depth++ <= MaxDepth && Marked.Add(room))
             {
                 foreach (var neighbor in Neighbors[room])
                 {
-                    SearchNeighbors(neighbor, depth + 1);
+                    SearchNeighbors(neighbor, depth);
                 }
             }
         }

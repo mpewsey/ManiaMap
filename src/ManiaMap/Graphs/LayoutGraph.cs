@@ -306,9 +306,9 @@ namespace MPewsey.ManiaMap.Graphs
         /// Completely removes the specified node variation group.
         /// </summary>
         /// <param name="group">The group.</param>
-        public void RemoveNodeVariationGroup(string group)
+        public bool RemoveNodeVariationsGroup(string group)
         {
-            NodeVariations.Remove(group);
+            return NodeVariations.Remove(group);
         }
 
         /// <summary>

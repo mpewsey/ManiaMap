@@ -223,6 +223,15 @@ namespace MPewsey.ManiaMap.Graphs.Tests
         }
 
         [TestMethod]
+        public void TestRemoveVariationsGroup()
+        {
+            var graph = new LayoutGraph(1, "Variations");
+            graph.AddNodeVariation("Group1", 1);
+            graph.RemoveNodeVariationsGroup("Group1");
+            Assert.AreEqual(0, graph.GetNodeVariations().Count);
+        }
+
+        [TestMethod]
         public void TestRemoveNodeVariation()
         {
             var graph = new LayoutGraph(1, "Variations");
@@ -244,7 +253,7 @@ namespace MPewsey.ManiaMap.Graphs.Tests
         }
 
         [TestMethod]
-        public void TestGetVariation()
+        public void TestCreateVariation()
         {
             var graph = Samples.GraphLibrary.CrossGraph();
             graph.AddNodeVariations("Group1", new int[] { 0, 1 });
@@ -259,7 +268,7 @@ namespace MPewsey.ManiaMap.Graphs.Tests
         }
 
         [TestMethod]
-        public void TestAddAddBetweenSameNodes()
+        public void TestAddEdgeBetweenSameNodes()
         {
             var graph = new LayoutGraph(1, "Test");
             Assert.ThrowsException<InvalidIdException>(() => graph.AddEdge(1, 1));
