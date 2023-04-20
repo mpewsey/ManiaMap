@@ -13,7 +13,7 @@ namespace MPewsey.ManiaMap.Generators.Tests
         public void TestApplyStep()
         {
             var graph = Samples.GraphLibrary.CrossGraph();
-            graph.AddNodeVariation("Group1", new int[] { 0, 1 });
+            graph.AddNodeVariations("Group1", new int[] { 0, 1 });
             var seed = new RandomSeed(12345);
 
             var input = new Dictionary<string, object>
@@ -32,7 +32,7 @@ namespace MPewsey.ManiaMap.Generators.Tests
         public void TestRandomizeLayout()
         {
             var graph = Samples.GraphLibrary.CrossGraph();
-            graph.AddNodeVariation("Group1", new int[] { 0, 1 });
+            graph.AddNodeVariations("Group1", new int[] { 0, 1 });
             var seed = new RandomSeed(12345);
             var randomizer = new LayoutGraphRandomizer();
             var result = randomizer.RandomizeGraph(graph, seed);

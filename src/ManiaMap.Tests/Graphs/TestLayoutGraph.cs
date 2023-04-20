@@ -16,7 +16,7 @@ namespace MPewsey.ManiaMap.Graphs.Tests
         {
             var path = "LayoutGraphSaveAndLoad.xml";
             var graph = Samples.GraphLibrary.BigGraph();
-            graph.AddNodeVariation("Variation1", new int[] { 1, 2, 3 });
+            graph.AddNodeVariations("Variation1", new int[] { 1, 2, 3 });
             XmlSerialization.SaveXml(path, graph);
             var copy = XmlSerialization.LoadXml<LayoutGraph>(path);
             Assert.AreEqual(graph.Id, copy.Id);
@@ -199,7 +199,7 @@ namespace MPewsey.ManiaMap.Graphs.Tests
             graph.AddNodeVariation("Group1", 1);
             graph.AddNodeVariation("Group1", 2);
             var expected = new List<int> { 1, 2 };
-            CollectionAssert.AreEquivalent(expected, graph.GetNodeVariations("Group1").ToList());
+            CollectionAssert.AreEquivalent(expected, graph.GetNodeVariationsGroup("Group1").ToList());
             CollectionAssert.AreEquivalent(expected, graph.GetNodes().Select(x => x.Id).ToList());
         }
 
@@ -207,9 +207,9 @@ namespace MPewsey.ManiaMap.Graphs.Tests
         public void TestAddNodeVariations()
         {
             var graph = new LayoutGraph(1, "Variations");
-            graph.AddNodeVariation("Group1", new int[] { 1, 2 });
+            graph.AddNodeVariations("Group1", new int[] { 1, 2 });
             var expected = new List<int> { 1, 2 };
-            CollectionAssert.AreEquivalent(expected, graph.GetNodeVariations("Group1").ToList());
+            CollectionAssert.AreEquivalent(expected, graph.GetNodeVariationsGroup("Group1").ToList());
             CollectionAssert.AreEquivalent(expected, graph.GetNodes().Select(x => x.Id).ToList());
         }
 
@@ -219,7 +219,7 @@ namespace MPewsey.ManiaMap.Graphs.Tests
             var graph = new LayoutGraph(1, "Variations");
             graph.AddNodeVariation("Group1", 1);
             graph.RemoveNodeVariations(1);
-            CollectionAssert.AreEquivalent(new List<int>(), graph.GetNodeVariations("Group1").ToList());
+            Assert.AreEqual(0, graph.GetNodeVariations().Count);
         }
 
         [TestMethod]
@@ -228,7 +228,7 @@ namespace MPewsey.ManiaMap.Graphs.Tests
             var graph = new LayoutGraph(1, "Variations");
             graph.AddNodeVariation("Group1", 1);
             graph.RemoveNodeVariation("Group1", 1);
-            CollectionAssert.AreEquivalent(new List<int>(), graph.GetNodeVariations("Group1").ToList());
+            Assert.AreEqual(0, graph.GetNodeVariations().Count);
             CollectionAssert.AreEquivalent(new List<int> { 1 }, graph.GetNodes().Select(x => x.Id).ToList());
         }
 
@@ -236,10 +236,10 @@ namespace MPewsey.ManiaMap.Graphs.Tests
         public void TestRemoveNodeVariations()
         {
             var graph = new LayoutGraph(1, "Variations");
-            graph.AddNodeVariation("Group1", new int[] { 1, 2 });
-            graph.RemoveNodeVariation("Group1", new int[] { 1, 2 });
+            graph.AddNodeVariations("Group1", new int[] { 1, 2 });
+            graph.RemoveNodeVariations("Group1", new int[] { 1, 2 });
             var expected = new List<int> { 1, 2 };
-            CollectionAssert.AreEquivalent(new List<int>(), graph.GetNodeVariations("Group1").ToList());
+            Assert.AreEqual(0, graph.GetNodeVariations().Count);
             CollectionAssert.AreEquivalent(expected, graph.GetNodes().Select(x => x.Id).ToList());
         }
 
@@ -247,12 +247,12 @@ namespace MPewsey.ManiaMap.Graphs.Tests
         public void TestGetVariation()
         {
             var graph = Samples.GraphLibrary.CrossGraph();
-            graph.AddNodeVariation("Group1", new int[] { 0, 1 });
+            graph.AddNodeVariations("Group1", new int[] { 0, 1 });
             var seed = new RandomSeed(12345);
 
             for (int i = 0; i < 1000; i++)
             {
-                var variation = graph.GetVariation(seed);
+                var variation = graph.CreateVariation(seed);
                 Assert.AreEqual(graph.Id, variation.Id);
                 Assert.AreEqual(graph.Name, variation.Name);
             }
