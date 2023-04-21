@@ -92,7 +92,7 @@ namespace MPewsey.ManiaMap.Graphs
         public T MaxNeighborNode()
         {
             T maxNode = default;
-            int maxNeighbors = -1;
+            var maxNeighbors = -1;
 
             foreach (var pair in Neighbors.OrderBy(x => x.Key))
             {

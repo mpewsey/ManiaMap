@@ -121,17 +121,39 @@ namespace MPewsey.ManiaMap.Graphs
         /// <summary>
         /// Validates the graph and raises any applicable exceptions.
         /// </summary>
-        /// <exception cref="GraphNotFullyConnectedException">Raised if the graph is not fully connected.</exception>
         public void Validate()
+        {
+            ValidateIsFullyConnected();
+            ValidateNodes();
+            ValidateEdges();
+        }
+
+        /// <summary>
+        /// Validates that the graph is fully connected and raises an exception otherwise.
+        /// </summary>
+        /// <exception cref="GraphNotFullyConnectedException">Raised if the graph is not fully connected.</exception>
+        private void ValidateIsFullyConnected()
         {
             if (!IsFullyConnected())
                 throw new GraphNotFullyConnectedException($"Graph is not fully connected: {this}.");
+        }
 
+        /// <summary>
+        /// Validates the nodes.
+        /// </summary>
+        private void ValidateNodes()
+        {
             foreach (var node in Nodes.Values)
             {
                 node.Validate();
             }
+        }
 
+        /// <summary>
+        /// Validates the edges.
+        /// </summary>
+        private void ValidateEdges()
+        {
             foreach (var edge in Edges.Values)
             {
                 edge.Validate();
@@ -152,7 +174,7 @@ namespace MPewsey.ManiaMap.Graphs
         /// Returns a readonly list of the node variations for the group.
         /// </summary>
         /// <param name="group">The group name.</param>
-        public IReadOnlyList<int> GetNodeVariations(string group)
+        public IReadOnlyList<int> GetNodeVariationsGroup(string group)
         {
             return NodeVariations[group];
         }
@@ -160,7 +182,7 @@ namespace MPewsey.ManiaMap.Graphs
         /// <summary>
         /// Returns an enumerable of variation groups and their associated nodes.
         /// </summary>
-        public IEnumerable<KeyValuePair<string, List<int>>> GetNodeVariations()
+        public IReadOnlyDictionary<string, List<int>> GetNodeVariations()
         {
             return NodeVariations;
         }
@@ -169,7 +191,7 @@ namespace MPewsey.ManiaMap.Graphs
         /// Returns a new variation of the graph.
         /// </summary>
         /// <param name="randomSeed">The random seed.</param>
-        public LayoutGraph GetVariation(RandomSeed randomSeed)
+        public LayoutGraph CreateVariation(RandomSeed randomSeed)
         {
             var graph = Copy();
             graph.ApplyVariations(randomSeed);
@@ -228,16 +250,11 @@ namespace MPewsey.ManiaMap.Graphs
         /// </summary>
         /// <param name="group">The group name.</param>
         /// <param name="ids">The node ID's.</param>
-        public void AddNodeVariation(string group, IEnumerable<int> ids)
+        public void AddNodeVariations(string group, IEnumerable<int> ids)
         {
-            var variations = AcquireNodeVariations(group);
-
             foreach (var id in ids)
             {
-                AddNode(id);
-
-                if (!variations.Contains(id))
-                    variations.Add(id);
+                AddNodeVariation(group, id);
             }
         }
 
@@ -247,9 +264,14 @@ namespace MPewsey.ManiaMap.Graphs
         /// <param name="id">he node ID.</param>
         public void RemoveNodeVariations(int id)
         {
-            foreach (var variations in NodeVariations.Values)
+            var variations = NodeVariations.ToList();
+
+            foreach (var pair in variations)
             {
-                variations.Remove(id);
+                pair.Value.Remove(id);
+
+                if (pair.Value.Count == 0)
+                    NodeVariations.Remove(pair.Key);
             }
         }
 
@@ -260,7 +282,11 @@ namespace MPewsey.ManiaMap.Graphs
         /// <param name="id">The node ID.</param>
         public void RemoveNodeVariation(string group, int id)
         {
-            AcquireNodeVariations(group).Remove(id);
+            var variations = AcquireNodeVariations(group);
+            variations.Remove(id);
+
+            if (variations.Count == 0)
+                NodeVariations.Remove(group);
         }
 
         /// <summary>
@@ -268,14 +294,21 @@ namespace MPewsey.ManiaMap.Graphs
         /// </summary>
         /// <param name="group">The group name.</param>
         /// <param name="ids">The node ID.</param>
-        public void RemoveNodeVariation(string group, IEnumerable<int> ids)
+        public void RemoveNodeVariations(string group, IEnumerable<int> ids)
         {
-            var variations = AcquireNodeVariations(group);
-
             foreach (var id in ids)
             {
-                variations.Remove(id);
+                RemoveNodeVariation(group, id);
             }
+        }
+
+        /// <summary>
+        /// Completely removes the specified node variation group.
+        /// </summary>
+        /// <param name="group">The group.</param>
+        public bool RemoveNodeVariationsGroup(string group)
+        {
+            return NodeVariations.Remove(group);
         }
 
         /// <summary>
@@ -294,24 +327,24 @@ namespace MPewsey.ManiaMap.Graphs
         /// <param name="id2">The second node ID.</param>
         public void SwapEdges(int id1, int id2)
         {
-            if (id1 == id2)
-                return;
-
-            // Get a set of all edges with the nodes.
-            var edges = GetEdges(id1).Concat(GetEdges(id2)).Distinct().ToList();
-
-            // Remove existing edges
-            foreach (var edge in edges)
+            if (id1 != id2)
             {
-                RemoveEdge(edge.FromNode, edge.ToNode);
-            }
+                // Get a set of all edges with the nodes.
+                var edges = GetEdges(id1).Concat(GetEdges(id2)).Distinct().ToList();
 
-            // Create new edges with the node replacements and copy properties to new edges.
-            foreach (var edge in edges)
-            {
-                var node1 = edge.FromNode == id1 ? id2 : edge.FromNode == id2 ? id1 : edge.FromNode;
-                var node2 = edge.ToNode == id1 ? id2 : edge.ToNode == id2 ? id1 : edge.ToNode;
-                AddEdge(node1, node2).SetProperties(edge);
+                // Remove existing edges
+                foreach (var edge in edges)
+                {
+                    RemoveEdge(edge.FromNode, edge.ToNode);
+                }
+
+                // Create new edges with the node replacements and copy properties to new edges.
+                foreach (var edge in edges)
+                {
+                    var node1 = edge.FromNode == id1 ? id2 : edge.FromNode == id2 ? id1 : edge.FromNode;
+                    var node2 = edge.ToNode == id1 ? id2 : edge.ToNode == id2 ? id1 : edge.ToNode;
+                    AddEdge(node1, node2).SetProperties(edge);
+                }
             }
         }
 
@@ -322,16 +355,16 @@ namespace MPewsey.ManiaMap.Graphs
         /// <param name="id">The node ID.</param>
         public LayoutNode AddNode(int id)
         {
+            // Create node if it doesn't already exist.
             if (!Nodes.TryGetValue(id, out var node))
             {
                 node = new LayoutNode(id);
                 Nodes.Add(id, node);
             }
 
+            // Add neighbors list for node.
             if (!Neighbors.ContainsKey(id))
-            {
                 Neighbors.Add(id, new List<int>());
-            }
 
             return node;
         }
@@ -348,25 +381,35 @@ namespace MPewsey.ManiaMap.Graphs
             if (fromNode == toNode)
                 throw new InvalidIdException($"From node cannot be the same as to node: {fromNode}.");
 
+            // Add edge if it doesn't already exist.
             if (!TryGetEdge(fromNode, toNode, out var edge))
             {
                 edge = new LayoutEdge(fromNode, toNode);
                 Edges.Add(new EdgeIndexes(fromNode, toNode), edge);
             }
 
+            AddNeighbor(fromNode, toNode);
+            AddNeighbor(toNode, fromNode);
             AddNode(fromNode);
             AddNode(toNode);
-
-            var fromNeighbors = Neighbors[fromNode];
-            var toNeighbors = Neighbors[toNode];
-
-            if (!fromNeighbors.Contains(toNode))
-                fromNeighbors.Add(toNode);
-
-            if (!toNeighbors.Contains(fromNode))
-                toNeighbors.Add(fromNode);
-
             return edge;
+        }
+
+        /// <summary>
+        /// Adds a neighbor to the node.
+        /// </summary>
+        /// <param name="id">The node ID.</param>
+        /// <param name="neighbor">The neighboring node ID.</param>
+        private void AddNeighbor(int id, int neighbor)
+        {
+            if (!Neighbors.TryGetValue(id, out var neighbors))
+            {
+                neighbors = new List<int>();
+                Neighbors.Add(id, neighbors);
+            }
+
+            if (!neighbors.Contains(neighbor))
+                neighbors.Add(neighbor);
         }
 
         /// <summary>
@@ -375,20 +418,24 @@ namespace MPewsey.ManiaMap.Graphs
         /// <param name="id">The node ID.</param>
         public void RemoveNode(int id)
         {
+            RemoveNodeEdges(id);
+            Neighbors.Remove(id);
+            Nodes.Remove(id);
+            RemoveNodeVariations(id);
+        }
+
+        /// <summary>
+        /// Removes all edges for the specified node.
+        /// </summary>
+        /// <param name="id">The node ID.</param>
+        private void RemoveNodeEdges(int id)
+        {
             var neighbors = Neighbors[id];
 
             for (int i = neighbors.Count - 1; i >= 0; i--)
             {
-                var neighbor = neighbors[i];
-                Neighbors[neighbor].Remove(id);
-
-                if (!Edges.Remove(new EdgeIndexes(id, neighbor)))
-                    Edges.Remove(new EdgeIndexes(neighbor, id));
+                RemoveEdge(id, neighbors[i]);
             }
-
-            Neighbors.Remove(id);
-            Nodes.Remove(id);
-            RemoveNodeVariations(id);
         }
 
         /// <summary>
@@ -515,11 +562,8 @@ namespace MPewsey.ManiaMap.Graphs
         /// </summary>
         public bool IsFullyConnected()
         {
-            if (Nodes.Count == 0)
-                return true;
-
-            var cluster = FindCluster(Nodes.Keys.First(), int.MaxValue);
-            return cluster.Count == Nodes.Count;
+            return Nodes.Count == 0
+                || FindCluster(Nodes.Keys.First(), int.MaxValue).Count == Nodes.Count;
         }
     }
 }
