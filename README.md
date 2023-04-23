@@ -97,9 +97,10 @@ foreach (var node in graph.GetNodes())
 To create repeatable layouts, a random seed is used by the layout generator. To generate a room layout, simply select a seed and pass your layout graph and room template groups to the `LayoutGenerator`, as shown below. In the example, a map of the layout is also rendered and saved using the `LayoutMap` class. For this instance, the default built-in tiles are used. However, custom tiles can also be specified by the user.
 
 ```LayoutGenerator.cs
+var layoutId = 1;
 var seed = new RandomSeed(12345);
 var generator = new LayoutGenerator();
-var layout = generator.Generate(layoutId: 1, graph, templateGroups, seed);
+var layout = generator.Generate(layoutId, graph, templateGroups, seed);
 
 // Render map and save it to file
 var map = new LayoutMap();
