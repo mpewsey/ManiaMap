@@ -412,9 +412,18 @@ namespace MPewsey.ManiaMap
         /// <param name="other">The other cell.</param>
         public bool ValuesAreEqual(Cell other)
         {
-            if (Doors.Count != other.Doors.Count
-                || CollectableSpots.Count != other.CollectableSpots.Count
-                || Features.Count != other.Features.Count)
+            return DoorValuesAreEqual(other)
+                && CollectableSpotValuesAreEqual(other)
+                && FeatureValuesAreEqual(other);
+        }
+
+        /// <summary>
+        /// Returns true if the values of the doors of the two cells are equal.
+        /// </summary>
+        /// <param name="other">The other cell.</param>
+        private bool DoorValuesAreEqual(Cell other)
+        {
+            if (Doors.Count != other.Doors.Count)
                 return false;
 
             foreach (var pair in other.Doors)
@@ -424,12 +433,36 @@ namespace MPewsey.ManiaMap
                     return false;
             }
 
+            return true;
+        }
+
+        /// <summary>
+        /// Returns true if the values of the collectable spots of the two cells are equal.
+        /// </summary>
+        /// <param name="other">The other cell.</param>
+        private bool CollectableSpotValuesAreEqual(Cell other)
+        {
+            if (CollectableSpots.Count != other.CollectableSpots.Count)
+                return false;
+
             foreach (var pair in other.CollectableSpots)
             {
                 if (!CollectableSpots.TryGetValue(pair.Key, out string value)
                     || pair.Value != value)
                     return false;
             }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Returns true if the values of the features of the two cells are equal.
+        /// </summary>
+        /// <param name="other">The other cell.</param>
+        private bool FeatureValuesAreEqual(Cell other)
+        {
+            if (Features.Count != other.Features.Count)
+                return false;
 
             for (int i = 0; i < Features.Count; i++)
             {
