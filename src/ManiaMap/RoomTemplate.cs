@@ -1,5 +1,6 @@
 ﻿using MPewsey.Common.Collections;
 using MPewsey.Common.Mathematics;
+using MPewsey.Common.Random;
 using MPewsey.ManiaMap.Exceptions;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,12 @@ namespace MPewsey.ManiaMap
         [DataMember(Order = 3)]
         public Array2D<Cell> Cells { get; private set; }
 
+        /// <summary>
+        /// A dictionary of collectable spots by ID.
+        /// </summary>
+        [DataMember(Order = 4)]
+        public DataContractDictionary<int, CollectableSpot> CollectableSpots { get; private set; }
+
         /// <inheritdoc/>
         int IDataContractValueDictionaryValue<int>.Key => Id;
 
@@ -41,6 +48,7 @@ namespace MPewsey.ManiaMap
         private void OnDeserialized(StreamingContext context)
         {
             Cells = Cells ?? new Array2D<Cell>();
+            CollectableSpots = CollectableSpots ?? new DataContractDictionary<int, CollectableSpot>();
         }
 
         /// <summary>
@@ -49,11 +57,14 @@ namespace MPewsey.ManiaMap
         /// <param name="id">The unique ID.</param>
         /// <param name="name">The template name.</param>
         /// <param name="cells">An array of cells in the template.</param>
-        public RoomTemplate(int id, string name, Array2D<Cell> cells)
+        /// <param name="collectableSpots">A dictionary of collectable spots by ID.</param>
+        public RoomTemplate(int id, string name, Array2D<Cell> cells,
+            DataContractDictionary<int, CollectableSpot> collectableSpots = null)
         {
             Id = id;
             Name = name;
             Cells = cells;
+            CollectableSpots = collectableSpots ?? new DataContractDictionary<int, CollectableSpot>();
         }
 
         /// <summary>
@@ -64,18 +75,30 @@ namespace MPewsey.ManiaMap
         {
             Id = other.Id;
             Name = other.Name;
-            Cells = new Array2D<Cell>(other.Cells.Rows, other.Cells.Columns);
-
-            for (int i = 0; i < Cells.Array.Length; i++)
-            {
-                Cells.Array[i] = other.Cells.Array[i]?.Copy();
-            }
+            Cells = CopyCells(other.Cells);
+            CollectableSpots = other.CollectableSpots.ToDictionary(x => x.Key, x => x.Value.Copy());
         }
 
         /// <inheritdoc/>
         public override string ToString()
         {
             return $"RoomTemplate(Id = {Id}, Name = {Name})";
+        }
+
+        /// <summary>
+        /// Returns a deep copy of a cells array.
+        /// </summary>
+        /// <param name="cells">The cells array to copy.</param>
+        public static Array2D<Cell> CopyCells(Array2D<Cell> cells)
+        {
+            var result = new Array2D<Cell>(cells);
+
+            for (int i = 0; i < result.Array.Length; i++)
+            {
+                result.Array[i] = result.Array[i]?.Copy();
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -102,26 +125,49 @@ namespace MPewsey.ManiaMap
         {
             return Id == other.Id
                 && Name == other.Name
-                && CellValuesAreEqual(other);
+                && CellValuesAreEqual(other)
+                && CollectableSpotValuesAreEqual(other);
         }
 
         /// <summary>
         /// Validates the template and raises any associated exceptions.
         /// </summary>
-        /// <exception cref="CellsNotFullyConnectedException">Raised if the cells are not fully connected.</exception>
-        /// <exception cref="NoDoorsExistException">Raised if no typed door is assigned to the template.</exception>
-        /// <exception cref="InvalidNameException">Raised if a collectable group name is null or whitespace.</exception>
-        /// <exception cref="DuplicateIdException">Raised if a duplicate collectable spot ID exists.</exception>
         public void Validate()
+        {
+            ValidateIsFullyConnected();
+            ValidateAnyDoorExists();
+            ValidateCollectableSpots();
+        }
+
+        /// <summary>
+        /// Validates that the cells of the template are fully connected and throws an exception if not.
+        /// </summary>
+        /// <exception cref="CellsNotFullyConnectedException">Raised if the cells are not fully connected.</exception>
+        private void ValidateIsFullyConnected()
         {
             if (!IsFullyConnected())
                 throw new CellsNotFullyConnectedException($"Cells are not fully connected: {this}.");
+        }
+
+        /// <summary>
+        /// Validates that any doors exist in the template and throws an exception if not.
+        /// </summary>
+        /// <exception cref="NoDoorsExistException">Raised if no typed door is assigned to the template.</exception>
+        private void ValidateAnyDoorExists()
+        {
             if (!AnyDoorExists())
                 throw new NoDoorsExistException($"No doors exist in template: {this}.");
-            if (!CollectableGroupNamesAreValid())
-                throw new InvalidNameException($"Invalid collectable group name: {this}.");
-            if (!CollectableSpotIdsAreUnique())
-                throw new DuplicateIdException($"Collectable spots have duplicate ID: {this}.");
+        }
+
+        /// <summary>
+        /// Checks that all collectable spots are valid.
+        /// </summary>
+        private void ValidateCollectableSpots()
+        {
+            foreach (var spot in CollectableSpots.Values)
+            {
+                spot.Validate(Cells);
+            }
         }
 
         /// <summary>
@@ -131,42 +177,18 @@ namespace MPewsey.ManiaMap
         {
             return IsFullyConnected()
                 && AnyDoorExists()
-                && CollectableGroupNamesAreValid()
-                && CollectableSpotIdsAreUnique();
+                && CollectableSpotsAreValid();
         }
 
         /// <summary>
-        /// Returns true if all collectable group names assigned to the template are valid.
+        /// Returns true if all collectable spots are valid.
         /// </summary>
-        public bool CollectableGroupNamesAreValid()
+        private bool CollectableSpotsAreValid()
         {
-            foreach (var cell in Cells.Array)
+            foreach (var spot in CollectableSpots.Values)
             {
-                if (cell != null && !cell.CollectableGroupNamesAreValid())
+                if (!spot.IsValid(Cells))
                     return false;
-            }
-
-            return true;
-        }
-
-        /// <summary>
-        /// Returns true if the collectable spots assigned to the template
-        /// all have unique ID's.
-        /// </summary>
-        public bool CollectableSpotIdsAreUnique()
-        {
-            var ids = new HashSet<int>();
-
-            foreach (var cell in Cells.Array)
-            {
-                if (cell == null)
-                    continue;
-
-                foreach (var id in cell.CollectableSpots.Keys)
-                {
-                    if (!ids.Add(id))
-                        return false;
-                }
             }
 
             return true;
@@ -214,32 +236,58 @@ namespace MPewsey.ManiaMap
         }
 
         /// <summary>
+        /// Adds a collectable spot to the template and returns the template.
+        /// </summary>
+        /// <param name="id">The collectable location ID.</param>
+        /// <param name="position">The collectable index.</param>
+        /// <param name="group">The collectable group.</param>
+        public RoomTemplate AddCollectableSpot(int id, Vector2DInt position, string group)
+        {
+            return AddCollectableSpot(id, new CollectableSpot(position, group));
+        }
+
+        /// <summary>
+        /// Adds a collectable spot to the template and returns the template.
+        /// </summary>
+        /// <param name="id">The collectable location ID.</param>
+        /// <param name="spot">The collectable spot.</param>
+        /// <exception cref="IndexOutOfRangeException">Raised if the collectable spot location is outside the bounds of the room.</exception>
+        /// <exception cref="InvalidNameException">Raised if the collectable spot name is null or whitespace.</exception>
+        public RoomTemplate AddCollectableSpot(int id, CollectableSpot spot)
+        {
+            spot.Validate(Cells);
+            CollectableSpots.Add(id, spot);
+            return this;
+        }
+
+        /// <summary>
         /// Returns an array of this template plus all mirrored and rotated variations.
         /// </summary>
         public List<RoomTemplate> AllVariations()
         {
-            var horzMirror = MirroredHorizontally();
-            var vertMirror = MirroredVertically();
-            var fullMirror = horzMirror.MirroredVertically();
+            var random = new RandomSeed(Id);
+            var horzMirror = MirroredHorizontally(random.Next());
+            var vertMirror = MirroredVertically(random.Next());
+            var fullMirror = horzMirror.MirroredVertically(random.Next());
 
             return new List<RoomTemplate>()
             {
                 Copy(),
-                Rotated90(),
-                Rotated180(),
-                Rotated270(),
+                Rotated90(random.Next()),
+                Rotated180(random.Next()),
+                Rotated270(random.Next()),
                 horzMirror,
-                horzMirror.Rotated90(),
-                horzMirror.Rotated180(),
-                horzMirror.Rotated270(),
+                horzMirror.Rotated90(random.Next()),
+                horzMirror.Rotated180(random.Next()),
+                horzMirror.Rotated270(random.Next()),
                 vertMirror,
-                vertMirror.Rotated90(),
-                vertMirror.Rotated180(),
-                vertMirror.Rotated270(),
+                vertMirror.Rotated90(random.Next()),
+                vertMirror.Rotated180(random.Next()),
+                vertMirror.Rotated270(random.Next()),
                 fullMirror,
-                fullMirror.Rotated90(),
-                fullMirror.Rotated180(),
-                fullMirror.Rotated270(),
+                fullMirror.Rotated90(random.Next()),
+                fullMirror.Rotated180(random.Next()),
+                fullMirror.Rotated270(random.Next()),
             };
         }
 
@@ -253,13 +301,21 @@ namespace MPewsey.ManiaMap
 
             foreach (var template in templates)
             {
-                if (!result.Any(x => x.CellValuesAreEqual(template)))
-                {
+                if (!result.Any(x => x.IsEquivalentTo(template)))
                     result.Add(template);
-                }
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Returns true if the cell and collectable spot values are equal to the specified template.
+        /// </summary>
+        /// <param name="other">The other template.</param>
+        public bool IsEquivalentTo(RoomTemplate other)
+        {
+            return CellValuesAreEqual(other)
+                && CollectableSpotValuesAreEqual(other);
         }
 
         /// <summary>
@@ -269,6 +325,24 @@ namespace MPewsey.ManiaMap
         public bool CellValuesAreEqual(RoomTemplate other)
         {
             return Cells.ValuesAreEqual(other.Cells, Cell.ValuesAreEqual);
+        }
+
+        /// <summary>
+        /// Returns true if all collectable spots in this template match the spots of another template.
+        /// </summary>
+        /// <param name="other">The other room template.</param>
+        private bool CollectableSpotValuesAreEqual(RoomTemplate other)
+        {
+            if (CollectableSpots.Count != other.CollectableSpots.Count)
+                return false;
+
+            foreach (var pair in other.CollectableSpots)
+            {
+                if (!CollectableSpots.TryGetValue(pair.Key, out var spot) || !CollectableSpot.ValuesAreEqual(pair.Value, spot))
+                    return false;
+            }
+
+            return true;
         }
 
         /// <summary>
@@ -282,7 +356,15 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a new room template rotated 90 degrees clockwise.
         /// </summary>
-        public RoomTemplate Rotated90()
+        public RoomTemplate Rotated90(int id)
+        {
+            return new RoomTemplate(id, Name + "::Rotated90", CellsRotated90(), CollectableSpotsRotated90());
+        }
+
+        /// <summary>
+        /// Returns an array of cells rotated 90 degress clockwise.
+        /// </summary>
+        private Array2D<Cell> CellsRotated90()
         {
             var cells = Cells.Rotated90();
 
@@ -291,13 +373,36 @@ namespace MPewsey.ManiaMap
                 cells.Array[i] = cells.Array[i]?.Rotated90();
             }
 
-            return new RoomTemplate(Id, Name + "_Rotated90", cells);
+            return cells;
+        }
+
+        /// <summary>
+        /// Returns a dictionary of collectable spots rotated 90 degrees clockwise.
+        /// </summary>
+        private DataContractDictionary<int, CollectableSpot> CollectableSpotsRotated90()
+        {
+            var spots = CollectableSpots.ToDictionary(x => x.Key, x => x.Value.Copy());
+
+            foreach (var spot in spots.Values)
+            {
+                spot.Position = Cells.IndexRotated90(spot.Position);
+            }
+
+            return spots;
         }
 
         /// <summary>
         /// Returns a new room template rotated 180 degrees.
         /// </summary>
-        public RoomTemplate Rotated180()
+        public RoomTemplate Rotated180(int id)
+        {
+            return new RoomTemplate(id, Name + "::Rotated180", CellsRotated180(), CollectableSpotsRotated180());
+        }
+
+        /// <summary>
+        /// Returns an array of cells rotated 180 degress.
+        /// </summary>
+        private Array2D<Cell> CellsRotated180()
         {
             var cells = Cells.Rotated180();
 
@@ -306,13 +411,36 @@ namespace MPewsey.ManiaMap
                 cells.Array[i] = cells.Array[i]?.Rotated180();
             }
 
-            return new RoomTemplate(Id, Name + "_Rotated180", cells);
+            return cells;
+        }
+
+        /// <summary>
+        /// Returns a dictionary of collectable spots rotated 180 degrees.
+        /// </summary>
+        private DataContractDictionary<int, CollectableSpot> CollectableSpotsRotated180()
+        {
+            var spots = CollectableSpots.ToDictionary(x => x.Key, x => x.Value.Copy());
+
+            foreach (var spot in spots.Values)
+            {
+                spot.Position = Cells.IndexRotated180(spot.Position);
+            }
+
+            return spots;
         }
 
         /// <summary>
         /// Returns a new room template rotated 270 degrees clockwise.
         /// </summary>
-        public RoomTemplate Rotated270()
+        public RoomTemplate Rotated270(int id)
+        {
+            return new RoomTemplate(id, Name + "::Rotated270", CellsRotated270(), CollectableSpotsRotated270());
+        }
+
+        /// <summary>
+        /// Returns an array of cells rotated 270 degress clockwise.
+        /// </summary>
+        private Array2D<Cell> CellsRotated270()
         {
             var cells = Cells.Rotated270();
 
@@ -321,13 +449,36 @@ namespace MPewsey.ManiaMap
                 cells.Array[i] = cells.Array[i]?.Rotated270();
             }
 
-            return new RoomTemplate(Id, Name + "_Rotated270", cells);
+            return cells;
+        }
+
+        /// <summary>
+        /// Returns a dictionary of collectable spots rotated 270 degrees clockwise.
+        /// </summary>
+        private DataContractDictionary<int, CollectableSpot> CollectableSpotsRotated270()
+        {
+            var spots = CollectableSpots.ToDictionary(x => x.Key, x => x.Value.Copy());
+
+            foreach (var spot in spots.Values)
+            {
+                spot.Position = Cells.IndexRotated270(spot.Position);
+            }
+
+            return spots;
         }
 
         /// <summary>
         /// Returns a new room template mirrored vertically, i.e. about the horizontal axis.
         /// </summary>
-        public RoomTemplate MirroredVertically()
+        public RoomTemplate MirroredVertically(int id)
+        {
+            return new RoomTemplate(id, Name + "::MirroredVertically", CellsMirroredVertically(), CollectableSpotsMirroredVertically());
+        }
+
+        /// <summary>
+        /// Returns an array of cells mirrored vertically.
+        /// </summary>
+        private Array2D<Cell> CellsMirroredVertically()
         {
             var cells = Cells.MirroredVertically();
 
@@ -336,13 +487,36 @@ namespace MPewsey.ManiaMap
                 cells.Array[i] = cells.Array[i]?.MirroredVertically();
             }
 
-            return new RoomTemplate(Id, Name + "_MirroredVertically", cells);
+            return cells;
+        }
+
+        /// <summary>
+        /// Returns a dictionary of collectable spots mirrored vertically.
+        /// </summary>
+        private DataContractDictionary<int, CollectableSpot> CollectableSpotsMirroredVertically()
+        {
+            var spots = CollectableSpots.ToDictionary(x => x.Key, x => x.Value.Copy());
+
+            foreach (var spot in spots.Values)
+            {
+                spot.Position = Cells.IndexMirroredVertically(spot.Position);
+            }
+
+            return spots;
         }
 
         /// <summary>
         /// Returns a new room template mirrored horizontally, i.e. about the vertical axis.
         /// </summary>
-        public RoomTemplate MirroredHorizontally()
+        public RoomTemplate MirroredHorizontally(int id)
+        {
+            return new RoomTemplate(id, Name + "::MirroredHorizontally", CellsMirroredHorizontally(), CollectableSpotsMirroredHorizontally());
+        }
+
+        /// <summary>
+        /// Returns an array of cells mirrored horizontally.
+        /// </summary>
+        private Array2D<Cell> CellsMirroredHorizontally()
         {
             var cells = Cells.MirroredHorizontally();
 
@@ -351,7 +525,22 @@ namespace MPewsey.ManiaMap
                 cells.Array[i] = cells.Array[i]?.MirroredHorizontally();
             }
 
-            return new RoomTemplate(Id, Name + "_MirroredHorizontally", cells);
+            return cells;
+        }
+
+        /// <summary>
+        /// Returns a dictionary of collectable spots mirrored horizontally.
+        /// </summary>
+        private DataContractDictionary<int, CollectableSpot> CollectableSpotsMirroredHorizontally()
+        {
+            var spots = CollectableSpots.ToDictionary(x => x.Key, x => x.Value.Copy());
+
+            foreach (var spot in spots.Values)
+            {
+                spot.Position = Cells.IndexMirroredHorizontally(spot.Position);
+            }
+
+            return spots;
         }
 
         /// <summary>
@@ -402,9 +591,7 @@ namespace MPewsey.ManiaMap
                     for (int j = jStart; j < jStop; j++)
                     {
                         if (Cells[i, j] != null && other.Cells[i - offset.X, j - offset.Y] != null)
-                        {
                             return true;
-                        }
                     }
                 }
             }

@@ -29,12 +29,6 @@ namespace MPewsey.ManiaMap
         public DataContractDictionary<DoorDirection, Door> Doors { get; set; } = new DataContractDictionary<DoorDirection, Door>();
 
         /// <summary>
-        /// A dictionary of collectable group names by location ID.
-        /// </summary>
-        [DataMember(Order = 2)]
-        public DataContractDictionary<int, string> CollectableSpots { get; set; } = new DataContractDictionary<int, string>();
-
-        /// <summary>
         /// A list of feature names.
         /// </summary>
         [DataMember(Order = 3)]
@@ -74,7 +68,6 @@ namespace MPewsey.ManiaMap
         private void OnDeserialized(StreamingContext context)
         {
             Doors = Doors ?? new DataContractDictionary<DoorDirection, Door>();
-            CollectableSpots = CollectableSpots ?? new DataContractDictionary<int, string>();
             Features = Features ?? new List<string>();
         }
 
@@ -93,7 +86,6 @@ namespace MPewsey.ManiaMap
         private Cell(Cell other)
         {
             Doors = other.Doors.ToDictionary(x => x.Key, x => x.Value?.Copy());
-            CollectableSpots = new DataContractDictionary<int, string>(other.CollectableSpots);
             Features = new List<string>(other.Features);
         }
 
@@ -133,20 +125,6 @@ namespace MPewsey.ManiaMap
                 Doors.Remove(direction);
             else
                 Doors[direction] = door;
-        }
-
-        /// <summary>
-        /// Returns true if all collectable group names are not null or white space.
-        /// </summary>
-        public bool CollectableGroupNamesAreValid()
-        {
-            foreach (var group in CollectableSpots.Values)
-            {
-                if (string.IsNullOrWhiteSpace(group))
-                    return false;
-            }
-
-            return true;
         }
 
         /// <summary>
@@ -200,25 +178,6 @@ namespace MPewsey.ManiaMap
                 }
             }
 
-            return this;
-        }
-
-        /// <summary>
-        /// Adds the collectable spot and returns the cell.
-        /// </summary>
-        /// <param name="id">The location ID, unique to the cell.</param>
-        /// <param name="group">The collectable group name.</param>
-        /// <exception cref="InvalidNameException">Raised if the group name is null or white space.</exception>
-        /// <exception cref="DuplicateIdException">Raised if the location ID already exists.</exception>
-        public Cell AddCollectableSpot(int id, string group)
-        {
-            if (string.IsNullOrWhiteSpace(group))
-                throw new InvalidNameException($"Group name is null or white space.");
-
-            if (CollectableSpots.ContainsKey(id))
-                throw new DuplicateIdException($"Location ID already exists: {id}.");
-
-            CollectableSpots.Add(id, group);
             return this;
         }
 
@@ -313,7 +272,6 @@ namespace MPewsey.ManiaMap
                 NorthDoor = WestDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableSpots = new DataContractDictionary<int, string>(CollectableSpots),
                 Features = new List<string>(Features),
             };
         }
@@ -331,7 +289,6 @@ namespace MPewsey.ManiaMap
                 WestDoor = EastDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableSpots = new DataContractDictionary<int, string>(CollectableSpots),
                 Features = new List<string>(Features),
             };
         }
@@ -349,7 +306,6 @@ namespace MPewsey.ManiaMap
                 SouthDoor = WestDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableSpots = new DataContractDictionary<int, string>(CollectableSpots),
                 Features = new List<string>(Features),
             };
         }
@@ -367,7 +323,6 @@ namespace MPewsey.ManiaMap
                 EastDoor = EastDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableSpots = new DataContractDictionary<int, string>(CollectableSpots),
                 Features = new List<string>(Features),
             };
         }
@@ -385,7 +340,6 @@ namespace MPewsey.ManiaMap
                 EastDoor = WestDoor?.Copy(),
                 TopDoor = TopDoor?.Copy(),
                 BottomDoor = BottomDoor?.Copy(),
-                CollectableSpots = new DataContractDictionary<int, string>(CollectableSpots),
                 Features = new List<string>(Features),
             };
         }
@@ -413,7 +367,6 @@ namespace MPewsey.ManiaMap
         public bool ValuesAreEqual(Cell other)
         {
             return DoorValuesAreEqual(other)
-                && CollectableSpotValuesAreEqual(other)
                 && FeatureValuesAreEqual(other);
         }
 
@@ -428,27 +381,7 @@ namespace MPewsey.ManiaMap
 
             foreach (var pair in other.Doors)
             {
-                if (!Doors.TryGetValue(pair.Key, out Door value)
-                    || !Door.ValuesAreEqual(pair.Value, value))
-                    return false;
-            }
-
-            return true;
-        }
-
-        /// <summary>
-        /// Returns true if the values of the collectable spots of the two cells are equal.
-        /// </summary>
-        /// <param name="other">The other cell.</param>
-        private bool CollectableSpotValuesAreEqual(Cell other)
-        {
-            if (CollectableSpots.Count != other.CollectableSpots.Count)
-                return false;
-
-            foreach (var pair in other.CollectableSpots)
-            {
-                if (!CollectableSpots.TryGetValue(pair.Key, out string value)
-                    || pair.Value != value)
+                if (!Doors.TryGetValue(pair.Key, out Door value) || !Door.ValuesAreEqual(pair.Value, value))
                     return false;
             }
 

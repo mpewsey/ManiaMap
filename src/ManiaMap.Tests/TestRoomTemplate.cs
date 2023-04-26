@@ -12,6 +12,17 @@ namespace MPewsey.ManiaMap.Tests
     [TestClass]
     public class TestRoomTemplate
     {
+        private static void AddCollectableSpots(RoomTemplate template, Array2D<int> ids, string group)
+        {
+            for (int i = 0; i < ids.Rows; i++)
+            {
+                for (int j = 0; j < ids.Columns; j++)
+                {
+                    template.AddCollectableSpot(ids[i, j], new Vector2DInt(i, j), group);
+                }
+            }
+        }
+
         [TestMethod]
         public void TestSaveAndLoad()
         {
@@ -138,7 +149,7 @@ namespace MPewsey.ManiaMap.Tests
         public void TestCellValuesEqual()
         {
             var template1 = Samples.TemplateLibrary.Miscellaneous.SquareTemplate();
-            var template2 = template1.Rotated180().Rotated180();
+            var template2 = template1.Rotated180(-1).Rotated180(-1);
             Assert.IsTrue(template1.CellValuesAreEqual(template2));
         }
 
@@ -233,37 +244,10 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
-        public void TestDuplicateCollectableId()
-        {
-            var template = Samples.TemplateLibrary.Squares.Square3x3Template();
-            template.Cells[0, 0].AddCollectableSpot(1, "Default");
-            template.Cells[0, 1].AddCollectableSpot(1, "Default");
-            Assert.ThrowsException<DuplicateIdException>(() => template.Validate());
-        }
-
-        [TestMethod]
-        public void TestCollectableSpotIdsAreUnique()
-        {
-            var template = Samples.TemplateLibrary.Squares.Square3x3Template();
-            template.Cells[0, 0].AddCollectableSpot(1, "Default");
-            Assert.IsTrue(template.CollectableSpotIdsAreUnique());
-        }
-
-        [TestMethod]
-        public void TestCollectableSpotIdsAreNotUnique()
-        {
-            var template = Samples.TemplateLibrary.Squares.Square3x3Template();
-            template.Cells[0, 0].AddCollectableSpot(1, "Default");
-            template.Cells[0, 1].AddCollectableSpot(1, "Default");
-            Assert.IsFalse(template.CollectableSpotIdsAreUnique());
-        }
-
-        [TestMethod]
         public void TestCollectableGroupNameNotValid()
         {
             var template = Samples.TemplateLibrary.Squares.Square3x3Template();
-            template.Cells[0, 0].CollectableSpots[1] = "";
-            Assert.ThrowsException<InvalidNameException>(() => template.Validate());
+            Assert.ThrowsException<InvalidNameException>(() => template.AddCollectableSpot(100, Vector2DInt.Zero, ""));
         }
 
         [TestMethod]
@@ -287,37 +271,35 @@ namespace MPewsey.ManiaMap.Tests
         public void TestSquareRotated90()
         {
             var template = Samples.TemplateLibrary.Squares.Square2x2Template();
-            Assert.IsTrue(template.CellValuesAreEqual(template.Rotated90()));
+            Assert.IsTrue(template.CellValuesAreEqual(template.Rotated90(-1)));
         }
 
         [TestMethod]
         public void TestSquareRotated180()
         {
             var template = Samples.TemplateLibrary.Squares.Square2x2Template();
-            Assert.IsTrue(template.CellValuesAreEqual(template.Rotated180()));
+            Assert.IsTrue(template.CellValuesAreEqual(template.Rotated180(-1)));
         }
 
         [TestMethod]
         public void TestSquareRotated270()
         {
-            var template1 = Samples.TemplateLibrary.Squares.Square2x2Template();
-            var template2 = template1.Rotated270();
-            Assert.IsTrue(template1.CellValuesAreEqual(template2));
+            var template = Samples.TemplateLibrary.Squares.Square2x2Template();
+            Assert.IsTrue(template.CellValuesAreEqual(template.Rotated270(-1)));
         }
 
         [TestMethod]
         public void TestSquareMirroredHorizontally()
         {
-            var template1 = Samples.TemplateLibrary.Squares.Square2x2Template();
-            var template2 = template1.MirroredHorizontally();
-            Assert.IsTrue(template1.CellValuesAreEqual(template2));
+            var template = Samples.TemplateLibrary.Squares.Square2x2Template();
+            Assert.IsTrue(template.CellValuesAreEqual(template.MirroredHorizontally(-1)));
         }
 
         [TestMethod]
         public void TestSquareMirroredVertically()
         {
             var template = Samples.TemplateLibrary.Squares.Square2x2Template();
-            Assert.IsTrue(template.CellValuesAreEqual(template.MirroredVertically()));
+            Assert.IsTrue(template.CellValuesAreEqual(template.MirroredVertically(-1)));
         }
 
         [TestMethod]
@@ -342,6 +324,13 @@ namespace MPewsey.ManiaMap.Tests
                 { b, o, x, o },
             };
 
+            var ids1 = new int[,]
+            {
+                { 1, 2, 3, 4 },
+                { 5, 6, 7, 8 },
+                { 9, 10, 11, 12 },
+            };
+
             var c = Cell.New.SetDoors("NWB", Door.TwoWay);
             var d = Cell.New.SetDoors("SET", Door.TwoWay);
 
@@ -353,9 +342,19 @@ namespace MPewsey.ManiaMap.Tests
                 { o, o, d },
             };
 
-            var template1 = new RoomTemplate(1, "Test1", cells1).Copy();
-            var template2 = new RoomTemplate(2, "Test2", cells2).Copy();
-            Assert.IsTrue(template2.CellValuesAreEqual(template1.Rotated90()));
+            var ids2 = new int[,]
+            {
+                { 9, 5, 1 },
+                { 10, 6, 2 },
+                { 11, 7, 3 },
+                { 12, 8, 4 },
+            };
+
+            var template1 = new RoomTemplate(1, "Test1", cells1);
+            var template2 = new RoomTemplate(2, "Test2", cells2);
+            AddCollectableSpots(template1, ids1, "Default");
+            AddCollectableSpots(template2, ids2, "Default");
+            Assert.IsTrue(template2.IsEquivalentTo(template1.Rotated90(-1)));
         }
 
         [TestMethod]
@@ -373,6 +372,13 @@ namespace MPewsey.ManiaMap.Tests
                 { b, o, x, o },
             };
 
+            var ids1 = new int[,]
+            {
+                { 1, 2, 3, 4 },
+                { 5, 6, 7, 8 },
+                { 9, 10, 11, 12 },
+            };
+
             var c = Cell.New.SetDoors("NEB", Door.TwoWay);
             var d = Cell.New.SetDoors("SWT", Door.TwoWay);
 
@@ -383,9 +389,18 @@ namespace MPewsey.ManiaMap.Tests
                 { d, o, o, x },
             };
 
-            var template1 = new RoomTemplate(1, "Test1", cells1).Copy();
-            var template2 = new RoomTemplate(2, "Test2", cells2).Copy();
-            Assert.IsTrue(template2.CellValuesAreEqual(template1.Rotated180()));
+            var ids2 = new int[,]
+            {
+                { 12, 11, 10, 9 },
+                { 8, 7, 6, 5 },
+                { 4, 3, 2, 1 },
+            };
+
+            var template1 = new RoomTemplate(1, "Test1", cells1);
+            var template2 = new RoomTemplate(2, "Test2", cells2);
+            AddCollectableSpots(template1, ids1, "Default");
+            AddCollectableSpots(template2, ids2, "Default");
+            Assert.IsTrue(template2.IsEquivalentTo(template1.Rotated180(-1)));
         }
 
         [TestMethod]
@@ -403,6 +418,13 @@ namespace MPewsey.ManiaMap.Tests
                 { b, o, x, o },
             };
 
+            var ids1 = new int[,]
+            {
+                { 1, 2, 3, 4 },
+                { 5, 6, 7, 8 },
+                { 9, 10, 11, 12 },
+            };
+
             var c = Cell.New.SetDoors("NWT", Door.TwoWay);
             var d = Cell.New.SetDoors("SEB", Door.TwoWay);
 
@@ -414,9 +436,19 @@ namespace MPewsey.ManiaMap.Tests
                 { x, o, d },
             };
 
-            var template1 = new RoomTemplate(1, "Test1", cells1).Copy();
-            var template2 = new RoomTemplate(2, "Test2", cells2).Copy();
-            Assert.IsTrue(template2.CellValuesAreEqual(template1.Rotated270()));
+            var ids2 = new int[,]
+            {
+                { 4, 8, 12 },
+                { 3, 7, 11 },
+                { 2, 6, 10 },
+                { 1, 5, 9 },
+            };
+
+            var template1 = new RoomTemplate(1, "Test1", cells1);
+            var template2 = new RoomTemplate(2, "Test2", cells2);
+            AddCollectableSpots(template1, ids1, "Default");
+            AddCollectableSpots(template2, ids2, "Default");
+            Assert.IsTrue(template2.IsEquivalentTo(template1.Rotated270(-1)));
         }
 
         [TestMethod]
@@ -434,6 +466,13 @@ namespace MPewsey.ManiaMap.Tests
                 { b, o, x, o },
             };
 
+            var ids1 = new int[,]
+            {
+                { 1, 2, 3, 4 },
+                { 5, 6, 7, 8 },
+                { 9, 10, 11, 12 },
+            };
+
             var c = Cell.New.SetDoors("NWT", Door.TwoWay);
             var d = Cell.New.SetDoors("SEB", Door.TwoWay);
 
@@ -444,9 +483,18 @@ namespace MPewsey.ManiaMap.Tests
                 { o, x, o, d },
             };
 
-            var template1 = new RoomTemplate(1, "Test1", cells1).Copy();
-            var template2 = new RoomTemplate(2, "Test2", cells2).Copy();
-            Assert.IsTrue(template2.CellValuesAreEqual(template1.MirroredHorizontally()));
+            var ids2 = new int[,]
+            {
+                { 4, 3, 2, 1 },
+                { 8, 7, 6, 5 },
+                { 12, 11, 10, 9 },
+            };
+
+            var template1 = new RoomTemplate(1, "Test1", cells1);
+            var template2 = new RoomTemplate(2, "Test2", cells2);
+            AddCollectableSpots(template1, ids1, "Default");
+            AddCollectableSpots(template2, ids2, "Default");
+            Assert.IsTrue(template2.IsEquivalentTo(template1.MirroredHorizontally(-1)));
         }
 
         [TestMethod]
@@ -464,6 +512,13 @@ namespace MPewsey.ManiaMap.Tests
                 { b, o, x, o },
             };
 
+            var ids1 = new int[,]
+            {
+                { 1, 2, 3, 4 },
+                { 5, 6, 7, 8 },
+                { 9, 10, 11, 12 },
+            };
+
             var c = Cell.New.SetDoors("NWB", Door.TwoWay);
             var d = Cell.New.SetDoors("SET", Door.TwoWay);
 
@@ -474,9 +529,18 @@ namespace MPewsey.ManiaMap.Tests
                 { x, o, o, d },
             };
 
-            var template1 = new RoomTemplate(1, "Test1", cells1).Copy();
-            var template2 = new RoomTemplate(2, "Test2", cells2).Copy();
-            Assert.IsTrue(template2.CellValuesAreEqual(template1.MirroredVertically()));
+            var ids2 = new int[,]
+            {
+                { 9, 10, 11, 12 },
+                { 5, 6, 7, 8 },
+                { 1, 2, 3, 4 },
+            };
+
+            var template1 = new RoomTemplate(1, "Test1", cells1);
+            var template2 = new RoomTemplate(2, "Test2", cells2);
+            AddCollectableSpots(template1, ids1, "Default");
+            AddCollectableSpots(template2, ids2, "Default");
+            Assert.IsTrue(template2.IsEquivalentTo(template1.MirroredVertically(-1)));
         }
     }
 }

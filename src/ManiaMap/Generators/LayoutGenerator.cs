@@ -377,7 +377,7 @@ namespace MPewsey.ManiaMap.Generators
             // Get the first template and add it to the layout.
             foreach (var entry in GetTemplateGroupEntries(source.TemplateGroup))
             {
-                var room = new Room(source, Vector2DInt.Zero, entry.Template, RandomSeed);
+                var room = new Room(source, Vector2DInt.Zero, entry.Template, RandomSeed.Next());
                 Layout.Rooms.Add(room.Id, room);
                 Layout.IncreaseTemplateCount(entry);
                 return true;
@@ -412,7 +412,7 @@ namespace MPewsey.ManiaMap.Generators
                         continue;
 
                     // Add the room to the layout.
-                    var room = new Room(source, position, entry.Template, RandomSeed);
+                    var room = new Room(source, position, entry.Template, RandomSeed.Next());
                     Layout.Rooms.Add(room.Id, room);
 
                     // Try to create a door connection between the rooms.
@@ -470,7 +470,7 @@ namespace MPewsey.ManiaMap.Generators
                         if (!config2.Matches(offset, z2, aheadCode, aheadDirection))
                             continue;
 
-                        var room = new Room(source, position, entry.Template, RandomSeed);
+                        var room = new Room(source, position, entry.Template, RandomSeed.Next());
                         Layout.Rooms.Add(room.Id, room);
 
                         // Try to create a door connection between the rooms.

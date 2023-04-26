@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MPewsey.Common.Mathematics;
-using MPewsey.Common.Random;
 using MPewsey.Common.Serialization;
 using MPewsey.ManiaMap.Graphs;
 using System.Linq;
@@ -49,9 +48,8 @@ namespace MPewsey.ManiaMap.Tests
             };
 
             var node = new LayoutNode(1).SetName("Test");
-            var seed = new RandomSeed(12345);
             var template = new RoomTemplate(1, "Test", cells);
-            var room = new Room(node, Vector2DInt.Zero, template, seed);
+            var room = new Room(node, Vector2DInt.Zero, template, 12345);
             var state = new RoomState(room);
             var visibleCells = state.VisibleCells;
 
@@ -82,9 +80,8 @@ namespace MPewsey.ManiaMap.Tests
             };
 
             var node = new LayoutNode(1).SetName("Test");
-            var seed = new RandomSeed(12345);
             var template = new RoomTemplate(1, "Test", cells);
-            var room = new Room(node, Vector2DInt.Zero, template, seed);
+            var room = new Room(node, Vector2DInt.Zero, template, 12345);
             var state = new RoomState(room);
             var visibleCells = state.VisibleCells;
 
