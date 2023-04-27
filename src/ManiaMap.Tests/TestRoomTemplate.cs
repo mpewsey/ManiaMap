@@ -542,5 +542,110 @@ namespace MPewsey.ManiaMap.Tests
             AddCollectableSpots(template2, ids2, "Default");
             Assert.IsTrue(template2.IsEquivalentTo(template1.MirroredVertically(-1)));
         }
+
+        [TestMethod]
+        public void TestCollectableSpotsAreValid()
+        {
+            var spots = new DataContractDictionary<int, CollectableSpot>
+            {
+                { 1, new CollectableSpot(Vector2DInt.Zero, "Default", 1) },
+            };
+
+            var x = Cell.Empty;
+            var o = Cell.New.SetDoors("N", Door.TwoWay);
+
+            var cells = new Cell[,]
+            {
+                { x, o, x },
+                { x, x, x },
+            };
+
+            var template = new RoomTemplate(1, "Test", cells, spots);
+            Assert.IsTrue(template.IsValid());
+        }
+
+        [TestMethod]
+        public void TestValidateCollectableSpotPositions()
+        {
+            var spots = new DataContractDictionary<int, CollectableSpot>
+            {
+                { 1, new CollectableSpot(new Vector2DInt(-1, -1), "Default", 1) },
+            };
+
+            var x = Cell.Empty;
+            var o = Cell.New.SetDoors("N", Door.TwoWay);
+
+            var cells = new Cell[,]
+            {
+                { x, o, x },
+                { x, x, x },
+            };
+
+            var template = new RoomTemplate(1, "Test", cells, spots);
+            Assert.ThrowsException<IndexOutOfRangeException>(() => template.Validate());
+        }
+
+        [TestMethod]
+        public void TestValidateCollectableSpotGroupNames()
+        {
+            var spots = new DataContractDictionary<int, CollectableSpot>
+            {
+                { 1, new CollectableSpot(Vector2DInt.Zero, "", 1) },
+            };
+
+            var x = Cell.Empty;
+            var o = Cell.New.SetDoors("N", Door.TwoWay);
+
+            var cells = new Cell[,]
+            {
+                { x, o, x },
+                { x, x, x },
+            };
+
+            var template = new RoomTemplate(1, "Test", cells, spots);
+            Assert.ThrowsException<InvalidNameException>(() => template.Validate());
+        }
+
+        [TestMethod]
+        public void TestCollectableSpotsAreNotValid()
+        {
+            var spots = new DataContractDictionary<int, CollectableSpot>
+            {
+                { 1, new CollectableSpot(Vector2DInt.Zero, "", 1) },
+            };
+
+            var x = Cell.Empty;
+            var o = Cell.New.SetDoors("N", Door.TwoWay);
+
+            var cells = new Cell[,]
+            {
+                { x, o, x },
+                { x, x, x },
+            };
+
+            var template = new RoomTemplate(1, "Test", cells, spots);
+            Assert.IsFalse(template.IsValid());
+        }
+
+        [TestMethod]
+        public void TestCollectableSpotValuesAreNotEqual()
+        {
+            var spots1 = new DataContractDictionary<int, CollectableSpot>
+            {
+                { 1, new CollectableSpot(Vector2DInt.Zero, "", 1) },
+            };
+
+            var spots2 = new DataContractDictionary<int, CollectableSpot>
+            {
+                { 2, new CollectableSpot(Vector2DInt.Zero, "", 1) },
+            };
+
+            var template1 = new RoomTemplate(1, "Test", new Array2D<Cell>(2, 3));
+            var template2 = new RoomTemplate(1, "Test", new Array2D<Cell>(2, 3), spots1);
+            var template3 = new RoomTemplate(1, "Test", new Array2D<Cell>(2, 3), spots2);
+
+            Assert.IsFalse(template1.ValuesAreEqual(template2));
+            Assert.IsFalse(template2.ValuesAreEqual(template3));
+        }
     }
 }

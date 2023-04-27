@@ -60,7 +60,7 @@ namespace MPewsey.ManiaMap.Generators
         {
             var wd = Math.Pow(DoorWeight + 1, doorPower);
             var wn = Math.Pow(NeighborWeight + 1, neighborPower);
-            return wd * wn;
+            return wd * wn * CollectableSpot.Weight;
         }
     }
 }

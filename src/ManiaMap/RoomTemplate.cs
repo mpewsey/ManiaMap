@@ -166,7 +166,7 @@ namespace MPewsey.ManiaMap
         {
             foreach (var spot in CollectableSpots.Values)
             {
-                spot.Validate(Cells);
+                spot.Validate(this);
             }
         }
 
@@ -187,7 +187,7 @@ namespace MPewsey.ManiaMap
         {
             foreach (var spot in CollectableSpots.Values)
             {
-                if (!spot.IsValid(Cells))
+                if (!spot.IsValid(this))
                     return false;
             }
 
@@ -241,9 +241,10 @@ namespace MPewsey.ManiaMap
         /// <param name="id">The collectable location ID.</param>
         /// <param name="position">The collectable index.</param>
         /// <param name="group">The collectable group.</param>
-        public RoomTemplate AddCollectableSpot(int id, Vector2DInt position, string group)
+        /// <param name="weight">The collectable spot base draw weight.</param>
+        public RoomTemplate AddCollectableSpot(int id, Vector2DInt position, string group, float weight = 1)
         {
-            return AddCollectableSpot(id, new CollectableSpot(position, group));
+            return AddCollectableSpot(id, new CollectableSpot(position, group, weight));
         }
 
         /// <summary>
@@ -251,11 +252,9 @@ namespace MPewsey.ManiaMap
         /// </summary>
         /// <param name="id">The collectable location ID.</param>
         /// <param name="spot">The collectable spot.</param>
-        /// <exception cref="IndexOutOfRangeException">Raised if the collectable spot location is outside the bounds of the room.</exception>
-        /// <exception cref="InvalidNameException">Raised if the collectable spot name is null or whitespace.</exception>
         public RoomTemplate AddCollectableSpot(int id, CollectableSpot spot)
         {
-            spot.Validate(Cells);
+            spot.Validate(this);
             CollectableSpots.Add(id, spot);
             return this;
         }
