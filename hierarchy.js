@@ -6,6 +6,7 @@ var hierarchy =
     [ "MPewsey.ManiaMap.Cell", "class_m_pewsey_1_1_mania_map_1_1_cell.html", null ],
     [ "MPewsey.ManiaMap.CollectableGroups", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html", null ],
     [ "MPewsey.ManiaMap.CollectableSpot", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html", null ],
+    [ "MPewsey.ManiaMap.Generators.CollectableSpotWeight", "class_m_pewsey_1_1_mania_map_1_1_generators_1_1_collectable_spot_weight.html", null ],
     [ "MPewsey.ManiaMap.Configuration", "class_m_pewsey_1_1_mania_map_1_1_configuration.html", null ],
     [ "MPewsey.ManiaMap.ConfigurationSpace", "class_m_pewsey_1_1_mania_map_1_1_configuration_space.html", null ],
     [ "MPewsey.ManiaMap.Door", "class_m_pewsey_1_1_mania_map_1_1_door.html", null ],

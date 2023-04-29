@@ -6,7 +6,7 @@ var searchData=
   ['rebases_3',['Rebases',['../class_m_pewsey_1_1_mania_map_1_1_layout.html#ab0abe021b1520817ea40f2b1b6276b12',1,'MPewsey::ManiaMap::Layout']]],
   ['requireroom_4',['RequireRoom',['../class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html#a0cbb7ed3a4102e61d3cdeb458bd1b260',1,'MPewsey::ManiaMap::Graphs::LayoutEdge']]],
   ['right_5',['Right',['../struct_m_pewsey_1_1_mania_map_1_1_drawing_1_1_padding.html#a4ad0dd373631aa8652e8ac1fdbf10d1c',1,'MPewsey::ManiaMap::Drawing::Padding']]],
-  ['room_6',['Room',['../class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a3a42c58fbaff31983107609cbbdc301e',1,'MPewsey::ManiaMap::CollectableSpot']]],
+  ['room_6',['Room',['../class_m_pewsey_1_1_mania_map_1_1_generators_1_1_collectable_spot_weight.html#a69394c39c52a3208e210d7d6f59968f8',1,'MPewsey::ManiaMap::Generators::CollectableSpotWeight']]],
   ['roomchance_7',['RoomChance',['../class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html#adf21564920bbb4c284379204b0d05294',1,'MPewsey::ManiaMap::Graphs::LayoutEdge']]],
   ['roomcolor_8',['RoomColor',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ada2d596a3307b5fce74bdf22c63d84c3',1,'MPewsey::ManiaMap::Drawing::LayoutMap']]],
   ['roomdoors_9',['RoomDoors',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#aa500f371022d1e58d583fbc5db979cb0',1,'MPewsey::ManiaMap::Drawing::LayoutMap']]],

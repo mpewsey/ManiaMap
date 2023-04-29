@@ -36,7 +36,7 @@ var searchData=
   ['gettiles_33',['GetTiles',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_map_tiles.html#a7b4087bf9855ba56afd78126310cfb6f',1,'MPewsey::ManiaMap::Drawing::MapTiles']]],
   ['getuniquecycles_34',['GetUniqueCycles',['../class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_cycle_decomposer.html#a5141945b080406496337fe027d02e753',1,'MPewsey::ManiaMap::Graphs::GraphCycleDecomposer']]],
   ['getwalltiletype_35',['GetWallTileType',['../class_m_pewsey_1_1_mania_map_1_1_map_tile_type.html#a82cc0555856eb07f1e58e110adbc0d95',1,'MPewsey::ManiaMap::MapTileType']]],
-  ['getweight_36',['GetWeight',['../class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a04c6a2ac134a116e821e510cf1e729f5',1,'MPewsey::ManiaMap::CollectableSpot']]],
+  ['getweight_36',['GetWeight',['../class_m_pewsey_1_1_mania_map_1_1_generators_1_1_collectable_spot_weight.html#aa79346c423b95ca6d55253c878a1d137',1,'MPewsey::ManiaMap::Generators::CollectableSpotWeight']]],
   ['getweights_37',['GetWeights',['../class_m_pewsey_1_1_mania_map_1_1_generators_1_1_collectable_generator.html#ac58baab22723cb40272d1f6786966116',1,'MPewsey::ManiaMap::Generators::CollectableGenerator']]],
   ['graph_38',['Graph',['../class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_chain_decomposer.html#afdd7bc375291760282a79bd855a521b4',1,'MPewsey.ManiaMap.Graphs.GraphChainDecomposer.Graph()'],['../class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#adf2e38290817246007a27ac8039ddcbc',1,'MPewsey.ManiaMap.Generators.LayoutGenerator.Graph()']]],
   ['graphbranchdecomposer_39',['GraphBranchDecomposer',['../class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html',1,'MPewsey::ManiaMap::Graphs']]],

@@ -53,7 +53,7 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Properties", "functions_prop.html", null ]
+        [ "Properties", "functions_prop.html", "functions_prop" ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -65,12 +65,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_big_layout_sample_8cs_source.html",
-"class_m_pewsey_1_1_mania_map_1_1_door.html#a941391694f88071211ef0da6c370596c",
-"class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#af3a016291cb69c2792824b6a6543ae24",
-"class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_graph.html#a9d94a53e64c2b7cd0c06370c2e933af0",
-"class_m_pewsey_1_1_mania_map_1_1_room_state.html#a977eefae887d5f2fa1f0be3cd46454cd",
-"functions_prop.html",
-"struct_m_pewsey_1_1_mania_map_1_1_room_pair.html#aa1d599fbbe94783d3c90993a352c27f3"
+"class_m_pewsey_1_1_mania_map_1_1_door.html#a83624837c482a03746a298f331131db9",
+"class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a7c1d6975bebb572a9febee3ac02b0046",
+"class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_graph.html#a6c5bbbf5826878e85e27cdc03c2cc66f",
+"class_m_pewsey_1_1_mania_map_1_1_room.html#abbd8d893103a3425a4b332f737e26949",
+"class_m_pewsey_1_1_mania_map_1_1_template_groups_entry.html#a0030479f196af22e67f4221f0dbc6d2c",
+"struct_m_pewsey_1_1_mania_map_1_1_door_pair.html#af11e5bd47b6277035fa1ce5fc7507ba9"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -35,7 +35,7 @@ var searchData=
   ['gettiles_32',['GetTiles',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_map_tiles.html#a7b4087bf9855ba56afd78126310cfb6f',1,'MPewsey::ManiaMap::Drawing::MapTiles']]],
   ['getuniquecycles_33',['GetUniqueCycles',['../class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_cycle_decomposer.html#a5141945b080406496337fe027d02e753',1,'MPewsey::ManiaMap::Graphs::GraphCycleDecomposer']]],
   ['getwalltiletype_34',['GetWallTileType',['../class_m_pewsey_1_1_mania_map_1_1_map_tile_type.html#a82cc0555856eb07f1e58e110adbc0d95',1,'MPewsey::ManiaMap::MapTileType']]],
-  ['getweight_35',['GetWeight',['../class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a04c6a2ac134a116e821e510cf1e729f5',1,'MPewsey::ManiaMap::CollectableSpot']]],
+  ['getweight_35',['GetWeight',['../class_m_pewsey_1_1_mania_map_1_1_generators_1_1_collectable_spot_weight.html#aa79346c423b95ca6d55253c878a1d137',1,'MPewsey::ManiaMap::Generators::CollectableSpotWeight']]],
   ['getweights_36',['GetWeights',['../class_m_pewsey_1_1_mania_map_1_1_generators_1_1_collectable_generator.html#ac58baab22723cb40272d1f6786966116',1,'MPewsey::ManiaMap::Generators::CollectableGenerator']]],
   ['graphnotfullyconnectedexception_37',['GraphNotFullyConnectedException',['../class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_graph_not_fully_connected_exception.html#ad7350e169d4f3da8dd150a61a54813fc',1,'MPewsey::ManiaMap::Exceptions::GraphNotFullyConnectedException']]]
 ];
