@@ -1,6 +1,5 @@
 ﻿using MPewsey.Common.Collections;
 using MPewsey.Common.Mathematics;
-using MPewsey.Common.Random;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -87,13 +86,13 @@ namespace MPewsey.ManiaMap
         /// <param name="source">The room source.</param>
         /// <param name="position">The position in the layout.</param>
         /// <param name="template">The room template.</param>
-        /// <param name="random">The random seed.</param>
-        public Room(IRoomSource source, Vector2DInt position, RoomTemplate template, RandomSeed random)
+        /// <param name="seed">The room seed.</param>
+        public Room(IRoomSource source, Vector2DInt position, RoomTemplate template, int seed)
         {
             Id = source.RoomId;
             Name = source.Name;
             Position = new Vector3DInt(position.X, position.Y, source.Z);
-            Seed = random.Next();
+            Seed = seed;
             Color = source.Color;
             Template = template;
             Tags = new List<string>(source.Tags);

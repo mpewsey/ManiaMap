@@ -53,7 +53,7 @@ namespace MPewsey.ManiaMap.Generators
         /// <summary>
         /// A list of collectable spots.
         /// </summary>
-        private List<CollectableSpot> CollectableSpots { get; set; }
+        private List<CollectableSpotWeight> CollectableSpotWeights { get; set; }
 
         /// <summary>
         /// A dictionary of distances by local position and room template.
@@ -129,7 +129,7 @@ namespace MPewsey.ManiaMap.Generators
             Logger.Log("[Collectable Generator] Running collectable generator...");
             Initialize(layout, collectableGroups, randomSeed);
 
-            AddCollectableSpots();
+            CreateCollectableSpotWeights();
             AssignDoorWeights();
             AssignInitialNeighborWeights();
 
@@ -166,8 +166,8 @@ namespace MPewsey.ManiaMap.Generators
             if (index < 0)
                 throw new CollectableSpotNotFoundException($"Failed to find collectable spot for group: {group}.");
 
-            var spot = CollectableSpots[index];
-            CollectableSpots.RemoveAt(index);
+            var spot = CollectableSpotWeights[index];
+            CollectableSpotWeights.RemoveAt(index);
             var room = Layout.Rooms[spot.Room];
             room.Collectables.Add(spot.Id, id);
 
@@ -180,11 +180,11 @@ namespace MPewsey.ManiaMap.Generators
         /// or neighboring rooms.
         /// </summary>
         /// <param name="spot">The collectable spot.</param>
-        private void UpdateNeighborWeights(CollectableSpot spot)
+        private void UpdateNeighborWeights(CollectableSpotWeight spot)
         {
             var cluster = Clusters[spot.Room];
 
-            foreach (var other in CollectableSpots)
+            foreach (var other in CollectableSpotWeights)
             {
                 if (!cluster.Contains(other.Room))
                     continue;
@@ -193,7 +193,7 @@ namespace MPewsey.ManiaMap.Generators
                 {
                     // Spots are in the same room. Use distance between collectables.
                     var room = Layout.Rooms[spot.Room];
-                    var distance = GetDistance(room, spot.Position, other.Position);
+                    var distance = GetDistance(room, spot.CollectableSpot.Position, other.CollectableSpot.Position);
                     other.NeighborWeight = Math.Min(distance, other.NeighborWeight);
                 }
                 else
@@ -202,8 +202,8 @@ namespace MPewsey.ManiaMap.Generators
                     var connection = Layout.GetDoorConnection(spot.Room, other.Room);
                     var fromRoom = Layout.Rooms[connection.FromRoom];
                     var toRoom = Layout.Rooms[connection.ToRoom];
-                    var fromPosition = spot.Position;
-                    var toPosition = other.Position;
+                    var fromPosition = spot.CollectableSpot.Position;
+                    var toPosition = other.CollectableSpot.Position;
 
                     if (connection.ToRoom == spot.Room)
                         (fromPosition, toPosition) = (toPosition, fromPosition);
@@ -221,13 +221,13 @@ namespace MPewsey.ManiaMap.Generators
         /// <param name="group">The group name.</param>
         private double[] GetWeights(string group)
         {
-            var weights = new double[CollectableSpots.Count];
+            var weights = new double[CollectableSpotWeights.Count];
 
             for (int i = 0; i < weights.Length; i++)
             {
-                var spot = CollectableSpots[i];
+                var spot = CollectableSpotWeights[i];
 
-                if (spot.Group == group)
+                if (spot.CollectableSpot.Group == group)
                     weights[i] = spot.GetWeight(DoorPower, NeighborPower);
             }
 
@@ -237,13 +237,13 @@ namespace MPewsey.ManiaMap.Generators
         /// <summary>
         /// Creates a new list of collectable spots.
         /// </summary>
-        private void AddCollectableSpots()
+        private void CreateCollectableSpotWeights()
         {
-            CollectableSpots = new List<CollectableSpot>();
+            CollectableSpotWeights = new List<CollectableSpotWeight>();
 
             foreach (var room in Layout.Rooms.Values)
             {
-                AddRoomCollectableSpots(room);
+                CreateRoomCollectableSpotWeights(room);
             }
         }
 
@@ -251,26 +251,14 @@ namespace MPewsey.ManiaMap.Generators
         /// Adds new collectable spots for the room.
         /// </summary>
         /// <param name="room">The room.</param>
-        private void AddRoomCollectableSpots(Room room)
+        private void CreateRoomCollectableSpotWeights(Room room)
         {
             var cells = room.Template.Cells;
 
-            for (int i = 0; i < cells.Rows; i++)
+            foreach (var pair in room.Template.CollectableSpots.OrderBy(x => x.Key))
             {
-                for (int j = 0; j < cells.Columns; j++)
-                {
-                    var cell = cells[i, j];
-
-                    if (cell == null)
-                        continue;
-
-                    foreach (var pair in cell.CollectableSpots.OrderBy(x => x.Key))
-                    {
-                        var position = new Vector2DInt(i, j);
-                        var spot = new CollectableSpot(room.Id, position, pair.Key, pair.Value);
-                        CollectableSpots.Add(spot);
-                    }
-                }
+                if (cells.GetOrDefault(pair.Value.Position) != null)
+                    CollectableSpotWeights.Add(new CollectableSpotWeight(room.Id, pair.Key, pair.Value));
             }
         }
 
@@ -281,13 +269,13 @@ namespace MPewsey.ManiaMap.Generators
         {
             var doors = Layout.GetRoomDoors();
 
-            foreach (var spot in CollectableSpots)
+            foreach (var spot in CollectableSpotWeights)
             {
                 var room = Layout.Rooms[spot.Room];
 
                 foreach (var door in doors[spot.Room])
                 {
-                    var distance = GetDistance(room, door.Position, spot.Position);
+                    var distance = GetDistance(room, door.Position, spot.CollectableSpot.Position);
                     spot.DoorWeight = Math.Min(distance, spot.DoorWeight);
                 }
             }
@@ -298,7 +286,7 @@ namespace MPewsey.ManiaMap.Generators
         /// </summary>
         private void AssignInitialNeighborWeights()
         {
-            foreach (var spot in CollectableSpots)
+            foreach (var spot in CollectableSpotWeights)
             {
                 spot.NeighborWeight = InitialNeighborWeight;
             }

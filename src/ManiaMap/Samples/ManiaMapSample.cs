@@ -49,7 +49,7 @@ namespace MPewsey.ManiaMap.Samples
                 { b, x, x, x, a },
             };
 
-            return new RoomTemplate(1, "M", cells).Copy();
+            return new RoomTemplate(2, "M", cells).Copy();
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace MPewsey.ManiaMap.Samples
                 { b, o, a },
             };
 
-            return new RoomTemplate(2, "A", cells).Copy();
+            return new RoomTemplate(3, "A", cells).Copy();
         }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace MPewsey.ManiaMap.Samples
                 { b, x, a },
             };
 
-            return new RoomTemplate(3, "N", cells).Copy();
+            return new RoomTemplate(4, "N", cells).Copy();
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace MPewsey.ManiaMap.Samples
                 { b, o, a },
             };
 
-            return new RoomTemplate(4, "I", cells).Copy();
+            return new RoomTemplate(5, "I", cells).Copy();
         }
 
         /// <summary>
@@ -136,7 +136,7 @@ namespace MPewsey.ManiaMap.Samples
                 { a, x, x },
             };
 
-            return new RoomTemplate(5, "P", cells).Copy();
+            return new RoomTemplate(6, "P", cells).Copy();
         }
 
         /// <summary>

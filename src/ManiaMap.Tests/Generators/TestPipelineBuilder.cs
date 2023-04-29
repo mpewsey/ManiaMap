@@ -52,6 +52,19 @@ namespace MPewsey.ManiaMap.Generators.Tests
         }
 
         [TestMethod]
+        public void TestSaveAndLoadJson()
+        {
+            var results = Samples.BigLayoutSample.Generate(12345);
+            Assert.IsTrue(results.Success);
+            Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
+            var layout = results.GetOutput<Layout>("Layout");
+            var path = "BigLayout.json";
+            JsonSerialization.SaveJson(path, layout);
+            var copy = JsonSerialization.LoadJson<Layout>(path);
+            Assert.AreEqual(layout.Id, copy.Id);
+        }
+
+        [TestMethod]
         public void TestSaveAndLoadEncryptedXml()
         {
             var results = Samples.BigLayoutSample.Generate(12345);

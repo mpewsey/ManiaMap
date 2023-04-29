@@ -1,4 +1,5 @@
-﻿using MPewsey.Common.Pipelines;
+﻿using MPewsey.Common.Mathematics;
+using MPewsey.Common.Pipelines;
 using MPewsey.Common.Random;
 using MPewsey.ManiaMap.Generators;
 using System.Collections.Generic;
@@ -57,9 +58,12 @@ namespace MPewsey.ManiaMap.Samples
 
             foreach (var template in templateGroups.GetAllTemplates())
             {
-                foreach (var cell in template.Cells.Array)
+                for (int i = 0; i < template.Cells.Rows; i++)
                 {
-                    cell?.AddCollectableSpot(seed.Next(), "Default");
+                    for (int j = 0; j < template.Cells.Columns; j++)
+                    {
+                        template.AddCollectableSpot(seed.Next(), new Vector2DInt(i, j), "Default");
+                    }
                 }
             }
 

@@ -1,5 +1,6 @@
 ﻿using MPewsey.Common.Collections;
 using MPewsey.Common.Mathematics;
+using MPewsey.ManiaMap.Exceptions;
 using MPewsey.ManiaMap.Graphs;
 using System;
 using System.Collections.Generic;
@@ -57,7 +58,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// A dictionary of counts by template group entry.
         /// </summary>
-        private Dictionary<TemplateGroupsEntry, int> TemplateCounts { get; } = new Dictionary<TemplateGroupsEntry, int>();
+        private Dictionary<TemplateGroupsEntry, int> TemplateCounts { get; set; } = new Dictionary<TemplateGroupsEntry, int>();
 
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
@@ -65,6 +66,7 @@ namespace MPewsey.ManiaMap
             Rooms = Rooms ?? new DataContractValueDictionary<Uid, Room>();
             DoorConnections = DoorConnections ?? new DataContractValueDictionary<RoomPair, DoorConnection>();
             Templates = Templates ?? new DataContractValueDictionary<int, RoomTemplate>();
+            TemplateCounts = TemplateCounts ?? new Dictionary<TemplateGroupsEntry, int>();
             AssignRoomTemplates();
         }
 
@@ -143,7 +145,10 @@ namespace MPewsey.ManiaMap
 
             foreach (var room in Rooms.Values)
             {
-                Templates[room.Template.Id] = room.Template;
+                if (!Templates.TryGetValue(room.Template.Id, out var template))
+                    Templates.Add(room.Template.Id, room.Template);
+                else if (!RoomTemplate.ValuesAreEqual(template, room.Template))
+                    throw new DuplicateIdException($"Duplicate template ID: {room.Template.Id}.");
             }
         }
 

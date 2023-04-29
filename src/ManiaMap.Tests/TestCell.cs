@@ -2,8 +2,6 @@
 using MPewsey.Common.Serialization;
 using MPewsey.ManiaMap.Exceptions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace MPewsey.ManiaMap.Tests
 {
@@ -14,7 +12,7 @@ namespace MPewsey.ManiaMap.Tests
         public void TestSaveAndLoad()
         {
             var path = "Cell.xml";
-            var cell = Cell.New.SetDoors("NWSETB", Door.TwoWay).AddFeature("SavePoint").AddFeature("Boss").AddCollectableSpot(1, "Test");
+            var cell = Cell.New.SetDoors("NWSETB", Door.TwoWay).AddFeature("SavePoint").AddFeature("Boss");
             XmlSerialization.SaveXml(path, cell);
             var copy = XmlSerialization.LoadXml<Cell>(path);
             Assert.IsTrue(cell.ValuesAreEqual(copy));
@@ -59,44 +57,19 @@ namespace MPewsey.ManiaMap.Tests
         }
 
         [TestMethod]
-        public void TestAddCollectableSpot()
-        {
-            var cell = Cell.New.AddCollectableSpot(0, "Group1").AddCollectableSpot(1, "Group2");
-            var expected = new List<Collectable> { new Collectable(0, "Group1"), new Collectable(1, "Group2") };
-            CollectionAssert.AreEqual(expected, cell.CollectableSpots.Select(x => new Collectable(x.Key, x.Value)).ToList());
-        }
-
-        [TestMethod]
-        public void TestInvalidCollectableGroupName()
-        {
-            Assert.ThrowsException<InvalidNameException>(() => Cell.New.AddCollectableSpot(0, ""));
-        }
-
-        [TestMethod]
-        public void TestDuplicateLocationId()
-        {
-            var cell = Cell.New.AddCollectableSpot(1, "Default");
-            Assert.ThrowsException<DuplicateIdException>(() => cell.AddCollectableSpot(1, "Default"));
-        }
-
-        [TestMethod]
         public void TestValuesAreEqual()
         {
-            var cell1 = Cell.New.AddCollectableSpot(1, "Group1");
-            var cell2 = Cell.New.AddCollectableSpot(1, "Group2");
-            Assert.IsFalse(Cell.ValuesAreEqual(cell1, cell2));
+            var cell1 = Cell.New;
+            var cell2 = Cell.New;
+            Assert.IsTrue(Cell.ValuesAreEqual(cell1, cell2));
 
             var cell3 = Cell.New.SetDoors("N", Door.TwoWay);
             var cell4 = Cell.New.SetDoors("N", Door.OneWayEntrance);
             Assert.IsFalse(Cell.ValuesAreEqual(cell3, cell4));
 
-            var cell5 = Cell.New.AddCollectableSpot(1, "Group1").SetDoors("NWSE", Door.TwoWay);
-            var cell6 = Cell.New.AddCollectableSpot(1, "Group1").SetDoors("NWSE", Door.TwoWay);
+            var cell5 = Cell.New.SetDoors("NWSE", Door.TwoWay);
+            var cell6 = Cell.New.SetDoors("NWSE", Door.TwoWay);
             Assert.IsTrue(Cell.ValuesAreEqual(cell5, cell6));
-
-            var cell7 = Cell.New.AddCollectableSpot(1, "Group1");
-            var cell8 = Cell.New;
-            Assert.IsFalse(Cell.ValuesAreEqual(cell7, cell8));
 
             var cell9 = Cell.New.SetDoors("N", Door.TwoWay);
             var cell10 = Cell.New;
