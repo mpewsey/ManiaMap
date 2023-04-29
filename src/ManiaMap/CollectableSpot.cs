@@ -27,6 +27,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// The base draw weight.
         /// </summary>
+        [DataMember(Order = 3)]
         public float Weight { get => _weight; set => _weight = Math.Max(value, 0); }
 
         [OnDeserializing]
