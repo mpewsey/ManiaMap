@@ -17,7 +17,7 @@ namespace MPewsey.ManiaMap.Graphs
     /// ```
     /// </summary>
     [DataContract(Namespace = Constants.DataContractNamespace)]
-    public class LayoutNode : IRoomSource, IDataContractValueDictionaryValue<int>
+    public class LayoutNode : IRoomSource, IValueHashMapEntry<int>
     {
         /// <summary>
         /// The unique node ID.
@@ -49,7 +49,7 @@ namespace MPewsey.ManiaMap.Graphs
         public Uid RoomId { get => new Uid(Id); }
 
         /// <inheritdoc/>
-        int IDataContractValueDictionaryValue<int>.Key => Id;
+        int IValueHashMapEntry<int>.Key => Id;
 
         /// <inheritdoc/>
         [OnDeserialized]

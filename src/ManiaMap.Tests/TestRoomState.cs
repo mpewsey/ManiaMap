@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MPewsey.Common.Serialization;
+using System;
 using System.Linq;
 
 namespace MPewsey.ManiaMap.Tests
@@ -11,7 +12,7 @@ namespace MPewsey.ManiaMap.Tests
         public void TestSaveAndLoad()
         {
             var path = "RoomState.xml";
-            var results = Samples.BigLayoutSample.Generate(12345);
+            var results = Samples.BigLayoutSample.Generate(12345, Console.WriteLine);
             Assert.IsTrue(results.Success);
             var layout = results.GetOutput<Layout>("Layout");
             var room = layout.Rooms.Values.First();

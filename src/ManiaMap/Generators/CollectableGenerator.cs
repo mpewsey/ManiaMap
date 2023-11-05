@@ -1,5 +1,4 @@
 ﻿using MPewsey.Common.Collections;
-using MPewsey.Common.Logging;
 using MPewsey.Common.Mathematics;
 using MPewsey.Common.Pipelines;
 using MPewsey.Common.Random;
@@ -93,13 +92,14 @@ namespace MPewsey.ManiaMap.Generators
         /// * %RandomSeed - The random seed.
         /// </summary>
         /// <param name="results">The pipeline results.</param>
+        /// <param name="logger">The logging action. Ignored if null.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        public bool ApplyStep(PipelineResults results, CancellationToken cancellationToken)
+        public bool ApplyStep(PipelineResults results, Action<string> logger, CancellationToken cancellationToken)
         {
             var layout = results.GetArgument<Layout>("Layout");
             var collectableGroups = results.GetArgument<CollectableGroups>("CollectableGroups");
             var randomSeed = results.GetArgument<RandomSeed>("RandomSeed");
-            Generate(layout, collectableGroups, randomSeed);
+            Generate(layout, collectableGroups, randomSeed, logger);
             return true;
         }
 
@@ -124,9 +124,10 @@ namespace MPewsey.ManiaMap.Generators
         /// <param name="layout">The layout.</param>
         /// <param name="collectableGroups">The collectable groups.</param>
         /// <param name="randomSeed">The random seed.</param>
-        public void Generate(Layout layout, CollectableGroups collectableGroups, RandomSeed randomSeed)
+        /// <param name="logger">The logging action. Ignored if null.</param>
+        public void Generate(Layout layout, CollectableGroups collectableGroups, RandomSeed randomSeed, Action<string> logger = null)
         {
-            Logger.Log("[Collectable Generator] Running collectable generator...");
+            logger?.Invoke("[Collectable Generator] Running collectable generator...");
             Initialize(layout, collectableGroups, randomSeed);
 
             CreateCollectableSpotWeights();
@@ -138,7 +139,7 @@ namespace MPewsey.ManiaMap.Generators
                 AddCollectable(collectable.Group, collectable.Id);
             }
 
-            Logger.Log("[Collectable Generator] Collectable generator complete.");
+            logger?.Invoke("[Collectable Generator] Collectable generator complete.");
         }
 
         /// <summary>

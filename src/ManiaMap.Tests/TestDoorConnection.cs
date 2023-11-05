@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace MPewsey.ManiaMap.Tests
 {
@@ -8,7 +9,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestEdgeDirection()
         {
-            var results = Samples.BigLayoutSample.Generate(12345);
+            var results = Samples.BigLayoutSample.Generate(12345, Console.WriteLine);
             Assert.IsTrue(results.Success);
             var layout = results.GetOutput<Layout>("Layout");
 
@@ -21,7 +22,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestGetDoorPosition()
         {
-            var results = Samples.BigLayoutSample.Generate(12345);
+            var results = Samples.BigLayoutSample.Generate(12345, Console.WriteLine);
             Assert.IsTrue(results.Success);
             var layout = results.GetOutput<Layout>("Layout");
 

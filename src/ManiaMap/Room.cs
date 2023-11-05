@@ -9,7 +9,7 @@ namespace MPewsey.ManiaMap
     /// Represents a room in a Layout.
     /// </summary>
     [DataContract(Namespace = Constants.DataContractNamespace)]
-    public class Room : IDataContractValueDictionaryValue<Uid>
+    public class Room : IValueHashMapEntry<Uid>
     {
         /// <summary>
         /// The room ID.
@@ -61,7 +61,7 @@ namespace MPewsey.ManiaMap
         /// A dictionary of collectable object ID's by location ID.
         /// </summary>
         [DataMember(Order = 8)]
-        public DataContractDictionary<int, int> Collectables { get; private set; } = new DataContractDictionary<int, int>();
+        public HashMap<int, int> Collectables { get; private set; } = new HashMap<int, int>();
 
         /// <summary>
         /// A list of tags.
@@ -73,12 +73,12 @@ namespace MPewsey.ManiaMap
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
         {
-            Collectables = Collectables ?? new DataContractDictionary<int, int>();
+            Collectables = Collectables ?? new HashMap<int, int>();
             Tags = Tags ?? new List<string>();
         }
 
         /// <inheritdoc/>
-        Uid IDataContractValueDictionaryValue<Uid>.Key => Id;
+        Uid IValueHashMapEntry<Uid>.Key => Id;
 
         /// <summary>
         /// Initializes a room from a room source.

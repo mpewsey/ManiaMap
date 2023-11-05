@@ -36,19 +36,19 @@ namespace MPewsey.ManiaMap
         /// A dictionary of rooms in the layout by ID.
         /// </summary>
         [DataMember(Order = 3)]
-        public DataContractValueDictionary<Uid, Room> Rooms { get; private set; } = new DataContractValueDictionary<Uid, Room>();
+        public ValueHashMap<Uid, Room> Rooms { get; private set; } = new ValueHashMap<Uid, Room>();
 
         /// <summary>
         /// A dictionary of door connections by room ID pairs.
         /// </summary>
         [DataMember(Order = 4)]
-        public DataContractValueDictionary<RoomPair, DoorConnection> DoorConnections { get; private set; } = new DataContractValueDictionary<RoomPair, DoorConnection>();
+        public ValueHashMap<RoomPair, DoorConnection> DoorConnections { get; private set; } = new ValueHashMap<RoomPair, DoorConnection>();
 
         /// <summary>
         /// A dictionary of room templates in the layout by ID.
         /// </summary>
         [DataMember(Order = 5)]
-        public DataContractValueDictionary<int, RoomTemplate> Templates { get; private set; } = new DataContractValueDictionary<int, RoomTemplate>();
+        public ValueHashMap<int, RoomTemplate> Templates { get; private set; } = new ValueHashMap<int, RoomTemplate>();
 
         /// <summary>
         /// The current number of times the layout has been used as a base for another layout.
@@ -63,9 +63,9 @@ namespace MPewsey.ManiaMap
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
         {
-            Rooms = Rooms ?? new DataContractValueDictionary<Uid, Room>();
-            DoorConnections = DoorConnections ?? new DataContractValueDictionary<RoomPair, DoorConnection>();
-            Templates = Templates ?? new DataContractValueDictionary<int, RoomTemplate>();
+            Rooms = Rooms ?? new ValueHashMap<Uid, Room>();
+            DoorConnections = DoorConnections ?? new ValueHashMap<RoomPair, DoorConnection>();
+            Templates = Templates ?? new ValueHashMap<int, RoomTemplate>();
             TemplateCounts = TemplateCounts ?? new Dictionary<TemplateGroupsEntry, int>();
             AssignRoomTemplates();
         }
@@ -89,8 +89,8 @@ namespace MPewsey.ManiaMap
             Id = baseLayout.Id;
             Name = baseLayout.Name;
             Seed = baseLayout.Seed;
-            Rooms = new DataContractValueDictionary<Uid, Room>(baseLayout.Rooms);
-            DoorConnections = new DataContractValueDictionary<RoomPair, DoorConnection>(baseLayout.DoorConnections);
+            Rooms = new ValueHashMap<Uid, Room>(baseLayout.Rooms);
+            DoorConnections = new ValueHashMap<RoomPair, DoorConnection>(baseLayout.DoorConnections);
             TemplateCounts = new Dictionary<TemplateGroupsEntry, int>(baseLayout.TemplateCounts);
             PopulateTemplates();
             baseLayout.Rebases++;

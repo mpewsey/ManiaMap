@@ -8,7 +8,7 @@ namespace MPewsey.ManiaMap
     /// Represents a door connection between two Room.
     /// </summary>
     [DataContract(Namespace = Constants.DataContractNamespace)]
-    public class DoorConnection : IDataContractValueDictionaryValue<RoomPair>
+    public class DoorConnection : IValueHashMapEntry<RoomPair>
     {
         /// <summary>
         /// The from room ID.
@@ -41,7 +41,7 @@ namespace MPewsey.ManiaMap
         public Box Shaft { get; private set; }
 
         /// <inheritdoc/>
-        RoomPair IDataContractValueDictionaryValue<RoomPair>.Key => new RoomPair(FromRoom, ToRoom);
+        RoomPair IValueHashMapEntry<RoomPair>.Key => new RoomPair(FromRoom, ToRoom);
 
         /// <summary>
         /// The edge direction.

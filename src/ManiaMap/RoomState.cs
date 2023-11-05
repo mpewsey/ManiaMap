@@ -8,7 +8,7 @@ namespace MPewsey.ManiaMap
     /// Stores the state of a Room in a Layout.
     /// </summary>
     [DataContract(Namespace = Constants.DataContractNamespace)]
-    public class RoomState : IDataContractValueDictionaryValue<Uid>
+    public class RoomState : IValueHashMapEntry<Uid>
     {
         /// <summary>
         /// The ID of the corresponding room.
@@ -32,24 +32,24 @@ namespace MPewsey.ManiaMap
         /// A set of acquired collectable location ID's.
         /// </summary>
         [DataMember(Order = 4)]
-        public DataContractHashSet<int> AcquiredCollectables { get; private set; } = new DataContractHashSet<int>();
+        public Set<int> AcquiredCollectables { get; private set; } = new Set<int>();
 
         /// <summary>
         /// A set of flags that are set for a room.
         /// </summary>
         [DataMember(Order = 5)]
-        public DataContractHashSet<int> Flags { get; private set; } = new DataContractHashSet<int>();
+        public Set<int> Flags { get; private set; } = new Set<int>();
 
         /// <inheritdoc/>
-        Uid IDataContractValueDictionaryValue<Uid>.Key => Id;
+        Uid IValueHashMapEntry<Uid>.Key => Id;
 
         /// <inheritdoc/>
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
         {
             VisibleCells = VisibleCells ?? new BitArray2D();
-            AcquiredCollectables = AcquiredCollectables ?? new DataContractHashSet<int>();
-            Flags = Flags ?? new DataContractHashSet<int>();
+            AcquiredCollectables = AcquiredCollectables ?? new Set<int>();
+            Flags = Flags ?? new Set<int>();
         }
 
         /// <summary>

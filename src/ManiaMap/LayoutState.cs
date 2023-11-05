@@ -20,13 +20,13 @@ namespace MPewsey.ManiaMap
         /// A dictionary of room states by ID.
         /// </summary>
         [DataMember(Order = 1)]
-        public DataContractValueDictionary<Uid, RoomState> RoomStates { get; private set; } = new DataContractValueDictionary<Uid, RoomState>();
+        public ValueHashMap<Uid, RoomState> RoomStates { get; private set; } = new ValueHashMap<Uid, RoomState>();
 
         /// <inheritdoc/>
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
         {
-            RoomStates = RoomStates ?? new DataContractValueDictionary<Uid, RoomState>();
+            RoomStates = RoomStates ?? new ValueHashMap<Uid, RoomState>();
         }
 
         /// <summary>

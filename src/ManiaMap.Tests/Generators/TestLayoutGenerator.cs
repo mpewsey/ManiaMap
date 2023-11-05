@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MPewsey.Common.Logging;
 using MPewsey.Common.Random;
 using MPewsey.ManiaMap.Exceptions;
 using MPewsey.ManiaMap.Samples;
@@ -18,18 +17,14 @@ namespace MPewsey.ManiaMap.Generators.Tests
         public void TestCancellationToken()
         {
             var log = new List<string>();
-            Logger.RemoveAllListeners();
-            Logger.AddListener(log.Add);
-            Logger.AddListener(Console.WriteLine);
 
             var token = new CancellationTokenSource(20).Token;
             var random = new RandomSeed(12345);
             var graph = Samples.GraphLibrary.BigGraph();
             var templateGroups = Samples.BigLayoutSample.BigLayoutTemplateGroups();
             var generator = new LayoutGenerator();
-            var layout = generator.Generate(1, graph, templateGroups, random, token);
+            var layout = generator.Generate(1, graph, templateGroups, random, log.Add, token);
 
-            Logger.RemoveAllListeners();
             Assert.IsTrue(log.Count > 0);
             Assert.IsTrue(log[log.Count - 1].Contains("Process cancelled"));
             Assert.IsNull(layout);
@@ -38,17 +33,14 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestHyperSquareCrossLayout()
         {
-            Logger.RemoveAllListeners();
-            Logger.AddListener(Console.WriteLine);
-
-            var graph = Samples.GraphLibrary.CrossGraph();
+            var graph = GraphLibrary.CrossGraph();
 
             var templateGroups = new TemplateGroups();
-            templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
+            templateGroups.Add("Default", TemplateLibrary.Miscellaneous.HyperSquareTemplate());
 
             var generator = new LayoutGenerator();
             var random = new RandomSeed(12345);
-            var layout = generator.Generate(1, graph, templateGroups, random);
+            var layout = generator.Generate(1, graph, templateGroups, random, Console.WriteLine);
 
             Assert.IsNotNull(layout);
 
@@ -65,17 +57,14 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestHyperSquareStackedLoopLayout()
         {
-            Logger.RemoveAllListeners();
-            Logger.AddListener(Console.WriteLine);
-
-            var graph = Samples.GraphLibrary.StackedLoopGraph();
+            var graph = GraphLibrary.StackedLoopGraph();
 
             var templateGroups = new TemplateGroups();
-            templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
+            templateGroups.Add("Default", TemplateLibrary.Miscellaneous.HyperSquareTemplate());
 
             var generator = new LayoutGenerator();
             var random = new RandomSeed(12345);
-            var layout = generator.Generate(1, graph, templateGroups, random);
+            var layout = generator.Generate(1, graph, templateGroups, random, Console.WriteLine);
 
             Assert.IsNotNull(layout);
 
@@ -92,18 +81,15 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestLLoopLayout()
         {
-            Logger.RemoveAllListeners();
-            Logger.AddListener(Console.WriteLine);
-
-            var graph = Samples.GraphLibrary.LoopGraph();
+            var graph = GraphLibrary.LoopGraph();
 
             var templateGroups = new TemplateGroups();
-            var template = Samples.TemplateLibrary.Miscellaneous.LTemplate();
+            var template = TemplateLibrary.Miscellaneous.LTemplate();
             templateGroups.Add("Default", template.UniqueVariations());
 
             var generator = new LayoutGenerator();
             var random = new RandomSeed(12345);
-            var layout = generator.Generate(1, graph, templateGroups, random);
+            var layout = generator.Generate(1, graph, templateGroups, random, Console.WriteLine);
 
             Assert.IsNotNull(layout);
 
@@ -121,17 +107,14 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestHyperSquareGeekLayout()
         {
-            Logger.RemoveAllListeners();
-            Logger.AddListener(Console.WriteLine);
-
-            var graph = Samples.GraphLibrary.GeekGraph();
+            var graph = GraphLibrary.GeekGraph();
 
             var templateGroups = new TemplateGroups();
-            templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
+            templateGroups.Add("Default", TemplateLibrary.Miscellaneous.HyperSquareTemplate());
 
             var generator = new LayoutGenerator();
             var random = new RandomSeed(123456);
-            var layout = generator.Generate(1, graph, templateGroups, random);
+            var layout = generator.Generate(1, graph, templateGroups, random, Console.WriteLine);
 
             Assert.IsNotNull(layout);
 
@@ -148,11 +131,11 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestGraphIsNotFullyConnected()
         {
-            var graph = Samples.GraphLibrary.GeekGraph();
+            var graph = GraphLibrary.GeekGraph();
             graph.AddNode(100000);
 
             var templateGroups = new TemplateGroups();
-            templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
+            templateGroups.Add("Default", TemplateLibrary.Miscellaneous.HyperSquareTemplate());
 
             var generator = new LayoutGenerator();
             var random = new RandomSeed(123456);
@@ -162,10 +145,7 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestManiaMapLayout()
         {
-            Logger.RemoveAllListeners();
-            Logger.AddListener(Console.WriteLine);
-
-            var layout = Samples.ManiaMapSample.ManiaMapLayout();
+            var layout = ManiaMapSample.ManiaMapLayout(Console.WriteLine);
 
             Assert.IsNotNull(layout);
 
@@ -196,14 +176,11 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [DataRow(123456789)]
         public void TestBigLayout(int seed)
         {
-            Logger.RemoveAllListeners();
-            Logger.AddListener(Console.WriteLine);
-
             var random = new RandomSeed(seed);
-            var graph = Samples.GraphLibrary.BigGraph();
-            var templateGroups = Samples.BigLayoutSample.BigLayoutTemplateGroups();
+            var graph = GraphLibrary.BigGraph();
+            var templateGroups = BigLayoutSample.BigLayoutTemplateGroups();
             var generator = new LayoutGenerator();
-            var layout = generator.Generate(1, graph, templateGroups, random);
+            var layout = generator.Generate(1, graph, templateGroups, random, Console.WriteLine);
             Assert.IsNotNull(layout);
         }
 
@@ -216,9 +193,7 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [DataRow(123456789)]
         public async Task TestBigLayoutAsync(int seed)
         {
-            Logger.RemoveAllListeners();
-            Logger.AddListener(Console.WriteLine);
-            var results = await BigLayoutSample.GenerateAsync(seed);
+            var results = await BigLayoutSample.GenerateAsync(seed, Console.WriteLine);
             var layout = results.GetOutput<Layout>("Layout");
             Assert.IsNotNull(layout);
         }
@@ -226,18 +201,15 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestDirectedRingLayout()
         {
-            Logger.RemoveAllListeners();
-            Logger.AddListener(Console.WriteLine);
-
-            var graph = Samples.GraphLibrary.DirectedRingGraph();
+            var graph = GraphLibrary.DirectedRingGraph();
 
             var templateGroups = new TemplateGroups();
-            templateGroups.Add("Nodes", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
-            templateGroups.Add("Edges", Samples.TemplateLibrary.Squares.Square1x1NorthExitTemplate().AllVariations());
+            templateGroups.Add("Nodes", TemplateLibrary.Miscellaneous.HyperSquareTemplate());
+            templateGroups.Add("Edges", TemplateLibrary.Squares.Square1x1NorthExitTemplate().AllVariations());
 
             var generator = new LayoutGenerator();
             var random = new RandomSeed(12345);
-            var layout = generator.Generate(1, graph, templateGroups, random);
+            var layout = generator.Generate(1, graph, templateGroups, random, Console.WriteLine);
 
             Assert.IsNotNull(layout);
 

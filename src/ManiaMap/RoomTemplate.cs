@@ -13,7 +13,7 @@ namespace MPewsey.ManiaMap
     /// Contains information for the geometry and properties of a Room in a Layout.
     /// </summary>
     [DataContract(Namespace = Constants.DataContractNamespace)]
-    public class RoomTemplate : IDataContractValueDictionaryValue<int>
+    public class RoomTemplate : IValueHashMapEntry<int>
     {
         /// <summary>
         /// The unique ID.
@@ -38,17 +38,17 @@ namespace MPewsey.ManiaMap
         /// A dictionary of collectable spots by ID.
         /// </summary>
         [DataMember(Order = 4)]
-        public DataContractDictionary<int, CollectableSpot> CollectableSpots { get; private set; }
+        public HashMap<int, CollectableSpot> CollectableSpots { get; private set; }
 
         /// <inheritdoc/>
-        int IDataContractValueDictionaryValue<int>.Key => Id;
+        int IValueHashMapEntry<int>.Key => Id;
 
         /// <inheritdoc/>
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
         {
             Cells = Cells ?? new Array2D<Cell>();
-            CollectableSpots = CollectableSpots ?? new DataContractDictionary<int, CollectableSpot>();
+            CollectableSpots = CollectableSpots ?? new HashMap<int, CollectableSpot>();
         }
 
         /// <summary>
@@ -59,12 +59,12 @@ namespace MPewsey.ManiaMap
         /// <param name="cells">An array of cells in the template.</param>
         /// <param name="collectableSpots">A dictionary of collectable spots by ID.</param>
         public RoomTemplate(int id, string name, Array2D<Cell> cells,
-            DataContractDictionary<int, CollectableSpot> collectableSpots = null)
+            HashMap<int, CollectableSpot> collectableSpots = null)
         {
             Id = id;
             Name = name;
             Cells = cells;
-            CollectableSpots = collectableSpots ?? new DataContractDictionary<int, CollectableSpot>();
+            CollectableSpots = collectableSpots ?? new HashMap<int, CollectableSpot>();
         }
 
         /// <summary>
@@ -378,7 +378,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a dictionary of collectable spots rotated 90 degrees clockwise.
         /// </summary>
-        private DataContractDictionary<int, CollectableSpot> CollectableSpotsRotated90()
+        private HashMap<int, CollectableSpot> CollectableSpotsRotated90()
         {
             var spots = CollectableSpots.ToDictionary(x => x.Key, x => x.Value.Copy());
 
@@ -416,7 +416,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a dictionary of collectable spots rotated 180 degrees.
         /// </summary>
-        private DataContractDictionary<int, CollectableSpot> CollectableSpotsRotated180()
+        private HashMap<int, CollectableSpot> CollectableSpotsRotated180()
         {
             var spots = CollectableSpots.ToDictionary(x => x.Key, x => x.Value.Copy());
 
@@ -454,7 +454,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a dictionary of collectable spots rotated 270 degrees clockwise.
         /// </summary>
-        private DataContractDictionary<int, CollectableSpot> CollectableSpotsRotated270()
+        private HashMap<int, CollectableSpot> CollectableSpotsRotated270()
         {
             var spots = CollectableSpots.ToDictionary(x => x.Key, x => x.Value.Copy());
 
@@ -492,7 +492,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a dictionary of collectable spots mirrored vertically.
         /// </summary>
-        private DataContractDictionary<int, CollectableSpot> CollectableSpotsMirroredVertically()
+        private HashMap<int, CollectableSpot> CollectableSpotsMirroredVertically()
         {
             var spots = CollectableSpots.ToDictionary(x => x.Key, x => x.Value.Copy());
 
@@ -530,7 +530,7 @@ namespace MPewsey.ManiaMap
         /// <summary>
         /// Returns a dictionary of collectable spots mirrored horizontally.
         /// </summary>
-        private DataContractDictionary<int, CollectableSpot> CollectableSpotsMirroredHorizontally()
+        private HashMap<int, CollectableSpot> CollectableSpotsMirroredHorizontally()
         {
             var spots = CollectableSpots.ToDictionary(x => x.Key, x => x.Value.Copy());
 

@@ -18,7 +18,7 @@ namespace MPewsey.ManiaMap.Graphs
     /// ```
     /// </summary>
     [DataContract(Namespace = Constants.DataContractNamespace)]
-    public class LayoutEdge : IRoomSource, IDataContractValueDictionaryValue<EdgeIndexes>
+    public class LayoutEdge : IRoomSource, IValueHashMapEntry<EdgeIndexes>
     {
         /// <inheritdoc/>
         [DataMember(Order = 1)]
@@ -82,7 +82,7 @@ namespace MPewsey.ManiaMap.Graphs
         public Uid RoomId { get => new Uid(FromNode, ToNode, 1); }
 
         /// <inheritdoc/>
-        EdgeIndexes IDataContractValueDictionaryValue<EdgeIndexes>.Key => new EdgeIndexes(FromNode, ToNode);
+        EdgeIndexes IValueHashMapEntry<EdgeIndexes>.Key => new EdgeIndexes(FromNode, ToNode);
 
         /// <inheritdoc/>
         [OnDeserialized]

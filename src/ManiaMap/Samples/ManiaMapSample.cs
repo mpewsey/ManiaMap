@@ -1,6 +1,7 @@
 ﻿using MPewsey.Common.Random;
 using MPewsey.ManiaMap.Generators;
 using MPewsey.ManiaMap.Graphs;
+using System;
 
 namespace MPewsey.ManiaMap.Samples
 {
@@ -184,13 +185,13 @@ namespace MPewsey.ManiaMap.Samples
         /// <summary>
         /// Generates the Mania Map layout and returns it.
         /// </summary>
-        public static Layout ManiaMapLayout()
+        public static Layout ManiaMapLayout(Action<string> logger = null)
         {
             var graph = ManiaMapLayoutGraph();
             var templateGroups = LetterTemplateGroups();
             var generator = new LayoutGenerator();
             var random = new RandomSeed(12345);
-            return generator.Generate(1, graph, templateGroups, random);
+            return generator.Generate(1, graph, templateGroups, random, logger);
         }
     }
 }

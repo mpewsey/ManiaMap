@@ -1,5 +1,4 @@
-﻿using MPewsey.Common.Logging;
-using MPewsey.Common.Mathematics;
+﻿using MPewsey.Common.Mathematics;
 using MPewsey.Common.Pipelines;
 using MPewsey.Common.Random;
 using MPewsey.ManiaMap.Exceptions;
@@ -125,15 +124,16 @@ namespace MPewsey.ManiaMap.Generators
         /// * %Layout - The generated layout.
         /// </summary>
         /// <param name="results">The pipeline results.</param>
+        /// <param name="logger">The logging action. Ignored if null.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        public bool ApplyStep(PipelineResults results, CancellationToken cancellationToken)
+        public bool ApplyStep(PipelineResults results, Action<string> logger, CancellationToken cancellationToken)
         {
             var layoutId = results.GetArgument<int>("LayoutId");
             var graph = results.GetArgument<LayoutGraph>("LayoutGraph");
             var templateGroups = results.GetArgument<TemplateGroups>("TemplateGroups");
             var randomSeed = results.GetArgument<RandomSeed>("RandomSeed");
 
-            var layout = Generate(layoutId, graph, templateGroups, randomSeed, cancellationToken);
+            var layout = Generate(layoutId, graph, templateGroups, randomSeed, logger, cancellationToken);
             results.SetOutput("Layout", layout);
             return layout != null;
         }
@@ -163,11 +163,12 @@ namespace MPewsey.ManiaMap.Generators
         /// <param name="graph">The layout graph.</param>
         /// <param name="templateGroups">The template groups.</param>
         /// <param name="randomSeed">The random seed.</param>
+        /// <param name="logger">The logging action. Ignored if null.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         public Layout Generate(int layoutId, LayoutGraph graph, TemplateGroups templateGroups,
-            RandomSeed randomSeed, CancellationToken cancellationToken = default)
+            RandomSeed randomSeed, Action<string> logger = null, CancellationToken cancellationToken = default)
         {
-            Logger.Log("[Layout Generator] Running layout generator...");
+            logger?.Invoke("[Layout Generator] Running layout generator...");
             Initialize(graph, templateGroups, randomSeed);
 
             var chains = Graph.FindChains(MaxBranchLength);
@@ -180,7 +181,7 @@ namespace MPewsey.ManiaMap.Generators
                 // Check cancellation token.
                 if (cancellationToken.IsCancellationRequested)
                 {
-                    Logger.Log("[Layout Generator] Process cancelled.");
+                    logger?.Invoke("[Layout Generator] Process cancelled.");
                     return null;
                 }
 
@@ -193,7 +194,7 @@ namespace MPewsey.ManiaMap.Generators
                     if (Layout.IsComplete(TemplateGroups))
                     {
                         Layout = new Layout(Layout);
-                        Logger.Log("[Layout Generator] Layout generator complete.");
+                        logger?.Invoke("[Layout Generator] Layout generator complete.");
                         return Layout;
                     }
 
@@ -201,7 +202,7 @@ namespace MPewsey.ManiaMap.Generators
                     ChainIndex = 0;
                     layouts.Clear();
                     layouts.Push(baseLayout);
-                    Logger.Log("[Layout Generator] Layout constraints not satisfied. Restarting...");
+                    logger?.Invoke("[Layout Generator] Layout constraints not satisfied. Restarting...");
                     continue;
                 }
 
@@ -211,7 +212,7 @@ namespace MPewsey.ManiaMap.Generators
                 {
                     layouts.Pop();
                     ChainIndex--;
-                    Logger.Log("[Layout Generator] Rebase count exceeded. Backtracking...");
+                    logger?.Invoke("[Layout Generator] Rebase count exceeded. Backtracking...");
                     continue;
                 }
 
@@ -222,11 +223,11 @@ namespace MPewsey.ManiaMap.Generators
                 {
                     layouts.Push(Layout);
                     ChainIndex++;
-                    Logger.Log($"[Layout Generator] Added chain {ChainIndex} / {chains.Count}...");
+                    logger?.Invoke($"[Layout Generator] Added chain {ChainIndex} / {chains.Count}...");
                 }
             }
 
-            Logger.Log("[Layout Generator] Layout generator failed.");
+            logger?.Invoke("[Layout Generator] Layout generator failed.");
             return null;
         }
 

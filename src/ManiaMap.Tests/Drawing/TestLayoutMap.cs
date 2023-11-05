@@ -12,7 +12,7 @@ namespace MPewsey.ManiaMap.Drawing.Tests
         [TestMethod]
         public void TestSaveManiaMapImages()
         {
-            var layout = Samples.ManiaMapSample.ManiaMapLayout();
+            var layout = Samples.ManiaMapSample.ManiaMapLayout(Console.WriteLine);
 
             Assert.IsNotNull(layout);
 

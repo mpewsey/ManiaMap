@@ -2,6 +2,7 @@
 using MPewsey.Common.Pipelines;
 using MPewsey.Common.Random;
 using MPewsey.ManiaMap.Generators;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -77,8 +78,9 @@ namespace MPewsey.ManiaMap.Samples
         /// Generates the big layout using default parameters and returns the results.
         /// </summary>
         /// <param name="seed">The random seed.</param>
+        /// <param name="logger">The logging action. Ignored if null.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        public static PipelineResults Generate(int seed, CancellationToken cancellationToken = default)
+        public static PipelineResults Generate(int seed, Action<string> logger = null, CancellationToken cancellationToken = default)
         {
             var random = new RandomSeed(seed);
             var graph = GraphLibrary.BigGraph();
@@ -96,15 +98,16 @@ namespace MPewsey.ManiaMap.Samples
             };
 
             var pipeline = PipelineBuilder.CreateDefaultPipeline();
-            return pipeline.Run(inputs, cancellationToken);
+            return pipeline.Run(inputs, logger, cancellationToken);
         }
 
         /// <summary>
         /// Generates the big layout asynchronously using default parameters and returns the results.
         /// </summary>
         /// <param name="seed">The random seed.</param>
+        /// <param name="logger">The logging action. Ignored if null.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        public static Task<PipelineResults> GenerateAsync(int seed, CancellationToken cancellationToken = default)
+        public static Task<PipelineResults> GenerateAsync(int seed, Action<string> logger = null, CancellationToken cancellationToken = default)
         {
             var random = new RandomSeed(seed);
             var graph = GraphLibrary.BigGraph();
@@ -122,7 +125,7 @@ namespace MPewsey.ManiaMap.Samples
             };
 
             var pipeline = PipelineBuilder.CreateDefaultPipeline();
-            return pipeline.RunAsync(inputs, cancellationToken);
+            return pipeline.RunAsync(inputs, logger, cancellationToken);
         }
     }
 }

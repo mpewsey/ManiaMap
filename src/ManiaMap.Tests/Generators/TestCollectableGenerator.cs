@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MPewsey.Common.Random;
 using MPewsey.ManiaMap.Exceptions;
+using System;
 using System.Collections.Generic;
 
 namespace MPewsey.ManiaMap.Generators.Tests
@@ -24,7 +25,7 @@ namespace MPewsey.ManiaMap.Generators.Tests
             Assert.IsNotNull(layout);
 
             var collectableGenerator = new CollectableGenerator();
-            collectableGenerator.Generate(layout, collectableGroups, random);
+            collectableGenerator.Generate(layout, collectableGroups, random, Console.WriteLine);
             var result = new List<int>();
 
             foreach (var room in layout.Rooms.Values)
@@ -51,7 +52,7 @@ namespace MPewsey.ManiaMap.Generators.Tests
             Assert.IsNotNull(layout);
 
             var collectableGenerator = new CollectableGenerator();
-            Assert.ThrowsException<CollectableSpotNotFoundException>(() => collectableGenerator.Generate(layout, collectableGroups, random));
+            Assert.ThrowsException<CollectableSpotNotFoundException>(() => collectableGenerator.Generate(layout, collectableGroups, random, Console.WriteLine));
         }
 
         [TestMethod]

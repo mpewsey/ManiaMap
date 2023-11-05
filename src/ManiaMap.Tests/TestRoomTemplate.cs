@@ -546,7 +546,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestCollectableSpotsAreValid()
         {
-            var spots = new DataContractDictionary<int, CollectableSpot>
+            var spots = new HashMap<int, CollectableSpot>
             {
                 { 1, new CollectableSpot(Vector2DInt.Zero, "Default", 1) },
             };
@@ -567,7 +567,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestValidateCollectableSpotPositions()
         {
-            var spots = new DataContractDictionary<int, CollectableSpot>
+            var spots = new HashMap<int, CollectableSpot>
             {
                 { 1, new CollectableSpot(new Vector2DInt(-1, -1), "Default", 1) },
             };
@@ -588,7 +588,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestValidateCollectableSpotGroupNames()
         {
-            var spots = new DataContractDictionary<int, CollectableSpot>
+            var spots = new HashMap<int, CollectableSpot>
             {
                 { 1, new CollectableSpot(Vector2DInt.Zero, "", 1) },
             };
@@ -609,7 +609,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestCollectableSpotsAreNotValid()
         {
-            var spots = new DataContractDictionary<int, CollectableSpot>
+            var spots = new HashMap<int, CollectableSpot>
             {
                 { 1, new CollectableSpot(Vector2DInt.Zero, "", 1) },
             };
@@ -630,12 +630,12 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestCollectableSpotValuesAreNotEqual()
         {
-            var spots1 = new DataContractDictionary<int, CollectableSpot>
+            var spots1 = new HashMap<int, CollectableSpot>
             {
                 { 1, new CollectableSpot(Vector2DInt.Zero, "", 1) },
             };
 
-            var spots2 = new DataContractDictionary<int, CollectableSpot>
+            var spots2 = new HashMap<int, CollectableSpot>
             {
                 { 2, new CollectableSpot(Vector2DInt.Zero, "", 1) },
             };

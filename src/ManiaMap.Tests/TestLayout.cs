@@ -23,7 +23,7 @@ namespace MPewsey.ManiaMap.Tests
         public void TestSaveAndLoadManiaMapLayoutXml()
         {
             var path = "ManiaMapLayout.xml";
-            var layout = Samples.ManiaMapSample.ManiaMapLayout();
+            var layout = Samples.ManiaMapSample.ManiaMapLayout(Console.WriteLine);
             XmlSerialization.SaveXml(path, layout);
             var copy = XmlSerialization.LoadXml<Layout>(path);
             Assert.AreEqual(layout.Id, copy.Id);
@@ -37,7 +37,7 @@ namespace MPewsey.ManiaMap.Tests
         public void TestSaveAndLoadBigLayoutXml()
         {
             var path = "Layout.xml";
-            var results = Samples.BigLayoutSample.Generate(12345);
+            var results = Samples.BigLayoutSample.Generate(12345, Console.WriteLine);
             Assert.IsTrue(results.Success);
             var layout = results.GetOutput<Layout>("Layout");
             XmlSerialization.SaveXml(path, layout);
@@ -54,7 +54,7 @@ namespace MPewsey.ManiaMap.Tests
         public void TestSaveAndLoadBigLayoutJson()
         {
             var path = "Layout.json";
-            var results = Samples.BigLayoutSample.Generate(12345);
+            var results = Samples.BigLayoutSample.Generate(12345, Console.WriteLine);
             Assert.IsTrue(results.Success);
             var layout = results.GetOutput<Layout>("Layout");
             JsonSerialization.SaveJson(path, layout);
@@ -71,7 +71,7 @@ namespace MPewsey.ManiaMap.Tests
         public void TestSaveAndLoadEncryptedJson()
         {
             var path = "LayoutJson.sav";
-            var results = Samples.BigLayoutSample.Generate(12345);
+            var results = Samples.BigLayoutSample.Generate(12345, Console.WriteLine);
             Assert.IsTrue(results.Success);
             var layout = results.GetOutput<Layout>("Layout");
 
@@ -93,7 +93,7 @@ namespace MPewsey.ManiaMap.Tests
         public void TestSaveAndLoadXmlBytes()
         {
             var path = "ManiaMapLayoutBytes.xml";
-            var layout = Samples.ManiaMapSample.ManiaMapLayout();
+            var layout = Samples.ManiaMapSample.ManiaMapLayout(Console.WriteLine);
             XmlSerialization.SaveXml(path, layout);
             var bytes = File.ReadAllBytes(path);
             var copy = XmlSerialization.LoadXml<Layout>(bytes);
@@ -103,7 +103,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestGetRoomConnections()
         {
-            var results = Samples.BigLayoutSample.Generate(12345);
+            var results = Samples.BigLayoutSample.Generate(12345, Console.WriteLine);
             Assert.IsTrue(results.Success);
             var layout = results.GetOutput<Layout>("Layout");
             var connections = layout.GetRoomConnections();
@@ -113,7 +113,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestGetDoorConnection()
         {
-            var layout = Samples.ManiaMapSample.ManiaMapLayout();
+            var layout = Samples.ManiaMapSample.ManiaMapLayout(Console.WriteLine);
             var connection = layout.DoorConnections.Values.First();
             Assert.AreEqual(connection, layout.GetDoorConnection(connection.FromRoom, connection.ToRoom));
             Assert.AreEqual(connection, layout.GetDoorConnection(connection.ToRoom, connection.FromRoom));
@@ -122,7 +122,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestContainsDoor()
         {
-            var layout = Samples.ManiaMapSample.ManiaMapLayout();
+            var layout = Samples.ManiaMapSample.ManiaMapLayout(Console.WriteLine);
             var connection = layout.DoorConnections.Values.First();
             Assert.IsTrue(connection.ContainsDoor(connection.FromRoom, connection.FromDoor.Position, connection.FromDoor.Direction));
             Assert.IsTrue(connection.ContainsDoor(connection.ToRoom, connection.ToDoor.Position, connection.ToDoor.Direction));
@@ -132,7 +132,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestRemoveDoorConnection()
         {
-            var layout = Samples.ManiaMapSample.ManiaMapLayout();
+            var layout = Samples.ManiaMapSample.ManiaMapLayout(Console.WriteLine);
             var connection = layout.DoorConnections.Values.First();
             Assert.IsTrue(layout.RemoveDoorConnection(connection.FromRoom, connection.ToRoom));
         }
@@ -168,7 +168,7 @@ namespace MPewsey.ManiaMap.Tests
         public void TestVisibleCellCount()
         {
             var seed = new RandomSeed(12345);
-            var results = Samples.BigLayoutSample.Generate(12345);
+            var results = Samples.BigLayoutSample.Generate(12345, Console.WriteLine);
             var layout = results.GetOutput<Layout>("Layout");
             var layoutState = new LayoutState(layout);
 
@@ -198,7 +198,7 @@ namespace MPewsey.ManiaMap.Tests
         public void TestVisibleCellProgress()
         {
             var seed = new RandomSeed(12345);
-            var results = Samples.BigLayoutSample.Generate(12345);
+            var results = Samples.BigLayoutSample.Generate(12345, Console.WriteLine);
             var layout = results.GetOutput<Layout>("Layout");
             var layoutState = new LayoutState(layout);
 
@@ -224,7 +224,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestFindRoomWithTag()
         {
-            var results = Samples.BigLayoutSample.Generate(12345);
+            var results = Samples.BigLayoutSample.Generate(12345, Console.WriteLine);
             var layout = results.GetOutput<Layout>("Layout");
             var room = layout.FindRoomWithTag("Origin");
             Assert.IsNotNull(room);
@@ -234,7 +234,7 @@ namespace MPewsey.ManiaMap.Tests
         [TestMethod]
         public void TestFindRoomsWithTag()
         {
-            var results = Samples.BigLayoutSample.Generate(12345);
+            var results = Samples.BigLayoutSample.Generate(12345, Console.WriteLine);
             var layout = results.GetOutput<Layout>("Layout");
             var rooms = layout.FindRoomsWithTag("Origin");
             Assert.IsNotNull(rooms);

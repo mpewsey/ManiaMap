@@ -29,25 +29,25 @@ namespace MPewsey.ManiaMap.Graphs
         /// A dictionary of nodes by ID.
         /// </summary>
         [DataMember(Order = 3)]
-        private DataContractValueDictionary<int, LayoutNode> Nodes { get; set; } = new DataContractValueDictionary<int, LayoutNode>();
+        private ValueHashMap<int, LayoutNode> Nodes { get; set; } = new ValueHashMap<int, LayoutNode>();
 
         /// <summary>
         /// A dictionary of nodes by from and to node ID's.
         /// </summary>
         [DataMember(Order = 4)]
-        private DataContractValueDictionary<EdgeIndexes, LayoutEdge> Edges { get; set; } = new DataContractValueDictionary<EdgeIndexes, LayoutEdge>();
+        private ValueHashMap<EdgeIndexes, LayoutEdge> Edges { get; set; } = new ValueHashMap<EdgeIndexes, LayoutEdge>();
 
         /// <summary>
         /// A dictionary of neighboring nodes by node ID.
         /// </summary>
         [DataMember(Order = 5)]
-        private DataContractDictionary<int, List<int>> Neighbors { get; set; } = new DataContractDictionary<int, List<int>>();
+        private HashMap<int, List<int>> Neighbors { get; set; } = new HashMap<int, List<int>>();
 
         /// <summary>
         /// A dictionary of node variation groups.
         /// </summary>
         [DataMember(Order = 6)]
-        private DataContractDictionary<string, List<int>> NodeVariations { get; set; } = new DataContractDictionary<string, List<int>>();
+        private HashMap<string, List<int>> NodeVariations { get; set; } = new HashMap<string, List<int>>();
 
         /// <summary>
         /// A readonly dictionary of nodes.
@@ -73,10 +73,10 @@ namespace MPewsey.ManiaMap.Graphs
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
         {
-            Nodes = Nodes ?? new DataContractValueDictionary<int, LayoutNode>();
-            Edges = Edges ?? new DataContractValueDictionary<EdgeIndexes, LayoutEdge>();
-            Neighbors = Neighbors ?? new DataContractDictionary<int, List<int>>();
-            NodeVariations = NodeVariations ?? new DataContractDictionary<string, List<int>>();
+            Nodes = Nodes ?? new ValueHashMap<int, LayoutNode>();
+            Edges = Edges ?? new ValueHashMap<EdgeIndexes, LayoutEdge>();
+            Neighbors = Neighbors ?? new HashMap<int, List<int>>();
+            NodeVariations = NodeVariations ?? new HashMap<string, List<int>>();
         }
 
         /// <summary>

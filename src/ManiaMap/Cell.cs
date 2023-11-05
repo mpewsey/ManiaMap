@@ -26,7 +26,7 @@ namespace MPewsey.ManiaMap
         /// A dictionary of doors.
         /// </summary>
         [DataMember(Order = 1)]
-        public DataContractDictionary<DoorDirection, Door> Doors { get; set; } = new DataContractDictionary<DoorDirection, Door>();
+        public HashMap<DoorDirection, Door> Doors { get; set; } = new HashMap<DoorDirection, Door>();
 
         /// <summary>
         /// A list of feature names.
@@ -67,7 +67,7 @@ namespace MPewsey.ManiaMap
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
         {
-            Doors = Doors ?? new DataContractDictionary<DoorDirection, Door>();
+            Doors = Doors ?? new HashMap<DoorDirection, Door>();
             Features = Features ?? new List<string>();
         }
 

@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MPewsey.Common.Logging;
 using MPewsey.Common.Serialization;
 using System;
 
@@ -17,10 +16,7 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [DataRow(123456789)]
         public void TestDefaultPipelineGeneration(int seed)
         {
-            Logger.RemoveAllListeners();
-            Logger.AddListener(Console.WriteLine);
-
-            var results = Samples.BigLayoutSample.Generate(seed);
+            var results = Samples.BigLayoutSample.Generate(seed, Console.WriteLine);
             Assert.IsTrue(results.Success);
             Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
         }
@@ -28,7 +24,7 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestLoadXmlString()
         {
-            var results = Samples.BigLayoutSample.Generate(12345);
+            var results = Samples.BigLayoutSample.Generate(12345, Console.WriteLine);
             Assert.IsTrue(results.Success);
             Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
             var layout = results.GetOutput<Layout>("Layout");
@@ -41,7 +37,7 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestSaveAndLoadXml()
         {
-            var results = Samples.BigLayoutSample.Generate(12345);
+            var results = Samples.BigLayoutSample.Generate(12345, Console.WriteLine);
             Assert.IsTrue(results.Success);
             Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
             var layout = results.GetOutput<Layout>("Layout");
@@ -54,7 +50,7 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestSaveAndLoadJson()
         {
-            var results = Samples.BigLayoutSample.Generate(12345);
+            var results = Samples.BigLayoutSample.Generate(12345, Console.WriteLine);
             Assert.IsTrue(results.Success);
             Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
             var layout = results.GetOutput<Layout>("Layout");
@@ -67,7 +63,7 @@ namespace MPewsey.ManiaMap.Generators.Tests
         [TestMethod]
         public void TestSaveAndLoadEncryptedXml()
         {
-            var results = Samples.BigLayoutSample.Generate(12345);
+            var results = Samples.BigLayoutSample.Generate(12345, Console.WriteLine);
             Assert.IsTrue(results.Success);
             Assert.IsTrue(results.Outputs.ContainsKey("Layout"));
             var layout = results.GetOutput<Layout>("Layout");

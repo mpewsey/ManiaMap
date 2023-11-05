@@ -16,7 +16,7 @@ namespace MPewsey.ManiaMap
         /// A dictionary of collectables by group name.
         /// </summary>
         [DataMember(Order = 1)]
-        private DataContractDictionary<string, List<int>> Groups { get; set; } = new DataContractDictionary<string, List<int>>();
+        private HashMap<string, List<int>> Groups { get; set; } = new HashMap<string, List<int>>();
 
         /// <summary>
         /// A readonly dictionary of collectables by group name.
@@ -27,7 +27,7 @@ namespace MPewsey.ManiaMap
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
         {
-            Groups = Groups ?? new DataContractDictionary<string, List<int>>();
+            Groups = Groups ?? new HashMap<string, List<int>>();
         }
 
         /// <inheritdoc/>
