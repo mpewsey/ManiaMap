@@ -38,7 +38,6 @@ var NAVTREE =
     [ "Layout Graph Selector Example", "index.html#autotoc_md13", null ],
     [ "Layout Graph Randomizer Example", "index.html#autotoc_md14", null ],
     [ "Generation Pipeline Example", "index.html#autotoc_md15", null ],
-    [ "Generation Logger Example", "index.html#autotoc_md16", null ],
     [ "Packages", "namespaces.html", [
       [ "Packages", "namespaces.html", "namespaces_dup" ],
       [ "Package Functions", "namespacemembers.html", [
@@ -70,7 +69,7 @@ var NAVTREEINDEX =
 "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_graph.html#a6c173aabb94b9db179b582e5ab5d1e36",
 "class_m_pewsey_1_1_mania_map_1_1_room.html#ab07159c21f0f8888c4e0e7abbd8c0457",
 "class_m_pewsey_1_1_mania_map_1_1_template_groups_entry.html#a0030479f196af22e67f4221f0dbc6d2c",
-"struct_m_pewsey_1_1_mania_map_1_1_door_pair.html#af11e5bd47b6277035fa1ce5fc7507ba9"
+"struct_m_pewsey_1_1_mania_map_1_1_drawing_1_1_padding.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

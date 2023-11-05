@@ -255,19 +255,6 @@ Generation Pipeline Example</h1>
 <div class="line"> </div>
 <div class="line">var results = pipeline.Run(args);</div>
 <div class="line">var layout = results.GetOutput&lt;Layout&gt;(&quot;Layout&quot;);</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md16"></a>
-Generation Logger Example</h1>
-<p >The generators include logging messages that can be subscribed to by adding a delegate to the <code>Logger</code>, as shown in the below example.</p>
-<div class="fragment"><div class="line">{Logger.cs} </div>
-<div class="line">// Have the messages printed to the console.</div>
-<div class="line">Logger.AddListener(Console.WriteLine);</div>
-<div class="line"> </div>
-<div class="line">// Or added to a list.</div>
-<div class="line">var messages = new List&lt;string&gt;();</div>
-<div class="line">Logger.AddListener(messages.Add);</div>
-<div class="line"> </div>
-<div class="line">// Make sure to have your objects unsubscribe from the event to prevent memory leaks.</div>
-<div class="line">Logger.RemoveListener(messages.Add);</div>
 </div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
