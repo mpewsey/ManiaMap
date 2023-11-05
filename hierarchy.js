@@ -34,14 +34,6 @@ var hierarchy =
       [ "MPewsey.ManiaMap.RoomPair", "struct_m_pewsey_1_1_mania_map_1_1_room_pair.html", null ],
       [ "MPewsey.ManiaMap.Uid", "struct_m_pewsey_1_1_mania_map_1_1_uid.html", null ]
     ] ],
-    [ "IDataContractValueDictionaryValue", null, [
-      [ "MPewsey.ManiaMap.DoorConnection", "class_m_pewsey_1_1_mania_map_1_1_door_connection.html", null ],
-      [ "MPewsey.ManiaMap.Graphs.LayoutEdge", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html", null ],
-      [ "MPewsey.ManiaMap.Graphs.LayoutNode", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_node.html", null ],
-      [ "MPewsey.ManiaMap.Room", "class_m_pewsey_1_1_mania_map_1_1_room.html", null ],
-      [ "MPewsey.ManiaMap.RoomState", "class_m_pewsey_1_1_mania_map_1_1_room_state.html", null ],
-      [ "MPewsey.ManiaMap.RoomTemplate", "class_m_pewsey_1_1_mania_map_1_1_room_template.html", null ]
-    ] ],
     [ "IEquatable", null, [
       [ "MPewsey.ManiaMap.Collectable", "struct_m_pewsey_1_1_mania_map_1_1_collectable.html", null ],
       [ "MPewsey.ManiaMap.Color4", "struct_m_pewsey_1_1_mania_map_1_1_color4.html", null ],
@@ -62,6 +54,14 @@ var hierarchy =
     [ "MPewsey.ManiaMap.IRoomSource", "interface_m_pewsey_1_1_mania_map_1_1_i_room_source.html", [
       [ "MPewsey.ManiaMap.Graphs.LayoutEdge", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html", null ],
       [ "MPewsey.ManiaMap.Graphs.LayoutNode", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_node.html", null ]
+    ] ],
+    [ "IValueHashMapEntry", null, [
+      [ "MPewsey.ManiaMap.DoorConnection", "class_m_pewsey_1_1_mania_map_1_1_door_connection.html", null ],
+      [ "MPewsey.ManiaMap.Graphs.LayoutEdge", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html", null ],
+      [ "MPewsey.ManiaMap.Graphs.LayoutNode", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_node.html", null ],
+      [ "MPewsey.ManiaMap.Room", "class_m_pewsey_1_1_mania_map_1_1_room.html", null ],
+      [ "MPewsey.ManiaMap.RoomState", "class_m_pewsey_1_1_mania_map_1_1_room_state.html", null ],
+      [ "MPewsey.ManiaMap.RoomTemplate", "class_m_pewsey_1_1_mania_map_1_1_room_template.html", null ]
     ] ],
     [ "MPewsey.ManiaMap.Layout", "class_m_pewsey_1_1_mania_map_1_1_layout.html", null ],
     [ "MPewsey.ManiaMap.Graphs.LayoutGraph", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_graph.html", null ],

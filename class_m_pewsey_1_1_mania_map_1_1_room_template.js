@@ -1,6 +1,6 @@
 var class_m_pewsey_1_1_mania_map_1_1_room_template =
 [
-    [ "RoomTemplate", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a1d8d8a6f85b61961395bab2fe032ba84", null ],
+    [ "RoomTemplate", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a3f2c626ef1a29ed99fc74aad43c95fff", null ],
     [ "RoomTemplate", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a10b10cf67db5261f235e42fd53e21b0e", null ],
     [ "AddCollectableSpot", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a062fc5adef304a007a08884edcacca7a", null ],
     [ "AddCollectableSpot", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#ace99129eaf0484d2a0905191783ce3fa", null ],
@@ -14,11 +14,11 @@ var class_m_pewsey_1_1_mania_map_1_1_room_template =
     [ "CellsRotated90", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a7a88de02b2a947a08d3af0cffac4d44f", null ],
     [ "CellValuesAreEqual", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a83ed90297ad1141b7575bea798775de6", null ],
     [ "CollectableSpotsAreValid", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#ab682bdae555c58457eab76eee52c97db", null ],
-    [ "CollectableSpotsMirroredHorizontally", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#ad0d8e66fac1b50d37143f061ccc9c225", null ],
-    [ "CollectableSpotsMirroredVertically", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#ab24fcb464c7affc5333164800d05f3a9", null ],
-    [ "CollectableSpotsRotated180", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a2f2927983a280aa1f6cbf00f9da40a84", null ],
-    [ "CollectableSpotsRotated270", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#afa2cc32e9d1a254b2bb189d711dfee7c", null ],
-    [ "CollectableSpotsRotated90", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#aa7c0610a4041307f125471de930be34f", null ],
+    [ "CollectableSpotsMirroredHorizontally", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#af986a39604177d4baf1c8ab89849992b", null ],
+    [ "CollectableSpotsMirroredVertically", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a7126ff594838c96936ff2e95a9a9c78b", null ],
+    [ "CollectableSpotsRotated180", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a0d9c0163b48281fe5b6702a67828d423", null ],
+    [ "CollectableSpotsRotated270", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a055b1954a33d1491bb9b3d2c8ae756fc", null ],
+    [ "CollectableSpotsRotated90", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a5aa3ac9be724ff0a8471f05baf46cc20", null ],
     [ "CollectableSpotValuesAreEqual", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#afc0dc7a798dbde9b16d5cd81dbd95cf5", null ],
     [ "Copy", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a3af220836feab125508910c58dad186e", null ],
     [ "CopyCells", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#aff84fc09ce9f0740b0456845baf38797", null ],
@@ -45,8 +45,8 @@ var class_m_pewsey_1_1_mania_map_1_1_room_template =
     [ "ValuesAreEqual", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#aa915d2d02c6e358df1df3f375bbca315", null ],
     [ "ValuesAreEqual", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a1aacbf34b2b20731c8d77da664b5d06a", null ],
     [ "Cells", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#affa7d3379fb478ac22833f4b3beda41f", null ],
-    [ "CollectableSpots", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a5caa1514f9a4844c6625f8f36da5b4bb", null ],
+    [ "CollectableSpots", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a9d279bff8e0c1e554aedd8c2d4449be9", null ],
     [ "Id", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#ab73713569a11fc7f754657d564ee5039", null ],
-    [ "Key", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#ace86de9058920ac52324274a0d895fea", null ],
+    [ "Key", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a97b0cb3901bf3f3a8196cdce9a1046a0", null ],
     [ "Name", "class_m_pewsey_1_1_mania_map_1_1_room_template.html#a648da978fb28c0cbeda81b08bc9c8422", null ]
 ];

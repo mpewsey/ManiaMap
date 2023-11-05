@@ -12,6 +12,6 @@ var class_m_pewsey_1_1_mania_map_1_1_template_groups =
     [ "ToString", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#ab6e2c0e3d8161e96ec7cf3301e97a62c", null ],
     [ "Validate", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#ac2d7db03138ae9238599ca9409372798", null ],
     [ "ValidateGroupName", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a3a1528bf66bd2d03155bbc1a0f3cb03f", null ],
-    [ "Groups", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#ac48ae347069e5ed42b9bb445e45f2bf0", null ],
+    [ "Groups", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#ad64c80ea6dda28577f97d2879b5fa5a3", null ],
     [ "GroupsDictionary", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#aaa8dc13f24c4d7d98bb805b23da33b1f", null ]
 ];

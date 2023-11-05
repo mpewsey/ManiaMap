@@ -1,6 +1,6 @@
 var class_m_pewsey_1_1_mania_map_1_1_samples_1_1_big_layout_sample =
 [
     [ "BigLayoutTemplateGroups", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_big_layout_sample.html#a0121c176b6e495ee8500b7bb5670e09c", null ],
-    [ "Generate", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_big_layout_sample.html#acb7bb4a86232cd0ab20a71d664ef91cb", null ],
-    [ "GenerateAsync", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_big_layout_sample.html#a690f222523a3a6d41b0e46cc47f9edc2", null ]
+    [ "Generate", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_big_layout_sample.html#a06a02b7ddc679a9afbfad89725254cc8", null ],
+    [ "GenerateAsync", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_big_layout_sample.html#ab7ed7c0fe8efa01a3fb8561d0cbf6393", null ]
 ];

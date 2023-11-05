@@ -7,6 +7,6 @@ var class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample =
     [ "LetterNTemplate", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a7c00bf01fd948b538a19f26ca2fc1504", null ],
     [ "LetterPTemplate", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#ae14b9dd0c813550808c7c0d997a923f4", null ],
     [ "LetterTemplateGroups", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a734422bcfe81434f67ad0baaca90deb3", null ],
-    [ "ManiaMapLayout", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a2428d71ce4ce9ec9fb258a389bc0e40e", null ],
+    [ "ManiaMapLayout", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a640c8b6c4f93afc5df7b03fd22cce46b", null ],
     [ "ManiaMapLayoutGraph", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a76a0a8f65c5bbc6bbfd509fb1c78e9d6", null ]
 ];

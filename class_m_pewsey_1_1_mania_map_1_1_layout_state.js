@@ -3,5 +3,5 @@ var class_m_pewsey_1_1_mania_map_1_1_layout_state =
     [ "LayoutState", "class_m_pewsey_1_1_mania_map_1_1_layout_state.html#af1f2983042d1e032384e2f9df9fde1a5", null ],
     [ "OnDeserialized", "class_m_pewsey_1_1_mania_map_1_1_layout_state.html#a8ca5458455b461db0d2d60c3c147096f", null ],
     [ "Id", "class_m_pewsey_1_1_mania_map_1_1_layout_state.html#aa4ff450b92ec93d43241833197f544f5", null ],
-    [ "RoomStates", "class_m_pewsey_1_1_mania_map_1_1_layout_state.html#a108217075ec03e78c7d1e31113da656b", null ]
+    [ "RoomStates", "class_m_pewsey_1_1_mania_map_1_1_layout_state.html#a902712bb4323d2488e82eca29943c1bb", null ]
 ];

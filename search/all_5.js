@@ -13,7 +13,7 @@ var searchData=
   ['findnextchain_10',['FindNextChain',['../class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_chain_decomposer.html#acb92418239f43c3f5f86a9be8e2a2e0e',1,'MPewsey::ManiaMap::Graphs::GraphChainDecomposer']]],
   ['findroomswithtag_11',['FindRoomsWithTag',['../class_m_pewsey_1_1_mania_map_1_1_layout.html#a35b43b5be98d997a2b97f12be91ab60f',1,'MPewsey.ManiaMap.Layout.FindRoomsWithTag(string tag)'],['../class_m_pewsey_1_1_mania_map_1_1_layout.html#ab3b8a7ad0e2a8f41de80d95fb7df0e91',1,'MPewsey.ManiaMap.Layout.FindRoomsWithTag(string tag, ref List&lt; Room &gt; results)']]],
   ['findroomwithtag_12',['FindRoomWithTag',['../class_m_pewsey_1_1_mania_map_1_1_layout.html#a9d28100d83c10f6d647f37c77b24b1b0',1,'MPewsey::ManiaMap::Layout']]],
-  ['flags_13',['Flags',['../class_m_pewsey_1_1_mania_map_1_1_room_state.html#ac78a104d70762f9a32f04bccacce5a98',1,'MPewsey::ManiaMap::RoomState']]],
+  ['flags_13',['Flags',['../class_m_pewsey_1_1_mania_map_1_1_room_state.html#aa33e4e0055390239ba2890d12cfe75c3',1,'MPewsey::ManiaMap::RoomState']]],
   ['formsequentialchains_14',['FormSequentialChains',['../class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_chain_decomposer.html#af4152e3cd8025cabcc7d120388ef784c',1,'MPewsey::ManiaMap::Graphs::GraphChainDecomposer']]],
   ['forwardfixed_15',['ForwardFixed',['../namespace_m_pewsey_1_1_mania_map.html#a9c2e1ae4c3e288513d42b9fd13ecc256a3f818ca47777d3ac857e2748324a2af1',1,'MPewsey::ManiaMap']]],
   ['forwardflexible_16',['ForwardFlexible',['../namespace_m_pewsey_1_1_mania_map.html#a9c2e1ae4c3e288513d42b9fd13ecc256a049c6256747642d78b1b83edd64fc39e',1,'MPewsey::ManiaMap']]],

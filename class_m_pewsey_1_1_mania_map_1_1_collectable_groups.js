@@ -6,6 +6,6 @@ var class_m_pewsey_1_1_mania_map_1_1_collectable_groups =
     [ "OnDeserialized", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#a7ca278b51ac25500884da662e319a709", null ],
     [ "ToString", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#a69052ee8edc1a87547e0080b75dcfb08", null ],
     [ "ValidateGroupName", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#a6192266af2b43e7e406be4899c3abea8", null ],
-    [ "Groups", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#a66ec3be408ce07a2f8daafc4f7d6f475", null ],
+    [ "Groups", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#a258b6fd5f6cc60db755dde0ac5122efe", null ],
     [ "GroupsDictionary", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#ac55d49ba3b2f1f75e704859b2085147b", null ]
 ];
