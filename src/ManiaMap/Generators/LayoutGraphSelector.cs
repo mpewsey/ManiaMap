@@ -13,6 +13,11 @@ namespace MPewsey.ManiaMap.Generators
     public class LayoutGraphSelector : IPipelineStep
     {
         /// <summary>
+        /// A delegate returning a LayoutGraph.
+        /// </summary>
+        public delegate LayoutGraph LayoutGraphDelegate();
+        
+        /// <summary>
         /// Draws a random layout graph and adds a copy to the results output dictionary.
         /// 
         /// The following arguments are required:
@@ -54,7 +59,7 @@ namespace MPewsey.ManiaMap.Generators
         /// <param name="functions">A list of functions returning a layout graph.</param>
         /// <param name="randomSeed">The random seed.</param>
         /// <param name="logger">The logging action. Ignored if null.</param>
-        public LayoutGraph DrawSelection(IList<Func<LayoutGraph>> functions, RandomSeed randomSeed, Action<string> logger = null)
+        public LayoutGraph DrawSelection(IList<LayoutGraphDelegate> functions, RandomSeed randomSeed, Action<string> logger = null)
         {
             logger?.Invoke("[Layout Graph Selector] Applying layout graph delegate list selector...");
             var index = randomSeed.Next(0, functions.Count);
@@ -78,7 +83,7 @@ namespace MPewsey.ManiaMap.Generators
             {
                 case IList<LayoutGraph> list:
                     return DrawSelection(list, randomSeed, logger);
-                case IList<Func<LayoutGraph>> functions:
+                case IList<LayoutGraphDelegate> functions:
                     return DrawSelection(functions, randomSeed, logger);
                 default:
                     throw new ArgumentException($"Unhandled type for `graphs`: {graphs.GetType()}.");
