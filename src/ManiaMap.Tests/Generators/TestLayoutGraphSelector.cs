@@ -41,7 +41,7 @@ namespace MPewsey.ManiaMap.Generators.Tests
         {
             var seed = new RandomSeed(12345);
 
-            var graphs = new List<Func<LayoutGraph>>()
+            var graphs = new List<LayoutGraphSelector.LayoutGraphDelegate>()
             {
                 () => new LayoutGraph(1, "Graph1"),
                 () => new LayoutGraph(2, "Graph2"),
