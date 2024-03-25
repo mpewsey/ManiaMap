@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"class_m_pewsey_1_1_mania_map_1_1_room.html#aaf91959765ec448b2f44cf326f3c004d":[8,0,0,0,22,7],
+"class_m_pewsey_1_1_mania_map_1_1_room.html#aaf91959765ec448b2f44cf326f3c004d":[9,0,0,0,22,7],
 "class_m_pewsey_1_1_mania_map_1_1_room.html#ab07159c21f0f8888c4e0e7abbd8c0457":[8,0,0,0,22,10],
 "class_m_pewsey_1_1_mania_map_1_1_room.html#ab07159c21f0f8888c4e0e7abbd8c0457":[9,0,0,0,22,10],
 "class_m_pewsey_1_1_mania_map_1_1_room.html#abbd8d893103a3425a4b332f737e26949":[8,0,0,0,22,13],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#ad64c80ea6dda28577f97d2879b5fa5a3":[9,0,0,0,26,12],
 "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#ad64c80ea6dda28577f97d2879b5fa5a3":[8,0,0,0,26,12],
 "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#adf189af31216557bf6a043c60e501fda":[9,0,0,0,26,8],
-"class_m_pewsey_1_1_mania_map_1_1_template_groups.html#adf189af31216557bf6a043c60e501fda":[8,0,0,0,26,8],
-"class_m_pewsey_1_1_mania_map_1_1_template_groups_entry.html":[9,0,0,0,27],
-"class_m_pewsey_1_1_mania_map_1_1_template_groups_entry.html":[8,0,0,0,27]
+"class_m_pewsey_1_1_mania_map_1_1_template_groups.html#adf189af31216557bf6a043c60e501fda":[8,0,0,0,26,8]
 };
