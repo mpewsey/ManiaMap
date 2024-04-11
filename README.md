@@ -3,7 +3,7 @@
 [![Tests](https://github.com/mpewsey/ManiaMap/actions/workflows/tests.yml/badge.svg?event=push)](https://github.com/mpewsey/ManiaMap/actions/workflows/tests.yml)
 [![Docs](https://github.com/mpewsey/ManiaMap/actions/workflows/docs.yml/badge.svg?event=push)](https://mpewsey.github.io/ManiaMap)
 [![codecov](https://codecov.io/gh/mpewsey/ManiaMap/branch/main/graph/badge.svg?token=Q1LDU83FAQ)](https://codecov.io/gh/mpewsey/ManiaMap)
-![.NET](https://img.shields.io/badge/.NET-6.0-blue)
+![.NET Standard](https://img.shields.io/badge/.NET%20Standard-2.0-blue)
 [![NuGet](https://img.shields.io/nuget/v/MPewsey.ManiaMap?label=NuGet)](https://www.nuget.org/packages/MPewsey.ManiaMap/)
 
 ## About
