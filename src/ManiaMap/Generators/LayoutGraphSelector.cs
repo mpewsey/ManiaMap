@@ -16,7 +16,7 @@ namespace MPewsey.ManiaMap.Generators
         /// A delegate returning a LayoutGraph.
         /// </summary>
         public delegate LayoutGraph LayoutGraphDelegate();
-        
+
         /// <summary>
         /// Draws a random layout graph and adds a copy to the results output dictionary.
         /// 

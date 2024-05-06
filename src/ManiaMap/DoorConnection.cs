@@ -97,5 +97,19 @@ namespace MPewsey.ManiaMap
                 return ToDoor;
             return null;
         }
+
+        /// <summary>
+        /// Returns the ID of the connecting room, e.g. the "to room" if the "from room" ID is specified and vice versa.
+        /// If the specified room ID does not exist in the connection, returns Uid(-1, -1, -1).
+        /// </summary>
+        /// <param name="roomId">The room ID.</param>
+        public Uid GetConnectingRoom(Uid roomId)
+        {
+            if (roomId == FromRoom)
+                return ToRoom;
+            if (roomId == ToRoom)
+                return FromRoom;
+            return new Uid(-1, -1, -1);
+        }
     }
 }
