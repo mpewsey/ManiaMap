@@ -4,6 +4,7 @@ using MPewsey.ManiaMap.Exceptions;
 using MPewsey.ManiaMap.Graphs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 
 namespace MPewsey.ManiaMap
@@ -467,7 +468,7 @@ namespace MPewsey.ManiaMap
         public List<Room> FindRoomsWithTag(string tag)
         {
             var result = new List<Room>();
-            FindRoomsWithTag(tag, ref result);
+            FindRoomsWithTag(tag, result);
             return result;
         }
 
@@ -476,7 +477,7 @@ namespace MPewsey.ManiaMap
         /// </summary>
         /// <param name="tag">The tag.</param>
         /// <param name="results">The referenced results list.</param>
-        public void FindRoomsWithTag(string tag, ref List<Room> results)
+        public void FindRoomsWithTag(string tag, List<Room> results)
         {
             results.Clear();
 
@@ -485,6 +486,23 @@ namespace MPewsey.ManiaMap
                 if (room.Tags.Contains(tag))
                     results.Add(room);
             }
+        }
+
+        /// <summary>
+        /// Returns an array of sorted layer (Z) coordinates in the room.
+        /// </summary>
+        public int[] GetLayers()
+        {
+            var set = new HashSet<int>();
+
+            foreach (var room in Rooms.Values)
+            {
+                set.Add(room.Position.Z);
+            }
+
+            var result = set.ToArray();
+            Array.Sort(result);
+            return result;
         }
     }
 }

@@ -241,5 +241,23 @@ namespace MPewsey.ManiaMap.Tests
             Assert.AreEqual(1, rooms.Count);
             Assert.AreEqual(new Uid(1), rooms[0].Id);
         }
+
+        [TestMethod]
+        public void TestGetLayers()
+        {
+            var graph = Samples.GraphLibrary.StackedLoopGraph();
+
+            var templateGroups = new TemplateGroups();
+            templateGroups.Add("Default", Samples.TemplateLibrary.Miscellaneous.HyperSquareTemplate());
+
+            var generator = new LayoutGenerator();
+            var random = new RandomSeed(12345);
+            var layout = generator.Generate(1, graph, templateGroups, random);
+
+            Assert.IsNotNull(layout);
+
+            var expected = new int[] { -1, 0, 2 };
+            CollectionAssert.AreEqual(layout.GetLayers(), expected);
+        }
     }
 }
