@@ -55,7 +55,7 @@ var cells = new Cell[,]
     { f, g, h },
 };
 
-var roomTemplate = new RoomTemplate(id: 1, name: "Square", cells);
+var roomTemplate = new RoomTemplate(id: 1, name: "Square", cells: cells);
 ```
 
 ### Step 2: Assign Room Templates to Template Groups
