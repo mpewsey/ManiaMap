@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"struct_m_pewsey_1_1_mania_map_1_1_door_pair.html#ae72408d4a7e297fbcd17e74660451571":[9,0,0,0,15,1],
+"struct_m_pewsey_1_1_mania_map_1_1_door_pair.html#ae72408d4a7e297fbcd17e74660451571":[8,0,0,0,15,1],
 "struct_m_pewsey_1_1_mania_map_1_1_door_pair.html#aee3a2bb43cd949e7ff1662c8c586ab29":[9,0,0,0,15,8],
 "struct_m_pewsey_1_1_mania_map_1_1_door_pair.html#aee3a2bb43cd949e7ff1662c8c586ab29":[8,0,0,0,15,8],
 "struct_m_pewsey_1_1_mania_map_1_1_door_pair.html#aeeb6bc63a766a9de5a3efc4b04b1ca0d":[8,0,0,0,15,3],

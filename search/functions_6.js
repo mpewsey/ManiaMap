@@ -31,13 +31,14 @@ var searchData=
   ['getnodevariationsgroup_28',['GetNodeVariationsGroup',['../class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_graph.html#aae532cb1b14a9b7d47de711b625c4ca3',1,'MPewsey::ManiaMap::Graphs::LayoutGraph']]],
   ['getroomconnections_29',['GetRoomConnections',['../class_m_pewsey_1_1_mania_map_1_1_layout.html#ab8a16a014b62c8239585d215139d3202',1,'MPewsey::ManiaMap::Layout']]],
   ['getroomdoors_30',['GetRoomDoors',['../class_m_pewsey_1_1_mania_map_1_1_layout.html#ab4db5d2f41d6b13468432a3e10dbe149',1,'MPewsey::ManiaMap::Layout']]],
-  ['gettemplatecount_31',['GetTemplateCount',['../class_m_pewsey_1_1_mania_map_1_1_layout.html#afdeed84a9b51358af72bcdbd60ffdb84',1,'MPewsey::ManiaMap::Layout']]],
-  ['gettemplategroupentries_32',['GetTemplateGroupEntries',['../class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a1c6b62f72ff33d68ff02862e3e5e656b',1,'MPewsey::ManiaMap::Generators::LayoutGenerator']]],
-  ['gettile_33',['GetTile',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ab1b691fb311e432f5e7eb287aa92af8c',1,'MPewsey::ManiaMap::Drawing::LayoutMap']]],
-  ['gettiles_34',['GetTiles',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_map_tiles.html#a7b4087bf9855ba56afd78126310cfb6f',1,'MPewsey::ManiaMap::Drawing::MapTiles']]],
-  ['getuniquecycles_35',['GetUniqueCycles',['../class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_cycle_decomposer.html#a5141945b080406496337fe027d02e753',1,'MPewsey::ManiaMap::Graphs::GraphCycleDecomposer']]],
-  ['getwalltiletype_36',['GetWallTileType',['../class_m_pewsey_1_1_mania_map_1_1_map_tile_type.html#a82cc0555856eb07f1e58e110adbc0d95',1,'MPewsey::ManiaMap::MapTileType']]],
-  ['getweight_37',['GetWeight',['../class_m_pewsey_1_1_mania_map_1_1_generators_1_1_collectable_spot_weight.html#aa79346c423b95ca6d55253c878a1d137',1,'MPewsey::ManiaMap::Generators::CollectableSpotWeight']]],
-  ['getweights_38',['GetWeights',['../class_m_pewsey_1_1_mania_map_1_1_generators_1_1_collectable_generator.html#ac58baab22723cb40272d1f6786966116',1,'MPewsey::ManiaMap::Generators::CollectableGenerator']]],
-  ['graphnotfullyconnectedexception_39',['GraphNotFullyConnectedException',['../class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_graph_not_fully_connected_exception.html#ad7350e169d4f3da8dd150a61a54813fc',1,'MPewsey::ManiaMap::Exceptions::GraphNotFullyConnectedException']]]
+  ['getroomsbylayer_31',['GetRoomsByLayer',['../class_m_pewsey_1_1_mania_map_1_1_layout.html#a1f07b048a7bc959ebc38e58ed275ba98',1,'MPewsey::ManiaMap::Layout']]],
+  ['gettemplatecount_32',['GetTemplateCount',['../class_m_pewsey_1_1_mania_map_1_1_layout.html#afdeed84a9b51358af72bcdbd60ffdb84',1,'MPewsey::ManiaMap::Layout']]],
+  ['gettemplategroupentries_33',['GetTemplateGroupEntries',['../class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a1c6b62f72ff33d68ff02862e3e5e656b',1,'MPewsey::ManiaMap::Generators::LayoutGenerator']]],
+  ['gettile_34',['GetTile',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ab1b691fb311e432f5e7eb287aa92af8c',1,'MPewsey::ManiaMap::Drawing::LayoutMap']]],
+  ['gettiles_35',['GetTiles',['../class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_map_tiles.html#a7b4087bf9855ba56afd78126310cfb6f',1,'MPewsey::ManiaMap::Drawing::MapTiles']]],
+  ['getuniquecycles_36',['GetUniqueCycles',['../class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_cycle_decomposer.html#a5141945b080406496337fe027d02e753',1,'MPewsey::ManiaMap::Graphs::GraphCycleDecomposer']]],
+  ['getwalltiletype_37',['GetWallTileType',['../class_m_pewsey_1_1_mania_map_1_1_map_tile_type.html#a82cc0555856eb07f1e58e110adbc0d95',1,'MPewsey::ManiaMap::MapTileType']]],
+  ['getweight_38',['GetWeight',['../class_m_pewsey_1_1_mania_map_1_1_generators_1_1_collectable_spot_weight.html#aa79346c423b95ca6d55253c878a1d137',1,'MPewsey::ManiaMap::Generators::CollectableSpotWeight']]],
+  ['getweights_39',['GetWeights',['../class_m_pewsey_1_1_mania_map_1_1_generators_1_1_collectable_generator.html#ac58baab22723cb40272d1f6786966116',1,'MPewsey::ManiaMap::Generators::CollectableGenerator']]],
+  ['graphnotfullyconnectedexception_40',['GraphNotFullyConnectedException',['../class_m_pewsey_1_1_mania_map_1_1_exceptions_1_1_graph_not_fully_connected_exception.html#ad7350e169d4f3da8dd150a61a54813fc',1,'MPewsey::ManiaMap::Exceptions::GraphNotFullyConnectedException']]]
 ];

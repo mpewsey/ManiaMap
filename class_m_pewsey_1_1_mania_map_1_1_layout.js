@@ -13,6 +13,7 @@ var class_m_pewsey_1_1_mania_map_1_1_layout =
     [ "GetLayers", "class_m_pewsey_1_1_mania_map_1_1_layout.html#afc03b627d4c625b675f26ad9d962f511", null ],
     [ "GetRoomConnections", "class_m_pewsey_1_1_mania_map_1_1_layout.html#ab8a16a014b62c8239585d215139d3202", null ],
     [ "GetRoomDoors", "class_m_pewsey_1_1_mania_map_1_1_layout.html#ab4db5d2f41d6b13468432a3e10dbe149", null ],
+    [ "GetRoomsByLayer", "class_m_pewsey_1_1_mania_map_1_1_layout.html#a1f07b048a7bc959ebc38e58ed275ba98", null ],
     [ "GetTemplateCount", "class_m_pewsey_1_1_mania_map_1_1_layout.html#afdeed84a9b51358af72bcdbd60ffdb84", null ],
     [ "IncreaseTemplateCount", "class_m_pewsey_1_1_mania_map_1_1_layout.html#ac966a689640aad6c884e638d6d544428", null ],
     [ "Intersects", "class_m_pewsey_1_1_mania_map_1_1_layout.html#a3efeeaa130b8d06671bd20861162dd12", null ],
