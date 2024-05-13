@@ -504,5 +504,26 @@ namespace MPewsey.ManiaMap
             Array.Sort(result);
             return result;
         }
+
+        /// <summary>
+        /// Returns a dictionary of rooms by layer (Z) coordinate.
+        /// </summary>
+        public Dictionary<int, List<Room>> GetRoomsByLayer()
+        {
+            var result = new Dictionary<int, List<Room>>();
+
+            foreach (var room in Rooms.Values)
+            {
+                if (!result.TryGetValue(room.Position.Z, out var rooms))
+                {
+                    rooms = new List<Room>();
+                    result.Add(room.Position.Z, rooms);
+                }
+
+                rooms.Add(room);
+            }
+
+            return result;
+        }
     }
 }
