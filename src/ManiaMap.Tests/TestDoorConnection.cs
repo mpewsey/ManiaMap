@@ -53,5 +53,22 @@ namespace MPewsey.ManiaMap.Tests
                 Assert.AreEqual(connection.GetConnectingRoom(new Uid(int.MaxValue)), new Uid(-1, -1, -1));
             }
         }
+
+        [TestMethod]
+        public void TestContainsRoom()
+        {
+            var results = Samples.BigLayoutSample.Generate(12345, Console.WriteLine);
+            Assert.IsTrue(results.Success);
+            var layout = results.GetOutput<Layout>("Layout");
+
+            foreach (var connection in layout.DoorConnections.Values)
+            {
+                var toRoom = connection.ToRoom;
+                var fromRoom = connection.FromRoom;
+                Assert.IsTrue(connection.ContainsRoom(toRoom));
+                Assert.IsTrue(connection.ContainsRoom(fromRoom));
+                Assert.IsFalse(connection.ContainsRoom(new Uid(-1, -1, -1)));
+            }
+        }
     }
 }

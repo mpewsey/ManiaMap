@@ -111,5 +111,14 @@ namespace MPewsey.ManiaMap
                 return FromRoom;
             return new Uid(-1, -1, -1);
         }
+
+        /// <summary>
+        /// Returns true if the door connections "from room" or "to room" matches the specified room ID.
+        /// </summary>
+        /// <param name="roomId">The room ID.</param>
+        public bool ContainsRoom(Uid roomId)
+        {
+            return roomId == FromRoom || roomId == ToRoom;
+        }
     }
 }
