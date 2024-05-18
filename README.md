@@ -32,9 +32,9 @@ The following subsections outline how to use the `LayoutGenerator` class to gene
 
 ### Step 1: Create Room Templates
 
-The generator creates rooms by pulling from user-defined room templates. Room templates consist of a 2D array of cells, that may be empty (a null value) or filled. Each cell includes the possible door connections (north, south, east, west, top, and/or bottom) that can be made from that cell to other rooms. Furthermore, each door includes a door code, which requires a match in another template for a connection to be made, as well as a traversal type, such the door being one-way or two-way.
+The generator creates rooms by pulling from user-defined room templates. Room templates consist of a 2D array of cells, that may be empty (a null value) or filled. Each cell includes the possible door connections (north, south, east, west, top, and/or bottom) that can be made from that cell to other rooms.
 
-Depending on how much variety you want to be included in your layout, one or more templates are required by the generator. The following code provides an example for the creation of a simple 3x3 square room template. In it, a series of cells are created and have doors set to them via directional characters ("N" = North, "S" = South, etc.). The cells are then assigned to a 2D array to create the geometry of the layout. Finally, these cells are passed to the `RoomTemplate` initializer, along with a unique ID, to create the room template.
+The following code provides an example for the creation of a simple 3x3 square room template. In it, a series of cells are created and have doors set to them via directional characters ("N" = North, "S" = South, etc.). The cells are then assigned to a 2D array to create the geometry of the layout. Finally, these cells are passed to the `RoomTemplate` initializer, along with a unique ID, to create the room template.
 
 ```RoomTemplate.cs
 var o = Cell.New;
@@ -68,9 +68,11 @@ templateGroups.Add("Default", roomTemplate);
 
 ### Step 3: Create a Layout Graph
 
-To provide a designed feel to generated layouts, the generator uses a room layout graph as the basis for generating layouts. The layout graph consists of nodes, representing rooms, and edges, representing door connections between rooms. Ultimately, the layout graph contains information to help guide the features of a room layout. Each graph element can be assigned one or more room template groups (created in Step 2) from which room templates can be drawn for that location. Z (layer) values can also be assigned to elements to create a multi-level room layout. In addition, properties such as names and colors can be assigned that will be passed on to the generated rooms, allowing for their use elsewhere in a game or other application.
+To provide a designed feel to generated layouts, the generator uses a room layout graph as the basis for generating layouts. The layout graph consists of nodes, representing rooms, and edges, representing door connections between rooms.
 
-In the below example, the graph shown in the image is created by adding edges to a graph. In the process, the nodes, representing rooms, are automatically created. Afterwards, the code loops over all of the created nodes and assigns a "Default" template group to them, from which room templates will be drawn by the generator.
+Each graph element can be assigned one or more room template groups (created in Step 2) from which room templates can be drawn for that location. Z (layer) values can also be assigned to elements to create a multi-level room layout.
+
+In the below example, the graph shown in the image is created by adding edges to a graph. In the process, the connecting nodes are automatically created. Afterwards, the code loops over all created nodes and assigns the "Default" template group name to them.
 
 ```LayoutGraph.cs
 var graph = new LayoutGraph(id: 1, name: "ExampleGraph");
@@ -169,8 +171,8 @@ var graphVariation = randomizer.RandomizeGraph(graph, seed);
 The generation pipeline provides a way for multiple generation steps to be chained together. This is often easier than making manual calls to each generation step.
 
 ```GeneratorPipeline.cs
-// Create a dictionary of arguments to be passed to each pipeline step.
-var args = new Dictionary<string, object>
+// Create a dictionary of inputs to be passed to each pipeline step.
+var inputs = new Dictionary<string, object>
 {
     { "LayoutId", 1 },
     { "LayoutGraph", graph },
@@ -185,6 +187,6 @@ var pipeline = PipelineBuilder.CreateDefaultPipeline();
 // Or create your own
 pipeline = new Pipeline(new LayoutGenerator(), new CollectableGenerator());
 
-var results = pipeline.Run(args);
+var results = pipeline.Run(inputs);
 var layout = results.GetOutput<Layout>("Layout");
 ```
