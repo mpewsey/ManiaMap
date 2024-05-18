@@ -125,8 +125,8 @@ Layout Generator Example</h1>
 <p >The following subsections outline how to use the <code>LayoutGenerator</code> class to generate a room layout.</p>
 <h2><a class="anchor" id="autotoc_md8"></a>
 Step 1: Create Room Templates</h2>
-<p >The generator creates rooms by pulling from user-defined room templates. Room templates consist of a 2D array of cells, that may be empty (a null value) or filled. Each cell includes the possible door connections (north, south, east, west, top, and/or bottom) that can be made from that cell to other rooms. Furthermore, each door includes a door code, which requires a match in another template for a connection to be made, as well as a traversal type, such the door being one-way or two-way.</p>
-<p >Depending on how much variety you want to be included in your layout, one or more templates are required by the generator. The following code provides an example for the creation of a simple 3x3 square room template. In it, a series of cells are created and have doors set to them via directional characters ("N" = North, "S" = South, etc.). The cells are then assigned to a 2D array to create the geometry of the layout. Finally, these cells are passed to the <code>RoomTemplate</code> initializer, along with a unique ID, to create the room template.</p>
+<p >The generator creates rooms by pulling from user-defined room templates. Room templates consist of a 2D array of cells, that may be empty (a null value) or filled. Each cell includes the possible door connections (north, south, east, west, top, and/or bottom) that can be made from that cell to other rooms.</p>
+<p >The following code provides an example for the creation of a simple 3x3 square room template. In it, a series of cells are created and have doors set to them via directional characters ("N" = North, "S" = South, etc.). The cells are then assigned to a 2D array to create the geometry of the layout. Finally, these cells are passed to the <code>RoomTemplate</code> initializer, along with a unique ID, to create the room template.</p>
 <div class="fragment"><div class="line">{RoomTemplate.cs} </div>
 <div class="line">var o = Cell.New;</div>
 <div class="line">var a = Cell.New.SetDoors(&quot;WN&quot;, Door.TwoWay);</div>
@@ -154,8 +154,9 @@ Step 2: Assign Room Templates to Template Groups</h2>
 <div class="line">templateGroups.Add(&quot;Default&quot;, roomTemplate);</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md10"></a>
 Step 3: Create a Layout Graph</h2>
-<p >To provide a designed feel to generated layouts, the generator uses a room layout graph as the basis for generating layouts. The layout graph consists of nodes, representing rooms, and edges, representing door connections between rooms. Ultimately, the layout graph contains information to help guide the features of a room layout. Each graph element can be assigned one or more room template groups (created in Step 2) from which room templates can be drawn for that location. Z (layer) values can also be assigned to elements to create a multi-level room layout. In addition, properties such as names and colors can be assigned that will be passed on to the generated rooms, allowing for their use elsewhere in a game or other application.</p>
-<p >In the below example, the graph shown in the image is created by adding edges to a graph. In the process, the nodes, representing rooms, are automatically created. Afterwards, the code loops over all of the created nodes and assigns a "Default" template group to them, from which room templates will be drawn by the generator.</p>
+<p >To provide a designed feel to generated layouts, the generator uses a room layout graph as the basis for generating layouts. The layout graph consists of nodes, representing rooms, and edges, representing door connections between rooms.</p>
+<p >Each graph element can be assigned one or more room template groups (created in Step 2) from which room templates can be drawn for that location. Z (layer) values can also be assigned to elements to create a multi-level room layout.</p>
+<p >In the below example, the graph shown in the image is created by adding edges to a graph. In the process, the connecting nodes are automatically created. Afterwards, the code loops over all created nodes and assigns the "Default" template group name to them.</p>
 <div class="fragment"><div class="line">{LayoutGraph.cs} </div>
 <div class="line">var graph = new LayoutGraph(id: 1, name: &quot;ExampleGraph&quot;);</div>
 <div class="line"> </div>
@@ -236,8 +237,8 @@ Layout Graph Randomizer Example</h1>
 Generation Pipeline Example</h1>
 <p >The generation pipeline provides a way for multiple generation steps to be chained together. This is often easier than making manual calls to each generation step.</p>
 <div class="fragment"><div class="line">{GeneratorPipeline.cs} </div>
-<div class="line">// Create a dictionary of arguments to be passed to each pipeline step.</div>
-<div class="line">var args = new Dictionary&lt;string, object&gt;</div>
+<div class="line">// Create a dictionary of inputs to be passed to each pipeline step.</div>
+<div class="line">var inputs = new Dictionary&lt;string, object&gt;</div>
 <div class="line">{</div>
 <div class="line">    { &quot;LayoutId&quot;, 1 },</div>
 <div class="line">    { &quot;LayoutGraph&quot;, graph },</div>
@@ -252,7 +253,7 @@ Generation Pipeline Example</h1>
 <div class="line">// Or create your own</div>
 <div class="line">pipeline = new Pipeline(new LayoutGenerator(), new CollectableGenerator());</div>
 <div class="line"> </div>
-<div class="line">var results = pipeline.Run(args);</div>
+<div class="line">var results = pipeline.Run(inputs);</div>
 <div class="line">var layout = results.GetOutput&lt;Layout&gt;(&quot;Layout&quot;);</div>
 </div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
