@@ -17,7 +17,7 @@ on:
     - '.github/workflows/**'
 
 jobs:
-  build:
+  unit-tests:
 
     strategy:
       matrix:
