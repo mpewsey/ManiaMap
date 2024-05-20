@@ -24,6 +24,7 @@ This package allows for the creation of procedurally generated metroidvania styl
 
 ## Game Engine Support
 
+* Godot: [ManiaMap.Godot](https://github.com/mpewsey/ManiaMap.Godot)
 * Unity: [ManiaMap.Unity](https://github.com/mpewsey/ManiaMap.Unity)
 
 ## Layout Generator Example
