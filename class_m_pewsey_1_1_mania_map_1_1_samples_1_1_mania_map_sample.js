@@ -1,12 +1,12 @@
 var class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample =
 [
-    [ "LetterATemplate", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a6a26308de2f3bee86ee2581c452955c4", null ],
-    [ "LetterITemplate", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a282a26738aaec20cf0430016cb8700ed", null ],
-    [ "LetterM1Template", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a73e599dd3ea9a2697baf83aab02b8938", null ],
-    [ "LetterM2Template", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a244cc19d0b05cac21246565990ae8e2e", null ],
-    [ "LetterNTemplate", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a7c00bf01fd948b538a19f26ca2fc1504", null ],
-    [ "LetterPTemplate", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#ae14b9dd0c813550808c7c0d997a923f4", null ],
-    [ "LetterTemplateGroups", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a734422bcfe81434f67ad0baaca90deb3", null ],
-    [ "ManiaMapLayout", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a640c8b6c4f93afc5df7b03fd22cce46b", null ],
-    [ "ManiaMapLayoutGraph", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a76a0a8f65c5bbc6bbfd509fb1c78e9d6", null ]
+    [ "LetterATemplate", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#add57f81c7494550a32465979d4da0b31", null ],
+    [ "LetterITemplate", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a08bc11daec55d919008ee0e9c4f8009f", null ],
+    [ "LetterM1Template", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a9e344801ca17d244a83f21173a865d8a", null ],
+    [ "LetterM2Template", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#aa858c41f92b864ffb01f9e6944c5de0a", null ],
+    [ "LetterNTemplate", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a8b3b00d15e3b0ccc0fd3f138a3d2f663", null ],
+    [ "LetterPTemplate", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#aa5d51714e5acd0cf92bcfeb0ca563770", null ],
+    [ "LetterTemplateGroups", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a25dc569fd3238d869b2b8450e1c09bc3", null ],
+    [ "ManiaMapLayout", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#ae1be02d311a2296220f4e9353a550c9d", null ],
+    [ "ManiaMapLayoutGraph", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_mania_map_sample.html#a0ecad109d21048c653f5558175a2311e", null ]
 ];

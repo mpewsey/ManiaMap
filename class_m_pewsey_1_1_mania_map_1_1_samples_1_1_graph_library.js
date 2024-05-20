@@ -1,9 +1,9 @@
 var class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library =
 [
-    [ "BigGraph", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#a390075d9339df2ab15fa75722d475c6b", null ],
-    [ "CrossGraph", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#aa491e8d1bd3c0d2d02d7d46efaaeaa48", null ],
-    [ "DirectedRingGraph", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#a79f30c696b05ea5d6272b70135c36fcb", null ],
-    [ "GeekGraph", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#a4ff46332826a18c702a804721e5c46b7", null ],
-    [ "LoopGraph", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#a06206416ebb982056e107e93b28c762e", null ],
-    [ "StackedLoopGraph", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#a4cce06cc9ae25476b64797837a752c17", null ]
+    [ "BigGraph", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#adac45c6acb2b45fdff6c2a0fce27fbcc", null ],
+    [ "CrossGraph", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#abe7aba53eae41b95f122de1ca0a5fd3d", null ],
+    [ "DirectedRingGraph", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#aafadf4065d91d4953ccd71687c0339ae", null ],
+    [ "GeekGraph", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#a9979dc9c9d18c78ceb5e71e07820b76c", null ],
+    [ "LoopGraph", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#afda21575cd96bf6140c6979890a03588", null ],
+    [ "StackedLoopGraph", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_graph_library.html#a40f3762bf17e56349bbfd23c0b57f893", null ]
 ];

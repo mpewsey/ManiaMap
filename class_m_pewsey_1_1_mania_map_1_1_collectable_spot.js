@@ -1,16 +1,16 @@
 var class_m_pewsey_1_1_mania_map_1_1_collectable_spot =
 [
-    [ "CollectableSpot", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a70feffe5b874f7aa9236cee5e9865b61", null ],
-    [ "CollectableSpot", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a7e4b796c6f078d788e0d413209c91f0a", null ],
-    [ "Copy", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a4198aa9398bf2c372e1e2a06721ccca8", null ],
-    [ "IsValid", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#aa67968e0857f2c8e5e3609920b0d5c34", null ],
-    [ "ToString", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a111fd7afee30dce45278a5528bb721c6", null ],
-    [ "Validate", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a177f40fcab9ae26072eb47c8aeb991e9", null ],
-    [ "ValidateGroupName", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#ae3f5001d217f4ca7210442d04b21f155", null ],
-    [ "ValidatePosition", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#ac222c6518a2a7c1f44ea27566e2321de", null ],
-    [ "ValuesAreEqual", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#ad9afbe50ee898e64b8bef4e430320d33", null ],
-    [ "ValuesAreEqual", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a391b4c280f59b789a78bb08adfd767fb", null ],
-    [ "Group", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a9c2acb46217c7b7a5953c1009d0a9bcb", null ],
-    [ "Position", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a10d39764b5b3c7793f7e075aa0ae5073", null ],
-    [ "Weight", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a49f53be367065dda3152118d76b28f98", null ]
+    [ "CollectableSpot", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a809512311a19435c19eab6140b109e50", null ],
+    [ "CollectableSpot", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#ac82fd66b009749c8d064b239d0ecdce4", null ],
+    [ "Copy", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#ad5cbb706729d00a272143f6e3fefe0d6", null ],
+    [ "IsValid", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a25d02268323ea80e219f90c6dec12b48", null ],
+    [ "ToString", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#aa73e7c4dd1df5fd5fbf81c7764ee1533", null ],
+    [ "Validate", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a2de8554c525290d1014d62ff83878c0c", null ],
+    [ "ValidateGroupName", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a49504706bbe6d18eae4677740aec7072", null ],
+    [ "ValidatePosition", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#aa371830916ff59bc2b2836a8db4e7877", null ],
+    [ "ValuesAreEqual", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#afaa267750b73825f62d0ef43d2ce2704", null ],
+    [ "ValuesAreEqual", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a02f4532886dc329eea96abf855835b0a", null ],
+    [ "Group", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a3733c9212b406f4757f3a82f255e91f1", null ],
+    [ "Position", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#ab2df100bd3b71c0f52abbfa9c005c37f", null ],
+    [ "Weight", "class_m_pewsey_1_1_mania_map_1_1_collectable_spot.html#a02785bbeff9aeb714bad4ab67114f9a6", null ]
 ];

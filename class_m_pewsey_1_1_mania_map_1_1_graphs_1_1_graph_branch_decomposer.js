@@ -1,13 +1,13 @@
 var class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer =
 [
-    [ "AddParentsToBranch", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html#a0701b68672ea5141dc21076ca4af4092", null ],
-    [ "BranchSearch", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html#af97ddcd47a233ec2c7333d5f55db29db", null ],
-    [ "FindBranches", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html#a10f2cdab304e0ea4249f40237bb744d2", null ],
-    [ "Initialize", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html#a94773dd56be29803bc067aa1f100082d", null ],
-    [ "MarkTrunk", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html#a375706629699942a1ad8856e3d786327", null ],
-    [ "MaxNeighborNode", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html#a3b3ae24a413d1c5879387cdf5edda71b", null ],
-    [ "Branches", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html#a816fd762b238804b57287f7555c19528", null ],
-    [ "Marked", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html#ae3bd5c6a1d9220e3b5a135c5a12cbe0c", null ],
-    [ "Neighbors", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html#afcfb3fb91a889e00c1b1ca110cbadbd9", null ],
-    [ "Parents", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html#a3de6a0e592ec1e1c5e3bed2fd417f9e5", null ]
+    [ "AddParentsToBranch", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html#ad5ba104c75c69a896fba199d8606ae4f", null ],
+    [ "BranchSearch", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html#acb35e4ed99407cf0d7a013431fdfa71d", null ],
+    [ "FindBranches", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html#a359a91d9307906c791c9d09c2855cb28", null ],
+    [ "Initialize", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html#ae9c78e5998bbdde72fc28393021a710f", null ],
+    [ "MarkTrunk", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html#ab7af64f4e3da2e363043840af1369c4e", null ],
+    [ "MaxNeighborNode", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html#a022ca46d7750e9eac1b81ef130157fd4", null ],
+    [ "Branches", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html#a267690c8fa3882e8c6828f9b6686cfc9", null ],
+    [ "Marked", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html#ad3cc6a5339e159a21e3b7c959c709af1", null ],
+    [ "Neighbors", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html#a08744f0ef03c64be53361f4a4229633e", null ],
+    [ "Parents", "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_graph_branch_decomposer.html#a8d1393a997cf3014e4ebfa421e341da1", null ]
 ];

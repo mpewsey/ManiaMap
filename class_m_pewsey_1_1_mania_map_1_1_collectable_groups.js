@@ -1,11 +1,11 @@
 var class_m_pewsey_1_1_mania_map_1_1_collectable_groups =
 [
-    [ "Add", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#ab0cf2a98532603686bdbee06d3456f82", null ],
-    [ "Add", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#ad3b43dfc013ff04b985ad73f53c6ef3a", null ],
-    [ "GetCollectables", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#abc4ddee6cfbaf20981df93f47ffb683a", null ],
-    [ "OnDeserialized", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#a7ca278b51ac25500884da662e319a709", null ],
-    [ "ToString", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#a69052ee8edc1a87547e0080b75dcfb08", null ],
-    [ "ValidateGroupName", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#a6192266af2b43e7e406be4899c3abea8", null ],
-    [ "Groups", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#a258b6fd5f6cc60db755dde0ac5122efe", null ],
-    [ "GroupsDictionary", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#ac55d49ba3b2f1f75e704859b2085147b", null ]
+    [ "Add", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#a208f107d6ad3e7b847963a3030100d84", null ],
+    [ "Add", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#a0278cfd05ba50cd30df30a14e3e40863", null ],
+    [ "GetCollectables", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#a1c0a71d1956068574e91a2661e963921", null ],
+    [ "OnDeserialized", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#afec2de7e986fc1cbecd00ca7c88136e9", null ],
+    [ "ToString", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#aa73e7c4dd1df5fd5fbf81c7764ee1533", null ],
+    [ "ValidateGroupName", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#a1d2370982583cae66a12317e2fefc57a", null ],
+    [ "Groups", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#ac57a83dd19c80556da582a1311989ca4", null ],
+    [ "GroupsDictionary", "class_m_pewsey_1_1_mania_map_1_1_collectable_groups.html#ac0d94a81c67fc96d56c17e41e6fcb1e0", null ]
 ];

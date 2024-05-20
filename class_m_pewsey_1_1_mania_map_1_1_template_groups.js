@@ -1,17 +1,17 @@
 var class_m_pewsey_1_1_mania_map_1_1_template_groups =
 [
-    [ "Add", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a58e165b5b431dbcdedc0b2b8bbdc86d7", null ],
-    [ "Add", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a5dcdae3731f13f640582bcffefea2a80", null ],
-    [ "Add", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#ab74eb3a2a004cd1071ecccec01766db2", null ],
-    [ "Add", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a2718436e2688f229c2ab9eed87d8c325", null ],
-    [ "ConsolidateTemplates", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a9d5cb012bdc087a4d7e152142dbef595", null ],
-    [ "GetAllEntries", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a047787c4e86b0328afa966d36bacf57f", null ],
-    [ "GetAllTemplates", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a213b90e7311a015eb9f65eb643c1144e", null ],
-    [ "GetConfigurationSpaces", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#ac295b7efd68681aeafacc99dc16218aa", null ],
-    [ "GetGroup", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#adf189af31216557bf6a043c60e501fda", null ],
-    [ "ToString", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#ab6e2c0e3d8161e96ec7cf3301e97a62c", null ],
-    [ "Validate", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#ac2d7db03138ae9238599ca9409372798", null ],
-    [ "ValidateGroupName", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a3a1528bf66bd2d03155bbc1a0f3cb03f", null ],
-    [ "Groups", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#ad64c80ea6dda28577f97d2879b5fa5a3", null ],
-    [ "GroupsDictionary", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#aaa8dc13f24c4d7d98bb805b23da33b1f", null ]
+    [ "Add", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a9a7cf505d955544cdd26eb5b7a765f02", null ],
+    [ "Add", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#aaf4649f6956594650145454508e3dfc3", null ],
+    [ "Add", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#ac010fd2d0b3f3e2c66f1626030886899", null ],
+    [ "Add", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a4543a0eb3f87cda29975a6a7cde6a30e", null ],
+    [ "ConsolidateTemplates", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a6b53707bb5d6b9486b6429acb0c8efe8", null ],
+    [ "GetAllEntries", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a8405f8da451e6e13f62cfa8b2d96ae2d", null ],
+    [ "GetAllTemplates", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a7bd2aa58cfe67862502c87a0d8440512", null ],
+    [ "GetConfigurationSpaces", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a78b7774bb91429aba5db467b0afb42d4", null ],
+    [ "GetGroup", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#aac6e4a4df04ec5c0320ae7cd972a6a8b", null ],
+    [ "ToString", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#aa73e7c4dd1df5fd5fbf81c7764ee1533", null ],
+    [ "Validate", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a6a17e4539f5b0c67dbd36bae0c2c0c8a", null ],
+    [ "ValidateGroupName", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a1d2370982583cae66a12317e2fefc57a", null ],
+    [ "Groups", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#ab30b02866507c245323f1eac4b4790fc", null ],
+    [ "GroupsDictionary", "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#a4157bed860d0167ccc872e8260b5a17e", null ]
 ];

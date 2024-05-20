@@ -11,7 +11,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ManiaMap: MPewsey.ManiaMap.Generators.LayoutGenerator Class Reference</title>
+<title>ManiaMap: LayoutGenerator Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -102,14 +102,14 @@ $(document).ready(function(){initNavTree('class_m_pewsey_1_1_mania_map_1_1_gener
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">MPewsey.ManiaMap.Generators.LayoutGenerator Class Reference</div></div>
+  <div class="headertitle"><div class="title">LayoutGenerator Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>A class for generator room <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html" title="Represents a room layout consisting of Room and DoorConnection.">Layout</a> based on various <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html" title="Contains information for the geometry and properties of a Room in a Layout.">RoomTemplate</a> and a LayoutGraph.  
  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#details">More...</a></p>
 <div class="dynheader">
-Inheritance diagram for MPewsey.ManiaMap.Generators.LayoutGenerator:</div>
+Inheritance diagram for LayoutGenerator:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.png" alt=""/>
@@ -117,98 +117,98 @@ Inheritance diagram for MPewsey.ManiaMap.Generators.LayoutGenerator:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae712a97e7023d73417b285006e381fc9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ae712a97e7023d73417b285006e381fc9">ApplyStep</a> (PipelineResults results, Action&lt; string &gt; logger, CancellationToken cancellationToken)</td></tr>
-<tr class="memdesc:ae712a97e7023d73417b285006e381fc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a new layout and adds it to the results output dictionary.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ae712a97e7023d73417b285006e381fc9">More...</a><br /></td></tr>
-<tr class="separator:ae712a97e7023d73417b285006e381fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a712b0fb9b526d7328597f647237bb374"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html">Layout</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a712b0fb9b526d7328597f647237bb374">Generate</a> (int layoutId, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_graph.html">LayoutGraph</a> graph, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_template_groups.html">TemplateGroups</a> templateGroups, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ac93b4a5f203a06d43d879bd6a9d17297">RandomSeed</a> randomSeed, Action&lt; string &gt; logger=null, CancellationToken cancellationToken=default)</td></tr>
-<tr class="memdesc:a712b0fb9b526d7328597f647237bb374"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates and returns a new layout.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a712b0fb9b526d7328597f647237bb374">More...</a><br /></td></tr>
-<tr class="separator:a712b0fb9b526d7328597f647237bb374"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fc9024605846b94ab370a3480140fea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a4fc9024605846b94ab370a3480140fea">LayoutGenerator</a> (int maxRebases=100, float rebaseDecayRate=0.25f, int maxBranchLength=-1)</td></tr>
-<tr class="memdesc:a4fc9024605846b94ab370a3480140fea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the generator.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a4fc9024605846b94ab370a3480140fea">More...</a><br /></td></tr>
-<tr class="separator:a4fc9024605846b94ab370a3480140fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0632ee311357d6c9e746d8fae420f803"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a0632ee311357d6c9e746d8fae420f803">ToString</a> ()</td></tr>
-<tr class="separator:a0632ee311357d6c9e746d8fae420f803"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cbd4761b949080ca0618b9d5fb5f3b8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a3cbd4761b949080ca0618b9d5fb5f3b8">ApplyStep</a> (PipelineResults results, Action&lt; string &gt; logger, CancellationToken cancellationToken)</td></tr>
+<tr class="memdesc:a3cbd4761b949080ca0618b9d5fb5f3b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a new layout and adds it to the results output dictionary.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a3cbd4761b949080ca0618b9d5fb5f3b8">More...</a><br /></td></tr>
+<tr class="separator:a3cbd4761b949080ca0618b9d5fb5f3b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2694ff44de865e48bc60af6080c9191a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html">Layout</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a2694ff44de865e48bc60af6080c9191a">Generate</a> (int layoutId, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_graph.html">LayoutGraph</a> graph, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_template_groups.html">TemplateGroups</a> templateGroups, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#aef7e9d114c0828a414a5b6fb1f4f1e39">RandomSeed</a> randomSeed, Action&lt; string &gt; logger=null, CancellationToken cancellationToken=default)</td></tr>
+<tr class="memdesc:a2694ff44de865e48bc60af6080c9191a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates and returns a new layout.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a2694ff44de865e48bc60af6080c9191a">More...</a><br /></td></tr>
+<tr class="separator:a2694ff44de865e48bc60af6080c9191a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3baed98a302f552cb0b5f59aac049675"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a3baed98a302f552cb0b5f59aac049675">LayoutGenerator</a> (int maxRebases=100, float rebaseDecayRate=0.25f, int maxBranchLength=-1)</td></tr>
+<tr class="memdesc:a3baed98a302f552cb0b5f59aac049675"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the generator.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a3baed98a302f552cb0b5f59aac049675">More...</a><br /></td></tr>
+<tr class="separator:a3baed98a302f552cb0b5f59aac049675"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa73e7c4dd1df5fd5fbf81c7764ee1533"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#aa73e7c4dd1df5fd5fbf81c7764ee1533">ToString</a> ()</td></tr>
+<tr class="separator:aa73e7c4dd1df5fd5fbf81c7764ee1533"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:a6772dd8230c8a392e105979f997884e1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a6772dd8230c8a392e105979f997884e1">AllowableRebases</a> = 1<code> [getset]</code></td></tr>
-<tr class="memdesc:a6772dd8230c8a392e105979f997884e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The allowable number of layout rebases for the current chain.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a6772dd8230c8a392e105979f997884e1">More...</a><br /></td></tr>
-<tr class="separator:a6772dd8230c8a392e105979f997884e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8c7e5f8c73153c675d17a096797ad5a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#aa8c7e5f8c73153c675d17a096797ad5a">ChainIndex</a><code> [getset]</code></td></tr>
-<tr class="memdesc:aa8c7e5f8c73153c675d17a096797ad5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current chain index.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#aa8c7e5f8c73153c675d17a096797ad5a">More...</a><br /></td></tr>
-<tr class="separator:aa8c7e5f8c73153c675d17a096797ad5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab74ebc8d2d0c715d0d45614bf3e2b655"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_template_pair.html">TemplatePair</a>, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_configuration_space.html">ConfigurationSpace</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ab74ebc8d2d0c715d0d45614bf3e2b655">ConfigurationSpaces</a><code> [getset]</code></td></tr>
-<tr class="memdesc:ab74ebc8d2d0c715d0d45614bf3e2b655"><td class="mdescLeft">&#160;</td><td class="mdescRight">A dictionary of configuration spaces by template pair.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ab74ebc8d2d0c715d0d45614bf3e2b655">More...</a><br /></td></tr>
-<tr class="separator:ab74ebc8d2d0c715d0d45614bf3e2b655"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf2e38290817246007a27ac8039ddcbc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_graph.html">LayoutGraph</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#adf2e38290817246007a27ac8039ddcbc">Graph</a><code> [getset]</code></td></tr>
-<tr class="memdesc:adf2e38290817246007a27ac8039ddcbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The layout graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#adf2e38290817246007a27ac8039ddcbc">More...</a><br /></td></tr>
-<tr class="separator:adf2e38290817246007a27ac8039ddcbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31f6df46b54e49f625db0d0129b8814d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html">Layout</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a31f6df46b54e49f625db0d0129b8814d">Layout</a><code> [getset]</code></td></tr>
-<tr class="memdesc:a31f6df46b54e49f625db0d0129b8814d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current layout.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a31f6df46b54e49f625db0d0129b8814d">More...</a><br /></td></tr>
-<tr class="separator:a31f6df46b54e49f625db0d0129b8814d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad98540231212beb034a1a8f836500f86"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ad98540231212beb034a1a8f836500f86">MaxBranchLength</a><code> [getset]</code></td></tr>
-<tr class="memdesc:ad98540231212beb034a1a8f836500f86"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum branch chain length. Branch chains exceeding this length will be split. Negative and zero values will be ignored.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ad98540231212beb034a1a8f836500f86">More...</a><br /></td></tr>
-<tr class="separator:ad98540231212beb034a1a8f836500f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac45b3f2f0f05948e5424aa3a1257545e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ac45b3f2f0f05948e5424aa3a1257545e">MaxRebases</a><code> [getset]</code></td></tr>
-<tr class="memdesc:ac45b3f2f0f05948e5424aa3a1257545e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum number of times that a sub layout can be used as a base before it is discarded.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ac45b3f2f0f05948e5424aa3a1257545e">More...</a><br /></td></tr>
-<tr class="separator:ac45b3f2f0f05948e5424aa3a1257545e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac93b4a5f203a06d43d879bd6a9d17297"><td class="memItemLeft" align="right" valign="top">RandomSeed&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ac93b4a5f203a06d43d879bd6a9d17297">RandomSeed</a><code> [getset]</code></td></tr>
-<tr class="memdesc:ac93b4a5f203a06d43d879bd6a9d17297"><td class="mdescLeft">&#160;</td><td class="mdescRight">The random number generator.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ac93b4a5f203a06d43d879bd6a9d17297">More...</a><br /></td></tr>
-<tr class="separator:ac93b4a5f203a06d43d879bd6a9d17297"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bb839447ef9bab0ce1a1b8e574ad826"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a0bb839447ef9bab0ce1a1b8e574ad826">RebaseDecayRate</a><code> [getset]</code></td></tr>
-<tr class="memdesc:a0bb839447ef9bab0ce1a1b8e574ad826"><td class="mdescLeft">&#160;</td><td class="mdescRight">The rebase decay rate. This should be a value greater than or equal to zero.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a0bb839447ef9bab0ce1a1b8e574ad826">More...</a><br /></td></tr>
-<tr class="separator:a0bb839447ef9bab0ce1a1b8e574ad826"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b19a88d751f8a38fc7016fdb22da712"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_template_groups.html">TemplateGroups</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a7b19a88d751f8a38fc7016fdb22da712">TemplateGroups</a><code> [getset]</code></td></tr>
-<tr class="memdesc:a7b19a88d751f8a38fc7016fdb22da712"><td class="mdescLeft">&#160;</td><td class="mdescRight">The template groups.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a7b19a88d751f8a38fc7016fdb22da712">More...</a><br /></td></tr>
-<tr class="separator:a7b19a88d751f8a38fc7016fdb22da712"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb63be5e2fb384c2bb0d8601d54c43bb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#acb63be5e2fb384c2bb0d8601d54c43bb">AllowableRebases</a> = 1<code> [getset]</code></td></tr>
+<tr class="memdesc:acb63be5e2fb384c2bb0d8601d54c43bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The allowable number of layout rebases for the current chain.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#acb63be5e2fb384c2bb0d8601d54c43bb">More...</a><br /></td></tr>
+<tr class="separator:acb63be5e2fb384c2bb0d8601d54c43bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab715ffe5c61aa3bd85a32180eb5dd911"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ab715ffe5c61aa3bd85a32180eb5dd911">ChainIndex</a><code> [getset]</code></td></tr>
+<tr class="memdesc:ab715ffe5c61aa3bd85a32180eb5dd911"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current chain index.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ab715ffe5c61aa3bd85a32180eb5dd911">More...</a><br /></td></tr>
+<tr class="separator:ab715ffe5c61aa3bd85a32180eb5dd911"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fce527d2ab9fed2cc30e7fb15f74f24"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_template_pair.html">TemplatePair</a>, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_configuration_space.html">ConfigurationSpace</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a8fce527d2ab9fed2cc30e7fb15f74f24">ConfigurationSpaces</a><code> [getset]</code></td></tr>
+<tr class="memdesc:a8fce527d2ab9fed2cc30e7fb15f74f24"><td class="mdescLeft">&#160;</td><td class="mdescRight">A dictionary of configuration spaces by template pair.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a8fce527d2ab9fed2cc30e7fb15f74f24">More...</a><br /></td></tr>
+<tr class="separator:a8fce527d2ab9fed2cc30e7fb15f74f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a796dada83cd1f1a6e2925c0ceed5592e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_graph.html">LayoutGraph</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a796dada83cd1f1a6e2925c0ceed5592e">Graph</a><code> [getset]</code></td></tr>
+<tr class="memdesc:a796dada83cd1f1a6e2925c0ceed5592e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The layout graph.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a796dada83cd1f1a6e2925c0ceed5592e">More...</a><br /></td></tr>
+<tr class="separator:a796dada83cd1f1a6e2925c0ceed5592e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6860a4215b072014f8972b7611c569fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html">Layout</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a6860a4215b072014f8972b7611c569fd">Layout</a><code> [getset]</code></td></tr>
+<tr class="memdesc:a6860a4215b072014f8972b7611c569fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current layout.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a6860a4215b072014f8972b7611c569fd">More...</a><br /></td></tr>
+<tr class="separator:a6860a4215b072014f8972b7611c569fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c6686f21fb7fe9786103fa17c026fea"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a1c6686f21fb7fe9786103fa17c026fea">MaxBranchLength</a><code> [getset]</code></td></tr>
+<tr class="memdesc:a1c6686f21fb7fe9786103fa17c026fea"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum branch chain length. Branch chains exceeding this length will be split. Negative and zero values will be ignored.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a1c6686f21fb7fe9786103fa17c026fea">More...</a><br /></td></tr>
+<tr class="separator:a1c6686f21fb7fe9786103fa17c026fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a320ff834377a70cddb26e83e1f48dfd1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a320ff834377a70cddb26e83e1f48dfd1">MaxRebases</a><code> [getset]</code></td></tr>
+<tr class="memdesc:a320ff834377a70cddb26e83e1f48dfd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum number of times that a sub layout can be used as a base before it is discarded.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a320ff834377a70cddb26e83e1f48dfd1">More...</a><br /></td></tr>
+<tr class="separator:a320ff834377a70cddb26e83e1f48dfd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef7e9d114c0828a414a5b6fb1f4f1e39"><td class="memItemLeft" align="right" valign="top">RandomSeed&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#aef7e9d114c0828a414a5b6fb1f4f1e39">RandomSeed</a><code> [getset]</code></td></tr>
+<tr class="memdesc:aef7e9d114c0828a414a5b6fb1f4f1e39"><td class="mdescLeft">&#160;</td><td class="mdescRight">The random number generator.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#aef7e9d114c0828a414a5b6fb1f4f1e39">More...</a><br /></td></tr>
+<tr class="separator:aef7e9d114c0828a414a5b6fb1f4f1e39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a88c549db9841fdadfe987052b59b44"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a0a88c549db9841fdadfe987052b59b44">RebaseDecayRate</a><code> [getset]</code></td></tr>
+<tr class="memdesc:a0a88c549db9841fdadfe987052b59b44"><td class="mdescLeft">&#160;</td><td class="mdescRight">The rebase decay rate. This should be a value greater than or equal to zero.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a0a88c549db9841fdadfe987052b59b44">More...</a><br /></td></tr>
+<tr class="separator:a0a88c549db9841fdadfe987052b59b44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54ebf02c0cf9782aaf356fe8bb14fed5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_template_groups.html">TemplateGroups</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a54ebf02c0cf9782aaf356fe8bb14fed5">TemplateGroups</a><code> [getset]</code></td></tr>
+<tr class="memdesc:a54ebf02c0cf9782aaf356fe8bb14fed5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The template groups.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a54ebf02c0cf9782aaf356fe8bb14fed5">More...</a><br /></td></tr>
+<tr class="separator:a54ebf02c0cf9782aaf356fe8bb14fed5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:aaadec62986a67ccaed2b44e15a24c23e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#aaadec62986a67ccaed2b44e15a24c23e">AddChain</a> (List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html">LayoutEdge</a> &gt; chain)</td></tr>
-<tr class="memdesc:aaadec62986a67ccaed2b44e15a24c23e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to add the chain to the layout. Returns true if successful.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#aaadec62986a67ccaed2b44e15a24c23e">More...</a><br /></td></tr>
-<tr class="separator:aaadec62986a67ccaed2b44e15a24c23e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55338e42944d9adcf198a61c84bf1c83"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a55338e42944d9adcf198a61c84bf1c83">AddDoorConnection</a> (<a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> fromRoomId, <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> toRoomId, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_configuration.html">Configuration</a> config)</td></tr>
-<tr class="memdesc:a55338e42944d9adcf198a61c84bf1c83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attemps to add the door connection for the edge and configuration. Returns true if successful.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a55338e42944d9adcf198a61c84bf1c83">More...</a><br /></td></tr>
-<tr class="separator:a55338e42944d9adcf198a61c84bf1c83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c1d6975bebb572a9febee3ac02b0046"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a7c1d6975bebb572a9febee3ac02b0046">AddFirstRoom</a> (<a class="el" href="interface_m_pewsey_1_1_mania_map_1_1_i_room_source.html">IRoomSource</a> source)</td></tr>
-<tr class="memdesc:a7c1d6975bebb572a9febee3ac02b0046"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to add the nodes from node to the layout. Returns true if successful.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a7c1d6975bebb572a9febee3ac02b0046">More...</a><br /></td></tr>
-<tr class="separator:a7c1d6975bebb572a9febee3ac02b0046"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70b59dab32ae857ed1db27d17d84c190"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a70b59dab32ae857ed1db27d17d84c190">AddRoom</a> (<a class="el" href="interface_m_pewsey_1_1_mania_map_1_1_i_room_source.html">IRoomSource</a> source, <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> fromRoomId, <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a48bfb687003bb6ecf52b9f80eb4fb787">DoorCode</a> code, <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a9c2e1ae4c3e288513d42b9fd13ecc256">EdgeDirection</a> direction)</td></tr>
-<tr class="memdesc:a70b59dab32ae857ed1db27d17d84c190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to add a new room for the to node of the edge. Returns true if successful.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a70b59dab32ae857ed1db27d17d84c190">More...</a><br /></td></tr>
-<tr class="separator:a70b59dab32ae857ed1db27d17d84c190"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3a016291cb69c2792824b6a6543ae24"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#af3a016291cb69c2792824b6a6543ae24">AddRooms</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html">LayoutEdge</a> edge)</td></tr>
-<tr class="memdesc:af3a016291cb69c2792824b6a6543ae24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to add the rooms for the edge to the layout. Returns true if successful.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#af3a016291cb69c2792824b6a6543ae24">More...</a><br /></td></tr>
-<tr class="separator:af3a016291cb69c2792824b6a6543ae24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a798dc733e5871b564f79b61bb515cf9a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a798dc733e5871b564f79b61bb515cf9a">CanInsertRoom</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html">LayoutEdge</a> backEdge, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html">LayoutEdge</a> aheadEdge)</td></tr>
-<tr class="memdesc:a798dc733e5871b564f79b61bb515cf9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the middle node for the edges can be inserted between existing rooms.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a798dc733e5871b564f79b61bb515cf9a">More...</a><br /></td></tr>
-<tr class="separator:a798dc733e5871b564f79b61bb515cf9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd39f62c272e57d1c3de7dea7fd928fd"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_configuration.html">Configuration</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#abd39f62c272e57d1c3de7dea7fd928fd">GetConfigurations</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html">RoomTemplate</a> x, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html">RoomTemplate</a> y)</td></tr>
-<tr class="memdesc:abd39f62c272e57d1c3de7dea7fd928fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new shuffled list of configurations for the room templates.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#abd39f62c272e57d1c3de7dea7fd928fd">More...</a><br /></td></tr>
-<tr class="separator:abd39f62c272e57d1c3de7dea7fd928fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c6b62f72ff33d68ff02862e3e5e656b"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_template_groups_entry.html">TemplateGroupsEntry</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a1c6b62f72ff33d68ff02862e3e5e656b">GetTemplateGroupEntries</a> (string group)</td></tr>
-<tr class="memdesc:a1c6b62f72ff33d68ff02862e3e5e656b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new shuffled list of template group entries for the group.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a1c6b62f72ff33d68ff02862e3e5e656b">More...</a><br /></td></tr>
-<tr class="separator:a1c6b62f72ff33d68ff02862e3e5e656b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04664b859fac8b425bc9dc7fc6190d58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a04664b859fac8b425bc9dc7fc6190d58">Initialize</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_graph.html">LayoutGraph</a> graph, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_template_groups.html">TemplateGroups</a> templateGroups, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ac93b4a5f203a06d43d879bd6a9d17297">RandomSeed</a> randomSeed)</td></tr>
-<tr class="memdesc:a04664b859fac8b425bc9dc7fc6190d58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the generator.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a04664b859fac8b425bc9dc7fc6190d58">More...</a><br /></td></tr>
-<tr class="separator:a04664b859fac8b425bc9dc7fc6190d58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af057e5220473501e7e253dc27de0ff95"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#af057e5220473501e7e253dc27de0ff95">InsertRoom</a> (<a class="el" href="interface_m_pewsey_1_1_mania_map_1_1_i_room_source.html">IRoomSource</a> source, <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> backRoomId, <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a48bfb687003bb6ecf52b9f80eb4fb787">DoorCode</a> backCode, <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a9c2e1ae4c3e288513d42b9fd13ecc256">EdgeDirection</a> backDirection, <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> aheadRoomId, <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a48bfb687003bb6ecf52b9f80eb4fb787">DoorCode</a> aheadCode, <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a9c2e1ae4c3e288513d42b9fd13ecc256">EdgeDirection</a> aheadDirection)</td></tr>
-<tr class="memdesc:af057e5220473501e7e253dc27de0ff95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attemps to insert a new room between two rooms. Returns true if successful.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#af057e5220473501e7e253dc27de0ff95">More...</a><br /></td></tr>
-<tr class="separator:af057e5220473501e7e253dc27de0ff95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac78af5414add38e96002687ff0a5b293"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ac78af5414add38e96002687ff0a5b293">InsertRooms</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html">LayoutEdge</a> backEdge, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html">LayoutEdge</a> aheadEdge)</td></tr>
-<tr class="memdesc:ac78af5414add38e96002687ff0a5b293"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attemps to insert the rooms for the edges into the layout. Returns true if successful.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ac78af5414add38e96002687ff0a5b293">More...</a><br /></td></tr>
-<tr class="separator:ac78af5414add38e96002687ff0a5b293"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff60361948e1e44138d3918862360749"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#aff60361948e1e44138d3918862360749">SetAllowableRebases</a> (int chain)</td></tr>
-<tr class="memdesc:aff60361948e1e44138d3918862360749"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the allowable number of rebases for the specified chain index.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#aff60361948e1e44138d3918862360749">More...</a><br /></td></tr>
-<tr class="separator:aff60361948e1e44138d3918862360749"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab331d9a08acb3b25d930b710154eb99"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#aab331d9a08acb3b25d930b710154eb99">AddChain</a> (List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html">LayoutEdge</a> &gt; chain)</td></tr>
+<tr class="memdesc:aab331d9a08acb3b25d930b710154eb99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to add the chain to the layout. Returns true if successful.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#aab331d9a08acb3b25d930b710154eb99">More...</a><br /></td></tr>
+<tr class="separator:aab331d9a08acb3b25d930b710154eb99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ea84ab6eb3f63c991f10cd29ae71a04"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a6ea84ab6eb3f63c991f10cd29ae71a04">AddDoorConnection</a> (<a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> fromRoomId, <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> toRoomId, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_configuration.html">Configuration</a> config)</td></tr>
+<tr class="memdesc:a6ea84ab6eb3f63c991f10cd29ae71a04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attemps to add the door connection for the edge and configuration. Returns true if successful.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a6ea84ab6eb3f63c991f10cd29ae71a04">More...</a><br /></td></tr>
+<tr class="separator:a6ea84ab6eb3f63c991f10cd29ae71a04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8db6d0384a6db8dad487d7036630bf6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ac8db6d0384a6db8dad487d7036630bf6">AddFirstRoom</a> (<a class="el" href="interface_m_pewsey_1_1_mania_map_1_1_i_room_source.html">IRoomSource</a> source)</td></tr>
+<tr class="memdesc:ac8db6d0384a6db8dad487d7036630bf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to add the nodes from node to the layout. Returns true if successful.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ac8db6d0384a6db8dad487d7036630bf6">More...</a><br /></td></tr>
+<tr class="separator:ac8db6d0384a6db8dad487d7036630bf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c86754c576fac90a1476491b22ef98c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a8c86754c576fac90a1476491b22ef98c">AddRoom</a> (<a class="el" href="interface_m_pewsey_1_1_mania_map_1_1_i_room_source.html">IRoomSource</a> source, <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> fromRoomId, <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#aeb5551bc9b4fa03190cdd081c587247e">DoorCode</a> code, <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a228a2cdf52c98efebbe3d32364cdc56d">EdgeDirection</a> direction)</td></tr>
+<tr class="memdesc:a8c86754c576fac90a1476491b22ef98c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to add a new room for the to node of the edge. Returns true if successful.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a8c86754c576fac90a1476491b22ef98c">More...</a><br /></td></tr>
+<tr class="separator:a8c86754c576fac90a1476491b22ef98c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a1e9c0a735af53a4eb0e26842353d95"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a1a1e9c0a735af53a4eb0e26842353d95">AddRooms</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html">LayoutEdge</a> edge)</td></tr>
+<tr class="memdesc:a1a1e9c0a735af53a4eb0e26842353d95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to add the rooms for the edge to the layout. Returns true if successful.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a1a1e9c0a735af53a4eb0e26842353d95">More...</a><br /></td></tr>
+<tr class="separator:a1a1e9c0a735af53a4eb0e26842353d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada93f8d56e7b10182c5b170a872c77cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ada93f8d56e7b10182c5b170a872c77cb">CanInsertRoom</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html">LayoutEdge</a> backEdge, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html">LayoutEdge</a> aheadEdge)</td></tr>
+<tr class="memdesc:ada93f8d56e7b10182c5b170a872c77cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the middle node for the edges can be inserted between existing rooms.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ada93f8d56e7b10182c5b170a872c77cb">More...</a><br /></td></tr>
+<tr class="separator:ada93f8d56e7b10182c5b170a872c77cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4e200cb421c46f262e8fa3830470dba"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_configuration.html">Configuration</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#af4e200cb421c46f262e8fa3830470dba">GetConfigurations</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html">RoomTemplate</a> x, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html">RoomTemplate</a> y)</td></tr>
+<tr class="memdesc:af4e200cb421c46f262e8fa3830470dba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new shuffled list of configurations for the room templates.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#af4e200cb421c46f262e8fa3830470dba">More...</a><br /></td></tr>
+<tr class="separator:af4e200cb421c46f262e8fa3830470dba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae603de9f11cb292056e25f4c22ba16ba"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_template_groups_entry.html">TemplateGroupsEntry</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ae603de9f11cb292056e25f4c22ba16ba">GetTemplateGroupEntries</a> (string group)</td></tr>
+<tr class="memdesc:ae603de9f11cb292056e25f4c22ba16ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new shuffled list of template group entries for the group.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ae603de9f11cb292056e25f4c22ba16ba">More...</a><br /></td></tr>
+<tr class="separator:ae603de9f11cb292056e25f4c22ba16ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d02f5110f203b921127b00cbf86b111"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a1d02f5110f203b921127b00cbf86b111">Initialize</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_graph.html">LayoutGraph</a> graph, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_template_groups.html">TemplateGroups</a> templateGroups, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#aef7e9d114c0828a414a5b6fb1f4f1e39">RandomSeed</a> randomSeed)</td></tr>
+<tr class="memdesc:a1d02f5110f203b921127b00cbf86b111"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the generator.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a1d02f5110f203b921127b00cbf86b111">More...</a><br /></td></tr>
+<tr class="separator:a1d02f5110f203b921127b00cbf86b111"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3dfd155b281e438a387f42e05a8d026"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ae3dfd155b281e438a387f42e05a8d026">InsertRoom</a> (<a class="el" href="interface_m_pewsey_1_1_mania_map_1_1_i_room_source.html">IRoomSource</a> source, <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> backRoomId, <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#aeb5551bc9b4fa03190cdd081c587247e">DoorCode</a> backCode, <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a228a2cdf52c98efebbe3d32364cdc56d">EdgeDirection</a> backDirection, <a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a> aheadRoomId, <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#aeb5551bc9b4fa03190cdd081c587247e">DoorCode</a> aheadCode, <a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a228a2cdf52c98efebbe3d32364cdc56d">EdgeDirection</a> aheadDirection)</td></tr>
+<tr class="memdesc:ae3dfd155b281e438a387f42e05a8d026"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attemps to insert a new room between two rooms. Returns true if successful.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ae3dfd155b281e438a387f42e05a8d026">More...</a><br /></td></tr>
+<tr class="separator:ae3dfd155b281e438a387f42e05a8d026"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a813ab88655a9b42aacc5134ed2fc062f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a813ab88655a9b42aacc5134ed2fc062f">InsertRooms</a> (<a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html">LayoutEdge</a> backEdge, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html">LayoutEdge</a> aheadEdge)</td></tr>
+<tr class="memdesc:a813ab88655a9b42aacc5134ed2fc062f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attemps to insert the rooms for the edges into the layout. Returns true if successful.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a813ab88655a9b42aacc5134ed2fc062f">More...</a><br /></td></tr>
+<tr class="separator:a813ab88655a9b42aacc5134ed2fc062f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1482ee2fc1c6e8a0d92cf5a4c606c51e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a1482ee2fc1c6e8a0d92cf5a4c606c51e">SetAllowableRebases</a> (int chain)</td></tr>
+<tr class="memdesc:a1482ee2fc1c6e8a0d92cf5a4c606c51e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the allowable number of rebases for the specified chain index.  <a href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a1482ee2fc1c6e8a0d92cf5a4c606c51e">More...</a><br /></td></tr>
+<tr class="separator:a1482ee2fc1c6e8a0d92cf5a4c606c51e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a1a05de65f3a6463466d50381eec56db4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a1a05de65f3a6463466d50381eec56db4">_chainIndex</a></td></tr>
-<tr class="separator:a1a05de65f3a6463466d50381eec56db4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb4fa53925a1920b33cf1eb13a5001c3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#acb4fa53925a1920b33cf1eb13a5001c3">_maxRebases</a></td></tr>
-<tr class="separator:acb4fa53925a1920b33cf1eb13a5001c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ce69de1ce97ba9dc37ca396ac0b121e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a2ce69de1ce97ba9dc37ca396ac0b121e">_rebaseDecayRate</a></td></tr>
-<tr class="separator:a2ce69de1ce97ba9dc37ca396ac0b121e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cb23da086760a428e1a04bf98b9b261"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a3cb23da086760a428e1a04bf98b9b261">_chainIndex</a></td></tr>
+<tr class="separator:a3cb23da086760a428e1a04bf98b9b261"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac58134bf667d54f5370127bd3ed6ace2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ac58134bf667d54f5370127bd3ed6ace2">_maxRebases</a></td></tr>
+<tr class="separator:ac58134bf667d54f5370127bd3ed6ace2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac57842bf63b858f4fcd2b07e38ba89a2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ac57842bf63b858f4fcd2b07e38ba89a2">_rebaseDecayRate</a></td></tr>
+<tr class="separator:ac57842bf63b858f4fcd2b07e38ba89a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >A class for generator room <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html" title="Represents a room layout consisting of Room and DoorConnection.">Layout</a> based on various <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html" title="Contains information for the geometry and properties of a Room in a Layout.">RoomTemplate</a> and a LayoutGraph. </p>
@@ -221,14 +221,14 @@ References</h2>
 
 <p class="definition">Definition at line <a class="el" href="_layout_generator_8cs_source.html#l00021">21</a> of file <a class="el" href="_layout_generator_8cs_source.html">LayoutGenerator.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a4fc9024605846b94ab370a3480140fea" name="a4fc9024605846b94ab370a3480140fea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4fc9024605846b94ab370a3480140fea">&#9670;&nbsp;</a></span>LayoutGenerator()</h2>
+<a id="a3baed98a302f552cb0b5f59aac049675" name="a3baed98a302f552cb0b5f59aac049675"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3baed98a302f552cb0b5f59aac049675">&#9670;&nbsp;</a></span>LayoutGenerator()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">MPewsey.ManiaMap.Generators.LayoutGenerator.LayoutGenerator </td>
+          <td class="memname"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html">LayoutGenerator</a> </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>maxRebases</em> = <code>100</code>, </td>
@@ -268,8 +268,8 @@ References</h2>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aaadec62986a67ccaed2b44e15a24c23e" name="aaadec62986a67ccaed2b44e15a24c23e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaadec62986a67ccaed2b44e15a24c23e">&#9670;&nbsp;</a></span>AddChain()</h2>
+<a id="aab331d9a08acb3b25d930b710154eb99" name="aab331d9a08acb3b25d930b710154eb99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab331d9a08acb3b25d930b710154eb99">&#9670;&nbsp;</a></span>AddChain()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -278,7 +278,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool MPewsey.ManiaMap.Generators.LayoutGenerator.AddChain </td>
+          <td class="memname">bool AddChain </td>
           <td>(</td>
           <td class="paramtype">List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html">LayoutEdge</a> &gt;&#160;</td>
           <td class="paramname"><em>chain</em></td><td>)</td>
@@ -304,8 +304,8 @@ References</h2>
 
 </div>
 </div>
-<a id="a55338e42944d9adcf198a61c84bf1c83" name="a55338e42944d9adcf198a61c84bf1c83"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55338e42944d9adcf198a61c84bf1c83">&#9670;&nbsp;</a></span>AddDoorConnection()</h2>
+<a id="a6ea84ab6eb3f63c991f10cd29ae71a04" name="a6ea84ab6eb3f63c991f10cd29ae71a04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ea84ab6eb3f63c991f10cd29ae71a04">&#9670;&nbsp;</a></span>AddDoorConnection()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -314,7 +314,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool MPewsey.ManiaMap.Generators.LayoutGenerator.AddDoorConnection </td>
+          <td class="memname">bool AddDoorConnection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_uid.html">Uid</a>&#160;</td>
           <td class="paramname"><em>fromRoomId</em>, </td>
@@ -358,8 +358,8 @@ References</h2>
 
 </div>
 </div>
-<a id="a7c1d6975bebb572a9febee3ac02b0046" name="a7c1d6975bebb572a9febee3ac02b0046"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c1d6975bebb572a9febee3ac02b0046">&#9670;&nbsp;</a></span>AddFirstRoom()</h2>
+<a id="ac8db6d0384a6db8dad487d7036630bf6" name="ac8db6d0384a6db8dad487d7036630bf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8db6d0384a6db8dad487d7036630bf6">&#9670;&nbsp;</a></span>AddFirstRoom()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -368,7 +368,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool MPewsey.ManiaMap.Generators.LayoutGenerator.AddFirstRoom </td>
+          <td class="memname">bool AddFirstRoom </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="interface_m_pewsey_1_1_mania_map_1_1_i_room_source.html">IRoomSource</a>&#160;</td>
           <td class="paramname"><em>source</em></td><td>)</td>
@@ -394,8 +394,8 @@ References</h2>
 
 </div>
 </div>
-<a id="a70b59dab32ae857ed1db27d17d84c190" name="a70b59dab32ae857ed1db27d17d84c190"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70b59dab32ae857ed1db27d17d84c190">&#9670;&nbsp;</a></span>AddRoom()</h2>
+<a id="a8c86754c576fac90a1476491b22ef98c" name="a8c86754c576fac90a1476491b22ef98c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c86754c576fac90a1476491b22ef98c">&#9670;&nbsp;</a></span>AddRoom()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -404,7 +404,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool MPewsey.ManiaMap.Generators.LayoutGenerator.AddRoom </td>
+          <td class="memname">bool AddRoom </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="interface_m_pewsey_1_1_mania_map_1_1_i_room_source.html">IRoomSource</a>&#160;</td>
           <td class="paramname"><em>source</em>, </td>
@@ -418,13 +418,13 @@ References</h2>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a48bfb687003bb6ecf52b9f80eb4fb787">DoorCode</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_m_pewsey_1_1_mania_map.html#aeb5551bc9b4fa03190cdd081c587247e">DoorCode</a>&#160;</td>
           <td class="paramname"><em>code</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a9c2e1ae4c3e288513d42b9fd13ecc256">EdgeDirection</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a228a2cdf52c98efebbe3d32364cdc56d">EdgeDirection</a>&#160;</td>
           <td class="paramname"><em>direction</em>&#160;</td>
         </tr>
         <tr>
@@ -455,8 +455,8 @@ References</h2>
 
 </div>
 </div>
-<a id="af3a016291cb69c2792824b6a6543ae24" name="af3a016291cb69c2792824b6a6543ae24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3a016291cb69c2792824b6a6543ae24">&#9670;&nbsp;</a></span>AddRooms()</h2>
+<a id="a1a1e9c0a735af53a4eb0e26842353d95" name="a1a1e9c0a735af53a4eb0e26842353d95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a1e9c0a735af53a4eb0e26842353d95">&#9670;&nbsp;</a></span>AddRooms()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -465,7 +465,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool MPewsey.ManiaMap.Generators.LayoutGenerator.AddRooms </td>
+          <td class="memname">bool AddRooms </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html">LayoutEdge</a>&#160;</td>
           <td class="paramname"><em>edge</em></td><td>)</td>
@@ -497,14 +497,14 @@ References</h2>
 
 </div>
 </div>
-<a id="ae712a97e7023d73417b285006e381fc9" name="ae712a97e7023d73417b285006e381fc9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae712a97e7023d73417b285006e381fc9">&#9670;&nbsp;</a></span>ApplyStep()</h2>
+<a id="a3cbd4761b949080ca0618b9d5fb5f3b8" name="a3cbd4761b949080ca0618b9d5fb5f3b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cbd4761b949080ca0618b9d5fb5f3b8">&#9670;&nbsp;</a></span>ApplyStep()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool MPewsey.ManiaMap.Generators.LayoutGenerator.ApplyStep </td>
+          <td class="memname">bool ApplyStep </td>
           <td>(</td>
           <td class="paramtype">PipelineResults&#160;</td>
           <td class="paramname"><em>results</em>, </td>
@@ -552,8 +552,8 @@ References</h2>
 
 </div>
 </div>
-<a id="a798dc733e5871b564f79b61bb515cf9a" name="a798dc733e5871b564f79b61bb515cf9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a798dc733e5871b564f79b61bb515cf9a">&#9670;&nbsp;</a></span>CanInsertRoom()</h2>
+<a id="ada93f8d56e7b10182c5b170a872c77cb" name="ada93f8d56e7b10182c5b170a872c77cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada93f8d56e7b10182c5b170a872c77cb">&#9670;&nbsp;</a></span>CanInsertRoom()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -562,7 +562,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool MPewsey.ManiaMap.Generators.LayoutGenerator.CanInsertRoom </td>
+          <td class="memname">bool CanInsertRoom </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html">LayoutEdge</a>&#160;</td>
           <td class="paramname"><em>backEdge</em>, </td>
@@ -599,14 +599,14 @@ References</h2>
 
 </div>
 </div>
-<a id="a712b0fb9b526d7328597f647237bb374" name="a712b0fb9b526d7328597f647237bb374"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a712b0fb9b526d7328597f647237bb374">&#9670;&nbsp;</a></span>Generate()</h2>
+<a id="a2694ff44de865e48bc60af6080c9191a" name="a2694ff44de865e48bc60af6080c9191a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2694ff44de865e48bc60af6080c9191a">&#9670;&nbsp;</a></span>Generate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html">Layout</a> MPewsey.ManiaMap.Generators.LayoutGenerator.Generate </td>
+          <td class="memname"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html">Layout</a> Generate </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>layoutId</em>, </td>
@@ -626,7 +626,7 @@ References</h2>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ac93b4a5f203a06d43d879bd6a9d17297">RandomSeed</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#aef7e9d114c0828a414a5b6fb1f4f1e39">RandomSeed</a>&#160;</td>
           <td class="paramname"><em>randomSeed</em>, </td>
         </tr>
         <tr>
@@ -666,8 +666,8 @@ References</h2>
 
 </div>
 </div>
-<a id="abd39f62c272e57d1c3de7dea7fd928fd" name="abd39f62c272e57d1c3de7dea7fd928fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd39f62c272e57d1c3de7dea7fd928fd">&#9670;&nbsp;</a></span>GetConfigurations()</h2>
+<a id="af4e200cb421c46f262e8fa3830470dba" name="af4e200cb421c46f262e8fa3830470dba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4e200cb421c46f262e8fa3830470dba">&#9670;&nbsp;</a></span>GetConfigurations()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -676,7 +676,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_configuration.html">Configuration</a> &gt; MPewsey.ManiaMap.Generators.LayoutGenerator.GetConfigurations </td>
+          <td class="memname">List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_configuration.html">Configuration</a> &gt; GetConfigurations </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_room_template.html">RoomTemplate</a>&#160;</td>
           <td class="paramname"><em>x</em>, </td>
@@ -713,8 +713,8 @@ References</h2>
 
 </div>
 </div>
-<a id="a1c6b62f72ff33d68ff02862e3e5e656b" name="a1c6b62f72ff33d68ff02862e3e5e656b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c6b62f72ff33d68ff02862e3e5e656b">&#9670;&nbsp;</a></span>GetTemplateGroupEntries()</h2>
+<a id="ae603de9f11cb292056e25f4c22ba16ba" name="ae603de9f11cb292056e25f4c22ba16ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae603de9f11cb292056e25f4c22ba16ba">&#9670;&nbsp;</a></span>GetTemplateGroupEntries()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -723,7 +723,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_template_groups_entry.html">TemplateGroupsEntry</a> &gt; MPewsey.ManiaMap.Generators.LayoutGenerator.GetTemplateGroupEntries </td>
+          <td class="memname">List&lt; <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_template_groups_entry.html">TemplateGroupsEntry</a> &gt; GetTemplateGroupEntries </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>group</em></td><td>)</td>
@@ -749,8 +749,8 @@ References</h2>
 
 </div>
 </div>
-<a id="a04664b859fac8b425bc9dc7fc6190d58" name="a04664b859fac8b425bc9dc7fc6190d58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04664b859fac8b425bc9dc7fc6190d58">&#9670;&nbsp;</a></span>Initialize()</h2>
+<a id="a1d02f5110f203b921127b00cbf86b111" name="a1d02f5110f203b921127b00cbf86b111"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d02f5110f203b921127b00cbf86b111">&#9670;&nbsp;</a></span>Initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -759,7 +759,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void MPewsey.ManiaMap.Generators.LayoutGenerator.Initialize </td>
+          <td class="memname">void Initialize </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_graph.html">LayoutGraph</a>&#160;</td>
           <td class="paramname"><em>graph</em>, </td>
@@ -773,7 +773,7 @@ References</h2>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#ac93b4a5f203a06d43d879bd6a9d17297">RandomSeed</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#aef7e9d114c0828a414a5b6fb1f4f1e39">RandomSeed</a>&#160;</td>
           <td class="paramname"><em>randomSeed</em>&#160;</td>
         </tr>
         <tr>
@@ -803,8 +803,8 @@ References</h2>
 
 </div>
 </div>
-<a id="af057e5220473501e7e253dc27de0ff95" name="af057e5220473501e7e253dc27de0ff95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af057e5220473501e7e253dc27de0ff95">&#9670;&nbsp;</a></span>InsertRoom()</h2>
+<a id="ae3dfd155b281e438a387f42e05a8d026" name="ae3dfd155b281e438a387f42e05a8d026"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3dfd155b281e438a387f42e05a8d026">&#9670;&nbsp;</a></span>InsertRoom()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -813,7 +813,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool MPewsey.ManiaMap.Generators.LayoutGenerator.InsertRoom </td>
+          <td class="memname">bool InsertRoom </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="interface_m_pewsey_1_1_mania_map_1_1_i_room_source.html">IRoomSource</a>&#160;</td>
           <td class="paramname"><em>source</em>, </td>
@@ -827,13 +827,13 @@ References</h2>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a48bfb687003bb6ecf52b9f80eb4fb787">DoorCode</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_m_pewsey_1_1_mania_map.html#aeb5551bc9b4fa03190cdd081c587247e">DoorCode</a>&#160;</td>
           <td class="paramname"><em>backCode</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a9c2e1ae4c3e288513d42b9fd13ecc256">EdgeDirection</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a228a2cdf52c98efebbe3d32364cdc56d">EdgeDirection</a>&#160;</td>
           <td class="paramname"><em>backDirection</em>, </td>
         </tr>
         <tr>
@@ -845,13 +845,13 @@ References</h2>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a48bfb687003bb6ecf52b9f80eb4fb787">DoorCode</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_m_pewsey_1_1_mania_map.html#aeb5551bc9b4fa03190cdd081c587247e">DoorCode</a>&#160;</td>
           <td class="paramname"><em>aheadCode</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a9c2e1ae4c3e288513d42b9fd13ecc256">EdgeDirection</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_m_pewsey_1_1_mania_map.html#a228a2cdf52c98efebbe3d32364cdc56d">EdgeDirection</a>&#160;</td>
           <td class="paramname"><em>aheadDirection</em>&#160;</td>
         </tr>
         <tr>
@@ -885,8 +885,8 @@ References</h2>
 
 </div>
 </div>
-<a id="ac78af5414add38e96002687ff0a5b293" name="ac78af5414add38e96002687ff0a5b293"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac78af5414add38e96002687ff0a5b293">&#9670;&nbsp;</a></span>InsertRooms()</h2>
+<a id="a813ab88655a9b42aacc5134ed2fc062f" name="a813ab88655a9b42aacc5134ed2fc062f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a813ab88655a9b42aacc5134ed2fc062f">&#9670;&nbsp;</a></span>InsertRooms()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -895,7 +895,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool MPewsey.ManiaMap.Generators.LayoutGenerator.InsertRooms </td>
+          <td class="memname">bool InsertRooms </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_edge.html">LayoutEdge</a>&#160;</td>
           <td class="paramname"><em>backEdge</em>, </td>
@@ -932,8 +932,8 @@ References</h2>
 
 </div>
 </div>
-<a id="aff60361948e1e44138d3918862360749" name="aff60361948e1e44138d3918862360749"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff60361948e1e44138d3918862360749">&#9670;&nbsp;</a></span>SetAllowableRebases()</h2>
+<a id="a1482ee2fc1c6e8a0d92cf5a4c606c51e" name="a1482ee2fc1c6e8a0d92cf5a4c606c51e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1482ee2fc1c6e8a0d92cf5a4c606c51e">&#9670;&nbsp;</a></span>SetAllowableRebases()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -942,7 +942,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void MPewsey.ManiaMap.Generators.LayoutGenerator.SetAllowableRebases </td>
+          <td class="memname">void SetAllowableRebases </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>chain</em></td><td>)</td>
@@ -968,14 +968,14 @@ References</h2>
 
 </div>
 </div>
-<a id="a0632ee311357d6c9e746d8fae420f803" name="a0632ee311357d6c9e746d8fae420f803"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0632ee311357d6c9e746d8fae420f803">&#9670;&nbsp;</a></span>ToString()</h2>
+<a id="aa73e7c4dd1df5fd5fbf81c7764ee1533" name="aa73e7c4dd1df5fd5fbf81c7764ee1533"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa73e7c4dd1df5fd5fbf81c7764ee1533">&#9670;&nbsp;</a></span>ToString()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">override string MPewsey.ManiaMap.Generators.LayoutGenerator.ToString </td>
+          <td class="memname">override string ToString </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -990,8 +990,8 @@ References</h2>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a1a05de65f3a6463466d50381eec56db4" name="a1a05de65f3a6463466d50381eec56db4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a05de65f3a6463466d50381eec56db4">&#9670;&nbsp;</a></span>_chainIndex</h2>
+<a id="a3cb23da086760a428e1a04bf98b9b261" name="a3cb23da086760a428e1a04bf98b9b261"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cb23da086760a428e1a04bf98b9b261">&#9670;&nbsp;</a></span>_chainIndex</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1000,7 +1000,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int MPewsey.ManiaMap.Generators.LayoutGenerator._chainIndex</td>
+          <td class="memname">int _chainIndex</td>
         </tr>
       </table>
   </td>
@@ -1014,8 +1014,8 @@ References</h2>
 
 </div>
 </div>
-<a id="acb4fa53925a1920b33cf1eb13a5001c3" name="acb4fa53925a1920b33cf1eb13a5001c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb4fa53925a1920b33cf1eb13a5001c3">&#9670;&nbsp;</a></span>_maxRebases</h2>
+<a id="ac58134bf667d54f5370127bd3ed6ace2" name="ac58134bf667d54f5370127bd3ed6ace2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac58134bf667d54f5370127bd3ed6ace2">&#9670;&nbsp;</a></span>_maxRebases</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1024,7 +1024,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int MPewsey.ManiaMap.Generators.LayoutGenerator._maxRebases</td>
+          <td class="memname">int _maxRebases</td>
         </tr>
       </table>
   </td>
@@ -1038,8 +1038,8 @@ References</h2>
 
 </div>
 </div>
-<a id="a2ce69de1ce97ba9dc37ca396ac0b121e" name="a2ce69de1ce97ba9dc37ca396ac0b121e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ce69de1ce97ba9dc37ca396ac0b121e">&#9670;&nbsp;</a></span>_rebaseDecayRate</h2>
+<a id="ac57842bf63b858f4fcd2b07e38ba89a2" name="ac57842bf63b858f4fcd2b07e38ba89a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac57842bf63b858f4fcd2b07e38ba89a2">&#9670;&nbsp;</a></span>_rebaseDecayRate</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1048,7 +1048,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float MPewsey.ManiaMap.Generators.LayoutGenerator._rebaseDecayRate</td>
+          <td class="memname">float _rebaseDecayRate</td>
         </tr>
       </table>
   </td>
@@ -1063,8 +1063,8 @@ References</h2>
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
-<a id="a6772dd8230c8a392e105979f997884e1" name="a6772dd8230c8a392e105979f997884e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6772dd8230c8a392e105979f997884e1">&#9670;&nbsp;</a></span>AllowableRebases</h2>
+<a id="acb63be5e2fb384c2bb0d8601d54c43bb" name="acb63be5e2fb384c2bb0d8601d54c43bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb63be5e2fb384c2bb0d8601d54c43bb">&#9670;&nbsp;</a></span>AllowableRebases</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1073,7 +1073,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int MPewsey.ManiaMap.Generators.LayoutGenerator.AllowableRebases = 1</td>
+          <td class="memname">int AllowableRebases = 1</td>
         </tr>
       </table>
   </td>
@@ -1089,8 +1089,8 @@ References</h2>
 
 </div>
 </div>
-<a id="aa8c7e5f8c73153c675d17a096797ad5a" name="aa8c7e5f8c73153c675d17a096797ad5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8c7e5f8c73153c675d17a096797ad5a">&#9670;&nbsp;</a></span>ChainIndex</h2>
+<a id="ab715ffe5c61aa3bd85a32180eb5dd911" name="ab715ffe5c61aa3bd85a32180eb5dd911"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab715ffe5c61aa3bd85a32180eb5dd911">&#9670;&nbsp;</a></span>ChainIndex</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1099,7 +1099,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int MPewsey.ManiaMap.Generators.LayoutGenerator.ChainIndex</td>
+          <td class="memname">int ChainIndex</td>
         </tr>
       </table>
   </td>
@@ -1115,8 +1115,8 @@ References</h2>
 
 </div>
 </div>
-<a id="ab74ebc8d2d0c715d0d45614bf3e2b655" name="ab74ebc8d2d0c715d0d45614bf3e2b655"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab74ebc8d2d0c715d0d45614bf3e2b655">&#9670;&nbsp;</a></span>ConfigurationSpaces</h2>
+<a id="a8fce527d2ab9fed2cc30e7fb15f74f24" name="a8fce527d2ab9fed2cc30e7fb15f74f24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fce527d2ab9fed2cc30e7fb15f74f24">&#9670;&nbsp;</a></span>ConfigurationSpaces</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1125,7 +1125,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Dictionary&lt;<a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_template_pair.html">TemplatePair</a>, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_configuration_space.html">ConfigurationSpace</a>&gt; MPewsey.ManiaMap.Generators.LayoutGenerator.ConfigurationSpaces</td>
+          <td class="memname">Dictionary&lt;<a class="el" href="struct_m_pewsey_1_1_mania_map_1_1_template_pair.html">TemplatePair</a>, <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_configuration_space.html">ConfigurationSpace</a>&gt; ConfigurationSpaces</td>
         </tr>
       </table>
   </td>
@@ -1141,8 +1141,8 @@ References</h2>
 
 </div>
 </div>
-<a id="adf2e38290817246007a27ac8039ddcbc" name="adf2e38290817246007a27ac8039ddcbc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf2e38290817246007a27ac8039ddcbc">&#9670;&nbsp;</a></span>Graph</h2>
+<a id="a796dada83cd1f1a6e2925c0ceed5592e" name="a796dada83cd1f1a6e2925c0ceed5592e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a796dada83cd1f1a6e2925c0ceed5592e">&#9670;&nbsp;</a></span>Graph</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1151,7 +1151,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_graph.html">LayoutGraph</a> MPewsey.ManiaMap.Generators.LayoutGenerator.Graph</td>
+          <td class="memname"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_graph.html">LayoutGraph</a> Graph</td>
         </tr>
       </table>
   </td>
@@ -1167,8 +1167,8 @@ References</h2>
 
 </div>
 </div>
-<a id="a31f6df46b54e49f625db0d0129b8814d" name="a31f6df46b54e49f625db0d0129b8814d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31f6df46b54e49f625db0d0129b8814d">&#9670;&nbsp;</a></span>Layout</h2>
+<a id="a6860a4215b072014f8972b7611c569fd" name="a6860a4215b072014f8972b7611c569fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6860a4215b072014f8972b7611c569fd">&#9670;&nbsp;</a></span>Layout</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1177,7 +1177,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html">Layout</a> MPewsey.ManiaMap.Generators.LayoutGenerator.Layout</td>
+          <td class="memname"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html">Layout</a> <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_layout.html">Layout</a></td>
         </tr>
       </table>
   </td>
@@ -1193,8 +1193,8 @@ References</h2>
 
 </div>
 </div>
-<a id="ad98540231212beb034a1a8f836500f86" name="ad98540231212beb034a1a8f836500f86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad98540231212beb034a1a8f836500f86">&#9670;&nbsp;</a></span>MaxBranchLength</h2>
+<a id="a1c6686f21fb7fe9786103fa17c026fea" name="a1c6686f21fb7fe9786103fa17c026fea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c6686f21fb7fe9786103fa17c026fea">&#9670;&nbsp;</a></span>MaxBranchLength</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1203,7 +1203,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int MPewsey.ManiaMap.Generators.LayoutGenerator.MaxBranchLength</td>
+          <td class="memname">int MaxBranchLength</td>
         </tr>
       </table>
   </td>
@@ -1219,8 +1219,8 @@ References</h2>
 
 </div>
 </div>
-<a id="ac45b3f2f0f05948e5424aa3a1257545e" name="ac45b3f2f0f05948e5424aa3a1257545e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac45b3f2f0f05948e5424aa3a1257545e">&#9670;&nbsp;</a></span>MaxRebases</h2>
+<a id="a320ff834377a70cddb26e83e1f48dfd1" name="a320ff834377a70cddb26e83e1f48dfd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a320ff834377a70cddb26e83e1f48dfd1">&#9670;&nbsp;</a></span>MaxRebases</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1229,7 +1229,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int MPewsey.ManiaMap.Generators.LayoutGenerator.MaxRebases</td>
+          <td class="memname">int MaxRebases</td>
         </tr>
       </table>
   </td>
@@ -1245,8 +1245,8 @@ References</h2>
 
 </div>
 </div>
-<a id="ac93b4a5f203a06d43d879bd6a9d17297" name="ac93b4a5f203a06d43d879bd6a9d17297"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac93b4a5f203a06d43d879bd6a9d17297">&#9670;&nbsp;</a></span>RandomSeed</h2>
+<a id="aef7e9d114c0828a414a5b6fb1f4f1e39" name="aef7e9d114c0828a414a5b6fb1f4f1e39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef7e9d114c0828a414a5b6fb1f4f1e39">&#9670;&nbsp;</a></span>RandomSeed</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1255,7 +1255,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">RandomSeed MPewsey.ManiaMap.Generators.LayoutGenerator.RandomSeed</td>
+          <td class="memname">RandomSeed RandomSeed</td>
         </tr>
       </table>
   </td>
@@ -1271,8 +1271,8 @@ References</h2>
 
 </div>
 </div>
-<a id="a0bb839447ef9bab0ce1a1b8e574ad826" name="a0bb839447ef9bab0ce1a1b8e574ad826"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0bb839447ef9bab0ce1a1b8e574ad826">&#9670;&nbsp;</a></span>RebaseDecayRate</h2>
+<a id="a0a88c549db9841fdadfe987052b59b44" name="a0a88c549db9841fdadfe987052b59b44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a88c549db9841fdadfe987052b59b44">&#9670;&nbsp;</a></span>RebaseDecayRate</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1281,7 +1281,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float MPewsey.ManiaMap.Generators.LayoutGenerator.RebaseDecayRate</td>
+          <td class="memname">float RebaseDecayRate</td>
         </tr>
       </table>
   </td>
@@ -1297,8 +1297,8 @@ References</h2>
 
 </div>
 </div>
-<a id="a7b19a88d751f8a38fc7016fdb22da712" name="a7b19a88d751f8a38fc7016fdb22da712"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b19a88d751f8a38fc7016fdb22da712">&#9670;&nbsp;</a></span>TemplateGroups</h2>
+<a id="a54ebf02c0cf9782aaf356fe8bb14fed5" name="a54ebf02c0cf9782aaf356fe8bb14fed5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54ebf02c0cf9782aaf356fe8bb14fed5">&#9670;&nbsp;</a></span>TemplateGroups</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1307,7 +1307,7 @@ References</h2>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_template_groups.html">TemplateGroups</a> MPewsey.ManiaMap.Generators.LayoutGenerator.TemplateGroups</td>
+          <td class="memname"><a class="el" href="class_m_pewsey_1_1_mania_map_1_1_template_groups.html">TemplateGroups</a> <a class="el" href="class_m_pewsey_1_1_mania_map_1_1_template_groups.html">TemplateGroups</a></td>
         </tr>
       </table>
   </td>

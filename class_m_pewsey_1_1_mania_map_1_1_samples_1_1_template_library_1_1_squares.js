@@ -1,8 +1,8 @@
 var class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares =
 [
-    [ "Square1x1NorthExitTemplate", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html#a76d56c84e43e58625963ff1bf9469b9a", null ],
-    [ "Square1x1SavePointTemplate", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html#ac2e3bb3bede0190ee8a0138a2beb5659", null ],
-    [ "Square1x1Template", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html#a9f7f9d5b8f122ca4367f1f761c38ad68", null ],
-    [ "Square2x2Template", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html#a9b7ad53ec79613d1e2468d287fa5dc88", null ],
-    [ "Square3x3Template", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html#a0170307cc0b7d80e16bdc3d6b644145b", null ]
+    [ "Square1x1NorthExitTemplate", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html#a149d952321efc850a23ecd47d9f9d141", null ],
+    [ "Square1x1SavePointTemplate", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html#ab15acf0a17df8c41e5c8c29bf04f5351", null ],
+    [ "Square1x1Template", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html#a692f5a5c874ceccd0480b727eeb7a98b", null ],
+    [ "Square2x2Template", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html#a9055fb0e3ab43341997fbfc1c66d11c6", null ],
+    [ "Square3x3Template", "class_m_pewsey_1_1_mania_map_1_1_samples_1_1_template_library_1_1_squares.html#a649863cdefb7ae6c3752789ff0f735c5", null ]
 ];
