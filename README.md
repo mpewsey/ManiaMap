@@ -60,7 +60,7 @@ var roomTemplate = new RoomTemplate(id: 1, name: "Square", cells: cells);
 
 ### Step 2: Assign Room Templates to Template Groups
 
-Once some room template have been defined, they must be added to one or more room template groups, which can be referenced by name later. This is accomplished by simply adding them to a `TemplateGroups` object:
+Once some room templates have been defined, they must be added to one or more room template groups, which can be referenced by name later. This is accomplished by simply adding them to a `TemplateGroups` object:
 
 ```TemplateGroups.cs
 var templateGroups = new TemplateGroups();
