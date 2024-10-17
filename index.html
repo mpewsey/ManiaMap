@@ -157,7 +157,7 @@ Step 2: Assign Room Templates to Template Groups</h2>
 Step 3: Create a Layout Graph</h2>
 <p >To provide a designed feel to generated layouts, the generator uses a room layout graph as the basis for generating layouts. The layout graph consists of nodes, representing rooms, and edges, representing door connections between rooms.</p>
 <p >Each graph element can be assigned one or more room template groups (created in Step 2) from which room templates can be drawn for that location. Z (layer) values can also be assigned to elements to create a multi-level room layout.</p>
-<p >In the below example, the graph shown in the image is created by adding edges to a graph. In the process, the connecting nodes are automatically created. Afterwards, the code loops over all created nodes and assigns the "Default" template group name to them.</p>
+<p >In the below example, the graph shown in the image is created by adding edges to a graph. In the process, the connected nodes are automatically created. Afterwards, the code loops over all created nodes and assigns the "Default" template group name to them.</p>
 <div class="fragment"><div class="line">{LayoutGraph.cs} </div>
 <div class="line">var graph = new LayoutGraph(id: 1, name: &quot;ExampleGraph&quot;);</div>
 <div class="line"> </div>
