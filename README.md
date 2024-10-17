@@ -73,7 +73,7 @@ To provide a designed feel to generated layouts, the generator uses a room layou
 
 Each graph element can be assigned one or more room template groups (created in Step 2) from which room templates can be drawn for that location. Z (layer) values can also be assigned to elements to create a multi-level room layout.
 
-In the below example, the graph shown in the image is created by adding edges to a graph. In the process, the connecting nodes are automatically created. Afterwards, the code loops over all created nodes and assigns the "Default" template group name to them.
+In the below example, the graph shown in the image is created by adding edges to a graph. In the process, the connected nodes are automatically created. Afterwards, the code loops over all created nodes and assigns the "Default" template group name to them.
 
 ```LayoutGraph.cs
 var graph = new LayoutGraph(id: 1, name: "ExampleGraph");
