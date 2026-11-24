@@ -69,7 +69,7 @@
 
   <ItemGroup>
     <PackageReference Include="MPewsey.Common" Version="0.0.13" />
-    <PackageReference Include="SixLabors.ImageSharp" Version="2.1.12" />
+    <PackageReference Include="SkiaSharp" Version="4.157.0" />
   </ItemGroup>
 
 </Project>

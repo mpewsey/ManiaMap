@@ -1,4 +1,4 @@
-﻿using SixLabors.ImageSharp;
+﻿using SkiaSharp;
 using System.Collections.Generic;
 using System.Reflection;
 
@@ -13,20 +13,21 @@ namespace MPewsey.ManiaMap.Drawing
         /// Loads the map tile from resources at the specified path.
         /// </summary>
         /// <param name="path">The resource path.</param>
-        private static Image LoadTile(string path)
+        private static SKImage LoadTile(string path)
         {
             var assembly = Assembly.GetExecutingAssembly();
 
             using (var stream = assembly.GetManifestResourceStream(path))
+            using (var bitmap = SKBitmap.Decode(stream))
             {
-                return Image.Load(stream);
+                return SKImage.FromBitmap(bitmap);
             }
         }
 
         /// <summary>
         /// Returns a dictionary of default map tiles.
         /// </summary>
-        public static Dictionary<string, Image> GetDefaultTiles()
+        public static Dictionary<string, SKImage> GetDefaultTiles()
         {
             return GetTiles("Default");
         }
@@ -35,11 +36,11 @@ namespace MPewsey.ManiaMap.Drawing
         /// Returns a dictionary of built-in map tiles.
         /// </summary>
         /// <param name="folder">The name of the folder within the map tiles directory.</param>
-        private static Dictionary<string, Image> GetTiles(string folder)
+        private static Dictionary<string, SKImage> GetTiles(string folder)
         {
             var path = "MPewsey.ManiaMap.Drawing.MapTiles." + folder + ".";
 
-            return new Dictionary<string, Image>
+            return new Dictionary<string, SKImage>
             {
                 { MapTileType.SouthDoor, LoadTile(path + "SouthDoor.png") },
                 { MapTileType.NorthDoor, LoadTile(path + "NorthDoor.png") },
