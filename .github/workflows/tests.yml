@@ -21,7 +21,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [windows-latest, macos-latest]
+        os: [windows-latest, ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -30,6 +30,12 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
+
+    - name: Install Linux native dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libfontconfig1
 
     - uses: actions/cache@v6
       with:
