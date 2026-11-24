@@ -1,7 +1,5 @@
 ﻿using MPewsey.Common.Mathematics;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.PixelFormats;
-using SixLabors.ImageSharp.Processing;
+using SkiaSharp;
 using System.Collections.Generic;
 using System.IO;
 
@@ -48,7 +46,7 @@ namespace MPewsey.ManiaMap.Drawing
         /// Features assigned to cells will also be checked against this dictionary and drawn
         /// if the tile exists.
         /// </summary>
-        public Dictionary<string, Image> Tiles { get; set; }
+        public Dictionary<string, SKImage> Tiles { get; set; }
 
         /// <summary>
         /// The room layout.
@@ -81,7 +79,7 @@ namespace MPewsey.ManiaMap.Drawing
         /// <param name="tileSize">The tile size. If null, the default property value will be used.</param>
         /// <param name="tiles">A dictionary of map tiles to use. If null, the default tiles will be used.</param>
         public LayoutMap(Padding? padding = null, Color4? backgroundColor = null, Color4? roomColor = null,
-            DoorDrawMode doorDrawMode = DoorDrawMode.AllDoors, Vector2DInt? tileSize = null, Dictionary<string, Image> tiles = null)
+            DoorDrawMode doorDrawMode = DoorDrawMode.AllDoors, Vector2DInt? tileSize = null, Dictionary<string, SKImage> tiles = null)
         {
             DoorDrawMode = doorDrawMode;
             TileSize = tileSize ?? TileSize;
@@ -98,6 +96,27 @@ namespace MPewsey.ManiaMap.Drawing
         }
 
         /// <summary>
+        /// Returns the image format corresponding to the specified file extension.
+        /// Supports PNG, JPEG, and WebP.
+        /// Returns PNG if no supported matching extension is found.
+        /// </summary>
+        /// <param name="extension">The file extension.</param>
+        public static SKEncodedImageFormat GetImageFormat(string extension)
+        {
+            switch (extension.ToLowerInvariant())
+            {
+                case ".jpg":
+                case ".jpeg":
+                    return SKEncodedImageFormat.Jpeg;
+                case ".webp":
+                    return SKEncodedImageFormat.Webp;
+                case ".png":
+                default:
+                    return SKEncodedImageFormat.Png;
+            }
+        }
+
+        /// <summary>
         /// Renders map images of all layout layers and saves them to the designated file path.
         /// The z (layer) values are added into the file paths before the file extension.
         /// </summary>
@@ -109,10 +128,15 @@ namespace MPewsey.ManiaMap.Drawing
             var extension = Path.GetExtension(path);
             var name = Path.ChangeExtension(path, null);
             var maps = CreateImages(layout, state);
+            var format = GetImageFormat(extension);
 
             foreach (var pair in maps)
             {
-                pair.Value.Save($"{name}_Z={pair.Key}{extension}");
+                using (var data = pair.Value.Encode(format, 100))
+                using (var stream = File.OpenWrite($"{name}_Z={pair.Key}{extension}"))
+                {
+                    data.SaveTo(stream);
+                }
             }
         }
 
@@ -154,20 +178,20 @@ namespace MPewsey.ManiaMap.Drawing
         /// </summary>
         /// <param name="layout">The room layout.</param>
         /// <param name="state">The room layout state.</param>
-        public Dictionary<int, Image> CreateImages(Layout layout, LayoutState state = null)
+        public Dictionary<int, SKBitmap> CreateImages(Layout layout, LayoutState state = null)
         {
             Initialize(layout, state);
 
             var width = TileSize.X * (Padding.Left + Padding.Right + LayoutBounds.Width);
             var height = TileSize.Y * (Padding.Top + Padding.Bottom + LayoutBounds.Height);
-            var dict = new Dictionary<int, Image>();
+            var dict = new Dictionary<int, SKBitmap>();
 
             foreach (var room in Layout.Rooms.Values)
             {
                 if (!dict.ContainsKey(room.Position.Z))
                 {
-                    var map = new Image<Rgba32>(width, height);
-                    map.Mutate(x => DrawMap(x, room.Position.Z));
+                    var map = new SKBitmap(width, height);
+                    DrawMap(map, room.Position.Z);
                     dict.Add(room.Position.Z, map);
                 }
             }
@@ -180,31 +204,48 @@ namespace MPewsey.ManiaMap.Drawing
         /// </summary>
         /// <param name="image">The image context.</param>
         /// <param name="z">The z (layer) value used to render the layout.</param>
-        private void DrawMap(IImageProcessingContext image, int z)
+        private void DrawMap(SKBitmap image, int z)
         {
-            image.BackgroundColor(ConvertColor(BackgroundColor));
-            DrawGrid(image);
-            DrawMapTiles(image, z);
+            using (var canvas = new SKCanvas(image))
+            {
+                canvas.Clear(ConvertColor(BackgroundColor));
+                DrawGrid(canvas, image.Width, image.Height);
+                DrawMapTiles(canvas, z);
+            }
         }
 
         /// <summary>
         /// Draws the grid tiles onto the image context.
         /// </summary>
         /// <param name="image">The image context.</param>
-        private void DrawGrid(IImageProcessingContext image)
+        /// <param name="width">The width of the image.</param>
+        /// <param name="height">The height of the image.</param>
+        private void DrawGrid(SKCanvas image, int width, int height)
         {
-            if (Tiles.TryGetValue(MapTileType.Grid, out Image gridTile))
+            if (Tiles.TryGetValue(MapTileType.Grid, out var gridTile))
             {
-                var (width, height) = image.GetCurrentSize();
+                var sampling = SKSamplingOptions.Default;
 
                 for (int x = 0; x < width; x += TileSize.X)
                 {
                     for (int y = 0; y < height; y += TileSize.Y)
                     {
-                        image.DrawImage(gridTile, new Point(x, y), 1);
+                        image.DrawImage(gridTile, new SKPoint(x, y), sampling);
                     }
                 }
             }
+        }
+
+        private SKImage CreateSolidTile(SKColor color)
+        {
+            var bitmap = new SKBitmap(TileSize.X, TileSize.Y);
+
+            using (var canvas = new SKCanvas(bitmap))
+            {
+                canvas.Clear(color);
+            }
+
+            return SKImage.FromBitmap(bitmap);
         }
 
         /// <summary>
@@ -212,10 +253,10 @@ namespace MPewsey.ManiaMap.Drawing
         /// </summary>
         /// <param name="image">The image context.</param>
         /// <param name="z">The z (layer) value used to render the layout.</param>
-        private void DrawMapTiles(IImageProcessingContext image, int z)
+        private void DrawMapTiles(SKCanvas image, int z)
         {
-            var roomTile = new Image<Rgba32>(TileSize.X, TileSize.Y);
-            roomTile.Mutate(x => x.BackgroundColor(ConvertColor(RoomColor)));
+            var sampling = SKSamplingOptions.Default;
+            var roomTile = CreateSolidTile(ConvertColor(RoomColor));
 
             foreach (var room in Layout.Rooms.Values)
             {
@@ -227,8 +268,7 @@ namespace MPewsey.ManiaMap.Drawing
                 var cells = room.Template.Cells;
                 var x0 = (room.Position.Y - LayoutBounds.X + Padding.Left) * TileSize.X;
                 var y0 = (room.Position.X - LayoutBounds.Y + Padding.Top) * TileSize.Y;
-                var cellTile = new Image<Rgba32>(TileSize.X, TileSize.Y);
-                cellTile.Mutate(x => x.BackgroundColor(ConvertColor(room.Color)));
+                var cellTile = CreateSolidTile(ConvertColor(room.Color));
 
                 for (int i = 0; i < cells.Rows; i++)
                 {
@@ -250,7 +290,7 @@ namespace MPewsey.ManiaMap.Drawing
                         // Calculate draw position
                         var x = TileSize.X * j + x0;
                         var y = TileSize.Y * i + y0;
-                        var point = new Point(x, y);
+                        var point = new SKPoint(x, y);
 
                         // Get adjacent cells
                         var north = cells.GetOrDefault(i - 1, j);
@@ -268,21 +308,21 @@ namespace MPewsey.ManiaMap.Drawing
 
                         // Add cell background fill
                         var tile = isCompletelyVisible ? cellTile : roomTile;
-                        image.DrawImage(tile, point, 1);
+                        image.DrawImage(tile, point, sampling);
 
                         // Superimpose applicable map tiles
                         if (northTile != null)
-                            image.DrawImage(northTile, point, 1);
+                            image.DrawImage(northTile, point, sampling);
                         if (southTile != null)
-                            image.DrawImage(southTile, point, 1);
+                            image.DrawImage(southTile, point, sampling);
                         if (westTile != null)
-                            image.DrawImage(westTile, point, 1);
+                            image.DrawImage(westTile, point, sampling);
                         if (eastTile != null)
-                            image.DrawImage(eastTile, point, 1);
+                            image.DrawImage(eastTile, point, sampling);
                         if (topTile != null)
-                            image.DrawImage(topTile, point, 1);
+                            image.DrawImage(topTile, point, sampling);
                         if (bottomTile != null)
-                            image.DrawImage(bottomTile, point, 1);
+                            image.DrawImage(bottomTile, point, sampling);
 
                         // Draw features only if the cell is completely visible
                         if (isCompletelyVisible)
@@ -298,24 +338,26 @@ namespace MPewsey.ManiaMap.Drawing
         /// <param name="image">The image context.</param>
         /// <param name="cell">The cell.</param>
         /// <param name="point">The tile position.</param>
-        private void DrawFeatureTiles(IImageProcessingContext image, Cell cell, Point point)
+        private void DrawFeatureTiles(SKCanvas image, Cell cell, SKPoint point)
         {
+            var sampling = SKSamplingOptions.Default;
+
             foreach (var tileName in cell.Features)
             {
-                if (Tiles.TryGetValue(tileName, out Image tile))
+                if (Tiles.TryGetValue(tileName, out var tile))
                 {
-                    image.DrawImage(tile, point, 1);
+                    image.DrawImage(tile, point, sampling);
                 }
             }
         }
 
         /// <summary>
-        /// Converts a color to an ImageSharp color.
+        /// Converts a color to an SkiaSharp color.
         /// </summary>
         /// <param name="color">The color.</param>
-        private static Color ConvertColor(Color4 color)
+        private static SKColor ConvertColor(Color4 color)
         {
-            return Color.FromRgba(color.R, color.G, color.B, color.A);
+            return new SKColor(color.R, color.G, color.B, color.A);
         }
 
         /// <summary>
@@ -327,7 +369,7 @@ namespace MPewsey.ManiaMap.Drawing
         /// <param name="neighbor">The neighbor cell in the door direction. The neighbor can be null.</param>
         /// <param name="position">The local coordinate.</param>
         /// <param name="direction">The door direction.</param>
-        private Image GetTile(Room room, Cell cell, Cell neighbor, Vector2DInt position, DoorDirection direction)
+        private SKImage GetTile(Room room, Cell cell, Cell neighbor, Vector2DInt position, DoorDirection direction)
         {
             if (Door.ShowDoor(DoorDrawMode, direction) && cell.GetDoor(direction) != null && DoorExists(room, position, direction))
                 return GetMapTile(MapTileType.GetDoorTileType(direction));
@@ -343,11 +385,11 @@ namespace MPewsey.ManiaMap.Drawing
         /// Returns null if the name does not exist.
         /// </summary>
         /// <param name="name">The tile name.</param>
-        private Image GetMapTile(string name)
+        private SKImage GetMapTile(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
                 return null;
-            if (Tiles.TryGetValue(name, out Image tile))
+            if (Tiles.TryGetValue(name, out var tile))
                 return tile;
             return null;
         }
