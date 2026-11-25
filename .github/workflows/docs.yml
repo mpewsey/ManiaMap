@@ -7,19 +7,19 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v7
 
-      - uses: mpewsey/doxygen-action@v1.9.2
+      - uses: mattnotmitt/doxygen-action@v1.9.2
         with:
           working-directory: 'docs/'
           doxyfile-path: 'Doxyfile'
 
       - name: Deploy
-        uses: mpewsey/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
