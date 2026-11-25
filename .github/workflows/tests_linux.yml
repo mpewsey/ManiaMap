@@ -40,7 +40,7 @@ jobs:
 
     - name: Add Linux native assets for CI test run
       if: runner.os == 'Linux'
-      run: dotnet add "./src" package SkiaSharp.NativeAssets.Linux.NoDependencies
+      run: dotnet add "./src/ManiaMap.sln" package SkiaSharp.NativeAssets.Linux.NoDependencies
 
     - name: Restore dependencies
       run: dotnet restore "./src"
