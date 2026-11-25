@@ -30,7 +30,7 @@ jobs:
       run: dotnet test ".\src" --no-restore --verbosity normal
 
     - name: Set Version from Tag
-      run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
+      run: echo "VERSION=$(('${{ github.ref_name }}' -replace '^v',''))" >> $env:GITHUB_ENV
 
     - name: Pack
       run: dotnet pack ./src/ManiaMap/ManiaMap.csproj --configuration Release --output out
