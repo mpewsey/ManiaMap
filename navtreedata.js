@@ -39,8 +39,8 @@ var NAVTREE =
     [ "Layout Graph Randomizer Example", "index.html#autotoc_md14", null ],
     [ "Generation Pipeline Example", "index.html#autotoc_md15", null ],
     [ "Packages", "namespaces.html", [
-      [ "Package List", "namespaces.html", "namespaces_dup" ],
-      [ "Package Members", "namespacemembers.html", [
+      [ "Packages", "namespaces.html", "namespaces_dup" ],
+      [ "Package Functions", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
         [ "Enumerations", "namespacemembers_enum.html", null ]
       ] ]
@@ -67,9 +67,9 @@ var NAVTREEINDEX =
 "class_m_pewsey_1_1_mania_map_1_1_door.html#aa73e7c4dd1df5fd5fbf81c7764ee1533",
 "class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a54ebf02c0cf9782aaf356fe8bb14fed5",
 "class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_graph.html#a6a17e4539f5b0c67dbd36bae0c2c0c8a",
-"class_m_pewsey_1_1_mania_map_1_1_room.html#a9cee05d0629850a7378c33656f5ab2c8",
+"class_m_pewsey_1_1_mania_map_1_1_room.html#aa179d9694651d5f018d7a768e5c2c588",
 "class_m_pewsey_1_1_mania_map_1_1_template_groups.html#aa73e7c4dd1df5fd5fbf81c7764ee1533",
-"struct_m_pewsey_1_1_mania_map_1_1_graphs_1_1_edge_indexes.html#a6f26c191e093107363698adeeea90c89"
+"struct_m_pewsey_1_1_mania_map_1_1_door_pair.html#a907c90b6723080361e5856e4c74e823d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
