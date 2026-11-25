@@ -1,15 +1,16 @@
 var class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map =
 [
-    [ "LayoutMap", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ab7ae65c1c8d4eb4d6a6b917494d6f0f8", null ],
-    [ "ConvertColor", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a2f236052af7fdca6250aae3a2a81eb5b", null ],
-    [ "CreateImages", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a9a05a05c184e86141d0cfedc7d3eca33", null ],
+    [ "LayoutMap", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ae6e25282c47f2bb1dcbe870b935027de", null ],
+    [ "ConvertColor", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a76c298a8c062ac16753e3ba8bc979c25", null ],
+    [ "CreateImages", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a6e629825971a16376592eb98bf477d83", null ],
     [ "DoorExists", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a7d928844b448f654553bd95a1a528eda", null ],
-    [ "DrawFeatureTiles", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ab38f20772a5bc54cfef57e6c03c5435b", null ],
-    [ "DrawGrid", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a0381b89102eca05d1f92d37fa2d785e8", null ],
-    [ "DrawMap", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ab5c9a5219f67f7b4ab69cb99ba13ae37", null ],
-    [ "DrawMapTiles", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a8ec5812554fa5d16605408a97709e22e", null ],
-    [ "GetMapTile", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a95a748ae17809ebfdbf305ff7977ebd6", null ],
-    [ "GetTile", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a260881cb9bf290c1ff1998084ee2f434", null ],
+    [ "DrawFeatureTiles", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a4e49334356d9e6faa1fa263e4e7277e5", null ],
+    [ "DrawGrid", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#ab6fa1f4722704d502b9fe10d2c7ace31", null ],
+    [ "DrawMap", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a413a20781cc53f81bc732c18d445ca08", null ],
+    [ "DrawMapTiles", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#aa22686790e3f8cbf2fc6fb40d2862411", null ],
+    [ "GetImageFormat", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#aa2d91ccdcf968ab3e7c31da550802771", null ],
+    [ "GetMapTile", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a7cd803df733f2a7d6de877773b9816fb", null ],
+    [ "GetTile", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a422a12317dda84f345d3eb2bde755f58", null ],
     [ "Initialize", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a0edb656cd15ab1e8d7d7bb57d22b7b47", null ],
     [ "SaveImages", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a2a10c40ce09cdf47072810a8103a1bfb", null ],
     [ "ToString", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#aa73e7c4dd1df5fd5fbf81c7764ee1533", null ],
@@ -21,6 +22,6 @@ var class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map =
     [ "Padding", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a708993bbfb64e5fdcf698fe25a440e5d", null ],
     [ "RoomColor", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a98a4d23506de742484a1e075ab1b5da6", null ],
     [ "RoomDoors", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#af6901c27c0ad5374d543807e0b588791", null ],
-    [ "Tiles", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a7c7d851a294099c182721e37adde8a1b", null ],
+    [ "Tiles", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#a7b474fde2bda5085747958fa982f7656", null ],
     [ "TileSize", "class_m_pewsey_1_1_mania_map_1_1_drawing_1_1_layout_map.html#af9bd2efcc44f0dbd18e66e461b2f342d", null ]
 ];

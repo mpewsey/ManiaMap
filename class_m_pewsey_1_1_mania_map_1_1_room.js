@@ -16,5 +16,5 @@ var class_m_pewsey_1_1_mania_map_1_1_room =
     [ "Seed", "class_m_pewsey_1_1_mania_map_1_1_room.html#a70289ec91e5e8f962999b12669dd5d34", null ],
     [ "Tags", "class_m_pewsey_1_1_mania_map_1_1_room.html#acef76f491ffc05e9c9a741e9e5c2bc23", null ],
     [ "Template", "class_m_pewsey_1_1_mania_map_1_1_room.html#aa40fdb071574d1fc5ff9541078e8bd82", null ],
-    [ "TemplateId", "class_m_pewsey_1_1_mania_map_1_1_room.html#aa179d9694651d5f018d7a768e5c2c588", null ]
+    [ "TemplateId", "class_m_pewsey_1_1_mania_map_1_1_room.html#a631c27e7205aa4ee4f69e8e4883e5eb4", null ]
 ];

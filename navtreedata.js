@@ -39,8 +39,8 @@ var NAVTREE =
     [ "Layout Graph Randomizer Example", "index.html#autotoc_md14", null ],
     [ "Generation Pipeline Example", "index.html#autotoc_md15", null ],
     [ "Packages", "namespaces.html", [
-      [ "Packages", "namespaces.html", "namespaces_dup" ],
-      [ "Package Functions", "namespacemembers.html", [
+      [ "Package List", "namespaces.html", "namespaces_dup" ],
+      [ "Package Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
         [ "Enumerations", "namespacemembers_enum.html", null ]
       ] ]
@@ -65,11 +65,11 @@ var NAVTREEINDEX =
 [
 "_big_layout_sample_8cs_source.html",
 "class_m_pewsey_1_1_mania_map_1_1_door.html#aa73e7c4dd1df5fd5fbf81c7764ee1533",
-"class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a6860a4215b072014f8972b7611c569fd",
-"class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_graph.html#a6b00613d93d61053f887fc9d013e09ad",
-"class_m_pewsey_1_1_mania_map_1_1_room.html#aa2e6abd02e9071f7acbbcec929f5ba3a",
-"class_m_pewsey_1_1_mania_map_1_1_template_groups.html#aac6e4a4df04ec5c0320ae7cd972a6a8b",
-"struct_m_pewsey_1_1_mania_map_1_1_door_pair.html#a991d7c03e07791a397a3a1fcf404e4ca"
+"class_m_pewsey_1_1_mania_map_1_1_generators_1_1_layout_generator.html#a54ebf02c0cf9782aaf356fe8bb14fed5",
+"class_m_pewsey_1_1_mania_map_1_1_graphs_1_1_layout_graph.html#a6a17e4539f5b0c67dbd36bae0c2c0c8a",
+"class_m_pewsey_1_1_mania_map_1_1_room.html#a9cee05d0629850a7378c33656f5ab2c8",
+"class_m_pewsey_1_1_mania_map_1_1_template_groups.html#aa73e7c4dd1df5fd5fbf81c7764ee1533",
+"struct_m_pewsey_1_1_mania_map_1_1_graphs_1_1_edge_indexes.html#a6f26c191e093107363698adeeea90c89"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
