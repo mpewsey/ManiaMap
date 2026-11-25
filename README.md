@@ -22,6 +22,10 @@ This package allows for the creation of procedurally generated metroidvania styl
 * Supports gradual map discovery through cell filters.
 * Persistence of layout and layout state data through JSON and XML via Data Contract serialization.
 
+## Linux Dependencies
+
+Additional NuGet package dependencies may be required for rendering maps via SkiaSharp when using Linux. For guidance, please consult the SkiaSharp documentation: https://github.com/mono/skiasharp.
+
 ## Game Engine Support
 
 * Godot: [ManiaMap.Godot](https://github.com/mpewsey/ManiaMap.Godot)
